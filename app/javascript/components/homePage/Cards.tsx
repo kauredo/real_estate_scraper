@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Card from "./Card";
 import Carousel from "nuka-carousel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cards({ listings }) {
   const [slideNumber, setSlideNumber] = useState(1);
@@ -23,7 +26,16 @@ export default function Cards({ listings }) {
       <div className="w-full relative flex items-center justify-center">
         <div className="w-full h-full mx-auto overflow-y-hidden">
           <div className="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700 my-2">
-            <Carousel heightMode="max" slidesToShow={slideNumber}>
+            <Carousel
+              heightMode="max"
+              slidesToShow={slideNumber}
+              defaultControlsConfig={{
+                nextButtonText: "➤",
+                prevButtonStyle: { transform: "rotate(180deg)" },
+                prevButtonText: "➤",
+                pagingDotsClassName: "mx-1",
+              }}
+            >
               {listings.map(listing => (
                 <Card listing={listing} key={listing.id} />
               ))}
