@@ -13,6 +13,10 @@ task scrape: :environment do
     js_doc = browser_imovel.div(class: "listing-images").wait_until(&:present?)
     images = Nokogiri::HTML(js_doc.inner_html)
 
+    # status
+    status = browser_imovel.div(class: "listing-status").wait_until(&:present?)
+    listing.status = status.strip! if status.present?
+
     # stats
     listing.stats = browser_imovel.div(class: "key-data").wait_until(&:present?).divs(class: "data-item-row").map do |row|
       row.text.squish.split(": ")
