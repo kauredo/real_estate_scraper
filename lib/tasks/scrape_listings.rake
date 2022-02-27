@@ -62,7 +62,7 @@ task scrape: :environment do
 
     res.each do |imovel|
       url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.first}"
-      price = imovel.css('.gallery-price-main').text.strip!
+      price = imovel.css('.gallery-price-main').text.strip!.gsub("€", "")[0...-1]
       next if Listing.where(url: url, price: price).present?
 
       begin

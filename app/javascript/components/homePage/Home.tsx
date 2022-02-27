@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Banner from "./Banner";
-
-export interface Listings {
+import Cards from "./Cards";
+export interface Listing {
   stats: {
     [key: string]: string;
   };
@@ -14,11 +14,17 @@ export interface Listings {
   photos: string[];
 }
 
-export default function Home(listings: Listings) {
-  console.log(listings);
+interface Props {
+  listings: Listing[];
+}
+
+export default function Home(props: Props) {
+  const listings = props.listings;
+
   return (
     <>
       <Banner />
+      <Cards listings={listings} />
     </>
   );
 }
