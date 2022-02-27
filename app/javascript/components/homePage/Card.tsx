@@ -10,11 +10,12 @@ export default function Card({ listing }) {
       style={{ marginTop: "-2rem" }}
       className="card mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto"
     >
-      <img
-        className="object-cover object-center w-full h-2/3"
-        src={listing.photos[0]}
-        alt={listing.title}
-      />
+      <div
+        className="object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3"
+        style={{
+          backgroundImage: `url(${listing.photos[0]})`,
+        }}
+      ></div>
       <div className="px-6 py-4 h-1/3 justify-between flex flex-col">
         <h1 className="text-xl font-semibold text-gray-800 dark:text-white text-ellipsis">
           <TruncTitle title={listing.title} />
