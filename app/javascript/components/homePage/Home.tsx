@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Banner from "./Banner";
 import Cards from "./Cards";
+import Profile from "./Profile";
 export interface Listing {
   stats: {
     [key: string]: string;
@@ -24,6 +25,7 @@ export default function Home(props: Props) {
   return (
     <>
       <Banner />
+      <Profile />
       <Cards listings={listings} />
     </>
   );
