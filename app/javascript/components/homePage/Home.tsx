@@ -28,3 +28,9 @@ export default function Home(props: Props) {
     </>
   );
 }
+
+declare global {
+  interface Window {
+    Routes: any;
+  }
+}

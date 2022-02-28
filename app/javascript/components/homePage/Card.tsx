@@ -10,30 +10,32 @@ export default function Card({ listing }) {
       style={{ marginTop: "-2rem" }}
       className="card mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto"
     >
-      <div
-        className="object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3"
-        style={{
-          backgroundImage: `url(${listing.photos[0]})`,
-        }}
-      ></div>
-      <div className="px-6 py-4 h-1/3 justify-between flex flex-col">
-        <h1 className="text-xl font-semibold text-gray-800 dark:text-white text-ellipsis">
-          <TruncTitle title={listing.title} />
-        </h1>
-        <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-          <FontAwesomeIcon icon={faBed} />
+      <a href={window.Routes.listing_path(listing.id)}>
+        <div
+          className="object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3"
+          style={{
+            backgroundImage: `url(${listing.photos[0]})`,
+          }}
+        ></div>
+        <div className="px-6 py-4 h-1/3 justify-between flex flex-col">
+          <h1 className="text-xl font-semibold text-gray-800 dark:text-white text-ellipsis">
+            <TruncTitle title={listing.title} />
+          </h1>
+          <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
+            <FontAwesomeIcon icon={faBed} />
 
-          <h1 className="px-2 text-sm pr-4">{listing.stats.Quartos}</h1>
-          <FontAwesomeIcon icon={faBath} />
+            <h1 className="px-2 text-sm pr-4">{listing.stats.Quartos}</h1>
+            <FontAwesomeIcon icon={faBath} />
 
-          <h1 className="px-2 text-sm">{listing.stats["Casas de Banho"]}</h1>
+            <h1 className="px-2 text-sm">{listing.stats["Casas de Banho"]}</h1>
+          </div>
+          <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
+            <FontAwesomeIcon icon={faEuroSign} />
+
+            <h1 className="px-2 text-sm">{listing.price}</h1>
+          </div>
         </div>
-        <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-          <FontAwesomeIcon icon={faEuroSign} />
-
-          <h1 className="px-2 text-sm">{listing.price}</h1>
-        </div>
-      </div>
+      </a>
     </div>
   );
 }

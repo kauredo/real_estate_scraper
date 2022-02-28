@@ -1,15 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import Card from "./Card";
 import Carousel from "nuka-carousel";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cards({ listings }) {
   const [slideNumber, setSlideNumber] = useState(1);
   useEffect(() => {
     window.addEventListener("resize", handleResize, false);
     handleResize();
+    return;
   }, []);
 
   const handleResize = () => {
