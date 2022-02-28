@@ -3,7 +3,7 @@ function Banner() {
   return (
     <header>
       <div
-        className="w-full bg-center bg-cover h-[70vh]"
+        className=" hidden md:block w-full bg-center bg-cover h-[70vh]"
         style={{
           backgroundImage: "url(/images/banner.jpg)",
         }}

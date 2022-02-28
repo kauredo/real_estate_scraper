@@ -3,27 +3,41 @@ import { Transition } from "@headlessui/react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
   const itemClass = (path, isMobile) => {
-    const mobile =
-      "text-gray-500 hover:bg-red-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium";
-    const main =
-      "text-gray-800 hover:bg-red-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium";
-    const active =
-      "text-red-500 hover:bg-red-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium";
+    const base =
+      "hover:bg-red-500 hover:text-white px-3 py-2 rounded-md font-medium ";
+    const mobile = "block text-base ";
+    const desktop = "text-sm ";
+    const inactive = "text-gray-800 ";
+    const active = "text-red-500 ";
+
+    if (path === window.location.pathname && isMobile) {
+      return base + active + mobile;
+    }
     if (path === window.location.pathname) {
-      if (isMobile) {
-        return active + " block text-base";
-      }
-      return active;
+      return base + active + desktop;
     }
     if (isMobile) {
-      return mobile;
+      return base + inactive + mobile;
     }
-    return main;
+    return base + inactive + desktop;
   };
+
+  const items = [
+    { title: "Sobre Nós", url: window.Routes.about_path() },
+    { title: "Novos Empreendimentos", url: "/" },
+    { title: "Comprar", url: "/" },
+    { title: "Vender", url: "/" },
+    { title: "Calculadora", url: window.Routes.calculator_path() },
+    { title: "Serviços", url: window.Routes.services_path() },
+    { title: "Casa 360", url: window.Routes.house_360_path() },
+    { title: "Contactos", url: window.Routes.contact_path() },
+  ];
+
   return (
     <div>
-      <nav className="bg-white-800">
+      <nav className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -40,21 +54,17 @@ export default function Navbar() {
             <div className="flex items-center">
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <a href="#" className={itemClass("/", false)}>
-                    Team
-                  </a>
-
-                  <a href="#" className={itemClass("#", false)}>
-                    Projects
-                  </a>
-
-                  <a href="#" className={itemClass("#", false)}>
-                    Calendar
-                  </a>
-
-                  <a href="#" className={itemClass("#", false)}>
-                    Reports
-                  </a>
+                  {items.map(item => {
+                    return (
+                      <a
+                        key={`${item.title}--desktop`}
+                        href={item.url}
+                        className={itemClass(item.url, false)}
+                      >
+                        {item.title}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -117,21 +127,17 @@ export default function Navbar() {
           {ref => (
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#" className={itemClass("/", true)}>
-                  Team
-                </a>
-
-                <a href="#" className={itemClass("#", true)}>
-                  Projects
-                </a>
-
-                <a href="#" className={itemClass("#", true)}>
-                  Calendar
-                </a>
-
-                <a href="#" className={itemClass("#", true)}>
-                  Reports
-                </a>
+                {items.map(item => {
+                  return (
+                    <a
+                      key={`${item.title}--desktop`}
+                      href={item.url}
+                      className={itemClass(item.url, true)}
+                    >
+                      {item.title}
+                    </a>
+                  );
+                })}
               </div>
             </div>
           )}

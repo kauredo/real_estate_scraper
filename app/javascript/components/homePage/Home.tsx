@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Banner from "./Banner";
+import Calculator from "./Calculator";
 import Cards from "./Cards";
 import Profile from "./Profile";
+
 export interface Listing {
   stats: {
     [key: string]: string;
@@ -27,6 +29,7 @@ export default function Home(props: Props) {
       <Banner />
       <Profile />
       <Cards listings={listings} />
+      <Calculator />
     </>
   );
 }

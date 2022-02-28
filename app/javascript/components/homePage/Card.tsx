@@ -6,7 +6,7 @@ import { faBath } from "@fortawesome/free-solid-svg-icons";
 
 export default function Card({ listing }) {
   return (
-    <div
+    <section
       style={{ marginTop: "-2rem" }}
       className="card mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto"
     >
@@ -17,7 +17,7 @@ export default function Card({ listing }) {
             backgroundImage: `url(${listing.photos[0]})`,
           }}
         ></div>
-        <div className="px-6 py-4 h-1/3 justify-between flex flex-col">
+        <div className="px-6 py-4 h-1/3 justify-between flex flex-col bg-white">
           <h1 className="text-xl font-semibold text-gray-800 dark:text-white text-ellipsis">
             <TruncTitle title={listing.title} />
           </h1>
@@ -36,7 +36,7 @@ export default function Card({ listing }) {
           </div>
         </div>
       </a>
-    </div>
+    </section>
   );
 }
 

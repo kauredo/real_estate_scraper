@@ -5,9 +5,9 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 export default function Profile() {
   return (
-    <div className="container relative bottom-32 mx-auto flex justify-between h-2/3">
+    <section className="container mx-auto flex flex-col md:flex-row items-center md:items-start justify-between h-2/3">
       <div className="grid w-1/ items-center">
-        <div className="h-min">
+        <div className="h-min py-8 md:pb-2">
           <h1 className="font-medium leading-tight text-5xl mt-0 mb-2">
             Sofia Galvão
           </h1>
@@ -16,8 +16,8 @@ export default function Profile() {
           </h3>
         </div>
       </div>
-      <div className="w-1/2">
-        <div className="container mx-auto max-w-sm rounded-lg overflow-hidden shadow-lg mt-2 bg-white">
+      <div className="mx-2 md:w-1/2 relative md:bottom-32">
+        <div className="container mx-auto max-w-sm overflow-hidden drop-shadow-lg mt-2 bg-white">
           <div
             className="relative z-10"
             style={{
@@ -31,7 +31,7 @@ export default function Profile() {
               alt="Sofia Galvão"
             />
           </div>
-          <div className="mx-6 mb-8">
+          <div className="mx-6 mb-8 mt-4 md:mt-0">
             <div className="flex items-center mb-4 text-gray-600">
               <FontAwesomeIcon icon={faInstagram} />
               <h4 className="px-2 text-sm">@sofiagalvaokw</h4>
@@ -43,6 +43,6 @@ export default function Profile() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
