@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Banner from "./Banner";
-import Calculator from "./Calculator";
+import Newsletter from "./Newsletter";
 import Cards from "./Cards";
 import Profile from "./Profile";
 
@@ -29,7 +29,7 @@ export default function Home(props: Props) {
       <Banner />
       <Profile />
       <Cards listings={listings} />
-      <Calculator />
+      <Newsletter />
     </>
   );
 }

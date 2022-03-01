@@ -6,11 +6,11 @@ export default function Navbar() {
 
   const itemClass = (path, isMobile) => {
     const base =
-      "hover:bg-red-500 hover:text-white px-3 py-2 rounded-md font-medium ";
+      "hover:bg-bordeaux hover:text-white px-3 py-2 rounded-md font-medium ";
     const mobile = "block text-base ";
     const desktop = "text-sm ";
     const inactive = "text-gray-800 ";
-    const active = "text-red-500 ";
+    const active = "text-bordeaux ";
 
     if (path === window.location.pathname && isMobile) {
       return base + active + mobile;
@@ -72,7 +72,7 @@ export default function Navbar() {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="bg-white-900 inline-flex items-center justify-center p-2 rounded-md text-white-400 hover:text-white hover:bg-white-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white-800 focus:ring-white"
+                className="bg-white-900 inline-flex items-center justify-center p-2 rounded-md text-gray-800"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -117,10 +117,10 @@ export default function Navbar() {
 
         <Transition
           show={isOpen}
-          enter="transition ease-out duration-100 transform"
+          enter="transition ease-out duration-200 transform"
           enterFrom="opacity-0 scale-95"
           enterTo="opacity-100 scale-100"
-          leave="transition ease-in duration-75 transform"
+          leave="transition ease-in duration-100 transform"
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >

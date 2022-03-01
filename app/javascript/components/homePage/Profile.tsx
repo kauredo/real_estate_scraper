@@ -5,9 +5,9 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 export default function Profile() {
   return (
-    <section className="container mx-auto flex flex-col md:flex-row items-center md:items-start justify-between h-2/3">
-      <div className="grid w-1/ items-center">
-        <div className="h-min py-8 md:pb-2">
+    <section className="container mx-auto flex flex-col md:flex-row items-center md:items-start justify-between md:h-[25rem]">
+      <div className="grid w-1/2 items-center">
+        <div className="h-min py-8 md:pb-2 text-center">
           <h1 className="font-medium leading-tight text-5xl mt-0 mb-2">
             Sofia Galvão
           </h1>
