@@ -1,10 +1,10 @@
 desc "Scrape listings off KW website"
 task scrape: :environment do
   def get_details(imovel_url, price)
-    listing = Listing.new
-    listing.url = imovel_url
+    listing = Listing.find_or_initialize_by(url: imovel_url)
     listing.price = price
 
+    # browser_imovel = Watir::Browser.new
     browser_imovel = Watir::Browser.new :chrome, headless: true
     browser_imovel.goto(imovel_url)
     listing.title = browser_imovel.title
@@ -15,7 +15,7 @@ task scrape: :environment do
 
     # status
     status = browser_imovel.div(class: "listing-status").wait_until(&:present?)
-    listing.status = status.strip! if status.present?
+    listing.status = status.text.strip if status.present?
 
     # stats
     listing.stats = browser_imovel.div(class: "key-data").wait_until(&:present?).divs(class: "data-item-row").map do |row|
@@ -82,16 +82,23 @@ task scrape: :environment do
 
   @errors = []
 
-  ## Count total to see how many pages
-  puts "Getting total pages"
-  total = get_total
-  puts "Total: #{total} pages"
+  begin
+    ## Count total to see how many pages
+    puts "Getting total pages"
+    total = get_total
+    puts "Total: #{total} pages"
 
-  total.times do |page|
-    puts "*********"
-    puts "Started page #{page}"
-    get_page(page)
-    puts "Finished page #{page}"
-    puts "*********"
+    total.times do |page|
+      puts "*********"
+      puts "Started page #{page}"
+      get_page(page)
+      puts "Finished page #{page}"
+      puts "*********"
+    end
+  rescue => ex
+    puts "~~~~~~~~~~~~~"
+    puts "Error: #{ex}"
+    puts "~~~~~~~~~~~~~"
+    retry
   end
 end
