@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEuroSign } from "@fortawesome/free-solid-svg-icons";
-import { faBed } from "@fortawesome/free-solid-svg-icons";
-import { faBath } from "@fortawesome/free-solid-svg-icons";
+import { truncateText } from "../utils/Functions";
+import ListingIcons from "../shared/ListingIcons";
 
 export default function Card({ listing }) {
   return (
-    <section
+    <div
       style={{ marginTop: "-2rem" }}
       className="card mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto"
     >
@@ -18,32 +16,12 @@ export default function Card({ listing }) {
           }}
         ></div>
         <div className="px-6 py-4 h-1/3 justify-between flex flex-col bg-white">
-          <h1 className="text-xl font-semibold text-gray-800 dark:text-white text-ellipsis">
-            <TruncTitle title={listing.title} />
+          <h1 className="text-xl font-semibold text-gray-800">
+            <span>{truncateText(listing.title, 90)}</span>
           </h1>
-          <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-            <FontAwesomeIcon icon={faBed} />
-
-            <h1 className="px-2 text-sm pr-4">{listing.stats.Quartos}</h1>
-            <FontAwesomeIcon icon={faBath} />
-
-            <h1 className="px-2 text-sm">{listing.stats["Casas de Banho"]}</h1>
-          </div>
-          <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-            <FontAwesomeIcon icon={faEuroSign} />
-
-            <h1 className="px-2 text-sm">{listing.price}</h1>
-          </div>
+          <ListingIcons listing={listing} />
         </div>
       </a>
-    </section>
+    </div>
   );
-}
-
-function TruncTitle({ title }) {
-  if (title.length > 90) {
-    return <span>{title.substring(0, 90) + "..."}</span>;
-  } else {
-    return <span>{title}</span>;
-  }
 }

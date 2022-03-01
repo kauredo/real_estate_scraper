@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   get "/servicos", to: "pages#services", as: :services
   get "/casa_360", to: "pages#house_360", as: :house_360
   get "/contactos", to: "pages#contact", as: :contact
+  get "/novos", to: "listings#latest", as: :latest
+  get "/comprar", to: "listings#buy", as: :buy
+  get "/vender", to: "listings#sell", as: :sell
 end

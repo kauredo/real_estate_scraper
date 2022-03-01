@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const itemClass = (path, isMobile) => {
     const base =
-      "hover:bg-bordeaux hover:text-white px-3 py-2 rounded-md font-medium ";
+      "whitespace-nowrap hover:bg-bordeaux hover:text-white px-3 py-2 rounded-md font-medium ";
     const mobile = "block text-base ";
     const desktop = "text-sm ";
     const inactive = "text-gray-800 ";
@@ -26,9 +27,9 @@ export default function Navbar() {
 
   const items = [
     { title: "Sobre Nós", url: window.Routes.about_path() },
-    { title: "Novos Empreendimentos", url: "/" },
-    { title: "Comprar", url: "/" },
-    { title: "Vender", url: "/" },
+    { title: "Novos Empreendimentos", url: window.Routes.latest_path() },
+    { title: "Comprar", url: window.Routes.buy_path() },
+    { title: "Vender", url: window.Routes.sell_path() },
     { title: "Calculadora", url: window.Routes.calculator_path() },
     { title: "Serviços", url: window.Routes.services_path() },
     { title: "Casa 360", url: window.Routes.house_360_path() },
@@ -52,7 +53,7 @@ export default function Navbar() {
               </div>
             </div>
             <div className="flex items-center">
-              <div className="hidden md:block">
+              <div className="hidden tablet:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   {items.map(item => {
                     return (
@@ -68,7 +69,7 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-            <div className="-mr-2 flex md:hidden">
+            <div className="-mr-2 flex tablet:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -124,23 +125,21 @@ export default function Navbar() {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          {ref => (
-            <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                {items.map(item => {
-                  return (
-                    <a
-                      key={`${item.title}--desktop`}
-                      href={item.url}
-                      className={itemClass(item.url, true)}
-                    >
-                      {item.title}
-                    </a>
-                  );
-                })}
-              </div>
+          <div className="tablet:hidden" id="mobile-menu">
+            <div ref={dropdownRef} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              {items.map(item => {
+                return (
+                  <a
+                    key={`${item.title}--desktop`}
+                    href={item.url}
+                    className={itemClass(item.url, true)}
+                  >
+                    {item.title}
+                  </a>
+                );
+              })}
             </div>
-          )}
+          </div>
         </Transition>
       </nav>
     </div>

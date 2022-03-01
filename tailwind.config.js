@@ -12,8 +12,12 @@ module.exports = {
         beige: "#d3af79",
         bordeaux: "#680934",
         chocoleate: "#141301",
-        indigo: "#083D77",
         grey: "#9d9d9c",
+        indigo: "#083D77",
+        white: "#F9F9F9",
+      },
+      screens: {
+        tablet: "980px",
       },
     },
   },
