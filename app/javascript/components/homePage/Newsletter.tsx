@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Newsletter() {
   return (
-    <section className="text-gray-700 body-font flex md:flex-row flex-col items-center bg-white">
+    <section className="container p-2 text-gray-700 body-font flex md:flex-row flex-col items-center bg-white">
       <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
           Express yourself
@@ -22,7 +22,7 @@ export default function Newsletter() {
           </button>
         </div>
         <p className="text-sm mt-2 text-gray-500 mb-8 w-full">
-          Keep in tough with us.
+          Keep in touch with us.
         </p>
         <div className="flex lg:flex-row md:flex-col">
           <a className="mx-2 text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
