@@ -3,8 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.0"
 
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.2", ">= 7.0.2.2"
+
+#Dotenv
+gem 'dotenv-rails'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -47,6 +51,7 @@ gem "bootsnap", require: false
 
 # Other gems here
 gem "js-routes"
+gem 'pagy', '~> 5.10'
 gem "react-rails"
 gem "watir"
 
