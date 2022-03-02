@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ListingByCity } from "../utils/Interfaces";
+import { ListingByCity, ResultNumbers } from "../utils/Interfaces";
 import Banner from "../shared/Banner";
 import Newsletter from "./Newsletter";
 import Cards from "./Cards";
@@ -8,17 +8,18 @@ import Results from "./Results";
 
 interface Props {
   listings: ListingByCity;
+  results: ResultNumbers;
 }
 
 export default function Home(props: Props) {
-  const listings = props.listings;
+  const { listings, results } = props;
 
   return (
     <>
       <Banner />
       <Profile />
       <Cards listings={listings} />
-      <Results />
+      <Results results={results} />
       <Newsletter />
     </>
   );

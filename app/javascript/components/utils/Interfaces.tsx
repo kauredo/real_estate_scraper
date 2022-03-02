@@ -4,6 +4,11 @@ declare global {
   }
 }
 
+export interface ResultNumbers {
+  listingCount: number;
+  volume: number;
+}
+
 export interface ListingByCity {
   [key: string]: Listing;
 }
