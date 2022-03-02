@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    Routes: any;
+  }
+}
+
 export interface ListingByCity {
   [key: string]: Listing;
 }
