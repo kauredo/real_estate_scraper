@@ -45,9 +45,11 @@ export default function Navbar() {
               <div className="flex-shrink-0">
                 <a href={window.Routes.root_path()}>
                   <img
-                    className="h-40 w-40"
                     // src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    src="/logos/alternate_black.png"
+                    // className="h-16 w-16"
+                    className="h-40 w-40"
+                    // src="/logos/original_sg_black.png"
+                    src="/logos/original_black.png"
                     alt="Workflow"
                   />
                 </a>
