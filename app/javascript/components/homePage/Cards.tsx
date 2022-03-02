@@ -22,6 +22,7 @@ export default function Cards({ listings }) {
       setSlideNumber(windowWidth);
     }
   };
+
   return (
     <section className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4">
       <div className="w-full relative flex items-center justify-center">

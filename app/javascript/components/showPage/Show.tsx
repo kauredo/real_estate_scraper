@@ -1,6 +1,6 @@
+import React from "react";
 import Carousel from "nuka-carousel";
-import React, { useState } from "react";
-import { Listing } from "../homePage/Home";
+import { Listing } from "../utils/Interfaces";
 
 interface Props {
   listing: Listing;
@@ -8,11 +8,14 @@ interface Props {
 
 export default function Show(props: Props) {
   const listing = props.listing;
+
   return (
     <div className="relative container mx-auto">
       <Carousel
         heightMode="max"
+        style={{ maxHeight: "90vh" }}
         defaultControlsConfig={{
+          containerClassName: "m-h-[90vh]",
           nextButtonText: "➤",
           prevButtonStyle: { transform: "rotate(180deg)" },
           prevButtonText: "➤",
@@ -20,7 +23,11 @@ export default function Show(props: Props) {
         }}
       >
         {listing.photos.map(photo => (
-          <img key={photo} src={photo} />
+          <img
+            style={{ maxHeight: "70vh", objectFit: "contain" }}
+            key={photo}
+            src={photo}
+          />
         ))}
       </Carousel>
       <div className="bottom-4 left-4 bold text-large z-50 bg-bordeaux text-white px-4 py-2">
