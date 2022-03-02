@@ -3,10 +3,10 @@ import Banner from "../shared/Banner";
 import Newsletter from "./Newsletter";
 import Cards from "./Cards";
 import Profile from "./Profile";
-import { Listing } from "../utils/Interfaces";
+import { ListingByCity } from "../utils/Interfaces";
 
 interface Props {
-  listings: Listing[];
+  listings: ListingByCity;
 }
 
 export default function Home(props: Props) {

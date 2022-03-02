@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @listings = Listing.all
+    @listings = Listing.by_city
     # render component: 'Home', props: { listings: @listings }, tag: 'span', class: 'todo'
   end
 

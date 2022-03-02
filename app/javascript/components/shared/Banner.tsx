@@ -13,7 +13,7 @@ function Banner(props: Props) {
 
   return (
     <header
-      className="relative hidden md:block w-full h-[70vh]"
+      className="relative hidden md:block w-full h-[50vh]"
       style={{
         height: `${height && height}`,
         maxHeight: `${height && "30vh"}`,

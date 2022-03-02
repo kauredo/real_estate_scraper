@@ -1,5 +1,25 @@
 desc "Scrape listings off KW website"
 task scrape: :environment do
+  # def get_location(address)
+  #   uri = URI("http://api.positionstack.com/v1/forward")
+  #   params = {
+  #     access_key: ENV['GEO_API_KEY'],
+  #     query: address,
+  #     country: 'PT'
+  #   }
+  #   uri.query = URI.encode_www_form(params)
+
+  #   begin
+  #     res = Net::HTTP.get_response(uri)
+  #   rescue => e
+  #     puts "ERROR:"
+  #     puts e
+  #     retry
+  #   end
+
+  #   JSON.parse(res.read_body)["data"].first
+  # end
+
   def get_details(imovel_url, price)
     listing = Listing.find_or_initialize_by(url: imovel_url)
     listing.price = price
@@ -23,7 +43,7 @@ task scrape: :environment do
     end.to_h
 
     # address
-    listing.address = browser_imovel.div(class: "key-address").wait_until(&:present?).text
+    listing.address = browser_imovel.div(class: "key-address").wait_until(&:present?).text&.squish
 
     # features
     listing.features = browser_imovel.div(class: "features-container").wait_until(&:present?).child(class: "row").children.map(&:text)
@@ -34,6 +54,10 @@ task scrape: :environment do
     browser_imovel.close
     res = images.css("img")
     listing.photos = res.map { |img| img.attr('src') }
+
+    # # geo data
+    # listing.location = get_location(listing.address)
+
     if listing.save
       puts "Finished listing #{listing.title}"
     else
@@ -76,6 +100,7 @@ task scrape: :environment do
       rescue Watir::Wait::TimeoutError => e
         puts "ERROR:"
         puts e
+        retry
       end
     end
   end
@@ -89,11 +114,13 @@ task scrape: :environment do
     puts "Total: #{total} pages"
 
     total.times do |page|
+      puts ""
       puts "*********"
       puts "Started page #{page}"
       get_page(page)
       puts "Finished page #{page}"
       puts "*********"
+      puts ""
     end
   rescue => ex
     puts "~~~~~~~~~~~~~"
@@ -101,4 +128,7 @@ task scrape: :environment do
     puts "~~~~~~~~~~~~~"
     retry
   end
+
+  puts ""
+  puts "Completed"
 end
