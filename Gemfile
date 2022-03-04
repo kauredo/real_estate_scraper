@@ -53,6 +53,7 @@ gem "bootsnap", require: false
 gem "js-routes"
 gem 'pagy', '~> 5.10'
 gem "react-rails"
+gem "sidekiq"
 gem "watir"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
