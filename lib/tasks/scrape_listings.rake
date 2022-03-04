@@ -24,34 +24,32 @@ task scrape: :environment do
     listing = Listing.find_or_initialize_by(url: imovel_url)
     listing.price = price
 
-    # browser_imovel = Watir::Browser.new
-    browser_imovel = Watir::Browser.new :chrome, headless: true
-    browser_imovel.goto(imovel_url)
-    listing.title = browser_imovel.title
+    @browser.goto(imovel_url)
+    listing.title = @browser.title
     puts "Gathering data for listing #{listing.title}"
 
-    js_doc = browser_imovel.div(class: "listing-images").wait_until(&:present?)
+    js_doc = @browser.div(class: "listing-images").wait_until(&:present?)
     images = Nokogiri::HTML(js_doc.inner_html)
 
     # status
-    status = browser_imovel.div(class: "listing-status").wait_until(&:present?)
+    status = @browser.div(class: "listing-status").wait_until(&:present?)
     listing.status = status.text.strip if status.present?
 
     # stats
-    listing.stats = browser_imovel.div(class: "key-data").wait_until(&:present?).divs(class: "data-item-row").map do |row|
+    listing.stats = @browser.div(class: "key-data").wait_until(&:present?).divs(class: "data-item-row").map do |row|
       row.text.squish.split(": ")
     end.to_h
 
     # address
-    listing.address = browser_imovel.div(class: "key-address").wait_until(&:present?).text&.squish
+    listing.address = @browser.div(class: "key-address").wait_until(&:present?).text&.squish
 
     # features
-    listing.features = browser_imovel.div(class: "features-container").wait_until(&:present?).child(class: "row").children.map(&:text)
+    listing.features = @browser.div(class: "features-container").wait_until(&:present?).child(class: "row").children.map(&:text)
 
     # description
-    listing.description = browser_imovel.div(class: "listing-details-desc").wait_until(&:present?).text
+    listing.description = @browser.div(class: "listing-details-desc").wait_until(&:present?).text
 
-    browser_imovel.close
+    # @browser.close
     res = images.css("img")
     listing.photos = res.map { |img| img.attr('src') }
 
@@ -69,23 +67,21 @@ task scrape: :environment do
 
   def get_total
     url = "https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=en-US&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=1"
-    browser = Watir::Browser.new :chrome, headless: true
-    browser.goto(url)
-    browser.div(class: "gallery-container").wait_until(&:present?)
-    matches = browser.span(class: "num-matches").wait_until(&:present?)
+    @browser.goto(url)
+    @browser.div(class: "gallery-container").wait_until(&:present?)
+    matches = @browser.span(class: "num-matches").wait_until(&:present?)
     total = (matches.text.to_i/24.0).ceil
-    browser.close
+    # @browser.close
     total
   end
 
   def get_page(page)
     url = "https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=en-US&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=#{page + 1}"
-    browser = Watir::Browser.new :chrome, headless: true
-    browser.goto(url)
+    @browser.goto(url)
 
-    js_doc = browser.div(class: "gallery-container").wait_until(&:present?)
+    js_doc = @browser.div(class: "gallery-container").wait_until(&:present?)
     imoveis = Nokogiri::HTML(js_doc.inner_html)
-    browser.close
+    # @browser.close
     res = imoveis.css(".gallery-item")
 
     res.each do |imovel|
@@ -110,6 +106,7 @@ task scrape: :environment do
   begin
     ## Count total to see how many pages
     puts "Getting total pages"
+    @browser = Watir::Browser.new :chrome, headless: true
     total = get_total
     puts "Total: #{total} pages"
 
@@ -129,6 +126,7 @@ task scrape: :environment do
     retry
   end
 
+  @browser.close
   puts ""
   puts "Completed"
 end
