@@ -5,6 +5,4 @@ require_relative "config/application"
 
 Rails.application.load_tasks
 
-namespace :assets do
-  task :precompile => "js:routes:typescript"
-end
+Rake::Task["assets:precompile"].clear_prerequisites.enhance(["environment", "js:routes:typescript", "javascript:build", "css:build"])
