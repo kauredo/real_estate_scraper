@@ -1,4 +1,4 @@
-require 'watir'
+require 'selenium-webdriver'
 
 desc "Scrape listings off KW website"
 task scrape: :environment do
@@ -12,7 +12,7 @@ task scrape: :environment do
   #   uri.query = URI.encode_www_form(params)
 
   #   begin
-  #     res = Net::HTTP.get_response(uri)
+  #     res = Net::HTTP.goto_response(uri)
   #   rescue => e
   #     puts "ERROR:"
   #     puts e
@@ -95,7 +95,7 @@ task scrape: :environment do
         puts "++++++++++++++"
         get_details(url, price)
         puts "++++++++++++++"
-      rescue Watir::Wait::TimeoutError => e
+      rescue => e
         puts "ERROR:"
         puts e
         retry
@@ -104,30 +104,40 @@ task scrape: :environment do
   end
 
   @errors = []
+  options = Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-dev-shm-usage'])
+  # capabilities = Watir::Capabilities.new(:chrome, options: options)
+  # @driver = Selenium::WebDriver.for(*@capabilities.to_args)
+  # binding.pry
+  @browser = Watir::Browser.new(:chrome, options: options)
 
+  ## Count total to see how many pages
   begin
-    ## Count total to see how many pages
     puts "Getting total pages"
-    # @browser = Watir::Browser.new :chrome, headless: true
-    @browser = Watir::Browser.new :chrome
     total = get_total
     puts "Total: #{total} pages"
-
-    total.times do |page|
-      puts ""
-      puts "*********"
-      puts "Started page #{page}"
-      get_page(page)
-      puts "Finished page #{page}"
-      puts "*********"
-      puts ""
-    end
   rescue => ex
     puts "~~~~~~~~~~~~~"
     puts "Error: #{ex}"
     puts "~~~~~~~~~~~~~"
     retry
   end
+
+    total.times do |page|
+      begin
+        puts ""
+        puts "*********"
+        puts "Started page #{page}"
+        get_page(page)
+        puts "Finished page #{page}"
+        puts "*********"
+        puts ""
+      rescue => ex
+        puts "~~~~~~~~~~~~~"
+        puts "Error: #{ex}"
+        puts "~~~~~~~~~~~~~"
+        retry
+      end
+    end
 
   @browser.close
   puts ""
