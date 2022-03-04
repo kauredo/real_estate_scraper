@@ -1,3 +1,5 @@
+require 'watir'
+
 desc "Scrape listings off KW website"
 task scrape: :environment do
   # def get_location(address)
@@ -106,7 +108,8 @@ task scrape: :environment do
   begin
     ## Count total to see how many pages
     puts "Getting total pages"
-    @browser = Watir::Browser.new :chrome, headless: true
+    # @browser = Watir::Browser.new :chrome, headless: true
+    @browser = Watir::Browser.new :chrome
     total = get_total
     puts "Total: #{total} pages"
 
