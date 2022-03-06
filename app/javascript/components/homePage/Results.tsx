@@ -11,7 +11,7 @@ export default function Results(props: Props) {
   const { volume, listingCount } = props.results;
 
   return (
-    <section className="container">
+    <section className="container mx-auto">
       <div className="text-center w-full md:w-2/3 mx-auto py-20 text-2xl flex flex-col sm:flex-row justify-center align-center">
         <div className="count mx-auto my-8 w-1/2">
           <div>Angariações</div>

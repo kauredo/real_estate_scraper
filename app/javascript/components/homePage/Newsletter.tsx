@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Newsletter() {
   return (
-    <section className="container p-2 text-gray-700 body-font flex md:flex-row flex-col items-center bg-white">
+    <section className="mx-auto container p-2 text-gray-700 body-font flex md:flex-row flex-col items-center">
       <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
           Express yourself
@@ -13,7 +13,7 @@ export default function Newsletter() {
         </p>
         <div className="flex flex-row justify-start w-full max-w-md shadow-xl border-t border-b border-gray-200">
           <input
-            className="border-l-4 border-red-700 bg-white focus:outline-none px-4 w-full m-0"
+            className="border-l-4 border-red-700 focus:outline-none px-4 w-full m-0"
             placeholder="Email"
             type="text"
           />

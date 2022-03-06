@@ -19,8 +19,17 @@ export default function Home(props: Props) {
       <Banner />
       <Profile />
       <Cards listings={listings} />
-      <Results results={results} />
-      <Newsletter />
+      <div className="relative">
+        <div
+          id="background-change"
+          className="absolute top-0 bottom-0 left-0 right-0 bg-beige z-[-10]"
+          style={{
+            top: "-219px",
+          }}
+        ></div>
+        <Results results={results} />
+        <Newsletter />
+      </div>
     </>
   );
 }
