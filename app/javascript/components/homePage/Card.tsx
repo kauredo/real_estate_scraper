@@ -16,7 +16,7 @@ export default function Card({ listing }) {
           }}
         ></div>
         <div className="px-6 py-4 h-1/3 justify-between flex flex-col bg-white">
-          <h1 className="text-xl font-semibold text-gray-800">
+          <h1 className="text-xl grow font-semibold text-gray-800">
             <span>{truncateText(listing.title, 80)}</span>
           </h1>
           <ListingIcons listing={listing} />

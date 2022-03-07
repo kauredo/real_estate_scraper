@@ -8,12 +8,18 @@ export default function ListingIcons({ listing }) {
   return (
     <>
       <div className="flex items-center mt-4 text-gray-700">
-        <FontAwesomeIcon icon={faBed} />
-
-        <h1 className="px-2 text-sm pr-4">{listing.stats.Quartos}</h1>
-        <FontAwesomeIcon icon={faBath} />
-
-        <h1 className="px-2 text-sm">{listing.stats["Casas de Banho"]}</h1>
+        {listing.stats.Quartos && (
+          <>
+            <FontAwesomeIcon icon={faBed} />
+            <h1 className="px-2 text-sm pr-4">{listing.stats.Quartos}</h1>
+          </>
+        )}
+        {listing.stats["Casas de Banho"] && (
+          <>
+            <FontAwesomeIcon icon={faBath} />
+            <h1 className="px-2 text-sm">{listing.stats["Casas de Banho"]}</h1>
+          </>
+        )}
       </div>
       <div className="flex items-center mt-4 text-gray-700">
         <FontAwesomeIcon icon={faEuroSign} />
