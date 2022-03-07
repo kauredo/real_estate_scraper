@@ -50,6 +50,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Other gems here
+gem "devise", "~> 4.8"
 gem "js-routes"
 gem 'pagy', '~> 5.10'
 gem "react-rails"

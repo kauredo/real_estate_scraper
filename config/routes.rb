@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_scope :admin do
+    # Redirests signing out users back to sign-in
+    get "admins", to: "devise/sessions#new"
+  end
+
+  devise_for :admins
   resources :listings, only: [:show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
