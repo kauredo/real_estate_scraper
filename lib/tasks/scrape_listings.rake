@@ -57,11 +57,11 @@ task scrape: :environment do
 
     # # geo data
     # listing.location = get_location(listing.address)
-    listing.title.gsub! 'm2', 'm²'
-    listing.description.gsub! 'm2', 'm²'
-    listing.stats["Área Útil"].gsub! 'm 2', 'm²'
-    listing.stats["Área Bruta (CP)"].gsub! 'm 2', 'm²'
-    listing.stats["Área do Terreno"].gsub! 'm 2', 'm²'
+    listing.title&.gsub! 'm2', 'm²'
+    listing.description&.gsub! 'm2', 'm²'
+    listing.stats["Área Útil"]&.gsub! 'm 2', 'm²'
+    listing.stats["Área Bruta (CP)"]&.gsub! 'm 2', 'm²'
+    listing.stats["Área do Terreno"]&.gsub! 'm 2', 'm²'
 
     if listing.save
       puts "Finished listing #{listing.title}"
