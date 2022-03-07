@@ -19,4 +19,9 @@ Rails.application.routes.draw do
   get "/comprar", to: "listings#buy", as: :buy
   get "/vender", to: "listings#sell", as: :sell
   resources :newsletter_subscriptions, only: [:create, :destroy]
+
+  namespace :backoffice do
+    get '/', to: "pages#home"
+    resources :variables, only: [:create, :update, :destroy]
+  end
 end

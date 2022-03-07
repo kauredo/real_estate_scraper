@@ -1,0 +1,24 @@
+<div class="container mx-auto flex flex-col sm:flex-row px-4">
+  <div class="w-full sm:w-1/2 shadow-md rounded px-8 py-4 mt-4">
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 text-center sm:text-3xl">Variáveis</h2>
+    <% @variables.each do |var| %>
+      <%= form_for(var, url: backoffice_variable_path(var), html: { method: :put, class:"my-6" }) do |f| %>
+        <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
+          <%= f.label var.name, class: "block text-gray-700 w-full sm:w-1/3 text-sm font-bold text-center sm:text-right" %>
+          <%= f.text_field :value, class:"shadow appearance-none border rounded w-full sm:w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+          <div class="flex items-center gap-2">
+            <%= f.submit "Atualizar", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+            <%= link_to '🗑️', [:backoffice, var], method: :delete, data: { "turbo-method": :delete }, class: "text-red-500 hover:text-red-700 font-bold" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= form_for(Variable.new, url: backoffice_variables_path(), html: { class:"my-6" }) do |f| %>
+      <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
+        <%= f.text_field :name, placeholder: "variável", class:"shadow appearance-none border rounded w-full sm:w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        <%= f.text_field :value, placeholder: "valor", class:"shadow appearance-none border rounded w-full sm:w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        <%= f.submit "Criar", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    <% end %>
+  </div>
+</div>
