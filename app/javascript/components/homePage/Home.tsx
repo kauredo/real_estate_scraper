@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ListingByCity, ResultNumbers } from "../utils/Interfaces";
 import Banner from "../shared/Banner";
 import Newsletter from "./Newsletter";
@@ -13,18 +13,30 @@ interface Props {
 
 export default function Home(props: Props) {
   const { listings, results } = props;
+  const [cardsOffset, setCardsOffset] = useState("-219px");
+  const cardsRef = useRef(null);
+
+  useLayoutEffect(() => {
+    setTimeout(() => {
+      const card = document.querySelector(".card");
+
+      setCardsOffset(`${((card.scrollHeight - 32) / 2) * -1 + 4}px`);
+    }, 1000);
+  }, []);
 
   return (
     <>
       <Banner />
       <Profile />
-      <Cards listings={listings} />
+      <div ref={cardsRef}>
+        <Cards listings={listings} />
+      </div>
       <div className="relative">
         <div
           id="background-change"
           className="absolute top-0 bottom-0 left-0 right-0 bg-beige z-[-10]"
           style={{
-            top: "-219px",
+            top: cardsOffset,
           }}
         ></div>
         <Results results={results} />
