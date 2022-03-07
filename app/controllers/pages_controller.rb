@@ -9,6 +9,10 @@ class PagesController < ApplicationController
   end
 
   def about
+    @results = {
+      listingCount: Listing.all.count,
+      volume: Variable.volume
+    }
   end
 
   def calculator
