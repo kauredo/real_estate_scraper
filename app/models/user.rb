@@ -11,5 +11,7 @@ class User < ApplicationRecord
   # validates :last_name, presence: { message: "não pode estar vazio" }
   validates :email, presence: { message: "não pode estar vazio" }, uniqueness: { case_sensitive: false }, email: true
 
+  scope :for_newsletter, -> { where(confirmed_email: true) }
+
   has_one :newsletter_subscription
 end
