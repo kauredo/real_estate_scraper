@@ -1,13 +1,20 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style>
+    body { padding: 0; margin: 0 }
+    .body { padding: 2rem; width:100%; background-color: #d3af79; }
+    .email-container { padding: 2rem; background-color: #F9F9F9; min-height: 100%; }
+    h1, h2, h3, h4, h5, p {padding:0; margin: 0; font-size: 1em;}
+  </style>
+</head>
+<body>
+  <div class="body">
+    <div style="max-width: 700px; margin: 0 auto;" class="email-container">
+      <%= yield %>
+    </div>
+  </div>
+</body>
 </html>

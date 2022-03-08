@@ -5,8 +5,12 @@ class NewsletterSubscriptionsController < ApplicationController
     @user = User.find_or_initialize_by(email: email_params[:email])
 
     if @user.save
-      NewsletterSubscription.create(user: @user) if NewsletterSubscription.where(user_id: @user.id).empty?
-      flash[:notice] = "Nice"
+      if NewsletterSubscription.where(user_id: @user.id).empty?
+        NewsletterSubscription.create(user: @user) 
+        NewsletterConfirmationMailer.with(user: @user).subscription_confirmed.deliver_later
+      end
+
+      flash[:notice] = "Subscrição à newsletter ativa, obrigado pela confiança!"
       redirect_to(root_path)
     else
       flash[:error] = @user.errors.full_messages.to_sentence
