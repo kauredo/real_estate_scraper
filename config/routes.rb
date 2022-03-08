@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   get "/novos", to: "listings#latest", as: :latest
   get "/comprar", to: "listings#buy", as: :buy
   get "/vender", to: "listings#sell", as: :sell
-  resources :newsletter_subscriptions, only: [:create, :destroy]
+  resources :newsletter_subscriptions, only: [:create, :destroy] do
+    member do
+      get '/confirm', to: "newsletter_subscriptions#confirm"
+    end
+  end
 
   namespace :backoffice do
     get '/', to: "pages#home"

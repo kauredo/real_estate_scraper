@@ -10,4 +10,6 @@ class User < ApplicationRecord
   # validates :first_name, presence: { message: "não pode estar vazio" }
   # validates :last_name, presence: { message: "não pode estar vazio" }
   validates :email, presence: { message: "não pode estar vazio" }, uniqueness: { case_sensitive: false }, email: true
+
+  has_one :newsletter_subscription
 end
