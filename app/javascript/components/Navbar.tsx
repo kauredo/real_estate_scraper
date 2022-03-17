@@ -30,7 +30,6 @@ export default function Navbar() {
     { title: "Novos Empreendimentos", url: window.Routes.latest_path() },
     { title: "Comprar", url: window.Routes.buy_path() },
     { title: "Vender", url: window.Routes.sell_path() },
-    { title: "Calculadora", url: window.Routes.calculator_path() },
     { title: "Serviços", url: window.Routes.services_path() },
     { title: "Casa 360", url: window.Routes.house_360_path() },
     { title: "Contactos", url: window.Routes.contact_path() },
@@ -38,8 +37,8 @@ export default function Navbar() {
 
   return (
     <div>
-      <nav className="bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="bg-white overflow-hidden container mx-auto">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
@@ -57,7 +56,7 @@ export default function Navbar() {
             </div>
             <div className="flex items-center">
               <div className="hidden tablet:block">
-                <div className="ml-10 flex items-baseline space-x-4">
+                <div className="ml-10 flex items-baseline">
                   {items.map(item => {
                     return (
                       <a

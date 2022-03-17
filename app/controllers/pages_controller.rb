@@ -15,9 +15,6 @@ class PagesController < ApplicationController
     }
   end
 
-  def calculator
-  end
-
   def services
   end
 
