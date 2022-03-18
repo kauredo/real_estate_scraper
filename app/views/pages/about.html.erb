@@ -1,8 +1,33 @@
 <%# TODO %>
-<%# Quem somos %>
-<%# Visão & Missão %>
-<%# Resultados (SG e KW - Volume de Negocios) %>
-<%# Testemunhos %>
-
-
-<%= react_component "homePage--Results", {results: @results}  %>
+<div class="container mx-auto">
+  <h3>
+    Quem somos
+  </h3>
+  <p>Objectivo. Profissionalismo, experiência, abrangência, estrutura holística, agilidade e expertise na área. INCLUIR VIDEO SOFIA KW LEAD
+  </p>
+  <hr>
+  <h3>
+    Visão & Missão
+  </h3>
+  <p>
+    Visão <br/>
+    Encontrar os melhores negócios, os mais distintos imóveis, para os melhores clientes. <br/>
+    Propomo-nos a ser o nome de referência no sector imobiliário em Portugal, sendo os nossos pilares de actuação baseados na seleção e recomendação - de imóveis, de negócios, e tudo o que seja relacionado com casas. <br/>
+    Missão<br/>
+    Juntos criamos Lares Felizes!<br/>
+    Assumimos este compromisso conosco próprios e para com todos os nossos clientes. Acreditamos  numa postura profissional, sólida e assertiva, mas tal não seria possível sem este cunho pessoal que confere ao nosso trabalho um gostinho especial.<br/>
+    Acreditamos na criação de parcerias ganhadoras, com os nossos clientes. <br/>
+    Lares felizes. Decisões acauteladas. Investimentos relevantes. Negócios vencedores. <br/>
+  </p>
+  <hr>
+  <h3>
+    Resultados (SG e KW - Volume de Negocios)
+  </h3>
+  <%= react_component "homePage--Results", {results: @results}  %>
+  <hr>
+  <h3>Testemunhos</h3>
+  <ul>
+    <li>“Sofia found me my home, she is a professional and made the experience so pleasant and safe. I will trust her with all of my future real estate projects!” Nir
+    </li>
+  </ul>
+</div>
