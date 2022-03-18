@@ -33,9 +33,21 @@ export default function Show(props: Props) {
       <div className="bottom-4 left-4 bold text-large z-50 bg-bordeaux text-white px-4 py-2">
         {listing.title}
       </div>
-      <section className="flex py-8 mx-2 whitespace-pre-line">
-        <div className="p-4 description tablet:w-1/2 drop-shadow-lg bg-white">
-          {listing.description}
+      <section className="flex justify-between py-8 mx-2 whitespace-pre-line flex-wrap">
+        <div className="p-4 description w-full tablet:w-[calc(50%-1rem)] drop-shadow-lg bg-white m-2 tablet:mx-0">
+          <div className="tablet:mr-2">{listing.description}</div>
+        </div>
+        <div className="p-4 description w-full tablet:w-[calc(50%-1rem)] drop-shadow-lg bg-white m-2 tablet:mx-0 h-fit">
+          <ul
+            className="tablet:ml-2 grid gap-4"
+            style={{
+              gridTemplateColumns: "repeat( auto-fit, minmax(250px, 1fr) )",
+            }}
+          >
+            {listing.features.map(feat => {
+              return <li className="mx-8 list-disc">{feat}</li>;
+            })}
+          </ul>
         </div>
       </section>
     </div>
