@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
   end
 
   def buy
-    pagy, @listings = pagy(Listing.all)
+    pagy, @listings = pagy(Listing.all.where(colleague: nil))
     @pagy = pagy_metadata(pagy)
   end
 

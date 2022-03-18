@@ -1,7 +1,7 @@
 require 'selenium-webdriver'
 
 desc "Scrape listings off KW website"
-task scrape: :environment, :url do |t, args|
+task :scrape, [:url] => :environment do |t, args|
   args.with_defaults(url: "https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=en-US&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=1")
   @url = args.url
 
@@ -38,7 +38,7 @@ task scrape: :environment, :url do |t, args|
     res = images.css("img")
     listing.photos = res.map { |img| img.attr('src') }
 
-    # listing.lister = @lister
+    listing.colleague = Colleague.find_by(name: @lister) if @lister != "Sofia Galvão"
 
     # # geo data
     # listing.location = get_location(listing.address)
@@ -130,4 +130,10 @@ task scrape: :environment, :url do |t, args|
   @browser.close
   puts ""
   puts "Completed"
+end
+
+task :special_scrape, :url do |t, args|
+  args.with_defaults(url: "https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=en-US&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=1")
+  # puts "Args with defaults were: #{args}"
+  puts args.url
 end
