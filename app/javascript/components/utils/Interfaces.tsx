@@ -13,6 +13,13 @@ export interface ListingByCity {
   [key: string]: Listing;
 }
 
+export interface ListingComplex {
+  id: number;
+  name: string;
+  description: string;
+  listings: Listing[];
+}
+
 export interface Listing {
   id: number;
   stats: {

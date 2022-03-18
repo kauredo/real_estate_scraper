@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_17_235639) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_18_180843) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_17_235639) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "listing_complexes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "listings", force: :cascade do |t|
     t.json "stats"
     t.string "address"
@@ -47,7 +54,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_17_235639) do
     t.datetime "updated_at", null: false
     t.string "status"
     t.bigint "colleague_id"
+    t.bigint "listing_complex_id"
     t.index ["colleague_id"], name: "index_listings_on_colleague_id"
+    t.index ["listing_complex_id"], name: "index_listings_on_listing_complex_id"
   end
 
   create_table "newsletter_subscriptions", force: :cascade do |t|

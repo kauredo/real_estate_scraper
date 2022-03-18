@@ -1,7 +1,8 @@
 class Listing < ApplicationRecord
   belongs_to :colleague
+  belongs_to :listing_complex
 
-  scope :latest, -> { where(status: "Novo") }
+  scope :newest, -> { where(status: "Novo") }
   scope :by_city, -> { all.group_by { |l| l.city }.sort_by{|city, _stuff| city }.to_h }
 
   def city
