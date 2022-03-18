@@ -7,7 +7,7 @@ interface Props {
   listing: Listing;
 }
 
-export default function Listings(props: Props) {
+export default function LongCard(props: Props) {
   const { listing } = props;
   return (
     <div className="w-full max-w-7xl mx-auto px-4 my-8 drop-shadow-sm hover:drop-shadow-lg">

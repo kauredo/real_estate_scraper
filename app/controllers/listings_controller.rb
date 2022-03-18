@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
   end
 
   def buy
-    pagy, @listings = pagy(Listing.all.where(colleague: nil))
+    pagy, @listings = pagy(Listing.all.where(colleague: nil).or(Listing.all.where.not(colleague: nil)))
     @pagy = pagy_metadata(pagy)
   end
 

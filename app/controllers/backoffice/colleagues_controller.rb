@@ -1,5 +1,8 @@
-class Backoffice::ColleaguesController < ApplicationController
+class Backoffice::ColleaguesController < BackofficeController
   before_action :find_colleague, except: [:create]
+
+  def show
+  end
 
   def create
     Colleague.create(colleague_params)
@@ -26,6 +29,6 @@ class Backoffice::ColleaguesController < ApplicationController
   end
 
   def colleague_params
-    params.require(:colleague).permit(:name, :value)
+    params.require(:colleague).permit(:url)
   end
 end

@@ -1,17 +1,23 @@
 import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 
-export default function Navbar() {
+interface Props {
+  backoffice?: boolean;
+  admin?: boolean;
+}
+
+export default function Navbar(props: Props) {
+  const { backoffice, admin } = props;
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   const itemClass = (path, isMobile) => {
     const base =
-      "whitespace-nowrap hover:bg-bordeaux hover:text-white px-3 py-2 rounded-md font-medium ";
+      "whitespace-nowrap hover:bg-bordeaux hover:text-white px-3 py-2 rounded-md font-medium mx-1 ";
     const mobile = "block text-base ";
     const desktop = "text-sm ";
     const inactive = "text-gray-800 ";
-    const active = "text-bordeaux ";
+    const active = "bg-bordeaux text-white ";
 
     if (path === window.location.pathname && isMobile) {
       return base + active + mobile;
@@ -35,6 +41,18 @@ export default function Navbar() {
     { title: "Contactos", url: window.Routes.contact_path() },
   ];
 
+  const backofficeItems = [
+    { title: "Empreendimentos", url: window.Routes.latest_path() },
+  ];
+
+  const usedItems = backoffice ? backofficeItems : items;
+
+  admin &&
+    usedItems.push({
+      title: "Backoffice",
+      url: window.Routes.backoffice_path(),
+    });
+
   return (
     <div>
       <nav className="bg-white overflow-hidden container mx-auto">
@@ -57,7 +75,7 @@ export default function Navbar() {
             <div className="flex items-center">
               <div className="hidden tablet:block">
                 <div className="ml-10 flex items-baseline">
-                  {items.map(item => {
+                  {usedItems.map(item => {
                     return (
                       <a
                         key={`${item.title}--desktop`}
@@ -129,7 +147,7 @@ export default function Navbar() {
         >
           <div className="tablet:hidden" id="mobile-menu">
             <div ref={dropdownRef} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {items.map(item => {
+              {usedItems.map(item => {
                 return (
                   <a
                     key={`${item.title}--desktop`}

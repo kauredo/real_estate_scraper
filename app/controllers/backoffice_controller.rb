@@ -1,4 +1,5 @@
 class BackofficeController < ApplicationController
+  layout 'backoffice'
   before_action :authenticate_admin!
   before_action :redirect_if_not_confirmed!
 

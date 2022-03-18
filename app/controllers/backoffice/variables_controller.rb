@@ -1,4 +1,4 @@
-class Backoffice::VariablesController < ApplicationController
+class Backoffice::VariablesController < BackofficeController
   before_action :find_variable, except: [:create]
 
   def create

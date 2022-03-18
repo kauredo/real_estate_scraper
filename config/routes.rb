@@ -27,6 +27,6 @@ Rails.application.routes.draw do
   namespace :backoffice do
     get '/', to: "pages#home"
     resources :variables, only: [:create, :update, :destroy]
-    resources :colleagues, only: [:create, :update, :destroy]
+    resources :colleagues, only: [:show, :create, :update, :destroy]
   end
 end

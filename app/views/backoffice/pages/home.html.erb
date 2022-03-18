@@ -37,7 +37,9 @@
     <% @colleagues.each do |col| %>
       <%= form_for(col, url: backoffice_colleague_path(col), html: { method: :put, class:"my-6" }) do |f| %>
         <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
-          <%= f.label col.name, class: "block text-gray-700 w-full sm:w-1/3 text-sm font-bold text-center sm:text-right" %>
+          <%= link_to backoffice_colleague_path(col), class: "block text-gray-700 w-full sm:w-1/3 text-sm font-bold text-center sm:text-right"  do %>
+            <%= f.label col.name, class: "cursor-pointer" %>
+          <% end %>
           <%= f.text_field :url, class:"shadow appearance-none border rounded w-full sm:w-1/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
           <div class="flex items-center gap-2">
             <%= f.submit "Atualizar", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
