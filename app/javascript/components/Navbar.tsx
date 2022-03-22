@@ -42,7 +42,7 @@ export default function Navbar(props: Props) {
   ];
 
   const backofficeItems = [
-    { title: "Empreendimentos", url: window.Routes.latest_path() },
+    { title: "Imóveis", url: window.Routes.backoffice_listings_path() },
   ];
 
   const usedItems = backoffice ? backofficeItems : items;
