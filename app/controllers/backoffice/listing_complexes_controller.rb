@@ -11,7 +11,6 @@ class Backoffice::ListingComplexesController < BackofficeController
   end
 
   def create
-    binding.pry
     @listing_complex = ListingComplex.new(listing_complex_params)
     if @listing_complex.save
       redirect_to backoffice_listing_complexes_path
