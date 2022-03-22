@@ -3,7 +3,7 @@
   <div class="w-full shadow-md rounded px-8 py-4 mt-4">
     <h2 class="text-2xl font-bold leading-7 text-gray-900 text-center sm:text-3xl"><%= @colleague.name %></h2>
     <% if @colleague.listings.present? %>
-      <%= react_component "indexPage--Listings", { listings: @colleague.listings }  %>
+      <%= react_component "indexPage--Listings", { listings: @colleague.listings, backoffice: true }  %>
     <% else %>
       <p class="mt-8">Ainda não existem listings para este colega, o script deve correr esta noite</p>
     <% end %>

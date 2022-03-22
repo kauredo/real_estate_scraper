@@ -28,5 +28,6 @@ Rails.application.routes.draw do
     get '/', to: "pages#home"
     resources :variables, only: [:create, :update, :destroy]
     resources :colleagues, only: [:show, :create, :update, :destroy]
+    resources :listings, only: [:index, :edit, :update, :destroy]
   end
 end

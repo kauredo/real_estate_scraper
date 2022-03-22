@@ -1,4 +1,5 @@
 class Listing < ApplicationRecord
+  acts_as_paranoid
   belongs_to :colleague, optional: true
   belongs_to :listing_complex, optional: true
 

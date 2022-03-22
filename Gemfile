@@ -53,6 +53,7 @@ gem "bootsnap", require: false
 gem "devise", "~> 4.8"
 gem "js-routes"
 gem 'pagy', '~> 5.10'
+gem "paranoia"
 gem "react-rails"
 gem "sidekiq"
 gem "watir"
