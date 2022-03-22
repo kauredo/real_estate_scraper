@@ -29,5 +29,6 @@ Rails.application.routes.draw do
     resources :variables, only: [:create, :update, :destroy]
     resources :colleagues, only: [:show, :create, :update, :destroy]
     resources :listings, only: [:index, :edit, :update, :destroy]
+    resources :listing_complexes
   end
 end

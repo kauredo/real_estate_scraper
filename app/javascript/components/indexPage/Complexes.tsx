@@ -1,20 +1,30 @@
 import React from "react";
-import { ListingComplex } from "../utils/Interfaces";
+import { Listing, ListingComplex } from "../utils/Interfaces";
 import ComplexCard from "./ComplexCard";
 
 interface Props {
-  listing_complexes: ListingComplex[];
+  listingComplexes: ListingComplex[];
+  allListings: Listing[];
+  backoffice?: boolean;
 }
 
 export default function Complexes(props: Props) {
-  const { listing_complexes } = props;
+  const { listingComplexes, allListings, backoffice } = props;
+
   return (
     <div className="container mx-auto">
-      {listing_complexes.map(listing_complex => {
+      {listingComplexes.map(listingComplex => {
+        const listings =
+          allListings &&
+          allListings.filter(
+            listing => listing.listing_complex_id === listingComplex.id
+          );
         return (
           <ComplexCard
-            listing_complex={listing_complex}
-            key={listing_complex.name}
+            backoffice={backoffice}
+            listings={listings}
+            listingComplex={listingComplex}
+            key={listingComplex.name}
           />
         );
       })}

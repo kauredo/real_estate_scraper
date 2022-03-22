@@ -43,6 +43,10 @@ export default function Navbar(props: Props) {
 
   const backofficeItems = [
     { title: "Imóveis", url: window.Routes.backoffice_listings_path() },
+    {
+      title: "Empreendimentos",
+      url: window.Routes.backoffice_listing_complexes_path(),
+    },
   ];
 
   const usedItems = backoffice ? backofficeItems : items;

@@ -26,5 +26,5 @@
   </ol>
 </div>
 <%= react_component "shared--Pagination", {pagy: @pagy} %>
-<%= react_component "indexPage--Complexes", {listing_complexes: @listing_complexes}  %>
+<%= react_component "indexPage--Complexes", { listing_complexes: @listing_complexes, allListings: Listing.all }  %>
 <%= react_component "shared--Pagination", {pagy: @pagy} %>
