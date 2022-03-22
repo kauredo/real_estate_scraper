@@ -58,7 +58,6 @@ task :scrape, [:url] => :environment do |t, args|
   end
 
   def get_total
-    @lister = Rack::Utils.parse_nested_query(@url)["agentName"]
     @browser.goto(@url)
     @browser.div(class: "gallery-container").wait_until(&:present?)
     matches = @browser.span(class: "num-matches").wait_until(&:present?)
@@ -94,13 +93,14 @@ task :scrape, [:url] => :environment do |t, args|
   end
 
   @errors = []
-  @lister = ""
+  @lister = Rack::Utils.parse_nested_query(@url)["agentName"]
+
   options = Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-dev-shm-usage'])
   @browser = Watir::Browser.new(:chrome, options: options)
 
   ## Count total to see how many pages
   begin
-    puts "Getting total pages"
+    puts "Getting total pages for #{@lister}"
     total = get_total
     puts "Total: #{total} pages"
   rescue => ex

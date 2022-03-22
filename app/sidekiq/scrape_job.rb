@@ -1,7 +1,5 @@
-class ScrapeJob
+class ScrapeJob < ActiveJob::Base
   require 'rake'
-  include Sidekiq::Job
-  sidekiq_options queue: :default, retry: 3
   queue_as :default
 
   def perform(*args)
@@ -13,5 +11,7 @@ class ScrapeJob
       Rake::Task["scrape"].invoke(colleague.url)
       puts "Job done for colleague #{colleague.url}"
     end
+
+    puts "DONE"
   end
 end
