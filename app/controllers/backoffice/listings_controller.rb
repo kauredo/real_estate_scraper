@@ -4,7 +4,7 @@ class Backoffice::ListingsController < BackofficeController
   include Pagy::Backend
 
   def index
-    @listings = Listing.all
+    @listings = Listing.preload(:colleague).all
   end
 
   def edit

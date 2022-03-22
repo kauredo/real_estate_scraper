@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { Listing } from "../utils/Interfaces";
+import { Colleague, Listing } from "../utils/Interfaces";
 import { truncateText } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
 
 interface Props {
   listing: Listing;
   backoffice?: boolean;
+  colleague?: Colleague;
 }
 
 export default function LongCard(props: Props) {
+  const { listing, backoffice, colleague } = props;
   const [isVisible, setIsVilible] = useState(true);
-  const { listing, backoffice } = props;
   const handleRemoveItem = e => {
     e.preventDefault();
     confirm("De certeza que queres apagar o imóvel?");
@@ -25,7 +26,7 @@ export default function LongCard(props: Props) {
 
   return (
     isVisible && (
-      <div className="w-full max-w-7xl mx-auto px-4 my-8 drop-shadow-sm hover:drop-shadow-lg">
+      <div className="w-full max-w-7xl mx-auto px-4 my-8 drop-shadow-sm hover:drop-shadow-lg relative">
         <a
           href={
             backoffice
@@ -57,6 +58,12 @@ export default function LongCard(props: Props) {
                   >
                     Apagar Imóvel 🗑️
                   </span>
+                )}
+
+                {colleague && (
+                  <div className="absolute bottom-4 right-4">
+                    Imóvel de colega: {colleague.name}
+                  </div>
                 )}
               </div>
             </div>

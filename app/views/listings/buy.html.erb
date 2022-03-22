@@ -1,4 +1,4 @@
 <%= react_component "shared--Banner", {height: '40vh', blurred: true, text: "Comprar"} %>
 <%= react_component "shared--Pagination", {pagy: @pagy} %>
-<%= react_component "indexPage--Listings", {listings: @listings}  %>
+<%= react_component "indexPage--Listings", {listings: @listings, colleagues: Colleague.all}  %>
 <%= react_component "shared--Pagination", {pagy: @pagy} %>
