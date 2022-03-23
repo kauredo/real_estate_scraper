@@ -16,13 +16,13 @@ export default function Results(props: Props) {
 
   return (
     <section className="container mx-auto">
-      <div className="text-center w-full md:w-2/3 mx-auto py-20 text-2xl flex flex-col sm:flex-row justify-center align-center">
-        <div className="count mx-auto my-8 w-1/3 flex flex-col">
+      <div className="text-center w-full md:w-2/3 mx-auto py-15 text-2xl flex flex-col sm:flex-row justify-center align-center">
+        <div className="count mx-auto w-1/3 flex flex-col justify-center align-center">
           <FontAwesomeIcon className="h-1/4 m-2 text-bordeaux" icon={faMedal} />
           Nacional
           <div>Top 25</div>
         </div>
-        <div className="count mx-auto my-8 w-1/3 flex flex-col">
+        <div className="count mx-auto w-1/3 flex flex-col justify-center align-center">
           <FontAwesomeIcon
             className="h-1/4 m-2 text-bordeaux"
             icon={faHouseChimney}
@@ -30,7 +30,7 @@ export default function Results(props: Props) {
           <div>Angariações</div>
           {listingCount}
         </div>
-        <div className="volume mx-auto my-8 w-1/3 flex flex-col">
+        <div className="volume mx-auto w-1/3 flex flex-col justify-center align-center">
           <FontAwesomeIcon
             className="h-1/4 m-2 text-bordeaux"
             icon={faHandHoldingDollar}

@@ -48,11 +48,11 @@ export default function Profile() {
           <div className="mx-6 mb-8 mt-4 md:mt-0">
             <div className="flex items-center mb-4 text-gray-600">
               <FontAwesomeIcon icon={faInstagram} />
-              <h4 className="px-2 text-sm">@sofiagalvaokw</h4>
+              <p className="px-2 text-sm">@sofiagalvaokw</p>
             </div>
             <div className="flex items-center mb-4 text-gray-600">
               <FontAwesomeIcon icon={faFacebook} />
-              <h4 className="px-2 text-sm">/sofiagalvaokw</h4>
+              <p className="px-2 text-sm">/sofiagalvaokw</p>
             </div>
           </div>
         </div>
