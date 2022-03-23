@@ -49,7 +49,7 @@ export default function LongCard(props: Props) {
               />
             </div>
             <div className="flex-1 card-block relative w-full md:w-2/3">
-              <div className="p-6">
+              <div className={colleague ? "p-6 pb-10 sm:pb-6" : "p-6"}>
                 <h4 className="font-medium text-2xl mb-3">{listing.title}</h4>
                 <p className="leading-normal">
                   <span>

@@ -26,7 +26,7 @@ export default function ComplexCard(props: Props) {
             <img
               alt=""
               className="w-full md:w-128 h-full block mx-auto object-cover"
-              src={listings.length > 0 && listings[0].photos[0]}
+              src={listings.length > 0 ? listings[0].photos[0] : ""}
             />
           </div>
           <div className="flex-1 card-block relative w-full md:w-2/3">

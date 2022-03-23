@@ -1,6 +1,6 @@
 <div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
   <%# Variáveis %>
-  <div class="w-full shadow-md rounded px-8 py-4 mt-4">
+  <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
     <h2 class="text-2xl font-bold leading-7 text-gray-900 text-center sm:text-3xl">Editar Imóvel <%= @listing.title %></h2>
     <%= form_for([:backoffice, @listing], html: { method: :put, class:"my-6" }) do |f| %>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
