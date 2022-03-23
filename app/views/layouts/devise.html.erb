@@ -7,11 +7,13 @@
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/f01d8e868a.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato&display=swap" rel="stylesheet">
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= favicon_link_tag '/favicons/favicon.ico', media:"(prefers-color-scheme: light)" %>
     <%= favicon_link_tag '/favicons/favicon_light.ico', media:"(prefers-color-scheme: dark)" %>
   </head>
-
   <body>
     <%= render 'shared/flashes' %>
     <%= react_component "Navbar" %>
