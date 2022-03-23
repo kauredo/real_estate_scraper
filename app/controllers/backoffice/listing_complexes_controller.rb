@@ -38,7 +38,7 @@ class Backoffice::ListingComplexesController < BackofficeController
   end
 
   def listing_complex_params
-    params.require(:listing_complex).permit(:name, :description)
+    params.require(:listing_complex).permit(:name, :description, listing_ids: [])
   end
 end
 

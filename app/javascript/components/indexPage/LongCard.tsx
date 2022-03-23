@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Colleague, Listing } from "../utils/Interfaces";
 import { truncateText } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
@@ -6,11 +6,12 @@ import ListingIcons from "../shared/ListingIcons";
 interface Props {
   listing: Listing;
   backoffice?: boolean;
+  small?: boolean;
   colleague?: Colleague;
 }
 
 export default function LongCard(props: Props) {
-  const { listing, backoffice, colleague } = props;
+  const { listing, backoffice, colleague, small } = props;
   const [isVisible, setIsVilible] = useState(true);
   const handleRemoveItem = e => {
     e.preventDefault();
@@ -21,12 +22,17 @@ export default function LongCard(props: Props) {
     }).then(res => {
       setIsVilible(false);
     });
-    console.log("removed");
   };
 
   return (
     isVisible && (
-      <div className="w-full max-w-7xl mx-auto px-4 my-8 drop-shadow-sm hover:drop-shadow-lg relative">
+      <div
+        className={
+          small
+            ? "scale-50 px-4 my-2 drop-shadow-sm hover:drop-shadow-lg relative"
+            : "w-full max-w-7xl mx-auto px-4 my-8 drop-shadow-sm hover:drop-shadow-lg relative"
+        }
+      >
         <a
           href={
             backoffice
