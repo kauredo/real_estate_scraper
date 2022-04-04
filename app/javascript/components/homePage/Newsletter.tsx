@@ -23,10 +23,10 @@ export default function Newsletter() {
   return (
     <section className="mx-auto container p-2 text-gray body-font flex md:flex-row flex-col items-center py-12">
       <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+        <h2 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
           Subscreva à nossa newsletter:
-        </h1>
-        <p className="mb-8 leading-relaxed">
+        </h2>
+        <p className="mb-8 leading-relaxed mx-2 tablet:mr-4">
           Receba as últimas novidades sobre o mercado, dicas e notícias
           relevantes à sua compra e venda de imóveis.
         </p>
@@ -58,20 +58,6 @@ export default function Newsletter() {
             </span>
           )}
         </form>
-        <div className="flex lg:flex-row md:flex-col">
-          <a className="mx-2 text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-            <i className="fab fa-linkedin-in"></i>
-          </a>
-          <a className="mx-2 text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          <a className="mx-2 text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a className="mx-2 text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-            <i className="fab fa-youtube"></i>
-          </a>
-        </div>
       </div>
       <div className="md:w-1/2 w-5/6">
         <img

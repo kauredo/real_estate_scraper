@@ -1,5 +1,8 @@
 class Listing < ApplicationRecord
   acts_as_paranoid
+
+  STATUSES = %W[Novo Reservado Vendido]
+
   belongs_to :colleague, optional: true
   belongs_to :listing_complex, optional: true
 

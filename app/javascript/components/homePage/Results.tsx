@@ -19,30 +19,36 @@ export default function Results(props: Props) {
       <div className="text-center w-full md:w-2/3 mx-auto py-15 text-2xl flex flex-col sm:flex-row justify-center align-center">
         <div className="count mx-auto w-1/3 flex flex-col justify-center align-center">
           <FontAwesomeIcon className="h-1/4 m-2 text-bordeaux" icon={faMedal} />
-          Nacional
-          <div>Top 25</div>
+          <h2>
+            <div>Top 25</div>
+            Nacional
+          </h2>
         </div>
         <div className="count mx-auto w-1/3 flex flex-col justify-center align-center">
           <FontAwesomeIcon
             className="h-1/4 m-2 text-bordeaux"
             icon={faHouseChimney}
           />
-          <div>Angariações</div>
-          {listingCount}
+          <h2>
+            <div>Angariações</div>
+            {listingCount}
+          </h2>
         </div>
         <div className="volume mx-auto w-1/3 flex flex-col justify-center align-center">
           <FontAwesomeIcon
             className="h-1/4 m-2 text-bordeaux"
             icon={faHandHoldingDollar}
           />
-          <div>Volume de Negócios</div>
-          <CountUp end={volume} redraw={true} suffix=" €">
-            {({ countUpRef, start }) => (
-              <VisibilitySensor onChange={start} delayedCall>
-                <span ref={countUpRef} />
-              </VisibilitySensor>
-            )}
-          </CountUp>
+          <h2>
+            <div>Volume de Negócios</div>
+            <CountUp end={volume} redraw={true} suffix=" €">
+              {({ countUpRef, start }) => (
+                <VisibilitySensor onChange={start} delayedCall>
+                  <span ref={countUpRef} />
+                </VisibilitySensor>
+              )}
+            </CountUp>
+          </h2>
         </div>
       </div>
     </section>

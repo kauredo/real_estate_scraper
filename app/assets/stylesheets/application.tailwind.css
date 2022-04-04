@@ -36,9 +36,14 @@ body {
 }
 
 h1,
-h2,
+h2 {
+  font-family: "Playfair Display", serif;
+}
+
 h3,
 h4,
-h5 {
-  font-family: "Abril Fatface", cursive;
+h5,
+p {
+  font-family: "Lato", sans-serif;
+  max-width: 60ch;
 }
