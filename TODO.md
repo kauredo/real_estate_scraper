@@ -1,4 +1,4 @@
-TODO
+## TODO
 
 1. Add functionality to contact form
 2. Add styles to about page
@@ -6,3 +6,11 @@ TODO
 4. Add Listing Complex show page
 5. Newsletter
 6. Verify all copy (missing for homepage)
+
+---
+
+## NEXT STEPS
+
+1. Buy Domain
+2. Check everything works with domain
+3. Write tests? Maybe
