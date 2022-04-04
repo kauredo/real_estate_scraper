@@ -1,8 +1,61 @@
 <% content_for(:title) { 'Contactos' } %>
-<%= react_component "shared--Banner", {height: '20vh', blurred: true, text: "Contactos"} %>
 <div class="container mx-auto mt-6 mb-12 px-8">
-  Av. Dom Carlos I 124, Lisboa, Portugal<br/>
-  KW Lead - Santos<br/>
-  +351 932829084  - Sofia Galvão<br/>
-  sofia.galvao@kwportugal.pt<br/>
+  <section class="bg-white py-5 lg:py-[120px] overflow-hidden relative z-10">
+    <div class="container">
+      <div class="flex flex-wrap lg:justify-between -mx-4">
+        <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
+          <div class="max-w-[570px] mb-12 lg:mb-0">
+            <span class="block mb-4 text-base text-primary font-semibold">
+              Contacte-nos
+            </span>
+            <h2
+                    class=" text-dark mb-6 uppercase font-bold text-[32px] sm:text-[40px] lg:text-[36px] xl:text-[40px] "
+                    >
+              ENTRE EM CONTACTO CONNOSCO
+            </h2>
+            <p class="text-base text-body-color leading-relaxed mb-9">
+              Preencha o formulário ou entre em contacto através de um dos seguintes meios:
+              <ul>
+                <li>
+                  Av. Dom Carlos I 124, Lisboa, Portugal
+                </li>
+                <li>
+                  KW Lead - Santos
+                </li>
+                <li>
+                  +351 932829084  - Sofia Galvão
+                </li>
+                <li>
+                  sofia.galvao@kwportugal.pt
+                </li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 xl:w-5/12 px-4">
+          <div class="relative rounded-lg p-8 sm:p-12 shadow-lg">
+            <form>
+              <div class="mb-6">
+                <input type="text" placeholder="Nome" class=" w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"/>
+              </div>
+              <div class="mb-6">
+                <input type="email" placeholder="Email" class=" w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary "/>
+              </div>
+              <div class="mb-6">
+                <input type="text" placeholder="Telefone" class=" w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary "/>
+              </div>
+              <div class="mb-6">
+                <textarea rows="6" placeholder="Mensagem" class=" w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] resize-none outline-none focus-visible:shadow-none focus:border-primary " ></textarea>
+              </div>
+              <div>
+                <button type="submit" class=" w-full text-bold text-white bg-bordeaux rounded border p-3 transition hover:bg-opacity-90 " >
+                  Enviar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
