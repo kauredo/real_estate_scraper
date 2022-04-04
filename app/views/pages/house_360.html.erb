@@ -1,16 +1,80 @@
 <% content_for(:title) { 'Casa 360' } %>
 <%= react_component "shared--Banner", {height: '20vh', blurred: true, text: "Casa 360"} %>
 <div class="container mx-auto mt-6 mb-12 px-8">
-  Ao longo do desenvolvimento do nosso negócio, fomos também desenvolvendo parcerias alinhadas com a nossa filosofia sobre o negócio e que, ao mesmo tempo, garantem o melhor serviço aos nossos clientes.  <br/>
-  Acreditamos que estes serviços englobam todas as necessidades relativas ao imóvel. <br/>
-  <ul class="pl-6">
-    <li><i class="fa-solid fa-house"></i> certificação energética;</li>
-    <li><i class="fa-solid fa-house"></i> gabinetes de arquitectura;</li>
-    <li><i class="fa-solid fa-house"></i> empresas de construção civil;</li>
-    <li><i class="fa-solid fa-house"></i> empresas p pequenas remodelações;</li>
-    <li><i class="fa-solid fa-house"></i> serviços de limpezas especializados em obras e mudanças;</li>
-    <li><i class="fa-solid fa-house"></i> empresas de mudanças e transportes;</li>
-    <li><i class="fa-solid fa-house"></i> empresas de jardinagem;</li>
-    <li><i class="fa-solid fa-house"></i> atelier de design e decoração de interiores.</li>
-  </ul>
+  <div class="py-6 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center">
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Ao longo do desenvolvimento do nosso negócio, fomos também desenvolvendo parcerias alinhadas com a nossa filosofia sobre o negócio e que, ao mesmo tempo, garantem o melhor serviço aos nossos clientes.</p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Acreditamos que estes serviços englobam todas as necessidades relativas ao imóvel</p>
+      </div>
+      <div class="my-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-plug"></i>
+              </div>
+              <p class="ml-4 text-lg leading-6 font-medium text-gray-900 w-3/4">Certificação Energética</p>
+            </dt>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-drafting-compass"></i>
+              </div>
+              <p class="ml-4 text-lg leading-6 font-medium text-gray-900 w-3/4">Gabinetes de Arquitectura</p>
+            </dt>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-hard-hat"></i>
+              </div>
+              <p class="ml-4 text-lg leading-6 font-medium text-gray-900 w-3/4">Empresas de Construção Civil</p>
+            </dt>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-hammer"></i>
+              </div>
+              <p class="ml-4 text-lg leading-6 font-medium text-gray-900 w-3/4">Empresas Pequenas Remodelações</p>
+            </dt>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-broom"></i>
+              </div>
+              <p class="ml-4 text-lg leading-6 font-medium text-gray-900 w-3/4">Serviços de Limpezas Especializados Em Obras E Mudanças</p>
+            </dt>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-truck-moving"></i>
+              </div>
+              <p class="ml-4 text-lg leading-6 font-medium text-gray-900 w-3/4">Empresas de Mudanças E Transportes</p>
+            </dt>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <p class="ml-4 text-lg leading-6 font-medium text-gray-900 w-3/4">Empresas de Jardinagem</p>
+            </dt>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-couch"></i>
+              </div>
+              <p class="ml-4 text-lg leading-6 font-medium text-gray-900 w-3/4">Atelier de Design E Decoração de Interiores</p>
+            </dt>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
 </div>
