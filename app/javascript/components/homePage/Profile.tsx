@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 export default function Profile() {
   return (
@@ -46,35 +47,39 @@ export default function Profile() {
             />
           </div>
           <div className="mx-6 mb-8 mt-4 md:mt-0">
-            <div className="flex items-center mb-4 text-gray-600">
-              <FontAwesomeIcon icon={faInstagram} />
-              <p className="px-2 text-sm">@sofiagalvaokw</p>
-            </div>
-            <div className="flex items-center mb-4 text-gray-600">
-              <FontAwesomeIcon icon={faFacebook} />
-              <p className="px-2 text-sm">/sofiagalvaokw</p>
-            </div>
+            <a
+              href="https://www.instagram.com/sofiagalvaokw/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="flex items-center mb-4 text-gray-600">
+                <FontAwesomeIcon icon={faInstagram} />
+                <p className="px-2 text-sm">@sofiagalvaokw</p>
+              </div>
+            </a>
+            <a
+              href="https://www.facebook.com/sofiagalvaokw"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="flex items-center mb-4 text-gray-600">
+                <FontAwesomeIcon icon={faFacebook} />
+                <p className="px-2 text-sm">/sofiagalvaokw</p>
+              </div>
+            </a>
+            <a
+              href="https://wa.me/351932829084"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="flex items-center mb-4 text-gray-600">
+                <FontAwesomeIcon icon={faWhatsapp} />
+                <p className="px-2 text-sm">932829084</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
-      {/* <div className="px-8 grid md:w-3/5 items-center">
-        <div className="h-min py-8 md:pb-2 mx-auto md:pl-12">
-          <p className="md:hidden block pt-6">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga
-            libero dolorem cupiditate dolorum temporibus, ea facere recusandae
-            aliquid eaque doloribus optio quam repudiandae officiis sunt nostrum
-            et magnam consectetur quae ratione eum voluptas magni, quasi quia?
-            Ratione corporis quis molestias natus excepturi iure ex debitis,
-            libero enim cum consequuntur. Molestias vero sint esse voluptatibus
-            pariatur magnam quas sequi repellendus quasi tempora suscipit
-            nesciunt dignissimos, facilis expedita impedit! Culpa cumque id
-            dolores similique, corporis nam delectus natus minus itaque,
-            exercitationem tenetur ea incidunt inventore. Expedita blanditiis,
-            vitae natus ipsa nostrum temporibus atque vero libero aliquam
-            suscipit veniam corporis non explicabo maiores.
-          </p>
-        </div>
-      </div> */}
     </section>
   );
 }

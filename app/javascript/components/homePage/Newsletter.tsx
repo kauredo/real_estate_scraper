@@ -23,7 +23,7 @@ export default function Newsletter() {
   return (
     <section className="mx-auto container p-2 text-gray body-font flex md:flex-row flex-col items-center py-12">
       <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-        <h2 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+        <h2 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-black">
           Subscreva à nossa newsletter:
         </h2>
         <p className="mb-8 leading-relaxed mx-2 tablet:mr-4">

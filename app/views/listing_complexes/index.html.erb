@@ -2,63 +2,70 @@
 <%= react_component "shared--Banner", {height: '20vw', blurred: true, text: "Novos Empreendimentos"} %>
 <div class="pt-6 bg-white text-center">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <p class="block md:hidden mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Novos Empreendimentos</p>
+    <p class="block md:hidden mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">Novos Empreendimentos</p>
   </div>
 </div>
-<section class="bg-white dark:bg-gray-900">
-  <div class="container px-6 py-10 mx-auto">
-    <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Porquê comprar <span class="underline decoration-bordeaux">em planta</span>?</h1>
-    <p class="mt-4 text-gray-500 xl:mt-6 dark:text-gray">
-      Sabia que existem múltiplas vantagens em comprar em planta?
-    </p>
-    <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
-      <div class="p-8 space-y-3 border-2 border-bordeaux dark:border-bordeaux rounded-xl">
-        <div class="inline-block text-bordeaux dark:text-bordeaux text-2xl">
-          <i class="fas fa-trophy" aria-hidden="true"></i>
-        </div>
-        <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Vai ser o primeiro dono da sua nova casa</h1>
-        <p class="text-gray-500 dark:text-gray">
-          Na compra em planta tem a garantia que o imóvel está pronto a estrear e tem a certeza que você será o primeiro a usufruir dela.
-        </p>
+<section class="container mx-auto mt-6 mb-12 px-8">
+  <div class="py-6 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center">
+        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">Porquê Comprar <span class="underline decoration-bordeaux">em Planta?</span></p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Sabia que existem múltiplas vantagens em comprar em planta?</p>
       </div>
-      <div class="p-8 space-y-3 border-2 border-bordeaux dark:border-bordeaux rounded-xl">
-        <div class="inline-block text-bordeaux dark:text-bordeaux text-2xl">
-          <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-        </div>
-        <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Investimento Faseado</h1>
-        <p class="text-gray-500 dark:text-gray">
-          Possibilidade de disponibilizar o pagamento consoante as fases de evolução da obra e da construção.
-        </p>
-      </div>
-      <div class="p-8 space-y-3 border-2 border-bordeaux dark:border-bordeaux rounded-xl">
-        <div class="inline-block text-bordeaux dark:text-bordeaux text-2xl">
-          <i class="fas fa-hard-hat" aria-hidden="true"></i>
-        </div>
-        <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Garantia de construção</h1>
-        <p class="text-gray-500 dark:text-gray">
-          Um imóvel novo tem a garantia de construção, além da certeza de não haver perspectiva de necessidade de melhoramentos dos edifícios nos próximos anos.
-        </p>
-      </div>
-      <div class="p-8 space-y-3 border-2 border-bordeaux dark:border-bordeaux rounded-xl">
-        <div class="inline-block text-bordeaux dark:text-bordeaux text-2xl">
-          <i class="fa fa-money" aria-hidden="true"></i>
-        </div>
-        <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Perspectiva de melhor retorno a nível de investimento</h1>
-        <p class="text-gray-500 dark:text-gray">
-          Ao adquirir uma casa em planta o investimento que é feito é, por norma, inferior ao investimento que seria necessário fazer caso ela já estivesse pronta. Isto significa que a sua casa, a partir do momento que está pronta, já potencia o seu investimento.
-        </p>
-      </div>
-      <div class="p-8 space-y-3 border-2 border-bordeaux dark:border-bordeaux rounded-xl">
-        <div class="inline-block text-bordeaux dark:text-bordeaux text-2xl">
-          <i class="fas fa-house-user" aria-hidden="true"></i>
-        </div>
-        <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Imóvel à sua medida</h1>
-        <p class="text-gray-500 dark:text-gray">
-          A aquisição em planta, confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua casa vá de encontro às suas necessidades e gostos.
-        </p>
+      <div class="my-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-trophy" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg pt-[0.625rem] font-bold font-medium text-black w-3/4">Vai ser o primeiro dono da sua nova casa</p>
+            </dt>
+            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4">Na compra em planta tem a garantia que o imóvel está pronto a estrear e tem a certeza que você será o primeiro a usufruir dela.</p>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg pt-[0.625rem] font-bold font-medium text-black w-3/4">Investimento Faseado</p>
+            </dt>
+            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4">Possibilidade de disponibilizar o pagamento consoante as fases de evolução da obra e da construção.</p>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-hard-hat" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg pt-[0.625rem] font-bold font-medium text-black w-3/4">Garantia de construção</p>
+            </dt>
+            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4">Um imóvel novo tem a garantia de construção, além da certeza de não haver perspectiva de necessidade de melhoramentos dos edifícios nos próximos anos.</p>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fa fa-money" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg pt-[0.625rem] font-bold font-medium text-black w-3/4">Perspectiva de melhor retorno a nível de investimento</p>
+            </dt>
+            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4">Ao adquirir uma casa em planta o investimento que é feito é, por norma, inferior ao investimento que seria necessário fazer caso ela já estivesse pronta. Isto significa que a sua casa, a partir do momento que está pronta, já potencia o seu investimento.</p>
+          </div>
+          <div>
+            <dt class="flex align-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-house-user" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg pt-[0.625rem] font-bold font-medium text-black w-3/4">Imóvel à sua medida</p>
+            </dt>
+            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4">A aquisição em planta, confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua casa vá de encontro às suas necessidades e gostos.</p>
+          </div>
+        </dl>
       </div>
     </div>
   </div>
+  Calcule o valor da sua casa, já!
+  (introduzir a calculadora aqui)
+  Esta calculadora foi criada com base no valor por metro quadrado das casas presentes no mercado dos concelhos de Lisboa, Cascais e Oeiras. O método utilizado para o cálculo tem em consideração as diferentes zonas dentro das freguesias, as condições da casa assim como as suas diferentes áreas. Procure ser realista para um valor mais preciso.
 </section>
 <%= react_component "shared--Pagination", {pagy: @pagy} %>
 <%= react_component "indexPage--Complexes", { listing_complexes: @listing_complexes, allListings: Listing.all }  %>
