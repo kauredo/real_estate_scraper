@@ -95,7 +95,7 @@ task :scrape, [:url] => :environment do |t, args|
   @errors = []
   @lister = Rack::Utils.parse_nested_query(@url)["agentName"]
 
-  options = Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-dev-shm-usage'])
+  options = Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess'])
   @browser = Watir::Browser.new(:chrome, options: options)
 
   ## Count total to see how many pages

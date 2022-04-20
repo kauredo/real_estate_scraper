@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function Profile() {
   return (
@@ -48,6 +49,16 @@ export default function Profile() {
           </div>
           <div className="mx-6 mb-8 mt-4 md:mt-0">
             <a
+              href="https://www.linkedin.com/in/sofia-galv%C3%A3o-a141621/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="flex items-center mb-4 text-gray-600">
+                <FontAwesomeIcon icon={faLinkedin} />
+                <p className="px-2 text-sm">Sofia Galvão</p>
+              </div>
+            </a>
+            <a
               href="https://www.instagram.com/sofiagalvaokw/"
               target="_blank"
               rel="noopener noreferrer"
@@ -74,7 +85,7 @@ export default function Profile() {
             >
               <div className="flex items-center mb-4 text-gray-600">
                 <FontAwesomeIcon icon={faWhatsapp} />
-                <p className="px-2 text-sm">932829084</p>
+                <p className="px-2 text-sm">+351 932829084</p>
               </div>
             </a>
           </div>
