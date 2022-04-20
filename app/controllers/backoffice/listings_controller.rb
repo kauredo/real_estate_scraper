@@ -26,7 +26,7 @@ class Backoffice::ListingsController < BackofficeController
   end
 
   def listing_params
-    params.require(:listing).permit(:address, :price, :title, :url, :description, :status, :listing_complex_id, features: [], photos: [], stats: {})
+    params.require(:listing).permit(:address, :price, :title, :order, :url, :description, :status, :listing_complex_id, features: [], photos: [], stats: {})
   end
 end
 
