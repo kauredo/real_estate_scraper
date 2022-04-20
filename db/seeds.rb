@@ -1,7 +1,23 @@
+Variable.destroy_all
+
 variables = [
-  "Volume de Negócios"
+  {
+    name: "Top 25",
+    value: "Nacional",
+    icon: "fas fa-medal"
+  },
+  {
+    name: "Angariações",
+    value: 0,
+    icon: "fas fa-home"
+  },
+  {
+    name: "Volume de Negócios",
+    value: 0,
+    icon: "fas fa-hand-holding-usd"
+  },
 ]
 
 variables.each do |var|
-  Variable.create(name: var, value: 0, icon:"")
+  Variable.create(var)
 end
