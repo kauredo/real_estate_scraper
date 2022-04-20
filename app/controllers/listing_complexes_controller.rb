@@ -8,5 +8,6 @@ class ListingComplexesController < ApplicationController
 
   def show
     @listing_complex = ListingComplex.preload(:listings).find(params[:id])
+    @listings = @listing_complex.listings
   end
 end

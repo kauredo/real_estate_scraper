@@ -29,11 +29,9 @@
   <%= react_component "homePage--Results", {results: @results}  %>
   <script>
     function resizeFrame() {
-      console.log('resize')
       const frame = document.getElementById("iframe");
       frame.style.height = frame.scrollWidth / 16 * 9 + 'px';
     }
-
 
     resizeFrame();
     window.addEventListener('resize', resizeFrame)

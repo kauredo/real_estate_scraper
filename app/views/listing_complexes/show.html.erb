@@ -1,2 +1,2 @@
 <% content_for(:title) { @listing_complex.name } %>
-<%= @listing_complex.name  %>
+<%= react_component "listingComplex--Show", {complex: @listing_complex, listings: @listings}  %>
