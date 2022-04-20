@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     @listings = Listing.by_city
     @results = {
       listingCount: Listing.all.count,
-      volume: Variable.volume
+      variables: Variable.all
     }
     # render component: 'Home', props: { listings: @listings }, tag: 'span', class: 'todo'
   end

@@ -26,6 +26,6 @@ class Backoffice::VariablesController < BackofficeController
   end
 
   def variable_params
-    params.require(:variable).permit(:name, :value)
+    params.require(:variable).permit(:name, :value, :icon)
   end
 end

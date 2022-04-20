@@ -4,9 +4,15 @@ declare global {
   }
 }
 
+export interface Variable {
+  name: string;
+  value: string;
+  icon: string;
+}
+
 export interface ResultNumbers {
   listingCount: number;
-  volume: number;
+  variables: Variable[];
 }
 
 export interface ListingByCity {
