@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   def about
     @results = {
       listingCount: Listing.all.count,
-      volume: Variable.volume
+      variables: Variable.all
     }
   end
 

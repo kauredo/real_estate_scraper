@@ -46,6 +46,7 @@ export interface Listing {
   photos: string[];
   colleague_id: number;
   listing_complex_id: number;
+  status: string;
   // location: {
   //   latitude: string;
   //   longitude: string;

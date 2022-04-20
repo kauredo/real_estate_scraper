@@ -13,17 +13,19 @@ interface Props {
 
 export default function Results(props: Props) {
   const { variables, listingCount } = props.results;
-  console.log(variables);
   const volume = variables.filter(
     vari => vari.name.toLowerCase() === "volume de negócios"
   )[0];
 
   return (
-    <section className="container mx-auto">
-      <div className="text-center w-full md:w-2/3 mx-auto py-15 text-2xl flex flex-col sm:flex-row justify-center align-center">
+    <section className="container mx-auto flex flex-col sm:flex-row justify-between items-center min-h-[30vh]">
+      <div className="text-center w-full sm:w-[40%] mx-auto text-2xl flex flex-col sm:flex-row justify-around items-center flex-wrap">
         {variables.map(variable => {
           return (
-            <div className="variable mx-auto w-1/3 flex flex-col justify-center align-center">
+            <div
+              key={variable.name}
+              className="variable mx-auto min-w-[140px] w-1/3 flex flex-col justify-center items-center"
+            >
               <i
                 className={`text-6xl tablet:text-8xl min-h-1/4 m-2 text-bordeaux ${variable.icon}`}
                 aria-hidden="true"
@@ -49,6 +51,18 @@ export default function Results(props: Props) {
             </div>
           );
         })}
+      </div>
+      <div className="p-6 text-center w-full sm:w-1/3 mx-auto flex justify-center items-center">
+        <div className="h-fit">
+          <h3 className="text-2xl mb-4">Testemunhos</h3>
+          <ul>
+            <li>
+              “Sofia found me my home, she is a professional and made the
+              experience so pleasant and safe. I will trust her with all of my
+              future real estate projects!” - Nir
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   );
