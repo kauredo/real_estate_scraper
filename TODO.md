@@ -1,13 +1,20 @@
 ## TODO
 
-7. CTA to send people to calculator
-1. Add functionality to contact form
-2. Add styles to about page
-3. Finish Listing show page (Add remaining sections & contact)
-4. Finish Listing Complex show page
-5. Verify all copy (missing for homepage)
-6. When listing state "Vendido", delete after 6 months
-
+- CTA to send people to calculator
+- Add functionality to contact form
+- Add styles to about page
+- Change frame for sofia's video
+- Finish Listing show page (Add remaining sections & contact)
+- Finish Listing Complex show page
+- Verify all copy (missing for homepage)
+- When listing state "Vendido", delete after 6 months
+- Change order of listings - Novos, Resevado, Vendido 
+- Testemunhos => add carousel
+- Add order to Empreendimentos
+- Add video to Empreendimentos
+- Possibly add Photos to Empreendimentos (Sao marcos vila nova  de gaia no google)
+- Calculator only shows after refresh
+- 
 
 ----
 ## Newsletter
@@ -17,10 +24,10 @@
 ----
 ## 
 ## NEXT STEPS
+sofiagalvaogroup.com
 
 1. Buy Domain
 2. Check everything works with domain
 3. Write tests? Maybe
-
 
 ----
