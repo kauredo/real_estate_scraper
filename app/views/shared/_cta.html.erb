@@ -1,6 +1,6 @@
 <% unless current_page? sell_path %>
-  <%= link_to sell_path do %>
-    <div class="shadow-md fixed bottom-5 right-5 bg-white border-bordeaux border-2 text-bordeaux text-lg px-6 py-3 rounded">
+  <%= link_to sell_path, data: {"turbolinks": false} do %>
+    <div style="z-index: 900" class="shadow-md fixed bottom-5 right-5 bg-white border-bordeaux border-2 text-bordeaux text-lg px-6 py-3 rounded hover:bg-bordeaux hover:text-white">
       <p>Avalie a sua casa</p>
     </div>
   <% end %>

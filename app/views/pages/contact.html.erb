@@ -47,31 +47,8 @@
             </div>
           </div>
         </div>
-        <div class="w-full lg:w-1/2 xl:w-5/12 px-4">
-          <div class="relative rounded-lg p-8 sm:p-12 shadow-lg">
-            <p class="text-base text-body-color leading-relaxed mb-9">
-              Preencha o formulário e entraremos em contacto consigo:
-            </p>
-            <form>
-              <div class="mb-6">
-                <input type="text" placeholder="Nome" class=" w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"/>
-              </div>
-              <div class="mb-6">
-                <input type="email" placeholder="Email" class=" w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary "/>
-              </div>
-              <div class="mb-6">
-                <input type="text" placeholder="Telefone" class=" w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary "/>
-              </div>
-              <div class="mb-6">
-                <textarea rows="6" placeholder="Mensagem" class=" w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] resize-none outline-none focus-visible:shadow-none focus:border-primary " ></textarea>
-              </div>
-              <div>
-                <button type="submit" class=" w-full text-bold text-white bg-bordeaux rounded border p-3 transition hover:bg-opacity-90 " >
-                  Enviar
-                </button>
-              </div>
-            </form>
-          </div>
+        <div className="w-full lg:w-1/2 xl:w-5/12 px-4">
+          <%= react_component "contactPage--ContactForm" %>
         </div>
       </div>
     </div>
