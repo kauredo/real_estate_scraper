@@ -47,6 +47,11 @@ export default function LongCard(props: Props) {
                   RESERVADO
                 </div>
               )}
+              {listing.status === "Vendido" && (
+                <div className="absolute top-0 bottom-0 left-0 right-0 bg-black text-bold text-white text-4xl opacity-50 flex items-center justify-center">
+                  VENDIDO
+                </div>
+              )}
               <img
                 alt=""
                 className="w-full md:w-128 h-full block mx-auto object-cover"
