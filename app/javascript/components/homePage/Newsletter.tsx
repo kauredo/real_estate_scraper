@@ -2,21 +2,24 @@ import React, { useRef, useState } from "react";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
-  const [error, setError] = useState(false);
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
   const form = useRef(null);
   const pattern =
     /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
 
-  const validateEmail = e => {
+  const validateUser = e => {
     e.preventDefault();
-    const result = pattern.test(email);
+    const valid_email = pattern.test(email);
 
-    if (result) {
+    if (valid_email && name) {
       form.current.submit().then(res => {
         console.log(res);
       });
+    } else if (valid_email) {
+      setError("Por favor insira um nome válido");
     } else {
-      setError(true);
+      setError("Por favor insira um email válido");
     }
   };
 
@@ -32,13 +35,22 @@ export default function Newsletter() {
         </p>
         <form
           ref={form}
-          onSubmit={e => validateEmail(e)}
+          onSubmit={e => validateUser(e)}
           action={window.Routes.newsletter_subscriptions_path()}
           method="post"
+          // className="w-full mx-2 tablet:mr-4"
         >
-          <div className="flex flex-row justify-start w-full max-w-md shadow-xl border-t border-b border-gray-200">
+          <div className="w-full">
             <input
-              className="border-l-4 border-bordeaux focus:outline-none px-4 w-full m-0"
+              className="border-l-4 border-bordeaux focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
+              placeholder="Nome"
+              name="newsletter[name]"
+              type="text"
+              id="name"
+              onChange={e => setName(e.target.value)}
+            />
+            <input
+              className="border-l-4 border-bordeaux focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
               placeholder="Email"
               name="newsletter[email]"
               type="text"
@@ -46,7 +58,7 @@ export default function Newsletter() {
               onChange={e => setEmail(e.target.value)}
             />
             <input
-              className="inline-flex text-black py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-gray-100"
+              className="w-4/5 inline-flex text-black py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-gray-100"
               required
               type="submit"
               value="Subscrever"
@@ -54,7 +66,7 @@ export default function Newsletter() {
           </div>
           {error && (
             <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-              Por favor insira um email válido
+              {error}
             </span>
           )}
         </form>

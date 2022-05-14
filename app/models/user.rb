@@ -10,8 +10,18 @@ class User < ApplicationRecord
   # validates :first_name, presence: { message: "não pode estar vazio" }
   # validates :last_name, presence: { message: "não pode estar vazio" }
   validates :email, presence: { message: "não pode estar vazio" }, uniqueness: { case_sensitive: false }, email: true
+  validates :first_name, presence: { message: "não pode estar vazio" }
+  validates :last_name, presence: { message: "não pode estar vazio" }
 
   scope :for_newsletter, -> { where(confirmed_email: true) }
 
   has_one :newsletter_subscription
+
+  def name=(name)
+    names = name.split
+    self.first_name = names.first
+    last_names = names.drop(1)
+    self.last_name = last_names.join(' ') if last_names
+    self.save
+  end
 end

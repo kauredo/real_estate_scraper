@@ -2,30 +2,36 @@
 <% content_for(:title) { "Sobre Nós" } %>
 <%= react_component "shared--Banner", {height: '20vh', blurred: true, text: "Sobre Nós"} %>
 <section class="container mx-auto mt-6 mb-12 px-8">
-  <h3>
-    Quem somos
-  </h3>
-  <p>Objectivo. Profissionalismo, experiência, abrangência, estrutura holística, agilidade e expertise na área.
-  </p>
+  <div class="py-6 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="block mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">Quem somos?</p>
+      <p class="mt-4 text-xl text-gray-500 max-w-max">Objectivo. Profissionalismo, experiência, abrangência, estrutura holística, agilidade e expertise na área.</p>
+      <p class="mt-4 text-xl text-gray-500 max-w-max">Acreditamos que estes serviços englobam todas as necessidades relativas ao imóvel.</p>
+    </div>
+  </div>
   <iframe id="iframe" style="max-width: 1200px" class="w-full mx-auto" src="https://drive.google.com/file/d/1YTkikQ5EYxKigvTe3bhisxNP2VPE1TA2/preview" allow="autoplay"></iframe>
-  <hr>
-  <h3>
-    Visão & Missão
-  </h3>
-  <p>
-    Visão <br/>
-    Encontrar os melhores negócios, os mais distintos imóveis, para os melhores clientes. <br/>
-    Propomo-nos a ser o nome de referência no sector imobiliário em Portugal, sendo os nossos pilares de actuação baseados na seleção e recomendação - de imóveis, de negócios, e tudo o que seja relacionado com casas. <br/>
-    Missão<br/>
-    Juntos criamos Lares Felizes!<br/>
-    Assumimos este compromisso conosco próprios e para com todos os nossos clientes. Acreditamos  numa postura profissional, sólida e assertiva, mas tal não seria possível sem este cunho pessoal que confere ao nosso trabalho um gostinho especial.<br/>
-    Acreditamos na criação de parcerias ganhadoras, com os nossos clientes. <br/>
-    Lares felizes. Decisões acauteladas. Investimentos relevantes. Negócios vencedores. <br/>
-  </p>
-  <hr>
-  <h3>
-    Resultados (SG e KW - Volume de Negocios)
-  </h3>
+  <div class="py-6 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="block mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">Visão</p>
+      <p class="mt-4 text-xl text-gray-500 max-w-max">Encontrar os melhores negócios, os mais distintos imóveis, para os melhores clientes.</p>
+      <p class="mt-4 text-xl text-gray-500 max-w-max">Propomo-nos a ser o nome de referência no sector imobiliário em Portugal, sendo os nossos pilares de actuação baseados na seleção e recomendação - de imóveis, de negócios, e tudo o que seja relacionado com casas.</p>
+    </div>
+  </div>
+  <div class="py-6 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="block mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">Missão</p>
+      <p class="mt-4 text-xl text-bordeaux font-extrabold max-w-max">Juntos criamos Lares Felizes!</p>
+      <p class="mt-4 text-xl text-gray-500 max-w-max">
+        Assumimos este compromisso conosco próprios e para com todos os nossos clientes. Acreditamos  numa postura profissional, sólida e assertiva, mas tal não seria possível sem este cunho pessoal que confere ao nosso trabalho um gostinho especial.<br/>
+        Acreditamos na criação de parcerias ganhadoras, com os nossos clientes. <br/>
+        Lares felizes. Decisões acauteladas. Investimentos relevantes. Negócios vencedores.</p>
+    </div>
+  </div>
+  <div class="py-6 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="block mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">Resultados</p>
+    </div>
+  </div>
   <%= react_component "homePage--Results", {results: @results}  %>
   <script>
     function resizeFrame() {
@@ -37,3 +43,15 @@
     window.addEventListener('resize', resizeFrame)
   </script>
 </section>
+<%# <div class="my-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <div>
+            <dt class="flex items-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
+                <i class="fas fa-plug" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg font-medium text-black w-3/4">Certificação Energética</p>
+            </dt>
+          </div>
+        </dl>
+      </div> %>

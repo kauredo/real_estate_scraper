@@ -3,6 +3,7 @@ class NewsletterSubscriptionsController < ApplicationController
 
   def create
     @user = User.find_or_initialize_by(email: email_params[:email])
+    @user.name = email_params[:name]
 
     if @user.save
       if NewsletterSubscription.where(user_id: @user.id).empty?
@@ -32,6 +33,6 @@ class NewsletterSubscriptionsController < ApplicationController
   private
 
   def email_params
-    params.require(:newsletter).permit(:email)
+    params.require(:newsletter).permit(:email, :name)
   end
 end

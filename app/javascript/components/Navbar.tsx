@@ -64,7 +64,7 @@ export default function Navbar(props: Props) {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <a href={window.Routes.root_path()}>
+                <a data-no-turbolink="true" href={window.Routes.root_path()}>
                   <img
                     // src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     // className="h-16 w-16"
@@ -82,6 +82,7 @@ export default function Navbar(props: Props) {
                   {usedItems.map(item => {
                     return (
                       <a
+                        data-no-turbolink="true"
                         key={`${item.title}--desktop`}
                         href={item.url}
                         className={itemClass(item.url, false)}
@@ -154,6 +155,7 @@ export default function Navbar(props: Props) {
               {usedItems.map(item => {
                 return (
                   <a
+                    data-no-turbolink="true"
                     key={`${item.title}--desktop`}
                     href={item.url}
                     className={itemClass(item.url, true)}
