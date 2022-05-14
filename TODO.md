@@ -6,9 +6,6 @@
 - Finish Listing Complex show page
 - Verify all copy (missing for homepage)
 - When listing state "Vendido", delete after 6 months
-- Change order of listings - Novos, Resevado, Vendido
-- Add order to Empreendimentos
-- Add video to Empreendimentos
 - Possibly add Photos to Empreendimentos (Sao marcos vila nova de gaia no google)
 
 ---

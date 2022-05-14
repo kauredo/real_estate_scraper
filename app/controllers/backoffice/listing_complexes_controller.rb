@@ -1,5 +1,6 @@
 class Backoffice::ListingComplexesController < BackofficeController
   before_action :find_listing_complex, except: [:index, :new, :create]
+  after_action :update_video_link, only: [:create, :update]
   include Pagy::Backend
 
   def index
@@ -37,8 +38,13 @@ class Backoffice::ListingComplexesController < BackofficeController
     @listing_complex = ListingComplex.find(params[:id])
   end
 
+  def update_video_link
+    @listing_complex.video_link.sub!('watch?v=', 'embed/') if @listing_complex.video_link.present?
+    @listing_complex.save
+  end
+
   def listing_complex_params
-    params.require(:listing_complex).permit(:name, :description, listing_ids: [])
+    params.require(:listing_complex).permit(:name, :description, :order, :video_link, listing_ids: [])
   end
 end
 

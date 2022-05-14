@@ -22,6 +22,7 @@ export interface ListingByCity {
 export interface ListingComplex {
   id: number;
   name: string;
+  video_link: string;
   description: string;
   listings: Listing[];
 }

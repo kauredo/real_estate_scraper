@@ -21,15 +21,33 @@ task :scrape, [:url] => :environment do |t, args|
     listing.status = status.text.strip if status.present?
 
     # stats
-    listing.stats = @browser.div(class: "key-data").wait_until(&:present?).divs(class: "data-item-row").map do |row|
-      row.text.squish.split(": ")
-    end.to_h
+    count = 0
+    begin
+      listing.stats = @browser.div(class: "key-data").wait_until(&:present?).divs(class: "data-item-row").map do |row|
+        row.text.squish.split(": ")
+      end.to_h
+    rescue => e
+      count+=1
+      retry if count < 3
+    end
 
     # address
-    listing.address = @browser.div(class: "key-address").wait_until(&:present?).text&.squish
+    count = 0
+    begin
+      listing.address = @browser.div(class: "key-address").wait_until(&:present?).text&.squish
+    rescue => e
+      count+=1
+      retry if count < 3
+    end
 
     # features
-    listing.features = @browser.div(class: "features-container").wait_until(&:present?).child(class: "row").children.map(&:text)
+    count = 0
+    begin
+      listing.features = @browser.div(class: "features-container").wait_until(&:present?).child(class: "row").children.map(&:text)
+    rescue => e
+      count+=1
+      retry if count < 3
+    end
 
     # description
     listing.description = @browser.div(class: "listing-details-desc").wait_until(&:present?).text
@@ -78,7 +96,7 @@ task :scrape, [:url] => :environment do |t, args|
     res.each do |imovel|
       url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.first}"
       price = imovel.css('.gallery-price-main').text.strip!.gsub("€", "")[0...-1]
-      next if Listing.where(url: url, price: price).present?
+      next if Listing.unscoped.where(url: url, price: price).present?
 
       begin
         puts "++++++++++++++"

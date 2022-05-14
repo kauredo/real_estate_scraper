@@ -11,7 +11,16 @@ class Backoffice::ListingsController < BackofficeController
   end
 
   def update
-    @listing.update(listing_params)
+    new_params = listing_params.dup
+    if new_params[:status] != @listing.status
+      if new_params[:status] == "Vendido"
+        new_params[:status_changed_at] = Time.zone.now
+      else
+        new_params[:status_changed_at] = nil
+      end
+    end
+
+    @listing.update(new_params)
     redirect_to backoffice_listings_path
   end
 
@@ -26,7 +35,7 @@ class Backoffice::ListingsController < BackofficeController
   end
 
   def listing_params
-    params.require(:listing).permit(:address, :price, :title, :order, :url, :description, :status, :listing_complex_id, features: [], photos: [], stats: {})
+    params.require(:listing).permit(:address, :price, :title, :order, :url, :description, :status, :status_changed_at, :listing_complex_id, features: [], photos: [], stats: {})
   end
 end
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Listing, ListingComplex } from "../utils/Interfaces";
 
 interface Props {
@@ -9,14 +9,32 @@ interface Props {
 export default function Show(props: Props) {
   const { complex, listings } = props;
 
-  return (
-    <div className="relative container mx-auto">
-      <div className="mx-auto w-fit">
+  const header = () => {
+    if (complex.video_link) {
+      return (
+        <iframe
+          id="iframe"
+          style={{ height: "70vh", aspectRatio: "16/9" }}
+          className="w-full mx-auto"
+          src={`${complex.video_link}?autoplay=1&mute=1`}
+          allow="autoplay"
+          frameBorder="0"
+          allowFullScreen
+        ></iframe>
+      );
+    } else {
+      return (
         <img
           style={{ maxHeight: "70vh", objectFit: "contain" }}
           src={listings[0].photos[1]}
         />
-      </div>
+      );
+    }
+  };
+
+  return (
+    <div className="relative container mx-auto">
+      <div className="mx-auto w-fit">{header()}</div>
       <div className="bottom-4 left-4 bold text-large z-50 bg-bordeaux text-white px-4 py-2">
         {complex.name}
       </div>
