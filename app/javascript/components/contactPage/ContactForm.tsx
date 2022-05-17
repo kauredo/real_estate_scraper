@@ -36,7 +36,7 @@ export default function ContectForm() {
       <form
         ref={form}
         onSubmit={e => validateUser(e)}
-        // action={window.Routes.newsletter_subscriptions_path()}
+        action={window.Routes.new_contact_path()}
         method="post"
       >
         <div className="mb-6">

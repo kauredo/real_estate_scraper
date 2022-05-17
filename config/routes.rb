@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "/servicos", to: "pages#services", as: :services
   get "/casa_360", to: "pages#house_360", as: :house_360
   get "/contactos", to: "pages#contact", as: :contact
+  post "/novo_contacto", to: "pages#new_contact", as: :new_contact
   get "/novos", to: "listing_complexes#index", as: :latest
   get "/comprar", to: "listings#buy", as: :buy
   get "/vender", to: "listings#sell", as: :sell

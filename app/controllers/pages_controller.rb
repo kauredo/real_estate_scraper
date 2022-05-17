@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:new_contact]
+
   def home
     @listings = Listing.by_city
     @results = {
@@ -22,5 +24,18 @@ class PagesController < ApplicationController
   end
 
   def contact
+  end
+
+  def new_contact
+    NewContactMailer.with(contact: email_params).new_contact.deliver_now
+
+    flash[:notice] = "Obrigado pela sua mensagem. Entraremos em contacto em breve"
+    redirect_to(contact_path)
+  end
+
+  private
+
+  def email_params
+    params.require(:contact).permit(:name, :email, :phone, :message)
   end
 end

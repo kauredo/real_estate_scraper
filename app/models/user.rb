@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   scope :for_newsletter, -> { where(confirmed_email: true) }
 
-  has_one :newsletter_subscription
+  has_one :newsletter_subscription, dependent: :destroy
 
   def name=(name)
     names = name.split
