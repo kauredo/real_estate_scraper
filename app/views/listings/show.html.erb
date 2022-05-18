@@ -1,2 +1,5 @@
-<% content_for(:title) { @listing.title } %>
+<% content_for(:meta_title) { @listing.title } %>
+<% content_for(:meta_description) { @listing.description.squish } %>
+<% content_for(:meta_image) { @listing.photos.first } %>
+
 <%= react_component "showPage--Show", {listing: @listing}  %>
