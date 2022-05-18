@@ -1,5 +1,5 @@
 meta_product_name: "Sofia Galvão Group"
 meta_title: "Sofia Galvão Group - Juntos criamos Lares Felizes!"
 meta_description: "Juntos criamos Lares Felizes!"
-meta_image: "banner.jpg" # should exist in `app/assets/images/`
+meta_image: "banner_small.jpg" # should exist in `app/public/images/`
 twitter_account: "@sofiagalvaokw"   # required for Twitter Cards
