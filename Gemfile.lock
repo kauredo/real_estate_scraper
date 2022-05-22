@@ -124,6 +124,7 @@ GEM
       railties (>= 4)
     jsbundling-rails (1.0.2)
       railties (>= 6.0.0)
+    jwt (2.3.0)
     loofah (2.16.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -273,6 +274,7 @@ DEPENDENCIES
   jbuilder
   js-routes
   jsbundling-rails
+  jwt
   pagy (~> 5.10)
   paranoia
   pg (~> 1.1)

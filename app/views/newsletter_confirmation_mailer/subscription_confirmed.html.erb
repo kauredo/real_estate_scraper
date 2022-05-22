@@ -1,6 +1,5 @@
 <h1><%= @user.first_name %>, obrigado por ter subscrito à newsletter Sofia Galvão</h1>
 <p>Por favor carregue no botão abaixo para confirmar a subscrição</p>
-
 <div class="flex center">
-  <%= link_to 'Confirmar', confirm_newsletter_subscription_url(@sub), class: "button", target: "_blank" %>
+  <%= link_to 'Confirmar', confirm_newsletter_subscription_url(@sub, token: @token), class: "button", target: "_blank" %>
 </div>
