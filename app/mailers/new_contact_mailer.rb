@@ -5,7 +5,17 @@ class NewContactMailer < ApplicationMailer
     @email = contact[:email]
     @phone = contact[:phone]
     @message = contact[:message]
+    @listing = Listing.find(contact[:listing]) if contact[:listing].present?
+    @complex = ListingComplex.find(contact[:complex]) if contact[:complex].present?
 
-    mail(to: ENV['MAILER_FROM'], subject: "Novo contacto Site - #{@name}")
+    subject = if @listing
+      "Novo contacto para imóvel - #{@name}"
+    elsif @complex
+      "Novo contacto para empreendimento - #{@name}"
+    else
+      "Novo contacto Site - #{@name}"
+    end
+
+    mail(to: ENV['MAILER_FROM'], subject: subject)
   end
 end

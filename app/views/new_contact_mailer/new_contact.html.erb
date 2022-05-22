@@ -1,6 +1,28 @@
-<h1>Novo contacto de <%= @name %></h1>
-<p>Email: <%= @email %></p>
-<p>Telefone: <%= @phone %></p>
-<p>Mensagem:</p>
-<br>
-<p><%= @message %></p>
+<h1>Novo contacto de
+  <%= @name %></h1>
+<p>
+  <strong>Email:</strong>
+  <%= @email %>
+</p>
+<p>
+  <strong>Telefone:</strong>
+  <%= @phone %>
+</p>
+<% if @listing %>
+  <p>
+    <strong>Imóvel:</strong>
+    <%= link_to @listing.title, listing_url(@listing) %>
+  </p>
+<% end %>
+<% if @complex %>
+  <p>
+    <strong>Empreendimento:</strong>
+    <%= link_to @complex.name, listing_complex_url(@complex) %>
+  </p>
+<% end %>
+<p>
+  <strong>Mensagem:</strong>
+</p>
+<p>
+  <%= simple_format(@message) %>
+</p>

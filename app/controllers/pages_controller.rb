@@ -30,12 +30,12 @@ class PagesController < ApplicationController
     NewContactMailer.with(contact: email_params).new_contact.deliver_now
 
     flash[:notice] = "Obrigado pela sua mensagem. Entraremos em contacto em breve"
-    redirect_to(contact_path)
+    redirect_back(fallback_location: contact_path)
   end
 
   private
 
   def email_params
-    params.require(:contact).permit(:name, :email, :phone, :message)
+    params.require(:contact).permit(:name, :email, :phone, :message, :listing, :complex)
   end
 end

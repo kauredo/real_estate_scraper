@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "nuka-carousel";
 import { Listing } from "../utils/Interfaces";
+import ContactForm from "../contactPage/ContactForm";
 
 interface Props {
   listing: Listing;
@@ -30,24 +31,48 @@ export default function Show(props: Props) {
           />
         ))}
       </Carousel>
-      <div className="bottom-4 left-4 bold text-large z-50 bg-bordeaux text-white px-4 py-2">
-        {listing.title}
+      <div className="bottom-4 left-4 font-bold text-large z-50 bg-bordeaux text-white px-4 py-2">
+        <h1 className="standard">{listing.title}</h1>
       </div>
-      <section className="flex justify-between py-8 mx-2 whitespace-pre-line flex-wrap">
-        <div className="p-4 description w-full tablet:w-[calc(50%-1rem)] drop-shadow-lg bg-white m-2 tablet:mx-0">
-          <div className="tablet:mr-2">{listing.description}</div>
+      <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">
+        <div className="col-span-2">
+          <div className="p-4 w-full bg-white m-2 tablet:mx-0">
+            <div className="tablet:mr-2">{listing.description}</div>
+          </div>
+          <div className="p-4 w-full bg-white m-2 tablet:mx-0">
+            <h2 className="standard mb-2 text-lg">Detalhes do Imóvel</h2>
+            <div className="w-full flex flex-wrap">
+              {Object.keys(listing.stats).map((k, v) => {
+                return (
+                  <div key={k} className="border p-2 w-40">
+                    <span className="font-bold">{k}:</span>
+                    <br />
+                    <span>{listing.stats[k]}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="p-4 w-full bg-white m-2 tablet:mx-0 h-fit">
+            <h2 className="standard mb-2 text-lg">Características do Imóvel</h2>
+            <ul
+              className="tablet:ml-2 grid gap-4"
+              style={{
+                gridTemplateColumns: "repeat( auto-fit, minmax(230px, 1fr) )",
+              }}
+            >
+              {listing.features.map(feat => {
+                return (
+                  <li key={feat} className="mx-8 list-disc">
+                    {feat}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
-        <div className="p-4 description w-full tablet:w-[calc(50%-1rem)] drop-shadow-lg bg-white m-2 tablet:mx-0 h-fit">
-          <ul
-            className="tablet:ml-2 grid gap-4"
-            style={{
-              gridTemplateColumns: "repeat( auto-fit, minmax(250px, 1fr) )",
-            }}
-          >
-            {listing.features.map(feat => {
-              return <li className="mx-8 list-disc">{feat}</li>;
-            })}
-          </ul>
+        <div className="col-start-3 p-1">
+          <ContactForm listing={listing} />
         </div>
       </section>
     </div>
