@@ -24,4 +24,8 @@ class User < ApplicationRecord
     self.last_name = last_names.join(' ') if last_names
     self.save
   end
+
+  def name
+    first_name + " " + last_name
+  end
 end

@@ -25,15 +25,6 @@
       </div>
     <% end %>
   </div>
-  <%# Newsletter Subs %>
-  <div class="w-full sm:w-1/2 shadow-md rounded px-8 py-4 mt-4">
-    <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Subscrições à Newsletter</h2>
-    <div class="my-6 field mb-4 flex flex-col flex-wrap sm:flex-row items-center gap-4">
-      <% @subs.each do |sub| %>
-        <span><%= sub.user.email %></span>
-      <% end %>
-    </div>
-  </div>
   <%# Colleagues %>
   <div class="w-full sm:w-1/2 shadow-md rounded px-8 py-4 mt-4">
     <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Colegas</h2>
@@ -57,5 +48,14 @@
         <%= f.submit "Criar", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       </div>
     <% end %>
+  </div>
+  <%# Newsletter Subs %>
+  <div class="w-full sm:w-1/2 shadow-md rounded px-8 py-4 mt-4">
+    <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Subscrições à Newsletter</h2>
+    <div class="my-6 field mb-4 flex flex-col flex-wrap sm:flex-row items-center gap-4">
+      <% @subs.each do |sub| %>
+        <span><%= sub.user.email %></span>
+      <% end %>
+    </div>
   </div>
 </div>
