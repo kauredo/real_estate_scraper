@@ -17,18 +17,19 @@ export default function Profile() {
             Juntos criamos Lares Felizes!
           </h3>
           <p className="hidden md:block pt-6 ">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga
-            libero dolorem cupiditate dolorum temporibus, ea facere recusandae
-            aliquid eaque doloribus optio quam repudiandae officiis sunt nostrum
-            et magnam consectetur quae ratione eum voluptas magni, quasi quia?
-            Ratione corporis quis molestias natus excepturi iure ex debitis,
-            libero enim cum consequuntur. Molestias vero sint esse voluptatibus
-            pariatur magnam quas sequi repellendus quasi tempora suscipit
-            nesciunt dignissimos, facilis expedita impedit! Culpa cumque id
-            dolores similique, corporis nam delectus natus minus itaque,
-            exercitationem tenetur ea incidunt inventore. Expedita blanditiis,
-            vitae natus ipsa nostrum temporibus atque vero libero aliquam
-            suscipit veniam corporis non explicabo maiores.
+            Sou marketer de formação, e criadora de valor por paixão. Trabalhei
+            durante anos com marcas e produtos, no propósito de melhor servir o
+            Cliente e de lhe oferecer não só o que ele necessitava, mas também o
+            que melhor respondia às suas aspirações. Foquei-me nas pessoas e na
+            realização do seu potencial máximo, sou Master em Programação Neuro
+            linguística e acredito na conquista da capacitação para a
+            concretização de objectivos e realização de propósitos de vida.
+            Dediquei-me ao sector imobiliário e exerço na compra e venda de
+            casas a descoberta do activo único: da casa, do cliente, da
+            transação, do serviço. Desenvolvo a consultoria imobiliária com
+            exigência, rigor, profissionalismo e confiança. Tenho o “know how”
+            do mercado e proporciono aos meus Clientes os melhores negócios, os
+            que os fazem mais Felizes!
           </p>
         </div>
       </div>
