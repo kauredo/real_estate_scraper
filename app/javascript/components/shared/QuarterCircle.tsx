@@ -8,6 +8,12 @@ export default function QuarterCircle(props: Props) {
   const { photos } = props;
   const doorRef = useRef(null);
 
+  const removeClass = () => {
+    setTimeout(() => {
+      doorRef.current.classList.remove("moving");
+    }, 1600);
+  };
+
   const changeImage = e => {
     e.preventDefault;
 
@@ -29,7 +35,11 @@ export default function QuarterCircle(props: Props) {
       style={{
         backgroundImage: "url(/images/banner.jpg)",
       }}
-      onMouseOver={e => changeImage(e)}
+      onMouseEnter={() => {
+        doorRef.current.classList.add("moving");
+      }}
+      onMouseLeave={() => removeClass()}
+      onAnimationStart={e => changeImage(e)}
     ></div>
   );
 }

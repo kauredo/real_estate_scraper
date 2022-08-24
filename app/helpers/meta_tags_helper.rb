@@ -1,6 +1,7 @@
 module MetaTagsHelper
   def meta_title
-    content_for?(:meta_title) ? content_for(:meta_title) : DEFAULT_META["meta_title"]
+    request.path_info.include?('backoffice') ? DEFAULT_META["meta_title_backoffice"] :
+      content_for?(:meta_title) ? content_for(:meta_title) : DEFAULT_META["meta_title"]
   end
 
   def meta_description
