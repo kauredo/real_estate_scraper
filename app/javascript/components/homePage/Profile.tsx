@@ -7,7 +7,10 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function Profile() {
   return (
-    <section className="container mx-auto flex flex-col md:flex-row items-center md:items-start justify-between md:min-h-[25rem] max-h-min">
+    <section
+      id="profile"
+      className="container mx-auto flex flex-col md:flex-row items-center md:items-start justify-between md:min-h-[25rem] max-h-min"
+    >
       <div className="px-8 grid md:w-3/5 items-center">
         <div className="h-min py-8 md:pb-2 mx-auto md:pl-12 text-ellipsis overflow-hidden">
           <h1 className="font-medium leading-tight text-5xl mt-0 mb-2">

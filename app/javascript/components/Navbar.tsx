@@ -13,7 +13,7 @@ export default function Navbar(props: Props) {
 
   const itemClass = (path, isMobile) => {
     const base =
-      "whitespace-nowrap hover:bg-bordeaux hover:text-white px-3 py-2 rounded-md font-medium mx-1 ";
+      "whitespace-nowrap hover:bg-bordeaux hover:text-white px-3 py-2 rounded-md font-medium mx-1 lowercase ";
     const mobile = "block text-base ";
     const desktop = "text-sm ";
     const inactive = "text-gray-800 ";
@@ -32,13 +32,13 @@ export default function Navbar(props: Props) {
   };
 
   const items = [
-    { title: "Sobre Nós", url: window.Routes.about_path() },
-    { title: "Novos Empreendimentos", url: window.Routes.latest_path() },
     { title: "Comprar", url: window.Routes.buy_path() },
     { title: "Vender", url: window.Routes.sell_path() },
+    { title: "Novos Empreendimentos", url: window.Routes.latest_path() },
+    { title: "Sobre Nós", url: window.Routes.about_path() },
+    { title: "Contactos", url: window.Routes.contact_path() },
     { title: "Serviços", url: window.Routes.services_path() },
     { title: "Casa 360", url: window.Routes.house_360_path() },
-    { title: "Contactos", url: window.Routes.contact_path() },
   ];
 
   const backofficeItems = [
@@ -71,7 +71,7 @@ export default function Navbar(props: Props) {
                     className="h-40 w-40"
                     // src="/logos/original_sg_black.png"
                     src="/logos/original_black.png"
-                    alt="Workflow"
+                    alt="Sofia Galvão Group Logo"
                   />
                 </a>
               </div>

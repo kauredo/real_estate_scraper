@@ -15,7 +15,10 @@ export default function Results(props: Props) {
   )[0];
 
   return (
-    <section className="container mx-auto flex flex-col sm:flex-row justify-between items-center min-h-[30vh]">
+    <section
+      id="results"
+      className="container mx-auto flex flex-col sm:flex-row justify-between items-center min-h-[30vh]"
+    >
       <div className="text-center w-full sm:w-[40%] mx-auto text-2xl flex flex-col sm:flex-row justify-around items-center flex-wrap">
         {variables.map(variable => {
           return (

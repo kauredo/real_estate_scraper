@@ -24,7 +24,10 @@ export default function Cards({ listings }) {
   };
 
   return (
-    <section className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4">
+    <section
+      id="cards"
+      className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4"
+    >
       <div className="w-full relative flex items-center justify-center">
         <div className="w-full h-full mx-auto overflow-y-hidden">
           <div className="sm:w-min mx-auto flex flex-col sm:flex-row">

@@ -7,7 +7,7 @@ class PagesController < ApplicationController
       listingCount: Listing.all.count,
       variables: Variable.all
     }
-    # render component: 'Home', props: { listings: @listings }, tag: 'span', class: 'todo'
+    @photos = Listing.by_sofia.map(&:photos).map(&:first).uniq
   end
 
   def about
