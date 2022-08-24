@@ -99,3 +99,19 @@ p,
   align-items: center;
   justify-content: center;
 }
+
+#banner > span > h3::before,
+#main-title::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  height: 75%;
+  aspect-ratio: 1;
+  border: 2px solid black;
+  right: 100%;
+  bottom: 0;
+  border-bottom-right-radius: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}

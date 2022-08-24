@@ -14,7 +14,7 @@ export default function Navbar(props: Props) {
   const itemClass = (path, isMobile) => {
     const base =
       "whitespace-nowrap hover:bg-bordeaux hover:text-white px-3 py-2 rounded-md font-medium mx-1 lowercase ";
-    const mobile = "block text-base ";
+    const mobile = "block text-base relative z-3 ";
     const desktop = "text-sm ";
     const inactive = "text-gray-800 ";
     const active = "bg-bordeaux text-white ";
@@ -68,7 +68,7 @@ export default function Navbar(props: Props) {
                   <img
                     // src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     // className="h-16 w-16"
-                    className="h-40 w-40"
+                    className="h-40 w-40 relative z-1"
                     // src="/logos/original_sg_black.png"
                     src="/logos/original_black.png"
                     alt="Sofia Galvão Group Logo"

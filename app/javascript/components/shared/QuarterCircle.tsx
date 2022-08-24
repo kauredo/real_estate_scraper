@@ -18,8 +18,6 @@ export default function QuarterCircle(props: Props) {
     }
 
     setTimeout(() => {
-      console.log(doorRef.current.style.backgroundImage);
-      console.log(random_photo);
       doorRef.current.style.backgroundImage = `url(${random_photo})`;
     }, 600);
   };
