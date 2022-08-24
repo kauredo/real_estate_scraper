@@ -47,6 +47,7 @@ export default function Navbar(props: Props) {
       title: "Empreendimentos",
       url: window.Routes.backoffice_listing_complexes_path(),
     },
+    { title: "Testemunhos", url: window.Routes.backoffice_testimonials_path() },
   ];
 
   const usedItems = backoffice ? backofficeItems : items;
