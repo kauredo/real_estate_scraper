@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ListingByCity, ResultNumbers } from "../utils/Interfaces";
+import { ListingByCity, ResultNumbers, Testimonial } from "../utils/Interfaces";
 import Banner from "../shared/Banner";
 import Newsletter from "./Newsletter";
 import Cards from "./Cards";
@@ -11,10 +11,11 @@ interface Props {
   listings: ListingByCity;
   results: ResultNumbers;
   photos: string[];
+  testimonials: Testimonial[];
 }
 
 export default function Home(props: Props) {
-  const { listings, results, photos } = props;
+  const { listings, results, photos, testimonials } = props;
   const [cardsOffset, setCardsOffset] = useState("-219px");
 
   useLayoutEffect(() => {
@@ -32,7 +33,7 @@ export default function Home(props: Props) {
       {/* <Banner /> */}
       {/* <Profile /> */}
       <Cards listings={listings} />
-      <Results results={results} />
+      <Results results={results} testimonials={testimonials} />
       <Newsletter />
     </>
   );
