@@ -1,15 +1,15 @@
 <%# TODO %>
 <% content_for(:meta_title) { "Sobre Nós" } %>
 <%= react_component "shared--Banner", {height: '20vh', blurred: true, text: "Sobre Nós"} %>
-<%= react_component "homePage--Profile" %>
 <section class="container mx-auto mt-6 mb-12 px-8">
   <div class="pt-6 bg-white text-center md:hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
       <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4">Sobre Nós</h1>
     </div>
   </div>
+  <%= react_component "homePage--Profile" %>
   <div class="py-8 md:pb-0 md:pt-4 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
       <h2 class="block mt-2 text-2xl text-black sm:text-4xl">Quem somos?</h2>
       <p class="mt-4 text-xl text-gray-500 max-w-max">Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.</p>
       <p class="mt-4 text-xl text-gray-500 max-w-max">Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.</p>
