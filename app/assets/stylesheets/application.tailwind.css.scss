@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'AzoSans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("AzoSans-Regular.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'AzoSans-Bold';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("AzoSans-Bold.ttf") format('truetype');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,8 +29,7 @@ body {
 
 h1,
 h2 {
-  font-weight: bold;
-  font-family: "Playfair Display", serif;
+  font-family: "AzoSans";
 }
 
 .quarter ~ * {
@@ -25,12 +39,17 @@ h2 {
 
 h3,
 h4,
-h5,
-p,
-.standard {
-  font-family: "Lato", sans-serif;
+h5 {
+  font-family: "AzoSans-Bold";
   max-width: 60ch;
 }
+
+p,
+.standard {
+  font-family: "AzoSans";
+  max-width: 60ch;
+}
+
 
 *:hover {
   transition: all ease 0.25s;

@@ -1,5 +1,5 @@
 import Carousel from "nuka-carousel";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 import { ResultNumbers, Testimonial } from "../utils/Interfaces";
@@ -20,9 +20,9 @@ export default function Results(props: Props) {
   return (
     <section
       id="results"
-      className="container mx-auto flex flex-col sm:flex-row justify-between items-center min-h-[30vh]"
+      className="container mx-auto flex flex-col justify-between items-center min-h-[30vh] py-8"
     >
-      <div className="text-center w-full sm:w-[40%] mx-auto text-2xl flex flex-col sm:flex-row justify-around items-center flex-wrap">
+      <div className="text-center w-full sm:w-[40%] mx-auto text-2xl flex flex-col sm:flex-row justify-around items-center flex-wrap pb-6">
         {variables.map(variable => {
           return (
             <div

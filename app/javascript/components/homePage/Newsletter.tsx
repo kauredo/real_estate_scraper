@@ -61,7 +61,7 @@ export default function Newsletter() {
               onChange={e => setEmail(e.target.value)}
             />
             <input
-              className="w-4/5 inline-flex text-black py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-gray-100"
+              className="w-4/5 inline-flex text-white py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-bordeaux cursor-pointer"
               required
               type="submit"
               value="Subscrever"
