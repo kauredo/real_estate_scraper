@@ -1,16 +1,16 @@
 @font-face {
-  font-family: 'AzoSans';
+  font-family: "AzoSans";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("AzoSans-Regular.ttf") format('truetype');
+  src: url("AzoSans-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'AzoSans-Bold';
+  font-family: "AzoSans-Bold";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("AzoSans-Bold.ttf") format('truetype');
+  src: url("AzoSans-Bold.ttf") format("truetype");
 }
 
 @tailwind base;
@@ -49,7 +49,6 @@ p,
   font-family: "AzoSans";
   max-width: 60ch;
 }
-
 
 *:hover {
   transition: all ease 0.25s;
