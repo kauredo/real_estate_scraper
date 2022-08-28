@@ -1,4 +1,4 @@
-class Backoffice::TestimonialsController < ApplicationController
+class Backoffice::TestimonialsController < BackofficeController
  before_action :find_testimonial, except: [:index, :new, :create]
 
   def index
