@@ -31,15 +31,21 @@ export default function QuarterCircle(props: Props) {
   return (
     <div
       ref={doorRef}
-      className="quarter h-60 w-60"
+      className={`quarter`}
       style={{
         backgroundImage: "url(/images/banner.jpg)",
       }}
       onMouseEnter={() => {
         doorRef.current.classList.add("moving");
       }}
+      onClick={() => {
+        doorRef.current.classList.add("moving");
+      }}
       onMouseLeave={() => removeClass()}
       onAnimationStart={e => changeImage(e)}
+      onAnimationEnd={() => {
+        doorRef.current.classList.remove("moving");
+      }}
     ></div>
   );
 }

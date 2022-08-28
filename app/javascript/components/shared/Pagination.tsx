@@ -14,7 +14,7 @@ export default function Pagination(props: Props) {
     return (
       <div className="flex items-center justify-center py-4 md:py-10 lg:px-0 sm:px-6 px-4">
         <div className="lg:w-3/5 w-full  flex items-center justify-between border-t border-gray-200">
-          <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-bordeaux cursor-pointer">
+          <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
             {pagy.prev && (
               <>
                 <a href={pagy.prevUrl}>
@@ -59,10 +59,10 @@ export default function Pagination(props: Props) {
           <div className="sm:flex hidden">
             {pagy.series.map(page => {
               let classes =
-                "text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-bordeaux border-t border-transparent hover:border-bordeaux pt-3 mr-4 px-2";
+                "text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-beige border-t border-transparent hover:border-beige pt-3 mr-4 px-2";
               classes =
                 currentPage === page
-                  ? classes + " text-bordeaux border-bordeaux"
+                  ? classes + " text-beige border-beige"
                   : classes;
               return (
                 <a key={`page-${page}`} href={`/comprar?page=${page}`}>
@@ -71,7 +71,7 @@ export default function Pagination(props: Props) {
               );
             })}
           </div>
-          <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-bordeaux cursor-pointer">
+          <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
             {pagy.next && (
               <>
                 <a href={pagy.nextUrl}>

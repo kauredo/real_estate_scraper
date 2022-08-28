@@ -36,7 +36,7 @@ export default function Show(props: Props) {
   return (
     <div className="relative container mx-auto">
       <div className="mx-auto w-fit">{header()}</div>
-      <div className="bottom-4 left-4 font-bold text-large z-50 bg-bordeaux text-white px-4 py-2">
+      <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige text-white px-4 py-2">
         <h1 className="standard">{complex.name}</h1>
       </div>
       <section className="tablet:grid overflow-hidden tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">
@@ -47,7 +47,7 @@ export default function Show(props: Props) {
           <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full bg-white m-2 tablet:mx-0 h-fit">
             <table className="text-sm w-full border-collapse border border-slate-500">
               <thead>
-                <tr className="bg-bordeaux text-white">
+                <tr className="bg-beige text-white">
                   <th className="border border-white border-l-slate-700 p-2">
                     Natureza
                   </th>
@@ -72,7 +72,7 @@ export default function Show(props: Props) {
                     >
                       <td className=" p-2">
                         {listing.status === "Reservado" && (
-                          <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-bordeaux font-bold text-white opacity-50 flex items-center justify-center"></span>
+                          <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white opacity-50 flex items-center justify-center"></span>
                         )}
                         {listing.status === "Vendido" && (
                           <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white opacity-50 flex items-center justify-center"></span>
@@ -96,7 +96,7 @@ export default function Show(props: Props) {
                         <a
                           href={window.Routes.listing_path(listing.id)}
                           target="_blank"
-                          className="relative z-10 whitespace-nowrap bg-transparent hover:bg-bordeaux text-bordeaux font-semibold hover:text-white py-1 px-2 border border-bordeaux hover:border-transparent rounded"
+                          className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
                         >
                           Ver mais
                         </a>

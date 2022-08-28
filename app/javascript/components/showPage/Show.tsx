@@ -31,7 +31,7 @@ export default function Show(props: Props) {
           />
         ))}
       </Carousel>
-      <div className="bottom-4 left-4 font-bold text-large z-50 bg-bordeaux text-white px-4 py-2">
+      <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige text-white px-4 py-2">
         <h1 className="standard">{listing.title}</h1>
       </div>
       <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">

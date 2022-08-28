@@ -16,6 +16,7 @@ class PagesController < ApplicationController
       listingCount: Listing.all.count,
       variables: Variable.all
     }
+    @testimonials = Testimonial.all
   end
 
   def services

@@ -20,22 +20,11 @@ function Banner(props: Props) {
         maxHeight: `${height && "30vh"}`,
       }}
     >
-      {/* {blurred && (
-        <span className="z-3 absolute top-0 bottom-0 left-0 right-0 w-full h-full opacity-80 bg-bordeaux" />
-      )} */}
       {text && (
         <span className="flex justify-center items-center mx-auto container z-4 absolute top-0 bottom-0 left-0 right-0 w-full h-full">
-          <h3 className="relative px-4 font-extrabold tracking-tight leading-tight text-5xl mt-0 mb-2">
-            {text}
-          </h3>
+          <h3 className="relative px-4 text-5xl mt-0 mb-2">{text}</h3>
         </span>
       )}
-      <div
-        className={classes}
-        style={{
-          backgroundImage: "url(/images/banner.jpg)",
-        }}
-      ></div>
     </header>
   );
 }

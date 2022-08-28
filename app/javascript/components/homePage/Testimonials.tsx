@@ -34,17 +34,22 @@ export default function Testimonials(props: Props) {
   };
 
   return (
-    <div className="p-6 text-center w-full mx-auto flex justify-center items-center">
+    <div className="p-6 text-center w-full lg:w-2/3  mx-auto flex justify-center items-center">
       <div className="w-full">
         <h3 className="text-2xl mb-4 mx-auto">Testemunhos</h3>
-        <ul className="overflow-hidden w-full h-full flex lg:gap-8 md:gap-6 items-center justify-start transition ease-out duration-700 my-2">
+        <ul className="w-full h-full flex lg:gap-8 lg:gap-6 items-center justify-start transition ease-out duration-700 my-2">
           <Carousel
             autoplay={slideNumber === 1}
             slidesToShow={slidesToShow()}
             heightMode="max"
             defaultControlsConfig={{
               nextButtonText: "➤",
-              prevButtonStyle: { transform: "rotate(180deg)" },
+              prevButtonStyle: {
+                transform: "rotate(180deg)",
+                left: "-1.5rem",
+                position: "relative",
+              },
+              nextButtonStyle: { right: "-1.5rem", position: "relative" },
               prevButtonText: "➤",
               pagingDotsClassName: "mx-1 hidden sm:block",
             }}
@@ -54,7 +59,6 @@ export default function Testimonials(props: Props) {
                 <li key={`${testimonial.name}--testimonial`} className="p-6">
                   <div className="h-full w-full text-left">
                     <q>{testimonial.text}</q>
-                    {/* <br /> */}
                     <span className="font-bold float-right">
                       - {testimonial.name}
                     </span>

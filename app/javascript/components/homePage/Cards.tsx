@@ -35,9 +35,9 @@ export default function Cards({ listings }) {
               <button
                 key={`${location}-tab`}
                 onClick={() => setSelectedLocation(location)}
-                className={`whitespace-nowrap py-4 px-6 block hover:text-bordeaux hover:border-bordeaux focus:outline-none border-b-2 font-medium ${
+                className={`whitespace-nowrap py-4 px-6 block hover:text-beige hover:border-beige focus:outline-none border-b-2 font-medium ${
                   selectedLocation === location
-                    ? "border-bordeaux text-bordeaux"
+                    ? "border-beige text-beige"
                     : "border-grey text-grey"
                 }`}
               >

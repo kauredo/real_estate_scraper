@@ -2,35 +2,40 @@
 <% content_for(:meta_title) { "Sobre Nós" } %>
 <%= react_component "shared--Banner", {height: '20vh', blurred: true, text: "Sobre Nós"} %>
 <section class="container mx-auto mt-6 mb-12 px-8">
-  <div class="py-6 bg-white">
+<div class="pt-6 bg-white text-center md:hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
+     <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4">Sobre Nós</h1>
+  </div>
+</div>
+  <div class="py-8 md:py-0 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="block mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">Quem somos?</p>
+      <h2 class="block mt-2 text-2xl text-black sm:text-4xl">Quem somos?</h2>
       <p class="mt-4 text-xl text-gray-500 max-w-max">Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.</p>
       <p class="mt-4 text-xl text-gray-500 max-w-max">Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.</p>
     </div>
   </div>
   <iframe id="iframe" style="max-width: 1200px" class="w-full mx-auto" src="https://drive.google.com/file/d/1YTkikQ5EYxKigvTe3bhisxNP2VPE1TA2/preview" allow="autoplay"></iframe>
-  <div class="py-6 bg-white">
+  <div class="py-8 md:py-0 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="block mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">Visão</p>
+      <h2 class="block mt-2 text-2xl text-black sm:text-4xl">Visão</h2>
       <p class="mt-4 text-xl text-gray-500 max-w-max">Proporcionar a cada Cliente o seu melhor negócio. Garantir o constante rigor na selecção e recomendação das melhores oportunidades. Num caminho pautado pela utilização das ferramentas mais modernas bem como das soluções mais abrangentes e inovadoras.</p>
     </div>
   </div>
-  <div class="py-6 bg-white">
+  <div class="py-8 md:py-0 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="block mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">Missão</p>
-      <p class="mt-4 text-xl text-bordeaux font-extrabold max-w-max">Juntos criamos Lares Felizes!</p>
+      <h2 class="block mt-2 text-2xl text-black sm:text-4xl">Missão</h2>
+      <p class="mt-4 text-xl text-beige max-w-max">Juntos criamos Lares Felizes!</p>
       <p class="mt-4 text-xl text-gray-500 max-w-max">
         Só em conjunto e em parceria podemos fazer a diferença, no seu negócio, na sua vida, na sua família.<br/>
         Vendemos casas que em conjunto transformamos em Lares. Consigo e com os nossos parceiros de serviços que colocamos à sua disposição.</p>
     </div>
   </div>
-  <div class="py-6 bg-white">
+  <div class="py-8 md:py-0 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="block mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">Resultados</p>
+      <h2 class="block mt-2 text-2xl text-black sm:text-4xl">Resultados</h2>
     </div>
   </div>
-  <%= react_component "homePage--Results", {results: @results}  %>
+  <%= react_component "homePage--Results", {results: @results, testimonials: @testimonials}  %>
   <script>
     function resizeFrame() {
       const frame = document.getElementById("iframe");
@@ -41,15 +46,3 @@
     window.addEventListener('resize', resizeFrame)
   </script>
 </section>
-<%# <div class="my-10">
-        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-          <div>
-            <dt class="flex items-center">
-              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-bordeaux text-bordeaux">
-                <i class="fas fa-plug" aria-hidden="true"></i>
-              </div>
-              <p class="ml-4 text-lg font-medium text-black w-3/4">Certificação Energética</p>
-            </dt>
-          </div>
-        </dl>
-      </div> %>

@@ -1,16 +1,16 @@
 @font-face {
-  font-family: "AzoSans";
+  font-family: "Exter";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("AzoSans-Regular.ttf") format("truetype");
+  src: url("exter-ultra-bold.ttf") format("truetype");
 }
 @font-face {
-  font-family: "AzoSans-Bold";
+  font-family: "Apparat";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("AzoSans-Bold.ttf") format("truetype");
+  src: url("Apparat-Light.otf") format("truetype");
 }
 
 @tailwind base;
@@ -24,12 +24,13 @@ html {
 body {
   overflow-x: hidden;
   background-color: #f9f9f9;
-  font-family: "Lato", sans-serif;
+  font-family: "Apparat", sans-serif;
 }
 
 h1,
-h2 {
-  font-family: "AzoSans";
+h2,
+#main-title {
+  font-family: "Exter";
 }
 
 .quarter ~ * {
@@ -40,13 +41,13 @@ h2 {
 h3,
 h4,
 h5 {
-  font-family: "AzoSans-Bold";
+  font-family: "Exter";
   max-width: 60ch;
 }
 
 p,
 .standard {
-  font-family: "AzoSans";
+  font-family: "Apparat";
   max-width: 60ch;
 }
 
@@ -84,6 +85,8 @@ p,
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   border-width: 0;
+  height: 35vh;
+  width: 35vh;
   /* overflow: hidden; */
 }
 
@@ -113,6 +116,18 @@ p,
   flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .center-hero {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .quarter {
+    height: 30vh;
+    width: 30vh;
+  }
 }
 
 #banner > span > h3::before,
