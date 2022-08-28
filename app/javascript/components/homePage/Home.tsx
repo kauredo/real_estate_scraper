@@ -33,13 +33,13 @@ export default function Home(props: Props) {
         <Cards listings={listings} />
       </div>
       <div className="relative">
-        <div
+        {/* <div
           id="background-change"
-          className="absolute top-0 bottom-0 left-0 right-0 bg-beige z-[-10]"
+          className="absolute top-0 bottom-0 left-0 right-0 bg-bordeaux z-[-10]"
           style={{
-            top: cardsOffset,
+            // top: cardsOffset,
           }}
-        ></div>
+        ></div> */}
         <Results results={results} />
         <Newsletter />
       </div>

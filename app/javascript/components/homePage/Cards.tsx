@@ -27,7 +27,7 @@ export default function Cards({ listings }) {
     <section className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4">
       <div className="w-full relative flex items-center justify-center">
         <div className="w-full h-full mx-auto overflow-y-hidden">
-          <div className="sm:w-min mx-auto flex flex-col sm:flex-row">
+          <div className="sm:w-min mx-auto flex flex-col sm:flex-row mb-6">
             {locations.map(location => (
               <button
                 key={`${location}-tab`}
@@ -51,6 +51,7 @@ export default function Cards({ listings }) {
                 nextButtonText: "➤",
                 prevButtonStyle: { transform: "rotate(180deg)" },
                 prevButtonText: "➤",
+                pagingDotsContainerClassName: "!top-0",
                 pagingDotsClassName: "mx-1 hidden sm:block",
               }}
             >

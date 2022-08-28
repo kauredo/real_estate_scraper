@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "node esbuild.config.js",
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css.scss -o ./app/assets/builds/application.css --minify"
   },
   "devDependencies": {
     "esbuild-plugin-import-glob": "^0.1.1",

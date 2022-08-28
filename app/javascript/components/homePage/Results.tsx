@@ -1,5 +1,5 @@
 import Carousel from "nuka-carousel";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 import { ResultNumbers } from "../utils/Interfaces";
@@ -14,9 +14,26 @@ export default function Results(props: Props) {
     vari => vari.name.toLowerCase() === "volume de negócios"
   )[0];
 
+  const [slideNumber, setSlideNumber] = useState(1);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize, false);
+    handleResize();
+    return;
+  }, []);
+
+  const handleResize = () => {
+    const windowWidth = Math.floor(window.innerWidth / 412);
+    if (windowWidth == 0) {
+      setSlideNumber(1);
+    } else {
+      setSlideNumber(windowWidth);
+    }
+  };
+
   return (
-    <section className="container mx-auto flex flex-col sm:flex-row justify-between items-center min-h-[30vh]">
-      <div className="text-center w-full sm:w-[40%] mx-auto text-2xl flex flex-col sm:flex-row justify-around items-center flex-wrap">
+    <section className="container mx-auto flex flex-col justify-between items-center min-h-[30vh] py-8">
+      <div className="text-center w-full sm:w-[40%] mx-auto text-2xl flex flex-col sm:flex-row justify-around items-center flex-wrap pb-6">
         {variables.map(variable => {
           return (
             <div
@@ -49,13 +66,15 @@ export default function Results(props: Props) {
           );
         })}
       </div>
-      <div className="p-6 text-center w-full sm:w-2/5 mx-auto flex justify-center items-center">
+      <div className="p-6 text-center w-full mx-auto flex justify-center items-center">
         <div className="w-full">
-          <h3 className="text-2xl mb-4">Testemunhos</h3>
+          <h3 className="text-2xl mb-4 mx-auto">Testemunhos</h3>
           <ul className="overflow-hidden w-full h-full flex lg:gap-8 md:gap-6 items-center justify-start transition ease-out duration-700 my-2">
             <Carousel
               autoplay
-              vertical
+              // vertical
+              autoplay={slideNumber === 1}
+              slidesToShow={slideNumber}
               heightMode="max"
               defaultControlsConfig={{
                 nextButtonText: "➤",

@@ -32,10 +32,10 @@ export default function Navbar(props: Props) {
   };
 
   const items = [
-    { title: "Sobre Nós", url: window.Routes.about_path() },
-    { title: "Novos Empreendimentos", url: window.Routes.latest_path() },
     { title: "Comprar", url: window.Routes.buy_path() },
     { title: "Vender", url: window.Routes.sell_path() },
+    { title: "Novos Empreendimentos", url: window.Routes.latest_path() },
+    { title: "Sobre Nós", url: window.Routes.about_path() },
     { title: "Serviços", url: window.Routes.services_path() },
     { title: "Casa 360", url: window.Routes.house_360_path() },
     { title: "Contactos", url: window.Routes.contact_path() },
