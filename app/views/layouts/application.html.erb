@@ -2,6 +2,7 @@
 <html>
   <head>
     <%= render 'shared/meta_tags' %>
+    <%= yield :extra_meta %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/f01d8e868a.js" crossorigin="anonymous"></script>
