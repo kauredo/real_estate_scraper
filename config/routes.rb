@@ -33,5 +33,6 @@ Rails.application.routes.draw do
     resources :colleagues, only: [:show, :create, :update, :destroy]
     resources :listings, only: [:index, :edit, :update, :destroy]
     resources :listing_complexes
+    resources :testimonials
   end
 end
