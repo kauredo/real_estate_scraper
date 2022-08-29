@@ -32,22 +32,22 @@ export default function Navbar(props: Props) {
   };
 
   const items = [
-    { title: "Comprar", url: window.Routes.buy_path() },
-    { title: "Vender", url: window.Routes.sell_path() },
-    { title: "Novos Empreendimentos", url: window.Routes.latest_path() },
-    { title: "Sobre Nós", url: window.Routes.about_path() },
-    { title: "Contactos", url: window.Routes.contact_path() },
-    { title: "Serviços", url: window.Routes.services_path() },
-    { title: "Casa 360", url: window.Routes.house_360_path() },
+    { title: "Comprar", turbolinks: "true", url: window.Routes.buy_path() },
+    { title: "Vender", turbolinks: "false", url: window.Routes.sell_path() },
+    { title: "Novos Empreendimentos", turbolinks: "true", url: window.Routes.latest_path() },
+    { title: "Sobre Nós", turbolinks: "true", url: window.Routes.about_path() },
+    { title: "Contactos", turbolinks: "true", url: window.Routes.contact_path() },
+    { title: "Serviços", turbolinks: "true", url: window.Routes.services_path() },
+    { title: "Casa 360", turbolinks: "true", url: window.Routes.house_360_path() },
   ];
 
   const backofficeItems = [
-    { title: "Imóveis", url: window.Routes.backoffice_listings_path() },
+    { title: "Imóveis", turbolinks: "true", url: window.Routes.backoffice_listings_path() },
     {
       title: "Empreendimentos",
-      url: window.Routes.backoffice_listing_complexes_path(),
+      turbolinks: "true", url: window.Routes.backoffice_listing_complexes_path(),
     },
-    { title: "Testemunhos", url: window.Routes.backoffice_testimonials_path() },
+    { title: "Testemunhos", turbolinks: "true", url: window.Routes.backoffice_testimonials_path() },
   ];
 
   const usedItems = backoffice ? backofficeItems : items;
@@ -65,7 +65,7 @@ export default function Navbar(props: Props) {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <a data-turbolinks="false" href={window.Routes.root_path()}>
+                <a data-turbolinks="true" href={window.Routes.root_path()}>
                   <img
                     // src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     // className="h-16 w-16"
@@ -82,7 +82,7 @@ export default function Navbar(props: Props) {
                   {usedItems.map(item => {
                     return (
                       <a
-                        data-turbolinks="false"
+                        data-turbolinks={item.turbolinks}
                         key={`${item.title}--desktop`}
                         href={item.url}
                         className={itemClass(item.url, false)}
@@ -155,7 +155,7 @@ export default function Navbar(props: Props) {
               {usedItems.map(item => {
                 return (
                   <a
-                    data-turbolinks="false"
+                    data-turbolinks={item.turbolinks}
                     key={`${item.title}--desktop`}
                     href={item.url}
                     className={itemClass(item.url, true)}

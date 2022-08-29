@@ -18,7 +18,7 @@ export default function Flashes(props: Props) {
 
   return visible ? (
     <div
-      className={`container mx-auto absolute top-0 left-0 right-0 border px-4 py-3 rounded ${
+      className={`container mx-auto absolute top-0 left-0 right-0 z-50 border px-4 py-3 rounded ${
         type === "error"
           ? "bg-red-100 border-red-400 text-red-700 "
           : "bg-blue-100 border-blue-400 text-blue-700 "
