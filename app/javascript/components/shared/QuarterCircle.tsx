@@ -41,7 +41,6 @@ export default function QuarterCircle(props: Props) {
       onClick={() => {
         doorRef.current.classList.add("moving");
       }}
-      onMouseLeave={() => removeClass()}
       onAnimationStart={e => changeImage(e)}
       onAnimationEnd={() => {
         doorRef.current.classList.remove("moving");
