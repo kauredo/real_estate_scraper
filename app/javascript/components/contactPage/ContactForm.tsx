@@ -42,7 +42,7 @@ export default function ContactForm(props: Props) {
     >
       <p className="text-base text-body-color leading-relaxed mb-9">
         {listing || complex
-          ? "Precisa de mais informação? Quer marcar uma visita? Entre em contacto conosco!"
+          ? "Precisa de mais informação? Quer agendar uma visita? Entre em contacto connosco!"
           : "Preencha o formulário e entraremos em contacto consigo:"}
 
         {error && (

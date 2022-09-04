@@ -44,13 +44,15 @@ export default function Show(props: Props) {
       <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">
         <div className="col-span-2">
           <div className="p-4 w-full bg-white m-2 tablet:mx-0">
-            <div className="tablet:mr-2">{listing.description}</div>
-          </div>
-          <div className="p-4 w-full bg-white m-2 tablet:mx-0">
             <h2 className="standard mb-2 text-lg font-bold">
               Detalhes do Imóvel
             </h2>
             <div className="w-full flex flex-wrap">
+              <div key={"price"} className="border p-2 w-40">
+                <span className="font-bold">{"Preço"}:</span>
+                <br />
+                <span>{listing.price}€</span>
+              </div>
               {Object.keys(listing.stats).map((k, v) => {
                 return (
                   <div key={k} className="border p-2 w-40">
@@ -61,6 +63,9 @@ export default function Show(props: Props) {
                 );
               })}
             </div>
+          </div>
+          <div className="p-4 w-full bg-white m-2 tablet:mx-0">
+            <div className="tablet:mr-2">{listing.description}</div>
           </div>
           <div className="p-4 w-full bg-white m-2 tablet:mx-0 h-fit">
             <h2 className="standard mb-2 text-lg font-bold">

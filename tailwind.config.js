@@ -7,6 +7,11 @@ module.exports = {
     "./app/javascript/**/*.tsx",
   ],
   theme: {
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+    },
     extend: {
       colors: {
         beige: "#d3af79",

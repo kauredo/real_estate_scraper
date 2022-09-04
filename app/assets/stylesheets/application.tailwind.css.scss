@@ -13,9 +13,9 @@
   src: url("Apparat-Light.otf") format("truetype");
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 html {
   scroll-behavior: smooth;

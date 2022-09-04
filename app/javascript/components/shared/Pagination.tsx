@@ -62,7 +62,7 @@ export default function Pagination(props: Props) {
                 "text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-beige border-t border-transparent hover:border-beige pt-3 mr-4 px-2";
               classes =
                 currentPage === page
-                  ? classes + " text-beige border-beige"
+                  ? classes + " !text-beige !border-beige"
                   : classes;
               return (
                 <a key={`page-${page}`} href={`/comprar?page=${page}`}>

@@ -28,6 +28,15 @@ class PagesController < ApplicationController
   def contact
   end
 
+  def kw
+  end
+
+  def privacy
+  end
+
+  def terms_and_conditions
+  end
+
   def new_contact
     NewContactMailer.with(contact: email_params).new_contact.deliver_later
 

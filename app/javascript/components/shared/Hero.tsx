@@ -25,10 +25,24 @@ function Hero(props: Props) {
           </h2>
         </div>
       </div>
-      <div className="absolute bottom-5 left-0 right-0 center">
-        <a href="#cards">
-          <i className="fas fa-arrow-down"></i>
-        </a>
+      <div className="relative bottom-5 left-0 right-0 center">
+        <div className="flex justify-center">
+          <a href={window.Routes.buy_path()}>
+            <div className="px-5">
+              <p>comprar</p>
+            </div>
+          </a>
+          <a href={window.Routes.sell_path()} data-turbolinks={false}>
+            <div className="px-5">
+              <p>vender</p>
+            </div>
+          </a>
+          <a href="#cards">
+            <div className="px-5">
+              <i className="fas fa-arrow-down"></i>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
   );

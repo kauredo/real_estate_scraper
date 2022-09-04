@@ -19,9 +19,12 @@
     <%= favicon_link_tag '/favicons/favicon.ico' %>
   </head>
   <body>
-    <%= render 'shared/flashes' %>
-    <%= react_component "Navbar", { admin: current_admin.present? } %>
-    <%= yield %>
-    <%= render 'shared/cta' %>
+    <div class="relative min-h-[100vh] h-full">
+      <%= render 'shared/flashes' %>
+      <%= react_component "Navbar", { admin: current_admin.present? } %>
+      <%= yield %>
+      <%= render 'shared/cta' %>
+      <%= react_component "Footer" %>
+    </div>
   </body>
 </html>

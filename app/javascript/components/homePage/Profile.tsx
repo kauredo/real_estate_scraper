@@ -20,7 +20,7 @@ export default function Profile() {
             Juntos criamos Lares Felizes!
           </h3>
           <p className="mt-4 text-xl text-gray-500 max-w-2/3">
-            Sou marketer de formação, e criadora de valor por paixão. Trabalhei
+            Sou markeeter de formação e criadora de valor por paixão. Trabalhei
             durante anos com marcas e produtos, no propósito de melhor servir o
             Cliente e de lhe oferecer não só o que ele necessitava, mas também o
             que melhor respondia às suas aspirações. Foquei-me nas pessoas e na
@@ -29,7 +29,8 @@ export default function Profile() {
             concretização de objectivos e realização de propósitos de vida.
             Dediquei-me ao sector imobiliário e exerço na compra e venda de
             casas a descoberta do activo único: da casa, do cliente, da
-            transação, do serviço. Desenvolvo a consultoria imobiliária com
+            transação, do serviço. Encontrei na KW a estrutura certa para
+            desenvolver a consultoria imobiliária do Sofia Galvão Group com
             exigência, rigor, profissionalismo e confiança. Tenho o “know how”
             do mercado e proporciono aos meus Clientes os melhores negócios, os
             que os fazem mais Felizes!
