@@ -1,38 +1,39 @@
 <%# TODO %>
-<% content_for(:meta_title) { "Sobre Nós" } %>
-<%= react_component "shared--Banner", {height: '20vh', blurred: true, text: "Sobre Nós"} %>
+<% meta_title = I18n.t("about.header") %>
+<% content_for(:meta_title) { meta_title } %>
+<%= react_component "shared--Banner", {height: '20vh', blurred: true, text: meta_title} %>
 <section class="container mx-auto mt-6 mb-12 px-8">
   <div class="pt-6 bg-white text-center md:hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
-      <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4">Sobre Nós</h1>
+      <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4"><%= t("about.header") %></h1>
     </div>
   </div>
   <%= react_component "homePage--Profile" %>
   <div class="py-8 md:pb-0 md:pt-4 bg-white">
     <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
-      <h2 class="block mt-2 text-2xl text-black sm:text-4xl">Quem somos?</h2>
-      <p class="mt-4 text-xl text-gray-500 max-w-max">Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.</p>
-      <p class="mt-4 text-xl text-gray-500 max-w-max">Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.</p>
+      <h2 class="block mt-2 text-2xl text-black sm:text-4xl"><%= t("about.who.title") %></h2>
+      <p class="mt-4 text-xl text-gray-500 max-w-max"><%= t("about.who.sub1") %></p>
+      <p class="mt-4 text-xl text-gray-500 max-w-max"><%= t("about.who.sub2") %></p>
     </div>
   </div>
   <iframe id="iframe" style="max-width: 1200px" class="w-full mx-auto" src="https://drive.google.com/file/d/1YTkikQ5EYxKigvTe3bhisxNP2VPE1TA2/preview" allow="autoplay"></iframe>
   <div class="py-8 md:pb-0 md:pt-4 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="block mt-2 text-2xl text-black sm:text-4xl">Missão</h2>
+      <h2 class="block mt-2 text-2xl text-black sm:text-4xl"><%= t("about.mission.title") %></h2>
       <p class="mt-4 text-xl text-gray-500 max-w-max">
-        Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!</p>
+        <%= t("about.mission.sub1") %></p>
     </div>
   </div>
   <div class="py-8 md:pb-0 md:pt-4 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="block mt-2 text-2xl text-black sm:text-4xl">Visão</h2>
-      <p class="mt-4 text-xl text-gray-500 max-w-max">Ser a equipa preferida pelos clientes que querem comprar ou vender imobiliário nas zonas de Lisboa e do Porto, graças ao nosso profissionalismo, à nossa capacidade de gerar bons negócios e aos valores que professamos no dia a dia.</p>
-      <p class="mt-4 text-xl text-beige max-w-max">Juntos criamos Lares Felizes!</p>
+      <h2 class="block mt-2 text-2xl text-black sm:text-4xl"><%= t("about.vision.title") %></h2>
+      <p class="mt-4 text-xl text-gray-500 max-w-max"><%= t("about.vision.sub1") %></p>
+      <p class="mt-4 text-xl text-beige max-w-max"><%= t("about.vision.sub2") %></p>
     </div>
   </div>
   <div class="py-8 md:pb-0 md:pt-4 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="block mt-2 text-2xl text-black sm:text-4xl">Resultados</h2>
+      <h2 class="block mt-2 text-2xl text-black sm:text-4xl"><%= t("about.results.title") %></h2>
     </div>
   </div>
   <%= react_component "homePage--Results", {results: @results, testimonials: @testimonials}  %>
