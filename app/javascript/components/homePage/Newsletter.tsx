@@ -35,6 +35,11 @@ export default function Newsletter() {
         <p className="mb-8 leading-relaxed mx-2 tablet:mr-4">
           Subscreva a nossa newsletter e fique a par das mais recentes
           oportunidades, noticias e dicas do mercado.
+          <span className="flex items-center font-medium tracking-wide text-beige text-xs">
+            Ao pedir informações está a autorizar o Sofia Galvão Group a guardar
+            os seus dados para o informar sobre oportunidades de negócio, de
+            acordo com a Política de Privacidade.
+          </span>
         </p>
         <form
           ref={form}

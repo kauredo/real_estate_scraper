@@ -75,10 +75,18 @@ export default function Footer() {
           </ul>
         </div>
         <hr className="my-6 border-white sm:mx-auto lg:my-8" />
-        <div className="sm:flex justify-between tablet:justify-start tablet:items-center ">
-          <span className="text-sm text-white sm:text-center tablet:pr-6">
-            © 2022 Sofia Galvão Group. All Rights Reserved.
-          </span>
+        <div className="sm:flex justify-between tablet:justify-start items-center ">
+          <div className="tablet:pr-4">
+            <p className="text-sm text-white">
+              © 2022 Sofia Galvão Group. All Rights Reserved.
+            </p>
+            <p className="text-sm text-white">
+              KW Lead Santos - Av Dom Carlos I, 124J - Santos, Lisboa
+            </p>
+            <p className="text-sm text-white">
+              Agent Centric Mediação Imobiliária, Lda - AMI 12518
+            </p>
+          </div>
           <div className="flex mt-4 space-x-4 sm:justify-center sm:mt-0">
             {items.map(item => {
               return (

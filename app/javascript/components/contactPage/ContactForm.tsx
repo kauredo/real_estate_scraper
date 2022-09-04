@@ -40,11 +40,16 @@ export default function ContactForm(props: Props) {
           : "relative rounded-lg shadow-lg")
       }
     >
-      <p className="text-base text-body-color leading-relaxed mb-9">
+      <p className="text-base text-body-color leading-relaxed mb-9 ">
         {listing || complex
           ? "Precisa de mais informação? Quer agendar uma visita? Entre em contacto connosco!"
           : "Preencha o formulário e entraremos em contacto consigo:"}
 
+        <span className="flex items-center font-medium tracking-wide text-beige text-xs mt-1 ml-1">
+          Ao pedir informações está a autorizar o Sofia Galvão Group a guardar
+          os seus dados para o informar sobre oportunidades de negócio, de
+          acordo com a Política de Privacidade.
+        </span>
         {error && (
           <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
             {error}
