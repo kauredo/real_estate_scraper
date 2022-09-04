@@ -1,7 +1,7 @@
 <div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
   <%# Variáveis %>
   <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
-    <%= link_to 'Novo Empreendedimento', new_backoffice_listing_complex_path(), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    <%= link_to 'Novo Empreendedimento', new_backoffice_listing_complex_path({locale: I18n.locale}), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
     <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Empreendimentos</h2>
     <%= react_component "indexPage--Complexes", { listingComplexes: @listing_complexes, allListings: Listing.all, backoffice: true }  %>
   </div>

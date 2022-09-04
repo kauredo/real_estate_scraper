@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
+import { i18n } from "../languages/languages";
+import { sanitizeURL } from "./utils/Functions";
 
 interface Props {
   backoffice?: boolean;
@@ -32,28 +34,40 @@ export default function Navbar(props: Props) {
   };
 
   const items = [
-    { title: "Comprar", turbo: "true", url: window.Routes.buy_path() },
-    { title: "Vender", turbo: "false", url: window.Routes.sell_path() },
     {
-      title: "Empreendimentos",
+      title: `${i18n.t("navbar.buy")}`,
       turbo: "true",
-      url: window.Routes.latest_path(),
-    },
-    { title: "Sobre Nós", turbo: "true", url: window.Routes.about_path() },
-    {
-      title: "Contactos",
-      turbo: "true",
-      url: window.Routes.contact_path(),
+      url: sanitizeURL(window.Routes.buy_path),
     },
     {
-      title: "Serviços",
-      turbo: "true",
-      url: window.Routes.services_path(),
+      title: `${i18n.t("navbar.sell")}`,
+      turbo: "false",
+      url: sanitizeURL(window.Routes.sell_path),
     },
     {
-      title: "Casa 360",
+      title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
-      url: window.Routes.house_360_path(),
+      url: sanitizeURL(window.Routes.latest_path),
+    },
+    {
+      title: `${i18n.t("navbar.about")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.about_path),
+    },
+    {
+      title: `${i18n.t("navbar.contacts")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.contact_path),
+    },
+    {
+      title: `${i18n.t("navbar.services")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.services_path),
+    },
+    {
+      title: `${i18n.t("navbar.home_360")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.house_360_path),
     },
     {
       title: "Powered by ",
@@ -65,7 +79,7 @@ export default function Navbar(props: Props) {
         />
       ),
       turbo: "true",
-      url: window.Routes.kw_path(),
+      url: sanitizeURL(window.Routes.kw_path),
     },
   ];
 
@@ -73,17 +87,17 @@ export default function Navbar(props: Props) {
     {
       title: "Imóveis",
       turbo: "true",
-      url: window.Routes.backoffice_listings_path(),
+      url: sanitizeURL(window.Routes.backoffice_listings_path),
     },
     {
       title: "Empreendimentos",
       turbo: "true",
-      url: window.Routes.backoffice_listing_complexes_path(),
+      url: sanitizeURL(window.Routes.backoffice_listing_complexes_path),
     },
     {
       title: "Testemunhos",
       turbo: "true",
-      url: window.Routes.backoffice_testimonials_path(),
+      url: sanitizeURL(window.Routes.backoffice_testimonials_path),
     },
   ];
 
@@ -92,7 +106,7 @@ export default function Navbar(props: Props) {
   admin &&
     usedItems.push({
       title: "Backoffice",
-      url: window.Routes.backoffice_path(),
+      url: sanitizeURL(window.Routes.backoffice_path),
       turbo: "true",
     });
 
@@ -103,7 +117,10 @@ export default function Navbar(props: Props) {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <a data-turbo="true" href={window.Routes.root_path()}>
+                <a
+                  data-turbo="true"
+                  href={sanitizeURL(window.Routes.root_path)}
+                >
                   <img
                     // src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     // className="h-16 w-16"
@@ -134,7 +151,7 @@ export default function Navbar(props: Props) {
               </div>
             </div>
             <div className="-mr-2 flex tablet:hidden">
-              <a href={window.Routes.sell_path()} data-turbo={false}>
+              <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
                 <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
                   <p>Avalie casa</p>
                 </div>

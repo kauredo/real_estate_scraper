@@ -29,7 +29,41 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
+pt:
+  navbar:
+    buy: Comprar
+    sell: Vender
+    enterprises: Empreendimentos
+    about: Sobre Nós
+    contacts: Contactos
+    services: Serviços
+    home_360: Casa 360
+  footer:
+    about: sobre nós
+    privacy: política de privacidade
+    terms: termos e condições
+    contacts: contactos
+  sell:
+    header: Vender
+    subheader: Saiba quanto vale a sua casa
+    paragraph:
+      top: Garantimos o melhor negócio para a venda da sua casa.
+      middle: Oferecemos um serviço de consultoria que trabalha de forma única e à medida do que pretende, com foco na estratégia de promoção, divulgação e na melhor negociação.
+      bottom: "O nosso objectivo é encontrar o melhor Cliente no mais breve tempo possível e para isso disponibilizamos:"
+    list:
+      market: Estudo do Mercado - elaboração de analises comparativas de Mercado e relatórios de caracterização da zona a considerar.
+      eval: Avaliação certificada do imóvel.
+      warranty: Garantia de implementação de processos e procedimentos regulados pelo sector.
+      media: "Produção Multimédia: Reportagem fotográfica+vídeo."
+      kw: Acesso exclusivo a toda a rede Nacional KW.
+      agencies: Partilha da venda com todas as agências do mercado.
+      portal: Divulgação nos mais relevantes portais imobiliários nacionais e internacionais.
+      socials: Divulgação Social Media.
+      promo: Utilização de placas de promoção.
+      open: Realização de Open House.
+      flyer: "Acções de proximidade: Flyers; brochuras; newsletters."
+      feedback: Feedback detalhado e regular.
+    exclusive: Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um acompanhamento de proximidade ao longo de todo o processo.
   about:
     header: Sobre Nós
     who:
@@ -45,3 +79,5 @@ en:
       sub2: Juntos criamos Lares Felizes!
     results:
       title: Resultados
+    testimonies:
+      title: Testemunhos

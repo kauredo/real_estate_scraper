@@ -111,10 +111,15 @@ GEM
       railties (>= 3.2)
     erubi (1.12.0)
     execjs (2.8.1)
+    ffi (1.15.5)
+    glob (0.3.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    i18n-js (4.0.1)
+      glob
+      i18n
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
@@ -127,9 +132,12 @@ GEM
       railties (>= 6.0.0)
     json (2.6.3)
     jwt (2.5.0)
-    loofah (2.19.1)
+    listen (3.7.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
+    loofah (2.19.1)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
@@ -198,6 +206,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.4)
       loofah (~> 2.19, >= 2.19.1)
+    rails-i18n (7.0.5)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (7.0.4)
       actionpack (= 7.0.4)
       activesupport (= 7.0.4)
@@ -207,6 +218,9 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    rb-fsevent (0.11.2)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     react-rails (2.6.2)
       babel-transpiler (>= 0.7.0)
       connection_pool
@@ -301,10 +315,12 @@ DEPENDENCIES
   debug
   devise (~> 4.8)
   dotenv-rails
+  i18n-js
   jbuilder
   js-routes
   jsbundling-rails
   jwt
+  listen (~> 3.7, >= 3.7.1)
   pagy (~> 5.10)
   paranoia
   pg (~> 1.4)
@@ -312,6 +328,7 @@ DEPENDENCIES
   pry-byebug
   puma (~> 5.6)
   rails (= 7.0.4)
+  rails-i18n
   react-rails
   redis
   rubocop

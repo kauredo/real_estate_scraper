@@ -4,6 +4,8 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { i18n } from "../languages/languages";
+import { sanitizeURL } from "./utils/Functions";
 
 export default function Footer() {
   const items = [
@@ -42,34 +44,34 @@ export default function Footer() {
           <ul className="flex flex-wrap items-center text-sm text-gray-500">
             <li>
               <a
-                href={window.Routes.about_path()}
+                href={sanitizeURL(window.Routes.about_path)}
                 className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6 "
               >
-                sobre nós
+                {i18n.t("footer.about")}
               </a>
             </li>
             <li>
               <a
-                href={window.Routes.privacy_path()}
+                href={sanitizeURL(window.Routes.privacy_path)}
                 className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6"
               >
-                política de privacidade
+                {i18n.t("footer.privacy")}
               </a>
             </li>
             <li>
               <a
-                href={window.Routes.terms_and_conditions_path()}
+                href={sanitizeURL(window.Routes.terms_and_conditions_path)}
                 className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6 "
               >
-                termos e condições
+                {i18n.t("footer.terms")}
               </a>
             </li>
             <li>
               <a
-                href={window.Routes.contact_path()}
+                href={sanitizeURL(window.Routes.contact_path)}
                 className="hover:underline text-white hover:text-gray-100"
               >
-                contactos
+                {i18n.t("footer.contacts")}
               </a>
             </li>
           </ul>

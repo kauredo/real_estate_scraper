@@ -1,6 +1,6 @@
 <div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
   <%# Variáveis %>
-  <%= link_to 'Novo Testemunho', new_backoffice_testimonial_path(), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  <%= link_to 'Novo Testemunho', new_backoffice_testimonial_path({locale: I18n.locale}), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
   <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
     <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Testemunhos</h2>
     <% @testimonials.map do |testimonial| %>

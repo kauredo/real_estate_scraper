@@ -30,4 +30,54 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  navbar:
+    buy: Buy
+    sell: Sell
+    enterprises: Enterprises
+    about: About Us
+    contacts: Contacts
+    services: Services
+    home_360: Home 360
+  footer:
+    about: about us
+    privacy: privacy policy
+    terms: terms and conditions
+    contacts: contacts
+  sell:
+    header: Sell
+    subheader: Find out how much your home is worth.
+    paragraph:
+      top: We guarantee the best deal for your home.
+      middle: We offer a consulting service that works in a unique way and is tailored to what you want - focusing on the strategy of promotion, dissemination and our best negotiation.
+      bottom: "Our aim is to find the best Client in the shortest amount of time and for that we offer:"
+    list:
+      market: Market Research - preparation of comparative market analysis and characterisation reports of the area under consideration.
+      eval: Certified valuation of the property.
+      warranty: Ensuring implementation of industry regulated processes and procedures.
+      media: "Multimedia Production: Photo + video coverage."
+      kw: Exclusive access to the entire KW PT network.
+      agencies: Sharing the sale with all agencies in the market.
+      portal: Disclosure in the most relevant national and international real estate portals.
+      socials: Social Media Outreach.
+      promo: Use of promo boards.
+      open: Open House.
+      flyer: "Proximity actions: Flyers; brochures; newsletters."
+      feedback: Detailed and regular feedback.
+    exclusive: We work on your home with exclusivity, dedication and provide close monitoring throughout the entire process.
+  about:
+    header: About Us
+    who:
+      title: Who are we?
+      sub1: Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.
+      sub2: Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.
+    mission:
+      title: Mission
+      sub1: Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!
+    vision:
+      title: Vision
+      sub1: Ser a equipa preferida pelos clientes que querem comprar ou vender imobiliário nas zonas de Lisboa e do Porto, graças ao nosso profissionalismo, à nossa capacidade de gerar bons negócios e aos valores que professamos no dia a dia.
+      sub2: Juntos criamos Lares Felizes!
+    results:
+      title: Results
+    testimonies:
+      title: Testimonies

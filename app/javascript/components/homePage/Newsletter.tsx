@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { i18n } from "../../languages/languages";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -44,7 +45,9 @@ export default function Newsletter() {
         <form
           ref={form}
           onSubmit={e => validateUser(e)}
-          action={window.Routes.newsletter_subscriptions_path()}
+          action={window.Routes.newsletter_subscriptions_path({
+            locale: i18n.locale,
+          })}
           method="post"
           // className="w-full mx-2 tablet:mr-4"
         >

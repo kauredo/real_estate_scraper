@@ -1,0 +1,823 @@
+{
+  "en": {
+    "about": {
+      "header": "About Us",
+      "mission": {
+        "sub1": "Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!",
+        "title": "Mission"
+      },
+      "results": {
+        "title": "Results"
+      },
+      "testimonies": {
+        "title": "Testimonies"
+      },
+      "vision": {
+        "sub1": "Ser a equipa preferida pelos clientes que querem comprar ou vender imobiliário nas zonas de Lisboa e do Porto, graças ao nosso profissionalismo, à nossa capacidade de gerar bons negócios e aos valores que professamos no dia a dia.",
+        "sub2": "Juntos criamos Lares Felizes!",
+        "title": "Vision"
+      },
+      "who": {
+        "sub1": "Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
+        "sub2": "Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
+        "title": "Who are we?"
+      }
+    },
+    "date": {
+      "abbr_day_names": [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "abbr_month_names": [
+        null,
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      "day_names": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "formats": {
+        "default": "%Y-%m-%d",
+        "long": "%B %d, %Y",
+        "short": "%b %d"
+      },
+      "month_names": [
+        null,
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      "order": [
+        "year",
+        "month",
+        "day"
+      ]
+    },
+    "datetime": {
+      "distance_in_words": {
+        "about_x_hours": {
+          "one": "about 1 hour",
+          "other": "about %{count} hours"
+        },
+        "about_x_months": {
+          "one": "about 1 month",
+          "other": "about %{count} months"
+        },
+        "about_x_years": {
+          "one": "about 1 year",
+          "other": "about %{count} years"
+        },
+        "almost_x_years": {
+          "one": "almost 1 year",
+          "other": "almost %{count} years"
+        },
+        "half_a_minute": "half a minute",
+        "less_than_x_minutes": {
+          "one": "less than a minute",
+          "other": "less than %{count} minutes"
+        },
+        "less_than_x_seconds": {
+          "one": "less than 1 second",
+          "other": "less than %{count} seconds"
+        },
+        "over_x_years": {
+          "one": "over 1 year",
+          "other": "over %{count} years"
+        },
+        "x_days": {
+          "one": "1 day",
+          "other": "%{count} days"
+        },
+        "x_minutes": {
+          "one": "1 minute",
+          "other": "%{count} minutes"
+        },
+        "x_months": {
+          "one": "1 month",
+          "other": "%{count} months"
+        },
+        "x_seconds": {
+          "one": "1 second",
+          "other": "%{count} seconds"
+        },
+        "x_years": {
+          "one": "1 year",
+          "other": "%{count} years"
+        }
+      },
+      "prompts": {
+        "day": "Day",
+        "hour": "Hour",
+        "minute": "Minute",
+        "month": "Month",
+        "second": "Second",
+        "year": "Year"
+      }
+    },
+    "devise": {
+      "confirmations": {
+        "confirmed": "Your email address has been successfully confirmed.",
+        "send_instructions": "You will receive an email with instructions for how to confirm your email address in a few minutes.",
+        "send_paranoid_instructions": "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      },
+      "failure": {
+        "already_authenticated": "You are already signed in.",
+        "inactive": "Your account is not activated yet.",
+        "invalid": "Invalid %{authentication_keys} or password.",
+        "last_attempt": "You have one more attempt before your account is locked.",
+        "locked": "Your account is locked.",
+        "not_found_in_database": "Invalid %{authentication_keys} or password.",
+        "timeout": "Your session expired. Please sign in again to continue.",
+        "unauthenticated": "You need to sign in or sign up before continuing.",
+        "unconfirmed": "You have to confirm your email address before continuing."
+      },
+      "mailer": {
+        "confirmation_instructions": {
+          "subject": "Confirmation instructions"
+        },
+        "email_changed": {
+          "subject": "Email Changed"
+        },
+        "password_change": {
+          "subject": "Password Changed"
+        },
+        "reset_password_instructions": {
+          "subject": "Reset password instructions"
+        },
+        "unlock_instructions": {
+          "subject": "Unlock instructions"
+        }
+      },
+      "omniauth_callbacks": {
+        "failure": "Could not authenticate you from %{kind} because \"%{reason}\".",
+        "success": "Successfully authenticated from %{kind} account."
+      },
+      "passwords": {
+        "no_token": "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.",
+        "send_instructions": "You will receive an email with instructions on how to reset your password in a few minutes.",
+        "send_paranoid_instructions": "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.",
+        "updated": "Your password has been changed successfully. You are now signed in.",
+        "updated_not_active": "Your password has been changed successfully."
+      },
+      "registrations": {
+        "destroyed": "Bye! Your account has been successfully cancelled. We hope to see you again soon.",
+        "signed_up": "Welcome! You have signed up successfully.",
+        "signed_up_but_inactive": "You have signed up successfully. However, we could not sign you in because your account is not yet activated.",
+        "signed_up_but_locked": "You have signed up successfully. However, we could not sign you in because your account is locked.",
+        "signed_up_but_unconfirmed": "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.",
+        "update_needs_confirmation": "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address.",
+        "updated": "Your account has been updated successfully.",
+        "updated_but_not_signed_in": "Your account has been updated successfully, but since your password was changed, you need to sign in again."
+      },
+      "sessions": {
+        "already_signed_out": "Signed out successfully.",
+        "signed_in": "Signed in successfully.",
+        "signed_out": "Signed out successfully."
+      },
+      "unlocks": {
+        "send_instructions": "You will receive an email with instructions for how to unlock your account in a few minutes.",
+        "send_paranoid_instructions": "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.",
+        "unlocked": "Your account has been unlocked successfully. Please sign in to continue."
+      }
+    },
+    "flash": {
+      "actions": {
+        "create": {
+          "notice": "%{resource_name} was successfully created."
+        },
+        "destroy": {
+          "alert": "%{resource_name} could not be destroyed.",
+          "notice": "%{resource_name} was successfully destroyed."
+        },
+        "update": {
+          "notice": "%{resource_name} was successfully updated."
+        }
+      }
+    },
+    "footer": {
+      "about": "about us",
+      "contacts": "contacts",
+      "privacy": "privacy policy",
+      "terms": "terms and conditions"
+    },
+    "helpers": {
+      "select": {
+        "prompt": "Please select"
+      },
+      "submit": {
+        "create": "Create %{model}",
+        "submit": "Save %{model}",
+        "update": "Update %{model}"
+      }
+    },
+    "i18n": {
+      "plural": {
+        "keys": [
+          "one",
+          "other"
+        ],
+        "rule": "#<Proc:0x000000010b04f158 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      }
+    },
+    "navbar": {
+      "about": "About Us",
+      "buy": "Buy",
+      "contacts": "Contacts",
+      "enterprises": "Enterprises",
+      "home_360": "Home 360",
+      "sell": "Sell",
+      "services": "Services"
+    },
+    "number": {
+      "currency": {
+        "format": {
+          "delimiter": ",",
+          "format": "%u%n",
+          "precision": 2,
+          "separator": ".",
+          "significant": false,
+          "strip_insignificant_zeros": false,
+          "unit": "$"
+        }
+      },
+      "format": {
+        "delimiter": ",",
+        "precision": 3,
+        "round_mode": "default",
+        "separator": ".",
+        "significant": false,
+        "strip_insignificant_zeros": false
+      },
+      "human": {
+        "decimal_units": {
+          "format": "%n %u",
+          "units": {
+            "billion": "Billion",
+            "million": "Million",
+            "quadrillion": "Quadrillion",
+            "thousand": "Thousand",
+            "trillion": "Trillion",
+            "unit": ""
+          }
+        },
+        "format": {
+          "delimiter": "",
+          "precision": 3,
+          "significant": true,
+          "strip_insignificant_zeros": true
+        },
+        "storage_units": {
+          "format": "%n %u",
+          "units": {
+            "byte": {
+              "one": "Byte",
+              "other": "Bytes"
+            },
+            "eb": "EB",
+            "gb": "GB",
+            "kb": "KB",
+            "mb": "MB",
+            "pb": "PB",
+            "tb": "TB"
+          }
+        }
+      },
+      "percentage": {
+        "format": {
+          "delimiter": "",
+          "format": "%n%"
+        }
+      },
+      "precision": {
+        "format": {
+          "delimiter": ""
+        }
+      }
+    },
+    "sell": {
+      "exclusive": "We work on your home with exclusivity, dedication and provide close monitoring throughout the entire process.",
+      "header": "Sell",
+      "list": {
+        "agencies": "Sharing the sale with all agencies in the market.",
+        "eval": "Certified valuation of the property.",
+        "feedback": "Detailed and regular feedback.",
+        "flyer": "Proximity actions: Flyers; brochures; newsletters.",
+        "kw": "Exclusive access to the entire KW PT network.",
+        "market": "Market Research - preparation of comparative market analysis and characterisation reports of the area under consideration.",
+        "media": "Multimedia Production: Photo + video coverage.",
+        "open": "Open House.",
+        "portal": "Disclosure in the most relevant national and international real estate portals.",
+        "promo": "Use of promo boards.",
+        "socials": "Social Media Outreach.",
+        "warranty": "Ensuring implementation of industry regulated processes and procedures."
+      },
+      "paragraph": {
+        "bottom": "Our aim is to find the best Client in the shortest amount of time and for that we offer:",
+        "middle": "We offer a consulting service that works in a unique way and is tailored to what you want - focusing on the strategy of promotion, dissemination and our best negotiation.",
+        "top": "We guarantee the best deal for your home."
+      },
+      "subheader": "Find out how much your home is worth."
+    },
+    "support": {
+      "array": {
+        "last_word_connector": ", and ",
+        "two_words_connector": " and ",
+        "words_connector": ", "
+      }
+    },
+    "time": {
+      "am": "am",
+      "formats": {
+        "default": "%a, %d %b %Y %H:%M:%S %z",
+        "long": "%B %d, %Y %H:%M",
+        "short": "%d %b %H:%M"
+      },
+      "pm": "pm"
+    }
+  },
+  "pt": {
+    "about": {
+      "header": "Sobre Nós",
+      "mission": {
+        "sub1": "Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!",
+        "title": "Missão"
+      },
+      "results": {
+        "title": "Resultados"
+      },
+      "testimonies": {
+        "title": "Testemunhos"
+      },
+      "vision": {
+        "sub1": "Ser a equipa preferida pelos clientes que querem comprar ou vender imobiliário nas zonas de Lisboa e do Porto, graças ao nosso profissionalismo, à nossa capacidade de gerar bons negócios e aos valores que professamos no dia a dia.",
+        "sub2": "Juntos criamos Lares Felizes!",
+        "title": "Visão"
+      },
+      "who": {
+        "sub1": "Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
+        "sub2": "Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
+        "title": "Quem somos?"
+      }
+    },
+    "date": {
+      "abbr_day_names": [
+        "dom",
+        "seg",
+        "ter",
+        "qua",
+        "qui",
+        "sex",
+        "sáb"
+      ],
+      "abbr_month_names": [
+        null,
+        "jan",
+        "fev",
+        "mar",
+        "abr",
+        "mai",
+        "jun",
+        "jul",
+        "ago",
+        "set",
+        "out",
+        "nov",
+        "dez"
+      ],
+      "day_names": [
+        "domingo",
+        "segunda-feira",
+        "terça-feira",
+        "quarta-feira",
+        "quinta-feira",
+        "sexta-feira",
+        "sábado"
+      ],
+      "formats": {
+        "default": "%d/%m/%Y",
+        "long": "%d de %B de %Y",
+        "short": "%d de %B"
+      },
+      "month_names": [
+        null,
+        "janeiro",
+        "fevereiro",
+        "março",
+        "abril",
+        "maio",
+        "junho",
+        "julho",
+        "agosto",
+        "setembro",
+        "outubro",
+        "novembro",
+        "dezembro"
+      ],
+      "order": [
+        "day",
+        "month",
+        "year"
+      ]
+    },
+    "datetime": {
+      "distance_in_words": {
+        "about_x_hours": {
+          "one": "aproximadamente 1 hora",
+          "other": "aproximadamente %{count} horas"
+        },
+        "about_x_months": {
+          "one": "aproximadamente 1 mês",
+          "other": "aproximadamente %{count} meses"
+        },
+        "about_x_years": {
+          "one": "aproximadamente 1 ano",
+          "other": "aproximadamente %{count} anos"
+        },
+        "almost_x_years": {
+          "one": "quase 1 ano",
+          "other": "quase %{count} anos"
+        },
+        "half_a_minute": "meio minuto",
+        "less_than_x_minutes": {
+          "one": "menos de um minuto",
+          "other": "menos de %{count} minutos"
+        },
+        "less_than_x_seconds": {
+          "one": "menos de 1 segundo",
+          "other": "menos de %{count} segundos"
+        },
+        "over_x_years": {
+          "one": "mais de 1 ano",
+          "other": "mais de %{count} anos"
+        },
+        "x_days": {
+          "one": "1 dia",
+          "other": "%{count} dias"
+        },
+        "x_minutes": {
+          "one": "1 minuto",
+          "other": "%{count} minutos"
+        },
+        "x_months": {
+          "one": "1 mês",
+          "other": "%{count} meses"
+        },
+        "x_seconds": {
+          "one": "1 segundo",
+          "other": "%{count} segundos"
+        },
+        "x_years": {
+          "one": "1 ano",
+          "other": "%{count} anos"
+        }
+      },
+      "prompts": {
+        "day": "Dia",
+        "hour": "Hora",
+        "minute": "Minuto",
+        "month": "Mês",
+        "second": "Segundo",
+        "year": "Ano"
+      }
+    },
+    "devise": {
+      "confirmations": {
+        "confirmed": "A sua conta foi confirmada com sucesso.",
+        "new": {
+          "resend_confirmation_instructions": "Reenviar instruções de confirmação"
+        },
+        "send_instructions": "Dentro de alguns minutos irá receber um email com instruções para confirmar a sua conta.",
+        "send_paranoid_instructions": "Se o seu email existir na nossa base de dados, irá receber dentro de alguns minutos um email com instruções para confirmar a sua conta."
+      },
+      "failure": {
+        "already_authenticated": "Já se encontra autenticado.",
+        "inactive": "A sua conta ainda não foi ativada.",
+        "invalid": "%{authentication_keys} ou palavra-passe inválidos.",
+        "last_attempt": "Tem mais uma tentativa antes da sua conta ser bloqueada.",
+        "locked": "A sua conta está bloqueada.",
+        "not_found_in_database": "%{authentication_keys} ou palavra-passe inválidos.",
+        "timeout": "A sua sessão expirou, por favor autentique-se novamente para continuar.",
+        "unauthenticated": "Antes de continuar tem de se autenticar ou efetuar um registo.",
+        "unconfirmed": "Tem de confirmar a sua conta antes de continuar."
+      },
+      "mailer": {
+        "confirmation_instructions": {
+          "action": "Confirmar a minha conta",
+          "greeting": "Bem-vindo %{recipient}!",
+          "instruction": "Pode confirmar a sua conta através do link:",
+          "subject": "Instruções de confirmação"
+        },
+        "email_changed": {
+          "greeting": "Olá %{recipient}!",
+          "message": "Estamos a entrar em contacto para notificar que o seu endereço de email foi alterado para %{email}.",
+          "message_unconfirmed": null,
+          "subject": "Endereço de email alterado"
+        },
+        "password_change": {
+          "greeting": "Olá %{recipient}!",
+          "message": "Estamos a entrar em contacto para notificar que a sua palavra-passe foi alterada.",
+          "subject": "Palavra-passe alterada"
+        },
+        "reset_password_instructions": {
+          "action": "Repor a minha palavra-passe",
+          "greeting": "Olá %{recipient}!",
+          "instruction": "Foi efetuado um pedido para repor a sua palavra-passe. Para prosseguir clique no link abaixo.",
+          "instruction_2": "Se não fez este pedido, por favor ignore este e-mail.",
+          "instruction_3": "A sua palavra-passe só será alterada quando aceder ao link abaixo para a alterar.",
+          "subject": "Instruções de recuperação de palavra-passe"
+        },
+        "unlock_instructions": {
+          "action": "Desbloquear a minha conta",
+          "greeting": "Olá %{recipient}!",
+          "instruction": "Clique no seguinte link para desbloquear a sua conta:",
+          "message": "A sua conta foi bloqueada devido a um número excessivo de tentativas de acesso inválidas.",
+          "subject": "Instruções de desbloqueio"
+        }
+      },
+      "omniauth_callbacks": {
+        "failure": "Não foi possível autenticar a sua conta por %{kind} porque \"%{reason}\".",
+        "success": "A sua conta foi autenticada por %{kind} com sucesso."
+      },
+      "passwords": {
+        "edit": {
+          "change_my_password": "Alterar a minha palavra-passe",
+          "change_your_password": "Altere a sua palavra-passe",
+          "confirm_new_password": "Confirme a nova palavra-passe",
+          "new_password": "Nova palavra-passe"
+        },
+        "new": {
+          "forgot_your_password": "Esqueceu a sua palavra-passe?",
+          "send_me_reset_password_instructions": "Enviar-me instruções para repor a palavra-passe"
+        },
+        "no_token": "Não pode aceder a esta página sem vir do email de recuperação da palavra-passe. Se vem de um email para recuperar a palavra-passe, por favor certifique-se que usou o URL completo que foi enviado.",
+        "send_instructions": "Dentro de alguns minutos irá receber um email com instruções de reinicialização da palavra-passe.",
+        "send_paranoid_instructions": "Se o seu e-mail existir na nossa base de dados, irá receber dentro de alguns minutos um e-mail com instruções para recuperar a sua palavra-passe.",
+        "updated": "A sua palavra-passe foi alterada com sucesso. Agora está autenticado.",
+        "updated_not_active": "A sua password foi alterada com sucesso."
+      },
+      "registrations": {
+        "destroyed": "A sua conta foi cancelada com sucesso.",
+        "edit": {
+          "are_you_sure": "Tem a certeza?",
+          "cancel_my_account": "Cancelar a minha conta",
+          "currently_waiting_confirmation_for_email": "A aguardar a confirmação de: %{email}",
+          "leave_blank_if_you_don_t_want_to_change_it": "deixe em branco caso não queira alterar",
+          "title": "Editar %{resource}",
+          "unhappy": "Descontente?",
+          "update": "Atualizar",
+          "we_need_your_current_password_to_confirm_your_changes": "precisamos da sua palavra-passe atual para confirmar as alterações"
+        },
+        "new": {
+          "sign_up": "Criar Conta"
+        },
+        "signed_up": "Bemvindo! A autenticação foi efetuada com sucesso.",
+        "signed_up_but_inactive": "Registou-se com sucesso. No entanto, não podemos iniciar a sua sessão porque ainda não confirmou a sua conta.",
+        "signed_up_but_locked": "Registou-se com sucesso. No entanto, não podemos iniciar a sua sessão porque a sua conta encontra-se bloqueada.",
+        "signed_up_but_unconfirmed": "Foi enviado um email com um link para confirmar o seu email. Por favor abra o link para ativar a sua conta.",
+        "update_needs_confirmation": "A sua conta foi atualizada com sucesso, mas precisamos de confirmar o seu email. Por favor veja o seu email e clique no link para finalizar a confirmação do seu email.",
+        "updated": "A sua conta foi atualizada com sucesso.",
+        "updated_but_not_signed_in": null
+      },
+      "sessions": {
+        "already_signed_out": "Sessão terminada com sucesso.",
+        "new": {
+          "sign_in": "Entrar"
+        },
+        "signed_in": "Autenticação efetuada com sucesso.",
+        "signed_out": "Saiu da sessão com sucesso."
+      },
+      "shared": {
+        "links": {
+          "back": "Voltar",
+          "didn_t_receive_confirmation_instructions": "Não recebeu instruções de confirmação?",
+          "didn_t_receive_unlock_instructions": "Não recebeu instruções de desbloqueio?",
+          "forgot_your_password": "Esqueceu a palavra-passe?",
+          "sign_in": "Login",
+          "sign_in_with_provider": "Entrar com %{provider}",
+          "sign_up": "Criar conta"
+        },
+        "minimum_password_length": {
+          "one": "(mínimo de %{count} carácter)",
+          "other": "(mínimo de %{count} caracteres)"
+        }
+      },
+      "unlocks": {
+        "new": {
+          "resend_unlock_instructions": "Reenviar instruções de desbloqueio"
+        },
+        "send_instructions": "Dentro de alguns minutos irá receber um email com as instruções para desbloquear a sua conta.",
+        "send_paranoid_instructions": "Se a sua conta existir, irá receber dentro de alguns minutos um email com instruções para a desbloquear.",
+        "unlocked": "A sua conta foi desbloqueada com sucesso. Por favor autentique-se para continuar."
+      }
+    },
+    "footer": {
+      "about": "sobre nós",
+      "contacts": "contactos",
+      "privacy": "política de privacidade",
+      "terms": "termos e condições"
+    },
+    "helpers": {
+      "select": {
+        "prompt": "Por favor seleccione"
+      },
+      "submit": {
+        "create": "Criar %{model}",
+        "submit": "Gravar %{model}",
+        "update": "Actualizar %{model}"
+      }
+    },
+    "i18n": {
+      "plural": {
+        "keys": [
+          "one",
+          "other"
+        ],
+        "rule": "#<Proc:0x000000010b03d390 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+      },
+      "transliterate": {
+        "rule": {
+          "ª": "a",
+          "º": "o",
+          "À": "A",
+          "Á": "A",
+          "Ã": "A",
+          "Æ": "Ae",
+          "É": "E",
+          "Ê": "E",
+          "Í": "I",
+          "Ó": "O",
+          "Õ": "O",
+          "Ú": "U",
+          "à": "a",
+          "á": "a",
+          "â": "a",
+          "ã": "a",
+          "æ": "ae",
+          "ç": "c",
+          "é": "e",
+          "ê": "e",
+          "í": "i",
+          "ó": "o",
+          "õ": "o",
+          "ú": "u"
+        }
+      }
+    },
+    "navbar": {
+      "about": "Sobre Nós",
+      "buy": "Comprar",
+      "contacts": "Contactos",
+      "enterprises": "Empreendimentos",
+      "home_360": "Casa 360",
+      "sell": "Vender",
+      "services": "Serviços"
+    },
+    "number": {
+      "currency": {
+        "format": {
+          "delimiter": ".",
+          "format": "%u %n",
+          "precision": 2,
+          "separator": ",",
+          "significant": false,
+          "strip_insignificant_zeros": false,
+          "unit": "€"
+        }
+      },
+      "format": {
+        "delimiter": ".",
+        "precision": 3,
+        "separator": ",",
+        "significant": false,
+        "strip_insignificant_zeros": false
+      },
+      "human": {
+        "decimal_units": {
+          "format": "%n %u",
+          "units": {
+            "billion": {
+              "one": "mil milhões",
+              "other": "mil milhões"
+            },
+            "million": {
+              "one": "milhão",
+              "other": "milhões"
+            },
+            "quadrillion": {
+              "one": "mil biliões",
+              "other": "mil biliões"
+            },
+            "thousand": "mil",
+            "trillion": {
+              "one": "bilião",
+              "other": "biliões"
+            },
+            "unit": ""
+          }
+        },
+        "format": {
+          "delimiter": "",
+          "precision": 1,
+          "significant": true,
+          "strip_insignificant_zeros": true
+        },
+        "storage_units": {
+          "format": "%n %u",
+          "units": {
+            "byte": {
+              "one": "Byte",
+              "other": "Bytes"
+            },
+            "eb": "EB",
+            "gb": "GB",
+            "kb": "KB",
+            "mb": "MB",
+            "pb": "PB",
+            "tb": "TB"
+          }
+        }
+      },
+      "percentage": {
+        "format": {
+          "delimiter": "",
+          "format": "%n %"
+        }
+      },
+      "precision": {
+        "format": {
+          "delimiter": ""
+        }
+      }
+    },
+    "sell": {
+      "exclusive": "Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um acompanhamento de proximidade ao longo de todo o processo.",
+      "header": "Vender",
+      "list": {
+        "agencies": "Partilha da venda com todas as agências do mercado.",
+        "eval": "Avaliação certificada do imóvel.",
+        "feedback": "Feedback detalhado e regular.",
+        "flyer": "Acções de proximidade: Flyers; brochuras; newsletters.",
+        "kw": "Acesso exclusivo a toda a rede Nacional KW.",
+        "market": "Estudo do Mercado - elaboração de analises comparativas de Mercado e relatórios de caracterização da zona a considerar.",
+        "media": "Produção Multimédia: Reportagem fotográfica+vídeo.",
+        "open": "Realização de Open House.",
+        "portal": "Divulgação nos mais relevantes portais imobiliários nacionais e internacionais.",
+        "promo": "Utilização de placas de promoção.",
+        "socials": "Divulgação Social Media.",
+        "warranty": "Garantia de implementação de processos e procedimentos regulados pelo sector."
+      },
+      "paragraph": {
+        "bottom": "O nosso objectivo é encontrar o melhor Cliente no mais breve tempo possível e para isso disponibilizamos:",
+        "middle": "Oferecemos um serviço de consultoria que trabalha de forma única e à medida do que pretende, com foco na estratégia de promoção, divulgação e na melhor negociação.",
+        "top": "Garantimos o melhor negócio para a venda da sua casa."
+      },
+      "subheader": "Saiba quanto vale a sua casa"
+    },
+    "support": {
+      "array": {
+        "last_word_connector": " e ",
+        "two_words_connector": " e ",
+        "words_connector": ", "
+      }
+    },
+    "time": {
+      "am": "am",
+      "formats": {
+        "default": "%A, %d de %B de %Y, %H:%Mh",
+        "long": "%A, %d de %B de %Y, %H:%Mh",
+        "short": "%d/%m, %H:%M hs"
+      },
+      "pm": "pm"
+    }
+  }
+}

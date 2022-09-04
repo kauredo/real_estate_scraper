@@ -51,15 +51,17 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # Other gems here
-gem 'devise', '~> 4.8'
-gem 'js-routes'
+gem "devise", "~> 4.8"
+gem "i18n-js"
+gem "js-routes"
 gem 'jwt'
+gem 'listen', '~> 3.7', '>= 3.7.1'
 gem 'pagy', '~> 5.10'
-gem 'paranoia'
-gem 'react-rails'
-gem 'rubocop', require: false
-gem 'sidekiq'
-gem 'watir'
+gem "paranoia"
+gem "rails-i18n"
+gem "react-rails"
+gem "sidekiq"
+gem "watir"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

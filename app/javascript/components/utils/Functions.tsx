@@ -1,3 +1,5 @@
+import { i18n } from "../../languages/languages";
+
 export function truncateText(title, length) {
   if (title.length > 90) {
     return title.substring(0, length) + "...";
@@ -27,3 +29,11 @@ export function getUrlParameter(sParam) {
 export function toCapitalize(string) {
   return string[0].toUpperCase() + string.substring(1);
 }
+
+export const sanitizeURL = url => {
+  if (i18n.locale === "pt") {
+    return url();
+  } else {
+    return url({ locale: i18n.locale });
+  }
+};

@@ -1,25 +1,24 @@
 # frozen_string_literal: true
-
 module Backoffice
   class VariablesController < BackofficeController
     before_action :find_variable, except: [:create]
 
     def create
       Variable.create(variable_params)
-      flash[:notice] = 'Variável criada'
-      redirect_to backoffice_path
+      flash[:notice] = "Variável criada"
+      redirect_to backoffice_path({locale: I18n.locale})
     end
 
     def update
       @variable.update(variable_params)
-      flash[:notice] = 'Variável atualizada'
-      redirect_to backoffice_path
+      flash[:notice] = "Variável atualizada"
+      redirect_to backoffice_path({locale: I18n.locale})
     end
 
     def destroy
       @variable.destroy
-      flash[:notice] = 'Variável apagada'
-      redirect_to backoffice_path
+      flash[:notice] = "Variável apagada"
+      redirect_to backoffice_path({locale: I18n.locale})
     end
 
     private
