@@ -27,7 +27,7 @@ export default function Results(props: Props) {
           return (
             <div
               key={variable.name}
-              className="variable mx-auto min-w-[140px] w-1/3 flex flex-col justify-center items-center py-4 md:py-0"
+              className="variable mx-auto min-w-[140px] w-1/3 flex flex-col justify-center items-center p-4 md:py-0"
             >
               <i
                 className={`text-6xl tablet:text-8xl min-h-1/4 m-2 text-beige ${variable.icon}`}

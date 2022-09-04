@@ -134,8 +134,8 @@ export default function Navbar(props: Props) {
             </div>
             <div className="-mr-2 flex tablet:hidden">
               <a href={window.Routes.sell_path()} data-turbolinks={false}>
-                <div className="border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
-                  <p>Avalie a sua casa</p>
+                <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
+                  <p>Avalie casa</p>
                 </div>
               </a>
               <button
