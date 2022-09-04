@@ -13,8 +13,8 @@ interface Props {
 export default function Results(props: Props) {
   const { results, testimonials } = props;
   const { variables, listingCount } = results;
-  const volume = variables.filter(
-    vari => vari.name.toLowerCase() === "volume de negócios"
+  const volume = variables.filter(vari =>
+    vari.name.toLowerCase().includes("negócios")
   )[0];
 
   return (
@@ -40,6 +40,7 @@ export default function Results(props: Props) {
                     end={parseInt(variable.value)}
                     redraw={true}
                     suffix=" €"
+                    separator="."
                   >
                     {({ countUpRef, start }) => (
                       <VisibilitySensor onChange={start} delayedCall>
