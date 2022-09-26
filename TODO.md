@@ -1,24 +1,9 @@
 ## TODO
 
-- Verify all copy (missing for homepage)
-- Change frame for sofia's video
-- Possibly add Photos to Empreendimentos (Sao marcos vila nova de gaia no google)
+### Home
 
----
+- Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os seus dados para o informar sobre oportunidades de negócio, de acordo com a Política de Privacidade. (in footer?)
 
-## Newsletter
+## Others
 
-- check newsletter services - mailchimp etc
-- add download button to get file with correct format for service ^
-
----
-
-##
-
-## NEXT STEPS
-
-sofiagalvaogroup.com
-
-3. Write tests? Maybe
-
----
+- mudar gmail img to fake newsletter header

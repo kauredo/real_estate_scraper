@@ -89,3 +89,9 @@ export interface Pagy {
   series: string[];
   to: number;
 }
+
+export interface Testimonial {
+  id: number;
+  text: string;
+  name: string;
+}

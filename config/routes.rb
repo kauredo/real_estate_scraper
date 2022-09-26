@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get "/sobre", to: "pages#about", as: :about
   get "/servicos", to: "pages#services", as: :services
   get "/casa_360", to: "pages#house_360", as: :house_360
+  get "/kw", to: "pages#kw", as: :kw
+  get "/privacidade", to: "pages#privacy", as: :privacy
+  get "/termos_e_condicoes", to: "pages#terms_and_conditions", as: :terms_and_conditions
   get "/contactos", to: "pages#contact", as: :contact
   post "/novo_contacto", to: "pages#new_contact", as: :new_contact
   get "/empreendimentos", to: "listing_complexes#index", as: :latest
@@ -33,5 +36,6 @@ Rails.application.routes.draw do
     resources :colleagues, only: [:show, :create, :update, :destroy]
     resources :listings, only: [:index, :edit, :update, :destroy]
     resources :listing_complexes
+    resources :testimonials
   end
 end

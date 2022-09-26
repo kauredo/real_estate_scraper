@@ -31,17 +31,28 @@ export default function Show(props: Props) {
           />
         ))}
       </Carousel>
-      <div className="bottom-4 left-4 font-bold text-large z-50 bg-bordeaux text-white px-4 py-2">
-        <h1 className="standard">{listing.title}</h1>
+      <div className="pt-6 bg-white text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
+          <h1
+            id="main-title"
+            className="relative block mt-2 text-3xl text-black sm:text-4xl px-4"
+          >
+            {listing.title}
+          </h1>
+        </div>
       </div>
       <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">
         <div className="col-span-2">
           <div className="p-4 w-full bg-white m-2 tablet:mx-0">
-            <div className="tablet:mr-2">{listing.description}</div>
-          </div>
-          <div className="p-4 w-full bg-white m-2 tablet:mx-0">
-            <h2 className="standard mb-2 text-lg">Detalhes do Imóvel</h2>
+            <h2 className="standard mb-2 text-lg font-bold">
+              Detalhes do Imóvel
+            </h2>
             <div className="w-full flex flex-wrap">
+              <div key={"price"} className="border p-2 w-40">
+                <span className="font-bold">{"Preço"}:</span>
+                <br />
+                <span>{listing.price}€</span>
+              </div>
               {Object.keys(listing.stats).map((k, v) => {
                 return (
                   <div key={k} className="border p-2 w-40">
@@ -53,8 +64,13 @@ export default function Show(props: Props) {
               })}
             </div>
           </div>
+          <div className="p-4 w-full bg-white m-2 tablet:mx-0">
+            <div className="tablet:mr-2">{listing.description}</div>
+          </div>
           <div className="p-4 w-full bg-white m-2 tablet:mx-0 h-fit">
-            <h2 className="standard mb-2 text-lg">Características do Imóvel</h2>
+            <h2 className="standard mb-2 text-lg font-bold">
+              Características do Imóvel
+            </h2>
             <ul
               className="tablet:ml-2 grid gap-4"
               style={{

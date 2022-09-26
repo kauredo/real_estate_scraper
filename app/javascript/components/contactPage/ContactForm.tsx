@@ -40,11 +40,16 @@ export default function ContactForm(props: Props) {
           : "relative rounded-lg shadow-lg")
       }
     >
-      <p className="text-base text-body-color leading-relaxed mb-9">
+      <p className="text-base text-body-color leading-relaxed mb-9 ">
         {listing || complex
-          ? "Precisa de mais informação? Quer marcar uma visita? Entre em contacto conosco!"
+          ? "Precisa de mais informação? Quer agendar uma visita? Entre em contacto connosco!"
           : "Preencha o formulário e entraremos em contacto consigo:"}
 
+        <span className="flex items-center font-medium tracking-wide text-beige text-xs mt-1 ml-1">
+          Ao pedir informações está a autorizar o Sofia Galvão Group a guardar
+          os seus dados para o informar sobre oportunidades de negócio, de
+          acordo com a Política de Privacidade.
+        </span>
         {error && (
           <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
             {error}
@@ -64,7 +69,7 @@ export default function ContactForm(props: Props) {
             name="contact[name]"
             onChange={e => setName(e.target.value)}
             className={
-              "w-full py-3 px-[14px] text-body-color text-base border outline-none focus-visible:shadow-none focus:border-bordeaux " +
+              "w-full py-3 px-[14px] text-body-color text-base border outline-none focus-visible:shadow-none focus:border-beige " +
               (listing || complex ? "text-sm" : "rounded border-[f0f0f0]")
             }
           />
@@ -76,7 +81,7 @@ export default function ContactForm(props: Props) {
             name="contact[email]"
             onChange={e => setEmail(e.target.value)}
             className={
-              "w-full py-3 px-[14px] text-body-color text-base border outline-none focus-visible:shadow-none focus:border-bordeaux " +
+              "w-full py-3 px-[14px] text-body-color text-base border outline-none focus-visible:shadow-none focus:border-beige " +
               (listing || complex ? "text-sm" : "rounded border-[f0f0f0]")
             }
           />
@@ -88,7 +93,7 @@ export default function ContactForm(props: Props) {
             name="contact[phone]"
             onChange={e => setPhone(e.target.value)}
             className={
-              "w-full py-3 px-[14px] text-body-color text-base border outline-none focus-visible:shadow-none focus:border-bordeaux " +
+              "w-full py-3 px-[14px] text-body-color text-base border outline-none focus-visible:shadow-none focus:border-beige " +
               (listing || complex ? "text-sm" : "rounded border-[f0f0f0]")
             }
           />
@@ -100,7 +105,7 @@ export default function ContactForm(props: Props) {
             name="contact[message]"
             onChange={e => setMessage(e.target.value)}
             className={
-              "w-full py-3 px-[14px] text-body-color text-base border resize-none outline-none focus-visible:shadow-none focus:border-bordeaux " +
+              "w-full py-3 px-[14px] text-body-color text-base border resize-none outline-none focus-visible:shadow-none focus:border-beige " +
               (listing || complex ? "text-sm" : "rounded border-[f0f0f0]")
             }
           ></textarea>
@@ -115,7 +120,7 @@ export default function ContactForm(props: Props) {
           <button
             type="submit"
             className={
-              "w-full font-bold text-white bg-bordeaux border p-3 transition hover:bg-opacity-90 " +
+              "w-full font-bold text-white bg-beige border p-3 transition hover:bg-opacity-90 " +
               (listing || complex ? "" : "rounded")
             }
           >

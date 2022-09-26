@@ -7,10 +7,14 @@ module.exports = {
     "./app/javascript/**/*.tsx",
   ],
   theme: {
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+    },
     extend: {
       colors: {
         beige: "#d3af79",
-        bordeaux: "#680934",
         chocolate: "#141301",
         grey: "#9d9d9c",
         indigo: "#083D77",

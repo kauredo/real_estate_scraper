@@ -7,7 +7,8 @@ class PagesController < ApplicationController
       listingCount: Listing.all.count,
       variables: Variable.all
     }
-    # render component: 'Home', props: { listings: @listings }, tag: 'span', class: 'todo'
+    @photos = Listing.by_sofia.map(&:photos).map(&:first).uniq
+    @testimonials = Testimonial.all
   end
 
   def about
@@ -15,6 +16,7 @@ class PagesController < ApplicationController
       listingCount: Listing.all.count,
       variables: Variable.all
     }
+    @testimonials = Testimonial.all
   end
 
   def services
@@ -24,6 +26,15 @@ class PagesController < ApplicationController
   end
 
   def contact
+  end
+
+  def kw
+  end
+
+  def privacy
+  end
+
+  def terms_and_conditions
   end
 
   def new_contact

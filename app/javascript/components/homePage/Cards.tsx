@@ -24,17 +24,20 @@ export default function Cards({ listings }) {
   };
 
   return (
-    <section className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4">
+    <section
+      id="cards"
+      className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4"
+    >
       <div className="w-full relative flex items-center justify-center">
         <div className="w-full h-full mx-auto overflow-y-hidden">
-          <div className="sm:w-min mx-auto flex flex-col sm:flex-row">
+          <div className="sm:w-min mx-auto flex flex-col sm:flex-row mb-6">
             {locations.map(location => (
               <button
                 key={`${location}-tab`}
                 onClick={() => setSelectedLocation(location)}
-                className={`whitespace-nowrap py-4 px-6 block hover:text-bordeaux hover:border-bordeaux focus:outline-none border-b-2 font-medium ${
+                className={`whitespace-nowrap py-4 px-6 block hover:text-beige hover:border-beige focus:outline-none border-b-2 font-medium ${
                   selectedLocation === location
-                    ? "border-bordeaux text-bordeaux"
+                    ? "border-beige text-beige"
                     : "border-grey text-grey"
                 }`}
               >
@@ -51,6 +54,7 @@ export default function Cards({ listings }) {
                 nextButtonText: "➤",
                 prevButtonStyle: { transform: "rotate(180deg)" },
                 prevButtonText: "➤",
+                pagingDotsContainerClassName: "!top-0",
                 pagingDotsClassName: "mx-1 hidden sm:block",
               }}
             >

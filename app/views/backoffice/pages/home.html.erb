@@ -2,7 +2,7 @@
   <%# Variáveis %>
   <div class="w-full sm:w-1/2 shadow-md rounded px-8 py-4 mt-4">
     <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Variáveis</h2>
-    <p class="text-gray-500 pt-3">Nota: Copiar ícones do site <a class="text-bordeaux underline" href="https://fontawesome.com/v5/search?m=free" target="_blank">fontawesome.com/v5</a>, por exemplo: "fas fa-home"</p>
+    <p class="text-gray-500 pt-3">Nota: Copiar ícones do site <a class="text-beige underline" href="https://fontawesome.com/v5/search?m=free" target="_blank">fontawesome.com/v5</a>, por exemplo: "fas fa-home"</p>
     <% @variables.each do |var| %>
       <%= form_for(var, url: backoffice_variable_path(var), html: { method: :put, class:"my-6" }) do |f| %>
         <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
@@ -53,9 +53,14 @@
   <div class="w-full sm:w-1/2 shadow-md rounded px-8 py-4 mt-4">
     <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Subscrições à Newsletter</h2>
     <div class="my-6 field mb-4 flex flex-col flex-wrap sm:flex-row items-center gap-4">
-      <% @subs.each do |sub| %>
-        <span><%= sub.user.email %></span>
-      <% end %>
+      <ul class="list-disc" style="list-style-position: inside;">
+        <% @subs.each do |sub| %>
+          <li>
+            <span><%= sub.user.name %></span>,
+            <span><%= sub.user.email %></span>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

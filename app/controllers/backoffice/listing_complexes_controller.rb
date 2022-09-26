@@ -1,7 +1,6 @@
 class Backoffice::ListingComplexesController < BackofficeController
   before_action :find_listing_complex, except: [:index, :new, :create]
   after_action :update_video_link, only: [:create, :update]
-  include Pagy::Backend
 
   def index
     @listing_complexes = ListingComplex.all
