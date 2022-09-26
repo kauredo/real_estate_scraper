@@ -19,7 +19,6 @@ export default function Testimonials(props: Props) {
   const handleResize = () => {
     const title = document.querySelector("#testimony-title");
     const windowWidth = Math.floor(title.scrollWidth / 412);
-    console.log(windowWidth);
     if (windowWidth == 0) {
       setSlideNumber(1);
     } else {
