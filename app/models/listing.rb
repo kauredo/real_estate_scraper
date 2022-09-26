@@ -3,6 +3,7 @@ class Listing < ApplicationRecord
   after_save :update_orders
 
   STATUSES = %W[Novo Reservado Vendido]
+  CITIES = %W[Lisboa Porto]
 
   belongs_to :colleague, optional: true
   belongs_to :listing_complex, optional: true
@@ -12,7 +13,7 @@ class Listing < ApplicationRecord
   scope :by_colleagues, -> { where.not(colleague: nil) }
   scope :newest, -> { where(status: "Novo") }
   scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
-  scope :by_city, -> { all.group_by { |l| l.city }.sort_by{|city, _stuff| city }.to_h }
+  scope :by_city, -> { all.group_by { |l| l.city }.sort_by { |city, _stuff| CITIES.index(city) || Float::INFINITY }.to_h }
   scope :order_status, -> {
     statuses = STATUSES.dup.insert(1, '')
     order(Arel.sql("array_position(ARRAY[#{statuses.map { |x| "'#{x}'" }.join(',')}], status::TEXT)"))
