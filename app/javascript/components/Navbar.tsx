@@ -32,27 +32,27 @@ export default function Navbar(props: Props) {
   };
 
   const items = [
-    { title: "Comprar", turbolinks: "true", url: window.Routes.buy_path() },
-    { title: "Vender", turbolinks: "false", url: window.Routes.sell_path() },
+    { title: "Comprar", turbo: "true", url: window.Routes.buy_path() },
+    { title: "Vender", turbo: "false", url: window.Routes.sell_path() },
     {
       title: "Empreendimentos",
-      turbolinks: "true",
+      turbo: "true",
       url: window.Routes.latest_path(),
     },
-    { title: "Sobre Nós", turbolinks: "true", url: window.Routes.about_path() },
+    { title: "Sobre Nós", turbo: "true", url: window.Routes.about_path() },
     {
       title: "Contactos",
-      turbolinks: "true",
+      turbo: "true",
       url: window.Routes.contact_path(),
     },
     {
       title: "Serviços",
-      turbolinks: "true",
+      turbo: "true",
       url: window.Routes.services_path(),
     },
     {
       title: "Casa 360",
-      turbolinks: "true",
+      turbo: "true",
       url: window.Routes.house_360_path(),
     },
     {
@@ -64,7 +64,7 @@ export default function Navbar(props: Props) {
           alt="KW Logo"
         />
       ),
-      turbolinks: "true",
+      turbo: "true",
       url: window.Routes.kw_path(),
     },
   ];
@@ -72,17 +72,17 @@ export default function Navbar(props: Props) {
   const backofficeItems = [
     {
       title: "Imóveis",
-      turbolinks: "true",
+      turbo: "true",
       url: window.Routes.backoffice_listings_path(),
     },
     {
       title: "Empreendimentos",
-      turbolinks: "true",
+      turbo: "true",
       url: window.Routes.backoffice_listing_complexes_path(),
     },
     {
       title: "Testemunhos",
-      turbolinks: "true",
+      turbo: "true",
       url: window.Routes.backoffice_testimonials_path(),
     },
   ];
@@ -93,6 +93,7 @@ export default function Navbar(props: Props) {
     usedItems.push({
       title: "Backoffice",
       url: window.Routes.backoffice_path(),
+      turbo: "true",
     });
 
   return (
@@ -102,7 +103,7 @@ export default function Navbar(props: Props) {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <a data-turbolinks="true" href={window.Routes.root_path()}>
+                <a data-turbo="true" href={window.Routes.root_path()}>
                   <img
                     // src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     // className="h-16 w-16"
@@ -119,7 +120,7 @@ export default function Navbar(props: Props) {
                   {usedItems.map(item => {
                     return (
                       <a
-                        data-turbolinks={item.turbolinks}
+                        data-turbo={item.turbo}
                         key={`${item.title}--desktop`}
                         href={item.url}
                         className={itemClass(item.url, false)}
@@ -133,7 +134,7 @@ export default function Navbar(props: Props) {
               </div>
             </div>
             <div className="-mr-2 flex tablet:hidden">
-              <a href={window.Routes.sell_path()} data-turbolinks={false}>
+              <a href={window.Routes.sell_path()} data-turbo={false}>
                 <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
                   <p>Avalie casa</p>
                 </div>
@@ -198,7 +199,7 @@ export default function Navbar(props: Props) {
               {usedItems.map(item => {
                 return (
                   <a
-                    data-turbolinks={item.turbolinks}
+                    data-turbo={item.turbo}
                     key={`${item.title}--desktop`}
                     href={item.url}
                     className={itemClass(item.url, true)}
