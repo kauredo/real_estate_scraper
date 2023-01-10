@@ -3,5 +3,10 @@ import "@hotwired/turbo-rails";
 import "./controllers";
 import "./components";
 
-import * as Routes from "./routes";
-window.Routes = Routes;
+try {
+  var routes = require('./routes');
+  console.log('Directory exists!')
+  console.log(routes)
+} catch (ex) {
+  console.log('Directory not found.')
+}
