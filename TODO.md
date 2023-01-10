@@ -2,8 +2,8 @@
 
 ## Backoffice
 
-Imóveis - adicionar link pra video e botão como no Idealista
-Colegas - mudar para ser de 1 imovel de cada vez, não do colega
+Imóveis - adicionar video e botão para abrir como no Idealista
+Colegas - mudar para ser de 1 imovel de cada vez, não o colega todo (mudar jobs tambem)
 Subscrever Newsletter - email nao esta a enviar
 Ver emails em geral
 
