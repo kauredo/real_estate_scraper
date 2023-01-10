@@ -5,8 +5,7 @@ import "./components";
 
 try {
   var routes = require('./routes');
-  console.log('Directory exists!')
-  console.log(routes)
+  window.Routes = routes;
 } catch (ex) {
-  console.log('Directory not found.')
+  console.log('Routes not found.')
 }
