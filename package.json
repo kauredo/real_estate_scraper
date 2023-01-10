@@ -30,5 +30,8 @@
   "devDependencies": {
     "esbuild-plugin-import-glob": "^0.1.1",
     "esbuild-rails": "^1.0.3"
+  },
+  "engines": {
+    "node": "19.x"
   }
 }
