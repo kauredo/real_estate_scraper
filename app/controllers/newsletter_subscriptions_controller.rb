@@ -2,13 +2,14 @@
 
 class NewsletterSubscriptionsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :find_subscription, only: [:confirm]
 
   def create
     @user = User.find_or_initialize_by(email: email_params[:email])
     @user.name = email_params[:name]
 
     if @user.save
-      sub = NewsletterSubscription.find_or_create_by(user: @user)
+      NewsletterSubscription.find_or_create_by(user: @user)
       if @user.confirmed_email
         flash[:notice] = 'Já tem uma subscrição ativa à nossa newsletter. Obrigada pela confiança!'
       else
@@ -23,11 +24,10 @@ class NewsletterSubscriptionsController < ApplicationController
   end
 
   def confirm
-    sub = NewsletterSubscription.find(params[:id])
     decrypted_token = JsonWebToken.decode(params[:token])
 
-    if decrypted_token && (decrypted_token[:user_id] = sub.user_id && Time.zone.now < Time.at(decrypted_token[:exp]))
-      sub.user.update(confirmed_email: true)
+    if decrypted_token && (decrypted_token[:user_id] = @sub.user_id && Time.zone.now < Time.at(decrypted_token[:exp]))
+      @sub.user.update(confirmed_email: true)
       flash[:notice] = 'Subscrição à newsletter ativa, obrigado pela confiança'
     else
       flash[:error] = 'Não foi possível subscrever à newsletter, por favor tente novamente'
@@ -44,5 +44,9 @@ class NewsletterSubscriptionsController < ApplicationController
 
   def email_params
     params.require(:newsletter).permit(:email, :name, :token)
+  end
+
+  def find_subscription
+    @sub = NewsletterSubscription.find(params[:id])
   end
 end

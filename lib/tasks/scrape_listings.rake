@@ -7,7 +7,7 @@ task :scrape, [:url] => :environment do |_t, args|
   args.with_defaults(url: 'https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=en-US&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=1')
   @url = args.url
 
-  def get_details(imovel_url, price)
+  def scrape_details(imovel_url, price)
     listing = Listing.find_or_initialize_by(url: imovel_url)
     listing.price = price
 
@@ -61,7 +61,7 @@ task :scrape, [:url] => :environment do |_t, args|
     listing.colleague = Colleague.find_by(name: @lister) if @lister != 'Sofia Galvão'
 
     # # geo data
-    # listing.location = get_location(listing.address)
+    # listing.location = scrape_location(listing.address)
     listing.title&.gsub! 'm2', 'm²'
     listing.description&.gsub! 'm2', 'm²'
     listing.stats['Área Útil']&.gsub! 'm 2', 'm²'
@@ -77,7 +77,7 @@ task :scrape, [:url] => :environment do |_t, args|
     end
   end
 
-  def get_total
+  def scrape_total
     @browser.goto(@url)
     @browser.div(class: 'gallery-container').wait_until(&:present?)
     matches = @browser.span(class: 'num-matches').wait_until(&:present?)
@@ -85,7 +85,7 @@ task :scrape, [:url] => :environment do |_t, args|
     # @browser.close
   end
 
-  def get_page(page)
+  def scrape_page(page)
     url = "#{@url.slice(0...(@url.index('&pageNumber')))}&pageNumber=#{page + 1}"
     @browser.goto(url)
 
@@ -101,7 +101,7 @@ task :scrape, [:url] => :environment do |_t, args|
 
       begin
         puts '++++++++++++++'
-        get_details(url, price)
+        scrape_details(url, price)
         puts '++++++++++++++'
       rescue StandardError => e
         puts 'ERROR:'
@@ -121,7 +121,7 @@ task :scrape, [:url] => :environment do |_t, args|
   ## Count total to see how many pages
   begin
     puts "Getting total pages for #{@lister}"
-    total = get_total
+    total = scrape_total
     puts "Total: #{total} pages"
   rescue StandardError => e
     puts '~~~~~~~~~~~~~'
@@ -134,7 +134,7 @@ task :scrape, [:url] => :environment do |_t, args|
     puts ''
     puts '*********'
     puts "Started page #{page}"
-    get_page(page)
+    scrape_page(page)
     puts "Finished page #{page}"
     puts '*********'
     puts ''
