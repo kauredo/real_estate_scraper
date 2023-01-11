@@ -451,7 +451,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x0000000109337cf0 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x000000010b434750 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       },
       "transliterate": {
         "rule": {
@@ -640,7 +640,7 @@
           "title": "Investimento imobiliário"
         },
         "house_trees": {
-          "description": "Com acesso a plataformas e ferramentas exclusivas para profissionais asseguramos o conhecimento necessário do mercado para identificar as suas melhores opções e perseguir as melhores soluções. <br/> <br/> Oferecemos-lhe um serviço informado, personalizado, alicerçado numa negociação experiente e competitiva.",
+          "description": "Com acesso a plataformas e ferramentas exclusivas para profissionais asseguramos o conhecimento necessário do mercado para identificar as suas melhores opções e perseguir as melhores soluções. <br> <br> Oferecemos-lhe um serviço informado, personalizado, alicerçado numa negociação experiente e competitiva.",
           "title": "Gestão e Consultoria Imobiliária"
         }
       },

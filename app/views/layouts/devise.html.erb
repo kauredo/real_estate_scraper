@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/f01d8e868a.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag 'application', "data-turbo-track": 'reload' %>
+    <%= javascript_include_tag 'application', "data-turbo-track": 'reload', defer: true %>
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
@@ -16,7 +16,7 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <%= react_component "Navbar" %>
+    <%= react_component 'Navbar' %>
     <div class="flex justify-center items-center container mx-auto w-full pt-20">
       <div class="w-full max-w-xs">
         <%= yield %>

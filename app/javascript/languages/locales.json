@@ -358,7 +358,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x000000010932f898 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x000000010ac34528 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       }
     },
     "kw": {
@@ -508,7 +508,7 @@
           "title": "Property investment"
         },
         "house_trees": {
-          "description": "With access to exclusive platforms and tools for professionals we ensure the necessary market knowledge to identify your best options and pursue the best solutions. <br/> <br/> We offer you an informed, personalised service, based on an experienced and competitive negotiation.",
+          "description": "With access to exclusive platforms and tools for professionals we ensure the necessary market knowledge to identify your best options and pursue the best solutions. <br> <br> We offer you an informed, personalised service, based on an experienced and competitive negotiation.",
           "title": "Real Estate Management and Consultancy"
         }
       },
@@ -934,7 +934,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x0000000109337cf0 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x000000010ac4f940 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       },
       "transliterate": {
         "rule": {
@@ -1123,7 +1123,7 @@
           "title": "Investimento imobiliário"
         },
         "house_trees": {
-          "description": "Com acesso a plataformas e ferramentas exclusivas para profissionais asseguramos o conhecimento necessário do mercado para identificar as suas melhores opções e perseguir as melhores soluções. <br/> <br/> Oferecemos-lhe um serviço informado, personalizado, alicerçado numa negociação experiente e competitiva.",
+          "description": "Com acesso a plataformas e ferramentas exclusivas para profissionais asseguramos o conhecimento necessário do mercado para identificar as suas melhores opções e perseguir as melhores soluções. <br> <br> Oferecemos-lhe um serviço informado, personalizado, alicerçado numa negociação experiente e competitiva.",
           "title": "Gestão e Consultoria Imobiliária"
         }
       },

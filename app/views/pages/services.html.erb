@@ -1,7 +1,7 @@
-<% meta_title = I18n.t("services.header") %>
+<% meta_title = I18n.t('services.header') %>
 <% content_for(:meta_title) { meta_title } %>
 
-<%= react_component "shared--Banner", {height: '20vh', blurred: true, text: meta_title} %>
+<%= react_component 'shared--Banner', { height: '20vh', blurred: true, text: meta_title } %>
 <div class="container mx-auto mb-12 px-8">
   <div class="pt-6 bg-white text-center md:hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
@@ -10,11 +10,11 @@
   </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
     <p class="mx-auto tablet:text-center mt-2 text-xl text-black sm:text-2xl">
-      <%= I18n.t("services.text.top") %>
+      <%= I18n.t('services.text.top') %>
     </p>
     <p class="mx-auto tablet:text-center mt-4 text-xl text-gray-500">
-      <%= sanitize I18n.t("services.text.bottom") %>
-      <%= link_to(I18n.t("services.text.link") , contact_path, class: "text-beige underline") %>
+      <%= sanitize I18n.t('services.text.bottom') %>
+      <%= link_to(I18n.t('services.text.link'), contact_path, class: 'text-beige underline') %>
     </p>
   </div>
   <section class="pt-6">
@@ -24,9 +24,9 @@
       </div>
       <div class="w-full md:w-1/2 lg:w-5/12 ml-auto mr-auto px-4">
         <div class="lg:pr-12">
-          <h3 class="text-3xl "><%= I18n.t("services.list.house_trees.title") %></h3>
+          <h3 class="text-3xl "><%= I18n.t('services.list.house_trees.title') %></h3>
           <p class="mt-4 text-lg leading-relaxed text-blueGray-500">
-            <%= sanitize I18n.t("services.list.house_trees.description") %>
+            <%= sanitize I18n.t('services.list.house_trees.description') %>
           </p>
         </div>
       </div>
@@ -34,9 +34,9 @@
     <div class="items-center flex md:flex-row flex-col-reverse flex-wrap h-min py-6 lg:min-h-[20rem] bg-white">
       <div class="w-full md:w-1/2 lg:w-5/12 ml-auto mr-auto px-4">
         <div class="lg:pl-12">
-          <h3 class="text-3xl "><%= I18n.t("services.list.house_lens.title") %></h3>
+          <h3 class="text-3xl "><%= I18n.t('services.list.house_lens.title') %></h3>
           <p class="mt-4 text-lg leading-relaxed text-blueGray-500">
-            <%= sanitize I18n.t("services.list.house_lens.description") %>
+            <%= sanitize I18n.t('services.list.house_lens.description') %>
           </p>
         </div>
       </div>
@@ -54,18 +54,18 @@
         <div class="lg:pr-12">
           <h3 class="text-3xl ">Intermediação de Crédito (ou Apoio Financeiro)</h3>
           <p class="mt-4 text-lg leading-relaxed text-blueGray-500">
-            Um ponto de partida seguro para garantir a casa dos seus sonhos.<br/>
+            Um ponto de partida seguro para garantir a casa dos seus sonhos.<br>
             Encontrar a sua casa de sonho pode por vezes demorar algum tempo. Mas o mercado imobiliário está hoje em dia demasiado volátil para correr riscos.
-            <br/>
+            <br>
             <br>
             A melhor forma de começar todo o processo é sabendo exactamente qual a sua capacidade financeira para que, quando chegar o momento de fazer uma proposta e fechar negócio, não existam surpresas e, acima de tudo, colocar os nossos clientes numa posição privilegiada e competitiva face a todos os outros compradores.
-            <br/>
+            <br>
             <br>
             Dada a importância deste passo, trabalhamos com parceiros de confiança que asseguram os interesses dos nossos clientes e dos seus investimentos.
-            <br/>
+            <br>
             O trabalho destes nossos parceiros é fazer uma consulta ao mercado bancário e procurar, junto de várias instituições financeiras, quais as melhores opções para SI, para o SEU valor de investimento, para a SUA realidade financeira. Cada caso é um caso, e por isso é importante procurar a melhor solução para cada cliente, individualmente.
-            <br/>
-            <%# Peça já a sua avaliação bancária e inicie o seu processo de compra de casa. (link para um formulário de contacto por exemplo).<br/> %>
+            <br>
+            <%# Peça já a sua avaliação bancária e inicie o seu processo de compra de casa. (link para um formulário de contacto por exemplo).<br> %>
           </p>
         </div>
       </div>
@@ -75,12 +75,12 @@
         <div class="lg:pl-12">
           <h3 class="text-3xl ">Apoio Jurídico</h3>
           <p class="mt-4 text-lg leading-relaxed text-blueGray-500">
-            O sucesso é a arte do detalhe.<br/>
-            Também aqui privilegiamos relações de bastante proximidade e uma comunicação constante com o departamento jurídico-legal, para garantir a viabilidade dos seus negócios.<br/>
+            O sucesso é a arte do detalhe.<br>
+            Também aqui privilegiamos relações de bastante proximidade e uma comunicação constante com o departamento jurídico-legal, para garantir a viabilidade dos seus negócios.<br>
             <br>
             Todos os nossos processos são devidamente acompanhados por um departamento jurídico que nos consegue dar resposta em tempo real. Esta consultoria jurídica permite-nos ter confiança e agir com segurança em todas as etapas, o nos permite garantir que todo o processo e toda a documentação está regularizada e em concordância com a lei.
-            <br/>
-            É imprescindível ter uma equipa dedicada e responsável pelas várias componentes que compõem cada negócio.<br/>
+            <br>
+            É imprescindível ter uma equipa dedicada e responsável pelas várias componentes que compõem cada negócio.<br>
           </p>
         </div>
       </div>
