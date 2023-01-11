@@ -36,7 +36,7 @@ class PagesController < ApplicationController
   def new_contact
     NewContactMailer.with(contact: email_params).new_contact.deliver_later
 
-    flash[:notice] = I18n.t("flash.contact.thanks")
+    flash[:notice] = I18n.t('flash.contact.thanks')
     redirect_back(fallback_location: contact_path)
   end
 

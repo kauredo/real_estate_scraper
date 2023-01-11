@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+  scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     devise_scope :admin do
       # Redirests signing out users back to sign-in
-      get "admins", to: "devise/sessions#new"
+      get 'admins', to: 'devise/sessions#new'
     end
 
     devise_for :admins
@@ -13,31 +13,31 @@ Rails.application.routes.draw do
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     # Defines the root path route ("/")
-    root "pages#home"
-    get "/sobre", to: "pages#about", as: :about
-    get "/servicos", to: "pages#services", as: :services
-    get "/casa_360", to: "pages#house_360", as: :house_360
-    get "/kw", to: "pages#kw", as: :kw
-    get "/privacidade", to: "pages#privacy", as: :privacy
-    get "/termos_e_condicoes", to: "pages#terms_and_conditions", as: :terms_and_conditions
-    get "/contactos", to: "pages#contact", as: :contact
-    post "/novo_contacto", to: "pages#new_contact", as: :new_contact
-    get "/empreendimentos", to: "listing_complexes#index", as: :latest
+    root 'pages#home'
+    get '/sobre', to: 'pages#about', as: :about
+    get '/servicos', to: 'pages#services', as: :services
+    get '/casa_360', to: 'pages#house_360', as: :house_360
+    get '/kw', to: 'pages#kw', as: :kw
+    get '/privacidade', to: 'pages#privacy', as: :privacy
+    get '/termos_e_condicoes', to: 'pages#terms_and_conditions', as: :terms_and_conditions
+    get '/contactos', to: 'pages#contact', as: :contact
+    post '/novo_contacto', to: 'pages#new_contact', as: :new_contact
+    get '/empreendimentos', to: 'listing_complexes#index', as: :latest
     get '/empreendimentos/:id', to: 'listing_complexes#show', as: :listing_complex
-    get "/comprar", to: "listings#buy", as: :buy
+    get '/comprar', to: 'listings#buy', as: :buy
     get '/comprar/:id', to: 'listings#show', as: :listing
-    get "/vender", to: "listings#sell", as: :sell
-    resources :newsletter_subscriptions, only: [:create, :destroy] do
+    get '/vender', to: 'listings#sell', as: :sell
+    resources :newsletter_subscriptions, only: %i[create destroy] do
       member do
-        get '/confirm', to: "newsletter_subscriptions#confirm"
+        get '/confirm', to: 'newsletter_subscriptions#confirm'
       end
     end
 
     namespace :backoffice do
-      get '/', to: "pages#home"
-      resources :variables, only: [:create, :update, :destroy]
-      resources :colleagues, only: [:show, :create, :update, :destroy]
-      resources :listings, only: [:index, :edit, :update, :destroy]
+      get '/', to: 'pages#home'
+      resources :variables, only: %i[create update destroy]
+      resources :colleagues, only: %i[show create update destroy]
+      resources :listings, only: %i[index edit update destroy]
       resources :listing_complexes
       resources :testimonials
     end
