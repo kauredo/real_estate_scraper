@@ -4,7 +4,7 @@
 <%= react_component "shared--Banner", {height: '20vh', blurred: true, text: meta_title} %>
 <div class="pt-6 bg-white text-center md:hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
-     <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4">Empreendimentos</h1>
+     <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4"><%= meta_title %></h1>
   </div>
 </div>
 <%= react_component "shared--Pagination", {pagy: @pagy} %>
@@ -14,7 +14,7 @@
   <div class="py-8 md:py-0 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
-        <p class="mt-2 text-3xl text-black sm:text-4xl">Porquê Comprar <span class="underline decoration-beige">em Planta?</span></p>
+        <p class="mt-2 text-3xl text-black sm:text-4xl"><%= sanitize I18n.t("enterprises.subheader") %></p>
       </div>
       <div class="my-10">
         <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
@@ -23,45 +23,45 @@
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-trophy" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-bold font-medium text-black w-3/4">Vai ser o primeiro dono da sua nova casa</p>
+              <p class="ml-4 text-lg font-bold font-medium text-black w-3/4"><%= I18n.t("enterprises.list.own.title") %></p>
             </dt>
-            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4">Na compra em planta tem a garantia que o imóvel está pronto a estrear e tem a certeza que você será o primeiro proprietário.</p>
+            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4"><%= I18n.t("enterprises.list.own.description") %></p>
           </div>
           <div>
             <dt class="flex items-center">
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-calendar-alt" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-bold font-medium text-black w-3/4">Investimento Faseado</p>
+              <p class="ml-4 text-lg font-bold font-medium text-black w-3/4"><%= I18n.t("enterprises.list.invest.title") %></p>
             </dt>
-            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4">Possibilidade de disponibilizar o pagamento consoante as fases de evolução da obra e da construção.</p>
+            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4"><%= I18n.t("enterprises.list.invest.description") %></p>
           </div>
           <div>
             <dt class="flex items-center">
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-hard-hat" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-bold font-medium text-black w-3/4">Garantia de construção</p>
+              <p class="ml-4 text-lg font-bold font-medium text-black w-3/4"><%= I18n.t("enterprises.list.warranty.title") %></p>
             </dt>
-            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4">Um imóvel novo tem garantia de construção, além da certeza de não haver necessidade de melhoramentos nos próximos anos.</p>
+            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4"><%= I18n.t("enterprises.list.warranty.description") %></p>
           </div>
           <div>
             <dt class="flex items-center">
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fa fa-money" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-bold font-medium text-black w-3/4">Perspectiva de melhor retorno de investimento</p>
+              <p class="ml-4 text-lg font-bold font-medium text-black w-3/4"><%= I18n.t("enterprises.list.perspective.title") %></p>
             </dt>
-            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4">Ao adquirir uma casa em planta o investimento que é feito é, por norma, inferior ao investimento que seria necessário fazer caso ela já estivesse pronta. Isto significa que a sua casa, a partir do momento que está pronta, já potencia o seu investimento.</p>
+            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4"><%= I18n.t("enterprises.list.perspective.description") %></p>
           </div>
           <div>
             <dt class="flex items-center">
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-house-user" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-bold font-medium text-black w-3/4">Imóvel à sua medida</p>
+              <p class="ml-4 text-lg font-bold font-medium text-black w-3/4"><%= I18n.t("enterprises.list.yours.title") %></p>
             </dt>
-            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4">A aquisição em planta confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua futura casa vá de encontro às suas necessidades e gostos.</p>
+            <p class="text-lg pt-3 font-medium text-gray-800 w-3/4"><%= I18n.t("enterprises.list.yours.description") %></p>
           </div>
         </dl>
       </div>

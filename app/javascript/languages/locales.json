@@ -3,8 +3,12 @@
     "about": {
       "header": "About Us",
       "mission": {
-        "sub1": "Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!",
+        "sub1": "To be by your side in the real estate world to make the big \"changes\" in your life happy!",
         "title": "Mission"
+      },
+      "profile": {
+        "description": "I'm a trained marketer and value creator by passion. I worked for years with brands and products, in order to better serve the Client and offer him not only what he needed, but also what best met his aspirations. I have focused on people and realising their full potential, I am a Master in Neuro Linguistic Programming and I believe in empowering people to achieve their goals and realise their life purpose. I dedicated myself to the real estate sector with a focus on the discovery of the unique asset: the house, the client, the transaction, the service. At KW I found the right structure to develop the Sofia Galvão Group's real estate brand with rigour, professionalism and trust. I have the market 'know how' and I provide my Clients the best deals, the ones that make them the happiest!",
+        "slogan": "Together we create Happy Homes!"
       },
       "results": {
         "title": "Results"
@@ -13,13 +17,13 @@
         "title": "Testimonies"
       },
       "vision": {
-        "sub1": "Ser a equipa preferida pelos clientes que querem comprar ou vender imobiliário nas zonas de Lisboa e do Porto, graças ao nosso profissionalismo, à nossa capacidade de gerar bons negócios e aos valores que professamos no dia a dia.",
-        "sub2": "Juntos criamos Lares Felizes!",
+        "sub1": "To be the preferred team for clients who want to buy or sell property in the Lisbon and Porto areas, thanks to our professionalism, our capacity to generate good business and the values we profess on a daily basis.",
+        "sub2": "Together we create Happy Homes!",
         "title": "Vision"
       },
       "who": {
-        "sub1": "Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
-        "sub2": "Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
+        "sub1": "A dedicated and demanding team that, motivated by the best customer service, grows and goes further every day.",
+        "sub2": "Focused on the professionalisation of the sector, we provide real estate consultancy with credibility, excellence and relevance.",
         "title": "Who are we?"
       }
     },
@@ -218,6 +222,28 @@
     },
     "enterprises": {
       "header": "Enterprises",
+      "list": {
+        "invest": {
+          "description": "Possibility of making the payment according to the evolution phases of the work and construction.",
+          "title": "Phased investment"
+        },
+        "own": {
+          "description": "When you buy a house on the planning stage you have the guarantee that the property will be move-in ready and you have the certainty that you will be the first owner.",
+          "title": "You will be the first owner of your new home"
+        },
+        "perspective": {
+          "description": "When you buy a plan, the investment you make is generally lower than if it were already a finished house. This means that your house, once ready, is a boost to your investment.",
+          "title": "Prospects of better return on investment"
+        },
+        "warranty": {
+          "description": "A new property has a construction guarantee, as well as the certainty that there will be no need for improvements in the coming years.",
+          "title": "Construction Guarantee"
+        },
+        "yours": {
+          "description": "The purchase in plan gives the future owner the possibility of making changes in terms of materials and sometimes in the configuration, so that your future home meets your needs and tastes.",
+          "title": "Property to your measure"
+        }
+      },
       "show": {
         "bedrooms": "Bedrooms",
         "built": "Built Area",
@@ -226,7 +252,8 @@
         "parking": "Parking",
         "price": "Price",
         "type": "Type"
-      }
+      },
+      "subheader": "Why buy  <span class=\"underline decoration-beige\">a Plan?</span>"
     },
     "flash": {
       "actions": {
@@ -276,7 +303,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x000000010bfa7628 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x0000000106718b38 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       }
     },
     "listing": {
@@ -418,6 +445,10 @@
       "mission": {
         "sub1": "Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!",
         "title": "Missão"
+      },
+      "profile": {
+        "description": "Sou markeeter de formação e criadora de valor por paixão. Trabalhei durante anos com marcas e produtos, no propósito de melhor servir o Cliente e de lhe oferecer não só o que ele necessitava, mas também o que melhor respondia às suas aspirações. Foquei-me nas pessoas e na realização do seu potencial máximo, sou Master em Programação Neuro linguística e acredito na conquista da capacitação para a concretização de objectivos e realização de propósitos de vida. Dediquei-me ao sector imobiliário e exerço na compra e venda de casas a descoberta do activo único: da casa, do cliente, da transação, do serviço. Encontrei na KW a estrutura certa para desenvolver a consultoria imobiliária do Sofia Galvão Group com exigência, rigor, profissionalismo e confiança. Tenho o “know how” do mercado e proporciono aos meus Clientes os melhores negócios, os que os fazem mais Felizes!",
+        "slogan": "Juntos criamos Lares Felizes!"
       },
       "results": {
         "title": "Resultados"
@@ -695,6 +726,28 @@
     },
     "enterprises": {
       "header": "Empreendimentos",
+      "list": {
+        "invest": {
+          "description": "Possibilidade de disponibilizar o pagamento consoante as fases de evolução da obra e da construção.",
+          "title": "Investimento Faseado"
+        },
+        "own": {
+          "description": "Na compra em planta tem a garantia que o imóvel está pronto a estrear e tem a certeza que você será o primeiro proprietário.",
+          "title": "Vai ser o primeiro dono da sua nova casa"
+        },
+        "perspective": {
+          "description": "Ao adquirir uma casa em planta o investimento que é feito é, por norma, inferior ao investimento que seria necessário fazer caso ela já estivesse pronta. Isto significa que a sua casa, a partir do momento que está pronta, já potencia o seu investimento.",
+          "title": "Perspectiva de melhor retorno de investimento"
+        },
+        "warranty": {
+          "description": "Um imóvel novo tem garantia de construção, além da certeza de não haver necessidade de melhoramentos nos próximos anos.",
+          "title": "Garantia de construção"
+        },
+        "yours": {
+          "description": "A aquisição em planta confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua futura casa vá de encontro às suas necessidades e gostos.",
+          "title": "Imóvel à sua medida"
+        }
+      },
       "show": {
         "bedrooms": "Tipologia",
         "built": "Área Bruta",
@@ -703,7 +756,8 @@
         "parking": "Estacionamento",
         "price": "Preço",
         "type": "Natureza"
-      }
+      },
+      "subheader": "Porquê Comprar <span class=\"underline decoration-beige\">em Planta?</span>"
     },
     "flash": {
       "contact": {
@@ -741,7 +795,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x000000010bfe5d38 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x00000001067304e0 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       },
       "transliterate": {
         "rule": {

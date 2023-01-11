@@ -38,36 +38,85 @@ pt:
     contacts: Contactos
     services: Serviços
     house_360: Casa 360
+
   footer:
     about: sobre nós
     privacy: política de privacidade
     terms: termos e condições
     contacts: contactos
+
   buy:
     header: Comprar
+
   sell:
     header: Vender
     subheader: Saiba quanto vale a sua casa
     paragraph:
       top: Garantimos o melhor negócio para a venda da sua casa.
-      middle: Oferecemos um serviço de consultoria que trabalha de forma única e à medida do que pretende, com foco na estratégia de promoção, divulgação e na melhor negociação.
-      bottom: "O nosso objectivo é encontrar o melhor Cliente no mais breve tempo possível e para isso disponibilizamos:"
+      middle:
+        Oferecemos um serviço de consultoria que trabalha de forma única e à
+        medida do que pretende, com foco na estratégia de promoção, divulgação e
+        na melhor negociação.
+      bottom:
+        "O nosso objectivo é encontrar o melhor Cliente no mais breve tempo
+        possível e para isso disponibilizamos:"
     list:
-      market: Estudo do Mercado - elaboração de analises comparativas de Mercado e relatórios de caracterização da zona a considerar.
+      market:
+        Estudo do Mercado - elaboração de analises comparativas de Mercado e
+        relatórios de caracterização da zona a considerar.
       eval: Avaliação certificada do imóvel.
-      warranty: Garantia de implementação de processos e procedimentos regulados pelo sector.
+      warranty:
+        Garantia de implementação de processos e procedimentos regulados pelo
+        sector.
       media: "Produção Multimédia: Reportagem fotográfica+vídeo."
       kw: Acesso exclusivo a toda a rede Nacional KW.
       agencies: Partilha da venda com todas as agências do mercado.
-      portal: Divulgação nos mais relevantes portais imobiliários nacionais e internacionais.
+      portal:
+        Divulgação nos mais relevantes portais imobiliários nacionais e
+        internacionais.
       socials: Divulgação Social Media.
       promo: Utilização de placas de promoção.
       open: Realização de Open House.
       flyer: "Acções de proximidade: Flyers; brochuras; newsletters."
       feedback: Feedback detalhado e regular.
-    exclusive: Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um acompanhamento de proximidade ao longo de todo o processo.
+    exclusive:
+      Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um
+      acompanhamento de proximidade ao longo de todo o processo.
+
   enterprises:
     header: Empreendimentos
+    subheader:
+      Porquê Comprar <span class="underline decoration-beige">em Planta?</span>
+    list:
+      own:
+        title: Vai ser o primeiro dono da sua nova casa
+        description:
+          Na compra em planta tem a garantia que o imóvel está pronto a estrear
+          e tem a certeza que você será o primeiro proprietário.
+      invest:
+        title: Investimento Faseado
+        description:
+          Possibilidade de disponibilizar o pagamento consoante as fases de
+          evolução da obra e da construção.
+      warranty:
+        title: Garantia de construção
+        description:
+          Um imóvel novo tem garantia de construção, além da certeza de não
+          haver necessidade de melhoramentos nos próximos anos.
+      perspective:
+        title: Perspectiva de melhor retorno de investimento
+        description:
+          Ao adquirir uma casa em planta o investimento que é feito é, por
+          norma, inferior ao investimento que seria necessário fazer caso ela já
+          estivesse pronta. Isto significa que a sua casa, a partir do momento
+          que está pronta, já potencia o seu investimento.
+      yours:
+        title: Imóvel à sua medida
+        description:
+          A aquisição em planta confere a possibilidade do futuro proprietário
+          fazer alterações ao nível de materiais e por vezes ao nível da
+          configuração, de forma a que a sua futura casa vá de encontro às suas
+          necessidades e gostos.
     show:
       type: Natureza
       bedrooms: Tipologia
@@ -76,44 +125,80 @@ pt:
       parking: Estacionamento
       price: Preço
       more: Ver mais
+
   about:
     header: Sobre Nós
+    profile:
+      slogan: Juntos criamos Lares Felizes!
+      description:
+        "Sou markeeter de formação e criadora de valor por paixão. Trabalhei
+        durante anos com marcas e produtos, no propósito de melhor servir o
+        Cliente e de lhe oferecer não só o que ele necessitava, mas também o que
+        melhor respondia às suas aspirações. Foquei-me nas pessoas e na
+        realização do seu potencial máximo, sou Master em Programação Neuro
+        linguística e acredito na conquista da capacitação para a concretização
+        de objectivos e realização de propósitos de vida. Dediquei-me ao sector
+        imobiliário e exerço na compra e venda de casas a descoberta do activo
+        único: da casa, do cliente, da transação, do serviço. Encontrei na KW a
+        estrutura certa para desenvolver a consultoria imobiliária do Sofia
+        Galvão Group com exigência, rigor, profissionalismo e confiança. Tenho o
+        “know how” do mercado e proporciono aos meus Clientes os melhores
+        negócios, os que os fazem mais Felizes!"
     who:
       title: Quem somos?
-      sub1: Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.
-      sub2: Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.
+      sub1:
+        Uma equipa dedicada e exigente que motivada pelo melhor serviço ao
+        Cliente cresce e vai mais longe todos os dias.
+      sub2:
+        Focados na profissionalização do sector praticamos consultoria
+        imobiliária com credibilidade, excelência e relevância.
     mission:
       title: Missão
-      sub1: Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!
+      sub1:
+        Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes
+        “mudanças” da sua vida!
     vision:
       title: Visão
-      sub1: Ser a equipa preferida pelos clientes que querem comprar ou vender imobiliário nas zonas de Lisboa e do Porto, graças ao nosso profissionalismo, à nossa capacidade de gerar bons negócios e aos valores que professamos no dia a dia.
+      sub1:
+        Ser a equipa preferida pelos clientes que querem comprar ou vender
+        imobiliário nas zonas de Lisboa e do Porto, graças ao nosso
+        profissionalismo, à nossa capacidade de gerar bons negócios e aos
+        valores que professamos no dia a dia.
       sub2: Juntos criamos Lares Felizes!
     results:
       title: Resultados
     testimonies:
       title: Testemunhos
+
   contacts:
     header: Contactos
+
   services:
     header: Serviços
+
   house_360:
     header: Casa 360
+
   privacy:
     header: Política de Privacidade
+
   terms:
     header: Termos e Condições
+
   flash:
     newsletters:
-      repeat: Já tem uma subscrição ativa à nossa newsletter. Obrigada pela confiança!
+      repeat:
+        Já tem uma subscrição ativa à nossa newsletter. Obrigada pela confiança!
       subscribe: Por favor confirme a subscrição através do seu email
       confirm: Subscrição à newsletter ativa, obrigado pela confiança
       error: Não foi possível subscrever à newsletter, por favor tente novamente
     contact:
       thanks: Obrigado pela sua mensagem. Entraremos em contacto em breve
+
   pagination:
     previous: Anterior
     next: Próxima
+
   listing:
     details: Detalhes do Imóvel
     characteristics: Características do Imóvel
