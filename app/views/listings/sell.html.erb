@@ -1,9 +1,10 @@
-<% content_for(:meta_title) { 'Vender' } %>
+<% meta_title = I18n.t("sell.header") %>
+<% content_for(:meta_title) { meta_title } %>
 <% content_for(:extra_meta) do %>
   <meta name="turbo-visit-control" content="reload">
 <% end %>
 
-<%= react_component "shared--Banner", {height: '20vh', blurred: true, text: "Vender"} %>
+<%= react_component "shared--Banner", {height: '20vh', blurred: true, text: meta_title} %>
 <div class="pt-6 bg-white text-center md:hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
     <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4"><%= I18n.t('sell.header') %></h1>

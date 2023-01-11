@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "nuka-carousel";
 import { Listing } from "../utils/Interfaces";
 import ContactForm from "../contactPage/ContactForm";
+import { i18n } from "../../languages/languages";
 
 interface Props {
   listing: Listing;
@@ -36,6 +37,7 @@ export default function Show(props: Props) {
           <h1
             id="main-title"
             className="relative block mt-2 text-3xl text-black sm:text-4xl px-4"
+            style={{ maxWidth: "66vw" }}
           >
             {listing.title}
           </h1>
@@ -45,7 +47,7 @@ export default function Show(props: Props) {
         <div className="col-span-2">
           <div className="p-4 w-full bg-white m-2 tablet:mx-0">
             <h2 className="standard mb-2 text-lg font-bold">
-              Detalhes do Imóvel
+              {i18n.t("listing.details")}
             </h2>
             <div className="w-full flex flex-wrap">
               <div key={"price"} className="border p-2 w-40">
@@ -69,7 +71,7 @@ export default function Show(props: Props) {
           </div>
           <div className="p-4 w-full bg-white m-2 tablet:mx-0 h-fit">
             <h2 className="standard mb-2 text-lg font-bold">
-              Características do Imóvel
+              {i18n.t("listing.characteristics")}
             </h2>
             <ul
               className="tablet:ml-2 grid gap-4"

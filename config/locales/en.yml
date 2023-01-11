@@ -43,6 +43,8 @@ en:
     privacy: privacy policy
     terms: terms and conditions
     contacts: contacts
+  buy:
+    header: Buy
   sell:
     header: Sell
     subheader: Find out how much your home is worth.
@@ -64,6 +66,16 @@ en:
       flyer: "Proximity actions: Flyers; brochures; newsletters."
       feedback: Detailed and regular feedback.
     exclusive: We work on your home with exclusivity, dedication and provide close monitoring throughout the entire process.
+  enterprises:
+    header: Enterprises
+    show:
+      type: Type
+      bedrooms: Bedrooms
+      built: Built Area
+      living: Living Area
+      parking: Parking
+      price: Price
+      more: See More
   about:
     header: About Us
     who:
@@ -81,3 +93,27 @@ en:
       title: Results
     testimonies:
       title: Testimonies
+  contacts:
+    header: Contacts
+  services:
+    header: Services
+  home_360:
+    header: Home 360
+  privacy:
+    header: Privacy Policy
+  terms:
+    header: Terms and Conditions
+  flash:
+    newsletters:
+      repeat: You're already subscribed to our newsletter, thank you for your trust!
+      subscribe: Please confirm your subscription through the link in your email
+      confirm: Subscription is now active, thank you for your trust!
+      error: Error subscribing to the newsletter, please try again
+    contact:
+      thanks: Thank you for your message, we will contact you as soon as possible
+  pagination:
+    previous: Previous
+    next: Next
+  listing:
+    details: Listing Details
+    characteristics: Listing Characteristics

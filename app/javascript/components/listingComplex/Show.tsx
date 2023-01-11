@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
 import { Listing, ListingComplex } from "../utils/Interfaces";
 
@@ -19,7 +20,6 @@ export default function Show(props: Props) {
           className="w-full mx-auto"
           src={`${complex.video_link}?autoplay=1&mute=1`}
           allow="autoplay"
-          frameBorder="0"
           allowFullScreen
         ></iframe>
       );
@@ -49,13 +49,23 @@ export default function Show(props: Props) {
               <thead>
                 <tr className="bg-beige text-white">
                   <th className="border border-white border-l-slate-700 p-2">
-                    Natureza
+                    {i18n.t("enterprises.show.type")}
                   </th>
-                  <th className="border border-white p-2">Tipologia</th>
-                  <th className="border border-white p-2">Área Bruta</th>
-                  <th className="border border-white p-2">Área Útil</th>
-                  <th className="border border-white p-2">Estacionamento</th>
-                  <th className="border border-white p-2">Preço</th>
+                  <th className="border border-white p-2">
+                    {i18n.t("enterprises.show.bedrooms")}
+                  </th>
+                  <th className="border border-white p-2">
+                    {i18n.t("enterprises.show.built")}
+                  </th>
+                  <th className="border border-white p-2">
+                    {i18n.t("enterprises.show.living")}
+                  </th>
+                  <th className="border border-white p-2">
+                    {i18n.t("enterprises.show.parking")}
+                  </th>
+                  <th className="border border-white p-2">
+                    {i18n.t("enterprises.show.price")}
+                  </th>
                   <th className="border border-white  border-r-slate-700"></th>
                 </tr>
               </thead>
@@ -98,7 +108,7 @@ export default function Show(props: Props) {
                           target="_blank"
                           className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
                         >
-                          Ver mais
+                          {i18n.t("enterprises.show.more")}
                         </a>
                       </td>
                     </tr>
@@ -106,16 +116,6 @@ export default function Show(props: Props) {
                 })}
               </tbody>
             </table>
-            {/* <ul
-            className="tablet:ml-2 grid gap-4"
-            style={{
-              gridTemplateColumns: "repeat( auto-fit, minmax(250px, 1fr) )",
-            }}
-          >
-            {listings.map(listing => {
-              return <li className="mx-8 list-disc">{listing.title}</li>;
-            })}
-          </ul> */}
           </div>
         </div>
 

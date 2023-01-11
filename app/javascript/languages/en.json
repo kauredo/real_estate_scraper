@@ -34,6 +34,12 @@
         }
       }
     },
+    "buy": {
+      "header": "Buy"
+    },
+    "contacts": {
+      "header": "Contacts"
+    },
     "date": {
       "abbr_day_names": [
         "Sun",
@@ -221,6 +227,18 @@
         "unlocked": "Your account has been unlocked successfully. Please sign in to continue."
       }
     },
+    "enterprises": {
+      "header": "Enterprises",
+      "show": {
+        "bedrooms": "Bedrooms",
+        "built": "Built Area",
+        "living": "Living Area",
+        "more": "See More",
+        "parking": "Parking",
+        "price": "Price",
+        "type": "Type"
+      }
+    },
     "errors": {
       "connection_refused": "Oops! Failed to connect to the Web Console middleware.\nPlease make sure a rails development server is running.\n",
       "format": "%{attribute} %{message}",
@@ -291,6 +309,15 @@
         "update": {
           "notice": "%{resource_name} was successfully updated."
         }
+      },
+      "contact": {
+        "thanks": "Thank you for your message, we will contact you as soon as possible"
+      },
+      "newsletters": {
+        "confirm": "Subscription is now active, thank you for your trust!",
+        "error": "Error subscribing to the newsletter, please try again",
+        "repeat": "You're already subscribed to our newsletter, thank you for your trust!",
+        "subscribe": "Please confirm your subscription through the link in your email"
       }
     },
     "footer": {
@@ -309,14 +336,21 @@
         "update": "Update %{model}"
       }
     },
+    "home_360": {
+      "header": "Home 360"
+    },
     "i18n": {
       "plural": {
         "keys": [
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x000000010b04f158 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x0000000106cdce70 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       }
+    },
+    "listing": {
+      "characteristics": "Listing Characteristics",
+      "details": "Listing Details"
     },
     "navbar": {
       "about": "About Us",
@@ -382,8 +416,8 @@
         }
       },
       "nth": {
-        "ordinalized": "#<Proc:0x000000010b02eea8 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:26 (lambda)>",
-        "ordinals": "#<Proc:0x000000010b02eed0 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:7 (lambda)>"
+        "ordinalized": "#<Proc:0x0000000106cac428 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:26 (lambda)>",
+        "ordinals": "#<Proc:0x0000000106cac450 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:7 (lambda)>"
       },
       "percentage": {
         "format": {
@@ -396,6 +430,13 @@
           "delimiter": ""
         }
       }
+    },
+    "pagination": {
+      "next": "Next",
+      "previous": "Previous"
+    },
+    "privacy": {
+      "header": "Privacy Policy"
     },
     "sell": {
       "exclusive": "We work on your home with exclusivity, dedication and provide close monitoring throughout the entire process.",
@@ -421,12 +462,18 @@
       },
       "subheader": "Find out how much your home is worth."
     },
+    "services": {
+      "header": "Services"
+    },
     "support": {
       "array": {
         "last_word_connector": ", and ",
         "two_words_connector": " and ",
         "words_connector": ", "
       }
+    },
+    "terms": {
+      "header": "Terms and Conditions"
     },
     "time": {
       "am": "am",

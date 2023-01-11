@@ -29,16 +29,16 @@ function Hero(props: Props) {
       <div className="relative bottom-5 left-0 right-0 center">
         <div className="flex justify-center">
           <a href={window.Routes.buy_path({ locale: i18n.locale })}>
-            <div className="px-5">
-              <p>comprar</p>
+            <div className="px-5 lowercase">
+              <p>{i18n.t("navbar.buy")}</p>
             </div>
           </a>
           <a
             href={window.Routes.sell_path({ locale: i18n.locale })}
             data-turbolinks={false}
           >
-            <div className="px-5">
-              <p>vender</p>
+            <div className="px-5 lowercase">
+              <p>{i18n.t("navbar.sell")}</p>
             </div>
           </a>
           <a href="#cards">

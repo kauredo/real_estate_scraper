@@ -34,6 +34,12 @@
         }
       }
     },
+    "buy": {
+      "header": "Comprar"
+    },
+    "contacts": {
+      "header": "Contactos"
+    },
     "date": {
       "abbr_day_names": [
         "dom",
@@ -285,6 +291,18 @@
         "unlocked": "A sua conta foi desbloqueada com sucesso. Por favor autentique-se para continuar."
       }
     },
+    "enterprises": {
+      "header": "Empreendimentos",
+      "show": {
+        "bedrooms": "Tipologia",
+        "built": "Área Bruta",
+        "living": "Área Útil",
+        "more": "Ver mais",
+        "parking": "Estacionamento",
+        "price": "Preço",
+        "type": "Natureza"
+      }
+    },
     "errors": {
       "format": "%{attribute} %{message}",
       "messages": {
@@ -330,6 +348,17 @@
         }
       }
     },
+    "flash": {
+      "contact": {
+        "thanks": "Obrigado pela sua mensagem. Entraremos em contacto em breve"
+      },
+      "newsletters": {
+        "confirm": "Subscrição à newsletter ativa, obrigado pela confiança",
+        "error": "Não foi possível subscrever à newsletter, por favor tente novamente",
+        "repeat": "Já tem uma subscrição ativa à nossa newsletter. Obrigada pela confiança!",
+        "subscribe": "Por favor confirme a subscrição através do seu email"
+      }
+    },
     "footer": {
       "about": "sobre nós",
       "contacts": "contactos",
@@ -346,13 +375,16 @@
         "update": "Actualizar %{model}"
       }
     },
+    "home_360": {
+      "header": "Casa 360"
+    },
     "i18n": {
       "plural": {
         "keys": [
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x000000010b03d390 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x0000000106cc4ed8 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       },
       "transliterate": {
         "rule": {
@@ -382,6 +414,10 @@
           "ú": "u"
         }
       }
+    },
+    "listing": {
+      "characteristics": "Características do Imóvel",
+      "details": "Detalhes do Imóvel"
     },
     "navbar": {
       "about": "Sobre Nós",
@@ -469,6 +505,13 @@
         }
       }
     },
+    "pagination": {
+      "next": "Próxima",
+      "previous": "Anterior"
+    },
+    "privacy": {
+      "header": "Política de Privacidade"
+    },
     "sell": {
       "exclusive": "Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um acompanhamento de proximidade ao longo de todo o processo.",
       "header": "Vender",
@@ -493,12 +536,18 @@
       },
       "subheader": "Saiba quanto vale a sua casa"
     },
+    "services": {
+      "header": "Serviços"
+    },
     "support": {
       "array": {
         "last_word_connector": " e ",
         "two_words_connector": " e ",
         "words_connector": ", "
       }
+    },
+    "terms": {
+      "header": "Termos e Condições"
     },
     "time": {
       "am": "am",

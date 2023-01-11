@@ -43,6 +43,8 @@ pt:
     privacy: política de privacidade
     terms: termos e condições
     contacts: contactos
+  buy:
+    header: Comprar
   sell:
     header: Vender
     subheader: Saiba quanto vale a sua casa
@@ -64,6 +66,16 @@ pt:
       flyer: "Acções de proximidade: Flyers; brochuras; newsletters."
       feedback: Feedback detalhado e regular.
     exclusive: Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um acompanhamento de proximidade ao longo de todo o processo.
+  enterprises:
+    header: Empreendimentos
+    show:
+      type: Natureza
+      bedrooms: Tipologia
+      built: Área Bruta
+      living: Área Útil
+      parking: Estacionamento
+      price: Preço
+      more: Ver mais
   about:
     header: Sobre Nós
     who:
@@ -81,3 +93,27 @@ pt:
       title: Resultados
     testimonies:
       title: Testemunhos
+  contacts:
+    header: Contactos
+  services:
+    header: Serviços
+  home_360:
+    header: Casa 360
+  privacy:
+    header: Política de Privacidade
+  terms:
+    header: Termos e Condições
+  flash:
+    newsletters:
+      repeat: Já tem uma subscrição ativa à nossa newsletter. Obrigada pela confiança!
+      subscribe: Por favor confirme a subscrição através do seu email
+      confirm: Subscrição à newsletter ativa, obrigado pela confiança
+      error: Não foi possível subscrever à newsletter, por favor tente novamente
+    contact:
+      thanks: Obrigado pela sua mensagem. Entraremos em contacto em breve
+  pagination:
+    previous: Anterior
+    next: Próxima
+  listing:
+    details: Detalhes do Imóvel
+    characteristics: Características do Imóvel
