@@ -267,7 +267,7 @@
         "update": "Update %{model}"
       }
     },
-    "home_360": {
+    "house_360": {
       "header": "Home 360"
     },
     "i18n": {
@@ -276,7 +276,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x0000000106cdce70 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x000000010b864b68 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       }
     },
     "listing": {
@@ -288,7 +288,7 @@
       "buy": "Buy",
       "contacts": "Contacts",
       "enterprises": "Enterprises",
-      "home_360": "Home 360",
+      "house_360": "Home 360",
       "sell": "Sell",
       "services": "Services"
     },
@@ -732,7 +732,7 @@
         "update": "Actualizar %{model}"
       }
     },
-    "home_360": {
+    "house_360": {
       "header": "Casa 360"
     },
     "i18n": {
@@ -741,7 +741,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x0000000106cc4ed8 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x000000010b87d2d0 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       },
       "transliterate": {
         "rule": {
@@ -781,7 +781,7 @@
       "buy": "Comprar",
       "contacts": "Contactos",
       "enterprises": "Empreendimentos",
-      "home_360": "Casa 360",
+      "house_360": "Casa 360",
       "sell": "Vender",
       "services": "Serviços"
     },

@@ -37,7 +37,7 @@ en:
     about: About Us
     contacts: Contacts
     services: Services
-    home_360: Home 360
+    house_360: Home 360
   footer:
     about: about us
     privacy: privacy policy
@@ -97,7 +97,7 @@ en:
     header: Contacts
   services:
     header: Services
-  home_360:
+  house_360:
     header: Home 360
   privacy:
     header: Privacy Policy

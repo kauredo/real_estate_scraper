@@ -37,7 +37,7 @@ pt:
     about: Sobre Nós
     contacts: Contactos
     services: Serviços
-    home_360: Casa 360
+    house_360: Casa 360
   footer:
     about: sobre nós
     privacy: política de privacidade
@@ -97,7 +97,7 @@ pt:
     header: Contactos
   services:
     header: Serviços
-  home_360:
+  house_360:
     header: Casa 360
   privacy:
     header: Política de Privacidade

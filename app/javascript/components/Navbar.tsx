@@ -65,7 +65,7 @@ export default function Navbar(props: Props) {
       url: sanitizeURL(window.Routes.services_path),
     },
     {
-      title: `${i18n.t("navbar.home_360")}`,
+      title: `${i18n.t("navbar.house_360")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.house_360_path),
     },
