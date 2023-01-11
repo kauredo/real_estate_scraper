@@ -56,6 +56,7 @@ gem 'jwt'
 gem 'pagy', '~> 5.10'
 gem "paranoia"
 gem "react-rails"
+gem 'rubocop', require: false
 gem "sidekiq"
 gem "watir"
 

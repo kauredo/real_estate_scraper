@@ -25,7 +25,7 @@ class NewsletterSubscriptionsController < ApplicationController
     sub = NewsletterSubscription.find(params[:id])
     decrypted_token = JsonWebToken.decode(params[:token])
 
-    if decrypted_token[:user_id] = sub.user_id && Time.zone.now < Time.at(decrypted_token[:exp])
+    if decrypted_token && decrypted_token[:user_id] = sub.user_id && Time.zone.now < Time.at(decrypted_token[:exp])
       sub.user.update(confirmed_email: true)
       flash[:notice] = "Subscrição à newsletter ativa, obrigado pela confiança"
     else
