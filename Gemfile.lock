@@ -159,6 +159,9 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.17.0)
+    mobility (1.2.9)
+      i18n (>= 0.6.10, < 2)
+      request_store (~> 1.0)
     msgpack (1.5.6)
     net-imap (0.2.3)
       digest
@@ -248,6 +251,8 @@ GEM
     regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -337,6 +342,7 @@ DEPENDENCIES
   jsbundling-rails
   jwt
   listen (~> 3.7, >= 3.7.1)
+  mobility (~> 1.2.9)
   pagy (~> 5.10)
   paranoia
   pg (~> 1.4)
