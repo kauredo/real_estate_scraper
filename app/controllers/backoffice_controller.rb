@@ -6,6 +6,6 @@ class BackofficeController < ApplicationController
   private
 
   def redirect_if_not_confirmed!
-    redirect_to root_path if !current_admin.confirmed?
+    redirect_to root_path unless current_admin.confirmed?
   end
 end

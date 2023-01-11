@@ -7,17 +7,12 @@ class Backoffice::ListingsController < BackofficeController
     @listings = Listing.preload(:colleague).all
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     new_params = listing_params.dup
     if new_params[:status] != @listing.status
-      if new_params[:status] == "Vendido"
-        new_params[:status_changed_at] = Time.zone.now
-      else
-        new_params[:status_changed_at] = nil
-      end
+      new_params[:status_changed_at] = (Time.zone.now if new_params[:status] == 'Vendido')
     end
 
     @listing.update(new_params)
@@ -35,7 +30,7 @@ class Backoffice::ListingsController < BackofficeController
   end
 
   def listing_params
-    params.require(:listing).permit(:address, :price, :title, :order, :url, :description, :status, :status_changed_at, :listing_complex_id, features: [], photos: [], stats: {})
+    params.require(:listing).permit(:address, :price, :title, :order, :url, :description, :status, :status_changed_at,
+                                    :listing_complex_id, features: [], photos: [], stats: {})
   end
 end
-

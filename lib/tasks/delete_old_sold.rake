@@ -1,14 +1,14 @@
-desc "Delete old listings with status vendido"
+desc 'Delete old listings with status vendido'
 task delete_old_sold: :environment do
-  puts "Before: "
+  puts 'Before: '
   print Listing.where.not(status_changed_at: nil).count
-  puts ""
-  
+  puts ''
+
   Listing.where.not(status_changed_at: nil).each do |listing|
     listing.destroy if listing.status_changed_at <= 6.months.ago
   end
- 
-  puts "After: "
+
+  puts 'After: '
   print Listing.where.not(status_changed_at: nil).count
-  puts ""
+  puts ''
 end

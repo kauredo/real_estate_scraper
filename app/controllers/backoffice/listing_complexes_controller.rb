@@ -1,6 +1,6 @@
 class Backoffice::ListingComplexesController < BackofficeController
-  before_action :find_listing_complex, except: [:index, :new, :create]
-  after_action :update_video_link, only: [:create, :update]
+  before_action :find_listing_complex, except: %i[index new create]
+  after_action :update_video_link, only: %i[create update]
 
   def index
     @listing_complexes = ListingComplex.all
@@ -19,8 +19,7 @@ class Backoffice::ListingComplexesController < BackofficeController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @listing_complex.update(listing_complex_params)
@@ -46,4 +45,3 @@ class Backoffice::ListingComplexesController < BackofficeController
     params.require(:listing_complex).permit(:name, :description, :order, :video_link, listing_ids: [])
   end
 end
-

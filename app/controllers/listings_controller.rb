@@ -10,6 +10,5 @@ class ListingsController < ApplicationController
     @pagy = pagy_metadata(pagy)
   end
 
-  def sell
-  end
+  def sell; end
 end

@@ -1,5 +1,5 @@
 class Backoffice::TestimonialsController < BackofficeController
- before_action :find_testimonial, except: [:index, :new, :create]
+  before_action :find_testimonial, except: %i[index new create]
 
   def index
     @testimonials = Testimonial.all
@@ -18,8 +18,7 @@ class Backoffice::TestimonialsController < BackofficeController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @testimonial.update(testimonial_params)

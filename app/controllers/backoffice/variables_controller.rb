@@ -3,20 +3,20 @@ class Backoffice::VariablesController < BackofficeController
 
   def create
     Variable.create(variable_params)
-    flash[:notice] = "Variável criada"
-    redirect_to backoffice_path()
+    flash[:notice] = 'Variável criada'
+    redirect_to backoffice_path
   end
 
   def update
     @variable.update(variable_params)
-    flash[:notice] = "Variável atualizada"
-    redirect_to backoffice_path()
+    flash[:notice] = 'Variável atualizada'
+    redirect_to backoffice_path
   end
 
   def destroy
     @variable.destroy
-    flash[:notice] = "Variável apagada"
-    redirect_to backoffice_path()
+    flash[:notice] = 'Variável apagada'
+    redirect_to backoffice_path
   end
 
   private

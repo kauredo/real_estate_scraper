@@ -19,28 +19,22 @@ class PagesController < ApplicationController
     @testimonials = Testimonial.all
   end
 
-  def services
-  end
+  def services; end
 
-  def house_360
-  end
+  def house_360; end
 
-  def contact
-  end
+  def contact; end
 
-  def kw
-  end
+  def kw; end
 
-  def privacy
-  end
+  def privacy; end
 
-  def terms_and_conditions
-  end
+  def terms_and_conditions; end
 
   def new_contact
     NewContactMailer.with(contact: email_params).new_contact.deliver_later
 
-    flash[:notice] = "Obrigado pela sua mensagem. Entraremos em contacto em breve"
+    flash[:notice] = 'Obrigado pela sua mensagem. Entraremos em contacto em breve'
     redirect_back(fallback_location: contact_path)
   end
 

@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
   default from: "Sofia Galvão Group <#{ENV['MAILER_FROM']}>"
   default reply_to: "Sofia Galvão Group <#{ENV['MAILER_FROM']}>"
-  layout "mailer"
+  layout 'mailer'
 end
