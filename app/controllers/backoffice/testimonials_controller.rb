@@ -1,41 +1,45 @@
-class Backoffice::TestimonialsController < BackofficeController
-  before_action :find_testimonial, except: %i[index new create]
+# frozen_string_literal: true
 
-  def index
-    @testimonials = Testimonial.all
-  end
+module Backoffice
+  class TestimonialsController < BackofficeController
+    before_action :find_testimonial, except: %i[index new create]
 
-  def new
-    @testimonial = Testimonial.new
-  end
-
-  def create
-    @testimonial = Testimonial.new(testimonial_params)
-    if @testimonial.save
-      redirect_to backoffice_testimonials_path
-    else
-      render :new
+    def index
+      @testimonials = Testimonial.all
     end
-  end
 
-  def edit; end
+    def new
+      @testimonial = Testimonial.new
+    end
 
-  def update
-    @testimonial.update(testimonial_params)
-    redirect_to backoffice_testimonials_path
-  end
+    def create
+      @testimonial = Testimonial.new(testimonial_params)
+      if @testimonial.save
+        redirect_to backoffice_testimonials_path
+      else
+        render :new
+      end
+    end
 
-  def destroy
-    @testimonial.destroy
-  end
+    def edit; end
 
-  private
+    def update
+      @testimonial.update(testimonial_params)
+      redirect_to backoffice_testimonials_path
+    end
 
-  def find_testimonial
-    @testimonial = Testimonial.find(params[:id])
-  end
+    def destroy
+      @testimonial.destroy
+    end
 
-  def testimonial_params
-    params.require(:testimonial).permit(:name, :text)
+    private
+
+    def find_testimonial
+      @testimonial = Testimonial.find(params[:id])
+    end
+
+    def testimonial_params
+      params.require(:testimonial).permit(:name, :text)
+    end
   end
 end

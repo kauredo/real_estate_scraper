@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Sidekiq.configure_client do |config|
   config.redis = { url: ENV['REDIS_URL'], network_timeout: 5 }
 end

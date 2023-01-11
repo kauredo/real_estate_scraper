@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NewsletterSubscriptionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
@@ -14,11 +16,10 @@ class NewsletterSubscriptionsController < ApplicationController
         flash[:notice] = 'Por favor confirme a subscrição através do seu email'
       end
 
-      redirect_to(root_path)
     else
       flash[:error] = @user.errors.full_messages.to_sentence
-      redirect_to(root_path)
     end
+    redirect_to(root_path)
   end
 
   def confirm

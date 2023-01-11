@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NewsletterConfirmationMailer < ApplicationMailer
   def subscription_confirmed
     @user = params[:user]

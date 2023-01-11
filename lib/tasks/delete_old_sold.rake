@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 desc 'Delete old listings with status vendido'
 task delete_old_sold: :environment do
   puts 'Before: '

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Colleague < ApplicationRecord
   after_create :set_name
   has_many :listings, dependent: :destroy

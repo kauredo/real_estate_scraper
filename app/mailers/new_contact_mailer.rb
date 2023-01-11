@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NewContactMailer < ApplicationMailer
   def new_contact
     contact = params[:contact]

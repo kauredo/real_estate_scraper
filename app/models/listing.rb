@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class Listing < ApplicationRecord
   acts_as_paranoid
   after_save :update_orders
 
-  STATUSES = %w[Novo Reservado Vendido]
-  CITIES = %w[Lisboa Porto]
+  STATUSES = %w[Novo Reservado Vendido].freeze
+  CITIES = %w[Lisboa Porto].freeze
 
   belongs_to :colleague, optional: true
   belongs_to :listing_complex, optional: true
@@ -14,9 +16,7 @@ class Listing < ApplicationRecord
   scope :newest, -> { where(status: 'Novo') }
   scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
   scope :by_city, lambda {
-                    all.group_by do |l|
-                      l.city
-                    end.sort_by { |city, _stuff| CITIES.index(city) || Float::INFINITY }.to_h
+                    all.group_by(&:city).sort_by { |city, _stuff| CITIES.index(city) || Float::INFINITY }.to_h
                   }
   scope :order_status, lambda {
     statuses = STATUSES.dup.insert(1, '')

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TurboDeviseController < ApplicationController
   class Responder < ActionController::Responder
     def to_turbo_stream

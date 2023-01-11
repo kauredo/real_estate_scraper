@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BackofficeController < ApplicationController
   layout 'backoffice'
   before_action :authenticate_admin!

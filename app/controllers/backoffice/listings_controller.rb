@@ -1,36 +1,40 @@
-class Backoffice::ListingsController < BackofficeController
-  skip_before_action :verify_authenticity_token, only: [:destroy]
-  before_action :find_listing, except: [:index]
-  include Pagy::Backend
+# frozen_string_literal: true
 
-  def index
-    @listings = Listing.preload(:colleague).all
-  end
+module Backoffice
+  class ListingsController < BackofficeController
+    skip_before_action :verify_authenticity_token, only: [:destroy]
+    before_action :find_listing, except: [:index]
+    include Pagy::Backend
 
-  def edit; end
-
-  def update
-    new_params = listing_params.dup
-    if new_params[:status] != @listing.status
-      new_params[:status_changed_at] = (Time.zone.now if new_params[:status] == 'Vendido')
+    def index
+      @listings = Listing.preload(:colleague).all
     end
 
-    @listing.update(new_params)
-    redirect_to backoffice_listings_path
-  end
+    def edit; end
 
-  def destroy
-    @listing.destroy
-  end
+    def update
+      new_params = listing_params.dup
+      if new_params[:status] != @listing.status
+        new_params[:status_changed_at] = (Time.zone.now if new_params[:status] == 'Vendido')
+      end
 
-  private
+      @listing.update(new_params)
+      redirect_to backoffice_listings_path
+    end
 
-  def find_listing
-    @listing = Listing.find(params[:id])
-  end
+    def destroy
+      @listing.destroy
+    end
 
-  def listing_params
-    params.require(:listing).permit(:address, :price, :title, :order, :url, :description, :status, :status_changed_at,
-                                    :listing_complex_id, features: [], photos: [], stats: {})
+    private
+
+    def find_listing
+      @listing = Listing.find(params[:id])
+    end
+
+    def listing_params
+      params.require(:listing).permit(:address, :price, :title, :order, :url, :description, :status, :status_changed_at,
+                                      :listing_complex_id, features: [], photos: [], stats: {})
+    end
   end
 end

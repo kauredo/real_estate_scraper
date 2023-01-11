@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_scope :admin do
     # Redirests signing out users back to sign-in

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MetaTagsHelper
   def meta_title
     if request.path_info.include?('backoffice')

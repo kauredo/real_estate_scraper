@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 desc 'Run all scrapers'
 task scrape_all: :environment do
   Rake::Task['scrape'].invoke

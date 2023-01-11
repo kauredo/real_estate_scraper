@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 desc 'Update m2 to m²'
 task update_m2: :environment do
   Listing.all.each do |listing|
