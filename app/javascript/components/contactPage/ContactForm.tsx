@@ -28,7 +28,7 @@ export default function ContactForm(props: Props) {
         console.log(res);
       });
     } else {
-      setError("Por favor insira valores válidos");
+      setError(i18n.t("contacts.form.error"));
     }
   };
 
@@ -43,13 +43,11 @@ export default function ContactForm(props: Props) {
     >
       <p className="text-base text-body-color leading-relaxed mb-9 ">
         {listing || complex
-          ? "Precisa de mais informação? Quer agendar uma visita? Entre em contacto connosco!"
-          : "Preencha o formulário e entraremos em contacto consigo:"}
+          ? i18n.t("contacts.form.titles.visit")
+          : i18n.t("contacts.form.titles.main")}
 
         <span className="flex items-center font-medium tracking-wide text-beige text-xs mt-1 ml-1">
-          Ao pedir informações está a autorizar o Sofia Galvão Group a guardar
-          os seus dados para o informar sobre oportunidades de negócio, de
-          acordo com a Política de Privacidade.
+          {i18n.t("contacts.form.consent")}
         </span>
         {error && (
           <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
@@ -60,13 +58,13 @@ export default function ContactForm(props: Props) {
       <form
         ref={form}
         onSubmit={e => validateUser(e)}
-        action={window.Routes.new_contact_path({ locale: i18n.locale })}
+        action={window.Routes.new_contact_path()}
         method="post"
       >
         <div className="mb-6">
           <input
             type="text"
-            placeholder="Nome"
+            placeholder={i18n.t("contacts.form.fields.name")}
             name="contact[name]"
             onChange={e => setName(e.target.value)}
             className={
@@ -78,7 +76,7 @@ export default function ContactForm(props: Props) {
         <div className="mb-6">
           <input
             type="email"
-            placeholder="Email"
+            placeholder={i18n.t("contacts.form.fields.email")}
             name="contact[email]"
             onChange={e => setEmail(e.target.value)}
             className={
@@ -90,7 +88,7 @@ export default function ContactForm(props: Props) {
         <div className="mb-6">
           <input
             type="text"
-            placeholder="Telefone"
+            placeholder={i18n.t("contacts.form.fields.phone")}
             name="contact[phone]"
             onChange={e => setPhone(e.target.value)}
             className={
@@ -102,7 +100,7 @@ export default function ContactForm(props: Props) {
         <div className="mb-6">
           <textarea
             rows={6}
-            placeholder="Mensagem"
+            placeholder={i18n.t("contacts.form.fields.message")}
             name="contact[message]"
             onChange={e => setMessage(e.target.value)}
             className={
@@ -125,7 +123,7 @@ export default function ContactForm(props: Props) {
               (listing || complex ? "" : "rounded")
             }
           >
-            Enviar
+            {i18n.t("contacts.form.fields.send")}
           </button>
         </div>
       </form>

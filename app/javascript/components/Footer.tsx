@@ -11,7 +11,7 @@ export default function Footer() {
   const items = [
     {
       title: "Instagram",
-      url: "https://www.instagram.com/sofiagalvaokw/",
+      url: "https://www.instagram.com/sofiagalvaogroupkw/",
       icon: faInstagram,
     },
     {

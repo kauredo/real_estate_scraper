@@ -52,13 +52,13 @@ export default function Profile() {
               </div>
             </a>
             <a
-              href="https://www.instagram.com/sofiagalvaokw/"
+              href="https://www.instagram.com/sofiagalvaogroupkw/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <div className="flex items-center mb-4 text-gray-600">
                 <FontAwesomeIcon icon={faInstagram} />
-                <p className="px-2 text-sm">@sofiagalvaokw</p>
+                <p className="px-2 text-sm">@sofiagalvaogroupkw</p>
               </div>
             </a>
             <a

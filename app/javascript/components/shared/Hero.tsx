@@ -19,10 +19,14 @@ function Hero(props: Props) {
             src="/logos/main.png"
             alt="Sofia Galvão Group Logo"
           />
-          <h2 className="text-4xl md:text-7xl whitespace-nowrap">
-            Juntos criamos
+          <h2
+            className={`text-4xl md:text-7xl ${
+              i18n.locale === "pt" && "whitespace-nowrap"
+            }`}
+          >
+            {i18n.t("home.slogan.top")}
             <br />
-            lares felizes!
+            {i18n.t("home.slogan.bottom")}
           </h2>
         </div>
       </div>

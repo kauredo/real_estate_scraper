@@ -10,60 +10,48 @@
   </div>
   <div class="py-8 md:pb-0 md:pt-4 bg-white">
     <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
-      <h2 class="block pt-2 text-2xl text-black sm:text-4xl mx-auto">Uma empresa feita de consultores para consultores!</h2>
+      <h2 class="block pt-2 text-2xl text-black sm:text-4xl mx-auto"><%= I18n.t("kw.subheader") %></h2>
       <img class="w-full tablet:w-1/2" src="https://marcas-logos.net/wp-content/uploads/2020/03/KELLER-WILLIAMS-LOGO.png" alt="KW Portugal Logo">
-      <p class="pt-4 text-xl text-gray-500 max-w-max">A KW actua segundo o princípio de que, se focar todos os seus recursos na construção dos negócios dos seus consultores, estes irão, em retorno, ajudar a construir uma empresa acima de todas as expectativas. Com esta filosofia em prática, estamos a transformar o panorama geral da mediação imobiliária.</p>
-      <p class="pt-4 text-xl text-gray-500 max-w-max">Hoje, por todo o mundo mais de <span class="font-bold">165.000 consultores</span> e mais de <span class="font-bold">1.000 Market Centers</span> são filiados KW.</p>
-      <p class="pt-4 text-xl text-gray-500 max-w-max">A KW conta com um total de <span class="font-bold">19 representações</span> e mais de <span class="font-bold">1.300 consultores e associados</span> em Portugal.</p>
+      <p class="pt-4 text-xl text-gray-500 max-w-max"><%= sanitize I18n.t("kw.first_paragraph.top") %></p>
+      <p class="pt-4 text-xl text-gray-500 max-w-max"><%= sanitize I18n.t("kw.first_paragraph.middle") %></p>
+      <p class="pt-4 text-xl text-gray-500 max-w-max"><%= sanitize I18n.t("kw.first_paragraph.bottom") %></p>
     </div>
   </div>
   <div class="py-8 md:pb-0 md:pt-4 bg-white">
     <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
-      <h2 class="block pt-2 text-2xl text-black sm:text-4xl mx-auto">Crenças</h2>
+      <h2 class="block pt-2 text-2xl text-black sm:text-4xl mx-auto"><%= I18n.t("kw.beliefs.title") %></h2>
       <ul class="list-disc" style="list-style-position: inside;">
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Acreditamos que a mediação imobiliária é um negócio local impulsionado pelos consultores imobiliários.</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Acreditamos que os nossos consultores imobiliários devem ser tratados como parceiros de negócios.</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Acreditamos que faz a diferença estar no negócio com as pessoas certas.</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Acreditamos que ter lucro é fundamental.</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Acreditamos que nenhuma transação pode pôr em causa a nossa reputação.</li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><%= sanitize I18n.t("kw.beliefs.local") %></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><%= sanitize I18n.t("kw.beliefs.partners") %></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><%= sanitize I18n.t("kw.beliefs.people") %></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><%= sanitize I18n.t("kw.beliefs.profit") %></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><%= sanitize I18n.t("kw.beliefs.reputation") %></li>
       </ul>
     </div>
   </div>
   <div class="py-8 md:pb-0 md:pt-4 bg-white">
     <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
-      <h2 class="block pt-2 text-2xl text-black sm:text-4xl mx-auto">Princípios - WI4C2TES</h2>
+      <h2 class="block pt-2 text-2xl text-black sm:text-4xl mx-auto"><%= I18n.t("kw.principle") %></h2>
       <img src="/images/WI4C2TES.png" alt="WI4C2TES">
-      <%# <ul class="list-disc" style="list-style-position: inside;">
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Win-Win: or no deal</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Integrity: do the right thing</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Customers: always come first</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Commitment: in all things</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Communication: seek first to understand</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Creativity: ideas before results</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Teamwork: together everyone achieves more</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Trust: starts with honesty</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Equity: opportunities for all</li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max">Success: results through people</li>
-      </ul> %>
     </div>
   </div>
   <div class="py-8 md:pb-0 md:pt-4 bg-white">
     <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
-      <h2 class="block pt-2 text-2xl text-black sm:text-4xl mx-auto">Perspetivas</h2>
+      <h2 class="block pt-2 text-2xl text-black sm:text-4xl mx-auto"><%= I18n.t("kw.perspectives.title") %></h2>
       <ul class="list-disc" style="list-style-position: inside;">
-        <li class="pt-4 text-xl text-gray-500 max-w-max"><q>Nós somos uma empresa de Consultoria e Formação impulsionada por Tecnologia que se dedica ao negócio da mediação imobiliária.</q></li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max"><q>A Keller Williams pensa como um agente de sucesso, atua como um consultor/formador fornecendo modelos/sistemas, tecnologia, produtos e serviços que potenciam a produtividade e a rentabilidade.</q></li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max"><q>Na Keller Williams acreditamos na aprendizagem para obter resultados e não em aprender por aprender.</q></li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max"><q>Nós apoiamos o agente a desenvolver a sua marca e não o oposto.</q></li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max"><q>Somos uma empresa construída por Consultores, para Consultores.</q></li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max"><q>Acreditamos que cresceremos tanto como empresa quanto maior for a nossa capacidade de promover o crescimento das pessoas que connosco trabalham.</q></li>
-        <li class="pt-4 text-xl text-gray-500 max-w-max"><q>O que tornará a Keller Williams melhor no longo prazo é a forma como as pessoas pensam.</q></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><q><%= I18n.t("kw.perspectives.tech") %></q></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><q><%= I18n.t("kw.perspectives.agent") %></q></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><q><%= I18n.t("kw.perspectives.learn") %></q></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><q><%= I18n.t("kw.perspectives.brand") %></q></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><q><%= I18n.t("kw.perspectives.consulting") %></q></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><q><%= I18n.t("kw.perspectives.growth") %></q></li>
+        <li class="pt-4 text-xl text-gray-500 max-w-max"><q><%= I18n.t("kw.perspectives.people") %></q></li>
       </ul>
     </div>
   </div>
   <div class="py-8 md:pb-0 md:pt-4 bg-white">
     <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
-      <h2 class="block pt-6 text-xl text-black sm:text-2xl"><a class="text-beige underline" href="https://www.kwportugal.pt/about" target="_blank">Descubra mais sobre a KW Portugal</a></h2>
+      <h2 class="block pt-6 text-xl text-black sm:text-2xl"><a class="text-beige underline" href="https://www.kwportugal.pt/about" target="_blank"></a></h2>
     </div>
   </div>
 </section>

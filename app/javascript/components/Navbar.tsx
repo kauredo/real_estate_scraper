@@ -153,7 +153,7 @@ export default function Navbar(props: Props) {
             <div className="-mr-2 flex tablet:hidden">
               <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
                 <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
-                  <p>Avalie casa</p>
+                  <p>{i18n.t("home.cta.short")}</p>
                 </div>
               </a>
               <button

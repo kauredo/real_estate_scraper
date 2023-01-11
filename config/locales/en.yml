@@ -37,13 +37,38 @@ en:
     about: About Us
     contacts: Contacts
     services: Services
-    house_360: Home 360
+    house_360: 360 House
 
   footer:
     about: about us
     privacy: privacy policy
     terms: terms and conditions
     contacts: contacts
+
+  home:
+    slogan:
+      top: Together we make
+      bottom: Happy Homes!
+    cta:
+      short: Evaluate home
+      long: Evaluate your home
+    newsletter:
+      title: Get the latest Market news
+      subtitle:
+        Subscribe to our newsletter and stay up to date with the most recent
+        news, opportunities and tips on the market.
+      terms:
+        By contacting us you're allowing Sofia Galvão Group to store your data
+        to later inform you about business opportunities, as stated in the
+        Privacy Policy.
+      form:
+        fields:
+          name: Name
+          email: Email
+          subscribe: Subscribe
+        errors:
+          name: Please insert a valid name
+          email: Please insert a valid email
 
   buy:
     header: Buy
@@ -126,7 +151,7 @@ en:
   about:
     header: About Us
     profile:
-      slogan: Together we create Happy Homes!
+      slogan: Together we make Happy Homes!
       description:
         "I'm a trained marketer and value creator by passion. I worked for years
         with brands and products, in order to better serve the Client and offer
@@ -159,7 +184,7 @@ en:
         To be the preferred team for clients who want to buy or sell property in
         the Lisbon and Porto areas, thanks to our professionalism, our capacity
         to generate good business and the values we profess on a daily basis.
-      sub2: Together we create Happy Homes!
+      sub2: Together we make Happy Homes!
     results:
       title: Results
     testimonies:
@@ -167,12 +192,126 @@ en:
 
   contacts:
     header: Contacts
+    contact_us: Contact us
+    cta: GET IN TOUCH WITH US
+    form:
+      titles:
+        main: "Fill in the form and we will get in touch:"
+        visit:
+          Need more information? Want to schedule a visit? Get in touch with us!
+      consent:
+        By contacting us you're allowing Sofia Galvão Group to store your data
+        to later inform you about business opportunities, as stated in the
+        Privacy Policy.
+      fields:
+        name: Name
+        email: Email
+        phone: Phone
+        message: Message
+        send: Send
+      error: Please add try again with valid values
 
   services:
     header: Services
+    text:
+      top:
+        As professionals in the real estate market, all the services related to
+        real estate mediation and consultancy are within the scope of our
+        activity for your benefit.
+      bottom: Get to know some of them. <br> If you want to know more please
+      link: contact us.
+    list:
+      house_trees:
+        title: Real Estate Management and Consultancy
+        description:
+          With access to exclusive platforms and tools for professionals we
+          ensure the necessary market knowledge to identify your best options
+          and pursue the best solutions. <br/> <br/> We offer you an informed,
+          personalised service, based on an experienced and competitive
+          negotiation.
+      house_lens:
+        title: Property investment
+        description:
+          Buying or selling a house is most often about investing a large part,
+          if not all, of your individual or family assets. This investment
+          requires a careful and thoughtful analysis and safe options that will
+          give you the confidence of an investment with return. <br> <br> In
+          every deal we carry out we look at you, our Client, also from an
+          investor's perspective and we ensure that the profitability of the
+          sale or purchase is part of the transaction's success criteria.
 
   house_360:
-    header: Home 360
+    header: 360 House
+    sub1:
+      The special 360 service provides you with tailor-made solutions for each
+      of your needs in the real estate universe.
+    sub2:
+      With the quality guarantee of the partnerships we establish, we recommend
+      companies that are a reference in their areas and "Together We make Happy
+      Homes!"
+    list:
+      energy: Energy Certification
+      architecture: Architecture
+      construction: Building and Construction
+      remodel: Small jobs and renovations
+      cleaning: Construction Cleaning and Removals
+      transport: Removals and Transport
+      gardening: Gardening
+      design: Interior Design and Decoration
+
+  kw:
+    header: KW Portugal
+    subheader: A company made up of consultants for consultants!
+    first_paragraph:
+      top:
+        KW operates on the principle that if you focus all your resources on
+        building your consultants' businesses, they will, in return, help build
+        a company that exceeds all expectations. With this philosophy in
+        practice, we are transforming the real estate landscape.
+      middle:
+        Today, around the world more than <span class="font-bold
+        text-black">165,000 consultants</span> and more than <span
+        class="font-bold text-black">1,000 Market Centers</span> are KW
+        affiliates.
+      bottom:
+        KW has a total of <span class="font-bold text-black">19
+        representations</span> and more than <span class="font-bold
+        text-black">1.300 consultants and associates</span> in Portugal.
+    beliefs:
+      title: Beliefs
+      local:
+        We believe that property brokerage is a local business driven by
+        property consultants.
+      partners:
+        We believe that our real estate consultants should be treated as
+        business partners.
+      people:
+        We believe that being in business with the right people makes a
+        difference.
+      profit: We believe that making a profit is paramount.
+      reputation: We believe that no transaction can jeopardise our reputation.
+    principle: Principles - WI4C2TES
+    perspectives:
+      title: Perspectives
+      tech:
+        We are a Technology-driven Consulting and Training company dedicated to
+        the real estate brokerage business.
+      agent:
+        Keller Williams thinks like a success agent, acts like a
+        consultant/trainer providing models/systems, technology, products and
+        services that enhance productivity and profitability.
+      learn:
+        At Keller Williams we believe in learning for results and not in
+        learning for learning's sake.
+      brand: We support the agent to develop their brand and not the opposite.
+      consulting: We are a company built by Consultants, for Consultants.
+      growth:
+        We believe that we will grow as a company the more we are able to
+        promote the growth of the people who work with us.
+      people:
+        What will make Keller Williams better in the long run is the way people
+        think.
+    more: Find out more about KW Portugal
 
   privacy:
     header: Privacy Policy

@@ -1,7 +1,7 @@
 <% unless current_page? sell_path %>
   <%= link_to sell_path, data: {"turbolinks": false} do %>
     <div style="z-index: 900" class="hidden tablet:block shadow-md fixed bottom-5 right-5 bg-white border-beige border-2 text-beige text-lg px-6 py-3 rounded hover:bg-beige hover:text-white">
-      <p>Avalie a sua casa</p>
+      <p><%= I18n.t("home.cta.long") %></p>
     </div>
   <% end %>
 <% end %>

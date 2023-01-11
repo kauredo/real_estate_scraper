@@ -8,7 +8,7 @@
       },
       "profile": {
         "description": "I'm a trained marketer and value creator by passion. I worked for years with brands and products, in order to better serve the Client and offer him not only what he needed, but also what best met his aspirations. I have focused on people and realising their full potential, I am a Master in Neuro Linguistic Programming and I believe in empowering people to achieve their goals and realise their life purpose. I dedicated myself to the real estate sector with a focus on the discovery of the unique asset: the house, the client, the transaction, the service. At KW I found the right structure to develop the Sofia Galvão Group's real estate brand with rigour, professionalism and trust. I have the market 'know how' and I provide my Clients the best deals, the ones that make them the happiest!",
-        "slogan": "Together we create Happy Homes!"
+        "slogan": "Together we make Happy Homes!"
       },
       "results": {
         "title": "Results"
@@ -18,7 +18,7 @@
       },
       "vision": {
         "sub1": "To be the preferred team for clients who want to buy or sell property in the Lisbon and Porto areas, thanks to our professionalism, our capacity to generate good business and the values we profess on a daily basis.",
-        "sub2": "Together we create Happy Homes!",
+        "sub2": "Together we make Happy Homes!",
         "title": "Vision"
       },
       "who": {
@@ -31,6 +31,23 @@
       "header": "Buy"
     },
     "contacts": {
+      "contact_us": "Contact us",
+      "cta": "GET IN TOUCH WITH US",
+      "form": {
+        "consent": "By contacting us you're allowing Sofia Galvão Group to store your data to later inform you about business opportunities, as stated in the Privacy Policy.",
+        "error": "Please add try again with valid values",
+        "fields": {
+          "email": "Email",
+          "message": "Message",
+          "name": "Name",
+          "phone": "Phone",
+          "send": "Send"
+        },
+        "titles": {
+          "main": "Fill in the form and we will get in touch:",
+          "visit": "Need more information? Want to schedule a visit? Get in touch with us!"
+        }
+      },
       "header": "Contacts"
     },
     "date": {
@@ -294,8 +311,46 @@
         "update": "Update %{model}"
       }
     },
+    "home": {
+      "cta": {
+        "long": "Evaluate your home",
+        "short": "Evaluate home"
+      },
+      "newsletter": {
+        "form": {
+          "errors": {
+            "email": "Please insert a valid email",
+            "name": "Please insert a valid name"
+          },
+          "fields": {
+            "email": "Email",
+            "name": "Name",
+            "subscribe": "Subscribe"
+          }
+        },
+        "subtitle": "Subscribe to our newsletter and stay up to date with the most recent news, opportunities and tips on the market.",
+        "terms": "By contacting us you're allowing Sofia Galvão Group to store your data to later inform you about business opportunities, as stated in the Privacy Policy.",
+        "title": "Get the latest Market news"
+      },
+      "slogan": {
+        "bottom": "Happy Homes!",
+        "top": "Together we make"
+      }
+    },
     "house_360": {
-      "header": "Home 360"
+      "header": "360 House",
+      "list": {
+        "architecture": "Architecture",
+        "cleaning": "Construction Cleaning and Removals",
+        "construction": "Building and Construction",
+        "design": "Interior Design and Decoration",
+        "energy": "Energy Certification",
+        "gardening": "Gardening",
+        "remodel": "Small jobs and renovations",
+        "transport": "Removals and Transport"
+      },
+      "sub1": "The special 360 service provides you with tailor-made solutions for each of your needs in the real estate universe.",
+      "sub2": "With the quality guarantee of the partnerships we establish, we recommend companies that are a reference in their areas and \"Together We make Happy Homes!\""
     },
     "i18n": {
       "plural": {
@@ -303,8 +358,37 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x0000000106718b38 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x000000010932f898 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       }
+    },
+    "kw": {
+      "beliefs": {
+        "local": "We believe that property brokerage is a local business driven by property consultants.",
+        "partners": "We believe that our real estate consultants should be treated as business partners.",
+        "people": "We believe that being in business with the right people makes a difference.",
+        "profit": "We believe that making a profit is paramount.",
+        "reputation": "We believe that no transaction can jeopardise our reputation.",
+        "title": "Beliefs"
+      },
+      "first_paragraph": {
+        "bottom": "KW has a total of <span class=\"font-bold text-black\">19 representations</span> and more than <span class=\"font-bold text-black\">1.300 consultants and associates</span> in Portugal.",
+        "middle": "Today, around the world more than <span class=\"font-bold text-black\">165,000 consultants</span> and more than <span class=\"font-bold text-black\">1,000 Market Centers</span> are KW affiliates.",
+        "top": "KW operates on the principle that if you focus all your resources on building your consultants' businesses, they will, in return, help build a company that exceeds all expectations. With this philosophy in practice, we are transforming the real estate landscape."
+      },
+      "header": "KW Portugal",
+      "more": "Find out more about KW Portugal",
+      "perspectives": {
+        "agent": "Keller Williams thinks like a success agent, acts like a consultant/trainer providing models/systems, technology, products and services that enhance productivity and profitability.",
+        "brand": "We support the agent to develop their brand and not the opposite.",
+        "consulting": "We are a company built by Consultants, for Consultants.",
+        "growth": "We believe that we will grow as a company the more we are able to promote the growth of the people who work with us.",
+        "learn": "At Keller Williams we believe in learning for results and not in learning for learning's sake.",
+        "people": "What will make Keller Williams better in the long run is the way people think.",
+        "tech": "We are a Technology-driven Consulting and Training company dedicated to the real estate brokerage business.",
+        "title": "Perspectives"
+      },
+      "principle": "Principles - WI4C2TES",
+      "subheader": "A company made up of consultants for consultants!"
     },
     "listing": {
       "characteristics": "Listing Characteristics",
@@ -315,7 +399,7 @@
       "buy": "Buy",
       "contacts": "Contacts",
       "enterprises": "Enterprises",
-      "house_360": "Home 360",
+      "house_360": "360 House",
       "sell": "Sell",
       "services": "Services"
     },
@@ -417,7 +501,22 @@
       "subheader": "Find out how much your home is worth."
     },
     "services": {
-      "header": "Services"
+      "header": "Services",
+      "list": {
+        "house_lens": {
+          "description": "Buying or selling a house is most often about investing a large part, if not all, of your individual or family assets. This investment requires a careful and thoughtful analysis and safe options that will give you the confidence of an investment with return. <br> <br> In every deal we carry out we look at you, our Client, also from an investor's perspective and we ensure that the profitability of the sale or purchase is part of the transaction's success criteria.",
+          "title": "Property investment"
+        },
+        "house_trees": {
+          "description": "With access to exclusive platforms and tools for professionals we ensure the necessary market knowledge to identify your best options and pursue the best solutions. <br/> <br/> We offer you an informed, personalised service, based on an experienced and competitive negotiation.",
+          "title": "Real Estate Management and Consultancy"
+        }
+      },
+      "text": {
+        "bottom": "Get to know some of them. <br> If you want to know more please",
+        "link": "contact us.",
+        "top": "As professionals in the real estate market, all the services related to real estate mediation and consultancy are within the scope of our activity for your benefit."
+      }
     },
     "support": {
       "array": {
@@ -471,6 +570,8 @@
       "header": "Comprar"
     },
     "contacts": {
+      "contact_us": "Contacte-nos",
+      "cta": "ENTRE EM CONTACTO CONNOSCO",
       "header": "Contactos"
     },
     "date": {
@@ -786,8 +887,46 @@
         "update": "Actualizar %{model}"
       }
     },
+    "home": {
+      "cta": {
+        "long": "Avalie a sua casa",
+        "short": "Avalie casa"
+      },
+      "newsletter": {
+        "form": {
+          "errors": {
+            "email": "Por favor insira um email válido",
+            "name": "Por favor insira um nome válido"
+          },
+          "fields": {
+            "email": "Email",
+            "name": "Nome",
+            "subscribe": "Subscrever"
+          }
+        },
+        "subtitle": "Subscreva a nossa newsletter e fique a par das mais recentes oportunidades, noticias e dicas do mercado.",
+        "terms": "Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os seus dados para o informar sobre oportunidades de negócio, de acordo com a Política de Privacidade.",
+        "title": "Receba as novidades do Mercado"
+      },
+      "slogan": {
+        "bottom": "lares felizes!",
+        "top": "Juntos criamos"
+      }
+    },
     "house_360": {
-      "header": "Casa 360"
+      "header": "Casa 360",
+      "list": {
+        "architecture": "Arquitectura",
+        "cleaning": "Limpezas de Obras e Mudanças",
+        "construction": "Construção Civil",
+        "design": "Design e Decoração de Interiores",
+        "energy": "Certificação Energética",
+        "gardening": "Jardinagem",
+        "remodel": "Pequenas obras e remodelações",
+        "transport": "Mudanças e Transportes"
+      },
+      "sub1": "O serviço especial 360 coloca à sua disposição soluções à medida para cada uma das necessidades relativas ao universo imobiliário.",
+      "sub2": "Com a garantia de qualidade das parcerias que estabelecemos, recomendamos empresas que são uma referência nas suas áreas e “Juntos Criamos Lares Felizes!”"
     },
     "i18n": {
       "plural": {
@@ -795,7 +934,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x00000001067304e0 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x0000000109337cf0 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       },
       "transliterate": {
         "rule": {
@@ -825,6 +964,35 @@
           "ú": "u"
         }
       }
+    },
+    "kw": {
+      "beliefs": {
+        "local": "Acreditamos que a mediação imobiliária é um negócio local impulsionado pelos consultores imobiliários.",
+        "partners": "Acreditamos que os nossos consultores imobiliários devem ser tratados como parceiros de negócios.",
+        "people": "Acreditamos que faz a diferença estar no negócio com as pessoas certas.",
+        "profit": "Acreditamos que ter lucro é fundamental.",
+        "reputation": "Acreditamos que nenhuma transação pode pôr em causa a nossa reputação.",
+        "title": "Crenças"
+      },
+      "first_paragraph": {
+        "bottom": "A KW conta com um total de <span class=\"font-bold\">19 representações</span> e mais de <span class=\"font-bold\">1.300 consultores e associados</span> em Portugal.",
+        "middle": "Hoje, por todo o mundo mais de <span class=\"font-bold\">165.000 consultores</span> e mais de <span class=\"font-bold\">1.000 Market Centers</span> são filiados KW.",
+        "top": "A KW actua segundo o princípio de que, se focar todos os seus recursos na construção dos negócios dos seus consultores, estes irão, em retorno, ajudar a construir uma empresa acima de todas as expectativas. Com esta filosofia em prática, estamos a transformar o panorama geral da mediação imobiliária."
+      },
+      "header": "KW Portugal",
+      "more": "Descubra mais sobre a KW Portugal",
+      "perspectives": {
+        "agent": "A Keller Williams pensa como um agente de sucesso, atua como um consultor/formador fornecendo modelos/sistemas, tecnologia, produtos e serviços que potenciam a produtividade e a rentabilidade.",
+        "brand": "Nós apoiamos o agente a desenvolver a sua marca e não o oposto.",
+        "consulting": "Somos uma empresa construída por Consultores, para Consultores.",
+        "growth": "Acreditamos que cresceremos tanto como empresa quanto maior for a nossa capacidade de promover o crescimento das pessoas que connosco trabalham.",
+        "learn": "Na Keller Williams acreditamos na aprendizagem para obter resultados e não em aprender por aprender.",
+        "people": "O que tornará a Keller Williams melhor no longo prazo é a forma como as pessoas pensam.",
+        "tech": "Nós somos uma empresa de Consultoria e Formação impulsionada por Tecnologia que se dedica ao negócio da mediação imobiliária.",
+        "title": "Perspetivas"
+      },
+      "principle": "Princípios - WI4C2TES",
+      "subheader": "Uma empresa feita de consultores para consultores!"
     },
     "listing": {
       "characteristics": "Características do Imóvel",
@@ -948,7 +1116,22 @@
       "subheader": "Saiba quanto vale a sua casa"
     },
     "services": {
-      "header": "Serviços"
+      "header": "Serviços",
+      "list": {
+        "house_lens": {
+          "description": "Comprar ou vender uma casa é na maior parte das vezes investir grande parte, se não a totalidade, do património individual ou familiar. Esse investimento requer uma análise cuidada, ponderada e opções seguras que lhe darão a confiança de um investimento com retorno. <br> <br> Em cada negócio que levamos a cabo olhamos para si, o nosso Cliente, também numa perspetiva de investidor e asseguramos que a rentabilidade da venda ou da compra faz parte do critério de sucesso da transação.",
+          "title": "Investimento imobiliário"
+        },
+        "house_trees": {
+          "description": "Com acesso a plataformas e ferramentas exclusivas para profissionais asseguramos o conhecimento necessário do mercado para identificar as suas melhores opções e perseguir as melhores soluções. <br/> <br/> Oferecemos-lhe um serviço informado, personalizado, alicerçado numa negociação experiente e competitiva.",
+          "title": "Gestão e Consultoria Imobiliária"
+        }
+      },
+      "text": {
+        "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais entre em contacto",
+        "link": "connosco.",
+        "top": "Enquanto profissionais do mercado imobiliário todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
+      }
     },
     "support": {
       "array": {

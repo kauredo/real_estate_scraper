@@ -42,6 +42,8 @@
       "header": "Comprar"
     },
     "contacts": {
+      "contact_us": "Contacte-nos",
+      "cta": "ENTRE EM CONTACTO CONNOSCO",
       "header": "Contactos"
     },
     "date": {
@@ -402,8 +404,46 @@
         "update": "Actualizar %{model}"
       }
     },
+    "home": {
+      "cta": {
+        "long": "Avalie a sua casa",
+        "short": "Avalie casa"
+      },
+      "newsletter": {
+        "form": {
+          "errors": {
+            "email": "Por favor insira um email válido",
+            "name": "Por favor insira um nome válido"
+          },
+          "fields": {
+            "email": "Email",
+            "name": "Nome",
+            "subscribe": "Subscrever"
+          }
+        },
+        "subtitle": "Subscreva a nossa newsletter e fique a par das mais recentes oportunidades, noticias e dicas do mercado.",
+        "terms": "Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os seus dados para o informar sobre oportunidades de negócio, de acordo com a Política de Privacidade.",
+        "title": "Receba as novidades do Mercado"
+      },
+      "slogan": {
+        "bottom": "lares felizes!",
+        "top": "Juntos criamos"
+      }
+    },
     "house_360": {
-      "header": "Casa 360"
+      "header": "Casa 360",
+      "list": {
+        "architecture": "Arquitectura",
+        "cleaning": "Limpezas de Obras e Mudanças",
+        "construction": "Construção Civil",
+        "design": "Design e Decoração de Interiores",
+        "energy": "Certificação Energética",
+        "gardening": "Jardinagem",
+        "remodel": "Pequenas obras e remodelações",
+        "transport": "Mudanças e Transportes"
+      },
+      "sub1": "O serviço especial 360 coloca à sua disposição soluções à medida para cada uma das necessidades relativas ao universo imobiliário.",
+      "sub2": "Com a garantia de qualidade das parcerias que estabelecemos, recomendamos empresas que são uma referência nas suas áreas e “Juntos Criamos Lares Felizes!”"
     },
     "i18n": {
       "plural": {
@@ -411,7 +451,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x000000011382cc38 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x0000000109337cf0 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       },
       "transliterate": {
         "rule": {
@@ -441,6 +481,35 @@
           "ú": "u"
         }
       }
+    },
+    "kw": {
+      "beliefs": {
+        "local": "Acreditamos que a mediação imobiliária é um negócio local impulsionado pelos consultores imobiliários.",
+        "partners": "Acreditamos que os nossos consultores imobiliários devem ser tratados como parceiros de negócios.",
+        "people": "Acreditamos que faz a diferença estar no negócio com as pessoas certas.",
+        "profit": "Acreditamos que ter lucro é fundamental.",
+        "reputation": "Acreditamos que nenhuma transação pode pôr em causa a nossa reputação.",
+        "title": "Crenças"
+      },
+      "first_paragraph": {
+        "bottom": "A KW conta com um total de <span class=\"font-bold\">19 representações</span> e mais de <span class=\"font-bold\">1.300 consultores e associados</span> em Portugal.",
+        "middle": "Hoje, por todo o mundo mais de <span class=\"font-bold\">165.000 consultores</span> e mais de <span class=\"font-bold\">1.000 Market Centers</span> são filiados KW.",
+        "top": "A KW actua segundo o princípio de que, se focar todos os seus recursos na construção dos negócios dos seus consultores, estes irão, em retorno, ajudar a construir uma empresa acima de todas as expectativas. Com esta filosofia em prática, estamos a transformar o panorama geral da mediação imobiliária."
+      },
+      "header": "KW Portugal",
+      "more": "Descubra mais sobre a KW Portugal",
+      "perspectives": {
+        "agent": "A Keller Williams pensa como um agente de sucesso, atua como um consultor/formador fornecendo modelos/sistemas, tecnologia, produtos e serviços que potenciam a produtividade e a rentabilidade.",
+        "brand": "Nós apoiamos o agente a desenvolver a sua marca e não o oposto.",
+        "consulting": "Somos uma empresa construída por Consultores, para Consultores.",
+        "growth": "Acreditamos que cresceremos tanto como empresa quanto maior for a nossa capacidade de promover o crescimento das pessoas que connosco trabalham.",
+        "learn": "Na Keller Williams acreditamos na aprendizagem para obter resultados e não em aprender por aprender.",
+        "people": "O que tornará a Keller Williams melhor no longo prazo é a forma como as pessoas pensam.",
+        "tech": "Nós somos uma empresa de Consultoria e Formação impulsionada por Tecnologia que se dedica ao negócio da mediação imobiliária.",
+        "title": "Perspetivas"
+      },
+      "principle": "Princípios - WI4C2TES",
+      "subheader": "Uma empresa feita de consultores para consultores!"
     },
     "listing": {
       "characteristics": "Características do Imóvel",
@@ -564,7 +633,22 @@
       "subheader": "Saiba quanto vale a sua casa"
     },
     "services": {
-      "header": "Serviços"
+      "header": "Serviços",
+      "list": {
+        "house_lens": {
+          "description": "Comprar ou vender uma casa é na maior parte das vezes investir grande parte, se não a totalidade, do património individual ou familiar. Esse investimento requer uma análise cuidada, ponderada e opções seguras que lhe darão a confiança de um investimento com retorno. <br> <br> Em cada negócio que levamos a cabo olhamos para si, o nosso Cliente, também numa perspetiva de investidor e asseguramos que a rentabilidade da venda ou da compra faz parte do critério de sucesso da transação.",
+          "title": "Investimento imobiliário"
+        },
+        "house_trees": {
+          "description": "Com acesso a plataformas e ferramentas exclusivas para profissionais asseguramos o conhecimento necessário do mercado para identificar as suas melhores opções e perseguir as melhores soluções. <br/> <br/> Oferecemos-lhe um serviço informado, personalizado, alicerçado numa negociação experiente e competitiva.",
+          "title": "Gestão e Consultoria Imobiliária"
+        }
+      },
+      "text": {
+        "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais entre em contacto",
+        "link": "connosco.",
+        "top": "Enquanto profissionais do mercado imobiliário todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
+      }
     },
     "support": {
       "array": {

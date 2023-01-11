@@ -45,6 +45,31 @@ pt:
     terms: termos e condições
     contacts: contactos
 
+  home:
+    slogan:
+      top: Juntos criamos
+      bottom: lares felizes!
+    cta:
+      short: Avalie casa
+      long: Avalie a sua casa
+    newsletter:
+      title: Receba as novidades do Mercado
+      subtitle:
+        Subscreva a nossa newsletter e fique a par das mais recentes
+        oportunidades, noticias e dicas do mercado.
+      terms:
+        Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os
+        seus dados para o informar sobre oportunidades de negócio, de acordo com
+        a Política de Privacidade.
+      form:
+        fields:
+          name: Nome
+          email: Email
+          subscribe: Subscrever
+        errors:
+          name: Por favor insira um nome válido
+          email: Por favor insira um email válido
+
   buy:
     header: Comprar
 
@@ -172,12 +197,113 @@ pt:
 
   contacts:
     header: Contactos
+    contact_us: Contacte-nos
+    cta: ENTRE EM CONTACTO CONNOSCO
 
   services:
     header: Serviços
+    text:
+      top:
+        Enquanto profissionais do mercado imobiliário todos os serviços ligados
+        à mediação e consultoria imobiliária estão no âmbito da nossa actividade
+        para seu benefício.
+      bottom:
+        Fique a conhecer alguns deles. <br> Se pretender saber mais entre em
+        contacto
+      link: connosco.
+    list:
+      house_trees:
+        title: Gestão e Consultoria Imobiliária
+        description:
+          Com acesso a plataformas e ferramentas exclusivas para profissionais
+          asseguramos o conhecimento necessário do mercado para identificar as
+          suas melhores opções e perseguir as melhores soluções. <br/> <br/>
+          Oferecemos-lhe um serviço informado, personalizado, alicerçado numa
+          negociação experiente e competitiva.
+      house_lens:
+        title: Investimento imobiliário
+        description:
+          Comprar ou vender uma casa é na maior parte das vezes investir grande
+          parte, se não a totalidade, do património individual ou familiar. Esse
+          investimento requer uma análise cuidada, ponderada e opções seguras
+          que lhe darão a confiança de um investimento com retorno. <br> <br> Em
+          cada negócio que levamos a cabo olhamos para si, o nosso Cliente,
+          também numa perspetiva de investidor e asseguramos que a rentabilidade
+          da venda ou da compra faz parte do critério de sucesso da transação.
 
   house_360:
     header: Casa 360
+    sub1:
+      O serviço especial 360 coloca à sua disposição soluções à medida para cada
+      uma das necessidades relativas ao universo imobiliário.
+    sub2:
+      Com a garantia de qualidade das parcerias que estabelecemos, recomendamos
+      empresas que são uma referência nas suas áreas e “Juntos Criamos Lares
+      Felizes!”
+    list:
+      energy: Certificação Energética
+      architecture: Arquitectura
+      construction: Construção Civil
+      remodel: Pequenas obras e remodelações
+      cleaning: Limpezas de Obras e Mudanças
+      transport: Mudanças e Transportes
+      gardening: Jardinagem
+      design: Design e Decoração de Interiores
+
+  kw:
+    header: KW Portugal
+    subheader: Uma empresa feita de consultores para consultores!
+    first_paragraph:
+      top:
+        A KW actua segundo o princípio de que, se focar todos os seus recursos
+        na construção dos negócios dos seus consultores, estes irão, em retorno,
+        ajudar a construir uma empresa acima de todas as expectativas. Com esta
+        filosofia em prática, estamos a transformar o panorama geral da mediação
+        imobiliária.
+      middle:
+        Hoje, por todo o mundo mais de <span class="font-bold">165.000
+        consultores</span> e mais de <span class="font-bold">1.000 Market
+        Centers</span> são filiados KW.
+      bottom:
+        A KW conta com um total de <span class="font-bold">19
+        representações</span> e mais de <span class="font-bold">1.300
+        consultores e associados</span> em Portugal.
+    beliefs:
+      title: Crenças
+      local:
+        Acreditamos que a mediação imobiliária é um negócio local impulsionado
+        pelos consultores imobiliários.
+      partners:
+        Acreditamos que os nossos consultores imobiliários devem ser tratados
+        como parceiros de negócios.
+      people:
+        Acreditamos que faz a diferença estar no negócio com as pessoas certas.
+      profit: Acreditamos que ter lucro é fundamental.
+      reputation:
+        Acreditamos que nenhuma transação pode pôr em causa a nossa reputação.
+    principle: Princípios - WI4C2TES
+    perspectives:
+      title: Perspetivas
+      tech:
+        Nós somos uma empresa de Consultoria e Formação impulsionada por
+        Tecnologia que se dedica ao negócio da mediação imobiliária.
+      agent:
+        A Keller Williams pensa como um agente de sucesso, atua como um
+        consultor/formador fornecendo modelos/sistemas, tecnologia, produtos e
+        serviços que potenciam a produtividade e a rentabilidade.
+      learn:
+        Na Keller Williams acreditamos na aprendizagem para obter resultados e
+        não em aprender por aprender.
+      brand: Nós apoiamos o agente a desenvolver a sua marca e não o oposto.
+      consulting:
+        Somos uma empresa construída por Consultores, para Consultores.
+      growth:
+        Acreditamos que cresceremos tanto como empresa quanto maior for a nossa
+        capacidade de promover o crescimento das pessoas que connosco trabalham.
+      people:
+        O que tornará a Keller Williams melhor no longo prazo é a forma como as
+        pessoas pensam.
+    more: Descubra mais sobre a KW Portugal
 
   privacy:
     header: Política de Privacidade

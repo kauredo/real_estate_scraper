@@ -18,9 +18,9 @@ export default function Newsletter() {
         console.log(res);
       });
     } else if (valid_email) {
-      setError("Por favor insira um nome válido");
+      setError(i18n.t("home.newsletter.form.errors.name"));
     } else {
-      setError("Por favor insira um email válido");
+      setError(i18n.t("home.newsletter.form.errors.email"));
     }
   };
 
@@ -31,15 +31,12 @@ export default function Newsletter() {
     >
       <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 pr-4 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
         <h2 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-black">
-          Receba as novidades do Mercado
+          {i18n.t("home.newsletter.title")}
         </h2>
         <p className="mb-8 leading-relaxed mx-2 tablet:mr-4">
-          Subscreva a nossa newsletter e fique a par das mais recentes
-          oportunidades, noticias e dicas do mercado.
+          {i18n.t("home.newsletter.subtitle")}
           <span className="flex items-center font-medium tracking-wide text-beige text-xs">
-            Ao pedir informações está a autorizar o Sofia Galvão Group a guardar
-            os seus dados para o informar sobre oportunidades de negócio, de
-            acordo com a Política de Privacidade.
+            {i18n.t("home.newsletter.terms")}
           </span>
         </p>
         <form
@@ -49,12 +46,11 @@ export default function Newsletter() {
             locale: i18n.locale,
           })}
           method="post"
-          // className="w-full mx-2 tablet:mr-4"
         >
           <div className="w-full">
             <input
               className="border-l-4 border-beige focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
-              placeholder="Nome"
+              placeholder={i18n.t("home.newsletter.form.fields.name")}
               name="newsletter[name]"
               type="text"
               id="name"
@@ -62,7 +58,7 @@ export default function Newsletter() {
             />
             <input
               className="border-l-4 border-beige focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
-              placeholder="Email"
+              placeholder={i18n.t("home.newsletter.form.fields.email")}
               name="newsletter[email]"
               type="text"
               id="email"
@@ -72,7 +68,7 @@ export default function Newsletter() {
               className="w-4/5 inline-flex text-white py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-beige cursor-pointer"
               required
               type="submit"
-              value="Subscrever"
+              value={i18n.t("home.newsletter.form.fields.subscribe")}
             />
           </div>
           {error && (
@@ -84,17 +80,10 @@ export default function Newsletter() {
       </div>
       <div
         className="h-[20rem] md:w-1/2 w-5/6 hidden md:block object-cover bg-center bg-no-repeat bg-cover object-center"
-        // className="object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3"
         style={{
           backgroundImage: `url(images/email.jpg)`,
         }}
-      >
-        {/* <img
-          className="object-cover object-center"
-          alt="hero"
-          src="images/email.jpg"
-        /> */}
-      </div>
+      ></div>
     </section>
   );
 }
