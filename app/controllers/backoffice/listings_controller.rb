@@ -3,7 +3,7 @@
 module Backoffice
   class ListingsController < BackofficeController
     skip_before_action :verify_authenticity_token, only: [:destroy]
-    before_action :find_listing, except: [:index, :create]
+    before_action :find_listing, except: %i[index create]
     include Pagy::Backend
 
     def index
@@ -18,7 +18,7 @@ module Backoffice
           flash[:notice] = I18n.t('listing.create.notice')
         end
       else
-        flash[:error] =  I18n.t('listing.create.error')
+        flash[:error] = I18n.t('listing.create.error')
       end
       redirect_to(backoffice_path)
     end

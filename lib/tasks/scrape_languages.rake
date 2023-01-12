@@ -5,16 +5,15 @@ require 'scrape_listing_details'
 
 desc 'Scrape english listings off KW website'
 task scrape_en: :environment do |_t, args|
-
   @errors = []
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
   args << 'headless'
   options = Selenium::WebDriver::Chrome::Options.new(args:)
   @browser = Watir::Browser.new(:chrome, options:)
 
-  translations = Listing::Translation.where(locale: "en")
+  translations = Listing::Translation.where(locale: 'en')
   ids = translations.select do |t|
-    Listing::Translation.where(locale: "pt", title: t.title).present?
+    Listing::Translation.where(locale: 'pt', title: t.title).present?
   end.map(&:listing_id)
 
   listings = Listing.all.select do |l|
@@ -45,7 +44,6 @@ end
 
 desc 'Scrape portuguese listings off KW website'
 task scrape_pt: :environment do |_t, args|
-
   @errors = []
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
   args << 'headless'

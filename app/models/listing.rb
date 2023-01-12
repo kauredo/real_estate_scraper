@@ -6,7 +6,6 @@ class Listing < ApplicationRecord
   acts_as_paranoid
   after_save :update_orders
 
-  STATUSES = ["Novo","New To Market", "Reservado", "Sales Agreed", "Vendido", "Sold"].freeze
   CITIES = %w[Lisboa Porto].freeze
 
   enum :status, { recent: 0, standard: 1, agreed: 2, sold: 3 }

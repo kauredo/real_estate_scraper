@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ScrapeListingDetails
   def self.scrape_details(browser, imovel_url)
     listing = Listing.find_or_initialize_by(url: imovel_url)
@@ -10,14 +12,16 @@ class ScrapeListingDetails
     price = browser.div(class: 'key-price').wait_until(&:present?).text
     listing.price = price
 
-     # status
+    # status
     status = browser.div(class: 'listing-status').wait_until(&:present?)
-    listing.status = case status.text.strip
-    when "Novo" then 0
-    when "Reservado" then 2
-    when "Vendido" then 3
-    else 1
-    end if status.present?
+    if status.present?
+      listing.status = case status.text.strip
+                       when 'Novo' then 0
+                       when 'Reservado' then 2
+                       when 'Vendido' then 3
+                       else 1
+                       end
+    end
 
     # stats
     count = 0
@@ -52,7 +56,7 @@ class ScrapeListingDetails
     listing.description_pt = browser.div(class: 'listing-details-desc').wait_until(&:present?).text
 
     # images
-    if !listing.photos.present?
+    unless listing.photos.present?
       js_doc = browser.div(class: 'listing-images').wait_until(&:present?)
       images = Nokogiri::HTML(js_doc.inner_html)
       res = images.css('img')
@@ -96,7 +100,7 @@ class ScrapeListingDetails
     end
 
     # description
-    listing.description = browser.divs(class: 'listing-details-desc').wait_until(&:present?).map(&:text).reject { |d| d.empty? }.first
+    listing.description = browser.divs(class: 'listing-details-desc').wait_until(&:present?).map(&:text).reject(&:empty?).first
 
     # # geo data
     listing.title&.gsub! 'm2', 'm²'
