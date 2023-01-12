@@ -466,7 +466,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x0000000107cddd88 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x0000000109e581e8 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       },
       "transliterate": {
         "rule": {
@@ -528,6 +528,10 @@
     },
     "listing": {
       "characteristics": "Características do Imóvel",
+      "create": {
+        "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
+        "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
+      },
       "details": "Detalhes do Imóvel",
       "status": {
         "agreed": "Reservado",

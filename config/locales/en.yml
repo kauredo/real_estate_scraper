@@ -344,3 +344,7 @@ en:
       recent: New to Market
       sold: Sold
       standard: ""
+    create:
+      notice:
+        Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma
+      error: "Erro: o link tem que começar por 'https://www.kwportugal.pt/'"

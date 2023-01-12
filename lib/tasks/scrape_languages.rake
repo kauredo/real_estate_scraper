@@ -1,44 +1,10 @@
 # frozen_string_literal: true
 
 require 'selenium-webdriver'
+require 'scrape_listing_details'
 
 desc 'Scrape english listings off KW website'
-task :scrape_en, [:url] => :environment do |_t, args|
-
-  def scrape_details(listing)
-    @browser.goto(listing.url)
-
-    toggle = @browser.a(class: 'dropdown-toggle').wait_until(&:present?)
-    toggle.click
-    en = @browser.a(text: 'English (United States)').wait_until(&:present?)
-    en.click
-
-    listing.title_en = @browser.title
-    puts "Gathering data for listing #{listing.title_en}"
-
-    # features
-    count = 0
-    begin
-      listing.features_en = @browser.div(class: 'features-container').wait_until(&:present?).child(class: 'row').children.map(&:text)
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-    end
-
-    # description
-    listing.description_en = @browser.divs(class: 'listing-details-desc').wait_until(&:present?).map(&:text).reject { |d| d.empty? }.first
-
-    # # geo data
-    listing.description_en&.gsub! 'm2', 'm²'
-
-    if listing.save
-      puts "Finished listing #{listing.title_en}"
-    else
-      message = "ERROR: Listing at #{listing.url} has errors"
-      @errors << [listing, message]
-      puts message
-    end
-  end
+task scrape_en: :environment do |_t, args|
 
   @errors = []
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
@@ -60,7 +26,9 @@ task :scrape_en, [:url] => :environment do |_t, args|
   listings.each do |listing|
     puts ''
     puts "Started listing #{listing.id}"
-    scrape_details(listing)
+    I18n.with_locale(:en) do
+      ScrapeListingDetails.scrape_language_details(@browser, listing, 'English (United States)')
+    end
     puts "Finished listing #{listing.id}"
     puts ''
   rescue StandardError => e
@@ -76,42 +44,7 @@ task :scrape_en, [:url] => :environment do |_t, args|
 end
 
 desc 'Scrape portuguese listings off KW website'
-task :scrape_pt, [:url] => :environment do |_t, args|
-
-  def scrape_details(listing)
-    @browser.goto(listing.url)
-
-    toggle = @browser.a(class: 'dropdown-toggle').wait_until(&:present?)
-    toggle.click
-    en = @browser.a(text: 'Português').wait_until(&:present?)
-    en.click
-
-    listing.title_pt = @browser.title
-    puts "Gathering data for listing #{listing.title_pt}"
-
-    # features
-    count = 0
-    begin
-      listing.features_pt = @browser.div(class: 'features-container').wait_until(&:present?).child(class: 'row').children.map(&:text)
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-    end
-
-    # description
-    listing.description_pt = @browser.divs(class: 'listing-details-desc').wait_until(&:present?).map(&:text).reject { |d| d.empty? }.first
-
-    # # geo data
-    listing.description_pt&.gsub! 'm2', 'm²'
-
-    if listing.save
-      puts "Finished listing #{listing.title_pt}"
-    else
-      message = "ERROR: Listing at #{listing.url} has errors"
-      @errors << [listing, message]
-      puts message
-    end
-  end
+task scrape_pt: :environment do |_t, args|
 
   @errors = []
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
@@ -126,7 +59,9 @@ task :scrape_pt, [:url] => :environment do |_t, args|
   listings.each do |listing|
     puts ''
     puts "Started listing #{listing.id}"
-    scrape_details(listing)
+    I18n.with_locale(:pt) do
+      ScrapeListingDetails.scrape_language_details(@browser, listing, 'Português')
+    end
     puts "Finished listing #{listing.id}"
     puts ''
   rescue StandardError => e

@@ -16,12 +16,23 @@
         </div>
       <% end %>
     <% end %>
-    <%= form_for(Variable.new, url: backoffice_variables_path({ locale: I18n.locale }), html: { class: 'my-6' }) do |f| %>
+    <%= form_for(Variable.new, url: backoffice_variables_path(), html: { class: 'my-6' }) do |f| %>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
         <%= f.text_field :name, placeholder: 'variável', class: 'shadow appearance-none border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
         <%= f.text_field :value, placeholder: 'valor', class: 'shadow appearance-none border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
         <%= f.text_field :icon, placeholder: 'ícone', class: 'shadow appearance-none border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
         <%= f.submit 'Criar', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+      </div>
+    <% end %>
+  </div>
+  <%# Colleagues %>
+  <div class="w-full sm:w-1/2 shadow-md rounded px-8 py-4 mt-4">
+    <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Imóveis de Colegas</h2>
+    <p class="text-gray-500 pt-3">Nota: Este campo pode ser usado para adicionar imóveis de colegas, ou para ir buscar a informação mais recente de qualquer imóvel já na plataforma (tanto em Português como em Inglês).</p>
+    <%= form_for(Listing.new, url: backoffice_listings_path(), html: { class: 'my-6' }) do |f| %>
+      <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
+        <%= f.text_field :url, placeholder: 'url', class: 'shadow appearance-none border rounded w-full sm:w-2/3 py-2 px-3 ml-6 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Procurar', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
   </div>

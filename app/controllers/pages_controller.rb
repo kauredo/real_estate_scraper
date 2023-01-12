@@ -9,7 +9,7 @@ class PagesController < ApplicationController
       listingCount: Listing.all.count,
       variables: Variable.all
     }
-    @photos = Listing.by_sofia.map(&:photos).map(&:first).uniq
+    @photos = Listing.all.map(&:photos).map(&:first).uniq
     @testimonials = Testimonial.all
   end
 

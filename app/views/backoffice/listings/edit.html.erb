@@ -2,6 +2,7 @@
   <%# Variáveis %>
   <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
     <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Editar Imóvel <%= @listing.title %></h2>
+    <p class="text-gray-500 pt-3">Nota: Os textos podem ser mudados nas diferentes liguagens, basta mudar para a linguagem desejada</p>
     <%= form_for([:backoffice, @listing], html: { method: :put, class: 'my-6' }) do |f| %>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
         <%= f.label :title, class: 'w-1/4' %>
@@ -27,14 +28,6 @@
         <%= f.label :Empreendimento, class: 'w-1/4' %>
         <%= f.collection_select :listing_complex_id, ListingComplex.all, :id, :name, { include_blank: 'Associar a Empreendimento?' }, { class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
       </div>
-      <%# <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4"> %>
-      <%# <%= f.label :stats, class: "w-1/4" %>
-      <%# <%= f.text_field :stats, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-      <%# </div> %>
-      <%# <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4"> %>
-      <%# <%= f.label :features, class: "w-1/4" %>
-      <%# <%= f.text_field :features, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-      <%# </div> %>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
         <%= f.label :description, class: 'w-1/4' %>
         <%= f.text_area :description, rows: 30, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
