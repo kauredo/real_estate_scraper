@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_11_175828) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_12_152854) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_175828) do
     t.datetime "updated_at", null: false
     t.string "video_link"
     t.integer "order"
+  end
+
+  create_table "listing_translations", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "status"
+    t.string "features", default: [], array: true
+    t.string "locale", null: false
+    t.bigint "listing_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id", "locale"], name: "index_listing_translations_on_listing_id_and_locale", unique: true
+    t.index ["locale"], name: "index_listing_translations_on_locale"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -122,5 +135,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_175828) do
     t.string "icon"
   end
 
+  add_foreign_key "listing_translations", "listings"
   add_foreign_key "newsletter_subscriptions", "users"
 end

@@ -358,7 +358,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x00000001087fcd18 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x0000000111b2ca98 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       }
     },
     "kw": {
@@ -405,8 +405,10 @@
       "contacts": "Contacts",
       "enterprises": "Enterprises",
       "house_360": "360 House",
+      "listings": "Listings",
       "sell": "Sell",
-      "services": "Services"
+      "services": "Services",
+      "testimonies": "Testimonies"
     },
     "number": {
       "currency": {
@@ -954,7 +956,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x00000001087ef208 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x0000000111b3c678 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       },
       "transliterate": {
         "rule": {
@@ -1029,8 +1031,10 @@
       "contacts": "Contactos",
       "enterprises": "Empreendimentos",
       "house_360": "Casa 360",
+      "listings": "Imóveis",
       "sell": "Vender",
-      "services": "Serviços"
+      "services": "Serviços",
+      "testimonies": "Testemunhos"
     },
     "number": {
       "currency": {

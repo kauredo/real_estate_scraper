@@ -45,7 +45,7 @@ task :scrape, [:url] => :environment do |_t, args|
     # features
     count = 0
     begin
-      listing.features = @browser.div(class: 'features-container').wait_until(&:present?).child(class: 'row').children.map(&:text)
+      listing.features_pt = @browser.div(class: 'features-container').wait_until(&:present?).child(class: 'row').children.map(&:text)
     rescue StandardError => e
       count += 1
       retry if count < 3

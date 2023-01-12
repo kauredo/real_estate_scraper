@@ -2,9 +2,7 @@
 
 class Listing < ApplicationRecord
   extend Mobility
-  translates :title, type: :string
-  translates :description, type: :text
-  translates :status, type: :string
+  translates :title, :description, :status, :features
   acts_as_paranoid
   after_save :update_orders
 

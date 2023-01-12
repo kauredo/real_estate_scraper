@@ -9,7 +9,7 @@ Mobility.configure do
     # To default to a different backend globally, replace +:key_value+ by another
     # backend name.
     #
-    backend :key_value
+    backend :table
 
     # ActiveRecord
     #

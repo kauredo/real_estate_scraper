@@ -92,19 +92,19 @@ export default function Navbar(props: Props) {
 
   const backofficeItems = [
     {
-      title: "Imóveis",
+      title: `${i18n.t("navbar.listings")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_listings_path),
       img: null,
     },
     {
-      title: "Empreendimentos",
+      title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_listing_complexes_path),
       img: null,
     },
     {
-      title: "Testemunhos",
+      title: `${i18n.t("navbar.testimonies")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_testimonials_path),
       img: null,

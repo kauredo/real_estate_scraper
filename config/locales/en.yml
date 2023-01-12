@@ -38,6 +38,8 @@ en:
     contacts: Contacts
     services: Services
     house_360: 360 House
+    listings: Listings
+    testimonies: Testimonies
 
   footer:
     about: about us

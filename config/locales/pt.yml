@@ -38,6 +38,8 @@ pt:
     contacts: Contactos
     services: Serviços
     house_360: Casa 360
+    listings: Imóveis
+    testimonies: Testemunhos
 
   footer:
     about: sobre nós
