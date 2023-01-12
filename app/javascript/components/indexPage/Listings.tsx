@@ -4,7 +4,7 @@ import LongCard from "./LongCard";
 
 interface Props {
   listings: Listing[];
-  backoffice?: boolean;
+  backoffice: boolean;
   colleagues?: Colleague[];
 }
 

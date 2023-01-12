@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { truncateText } from "../utils/Functions";
+import { sanitizeURLWithParams, truncateText } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
 
 export default function Card({ listing }) {
@@ -8,7 +8,7 @@ export default function Card({ listing }) {
       style={{ marginTop: "-2rem" }}
       className="card mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto"
     >
-      <a href={window.Routes.listing_path(listing.id)}>
+      <a href={sanitizeURLWithParams(window.Routes.listing_path, listing.id)}>
         <div
           className="object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"
           style={{

@@ -12,15 +12,15 @@ task :scrape, [:url] => :environment do |_t, args|
     listing.price = price
 
     @browser.goto(imovel_url)
-    listing.title = @browser.title
-    puts "Gathering data for listing #{listing.title}"
+    listing.title_pt = @browser.title
+    puts "Gathering data for listing #{listing.title_pt}"
 
     js_doc = @browser.div(class: 'listing-images').wait_until(&:present?)
     images = Nokogiri::HTML(js_doc.inner_html)
 
     # status
     status = @browser.div(class: 'listing-status').wait_until(&:present?)
-    listing.status = status.text.strip if status.present?
+    listing.status_pt = status.text.strip if status.present?
 
     # stats
     count = 0
@@ -52,7 +52,7 @@ task :scrape, [:url] => :environment do |_t, args|
     end
 
     # description
-    listing.description = @browser.div(class: 'listing-details-desc').wait_until(&:present?).text
+    listing.description_pt = @browser.div(class: 'listing-details-desc').wait_until(&:present?).text
 
     # @browser.close
     res = images.css('img')
@@ -63,7 +63,7 @@ task :scrape, [:url] => :environment do |_t, args|
     # # geo data
     # listing.location = scrape_location(listing.address)
     listing.title&.gsub! 'm2', 'm²'
-    listing.description&.gsub! 'm2', 'm²'
+    listing.description_pt&.gsub! 'm2', 'm²'
     listing.stats['Área Útil']&.gsub! 'm 2', 'm²'
     listing.stats['Área Bruta (CP)']&.gsub! 'm 2', 'm²'
     listing.stats['Área do Terreno']&.gsub! 'm 2', 'm²'

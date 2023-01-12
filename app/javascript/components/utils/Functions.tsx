@@ -37,3 +37,11 @@ export const sanitizeURL = url => {
     return url({ locale: i18n.locale });
   }
 };
+
+export const sanitizeURLWithParams = (url, params) => {
+  if (i18n.locale === "pt") {
+    return url(params);
+  } else {
+    return url(params, { locale: i18n.locale });
+  }
+};

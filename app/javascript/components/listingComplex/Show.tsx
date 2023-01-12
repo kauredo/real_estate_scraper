@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
+import { sanitizeURLWithParams } from "../utils/Functions";
 import { Listing, ListingComplex } from "../utils/Interfaces";
 
 interface Props {
@@ -104,7 +105,10 @@ export default function Show(props: Props) {
                       <td className={" p-2 "}>{listing.price}€</td>
                       <td className=" p-2">
                         <a
-                          href={window.Routes.listing_path(listing.id)}
+                          href={sanitizeURLWithParams(
+                            window.Routes.listing_path,
+                            listing.id
+                          )}
                           target="_blank"
                           className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
                         >

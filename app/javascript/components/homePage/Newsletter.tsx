@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { i18n } from "../../languages/languages";
+import { sanitizeURL } from "../utils/Functions";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -42,9 +43,7 @@ export default function Newsletter() {
         <form
           ref={form}
           onSubmit={e => validateUser(e)}
-          action={window.Routes.newsletter_subscriptions_path({
-            locale: i18n.locale,
-          })}
+          action={sanitizeURL(window.Routes.newsletter_subscriptions_path)}
           method="post"
         >
           <div className="w-full">

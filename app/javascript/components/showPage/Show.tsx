@@ -46,7 +46,7 @@ export default function Show(props: Props) {
       <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">
         <div className="col-span-2">
           <div className="p-4 w-full bg-white m-2 tablet:mx-0">
-            <h2 className="standard mb-2 text-lg font-bold">
+            <h2 className="standard mb-2 text-2xl font-bold">
               {i18n.t("listing.details")}
             </h2>
             <div className="w-full flex flex-wrap">
@@ -70,7 +70,7 @@ export default function Show(props: Props) {
             <div className="tablet:mr-2">{listing.description}</div>
           </div>
           <div className="p-4 w-full bg-white m-2 tablet:mx-0 h-fit">
-            <h2 className="standard mb-2 text-lg font-bold">
+            <h2 className="standard mb-2 text-2xl font-bold">
               {i18n.t("listing.characteristics")}
             </h2>
             <ul

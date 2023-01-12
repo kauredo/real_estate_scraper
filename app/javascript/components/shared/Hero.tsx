@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { i18n } from "../../languages/languages";
+import { sanitizeURL } from "../utils/Functions";
 import QuarterCircle from "./QuarterCircle";
 
 interface Props {
@@ -32,13 +33,13 @@ function Hero(props: Props) {
       </div>
       <div className="relative bottom-5 left-0 right-0 center">
         <div className="flex justify-center">
-          <a href={window.Routes.buy_path({ locale: i18n.locale })}>
+          <a href={sanitizeURL(window.Routes.buy_path)}>
             <div className="px-5 lowercase">
               <p>{i18n.t("navbar.buy")}</p>
             </div>
           </a>
           <a
-            href={window.Routes.sell_path({ locale: i18n.locale })}
+            href={sanitizeURL(window.Routes.sell_path)}
             data-turbolinks={false}
           >
             <div className="px-5 lowercase">
