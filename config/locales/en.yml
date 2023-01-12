@@ -341,5 +341,6 @@ en:
     characteristics: Listing Characteristics
     status:
       agreed: Sales Agreed
-      new: New to Market
+      recent: New to Market
       sold: Sold
+      standard: ""

@@ -48,12 +48,12 @@ export default function LongCard(props: Props) {
       >
         <div className="relative m-0 shadow-lg flex flex-col md:flex-row bg-white ">
           <div className="relative flex-no-shrink w-full md:w-1/3">
-            {["Reservado", "Sales Agreed"].includes(listing.status) && (
+            {listing.status === "agreed" && (
               <div className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white text-4xl opacity-50 flex items-center justify-center">
                 {i18n.t("listing.status.agreed")}
               </div>
             )}
-            {["Vendido", "Sold"].includes(listing.status) && (
+            {listing.status === "sold" && (
               <div className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-black font-bold text-white text-4xl opacity-50 flex items-center justify-center">
                 {i18n.t("listing.status.sold")}
               </div>

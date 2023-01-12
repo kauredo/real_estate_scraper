@@ -349,5 +349,6 @@ pt:
     characteristics: Características do Imóvel
     status:
       agreed: Reservado
-      new: Novo
+      recent: Novo
       sold: Vendido
+      standard: ""

@@ -1,11 +1,10 @@
-class CreateListingTitleAndDescriptionAndStatusAndFeaturesTranslationsForMobilityTableBackend < ActiveRecord::Migration[7.0]
+class CreateListingTitleAndDescriptionAndFeaturesTranslationsForMobilityTableBackend < ActiveRecord::Migration[7.0]
   def change
     create_table :listing_translations do |t|
 
       # Translated attribute(s)
       t.string :title
       t.text :description
-      t.string :status
       t.string :features, array: true, default: []
 
       t.string  :locale, null: false

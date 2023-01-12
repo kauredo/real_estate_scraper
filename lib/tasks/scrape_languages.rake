@@ -16,10 +16,6 @@ task :scrape_en, [:url] => :environment do |_t, args|
     listing.title_en = @browser.title
     puts "Gathering data for listing #{listing.title_en}"
 
-    # status
-    status = @browser.div(class: 'listing-status').wait_until(&:present?)
-    listing.status_en = status.text.strip if status.present?
-
     # features
     count = 0
     begin
@@ -56,7 +52,7 @@ task :scrape_en, [:url] => :environment do |_t, args|
   end.map(&:listing_id)
 
   listings = Listing.all.select do |l|
-    l.title_en.blank? || l.status_en.blank? || l.description_en.blank? || l.features_en.blank? || ids.include?(l.id)
+    l.title_en.blank? || l.description_en.blank? || l.features_en.blank? || ids.include?(l.id)
   end
 
   puts "Found #{listings.size} listings"
@@ -93,10 +89,6 @@ task :scrape_pt, [:url] => :environment do |_t, args|
     listing.title_pt = @browser.title
     puts "Gathering data for listing #{listing.title_pt}"
 
-    # status
-    status = @browser.div(class: 'listing-status').wait_until(&:present?)
-    listing.status_pt = status.text.strip if status.present?
-
     # features
     count = 0
     begin
@@ -128,7 +120,7 @@ task :scrape_pt, [:url] => :environment do |_t, args|
   @browser = Watir::Browser.new(:chrome, options:)
 
   listings = Listing.all.select do |l|
-    l.title_pt.blank? || l.status_pt.blank? || l.description_pt.blank?
+    l.title_pt.blank? || l.description_pt.blank?
   end
 
   listings.each do |listing|

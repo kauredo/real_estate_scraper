@@ -21,7 +21,7 @@
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
         <%= f.label :status, class: 'w-1/4' %>
-        <%= f.select :status, options_for_select(Listing::STATUSES, @listing.status), { prompt: 'Selecionar status do imóvel', include_blank: true }, { class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
+        <%= f.select :status, options_for_select(Listing.statuses.map { |key, value| [I18n.t("listing.status.#{key}"), key] }, @listing.status), { prompt: 'Selecionar status do imóvel' }, { class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
         <%= f.label :Empreendimento, class: 'w-1/4' %>
