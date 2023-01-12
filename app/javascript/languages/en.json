@@ -427,7 +427,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x000000010896ebd8 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x00000001087fcd18 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       }
     },
     "kw": {
@@ -461,7 +461,12 @@
     },
     "listing": {
       "characteristics": "Listing Characteristics",
-      "details": "Listing Details"
+      "details": "Listing Details",
+      "status": {
+        "agreed": "Sales Agreed",
+        "new": "New to Market",
+        "sold": "Sold"
+      }
     },
     "navbar": {
       "about": "About Us",
@@ -527,8 +532,8 @@
         }
       },
       "nth": {
-        "ordinalized": "#<Proc:0x0000000108936b20 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:26 (lambda)>",
-        "ordinals": "#<Proc:0x0000000108936b48 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:7 (lambda)>"
+        "ordinalized": "#<Proc:0x00000001087c54a8 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:26 (lambda)>",
+        "ordinals": "#<Proc:0x00000001087c54d0 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:7 (lambda)>"
       },
       "percentage": {
         "format": {

@@ -11,12 +11,4 @@ task translate_listings: :environment do
       listing.save
     end
   end
-  # Mobility.with_locale(:en) do
-  #   listings.each do |listing|
-  #     listing.title = nil
-  #     listing.description = nil
-  #     listing.status = nil
-  #     listing.save
-  #   end
-  # end
 end

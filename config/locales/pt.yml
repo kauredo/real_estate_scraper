@@ -345,3 +345,7 @@ pt:
   listing:
     details: Detalhes do Imóvel
     characteristics: Características do Imóvel
+    status:
+      agreed: Reservado
+      new: Novo
+      sold: Vendido

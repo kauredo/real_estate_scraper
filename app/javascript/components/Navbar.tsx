@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { i18n } from "../languages/languages";
-import { sanitizeURL } from "./utils/Functions";
+import { changeLocale, sanitizeURL } from "./utils/Functions";
 
 interface Props {
   backoffice?: boolean;
@@ -38,36 +38,43 @@ export default function Navbar(props: Props) {
       title: `${i18n.t("navbar.buy")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.buy_path),
+      img: null,
     },
     {
       title: `${i18n.t("navbar.sell")}`,
       turbo: "false",
       url: sanitizeURL(window.Routes.sell_path),
+      img: null,
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.latest_path),
+      img: null,
     },
     {
       title: `${i18n.t("navbar.about")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.about_path),
+      img: null,
     },
     {
       title: `${i18n.t("navbar.contacts")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.contact_path),
+      img: null,
     },
     {
       title: `${i18n.t("navbar.services")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.services_path),
+      img: null,
     },
     {
       title: `${i18n.t("navbar.house_360")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.house_360_path),
+      img: null,
     },
     {
       title: "Powered by ",
@@ -88,16 +95,19 @@ export default function Navbar(props: Props) {
       title: "Imóveis",
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_listings_path),
+      img: null,
     },
     {
       title: "Empreendimentos",
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_listing_complexes_path),
+      img: null,
     },
     {
       title: "Testemunhos",
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_testimonials_path),
+      img: null,
     },
   ];
 
@@ -108,7 +118,23 @@ export default function Navbar(props: Props) {
       title: "Backoffice",
       url: sanitizeURL(window.Routes.backoffice_path),
       turbo: "true",
+      img: null,
     });
+
+  const img = i18n.locale === "pt" ? "uk" : "pt";
+
+  usedItems.push({
+    title: "",
+    url: changeLocale(),
+    turbo: "false",
+    img: (
+      <img
+        className="h-5 inline-block mb-[6px]"
+        src={`https://hatscripts.github.io/circle-flags/flags/${img}.svg`}
+        style={{ maxWidth: "none" }}
+      />
+    ),
+  });
 
   return (
     <div>
@@ -140,7 +166,11 @@ export default function Navbar(props: Props) {
                         data-turbo={item.turbo}
                         key={`${item.title}--desktop`}
                         href={item.url}
-                        className={itemClass(item.url, false)}
+                        className={
+                          item.title.length > 0
+                            ? itemClass(item.url, false)
+                            : ""
+                        }
                       >
                         {item.title}
                         {item.img}

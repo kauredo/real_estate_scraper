@@ -337,3 +337,7 @@ en:
   listing:
     details: Listing Details
     characteristics: Listing Characteristics
+    status:
+      agreed: Sales Agreed
+      new: New to Market
+      sold: Sold

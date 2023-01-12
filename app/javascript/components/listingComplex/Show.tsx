@@ -77,15 +77,21 @@ export default function Show(props: Props) {
                       key={listing.id}
                       className={
                         "text-center border border-slate-700 relative " +
-                        (["Reservado", "Vendido"].includes(listing.status) &&
-                          "line-through")
+                        ([
+                          "Reservado",
+                          "Vendido",
+                          "Sold",
+                          "Sales Agreed",
+                        ].includes(listing.status) && "line-through")
                       }
                     >
                       <td className=" p-2">
-                        {listing.status === "Reservado" && (
+                        {["Reservado", "Sales Agreed"].includes(
+                          listing.status
+                        ) && (
                           <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white opacity-50 flex items-center justify-center"></span>
                         )}
-                        {listing.status === "Vendido" && (
+                        {["Vendido", "Sold"].includes(listing.status) && (
                           <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white opacity-50 flex items-center justify-center"></span>
                         )}
                         {listing.stats["Piso"] || "-"}

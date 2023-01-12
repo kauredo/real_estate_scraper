@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { sanitizeURLWithParams, truncateText } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
+import { i18n } from "../../languages/languages";
 
 export default function Card({ listing }) {
   return (
@@ -15,14 +16,14 @@ export default function Card({ listing }) {
             backgroundImage: `url(${listing.photos[0]})`,
           }}
         >
-          {listing.status === "Reservado" && (
-            <div className="absolute top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white text-4xl opacity-50 flex items-center justify-center pt-12">
-              RESERVADO
+          {["Reservado", "Sales Agreed"].includes(listing.status) && (
+            <div className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white text-4xl opacity-50 flex items-center justify-center pt-12">
+              {i18n.t("listing.status.agreed")}
             </div>
           )}
-          {listing.status === "Vendido" && (
-            <div className="absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white text-4xl opacity-50 flex items-center justify-center pt-12">
-              VENDIDO
+          {["Vendido", "Sold"].includes(listing.status) && (
+            <div className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-black font-bold text-white text-4xl opacity-50 flex items-center justify-center pt-12">
+              {i18n.t("listing.status.sold")}
             </div>
           )}
         </div>

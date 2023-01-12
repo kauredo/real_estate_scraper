@@ -45,3 +45,19 @@ export const sanitizeURLWithParams = (url, params) => {
     return url(params, { locale: i18n.locale });
   }
 };
+
+export const changeLocale = () => {
+  var url = [window.location.origin];
+  if (window.location.pathname.split("/")[1] === "en") {
+    const path = window.location.pathname.split("/");
+    path.splice(1, 1);
+    url.push(path.join("/"));
+  } else {
+    url.push("/en");
+    url.push(window.location.pathname);
+  }
+
+  url.push(window.location.search);
+
+  return url.join("");
+};

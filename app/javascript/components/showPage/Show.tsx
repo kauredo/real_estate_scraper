@@ -10,6 +10,7 @@ interface Props {
 
 export default function Show(props: Props) {
   const listing = props.listing;
+  console.log(i18n.locale);
 
   return (
     <div className="relative container mx-auto">

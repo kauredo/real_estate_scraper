@@ -358,7 +358,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x000000010896ebd8 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x00000001087fcd18 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       }
     },
     "kw": {
@@ -392,7 +392,12 @@
     },
     "listing": {
       "characteristics": "Listing Characteristics",
-      "details": "Listing Details"
+      "details": "Listing Details",
+      "status": {
+        "agreed": "Sales Agreed",
+        "new": "New to Market",
+        "sold": "Sold"
+      }
     },
     "navbar": {
       "about": "About Us",
@@ -949,7 +954,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x0000000108955458 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x00000001087ef208 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       },
       "transliterate": {
         "rule": {
@@ -1011,7 +1016,12 @@
     },
     "listing": {
       "characteristics": "Características do Imóvel",
-      "details": "Detalhes do Imóvel"
+      "details": "Detalhes do Imóvel",
+      "status": {
+        "agreed": "Reservado",
+        "new": "Novo",
+        "sold": "Vendido"
+      }
     },
     "navbar": {
       "about": "Sobre Nós",
