@@ -46,7 +46,7 @@
       "cta": "GET IN TOUCH WITH US",
       "form": {
         "consent": "By contacting us you're allowing Sofia Galvão Group to store your data to later inform you about business opportunities, as stated in the Privacy Policy.",
-        "error": "Please add try again with valid values",
+        "error": "Please try again with valid values",
         "fields": {
           "email": "Email",
           "message": "Message",
@@ -427,7 +427,7 @@
           "one",
           "other"
         ],
-        "rule": "#<Proc:0x000000011464e208 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        "rule": "#<Proc:0x000000011e455168 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
       }
     },
     "kw": {
@@ -527,8 +527,8 @@
         }
       },
       "nth": {
-        "ordinalized": "#<Proc:0x000000011461e490 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:26 (lambda)>",
-        "ordinals": "#<Proc:0x000000011461e4b8 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:7 (lambda)>"
+        "ordinalized": "#<Proc:0x000000011e41e460 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:26 (lambda)>",
+        "ordinals": "#<Proc:0x000000011e41e488 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:7 (lambda)>"
       },
       "percentage": {
         "format": {

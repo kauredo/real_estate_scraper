@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Listing < ApplicationRecord
+  extend Mobility
+  translates :title, type: :string
+  translates :description, type: :text
+  translates :status, type: :string
   acts_as_paranoid
   after_save :update_orders
 

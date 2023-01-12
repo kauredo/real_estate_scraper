@@ -199,6 +199,23 @@ pt:
     header: Contactos
     contact_us: Contacte-nos
     cta: ENTRE EM CONTACTO CONNOSCO
+    form:
+      titles:
+        main: "Preencha o formulário e entraremos em contacto consigo:"
+        visit:
+          Precisa de mais informação? Quer agendar uma visita? Entre em contacto
+          connosco!
+      consent:
+        Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os
+        seus dados para o informar sobre oportunidades de negócio, de acordo com
+        a Política de Privacidade.
+      fields:
+        name: Nome
+        email: Email
+        phone: Telefone
+        message: Mensagem
+        send: Enviar
+      error: Por favor insira valores válidos
 
   services:
     header: Serviços

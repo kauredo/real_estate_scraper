@@ -209,7 +209,7 @@ en:
         phone: Phone
         message: Message
         send: Send
-      error: Please add try again with valid values
+      error: Please try again with valid values
 
   services:
     header: Services
