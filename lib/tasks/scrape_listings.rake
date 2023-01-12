@@ -58,8 +58,6 @@ task :scrape, [:url] => :environment do |_t, args|
     res = images.css('img')
     listing.photos = res.map { |img| img.attr('src') }
 
-    listing.colleague = Colleague.find_by(name: @lister) if @lister != 'Sofia Galvão'
-
     # # geo data
     # listing.location = scrape_location(listing.address)
     listing.title&.gsub! 'm2', 'm²'

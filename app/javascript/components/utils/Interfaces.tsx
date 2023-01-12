@@ -27,12 +27,6 @@ export interface ListingComplex {
   listings: Listing[];
 }
 
-export interface Colleague {
-  id: number;
-  name: string;
-  url: string;
-}
-
 export interface Listing {
   id: number;
   stats: {
@@ -45,7 +39,6 @@ export interface Listing {
   url: string;
   description: string;
   photos: string[];
-  colleague_id: number;
   listing_complex_id: number;
   status: string;
   // location: {

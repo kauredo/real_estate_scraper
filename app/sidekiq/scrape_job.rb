@@ -9,11 +9,6 @@ class ScrapeJob < ActiveJob::Base
     Rake::Task['scrape'].invoke
     puts 'ScrapeJob is performed'
 
-    Colleague.all.each do |colleague|
-      Rake::Task['scrape'].invoke(colleague.url)
-      puts "Job done for colleague #{colleague.url}"
-    end
-
     puts 'DONE'
   end
 end

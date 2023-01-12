@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Colleague, Listing } from "../utils/Interfaces";
+import { Listing } from "../utils/Interfaces";
 import { truncateText, sanitizeURLWithParams } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
 import { i18n } from "../../languages/languages";
@@ -8,11 +8,10 @@ interface Props {
   listing: Listing;
   backoffice?: boolean;
   small?: boolean;
-  colleague?: Colleague;
 }
 
 export default function LongCard(props: Props) {
-  let { listing, backoffice, colleague, small } = props;
+  let { listing, backoffice, small } = props;
   const [isVisible, setIsVilible] = useState(true);
   const handleRemoveItem = e => {
     e.preventDefault();
@@ -66,17 +65,7 @@ export default function LongCard(props: Props) {
           </div>
           <div className="flex-1 card-block relative w-full md:w-2/3">
             <div className="p-6">
-              <h4 className="font-medium text-2xl mb-3">
-                {listing.title}
-                {colleague && (
-                  <>
-                    <br />
-                    <span className="font-bold text-beige">
-                      {` (Imóvel de colega: ${colleague.name})`}
-                    </span>
-                  </>
-                )}
-              </h4>
+              <h4 className="font-medium text-2xl mb-3">{listing.title}</h4>
               <p className="leading-normal">
                 <span>
                   {truncateText(listing.description, window.innerWidth / 3)}

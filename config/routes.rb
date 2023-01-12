@@ -36,7 +36,6 @@ Rails.application.routes.draw do
     namespace :backoffice do
       get '/', to: 'pages#home'
       resources :variables, only: %i[create update destroy]
-      resources :colleagues, only: %i[show create update destroy]
       resources :listings, only: %i[index edit update destroy]
       resources :listing_complexes
       resources :testimonials

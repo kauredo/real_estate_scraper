@@ -7,7 +7,7 @@ module Backoffice
     include Pagy::Backend
 
     def index
-      @listings = Listing.preload(:colleague).all
+      @listings = Listing.all
     end
 
     def edit; end
