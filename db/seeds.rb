@@ -36,3 +36,9 @@ testimonials = [
 testimonials.each do |_testimonial|
   Testimonial.create(testimonials)
 end
+
+Admin.create(
+  email: 'vaskafig@gmail.com',
+  password: 'password',
+  confirmed: true
+)
