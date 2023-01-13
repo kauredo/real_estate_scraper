@@ -426,8 +426,7 @@
         "keys": [
           "one",
           "other"
-        ],
-        "rule": "#<Proc:0x000000010e766358 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/rails-i18n-7.0.5/lib/rails_i18n/common_pluralizations/one_other.rb:7 (lambda)>"
+        ]
       }
     },
     "kw": {
@@ -549,8 +548,6 @@
         }
       },
       "nth": {
-        "ordinalized": "#<Proc:0x000000010e7d5a50 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:26 (lambda)>",
-        "ordinals": "#<Proc:0x000000010e7d5a78 /Users/vascofigueiredo/.rbenv/versions/3.1.0/lib/ruby/gems/3.1.0/gems/activesupport-7.0.4/lib/active_support/locale/en.rb:7 (lambda)>"
       },
       "percentage": {
         "format": {
