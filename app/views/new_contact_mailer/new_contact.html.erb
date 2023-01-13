@@ -11,13 +11,13 @@
 <% if @listing %>
   <p>
     <strong>Imóvel:</strong>
-    <%= link_to @listing.title, listing_url(@listing) %>
+    <%= link_to @listing.title, listing_url(@listing, locale: '') %>
   </p>
 <% end %>
 <% if @complex %>
   <p>
     <strong>Empreendimento:</strong>
-    <%= link_to @complex.name, listing_complex_url(@complex) %>
+    <%= link_to @complex.name, listing_complex_url(@complex, locale: '') %>
   </p>
 <% end %>
 <p>
