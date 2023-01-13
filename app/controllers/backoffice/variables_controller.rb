@@ -7,19 +7,19 @@ module Backoffice
     def create
       Variable.create(variable_params)
       flash[:notice] = 'Variável criada'
-      redirect_to backoffice_path({ locale: I18n.locale })
+      redirect_to backoffice_path()
     end
 
     def update
       @variable.update(variable_params)
       flash[:notice] = 'Variável atualizada'
-      redirect_to backoffice_path({ locale: I18n.locale })
+      redirect_to backoffice_path()
     end
 
     def destroy
       @variable.destroy
       flash[:notice] = 'Variável apagada'
-      redirect_to backoffice_path({ locale: I18n.locale })
+      redirect_to backoffice_path()
     end
 
     private
