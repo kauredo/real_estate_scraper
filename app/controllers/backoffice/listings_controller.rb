@@ -47,7 +47,7 @@ module Backoffice
 
     def listing_params
       params.require(:listing).permit(:address, :price, :title, :order, :url, :description, :status, :status_changed_at,
-                                      :listing_complex_id, features: [], photos: [], stats: {})
+                                      :listing_complex_id, :video_link, features: [], photos: [], stats: {})
     end
   end
 end

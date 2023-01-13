@@ -52,6 +52,11 @@ export const changeLocale = () => {
     const path = window.location.pathname.split("/");
     path.splice(1, 1);
     url.push(path.join("/"));
+  } else if (window.location.pathname.split("/")[1] === "pt") {
+    const path = window.location.pathname.split("/");
+    path.splice(1, 1);
+    url.push("/en");
+    url.push(path.join("/"));
   } else {
     url.push("/en");
     url.push(window.location.pathname);

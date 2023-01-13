@@ -346,6 +346,7 @@ pt:
     next: Próxima
 
   listing:
+    watch_video: Assistir Vídeo
     details: Detalhes do Imóvel
     characteristics: Características do Imóvel
     price: Preço

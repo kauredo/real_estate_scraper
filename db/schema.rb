@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_12_200113) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_13_023648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_200113) do
     t.integer "order"
     t.datetime "status_changed_at"
     t.integer "status"
+    t.string "video_link"
     t.index ["deleted_at"], name: "index_listings_on_deleted_at"
     t.index ["listing_complex_id"], name: "index_listings_on_listing_complex_id"
   end

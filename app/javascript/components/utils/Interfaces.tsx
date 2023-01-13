@@ -41,26 +41,7 @@ export interface Listing {
   photos: string[];
   listing_complex_id: number;
   status: string;
-  // location: {
-  //   latitude: string;
-  //   longitude: string;
-  //   type: string;
-  //   name: string;
-  //   number: string;
-  //   postal_code: string;
-  //   street: string;
-  //   confidence: string;
-  //   region: string;
-  //   region_code: string;
-  //   county: string;
-  //   locality: string;
-  //   administrative_area: string;
-  //   neighbourhood: string;
-  //   country: string;
-  //   country_code: string;
-  //   continent: string;
-  //   label: string;
-  // };
+  video_link: string;
 }
 
 export interface Pagy {
