@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-    { host: ENV['APP_DOMAIN'] || 'localhost:3000', locale: I18n.locale }
+    { host: ENV['APP_DOMAIN'] || 'localhost:3000', locale: ((I18n.locale == I18n.default_locale) ? nil : I18n.locale) }
   end
 end
