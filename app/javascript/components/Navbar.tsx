@@ -127,6 +127,7 @@ export default function Navbar(props: Props) {
     title: "",
     url: changeLocale(),
     turbo: "false",
+    hover: `${i18n.t("navbar.language")}`,
     img: (
       <img
         className="h-5 inline-block mb-[6px]"
@@ -148,8 +149,6 @@ export default function Navbar(props: Props) {
                   href={sanitizeURL(window.Routes.root_path)}
                 >
                   <img
-                    // src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    // className="h-16 w-16"
                     className="w-[8rem] relative z-1"
                     src="/logos/main_color.png"
                     alt="Sofia Galvão Group Logo"
@@ -166,6 +165,7 @@ export default function Navbar(props: Props) {
                         data-turbo={item.turbo}
                         key={`${item.title}--desktop`}
                         href={item.url}
+                        title={item.hover}
                         className={
                           item.title.length > 0
                             ? itemClass(item.url, false)

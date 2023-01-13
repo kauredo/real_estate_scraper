@@ -15,12 +15,18 @@ export default function LongCard(props: Props) {
   const [isVisible, setIsVilible] = useState(true);
   const handleRemoveItem = e => {
     e.preventDefault();
+    const token = document.querySelector('meta[name="csrf-token"]').content;
+
     confirm("De certeza que queres apagar o imóvel?");
 
     fetch(
       sanitizeURLWithParams(window.Routes.backoffice_listing_path, listing.id),
       {
         method: "DELETE",
+        headers: {
+          "X-CSRF-Token": token,
+          "Content-Type": "application/json",
+        },
       }
     ).then(res => {
       setIsVilible(false);

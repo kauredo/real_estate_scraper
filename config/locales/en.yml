@@ -40,6 +40,7 @@ en:
     house_360: 360 House
     listings: Listings
     testimonies: Testimonies
+    language: Mudar site para Português
 
   footer:
     about: about us
@@ -339,6 +340,7 @@ en:
   listing:
     details: Listing Details
     characteristics: Listing Characteristics
+    price: Price
     status:
       agreed: Sales Agreed
       recent: New to Market

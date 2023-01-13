@@ -37,8 +37,7 @@ export default function Show(props: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
           <h1
             id="main-title"
-            className="relative block mt-2 text-3xl text-black sm:text-4xl px-4"
-            style={{ maxWidth: "66vw" }}
+            className="relative block mt-2 text-2xl text-black sm:text-4xl px-4"
           >
             {listing.title}
           </h1>
@@ -51,14 +50,14 @@ export default function Show(props: Props) {
               {i18n.t("listing.details")}
             </h2>
             <div className="w-full flex flex-wrap">
-              <div key={"price"} className="border p-2 w-40">
-                <span className="font-bold">{"Preço"}:</span>
+              <div key={"price"} className="border p-2 w-1/2">
+                <span className="font-bold">{i18n.t("listing.price")}:</span>
                 <br />
                 <span>{listing.price}€</span>
               </div>
               {Object.keys(listing.stats).map((k, v) => {
                 return (
-                  <div key={k} className="border p-2 w-40">
+                  <div key={k} className="border p-2 w-1/2">
                     <span className="font-bold">{k}:</span>
                     <br />
                     <span>{listing.stats[k]}</span>

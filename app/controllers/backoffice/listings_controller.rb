@@ -2,7 +2,6 @@
 
 module Backoffice
   class ListingsController < BackofficeController
-    skip_before_action :verify_authenticity_token, only: [:destroy]
     before_action :find_listing, except: %i[index create]
     include Pagy::Backend
 

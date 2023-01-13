@@ -40,6 +40,7 @@ pt:
     house_360: Casa 360
     listings: Imóveis
     testimonies: Testemunhos
+    language: Change site to English
 
   footer:
     about: sobre nós
@@ -347,6 +348,7 @@ pt:
   listing:
     details: Detalhes do Imóvel
     characteristics: Características do Imóvel
+    price: Preço
     status:
       agreed: Reservado
       recent: Novo
