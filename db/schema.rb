@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_12_180413) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_12_200113) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_180413) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "listing_complex_translations", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "locale", null: false
+    t.bigint "listing_complex_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_complex_id", "locale"], name: "index_08ff862f275e86f460eb017836002c84b1ca958b", unique: true
+    t.index ["locale"], name: "index_listing_complex_translations_on_locale"
   end
 
   create_table "listing_complexes", force: :cascade do |t|
@@ -126,6 +137,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_180413) do
     t.string "icon"
   end
 
+  add_foreign_key "listing_complex_translations", "listing_complexes"
   add_foreign_key "listing_translations", "listings"
   add_foreign_key "newsletter_subscriptions", "users"
 end
