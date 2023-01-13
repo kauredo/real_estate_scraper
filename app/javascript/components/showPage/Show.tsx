@@ -3,6 +3,7 @@ import Carousel from "nuka-carousel";
 import { Listing } from "../utils/Interfaces";
 import ContactForm from "../contactPage/ContactForm";
 import { i18n } from "../../languages/languages";
+import { ReadMore } from "../shared/ReadMore";
 
 interface Props {
   listing: Listing;
@@ -13,7 +14,7 @@ export default function Show(props: Props) {
   console.log(i18n.locale);
 
   return (
-    <div className="relative container mx-auto">
+    <div className="relative container mx-auto overflow-hidden sm:overflow-visible">
       <Carousel
         heightMode="max"
         style={{ maxHeight: "90vh" }}
@@ -67,7 +68,9 @@ export default function Show(props: Props) {
             </div>
           </div>
           <div className="p-4 w-full bg-white m-2 tablet:mx-0">
-            <div className="tablet:mr-2">{listing.description}</div>
+            <div className="tablet:mr-2">
+              <ReadMore length={1000}>{listing.description}</ReadMore>
+            </div>
           </div>
           <div className="p-4 w-full bg-white m-2 tablet:mx-0 h-fit">
             <h2 className="standard mb-2 text-2xl font-bold">

@@ -31,7 +31,8 @@ module Backoffice
       end
 
       @listing.update(new_params)
-      redirect_to backoffice_listings_path
+      flash[:notice] = I18n.t('listing.update.notice')
+      redirect_to backoffice_listing_path(@listing)
     end
 
     def destroy

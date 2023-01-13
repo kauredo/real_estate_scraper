@@ -14,7 +14,7 @@
     <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
   <div class="actions flex items-center justify-between">
-    <%= f.submit 'Change my password', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    <%= f.submit 'Change my password', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   </div>
 <% end %>
 <%= render 'devise/shared/links' %>

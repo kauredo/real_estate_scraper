@@ -349,6 +349,9 @@ pt:
     details: Detalhes do Imóvel
     characteristics: Características do Imóvel
     price: Preço
+    text:
+      more: ...ler mais
+      less: " mostrar menos"
     status:
       agreed: Reservado
       recent: Novo
@@ -358,3 +361,5 @@ pt:
       notice:
         Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma
       error: "Erro: o link tem que começar por 'https://www.kwportugal.pt/'"
+    update:
+      notice: Imóvel editado com sucesso

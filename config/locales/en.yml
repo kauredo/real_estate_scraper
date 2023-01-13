@@ -341,6 +341,9 @@ en:
     details: Listing Details
     characteristics: Listing Characteristics
     price: Price
+    text:
+      more: ...read more
+      less: " show less"
     status:
       agreed: Sales Agreed
       recent: New to Market
@@ -350,3 +353,5 @@ en:
       notice:
         Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma
       error: "Erro: o link tem que começar por 'https://www.kwportugal.pt/'"
+    update:
+      notice: Listing updated successfully

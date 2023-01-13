@@ -2,7 +2,7 @@
   <%# Variáveis %>
   <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
     <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Editar Imóvel <%= @listing.title %></h2>
-    <p class="text-gray-500 pt-3">Nota: Os textos podem ser mudados nas diferentes liguagens, basta mudar para a linguagem desejada</p>
+    <p class="text-gray-500 pt-3 max-w-none">Nota: os textos podem ser mudados nas diferentes liguagens, basta mudar para a linguagem desejada</p>
     <%= form_for([:backoffice, @listing], html: { method: :put, class: 'my-6' }) do |f| %>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
         <%= f.label :title, class: 'w-1/4' %>
@@ -33,7 +33,8 @@
         <%= f.text_area :description, rows: 30, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="flex items-center gap-2">
-        <%= f.submit 'Atualizar', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Atualizar Imóvel', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= link_to 'Ver Imóvel', listing_path(@listing), class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
   </div>
