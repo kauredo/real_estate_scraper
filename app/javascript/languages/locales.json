@@ -546,6 +546,11 @@
         "words_connector": ", "
       }
     },
+    "tasks": {
+      "scrape": {
+        "unavailable": "is no longer available on our website"
+      }
+    },
     "terms": {
       "header": "Terms and Conditions"
     },
@@ -1195,6 +1200,11 @@
         "last_word_connector": " e ",
         "two_words_connector": " e ",
         "words_connector": ", "
+      }
+    },
+    "tasks": {
+      "scrape": {
+        "unavailable": "já não se encontra disponível no website"
       }
     },
     "terms": {

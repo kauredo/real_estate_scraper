@@ -356,3 +356,7 @@ en:
       error: "Erro: o link tem que começar por 'https://www.kwportugal.pt/'"
     update:
       notice: Listing updated successfully
+
+  tasks:
+    scrape:
+      unavailable: is no longer available on our website

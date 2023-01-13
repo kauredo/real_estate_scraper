@@ -364,3 +364,7 @@ pt:
       error: "Erro: o link tem que começar por 'https://www.kwportugal.pt/'"
     update:
       notice: Imóvel editado com sucesso
+
+  tasks:
+    scrape:
+      unavailable: já não se encontra disponível no website

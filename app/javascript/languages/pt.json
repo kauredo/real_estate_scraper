@@ -693,6 +693,11 @@
         "words_connector": ", "
       }
     },
+    "tasks": {
+      "scrape": {
+        "unavailable": "já não se encontra disponível no website"
+      }
+    },
     "terms": {
       "header": "Termos e Condições"
     },

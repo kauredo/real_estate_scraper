@@ -82,6 +82,12 @@ class ScrapeListingDetails
   def self.scrape_language_details(browser, listing, language)
     browser.goto(listing.url)
 
+    text = browser.section(class: 'maincontent').wait_until(&:present?).text
+    if text.include?(I18n.t('tasks.scrape.unavailable'))
+      listing.destroy
+      return
+    end
+
     toggle = browser.a(class: 'dropdown-toggle').wait_until(&:present?)
     toggle.click
     en = browser.a(text: language).wait_until(&:present?)
