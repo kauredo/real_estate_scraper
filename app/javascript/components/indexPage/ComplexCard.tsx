@@ -1,6 +1,6 @@
 import React from "react";
 import { Listing, ListingComplex } from "../utils/Interfaces";
-import { truncateText } from "../utils/Functions";
+import { sanitizeURLWithParams, truncateText } from "../utils/Functions";
 
 interface Props {
   listingComplex: ListingComplex;
@@ -15,10 +15,14 @@ export default function ComplexCard(props: Props) {
       <a
         href={
           backoffice
-            ? window.Routes.edit_backoffice_listing_complex_path(
+            ? sanitizeURLWithParams(
+                window.Routes.edit_backoffice_listing_complex_path,
                 listingComplex.id
               )
-            : window.Routes.listing_complex_path(listingComplex.id)
+            : sanitizeURLWithParams(
+                window.Routes.listing_complex_path,
+                listingComplex.id
+              )
         }
       >
         <div className="relative m-0 shadow-lg flex flex-col md:flex-row bg-white">

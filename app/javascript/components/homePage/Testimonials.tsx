@@ -1,5 +1,7 @@
 import Carousel from "nuka-carousel";
 import React, { useEffect, useRef, useState } from "react";
+import { i18n } from "../../languages/languages";
+
 import { Testimonial } from "../utils/Interfaces";
 
 interface Props {
@@ -38,7 +40,7 @@ export default function Testimonials(props: Props) {
     <div className="p-6 text-center w-full lg:w-2/3  mx-auto flex justify-center items-center">
       <div className="w-full">
         <h3 id="testimony-title" className="text-2xl mb-4 mx-auto">
-          Testemunhos
+          {i18n.t("about.testimonies.title")}
         </h3>
         <ul className="w-full h-full flex lg:gap-8 lg:gap-6 items-center justify-start transition ease-out duration-700 my-2">
           <Carousel

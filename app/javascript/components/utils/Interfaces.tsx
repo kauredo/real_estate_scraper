@@ -27,12 +27,6 @@ export interface ListingComplex {
   listings: Listing[];
 }
 
-export interface Colleague {
-  id: number;
-  name: string;
-  url: string;
-}
-
 export interface Listing {
   id: number;
   stats: {
@@ -45,29 +39,9 @@ export interface Listing {
   url: string;
   description: string;
   photos: string[];
-  colleague_id: number;
   listing_complex_id: number;
   status: string;
-  // location: {
-  //   latitude: string;
-  //   longitude: string;
-  //   type: string;
-  //   name: string;
-  //   number: string;
-  //   postal_code: string;
-  //   street: string;
-  //   confidence: string;
-  //   region: string;
-  //   region_code: string;
-  //   county: string;
-  //   locality: string;
-  //   administrative_area: string;
-  //   neighbourhood: string;
-  //   country: string;
-  //   country_code: string;
-  //   continent: string;
-  //   label: string;
-  // };
+  video_link: string;
 }
 
 export interface Pagy {

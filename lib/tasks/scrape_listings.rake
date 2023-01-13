@@ -1,81 +1,11 @@
 # frozen_string_literal: true
 
 require 'selenium-webdriver'
+require 'scrape_listing_details'
 
 desc 'Scrape listings off KW website'
-task :scrape, [:url] => :environment do |_t, args|
-  args.with_defaults(url: 'https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=en-US&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=1')
-  @url = args.url
-
-  def scrape_details(imovel_url, price)
-    listing = Listing.find_or_initialize_by(url: imovel_url)
-    listing.price = price
-
-    @browser.goto(imovel_url)
-    listing.title = @browser.title
-    puts "Gathering data for listing #{listing.title}"
-
-    js_doc = @browser.div(class: 'listing-images').wait_until(&:present?)
-    images = Nokogiri::HTML(js_doc.inner_html)
-
-    # status
-    status = @browser.div(class: 'listing-status').wait_until(&:present?)
-    listing.status = status.text.strip if status.present?
-
-    # stats
-    count = 0
-    begin
-      listing.stats = @browser.div(class: 'key-data').wait_until(&:present?).divs(class: 'data-item-row').map do |row|
-        row.text.squish.split(': ')
-      end.to_h
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-    end
-
-    # address
-    count = 0
-    begin
-      listing.address = @browser.div(class: 'key-address').wait_until(&:present?).text&.squish
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-    end
-
-    # features
-    count = 0
-    begin
-      listing.features = @browser.div(class: 'features-container').wait_until(&:present?).child(class: 'row').children.map(&:text)
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-    end
-
-    # description
-    listing.description = @browser.div(class: 'listing-details-desc').wait_until(&:present?).text
-
-    # @browser.close
-    res = images.css('img')
-    listing.photos = res.map { |img| img.attr('src') }
-
-    listing.colleague = Colleague.find_by(name: @lister) if @lister != 'Sofia Galvão'
-
-    # # geo data
-    # listing.location = scrape_location(listing.address)
-    listing.title&.gsub! 'm2', 'm²'
-    listing.description&.gsub! 'm2', 'm²'
-    listing.stats['Área Útil']&.gsub! 'm 2', 'm²'
-    listing.stats['Área Bruta (CP)']&.gsub! 'm 2', 'm²'
-    listing.stats['Área do Terreno']&.gsub! 'm 2', 'm²'
-
-    if listing.save
-      puts "Finished listing #{listing.title}"
-    else
-      message = "ERROR: Listing at #{listing.url} has errors"
-      @errors << [listing, message]
-      puts message
-    end
-  end
+task scrape: :environment do |_t, args|
+  @url = 'https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=en-US&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=1'
 
   def scrape_total
     @browser.goto(@url)
@@ -96,12 +26,11 @@ task :scrape, [:url] => :environment do |_t, args|
 
     res.each do |imovel|
       url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.first}"
-      price = imovel.css('.gallery-price-main').text.strip!.gsub('€', '')[0...-1]
-      next if Listing.unscoped.where(url:, price:).present?
+      next if Listing.unscoped.where(url:).present?
 
       begin
         puts '++++++++++++++'
-        scrape_details(url, price)
+        ScrapeListingDetails.scrape_details(browser, url)
         puts '++++++++++++++'
       rescue StandardError => e
         puts 'ERROR:'
@@ -113,9 +42,9 @@ task :scrape, [:url] => :environment do |_t, args|
 
   @errors = []
   @lister = Rack::Utils.parse_nested_query(@url)['agentName']
-
-  options = Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-dev-shm-usage',
-                                                            '--enable-features=NetworkService,NetworkServiceInProcess'])
+  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
+  args << 'headless'
+  options = Selenium::WebDriver::Chrome::Options.new(args:)
   @browser = Watir::Browser.new(:chrome, options:)
 
   ## Count total to see how many pages
@@ -150,8 +79,21 @@ task :scrape, [:url] => :environment do |_t, args|
   puts 'Completed'
 end
 
-task :special_scrape, :url do |_t, args|
-  args.with_defaults(url: 'https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=en-US&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=1')
-  # puts "Args with defaults were: #{args}"
-  puts args.url
+desc 'Scrape one listing off KW website'
+task :scrape_one, [:id] => :environment do |_t, arguments|
+  id = arguments.id
+  listing = Listing.find id
+  url = listing.url
+
+  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
+  args << 'headless'
+  options = Selenium::WebDriver::Chrome::Options.new(args:)
+  browser = Watir::Browser.new(:chrome, options:)
+
+  ScrapeListingDetails.scrape_details(browser, url)
+  I18n.with_locale(:en) do
+    ScrapeListingDetails.scrape_language_details(browser, listing, 'English (United States)')
+  end
+
+  browser.close
 end

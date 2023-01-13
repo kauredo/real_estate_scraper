@@ -1,4 +1,5 @@
 import React from "react";
+import { i18n } from "../../languages/languages";
 import { getUrlParameter } from "../utils/Functions";
 import { Pagy } from "../utils/Interfaces";
 
@@ -50,7 +51,7 @@ export default function Pagination(props: Props) {
                 </a>
                 <a href={pagy.prevUrl}>
                   <p className="text-sm ml-3 font-medium leading-none ">
-                    Anterior
+                    {i18n.t("pagination.previous")}
                   </p>
                 </a>
               </>
@@ -76,7 +77,7 @@ export default function Pagination(props: Props) {
               <>
                 <a href={pagy.nextUrl}>
                   <p className="text-sm font-medium leading-none mr-3">
-                    Próxima
+                    {i18n.t("pagination.next")}
                   </p>
                 </a>
                 <a href={pagy.nextUrl}>

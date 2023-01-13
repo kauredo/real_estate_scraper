@@ -2,12 +2,24 @@
 
 module Backoffice
   class ListingsController < BackofficeController
-    skip_before_action :verify_authenticity_token, only: [:destroy]
-    before_action :find_listing, except: [:index]
+    before_action :find_listing, except: %i[index create]
     include Pagy::Backend
 
     def index
-      @listings = Listing.preload(:colleague).all
+      @listings = Listing.all
+    end
+
+    def create
+      if listing_params[:url].present? && listing_params[:url].starts_with?('https://www.kwportugal.pt/')
+        ActiveRecord::Base.transaction do
+          listing = Listing.find_or_create_by(url: listing_params[:url])
+          ScrapeUrlJob.perform_later(listing.id)
+          flash[:notice] = I18n.t('listing.create.notice')
+        end
+      else
+        flash[:error] = I18n.t('listing.create.error')
+      end
+      redirect_to(backoffice_path)
     end
 
     def edit; end
@@ -19,7 +31,8 @@ module Backoffice
       end
 
       @listing.update(new_params)
-      redirect_to backoffice_listings_path
+      flash[:notice] = I18n.t('listing.update.notice')
+      redirect_to backoffice_listing_path(@listing)
     end
 
     def destroy
@@ -34,7 +47,7 @@ module Backoffice
 
     def listing_params
       params.require(:listing).permit(:address, :price, :title, :order, :url, :description, :status, :status_changed_at,
-                                      :listing_complex_id, features: [], photos: [], stats: {})
+                                      :listing_complex_id, :video_link, features: [], photos: [], stats: {})
     end
   end
 end

@@ -9,7 +9,7 @@ class PagesController < ApplicationController
       listingCount: Listing.all.count,
       variables: Variable.all
     }
-    @photos = Listing.by_sofia.map(&:photos).map(&:first).uniq
+    @photos = Listing.all.map(&:photos).map(&:first).uniq
     @testimonials = Testimonial.all
   end
 
@@ -36,7 +36,7 @@ class PagesController < ApplicationController
   def new_contact
     NewContactMailer.with(contact: email_params).new_contact.deliver_later
 
-    flash[:notice] = 'Obrigado pela sua mensagem. Entraremos em contacto em breve'
+    flash[:notice] = I18n.t('flash.contact.thanks')
     redirect_back(fallback_location: contact_path)
   end
 

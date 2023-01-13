@@ -14,6 +14,7 @@
     "@types/react-transition-group": "^4.4.4",
     "autoprefixer": "^10.4.8",
     "esbuild": "^0.14.23",
+    "i18n-js": "^4.1.1",
     "nuka-carousel": "^4.8.4",
     "postcss": "^8.4.16",
     "react": "^17.0.2",

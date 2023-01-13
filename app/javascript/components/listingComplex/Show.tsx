@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
+import { sanitizeURLWithParams } from "../utils/Functions";
 import { Listing, ListingComplex } from "../utils/Interfaces";
 
 interface Props {
@@ -19,7 +21,6 @@ export default function Show(props: Props) {
           className="w-full mx-auto"
           src={`${complex.video_link}?autoplay=1&mute=1`}
           allow="autoplay"
-          frameBorder="0"
           allowFullScreen
         ></iframe>
       );
@@ -49,13 +50,23 @@ export default function Show(props: Props) {
               <thead>
                 <tr className="bg-beige text-white">
                   <th className="border border-white border-l-slate-700 p-2">
-                    Natureza
+                    {i18n.t("enterprises.show.type")}
                   </th>
-                  <th className="border border-white p-2">Tipologia</th>
-                  <th className="border border-white p-2">Área Bruta</th>
-                  <th className="border border-white p-2">Área Útil</th>
-                  <th className="border border-white p-2">Estacionamento</th>
-                  <th className="border border-white p-2">Preço</th>
+                  <th className="border border-white p-2">
+                    {i18n.t("enterprises.show.bedrooms")}
+                  </th>
+                  <th className="border border-white p-2">
+                    {i18n.t("enterprises.show.built")}
+                  </th>
+                  <th className="border border-white p-2">
+                    {i18n.t("enterprises.show.living")}
+                  </th>
+                  <th className="border border-white p-2">
+                    {i18n.t("enterprises.show.parking")}
+                  </th>
+                  <th className="border border-white p-2">
+                    {i18n.t("enterprises.show.price")}
+                  </th>
                   <th className="border border-white  border-r-slate-700"></th>
                 </tr>
               </thead>
@@ -66,15 +77,21 @@ export default function Show(props: Props) {
                       key={listing.id}
                       className={
                         "text-center border border-slate-700 relative " +
-                        (["Reservado", "Vendido"].includes(listing.status) &&
-                          "line-through")
+                        ([
+                          "Reservado",
+                          "Vendido",
+                          "Sold",
+                          "Sales Agreed",
+                        ].includes(listing.status) && "line-through")
                       }
                     >
                       <td className=" p-2">
-                        {listing.status === "Reservado" && (
+                        {["Reservado", "Sales Agreed"].includes(
+                          listing.status
+                        ) && (
                           <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white opacity-50 flex items-center justify-center"></span>
                         )}
-                        {listing.status === "Vendido" && (
+                        {["Vendido", "Sold"].includes(listing.status) && (
                           <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white opacity-50 flex items-center justify-center"></span>
                         )}
                         {listing.stats["Piso"] || "-"}
@@ -94,11 +111,14 @@ export default function Show(props: Props) {
                       <td className={" p-2 "}>{listing.price}€</td>
                       <td className=" p-2">
                         <a
-                          href={window.Routes.listing_path(listing.id)}
+                          href={sanitizeURLWithParams(
+                            window.Routes.listing_path,
+                            listing.id
+                          )}
                           target="_blank"
                           className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
                         >
-                          Ver mais
+                          {i18n.t("enterprises.show.more")}
                         </a>
                       </td>
                     </tr>
@@ -106,16 +126,6 @@ export default function Show(props: Props) {
                 })}
               </tbody>
             </table>
-            {/* <ul
-            className="tablet:ml-2 grid gap-4"
-            style={{
-              gridTemplateColumns: "repeat( auto-fit, minmax(250px, 1fr) )",
-            }}
-          >
-            {listings.map(listing => {
-              return <li className="mx-8 list-disc">{listing.title}</li>;
-            })}
-          </ul> */}
           </div>
         </div>
 

@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
+import { i18n } from "../languages/languages";
+import { changeLocale, sanitizeURL } from "./utils/Functions";
 
 interface Props {
   backoffice?: boolean;
@@ -32,28 +34,47 @@ export default function Navbar(props: Props) {
   };
 
   const items = [
-    { title: "Comprar", turbo: "true", url: window.Routes.buy_path() },
-    { title: "Vender", turbo: "false", url: window.Routes.sell_path() },
     {
-      title: "Empreendimentos",
+      title: `${i18n.t("navbar.buy")}`,
       turbo: "true",
-      url: window.Routes.latest_path(),
-    },
-    { title: "Sobre Nós", turbo: "true", url: window.Routes.about_path() },
-    {
-      title: "Contactos",
-      turbo: "true",
-      url: window.Routes.contact_path(),
+      url: sanitizeURL(window.Routes.buy_path),
+      img: null,
     },
     {
-      title: "Serviços",
-      turbo: "true",
-      url: window.Routes.services_path(),
+      title: `${i18n.t("navbar.sell")}`,
+      turbo: "false",
+      url: sanitizeURL(window.Routes.sell_path),
+      img: null,
     },
     {
-      title: "Casa 360",
+      title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
-      url: window.Routes.house_360_path(),
+      url: sanitizeURL(window.Routes.latest_path),
+      img: null,
+    },
+    {
+      title: `${i18n.t("navbar.about")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.about_path),
+      img: null,
+    },
+    {
+      title: `${i18n.t("navbar.contacts")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.contact_path),
+      img: null,
+    },
+    {
+      title: `${i18n.t("navbar.services")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.services_path),
+      img: null,
+    },
+    {
+      title: `${i18n.t("navbar.house_360")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.house_360_path),
+      img: null,
     },
     {
       title: "Powered by ",
@@ -65,25 +86,28 @@ export default function Navbar(props: Props) {
         />
       ),
       turbo: "true",
-      url: window.Routes.kw_path(),
+      url: sanitizeURL(window.Routes.kw_path),
     },
   ];
 
   const backofficeItems = [
     {
-      title: "Imóveis",
+      title: `${i18n.t("navbar.listings")}`,
       turbo: "true",
-      url: window.Routes.backoffice_listings_path(),
+      url: sanitizeURL(window.Routes.backoffice_listings_path),
+      img: null,
     },
     {
-      title: "Empreendimentos",
+      title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
-      url: window.Routes.backoffice_listing_complexes_path(),
+      url: sanitizeURL(window.Routes.backoffice_listing_complexes_path),
+      img: null,
     },
     {
-      title: "Testemunhos",
+      title: `${i18n.t("navbar.testimonies")}`,
       turbo: "true",
-      url: window.Routes.backoffice_testimonials_path(),
+      url: sanitizeURL(window.Routes.backoffice_testimonials_path),
+      img: null,
     },
   ];
 
@@ -92,9 +116,26 @@ export default function Navbar(props: Props) {
   admin &&
     usedItems.push({
       title: "Backoffice",
-      url: window.Routes.backoffice_path(),
+      url: sanitizeURL(window.Routes.backoffice_path),
       turbo: "true",
+      img: null,
     });
+
+  const img = i18n.locale === "pt" ? "uk" : "pt";
+
+  usedItems.push({
+    title: "",
+    url: changeLocale(),
+    turbo: "false",
+    hover: `${i18n.t("navbar.language")}`,
+    img: (
+      <img
+        className="h-5 inline-block mb-[6px]"
+        src={`https://hatscripts.github.io/circle-flags/flags/${img}.svg`}
+        style={{ maxWidth: "none" }}
+      />
+    ),
+  });
 
   return (
     <div>
@@ -103,10 +144,11 @@ export default function Navbar(props: Props) {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <a data-turbo="true" href={window.Routes.root_path()}>
+                <a
+                  data-turbo="true"
+                  href={sanitizeURL(window.Routes.root_path)}
+                >
                   <img
-                    // src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    // className="h-16 w-16"
                     className="w-[8rem] relative z-1"
                     src="/logos/main_color.png"
                     alt="Sofia Galvão Group Logo"
@@ -123,7 +165,12 @@ export default function Navbar(props: Props) {
                         data-turbo={item.turbo}
                         key={`${item.title}--desktop`}
                         href={item.url}
-                        className={itemClass(item.url, false)}
+                        title={item.hover}
+                        className={
+                          item.title.length > 0
+                            ? itemClass(item.url, false)
+                            : ""
+                        }
                       >
                         {item.title}
                         {item.img}
@@ -134,9 +181,9 @@ export default function Navbar(props: Props) {
               </div>
             </div>
             <div className="-mr-2 flex tablet:hidden">
-              <a href={window.Routes.sell_path()} data-turbo={false}>
+              <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
                 <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
-                  <p>Avalie casa</p>
+                  <p>{i18n.t("home.cta.short")}</p>
                 </div>
               </a>
               <button

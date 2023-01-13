@@ -52,10 +52,14 @@ gem 'bootsnap', require: false
 
 # Other gems here
 gem 'devise', '~> 4.8'
+gem 'i18n-js'
 gem 'js-routes'
 gem 'jwt'
+gem 'listen', '~> 3.7', '>= 3.7.1'
+gem 'mobility', '~> 1.2.9'
 gem 'pagy', '~> 5.10'
 gem 'paranoia'
+gem 'rails-i18n'
 gem 'react-rails'
 gem 'rubocop', require: false
 gem 'sidekiq'
@@ -72,6 +76,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'erb_lint', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 

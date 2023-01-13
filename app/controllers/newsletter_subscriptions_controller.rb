@@ -11,10 +11,10 @@ class NewsletterSubscriptionsController < ApplicationController
     if @user.save
       NewsletterSubscription.find_or_create_by(user: @user)
       if @user.confirmed_email
-        flash[:notice] = 'Já tem uma subscrição ativa à nossa newsletter. Obrigada pela confiança!'
+        flash[:notice] = I18n.t('flash.newsletters.repeat')
       else
         NewsletterConfirmationMailer.with(user: @user).subscription_confirmed.deliver_later
-        flash[:notice] = 'Por favor confirme a subscrição através do seu email'
+        flash[:notice] = I18n.t('flash.newsletters.subscribe')
       end
 
     else
@@ -26,11 +26,11 @@ class NewsletterSubscriptionsController < ApplicationController
   def confirm
     decrypted_token = JsonWebToken.decode(params[:token])
 
-    if decrypted_token && (decrypted_token[:user_id] = @sub.user_id && Time.zone.now < Time.at(decrypted_token[:exp]))
+    if decrypted_token.present? && (decrypted_token[:user_id] = @sub.user_id && Time.zone.now < Time.at(decrypted_token[:exp]))
       @sub.user.update(confirmed_email: true)
-      flash[:notice] = 'Subscrição à newsletter ativa, obrigado pela confiança'
+      flash[:notice] = I18n.t('flash.newsletters.confirm')
     else
-      flash[:error] = 'Não foi possível subscrever à newsletter, por favor tente novamente'
+      flash[:error] = I18n.t('flash.newsletters.error')
     end
 
     redirect_to(root_path)

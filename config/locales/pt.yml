@@ -1,0 +1,366 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+pt:
+  navbar:
+    buy: Comprar
+    sell: Vender
+    enterprises: Empreendimentos
+    about: Sobre Nós
+    contacts: Contactos
+    services: Serviços
+    house_360: Casa 360
+    listings: Imóveis
+    testimonies: Testemunhos
+    language: Change site to English
+
+  footer:
+    about: sobre nós
+    privacy: política de privacidade
+    terms: termos e condições
+    contacts: contactos
+
+  home:
+    slogan:
+      top: Juntos criamos
+      bottom: lares felizes!
+    cta:
+      short: Avalie casa
+      long: Avalie a sua casa
+    newsletter:
+      title: Receba as novidades do Mercado
+      subtitle:
+        Subscreva a nossa newsletter e fique a par das mais recentes
+        oportunidades, noticias e dicas do mercado.
+      terms:
+        Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os
+        seus dados para o informar sobre oportunidades de negócio, de acordo com
+        a Política de Privacidade.
+      form:
+        fields:
+          name: Nome
+          email: Email
+          subscribe: Subscrever
+        errors:
+          name: Por favor insira um nome válido
+          email: Por favor insira um email válido
+
+  buy:
+    header: Comprar
+
+  sell:
+    header: Vender
+    subheader: Saiba quanto vale a sua casa
+    paragraph:
+      top: Garantimos o melhor negócio para a venda da sua casa.
+      middle:
+        Oferecemos um serviço de consultoria que trabalha de forma única e à
+        medida do que pretende, com foco na estratégia de promoção, divulgação e
+        na melhor negociação.
+      bottom:
+        "O nosso objectivo é encontrar o melhor Cliente no mais breve tempo
+        possível e para isso disponibilizamos:"
+    list:
+      market:
+        Estudo do Mercado - elaboração de analises comparativas de Mercado e
+        relatórios de caracterização da zona a considerar.
+      eval: Avaliação certificada do imóvel.
+      warranty:
+        Garantia de implementação de processos e procedimentos regulados pelo
+        sector.
+      media: "Produção Multimédia: Reportagem fotográfica+vídeo."
+      kw: Acesso exclusivo a toda a rede Nacional KW.
+      agencies: Partilha da venda com todas as agências do mercado.
+      portal:
+        Divulgação nos mais relevantes portais imobiliários nacionais e
+        internacionais.
+      socials: Divulgação Social Media.
+      promo: Utilização de placas de promoção.
+      open: Realização de Open House.
+      flyer: "Acções de proximidade: Flyers; brochuras; newsletters."
+      feedback: Feedback detalhado e regular.
+    exclusive:
+      Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um
+      acompanhamento de proximidade ao longo de todo o processo.
+
+  enterprises:
+    header: Empreendimentos
+    subheader:
+      Porquê Comprar <span class="underline decoration-beige">em Planta?</span>
+    list:
+      own:
+        title: Vai ser o primeiro dono da sua nova casa
+        description:
+          Na compra em planta tem a garantia que o imóvel está pronto a estrear
+          e tem a certeza que você será o primeiro proprietário.
+      invest:
+        title: Investimento Faseado
+        description:
+          Possibilidade de disponibilizar o pagamento consoante as fases de
+          evolução da obra e da construção.
+      warranty:
+        title: Garantia de construção
+        description:
+          Um imóvel novo tem garantia de construção, além da certeza de não
+          haver necessidade de melhoramentos nos próximos anos.
+      perspective:
+        title: Perspectiva de melhor retorno de investimento
+        description:
+          Ao adquirir uma casa em planta o investimento que é feito é, por
+          norma, inferior ao investimento que seria necessário fazer caso ela já
+          estivesse pronta. Isto significa que a sua casa, a partir do momento
+          que está pronta, já potencia o seu investimento.
+      yours:
+        title: Imóvel à sua medida
+        description:
+          A aquisição em planta confere a possibilidade do futuro proprietário
+          fazer alterações ao nível de materiais e por vezes ao nível da
+          configuração, de forma a que a sua futura casa vá de encontro às suas
+          necessidades e gostos.
+    show:
+      type: Natureza
+      bedrooms: Tipologia
+      built: Área Bruta
+      living: Área Útil
+      parking: Estacionamento
+      price: Preço
+      more: Ver mais
+
+  about:
+    header: Sobre Nós
+    profile:
+      slogan: Juntos criamos Lares Felizes!
+      description:
+        "Sou markeeter de formação e criadora de valor por paixão. Trabalhei
+        durante anos com marcas e produtos, no propósito de melhor servir o
+        Cliente e de lhe oferecer não só o que ele necessitava, mas também o que
+        melhor respondia às suas aspirações. Foquei-me nas pessoas e na
+        realização do seu potencial máximo, sou Master em Programação Neuro
+        linguística e acredito na conquista da capacitação para a concretização
+        de objectivos e realização de propósitos de vida. Dediquei-me ao sector
+        imobiliário e exerço na compra e venda de casas a descoberta do activo
+        único: da casa, do cliente, da transação, do serviço. Encontrei na KW a
+        estrutura certa para desenvolver a consultoria imobiliária do Sofia
+        Galvão Group com exigência, rigor, profissionalismo e confiança. Tenho o
+        “know how” do mercado e proporciono aos meus Clientes os melhores
+        negócios, os que os fazem mais Felizes!"
+    who:
+      title: Quem somos?
+      sub1:
+        Uma equipa dedicada e exigente que motivada pelo melhor serviço ao
+        Cliente cresce e vai mais longe todos os dias.
+      sub2:
+        Focados na profissionalização do sector praticamos consultoria
+        imobiliária com credibilidade, excelência e relevância.
+    mission:
+      title: Missão
+      sub1:
+        Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes
+        “mudanças” da sua vida!
+    vision:
+      title: Visão
+      sub1:
+        Ser a equipa preferida pelos clientes que querem comprar ou vender
+        imobiliário nas zonas de Lisboa e do Porto, graças ao nosso
+        profissionalismo, à nossa capacidade de gerar bons negócios e aos
+        valores que professamos no dia a dia.
+      sub2: Juntos criamos Lares Felizes!
+    results:
+      title: Resultados
+    testimonies:
+      title: Testemunhos
+
+  contacts:
+    header: Contactos
+    contact_us: Contacte-nos
+    cta: ENTRE EM CONTACTO CONNOSCO
+    form:
+      titles:
+        main: "Preencha o formulário e entraremos em contacto consigo:"
+        visit:
+          Precisa de mais informação? Quer agendar uma visita? Entre em contacto
+          connosco!
+      consent:
+        Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os
+        seus dados para o informar sobre oportunidades de negócio, de acordo com
+        a Política de Privacidade.
+      fields:
+        name: Nome
+        email: Email
+        phone: Telefone
+        message: Mensagem
+        send: Enviar
+      error: Por favor insira valores válidos
+
+  services:
+    header: Serviços
+    text:
+      top:
+        Enquanto profissionais do mercado imobiliário todos os serviços ligados
+        à mediação e consultoria imobiliária estão no âmbito da nossa actividade
+        para seu benefício.
+      bottom:
+        Fique a conhecer alguns deles. <br> Se pretender saber mais entre em
+        contacto
+      link: connosco.
+    list:
+      house_trees:
+        title: Gestão e Consultoria Imobiliária
+        description:
+          Com acesso a plataformas e ferramentas exclusivas para profissionais
+          asseguramos o conhecimento necessário do mercado para identificar as
+          suas melhores opções e perseguir as melhores soluções. <br> <br>
+          Oferecemos-lhe um serviço informado, personalizado, alicerçado numa
+          negociação experiente e competitiva.
+      house_lens:
+        title: Investimento imobiliário
+        description:
+          Comprar ou vender uma casa é na maior parte das vezes investir grande
+          parte, se não a totalidade, do património individual ou familiar. Esse
+          investimento requer uma análise cuidada, ponderada e opções seguras
+          que lhe darão a confiança de um investimento com retorno. <br> <br> Em
+          cada negócio que levamos a cabo olhamos para si, o nosso Cliente,
+          também numa perspetiva de investidor e asseguramos que a rentabilidade
+          da venda ou da compra faz parte do critério de sucesso da transação.
+
+  house_360:
+    header: Casa 360
+    sub1:
+      O serviço especial 360 coloca à sua disposição soluções à medida para cada
+      uma das necessidades relativas ao universo imobiliário.
+    sub2:
+      Com a garantia de qualidade das parcerias que estabelecemos, recomendamos
+      empresas que são uma referência nas suas áreas e “Juntos Criamos Lares
+      Felizes!”
+    list:
+      energy: Certificação Energética
+      architecture: Arquitectura
+      construction: Construção Civil
+      remodel: Pequenas obras e remodelações
+      cleaning: Limpezas de Obras e Mudanças
+      transport: Mudanças e Transportes
+      gardening: Jardinagem
+      design: Design e Decoração de Interiores
+
+  kw:
+    header: KW Portugal
+    subheader: Uma empresa feita de consultores para consultores!
+    first_paragraph:
+      top:
+        A KW actua segundo o princípio de que, se focar todos os seus recursos
+        na construção dos negócios dos seus consultores, estes irão, em retorno,
+        ajudar a construir uma empresa acima de todas as expectativas. Com esta
+        filosofia em prática, estamos a transformar o panorama geral da mediação
+        imobiliária.
+      middle:
+        Hoje, por todo o mundo mais de <span class="font-bold">165.000
+        consultores</span> e mais de <span class="font-bold">1.000 Market
+        Centers</span> são filiados KW.
+      bottom:
+        A KW conta com um total de <span class="font-bold">19
+        representações</span> e mais de <span class="font-bold">1.300
+        consultores e associados</span> em Portugal.
+    beliefs:
+      title: Crenças
+      local:
+        Acreditamos que a mediação imobiliária é um negócio local impulsionado
+        pelos consultores imobiliários.
+      partners:
+        Acreditamos que os nossos consultores imobiliários devem ser tratados
+        como parceiros de negócios.
+      people:
+        Acreditamos que faz a diferença estar no negócio com as pessoas certas.
+      profit: Acreditamos que ter lucro é fundamental.
+      reputation:
+        Acreditamos que nenhuma transação pode pôr em causa a nossa reputação.
+    principle: Princípios - WI4C2TES
+    perspectives:
+      title: Perspetivas
+      tech:
+        Nós somos uma empresa de Consultoria e Formação impulsionada por
+        Tecnologia que se dedica ao negócio da mediação imobiliária.
+      agent:
+        A Keller Williams pensa como um agente de sucesso, atua como um
+        consultor/formador fornecendo modelos/sistemas, tecnologia, produtos e
+        serviços que potenciam a produtividade e a rentabilidade.
+      learn:
+        Na Keller Williams acreditamos na aprendizagem para obter resultados e
+        não em aprender por aprender.
+      brand: Nós apoiamos o agente a desenvolver a sua marca e não o oposto.
+      consulting:
+        Somos uma empresa construída por Consultores, para Consultores.
+      growth:
+        Acreditamos que cresceremos tanto como empresa quanto maior for a nossa
+        capacidade de promover o crescimento das pessoas que connosco trabalham.
+      people:
+        O que tornará a Keller Williams melhor no longo prazo é a forma como as
+        pessoas pensam.
+    more: Descubra mais sobre a KW Portugal
+
+  privacy:
+    header: Política de Privacidade
+
+  terms:
+    header: Termos e Condições
+
+  flash:
+    newsletters:
+      repeat:
+        Já tem uma subscrição ativa à nossa newsletter. Obrigada pela confiança!
+      subscribe: Por favor confirme a subscrição através do seu email
+      confirm: Subscrição à newsletter ativa, obrigado pela confiança
+      error: Não foi possível subscrever à newsletter, por favor tente novamente
+    contact:
+      thanks: Obrigado pela sua mensagem. Entraremos em contacto em breve
+
+  pagination:
+    previous: Anterior
+    next: Próxima
+
+  listing:
+    watch_video: Assistir Vídeo
+    details: Detalhes do Imóvel
+    characteristics: Características do Imóvel
+    price: Preço
+    text:
+      more: ...ler mais
+      less: " mostrar menos"
+    status:
+      agreed: Reservado
+      recent: Novo
+      sold: Vendido
+      standard: ""
+    create:
+      notice:
+        Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma
+      error: "Erro: o link tem que começar por 'https://www.kwportugal.pt/'"
+    update:
+      notice: Imóvel editado com sucesso

@@ -1,15 +1,17 @@
-<% content_for(:meta_title) { 'Casa 360' } %>
-<%= react_component "shared--Banner", {height: '20vh', blurred: true, text: "Casa 360"} %>
+<% meta_title = I18n.t('house_360.header') %>
+<% content_for(:meta_title) { meta_title } %>
+
+<%= react_component 'shared--Banner', { height: '20vh', blurred: true, text: meta_title } %>
 <div class="container mx-auto mt-6 mb-12 px-8">
   <div class="pt-6 bg-white text-center md:hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
-      <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4">Casa 360</h1>
+      <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4"><%= meta_title %></h1>
     </div>
   </div>
   <div class="py-8 md:py-0 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="mt-4 text-xl text-gray-500 max-w-max">O serviço especial 360 coloca à sua disposição soluções à medida para cada uma das necessidades relativas ao universo imobiliário.</p>
-      <p class="mt-4 text-xl text-gray-500 max-w-max">Com a garantia de qualidade das parcerias que estabelecemos, recomendamos empresas que são uma referência nas suas áreas e “Juntos Criamos Lares Felizes!”</p>
+      <p class="mt-4 text-xl text-gray-500 max-w-max"><%= I18n.t('house_360.sub1') %></p>
+      <p class="mt-4 text-xl text-gray-500 max-w-max"><%= I18n.t('house_360.sub2') %></p>
       <div class="my-10">
         <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
           <div>
@@ -17,7 +19,7 @@
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-plug" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-medium text-black w-3/4">Certificação Energética</p>
+              <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('house_360.list.energy') %></p>
             </dt>
           </div>
           <div>
@@ -25,7 +27,7 @@
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-drafting-compass" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-medium text-black w-3/4">Arquitectura</p>
+              <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('house_360.list.architecture') %></p>
             </dt>
           </div>
           <div>
@@ -33,7 +35,7 @@
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-hard-hat" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-medium text-black w-3/4">Construção Civil</p>
+              <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('house_360.list.construction') %></p>
             </dt>
           </div>
           <div>
@@ -41,7 +43,7 @@
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-hammer" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-medium text-black w-3/4">Pequenas obras e remodelações</p>
+              <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('house_360.list.remodel') %></p>
             </dt>
           </div>
           <div>
@@ -49,7 +51,7 @@
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-broom" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-medium text-black w-3/4">Limpezas de Obras e Mudanças</p>
+              <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('house_360.list.cleaning') %></p>
             </dt>
           </div>
           <div>
@@ -57,7 +59,7 @@
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-truck-moving" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-medium text-black w-3/4">Mudanças e Transportes</p>
+              <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('house_360.list.transport') %></p>
             </dt>
           </div>
           <div>
@@ -65,7 +67,7 @@
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-leaf" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-medium text-black w-3/4">Jardinagem</p>
+              <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('house_360.list.gardening') %></p>
             </dt>
           </div>
           <div>
@@ -73,7 +75,7 @@
               <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                 <i class="fas fa-couch" aria-hidden="true"></i>
               </div>
-              <p class="ml-4 text-lg font-medium text-black w-3/4">Design e Decoração de Interiores</p>
+              <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('house_360.list.design') %></p>
             </dt>
           </div>
         </dl>

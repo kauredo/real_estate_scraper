@@ -1,28 +1,30 @@
-<% content_for(:meta_title) { 'Vender' } %>
+<% meta_title = I18n.t('sell.header') %>
+<% content_for(:meta_title) { meta_title } %>
 <% content_for(:extra_meta) do %>
   <meta name="turbo-visit-control" content="reload">
 <% end %>
 
-<%= react_component "shared--Banner", {height: '20vh', blurred: true, text: "Vender"} %>
+<%= react_component 'shared--Banner', { height: '20vh', blurred: true, text: meta_title } %>
 <div class="pt-6 bg-white text-center md:hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
-    <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4">Vender</h1>
+    <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4"><%= meta_title %></h1>
   </div>
 </div>
 <section class="container mx-auto mt-6 mb-12 px-2 sm:px-8">
   <div class="py-8 md:py-0 bg-white">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="px-2 sm:px-0 lg:text-center">
-        <p class="mt-2 text-3xl text-black sm:text-4xl">Saiba quanto vale a sua casa</p>
+        <p class="mt-2 text-3xl text-black sm:text-4xl"><%= I18n.t('sell.subheader') %></p>
       </div>
       <script type="text/javascript" defer>
-        window.initializeCasafariWidget({key: "D9557C7E502424960F866EE4286B", startingPage: "2", showStartingPage: false, operationType: "", lang: "pt"});
+        var locale = "<%= I18n.locale %>" 
+        window.initializeCasafariWidget({key: "D9557C7E502424960F866EE4286B", startingPage: "2", showStartingPage: false, operationType: "", lang: locale });
       </script>
       <div class="px-2 sm:px-0">
         <div class="lg:text-center">
-          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Garantimos o melhor negócio para a venda da sua casa.</p>
-          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Oferecemos um serviço de consultoria que trabalha de forma única e à medida do que pretende, com foco na estratégia de promoção, divulgação e na melhor negociação.</p>
-          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">O nosso objectivo é encontrar o melhor Cliente no mais breve tempo possível e para isso disponibilizamos:</p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto"><%= I18n.t('sell.paragraph.top') %></p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto"><%= I18n.t('sell.paragraph.middle') %></p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto"><%= I18n.t('sell.paragraph.bottom') %></p>
         </div>
         <div class="my-10">
           <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
@@ -31,7 +33,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-search-dollar" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Estudo do Mercado - elaboração de analises comparativas de Mercado e relatórios de caracterização da zona a considerar.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.market') %></p>
               </dt>
             </div>
             <div>
@@ -39,7 +41,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-star" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Avaliação certificada do imóvel.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.eval') %></p>
               </dt>
             </div>
             <div>
@@ -47,7 +49,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-balance-scale" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Garantia de implementação de processos e procedimentos regulados pelo sector.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.warranty') %></p>
               </dt>
             </div>
             <div>
@@ -55,7 +57,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-camera" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Produção Multimédia: Reportagem fotográfica+vídeo.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.media') %></p>
               </dt>
             </div>
             <div>
@@ -63,7 +65,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-project-diagram" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Acesso exclusivo a toda a rede Nacional KW.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.kw') %></p>
               </dt>
             </div>
             <div>
@@ -71,7 +73,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-comment-dollar" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Partilha da venda com todas as agências do mercado.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.agencies') %></p>
               </dt>
             </div>
             <div>
@@ -79,7 +81,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-mail-bulk" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Divulgação nos mais relevantes portais imobiliários nacionais e internacionais.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.portal') %></p>
               </dt>
             </div>
             <div>
@@ -87,7 +89,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-hashtag" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Divulgação Social Media.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.socials') %></p>
               </dt>
             </div>
             <div>
@@ -95,7 +97,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-bullhorn" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Utilização de placas de promoção.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.promo') %></p>
               </dt>
             </div>
             <div>
@@ -103,7 +105,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-home" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Realização de Open House.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.open') %></p>
               </dt>
             </div>
             <div>
@@ -111,7 +113,7 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="fas fa-book-open" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Acções de proximidade: Flyers; brochuras; newsletters.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.flyer') %></p>
               </dt>
             </div>
             <div>
@@ -119,13 +121,13 @@
                 <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige text-beige">
                   <i class="far fa-handshake" aria-hidden="true"></i>
                 </div>
-                <p class="ml-4 text-lg font-medium text-black w-3/4">Feedback detalhado e regular.</p>
+                <p class="ml-4 text-lg font-medium text-black w-3/4"><%= I18n.t('sell.list.feedback') %></p>
               </dt>
             </div>
           </dl>
         </div>
         <div class="lg:text-center">
-          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um acompanhamento de proximidade ao longo de todo o processo.</p>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto"><%= I18n.t('sell.exclusive') %></p>
         </div>
       </div>
     </div>

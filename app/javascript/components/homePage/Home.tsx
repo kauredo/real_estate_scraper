@@ -1,9 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ListingByCity, ResultNumbers, Testimonial } from "../utils/Interfaces";
-import Banner from "../shared/Banner";
 import Newsletter from "./Newsletter";
 import Cards from "./Cards";
-import Profile from "./Profile";
 import Results from "./Results";
 import Hero from "../shared/Hero";
 
@@ -30,8 +28,6 @@ export default function Home(props: Props) {
   return (
     <>
       <Hero photos={photos} />
-      {/* <Banner /> */}
-      {/* <Profile /> */}
       <Cards listings={listings} />
       <Results results={results} testimonials={testimonials} />
       <Newsletter />

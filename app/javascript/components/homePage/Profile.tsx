@@ -4,6 +4,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { i18n } from "../../languages/languages";
 
 export default function Profile() {
   return (
@@ -17,23 +18,10 @@ export default function Profile() {
             Sofia Galvão
           </h2>
           <h3 className="font-medium leading-tight text-xl">
-            Juntos criamos Lares Felizes!
+            {i18n.t("about.profile.slogan")}
           </h3>
           <p className="mt-4 text-xl text-gray-500 max-w-2/3">
-            Sou markeeter de formação e criadora de valor por paixão. Trabalhei
-            durante anos com marcas e produtos, no propósito de melhor servir o
-            Cliente e de lhe oferecer não só o que ele necessitava, mas também o
-            que melhor respondia às suas aspirações. Foquei-me nas pessoas e na
-            realização do seu potencial máximo, sou Master em Programação Neuro
-            linguística e acredito na conquista da capacitação para a
-            concretização de objectivos e realização de propósitos de vida.
-            Dediquei-me ao sector imobiliário e exerço na compra e venda de
-            casas a descoberta do activo único: da casa, do cliente, da
-            transação, do serviço. Encontrei na KW a estrutura certa para
-            desenvolver a consultoria imobiliária do Sofia Galvão Group com
-            exigência, rigor, profissionalismo e confiança. Tenho o “know how”
-            do mercado e proporciono aos meus Clientes os melhores negócios, os
-            que os fazem mais Felizes!
+            {i18n.t("about.profile.description")}
           </p>
         </div>
       </div>
@@ -64,13 +52,13 @@ export default function Profile() {
               </div>
             </a>
             <a
-              href="https://www.instagram.com/sofiagalvaokw/"
+              href="https://www.instagram.com/sofiagalvaogroupkw/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <div className="flex items-center mb-4 text-gray-600">
                 <FontAwesomeIcon icon={faInstagram} />
-                <p className="px-2 text-sm">@sofiagalvaokw</p>
+                <p className="px-2 text-sm">@sofiagalvaogroupkw</p>
               </div>
             </a>
             <a

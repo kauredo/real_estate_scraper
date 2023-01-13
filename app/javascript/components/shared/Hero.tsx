@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { i18n } from "../../languages/languages";
+import { sanitizeURL } from "../utils/Functions";
 import QuarterCircle from "./QuarterCircle";
 
 interface Props {
@@ -18,23 +20,30 @@ function Hero(props: Props) {
             src="/logos/main.png"
             alt="Sofia Galvão Group Logo"
           />
-          <h2 className="text-4xl md:text-7xl whitespace-nowrap">
-            Juntos criamos
+          <h2
+            className={`text-4xl md:text-7xl ${
+              i18n.locale === "pt" && "whitespace-nowrap"
+            }`}
+          >
+            {i18n.t("home.slogan.top")}
             <br />
-            lares felizes!
+            {i18n.t("home.slogan.bottom")}
           </h2>
         </div>
       </div>
       <div className="relative bottom-5 left-0 right-0 center">
         <div className="flex justify-center">
-          <a href={window.Routes.buy_path()}>
-            <div className="px-5">
-              <p>comprar</p>
+          <a href={sanitizeURL(window.Routes.buy_path)}>
+            <div className="px-5 lowercase">
+              <p>{i18n.t("navbar.buy")}</p>
             </div>
           </a>
-          <a href={window.Routes.sell_path()} data-turbolinks={false}>
-            <div className="px-5">
-              <p>vender</p>
+          <a
+            href={sanitizeURL(window.Routes.sell_path)}
+            data-turbolinks={false}
+          >
+            <div className="px-5 lowercase">
+              <p>{i18n.t("navbar.sell")}</p>
             </div>
           </a>
           <a href="#cards">
