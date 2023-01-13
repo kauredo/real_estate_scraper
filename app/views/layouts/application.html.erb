@@ -5,6 +5,7 @@
     <%= yield :extra_meta %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="facebook-domain-verification" content="i1srcxt1ep5l2pqjfzs1cj5knhihcv" />
     <script src="https://kit.fontawesome.com/f01d8e868a.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', "data-turbo-track": 'reload' %>
     <%= javascript_include_tag 'application', "data-turbo-track": 'reload', defer: true %>
@@ -15,14 +16,49 @@
     <link rel="manifest" href="/favicons/site.webmanifest">
     <%= favicon_link_tag '/favicons/favicon.ico' %>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TZ7VV9KN1"></script>
+    <script async src='https://www.googletagmanager.com/gtag/js?id=<%= ENV['GOOGLE_TAG_ID'] %>'></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-9TZ7VV9KN1');
+      gtag('config', '<%= ENV['GOOGLE_TAG_ID'] %>');
     </script>
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "<%= ENV['FACEBOOK_PIXEL_ID'] %>");
+      fbq("track", "PageView");
+    </script>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=<%= ENV['FACEBOOK_PIXEL_ID'] %>&ev=PageView&noscript=1"
+      />
+    </noscript>
+    <!-- End Meta Pixel Code -->
   </head>
   <body>
     <div class="relative min-h-[100vh] h-full">
