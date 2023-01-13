@@ -8,7 +8,7 @@ export default function Newsletter() {
   const [error, setError] = useState("");
   const form = useRef(null);
   const pattern =
-    /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+    /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,12}[\.][a-z]{2,5}/g;
 
   const validateUser = e => {
     e.preventDefault();

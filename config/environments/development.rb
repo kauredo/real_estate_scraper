@@ -46,7 +46,7 @@ Rails.application.configure do
     port: 587,
     domain: ENV['APP_DOMAIN'],
     user_name: ENV['GMAIL_EMAIL'],
-    password: ENV['GMAIL_APP_PASSWORD'],
+    password: ENV['EMAIL_APP_PASSWORD'],
     authentication: 'plain',
     enable_starttls_auto: true,
     open_timeout: 5,
