@@ -180,8 +180,7 @@ GEM
     nokogiri (1.14.0-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    pagy (5.10.1)
-      activesupport
+    pagy (6.0.1)
     parallel (1.22.1)
     paranoia (2.6.1)
       activerecord (>= 5.1, < 7.1)
@@ -338,7 +337,7 @@ DEPENDENCIES
   jwt
   listen (~> 3.7, >= 3.7.1)
   mobility (~> 1.2.9)
-  pagy (~> 5.10)
+  pagy (~> 6.0)
   paranoia
   pg (~> 1.4)
   pry
