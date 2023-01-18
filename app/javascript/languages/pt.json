@@ -546,6 +546,9 @@
       "update": {
         "notice": "Imóvel editado com sucesso"
       },
+      "update_details": {
+        "notice": "O imóvel será atualizado dentro de minutos, espera antes de tentar novamente"
+      },
       "watch_video": "Assistir Vídeo"
     },
     "navbar": {

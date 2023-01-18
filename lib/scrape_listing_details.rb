@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ScrapeListingDetails
-  def self.scrape_details(browser, imovel_url)
+  def self.scrape_details(browser, imovel_url, force_images = false)
     listing = Listing.find_or_initialize_by(url: imovel_url)
 
     browser.goto(imovel_url)
@@ -56,7 +56,7 @@ class ScrapeListingDetails
     listing.description_pt = browser.div(class: 'listing-details-desc').wait_until(&:present?).text
 
     # images
-    unless listing.photos.present?
+    if listing.photos.empty? || force_images
       js_doc = browser.div(class: 'listing-images').wait_until(&:present?)
       images = Nokogiri::HTML(js_doc.inner_html)
       res = images.css('img')

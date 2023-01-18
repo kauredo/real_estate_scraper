@@ -36,7 +36,11 @@ Rails.application.routes.draw do
     namespace :backoffice do
       get '/', to: 'pages#home'
       resources :variables, only: %i[create update destroy]
-      resources :listings, only: %i[index create edit update destroy]
+      resources :listings, only: %i[index create edit update destroy] do
+        member do
+          post '/update_details', to: 'listings#update_details'
+        end
+      end
       resources :listing_complexes
       resources :testimonials
     end

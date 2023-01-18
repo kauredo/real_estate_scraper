@@ -90,7 +90,7 @@ task :scrape_one, [:id] => :environment do |_t, arguments|
   options = Selenium::WebDriver::Chrome::Options.new(args:)
   browser = Watir::Browser.new(:chrome, options:)
 
-  ScrapeListingDetails.scrape_details(browser, url)
+  ScrapeListingDetails.scrape_details(browser, url, true)
   I18n.with_locale(:en) do
     ScrapeListingDetails.scrape_language_details(browser, listing, 'English (United States)')
   end

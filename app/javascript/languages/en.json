@@ -479,6 +479,9 @@
       "update": {
         "notice": "Listing updated successfully"
       },
+      "update_details": {
+        "notice": "Listing will be updated shortly, please wait and check in a few minutes"
+      },
       "watch_video": "Watch Video"
     },
     "navbar": {

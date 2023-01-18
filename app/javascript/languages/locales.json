@@ -410,6 +410,9 @@
       "update": {
         "notice": "Listing updated successfully"
       },
+      "update_details": {
+        "notice": "Listing will be updated shortly, please wait and check in a few minutes"
+      },
       "watch_video": "Watch Video"
     },
     "navbar": {
@@ -1054,6 +1057,9 @@
       },
       "update": {
         "notice": "Imóvel editado com sucesso"
+      },
+      "update_details": {
+        "notice": "O imóvel será atualizado dentro de minutos, espera antes de tentar novamente"
       },
       "watch_video": "Assistir Vídeo"
     },
