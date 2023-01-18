@@ -15,8 +15,10 @@ module Backoffice
     def create
       @testimonial = Testimonial.new(testimonial_params)
       if @testimonial.save
+        flash[:notice] = 'Testemunho criado'
         redirect_to backoffice_testimonials_path
       else
+        flash.now[:error] = @testimonial.errors.full_messages.join('. ')
         render :new
       end
     end
@@ -30,6 +32,7 @@ module Backoffice
 
     def destroy
       @testimonial.destroy
+      redirect_to backoffice_testimonials_path
     end
 
     private

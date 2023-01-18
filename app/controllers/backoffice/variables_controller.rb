@@ -5,8 +5,12 @@ module Backoffice
     before_action :find_variable, except: [:create]
 
     def create
-      Variable.create(variable_params)
-      flash[:notice] = 'Variável criada'
+      var = Variable.new(variable_params)
+      if var.save
+        flash[:notice] = 'Variável criada'
+      else
+        flash[:error] = var.errors.full_messages.join('. ')
+      end
       redirect_to backoffice_path
     end
 

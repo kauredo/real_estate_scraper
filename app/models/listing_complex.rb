@@ -4,6 +4,9 @@ class ListingComplex < ApplicationRecord
   extend Mobility
   translates :name, :description
   has_many :listings, dependent: :destroy
+  validates :name, presence: { message: 'não pode estar vazio' }
+  validates :description, presence: { message: 'não pode estar vazio' }
+
 
   default_scope { order(order: :asc) }
 end

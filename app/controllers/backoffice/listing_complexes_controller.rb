@@ -16,8 +16,10 @@ module Backoffice
     def create
       @listing_complex = ListingComplex.new(listing_complex_params)
       if @listing_complex.save
+        flash[:notice] = 'Empreendimento criado'
         redirect_to backoffice_listing_complexes_path
       else
+        flash.now[:error] = @listing_complex.errors.full_messages.join('. ')
         render :new
       end
     end
