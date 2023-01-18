@@ -19,7 +19,7 @@ module SofiaGalvao
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.i18n.available_locales = %i[pt en]
     config.i18n.default_locale = :pt
-    config.exceptions_app = ->(env) {
+    config.exceptions_app = lambda { |env|
       ErrorsController.action(:show).call(env)
     }
   end

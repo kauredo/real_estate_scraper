@@ -7,6 +7,5 @@ class ListingComplex < ApplicationRecord
   validates :name, presence: { message: 'não pode estar vazio' }
   validates :description, presence: { message: 'não pode estar vazio' }
 
-
   default_scope { order(order: :asc) }
 end

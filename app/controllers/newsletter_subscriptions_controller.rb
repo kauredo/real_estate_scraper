@@ -26,7 +26,7 @@ class NewsletterSubscriptionsController < ApplicationController
   def confirm
     decrypted_token = JsonWebToken.decode(params[:token])
 
-    if decrypted_token.present? && (decrypted_token[:user_id] = @sub.user_id && Time.zone.now < Time.at(decrypted_token[:exp]))
+    if decrypted_token.present? && (decrypted_token[:user_id] = @sub.user_id && Time.zone.now < Time.zone.at(decrypted_token[:exp]))
       @sub.user.update(confirmed_email: true)
       flash[:notice] = I18n.t('flash.newsletters.confirm')
     else

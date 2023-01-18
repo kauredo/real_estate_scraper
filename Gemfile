@@ -62,6 +62,7 @@ gem 'paranoia'
 gem 'rails-i18n'
 gem 'react-rails'
 gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
 gem 'sidekiq'
 gem 'watir'
 

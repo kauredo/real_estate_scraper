@@ -45,6 +45,6 @@ Rails.application.routes.draw do
       resources :testimonials
     end
 
-    resources :errors, only: "show"
+    resources :errors, only: 'show' if Rails.env.development?
   end
 end
