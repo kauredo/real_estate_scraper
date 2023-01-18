@@ -332,3 +332,14 @@ en:
   tasks:
     scrape:
       unavailable: is no longer available on our website
+
+  errors:
+    404:
+      title: You seem to be lost!
+      text_1: The page you're looking for isn't available.
+      text_2: Try searching again or use the Go Back button below.
+      button: Go Back
+    500:
+      title: The server is down!
+      text_1: We're trying our best to fix it.
+      text_2: Please try again in a few minutes.

@@ -284,6 +284,17 @@
       "subheader": "Why buy  <span class=\"underline decoration-beige\">a Plan?</span>"
     },
     "errors": {
+      "404": {
+        "button": "Go Back",
+        "text_1": "The page you're looking for isn't available.",
+        "text_2": "Try searching again or use the Go Back button below.",
+        "title": "You seem to be lost!"
+      },
+      "500": {
+        "text_1": "We're trying our best to fix it.",
+        "text_2": "Please try again in a few minutes.",
+        "title": "The server is down!"
+      },
       "connection_refused": "Oops! Failed to connect to the Web Console middleware.\nPlease make sure a rails development server is running.\n",
       "format": "%{attribute} %{message}",
       "messages": {

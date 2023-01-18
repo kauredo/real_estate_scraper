@@ -44,5 +44,7 @@ Rails.application.routes.draw do
       resources :listing_complexes
       resources :testimonials
     end
+
+    resources :errors, only: "show"
   end
 end

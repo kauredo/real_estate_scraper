@@ -61,12 +61,14 @@
     <!-- End Meta Pixel Code -->
   </head>
   <body>
-    <div class="relative min-h-[100vh] h-full">
+    <main class="flex flex-col min-h-screen">
       <%= render 'shared/flashes' %>
       <%= react_component 'Navbar', { admin: current_admin.present? } %>
-      <%= yield %>
+      <div class="flex-auto">
+        <%= yield %>
+      </div>
       <%= render 'shared/cta' %>
       <%= react_component 'Footer' %>
-    </div>
+    </main>
   </body>
 </html>

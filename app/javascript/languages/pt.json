@@ -348,6 +348,17 @@
       "subheader": "Porquê Comprar <span class=\"underline decoration-beige\">em Planta?</span>"
     },
     "errors": {
+      "404": {
+        "button": "Voltar",
+        "text_1": "A página que procura não se encontra disponível.",
+        "text_2": "Tente procurar de novo ou voltar atrás no botão abaixo.",
+        "title": "Está perdido?"
+      },
+      "500": {
+        "text_1": "Estamos a fazer o nosso melhor para o resolver.",
+        "text_2": "Por favor tente novamente dentro de momentos.",
+        "title": "O servidor está em baixo!"
+      },
       "format": "%{attribute} %{message}",
       "messages": {
         "accepted": "tem de ser aceite",

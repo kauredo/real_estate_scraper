@@ -341,3 +341,14 @@ pt:
   tasks:
     scrape:
       unavailable: já não se encontra disponível no website
+
+  errors:
+    404:
+      title: Está perdido?
+      text_1: A página que procura não se encontra disponível.
+      text_2: Tente procurar de novo ou voltar atrás no botão abaixo.
+      button: Voltar
+    500:
+      title: O servidor está em baixo!
+      text_1: Estamos a fazer o nosso melhor para o resolver.
+      text_2: Por favor tente novamente dentro de momentos.
