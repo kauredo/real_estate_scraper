@@ -32,7 +32,7 @@ module Backoffice
 
     def destroy
       @testimonial.destroy
-      redirect_to backoffice_testimonials_path
+      redirect_to backoffice_testimonials_path, status: :see_other
     end
 
     private

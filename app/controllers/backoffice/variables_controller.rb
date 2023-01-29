@@ -23,7 +23,7 @@ module Backoffice
     def destroy
       @variable.destroy
       flash[:notice] = 'Variável apagada'
-      redirect_to backoffice_path
+      redirect_to backoffice_path, status: :see_other
     end
 
     private
