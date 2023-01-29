@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_13_023648) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_29_191018) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -113,6 +113,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_023648) do
     t.index ["user_id"], name: "index_newsletter_subscriptions_on_user_id"
   end
 
+  create_table "testimonial_translations", force: :cascade do |t|
+    t.text "text"
+    t.string "locale", null: false
+    t.bigint "testimonial_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["locale"], name: "index_testimonial_translations_on_locale"
+    t.index ["testimonial_id", "locale"], name: "index_testimonial_translations_on_testimonial_id_and_locale", unique: true
+  end
+
   create_table "testimonials", force: :cascade do |t|
     t.string "name"
     t.string "text"
@@ -130,6 +140,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_023648) do
     t.boolean "confirmed_email"
   end
 
+  create_table "variable_translations", force: :cascade do |t|
+    t.text "name"
+    t.text "value"
+    t.string "locale", null: false
+    t.bigint "variable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["locale"], name: "index_variable_translations_on_locale"
+    t.index ["variable_id", "locale"], name: "index_variable_translations_on_variable_id_and_locale", unique: true
+  end
+
   create_table "variables", force: :cascade do |t|
     t.string "name"
     t.string "value"
@@ -141,4 +162,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_023648) do
   add_foreign_key "listing_complex_translations", "listing_complexes"
   add_foreign_key "listing_translations", "listings"
   add_foreign_key "newsletter_subscriptions", "users"
+  add_foreign_key "testimonial_translations", "testimonials"
+  add_foreign_key "variable_translations", "variables"
 end
