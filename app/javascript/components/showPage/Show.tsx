@@ -65,6 +65,12 @@ export default function Show(props: Props) {
               id="main-title"
               className="relative block mt-2 text-2xl text-black sm:text-4xl px-4"
             >
+              {listing.status == "agreed" && (
+                <span>{i18n.t("listing.status.agreed")} - </span>
+              )}{" "}
+              {listing.status == "sold" && (
+                <span>{i18n.t("listing.status.sold")} - </span>
+              )}
               {listing.title}
             </h1>
           </div>
@@ -84,6 +90,12 @@ export default function Show(props: Props) {
               )}
               <h2 className="standard mb-2 text-2xl font-bold">
                 {i18n.t("listing.details")}
+                {listing.status == "agreed" && (
+                  <span> ({i18n.t("listing.status.agreed")})</span>
+                )}{" "}
+                {listing.status == "sold" && (
+                  <span> ({i18n.t("listing.status.sold")})</span>
+                )}
               </h2>
               <div className="w-full flex flex-wrap">
                 <div key={"price"} className="border p-2 w-1/2">
