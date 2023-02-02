@@ -80,7 +80,8 @@ export default function Footer() {
         <div className="sm:flex justify-between tablet:justify-start items-center ">
           <div className="tablet:pr-4">
             <p className="text-sm text-white">
-              © 2022 Sofia Galvão Group. All Rights Reserved.
+              © {new Date().getFullYear()} Sofia Galvão Group. All Rights
+              Reserved.
             </p>
             <p className="text-sm text-white">
               KW Lead Santos - Av Dom Carlos I, 124J - Santos, Lisboa
