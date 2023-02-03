@@ -75,18 +75,10 @@ export default function Show(props: Props) {
                   return (
                     <tr
                       key={listing.id}
-                      className={
-                        "text-center border border-slate-700 relative " +
-                        ([
-                          "sold",
-                          "agreed",
-                        ].includes(listing.status) && "line-through")
-                      }
+                      className={"text-center border border-slate-700 relative"}
                     >
                       <td className=" p-2">
-                        {["agreed"].includes(
-                          listing.status
-                        ) && (
+                        {["agreed"].includes(listing.status) && (
                           <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white opacity-50 flex items-center justify-center"></span>
                         )}
                         {["sold"].includes(listing.status) && (
@@ -106,7 +98,13 @@ export default function Show(props: Props) {
                       <td className=" p-2">
                         {listing.stats["Estacionamentos"] || "-"}
                       </td>
-                      <td className={" p-2 "}>{listing.price}€</td>
+                      <td className={" p-2 "}>
+                        {["sold", "agreed"].includes(listing.status)
+                          ? listing.status == "agreed"
+                            ? i18n.t("listing.status.agreed")
+                            : i18n.t("listing.status.sold")
+                          : `${listing.price} €`}
+                      </td>
                       <td className=" p-2">
                         <a
                           href={sanitizeURLWithParams(
