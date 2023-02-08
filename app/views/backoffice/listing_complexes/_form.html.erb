@@ -1,4 +1,4 @@
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 mb-2">
   <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
 </div>
@@ -20,15 +20,44 @@
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
   <%= f.label :description, class: 'w-1/4' %>
-  <%= f.text_area :description, rows: 30, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  <%= f.text_area :description, rows: 20, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
   <%= f.label :subtext, class: 'w-1/4' %>
-  <%= f.text_area :subtext, rows: 30, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  <%= f.text_area :subtext, rows: 20, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
   <%= f.label :final_text, class: 'w-1/4' %>
-  <%= f.text_area :final_text, rows: 30, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  <%= f.text_area :final_text, rows: 20, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+</div>
+<div class="field mb-4 flex flex-col items-center gap-4">
+  <%= f.label :photos, class: 'w-1/4' %>
+  <%= f.fields_for :photos do |p| %>
+    <div class="field">
+      <%= p.label :image %><br>
+      <%= p.file_field :image, multiple: true, name: "photos[image][]" %>
+    </div>
+  <% end %>
+  <% if @listing_complex.photos.present? %>
+    <div class="flex flex-wrap justify-between content-center">
+      <% @listing_complex.photos.each do |photo| %>
+        <div class="w-full sm:w-1/4 m-2">
+          <%= link_to '❌', photo_path(photo), method: :delete, data: { "turbo-method": :delete, confirm: 'Are you sure?'} %>
+          <%= cl_image_tag(photo.image)  %>
+          <%= fields_for "photos[]",photo do |f| %>
+            <div class="flex gap-2">
+              <%= f.label :main_photo? %><br>
+              <%= f.check_box :main, value: photo.main %>
+            </div>
+            <div>
+              <%= f.label :order_on_page %><br>
+              <%= f.number_field :order, value: photo.order, class: 'shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <div class="field mb-4 flex flex-col items-center gap-4">
   <%= f.label :listings, class: 'w-1/4' %>

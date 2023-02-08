@@ -159,3 +159,18 @@ p,
   -o-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
 }
+
+.display-photos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.display-photos img {
+  height: 15rem !important;
+  margin: 0.125rem;
+}
+
+.photos-submit {
+  width: 12rem;
+  height: 3rem;
+}
