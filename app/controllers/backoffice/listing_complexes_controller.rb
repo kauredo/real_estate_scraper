@@ -47,7 +47,7 @@ module Backoffice
     end
 
     def listing_complex_params
-      params.require(:listing_complex).permit(:name, :description, :order, :video_link, listing_ids: [])
+      params.require(:listing_complex).permit(:name, :description, :order, :video_link, :new_format, :subtext, :final_text, listing_ids: [])
     end
   end
 end

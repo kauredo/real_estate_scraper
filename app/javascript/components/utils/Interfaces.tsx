@@ -24,6 +24,8 @@ export interface ListingComplex {
   name: string;
   video_link: string;
   description: string;
+  subtext: string;
+  final_text: string;
   listings: Listing[];
 }
 

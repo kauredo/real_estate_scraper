@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_29_191018) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_08_183954) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_191018) do
     t.datetime "updated_at", null: false
     t.string "video_link"
     t.integer "order"
+    t.text "subtext"
+    t.text "final_text"
+    t.boolean "new_format", default: false
   end
 
   create_table "listing_translations", force: :cascade do |t|
