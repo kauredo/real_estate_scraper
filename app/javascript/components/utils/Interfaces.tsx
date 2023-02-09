@@ -15,6 +15,15 @@ export interface ResultNumbers {
   variables: Variable[];
 }
 
+export interface Photo {
+  id: number;
+  image: { url: string };
+  main: boolean;
+  order: number;
+  listing_complex_id: number;
+  listings: Listing[];
+}
+
 export interface ListingByCity {
   [key: string]: Listing;
 }
@@ -27,6 +36,8 @@ export interface ListingComplex {
   subtext: string;
   final_text: string;
   listings: Listing[];
+  main_photo: Photo;
+  photos: Photo[];
 }
 
 export interface Listing {

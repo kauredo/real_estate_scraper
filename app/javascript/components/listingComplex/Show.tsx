@@ -6,11 +6,10 @@ import { Listing, ListingComplex } from "../utils/Interfaces";
 
 interface Props {
   complex: ListingComplex;
-  listings: Listing[];
 }
 
 export default function Show(props: Props) {
-  const { complex, listings } = props;
+  const { complex } = props;
 
   const header = () => {
     if (complex.video_link) {
@@ -28,7 +27,7 @@ export default function Show(props: Props) {
       return (
         <img
           style={{ maxHeight: "70vh", objectFit: "contain" }}
-          src={listings[0].photos[1]}
+          src={complex.listings[0].photos[1]}
         />
       );
     }
@@ -71,7 +70,7 @@ export default function Show(props: Props) {
                 </tr>
               </thead>
               <tbody>
-                {listings.map(listing => {
+                {complex.listings.map(listing => {
                   return (
                     <tr
                       key={listing.id}

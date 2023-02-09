@@ -13,7 +13,7 @@ module SofiaGalvao
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-    config.react.camelize_props = true
+    config.react.camelize_props = false
     config.active_job.queue_adapter = :sidekiq
     config.autoload_paths << Rails.root.join('lib')
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')

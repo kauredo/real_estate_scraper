@@ -1,6 +1,8 @@
 <div class="flex items-center gap-2 mb-2">
   <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-  <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% if @listing_complex.persisted? %>
+    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% end %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
   <%= f.label :name, class: 'w-1/4' %>
@@ -9,6 +11,10 @@
 <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
   <%= f.label :new_format, class: 'w-1/4' %>
   <%= f.check_box :new_format %>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
+  <%= f.label :hidden, class: 'w-1/4' %>
+  <%= f.check_box :hidden %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
   <%= f.label :video_link, class: 'w-1/4' %>
@@ -76,5 +82,7 @@
 </div>
 <div class="flex items-center gap-2">
   <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-  <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% if @listing_complex.persisted? %>
+    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% end %>
 </div>

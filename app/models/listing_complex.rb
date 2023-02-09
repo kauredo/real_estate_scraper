@@ -11,6 +11,6 @@ class ListingComplex < ApplicationRecord
   default_scope { order(order: :asc) }
 
   def main_photo
-    photos.detect(main: true)
+    photos.find_by(main: true) || photos.first
   end
 end
