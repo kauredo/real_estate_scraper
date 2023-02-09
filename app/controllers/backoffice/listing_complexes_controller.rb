@@ -70,17 +70,27 @@ module Backoffice
     end
 
     def update_video_link
-      @listing_complex.video_link.sub!('watch?v=', 'embed/') if @listing_complex.video_link.present?
+      return unless @listing_complex.video_link.present?
+
+      @listing_complex.video_link.sub!('watch?v=', 'embed/')
+      @listing_complex.video_link.sub!('youtu.be/', 'youtube.com/embed/')
       @listing_complex.save
     end
 
     def update_photos
-      return unless @listing_complex.photos.unscoped.all? { |photo| photo.order.nil? }
+      photos = Photo.unscoped.where(listing_complex_id: @listing_complex.id)
+      return unless photos.present? && photos.any? { |photo| photo.order.nil? }
 
-      photo = Photo.unscoped.where(listing_complex_id: @listing_complex.id).first
-      photo.main = true
-      photo.order = 1
-      photo.save
+      if photos.all? { |photo| photo.order.nil? }
+        photo = photos.first
+        photo.main = true
+        photo.order = 1
+        photo.save
+      else
+        photo = photos.where(order: nil).first
+        photo.order = photos.where.not(order: nil).last.order + 1
+        photo.save
+      end
     end
 
     def listing_complex_params
