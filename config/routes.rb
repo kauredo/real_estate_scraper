@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get '/comprar', to: 'listings#buy', as: :buy
     get '/comprar/:id', to: 'listings#show', as: :listing
     get '/vender', to: 'listings#sell', as: :sell
+    resources :photos, only: [:destroy]
     resources :newsletter_subscriptions, only: %i[create destroy] do
       member do
         get '/confirm', to: 'newsletter_subscriptions#confirm'
@@ -41,7 +42,10 @@ Rails.application.routes.draw do
           post '/update_details', to: 'listings#update_details'
         end
       end
-      resources :listing_complexes
+      resources :listing_complexes do
+        patch 'photos'
+        delete 'delete_photo'
+      end
       resources :testimonials
     end
 

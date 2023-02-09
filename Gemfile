@@ -51,6 +51,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # Other gems here
+gem 'carrierwave'
+gem 'cloudinary'
 gem 'devise', '~> 4.8'
 gem 'i18n-js'
 gem 'js-routes'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_29_191018) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_09_155136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_191018) do
     t.datetime "updated_at", null: false
     t.string "video_link"
     t.integer "order"
+    t.text "subtext"
+    t.text "final_text"
+    t.boolean "new_format", default: false
+    t.boolean "hidden", default: false
   end
 
   create_table "listing_translations", force: :cascade do |t|
@@ -111,6 +115,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_191018) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_newsletter_subscriptions_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.text "image"
+    t.boolean "main", default: false
+    t.integer "order"
+    t.bigint "listing_complex_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_complex_id"], name: "index_photos_on_listing_complex_id"
   end
 
   create_table "testimonial_translations", force: :cascade do |t|

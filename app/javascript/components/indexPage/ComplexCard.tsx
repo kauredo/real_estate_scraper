@@ -1,15 +1,14 @@
 import React from "react";
-import { Listing, ListingComplex } from "../utils/Interfaces";
+import { ListingComplex } from "../utils/Interfaces";
 import { sanitizeURLWithParams, truncateText } from "../utils/Functions";
 
 interface Props {
-  listingComplex: ListingComplex;
-  listings: Listing[];
+  listing_complex: ListingComplex;
   backoffice?: boolean;
 }
 
 export default function ComplexCard(props: Props) {
-  const { listingComplex, listings, backoffice } = props;
+  const { listing_complex, backoffice } = props;
   return (
     <div className="w-full max-w-7xl mx-auto px-4 my-8 drop-shadow-sm hover:drop-shadow-lg">
       <a
@@ -17,11 +16,11 @@ export default function ComplexCard(props: Props) {
           backoffice
             ? sanitizeURLWithParams(
                 window.Routes.edit_backoffice_listing_complex_path,
-                listingComplex.id
+                listing_complex.id
               )
             : sanitizeURLWithParams(
                 window.Routes.listing_complex_path,
-                listingComplex.id
+                listing_complex.id
               )
         }
       >
@@ -30,18 +29,24 @@ export default function ComplexCard(props: Props) {
             <img
               alt=""
               className="w-full md:w-128 h-full block mx-auto object-cover"
-              src={listings.length > 0 ? listings[0].photos[0] : ""}
+              src={
+                listing_complex.main_photo
+                  ? listing_complex.main_photo.image.url
+                  : listing_complex.listings.length > 0
+                  ? listing_complex.listings[0].photos[0]
+                  : ""
+              }
             />
           </div>
           <div className="flex-1 card-block relative w-full md:w-2/3">
             <div className="p-6">
               <h4 className="font-medium text-2xl mb-3">
-                {listingComplex.name}
+                {listing_complex.name}
               </h4>
               <p className="leading-normal">
                 <span>
                   {truncateText(
-                    listingComplex.description,
+                    listing_complex.description,
                     window.innerWidth / 3
                   )}
                 </span>

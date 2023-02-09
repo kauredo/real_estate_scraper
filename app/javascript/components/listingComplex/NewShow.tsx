@@ -1,41 +1,72 @@
+import Carousel from "nuka-carousel";
 import React, { useEffect } from "react";
 import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
+import Cards from "../homePage/Cards";
 import { sanitizeURLWithParams } from "../utils/Functions";
-import { Listing, ListingComplex } from "../utils/Interfaces";
+import { ListingComplex } from "../utils/Interfaces";
 
 interface Props {
   complex: ListingComplex;
 }
 
-export default function Show(props: Props) {
+export default function NewShow(props: Props) {
   const { complex } = props;
 
   const header = () => {
+    if (complex?.photos?.length > 0) {
+      if (complex.photos.length === 1) {
+        return (
+          <img
+            style={{ maxHeight: "70vh", objectFit: "contain" }}
+            src={complex.photos[0].image.url}
+          />
+        );
+      } else {
+        return (
+          <Carousel
+            heightMode="max"
+            slidesToShow={1}
+            defaultControlsConfig={{
+              nextButtonText: "➤",
+              prevButtonStyle: { transform: "rotate(180deg)" },
+              prevButtonText: "➤",
+              pagingDotsContainerClassName: "!top-0",
+              pagingDotsClassName: "mx-1 hidden tablet:block",
+            }}
+          >
+            {complex.photos.map(photo => {
+              return (
+                <img
+                  key={photo.image.url}
+                  style={{ maxHeight: "70vh", objectFit: "contain" }}
+                  src={photo.image.url}
+                />
+              );
+            })}
+          </Carousel>
+        );
+      }
+    }
+  };
+
+  const video = () => {
     if (complex.video_link) {
       return (
         <iframe
           id="iframe"
-          style={{ height: "70vh", aspectRatio: "16/9" }}
+          style={{ height: "auto", aspectRatio: "16/9" }}
           className="w-full mx-auto"
           src={`${complex.video_link}?autoplay=1&mute=1`}
           allow="autoplay"
           allowFullScreen
         ></iframe>
       );
-    } else {
-      return (
-        <img
-          style={{ maxHeight: "70vh", objectFit: "contain" }}
-          src={complex.listings[0].photos[1]}
-        />
-      );
     }
   };
 
   return (
     <div className="relative container mx-auto">
-      <div className="mx-auto w-fit">{header()}</div>
       <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige text-white px-4 py-2">
         <h1 className="standard">{complex.name}</h1>
       </div>
@@ -44,7 +75,18 @@ export default function Show(props: Props) {
           <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
             <div className="tablet:mr-2">{complex.description}</div>
           </div>
-          <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full bg-white m-2 tablet:mx-0 h-fit">
+          <div className="mx-auto w-auto">{header()}</div>
+        </div>
+        <div className="hidden tablet:block col-start-3 p-1">
+          <ContactForm complex={complex} />
+        </div>
+      </section>
+      <div>
+        <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
+          <div className="tablet:mr-2">{complex.subtext}</div>
+        </div>
+        <div className="flex flex-col tablet:flex-row gap-4">
+          <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white m-2 tablet:mx-0 h-fit">
             <table className="text-sm w-full border-collapse border border-slate-500">
               <thead>
                 <tr className="bg-beige text-white">
@@ -105,16 +147,22 @@ export default function Show(props: Props) {
                           : `${listing.price} €`}
                       </td>
                       <td className=" p-2">
-                        <a
-                          href={sanitizeURLWithParams(
-                            window.Routes.listing_path,
-                            listing.id
-                          )}
-                          target="_blank"
-                          className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
-                        >
-                          {i18n.t("enterprises.show.more")}
-                        </a>
+                        {listing.status === "new" ||
+                        listing.status === "standard" ||
+                        listing.status === "recent" ? (
+                          <a
+                            href={sanitizeURLWithParams(
+                              window.Routes.listing_path,
+                              listing.id
+                            )}
+                            target="_blank"
+                            className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
+                          >
+                            {i18n.t("enterprises.show.more")}
+                          </a>
+                        ) : (
+                          <></>
+                        )}
                       </td>
                     </tr>
                   );
@@ -122,12 +170,27 @@ export default function Show(props: Props) {
               </tbody>
             </table>
           </div>
+          <div className="m-2 py-4 tablet:mx-0 w-full tablet:w-1/2">
+            {video()}
+            <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
+              <div className="tablet:mr-2">{complex.final_text}</div>
+            </div>
+          </div>
         </div>
-
-        <div className="col-start-3 p-1">
-          <ContactForm complex={complex} />
-        </div>
-      </section>
+      </div>
+      <div>
+        <Cards
+          listings={complex.listings.filter(
+            l =>
+              l.status === "new" ||
+              l.status === "standard" ||
+              l.status === "recent"
+          )}
+        ></Cards>
+      </div>
+      <div className="tablet:hidden p-1">
+        <ContactForm complex={complex} />
+      </div>
     </div>
   );
 }
