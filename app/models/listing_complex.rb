@@ -2,7 +2,7 @@
 
 class ListingComplex < ApplicationRecord
   extend Mobility
-  translates :name, :description
+  translates :name, :description, :subtext, :final_text
   has_many :listings, dependent: :destroy
   has_many :photos, dependent: :destroy
   validates :name, presence: { message: 'não pode estar vazio' }

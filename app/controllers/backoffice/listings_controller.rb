@@ -27,7 +27,7 @@ module Backoffice
     def update
       new_params = listing_params.dup
       if new_params[:status] != @listing.status
-        new_params[:status_changed_at] = if new_params[:status] == 'Vendido'
+        new_params[:status_changed_at] = if new_params[:status] == 'sold'
                                            Time.zone.now
                                          else
                                            @listing.update(status_changed_at: nil)
