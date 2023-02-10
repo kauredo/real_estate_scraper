@@ -70,10 +70,12 @@ export default function NewShow(props: Props) {
       <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige text-white px-4 py-2">
         <h1 className="standard">{complex.name}</h1>
       </div>
-      <section className="tablet:grid overflow-hidden tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">
+      <section className="tablet:grid overflow-hidden tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2">
         <div className="col-span-2">
           <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
-            <div className="tablet:mr-2">{complex.description}</div>
+            <div className="tablet:mr-2 whitespace-pre-line">
+              {complex.description}
+            </div>
           </div>
           <div className="mx-auto w-auto">{header()}</div>
         </div>
@@ -83,7 +85,9 @@ export default function NewShow(props: Props) {
       </section>
       <div>
         <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
-          <div className="tablet:mr-2">{complex.subtext}</div>
+          <div className="tablet:mr-2 whitespace-pre-line">
+            {complex.subtext}
+          </div>
         </div>
         <div className="flex flex-col tablet:flex-row gap-4">
           <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white m-2 tablet:mx-0 h-fit">
@@ -173,7 +177,9 @@ export default function NewShow(props: Props) {
           <div className="m-2 py-4 tablet:mx-0 w-full tablet:w-1/2">
             {video()}
             <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
-              <div className="tablet:mr-2">{complex.final_text}</div>
+              <div className="tablet:mr-2 whitespace-pre-line">
+                {complex.final_text}
+              </div>
             </div>
           </div>
         </div>
