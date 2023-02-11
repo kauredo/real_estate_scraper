@@ -14,7 +14,7 @@ export default function NewShow(props: Props) {
   const { complex } = props;
 
   const removePricesFromText = text => {
-    if (complex.listing_prices && complex.listing_prices[0]) {
+    if (text && complex.listing_prices && complex.listing_prices[0]) {
       return text.split(complex.listing_prices[0])[0];
     }
 
