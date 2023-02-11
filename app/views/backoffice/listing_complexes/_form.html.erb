@@ -1,3 +1,25 @@
+<div class="bg-blue-100 p-4 rounded mb-4">
+  <p><strong>Nota:</strong></p>
+  <hr class="my-2">
+  <p class="max-w-none">O campo <strong>New format</strong> altera a visualização do empreendimento.</p>
+  <p class="max-w-none">Se o empreendimento <strong>tiver</strong> os imóveis presentes no site, adicionar os imóveis e a lista aparecerá na página com esses detalhes.</p>
+  <p class="max-w-none">Se o empreendimento <strong>não tiver</strong> os imóveis presentes no site, adicionar os preços num dos campos de texto (description, subtext ou final text) com o seguinte formato (consoante a versão PT ou EN do site):</p>
+  <br>
+  <p><strong>Exemplo:</strong></p>
+  <p class="max-w-none text-center">
+    <code>
+      <span>Versão PT: </span><br>
+      Preço <strong>para um</strong> tipologia<br>
+      290 000€ para um Estúdio<br>
+      610 000€ para um apartamento T2<br>
+      <br>
+      <span>Versão EN: </span><br>
+      Preço <strong>for a</strong> tipologia<br>
+      290 000€ for a Studio<br>
+      610 000€ for a 2 bedroom apartment<br>
+    </code>
+  </p>
+</div>
 <div class="flex items-center gap-2 mb-2">
   <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% if @listing_complex.persisted? %>

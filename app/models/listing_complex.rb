@@ -19,8 +19,12 @@ class ListingComplex < ApplicationRecord
   def listing_prices
     prices = [description, subtext, final_text].join("\r\n").split("\r\n").select { |line| line.include?('€') }
     apt_and_price = prices.map do |text|
-      price = text.split('€').first.gsub(/[[:space:]]/, '').gsub(',', '').gsub('.', '').match(/^[0-9]+$/)&.values_at(0)&.first
-      apt = text.split('€').last.downcase.gsub('para um', '').gsub('for a', '').gsub('apartamento', '').gsub('apartment', '').gsub('euros', '').gsub('bedroom', '').strip.capitalize
+      price = text.split('€').first
+                  .gsub(/[[:space:]]/, '').gsub(',', '').gsub('.', '')
+                  .match(/^[0-9]+$/)&.values_at(0)&.first
+      apt = text.split('€').last.downcase
+                .gsub('para um', '').gsub('for a', '').gsub('apartamento', '').gsub('apartment', '').gsub('euros', '').gsub('bedroom', '').gsub(',', '').gsub('.', '')
+                .strip.capitalize
 
       [apt, ApplicationHelper.number_to_currency(price, unit: '€', precision: 0, format: '%n %u', delimiter: '.')]
     end
