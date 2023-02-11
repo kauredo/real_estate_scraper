@@ -13,17 +13,28 @@ interface Props {
 export default function NewShow(props: Props) {
   const { complex } = props;
 
+  const removePricesFromText = text => {
+    if (complex.listing_prices && complex.listing_prices[0]) {
+      return text.split(complex.listing_prices[0])[0];
+    }
+
+    return text;
+  };
+
   const header = () => {
     if (complex?.photos?.length > 0) {
-      if (complex.photos.length === 1) {
-        return (
+      // if (complex.photos.length === 1) {
+      return (
+        <div className="mx-auto w-auto">
           <img
             style={{ maxHeight: "70vh", objectFit: "contain" }}
             src={complex.photos[0].image.url}
           />
-        );
-      } else {
-        return (
+        </div>
+      );
+      // } else {
+      return (
+        <div className="mx-auto w-auto">
           <Carousel
             heightMode="max"
             slidesToShow={1}
@@ -45,8 +56,9 @@ export default function NewShow(props: Props) {
               );
             })}
           </Carousel>
-        );
-      }
+        </div>
+      );
+      // }
     }
   };
 
@@ -74,10 +86,10 @@ export default function NewShow(props: Props) {
         <div className="col-span-2">
           <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
             <div className="tablet:mr-2 whitespace-pre-line">
-              {complex.description}
+              {removePricesFromText(complex.description)}
             </div>
           </div>
-          <div className="mx-auto w-auto">{header()}</div>
+          {header()}
         </div>
         <div className="hidden tablet:block col-start-3 p-1">
           <ContactForm complex={complex} />
@@ -86,99 +98,141 @@ export default function NewShow(props: Props) {
       <div>
         <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
           <div className="tablet:mr-2 whitespace-pre-line">
-            {complex.subtext}
+            {removePricesFromText(complex.subtext)}
           </div>
         </div>
         <div className="flex flex-col tablet:flex-row gap-4">
-          <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white m-2 tablet:mx-0 h-fit">
-            <table className="text-sm w-full border-collapse border border-slate-500">
-              <thead>
-                <tr className="bg-beige text-white">
-                  <th className="border border-white border-l-slate-700 p-2">
-                    {i18n.t("enterprises.show.type")}
-                  </th>
-                  <th className="border border-white p-2">
-                    {i18n.t("enterprises.show.bedrooms")}
-                  </th>
-                  <th className="border border-white p-2">
-                    {i18n.t("enterprises.show.built")}
-                  </th>
-                  <th className="border border-white p-2">
-                    {i18n.t("enterprises.show.living")}
-                  </th>
-                  <th className="border border-white p-2">
-                    {i18n.t("enterprises.show.parking")}
-                  </th>
-                  <th className="border border-white p-2">
-                    {i18n.t("enterprises.show.price")}
-                  </th>
-                  <th className="border border-white  border-r-slate-700"></th>
-                </tr>
-              </thead>
-              <tbody>
-                {complex.listings.map(listing => {
-                  return (
-                    <tr
-                      key={listing.id}
-                      className={"text-center border border-slate-700 relative"}
-                    >
-                      <td className=" p-2">
-                        {["agreed"].includes(listing.status) && (
-                          <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white opacity-50 flex items-center justify-center"></span>
-                        )}
-                        {["sold"].includes(listing.status) && (
-                          <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white opacity-50 flex items-center justify-center"></span>
-                        )}
-                        {listing.stats["Piso"] || "-"}
-                      </td>
-                      <td className=" p-2">
-                        {listing.stats["Quartos"] || "-"}
-                      </td>
-                      <td className=" p-2">
-                        {listing.stats["Área Bruta (CP)"] || "-"}
-                      </td>
-                      <td className=" p-2">
-                        {listing.stats["Área Útil"] || "-"}
-                      </td>
-                      <td className=" p-2">
-                        {listing.stats["Estacionamentos"] || "-"}
-                      </td>
-                      <td className={" p-2 "}>
-                        {["sold", "agreed"].includes(listing.status)
-                          ? listing.status == "agreed"
-                            ? i18n.t("listing.status.agreed")
-                            : i18n.t("listing.status.sold")
-                          : `${listing.price} €`}
-                      </td>
-                      <td className=" p-2">
-                        {listing.status === "new" ||
-                        listing.status === "standard" ||
-                        listing.status === "recent" ? (
-                          <a
-                            href={sanitizeURLWithParams(
-                              window.Routes.listing_path,
-                              listing.id
-                            )}
-                            target="_blank"
-                            className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
-                          >
-                            {i18n.t("enterprises.show.more")}
-                          </a>
-                        ) : (
-                          <></>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          <div className="m-2 py-4 tablet:mx-0 w-full tablet:w-1/2">
+          {complex.listings.length > 0 && (
+            <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white m-2 tablet:mx-0 h-fit">
+              <table className="text-sm w-full border-collapse border border-slate-500">
+                <thead>
+                  <tr className="bg-beige text-white">
+                    <th className="border border-white border-l-slate-700 p-2">
+                      {i18n.t("enterprises.show.type")}
+                    </th>
+                    <th className="border border-white p-2">
+                      {i18n.t("enterprises.show.bedrooms")}
+                    </th>
+                    <th className="border border-white p-2">
+                      {i18n.t("enterprises.show.built")}
+                    </th>
+                    <th className="border border-white p-2">
+                      {i18n.t("enterprises.show.living")}
+                    </th>
+                    <th className="border border-white p-2">
+                      {i18n.t("enterprises.show.parking")}
+                    </th>
+                    <th className="border border-white p-2">
+                      {i18n.t("enterprises.show.price")}
+                    </th>
+                    <th className="border border-white  border-r-slate-700"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {complex.listings.map(listing => {
+                    return (
+                      <tr
+                        key={listing.id}
+                        className={
+                          "text-center border border-slate-700 relative"
+                        }
+                      >
+                        <td className=" p-2">
+                          {["agreed"].includes(listing.status) && (
+                            <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white opacity-50 flex items-center justify-center"></span>
+                          )}
+                          {["sold"].includes(listing.status) && (
+                            <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white opacity-50 flex items-center justify-center"></span>
+                          )}
+                          {listing.stats["Piso"] || "-"}
+                        </td>
+                        <td className=" p-2">
+                          {listing.stats["Quartos"] || "-"}
+                        </td>
+                        <td className=" p-2">
+                          {listing.stats["Área Bruta (CP)"] || "-"}
+                        </td>
+                        <td className=" p-2">
+                          {listing.stats["Área Útil"] || "-"}
+                        </td>
+                        <td className=" p-2">
+                          {listing.stats["Estacionamentos"] || "-"}
+                        </td>
+                        <td className={" p-2 "}>
+                          {["sold", "agreed"].includes(listing.status)
+                            ? listing.status == "agreed"
+                              ? i18n.t("listing.status.agreed")
+                              : i18n.t("listing.status.sold")
+                            : `${listing.price} €`}
+                        </td>
+                        <td className=" p-2">
+                          {listing.status === "new" ||
+                          listing.status === "standard" ||
+                          listing.status === "recent" ? (
+                            <a
+                              href={sanitizeURLWithParams(
+                                window.Routes.listing_path,
+                                listing.id
+                              )}
+                              target="_blank"
+                              className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
+                            >
+                              {i18n.t("enterprises.show.more")}
+                            </a>
+                          ) : (
+                            <></>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
+          {complex.listing_prices && complex.listing_prices[1].length > 0 && (
+            <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white m-2 tablet:mx-0 h-fit">
+              <table className="text-sm w-full border-collapse border border-slate-500">
+                <thead>
+                  <tr className="bg-beige text-white">
+                    <th className="border border-white p-2">
+                      {i18n.t("enterprises.show.bedrooms")}
+                    </th>
+                    <th className="border border-white p-2">
+                      {i18n.t("enterprises.show.price")}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {complex.listing_prices[1].map(prices => {
+                    return (
+                      <tr
+                        key={prices}
+                        className={
+                          "text-center border border-slate-700 relative"
+                        }
+                      >
+                        <td className=" p-2">{prices[0]}</td>
+                        <td className=" p-2">{prices[1]}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
+          <div
+            className={`m-2 py-4 tablet:mx-0 w-full ${
+              complex.listings.length > 0 ||
+              (complex.listing_prices &&
+                complex.listing_prices.length > 0 &&
+                "tablet:w-1/2")
+            }`}
+          >
             {video()}
             <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
               <div className="tablet:mr-2 whitespace-pre-line">
-                {complex.final_text}
+                {removePricesFromText(complex.final_text)}
               </div>
             </div>
           </div>
@@ -192,6 +246,7 @@ export default function NewShow(props: Props) {
               l.status === "standard" ||
               l.status === "recent"
           )}
+          photos={complex.photos}
         ></Cards>
       </div>
       <div className="tablet:hidden p-1">
