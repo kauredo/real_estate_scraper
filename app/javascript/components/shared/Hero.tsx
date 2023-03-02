@@ -17,7 +17,7 @@ function Hero(props: Props) {
         <div className="w-full md:w-min h-fit md:h-80 md:px-12 flex flex-col justify-center md:justify-end gap-4 md:gap-10">
           <img
             className="h-auto md:h-1/3 w-1/2"
-            src="/logos/main.png"
+            src="/logos/main.webp"
             alt="Sofia Galvão Group Logo"
           />
           <h2

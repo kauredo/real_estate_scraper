@@ -36,7 +36,7 @@ export default function Footer() {
             className="flex items-center mb-4 sm:mb-0"
           >
             <img
-              src="/logos/main_white.png"
+              src="/logos/main_white.webp"
               className="h-12"
               alt="Sofia Galvão Group Alternative Logo"
             />

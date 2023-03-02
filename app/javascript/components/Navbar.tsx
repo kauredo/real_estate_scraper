@@ -150,7 +150,7 @@ export default function Navbar(props: Props) {
                 >
                   <img
                     className="w-[8rem] relative z-1"
-                    src="/logos/main_color.png"
+                    src="/logos/main_color.webp"
                     alt="Sofia Galvão Group Logo"
                   />
                 </a>

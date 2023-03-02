@@ -1,23 +1,25 @@
-<style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
+<style>
+  @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
+</style>
 <div class="flex-auto bg-white flex items-center p-5 lg:p-20 overflow-hidden relative">
-    <div class="flex-1 min-h-full min-w-full rounded-3xl bg-white shadow-xl p-10 lg:p-20 text-gray-800 relative md:flex items-center text-center md:text-left">
-        <div class="w-full md:w-1/2">
-            <div class="mb-10 lg:mb-20">
-                <img src="/logos/main.png" alt="SGG logo" class="w-48">
-            </div>
-            <div class="mb-10 md:mb-20 text-gray-600 font-light">
-                <h1 class="font-black uppercase text-3xl lg:text-5xl text-beige mb-10"><%= I18n.t('errors.404.title') %></h1>
-                <p><%= I18n.t('errors.404.text_1') %></p>
-                <p><%= I18n.t('errors.404.text_2') %></p>
-            </div>
-            <div class="mb-20 md:mb-0">
-                <%= link_to :back, class: 'text-lg font-light outline-none focus:outline-none transform transition-all hover:scale-110 text-beige    hover:brightness-50' do %>
-                  <i class="mdi mdi-arrow-left mr-2"></i><%= I18n.t('errors.404.button') %>
-                <% end %>
-            </div>
-        </div>
-        <div class="w-full md:w-1/2 text-center">
-          <%= render 'svgs/404' %>
-        </div>
+  <div class="flex-1 min-h-full min-w-full rounded-3xl bg-white shadow-xl p-10 lg:p-20 text-gray-800 relative md:flex items-center text-center md:text-left">
+    <div class="w-full md:w-1/2">
+      <div class="mb-10 lg:mb-20">
+        <img src="/logos/main.webp" alt="SGG logo" class="w-48">
+      </div>
+      <div class="mb-10 md:mb-20 text-gray-600 font-light">
+        <h1 class="font-black uppercase text-3xl lg:text-5xl text-beige mb-10"><%= I18n.t('errors.404.title') %></h1>
+        <p><%= I18n.t('errors.404.text_1') %></p>
+        <p><%= I18n.t('errors.404.text_2') %></p>
+      </div>
+      <div class="mb-20 md:mb-0">
+        <%= link_to :back, class: 'text-lg font-light outline-none focus:outline-none transform transition-all hover:scale-110 text-beige hover:brightness-50' do %>
+          <i class="mdi mdi-arrow-left mr-2"></i><%= I18n.t('errors.404.button') %>
+        <% end %>
+      </div>
     </div>
+    <div class="w-full md:w-1/2 text-center">
+      <%= render 'svgs/404' %>
+    </div>
+  </div>
 </div>
