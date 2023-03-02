@@ -92,6 +92,7 @@ strong {
   border-width: 0;
   height: 35vh;
   width: 35vh;
+  aspect-ratio: 1;
   /* overflow: hidden; */
 }
 
@@ -123,6 +124,21 @@ strong {
   justify-content: center;
 }
 
+@media screen and (max-width: 1170px) {
+  .center-hero {
+    flex-direction: column;
+    align-items: start;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .quarter {
+    margin-left: 3rem;
+    height: 30vh;
+    width: 30vh;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .center-hero {
     flex-direction: column;
@@ -130,6 +146,7 @@ strong {
   }
 
   .quarter {
+    margin-left: 0;
     height: 30vh;
     width: 30vh;
   }

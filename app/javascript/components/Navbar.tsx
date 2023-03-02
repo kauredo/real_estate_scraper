@@ -81,7 +81,7 @@ export default function Navbar(props: Props) {
       img: (
         <img
           className="h-5 inline-block mb-[6px]"
-          src="/images/kw_logo.png"
+          src="/images/kw_logo.webp"
           alt="KW Logo"
         />
       ),

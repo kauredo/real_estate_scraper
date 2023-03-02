@@ -24,10 +24,6 @@ export interface Photo {
   listings: Listing[];
 }
 
-export interface ListingByCity {
-  [key: string]: Listing;
-}
-
 export interface ListingComplex {
   id: number;
   name: string;

@@ -39,3 +39,4 @@ latest.dump
 /app/javascript/routes.js
 /app/javascript/routes.d.ts
 .env
+*.DS_Store
