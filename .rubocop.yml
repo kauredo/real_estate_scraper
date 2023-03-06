@@ -5,4 +5,5 @@ Layout/LineLength:
   Enabled: false
 AllCops:
   Exclude:
-    - db/schema.rb
+    - db/**/*
+    - bin/*
