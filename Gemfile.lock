@@ -108,7 +108,7 @@ GEM
       aws_cf_signer
       rest-client (>= 2.0.0)
     coderay (1.1.3)
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.2)
     connection_pool (2.3.0)
     crass (1.0.6)
     cssbundling-rails (1.1.2)
@@ -184,7 +184,7 @@ GEM
     mime-types-data (3.2022.0105)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
-    minitest (5.17.0)
+    minitest (5.18.0)
     mobility (1.2.9)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
@@ -205,8 +205,7 @@ GEM
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    pagy (5.10.1)
-      activesupport
+    pagy (6.0.2)
     parallel (1.22.1)
     paranoia (2.6.1)
       activerecord (>= 5.1, < 7.1)
@@ -331,7 +330,7 @@ GEM
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
-    tzinfo (2.0.5)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
@@ -380,7 +379,7 @@ DEPENDENCIES
   jwt
   listen (~> 3.7, >= 3.7.1)
   mobility (~> 1.2.9)
-  pagy (~> 5.10)
+  pagy (~> 6.0)
   paranoia
   pg (~> 1.4)
   pry
