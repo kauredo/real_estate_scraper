@@ -70,7 +70,7 @@ module Backoffice
     end
 
     def update_video_link
-      return unless @listing_complex.video_link.present?
+      return if @listing_complex.video_link.blank?
 
       @listing_complex.video_link.sub!('watch?v=', 'embed/')
       @listing_complex.video_link.sub!('youtu.be/', 'youtube.com/embed/')
@@ -85,12 +85,12 @@ module Backoffice
         photo = photos.first
         photo.main = true
         photo.order = 1
-        photo.save
       else
         photo = photos.where(order: nil).first
         photo.order = photos.where.not(order: nil).last.order + 1
-        photo.save
       end
+
+      photo.save
     end
 
     def listing_complex_params
