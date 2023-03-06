@@ -30,7 +30,7 @@ task scrape: :environment do |_t, args|
 
       begin
         puts '++++++++++++++'
-        ScrapeListingDetails.scrape_details(browser, url)
+        ScrapeListingDetails.scrape_details(@browser, url)
         puts '++++++++++++++'
       rescue StandardError => e
         puts 'ERROR:'
