@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:new_contact]
 
   def home
-    @listings = Listing.by_city
+    @listings = Listing.by_geography
     @results = {
       listingCount: Listing.all.count,
       variables: Variable.all

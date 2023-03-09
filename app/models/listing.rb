@@ -6,7 +6,18 @@ class Listing < ApplicationRecord
   acts_as_paranoid
   after_save :update_orders
 
-  CITIES = %w[Lisboa Porto].freeze
+  CITIES = {
+    north: %w[porto braga],
+    south: ['lisboa', 'oeiras', 'santarém', 'cascais', 'carcavelos', 'faro', 'alcochete',
+            'almada', 'amadora', 'barreiro', 'loures', 'mafra', 'moita', 'montijo',
+            'odivelas', 'palmela', 'seixal', 'sesimbra', 'setúbal', 'sintra',
+            'vila franca de xira', 'évora', 'santarém', 'beja', 'samora correia',
+            'elvas', 'portalegre', 'sines', 'rio maior', 'almeirim', 'cartaxo',
+            'montemor-o-novo', 'vendas novas', 'ponte de sor', 'vila nova de santo andré',
+            'moura', 'santiago do cacém', 'estremoz', 'alcácer do sal', 'reguengos de monsaraz',
+            'serpa', 'borba', 'portimão', 'faro', 'loulé', 'quarteira', 'loulé', 'lagos',
+            'tavira', 'olhão', 'vila real de santo antónio', 'almancil', 'silves', 'lagoa']
+  }
 
   enum :status, { recent: 0, standard: 1, agreed: 2, sold: 3 }
   belongs_to :listing_complex, optional: true
@@ -14,12 +25,18 @@ class Listing < ApplicationRecord
   default_scope { order(order: :asc, status: :asc, created_at: :desc) }
   scope :newest, -> { where(status: 'Novo') }
   scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
-  scope :by_city, lambda {
-                    all.group_by(&:city).sort_by { |city, _stuff| CITIES.index(city) || Float::INFINITY }.to_h
-                  }
+  scope :by_geography, lambda {
+                         all.group_by(&:city).to_h
+                       }
 
   def city
-    address.split(',').last.squish
+    city = address.split(',').last.squish
+
+    if CITIES[:south].include? city.downcase
+      'Sul'
+    else
+      'Norte'
+    end
   end
 
   private
