@@ -3,6 +3,7 @@
 module Backoffice
   class ListingsController < BackofficeController
     before_action :find_listing, except: %i[index create]
+    after_action :update_video_link, only: %i[create update]
     include Pagy::Backend
 
     def index
@@ -53,6 +54,14 @@ module Backoffice
 
     def find_listing
       @listing = Listing.find(params[:id])
+    end
+
+    def update_video_link
+      return if @listing.video_link.blank?
+
+      @listing.video_link.sub!('watch?v=', 'embed/')
+      @listing.video_link.sub!('youtu.be/', 'youtube.com/embed/')
+      @listing.save
     end
 
     def listing_params

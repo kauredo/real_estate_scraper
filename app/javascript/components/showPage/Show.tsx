@@ -25,7 +25,7 @@ export default function Show(props: Props) {
             onClick={() => setOpen(false)}
           >
             <div>
-              <div className="relative bottom-10">
+              <div className="relative">
                 <iframe
                   loading="lazy"
                   style={{ width: "90vw", aspectRatio: "16/9" }}
