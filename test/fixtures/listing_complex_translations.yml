@@ -1,14 +1,14 @@
-
 1st_listing_complex_translation:
   id: 3
   name: Santa Quitéria
-  description: "\"Santa Quitéria\" é o mais recente projeto de reabilitação urbana
-    de requinte no centro da cidade de Lisboa. \n\nSituado na zona nobre da cidade,
-    entre o Jardim da Estrela e o Largo do Rato este projeto distingue-se pela singularidade
-    e modernidade, e pela atenção dada ao luxo e ao conforto de cada moradia e apartamento.
-    Oferece áreas exteriores com excelente orientação. \n\nO \"Santa Quitéria\" é
-    composto por 6 apartamentos e 4 moradias que vão desde T0 a T3 com áreas entre
-    os 29 m2 e os 166 m2.\n\n"
+  description:
+    "\"Santa Quitéria\" é o mais recente projeto de reabilitação urbana de
+    requinte no centro da cidade de Lisboa. \n\nSituado na zona nobre da cidade,
+    entre o Jardim da Estrela e o Largo do Rato este projeto distingue-se pela
+    singularidade e modernidade, e pela atenção dada ao luxo e ao conforto de
+    cada moradia e apartamento. Oferece áreas exteriores com excelente
+    orientação. \n\nO \"Santa Quitéria\" é composto por 6 apartamentos e 4
+    moradias que vão desde T0 a T3 com áreas entre os 29 m2 e os 166 m2.\n\n"
   locale: pt
   listing_complex_id: 2
   subtext:
@@ -19,20 +19,22 @@
 2nd_listing_complex_translation:
   id: 1
   name: São Marcos - NOVA CONSTRUÇÃO
-  description: "Uma forma exclusiva de viver!\r\n\r\nEm Vila Nova de Gaia, numa localização
-    privilegiada e cheia de história, vai surgir o novo empreendimento “São Marcos”.\r\n\r\nNos
-    socalcos da Quinta de São Marcos, este exclusivo condomínio privado vai coroar
-    a margem sul do rio Douro com uma arquitetura contemporânea, a comodidade e o
-    conforto de uma construção inteiramente nova.\r\n\r\nNesta belíssima encosta das
-    margens do Douro, a modernidade arquitetónica será integrada na natureza e o verde
-    da paisagem e o azul do rio farão parte deste novo projeto residencial constituído
-    por 23 apartamentos e 3 moradias, distribuídos por edifícios distintos, com áreas
-    entre os 79 m2 e os 288 m2 e tipologias que variam de T1 e T4.\r\n\r\nO empreendimento
-    “São Marcos” é caracterizado por apartamentos com generosas áreas, terraços, garagem,
-    arrecadação, acabamentos de luxo e tudo o que precisa para viver de uma forma
-    única, desfrutando da maravilhosa vista sobre a bela cidade do Porto.\r\nVenha
-    conhecer este novo empreendimento de luxo e não perca a oportunidade de garantir
-    a sua forma exclusiva de viver!"
+  description:
+    "Uma forma exclusiva de viver!\r\n\r\nEm Vila Nova de Gaia, numa localização
+    privilegiada e cheia de história, vai surgir o novo empreendimento “São
+    Marcos”.\r\n\r\nNos socalcos da Quinta de São Marcos, este exclusivo
+    condomínio privado vai coroar a margem sul do rio Douro com uma arquitetura
+    contemporânea, a comodidade e o conforto de uma construção inteiramente
+    nova.\r\n\r\nNesta belíssima encosta das margens do Douro, a modernidade
+    arquitetónica será integrada na natureza e o verde da paisagem e o azul do
+    rio farão parte deste novo projeto residencial constituído por 23
+    apartamentos e 3 moradias, distribuídos por edifícios distintos, com áreas
+    entre os 79 m2 e os 288 m2 e tipologias que variam de T1 e T4.\r\n\r\nO
+    empreendimento “São Marcos” é caracterizado por apartamentos com generosas
+    áreas, terraços, garagem, arrecadação, acabamentos de luxo e tudo o que
+    precisa para viver de uma forma única, desfrutando da maravilhosa vista
+    sobre a bela cidade do Porto.\r\nVenha conhecer este novo empreendimento de
+    luxo e não perca a oportunidade de garantir a sua forma exclusiva de viver!"
   locale: pt
   listing_complex_id: 1
   subtext:
@@ -43,41 +45,48 @@
 3rd_listing_complex_translation:
   id: 6
   name: PRATA RIVERSIDE VILLAGE
-  description: "The perfect combination of location, architecture and urbanism, with
-    various typologies and usage profiles.\r\nAt Prata you can find the solution that
-    best suits you and your lifestyle.\r\n\r\n\r\nThe city of Lisbon and the Prata
-    area have always had each other. United by the river, inspired by the light, enchanted
-    by the view, heirs of a unique waterfront.\r\nThey just needed to know a project
-    capable of changing the way we live one of the most special places in the city.
-    \r\n\r\n\r\n\r\n\r\nWords that define this development: Breathtaking Views; Natural
-    Light; Details of excellence and Quality of life. \r\n"
+  description:
+    "The perfect combination of location, architecture and urbanism, with
+    various typologies and usage profiles.\r\nAt Prata you can find the solution
+    that best suits you and your lifestyle.\r\n\r\n\r\nThe city of Lisbon and
+    the Prata area have always had each other. United by the river, inspired by
+    the light, enchanted by the view, heirs of a unique waterfront.\r\nThey just
+    needed to know a project capable of changing the way we live one of the most
+    special places in the city. \r\n\r\n\r\n\r\n\r\nWords that define this
+    development: Breathtaking Views; Natural Light; Details of excellence and
+    Quality of life. \r\n"
   locale: en
   listing_complex_id: 4
-  subtext: "Housing Offer\r\n\r\nThe development is organized in 9 main lots with
-    781 apartments, with several layouts\r\navailable in each typology, which adds
-    to the already recognized comfort and quality of the\r\ndevelopment to a very
-    central location.\r\n\r\nThese 9 lots are distributed by the Urban, Square and
-    Park Buildings.\r\nThis development has a varied set of apartments, with various
-    layouts available in each\r\ntypology, which adds to the already recognized comfort
-    and quality of the development to a\r\nvery central location.\r\n\r\nPrice Range\r\n\r\n290 000€
-    euros for a Studio\r\n425 000€ euros for a one bedroom apartment\r\n610 000€ for
-    a 2 bedroom apartment\r\n880,000€ for a 3 bedroom apartment\r\n1.215,000€ for
-    a 3+1 Bedroom apartment\r\n1.510,000€ for a 4 bedroom apartment"
-  final_text: 'For more information please contact me on +351 93 28 29 084 or email:
-    sofia.galvao@kwportugal'
+  subtext:
+    "Housing Offer\r\n\r\nThe development is organized in 9 main lots with 781
+    apartments, with several layouts\r\navailable in each typology, which adds
+    to the already recognized comfort and quality of the\r\ndevelopment to a
+    very central location.\r\n\r\nThese 9 lots are distributed by the Urban,
+    Square and Park Buildings.\r\nThis development has a varied set of
+    apartments, with various layouts available in each\r\ntypology, which adds
+    to the already recognized comfort and quality of the development to
+    a\r\nvery central location.\r\n\r\nPrice Range\r\n\r\n290 000€ euros for a
+    Studio\r\n425 000€ euros for a one bedroom apartment\r\n610 000€ for a 2
+    bedroom apartment\r\n880,000€ for a 3 bedroom apartment\r\n1.215,000€ for a
+    3+1 Bedroom apartment\r\n1.510,000€ for a 4 bedroom apartment"
+  final_text:
+    "For more information please contact me on +351 93 28 29 084 or email:
+    sofia.galvao@kwportugal"
   :created_at: 2023-03-10 19:38:52 UTC
   :updated_at: 2023-03-10 19:38:52 UTC
 
 4th_listing_complex_translation:
   id: 4
   name: Santa Quitéria
-  description: "\"Santa Quitéria\" é o mais recente projeto de reabilitação urbana
-    de requinte no centro da cidade de Lisboa. \r\n\r\nSituado na zona nobre da cidade,
-    entre o Jardim da Estrela e o Largo do Rato este projeto distingue-se pela singularidade
-    e modernidade, e pela atenção dada ao luxo e ao conforto de cada moradia e apartamento.
-    Oferece áreas exteriores com excelente orientação. \r\n\r\nO \"Santa Quitéria\"
-    é composto por 6 apartamentos e 4 moradias que vão desde T0 a T3 com áreas entre
-    os 29 m2 e os 166 m2.\r\n\r\n"
+  description:
+    "\"Santa Quitéria\" é o mais recente projeto de reabilitação urbana de
+    requinte no centro da cidade de Lisboa. \r\n\r\nSituado na zona nobre da
+    cidade, entre o Jardim da Estrela e o Largo do Rato este projeto
+    distingue-se pela singularidade e modernidade, e pela atenção dada ao luxo e
+    ao conforto de cada moradia e apartamento. Oferece áreas exteriores com
+    excelente orientação. \r\n\r\nO \"Santa Quitéria\" é composto por 6
+    apartamentos e 4 moradias que vão desde T0 a T3 com áreas entre os 29 m2 e
+    os 166 m2.\r\n\r\n"
   locale: en
   listing_complex_id: 2
   subtext:
@@ -88,20 +97,22 @@
 5th_listing_complex_translation:
   id: 2
   name: São Marcos - NOVA CONSTRUÇÃO
-  description: "Uma forma exclusiva de viver!\r\n\r\nEm Vila Nova de Gaia, numa localização
-    privilegiada e cheia de história, vai surgir o novo empreendimento “São Marcos”.\r\n\r\nNos
-    socalcos da Quinta de São Marcos, este exclusivo condomínio privado vai coroar
-    a margem sul do rio Douro com uma arquitetura contemporânea, a comodidade e o
-    conforto de uma construção inteiramente nova.\r\n\r\nNesta belíssima encosta das
-    margens do Douro, a modernidade arquitetónica será integrada na natureza e o verde
-    da paisagem e o azul do rio farão parte deste novo projeto residencial constituído
-    por 23 apartamentos e 3 moradias, distribuídos por edifícios distintos, com áreas
-    entre os 79 m2 e os 288 m2 e tipologias que variam de T1 e T4.\r\n\r\nO empreendimento
-    “São Marcos” é caracterizado por apartamentos com generosas áreas, terraços, garagem,
-    arrecadação, acabamentos de luxo e tudo o que precisa para viver de uma forma
-    única, desfrutando da maravilhosa vista sobre a bela cidade do Porto.\r\nVenha
-    conhecer este novo empreendimento de luxo e não perca a oportunidade de garantir
-    a sua forma exclusiva de viver!"
+  description:
+    "Uma forma exclusiva de viver!\r\n\r\nEm Vila Nova de Gaia, numa localização
+    privilegiada e cheia de história, vai surgir o novo empreendimento “São
+    Marcos”.\r\n\r\nNos socalcos da Quinta de São Marcos, este exclusivo
+    condomínio privado vai coroar a margem sul do rio Douro com uma arquitetura
+    contemporânea, a comodidade e o conforto de uma construção inteiramente
+    nova.\r\n\r\nNesta belíssima encosta das margens do Douro, a modernidade
+    arquitetónica será integrada na natureza e o verde da paisagem e o azul do
+    rio farão parte deste novo projeto residencial constituído por 23
+    apartamentos e 3 moradias, distribuídos por edifícios distintos, com áreas
+    entre os 79 m2 e os 288 m2 e tipologias que variam de T1 e T4.\r\n\r\nO
+    empreendimento “São Marcos” é caracterizado por apartamentos com generosas
+    áreas, terraços, garagem, arrecadação, acabamentos de luxo e tudo o que
+    precisa para viver de uma forma única, desfrutando da maravilhosa vista
+    sobre a bela cidade do Porto.\r\nVenha conhecer este novo empreendimento de
+    luxo e não perca a oportunidade de garantir a sua forma exclusiva de viver!"
   locale: en
   listing_complex_id: 1
   subtext:
@@ -112,28 +123,33 @@
 6th_listing_complex_translation:
   id: 5
   name: Empreendimento Prata
-  description: "A combinação perfeita entre localização, arquitetura e urbanismo,
-    com diversas tipologias e perfis de utilização.\r\nNo Prata, é possível encontrar
-    a solução que mais se adequa a si e ao seu estilo de vida.\r\n\r\n\r\nA cidade
-    de Lisboa e a zona do Prata sempre se tiveram uma à outra. Unidas pelo rio, inspiradas
-    pela luz, encantadas com a vista, herdeiras de uma frente ribeirinha única.\r\nSó́
-    lhes faltava conhecer um projeto capaz de mudar a forma como vivemos um dos lugares
-    mais especiais da cidade. \r\n\r\n\r\n\r\n\r\nPalavras que definem este empreendimento:
-    Vistas de cortar a respiração; Luz Natural; Detalhes de excelência e Qualidade
-    de vida. "
+  description:
+    "A combinação perfeita entre localização, arquitetura e urbanismo, com
+    diversas tipologias e perfis de utilização.\r\nNo Prata, é possível
+    encontrar a solução que mais se adequa a si e ao seu estilo de
+    vida.\r\n\r\n\r\nA cidade de Lisboa e a zona do Prata sempre se tiveram uma
+    à outra. Unidas pelo rio, inspiradas pela luz, encantadas com a vista,
+    herdeiras de uma frente ribeirinha única.\r\nSó́ lhes faltava conhecer um
+    projeto capaz de mudar a forma como vivemos um dos lugares mais especiais da
+    cidade. \r\n\r\n\r\n\r\n\r\nPalavras que definem este empreendimento: Vistas
+    de cortar a respiração; Luz Natural; Detalhes de excelência e Qualidade de
+    vida. "
   locale: pt
   listing_complex_id: 4
-  subtext: "Oferta Habitacional\r\n\r\nO empreendimento está organizado em 9 lotes
-    principais com previsão para 781 apartamentos, com vários layouts disponíveis
-    em cada tipologia, que vem juntar ao já reconhecido conforto e qualidade do empreendimento
-    a uma localização muito central. \r\n\r\nEstes 9 lotes estão distribuídos pelos
-    Edificios Urban, Square e Park.\r\n\r\nEste empreendimento conta com um conjunto
-    variado de apartamentos, com vários layouts disponíveis em cada tipologia, que
-    vem juntar ao já reconhecido conforto e qualidade do empreendimento a uma localização
-    muito central. \r\n\r\n290 000€ para um Estúdio\r\n4€, T1\r\n610 000€ para um
-    apartamento T2\r\n880 000€ para um apartamento T3\r\n1 215 000€ para um apartamento
-    T3+1\r\n1 510 000€ para um apartamento T4\r\n\r\nPara mais informações contacte-me
-    através do +351 93 28 29 084 ou do email: sofia.galvao@kwportugal\r\n"
+  subtext:
+    "Oferta Habitacional\r\n\r\nO empreendimento está organizado em 9 lotes
+    principais com previsão para 781 apartamentos, com vários layouts
+    disponíveis em cada tipologia, que vem juntar ao já reconhecido conforto e
+    qualidade do empreendimento a uma localização muito central. \r\n\r\nEstes 9
+    lotes estão distribuídos pelos Edificios Urban, Square e Park.\r\n\r\nEste
+    empreendimento conta com um conjunto variado de apartamentos, com vários
+    layouts disponíveis em cada tipologia, que vem juntar ao já reconhecido
+    conforto e qualidade do empreendimento a uma localização muito central.
+    \r\n\r\n290 000€ para um Estúdio\r\n4€, T1\r\n610 000€ para um apartamento
+    T2\r\n880 000€ para um apartamento T3\r\n1 215 000€ para um apartamento
+    T3+1\r\n1 510 000€ para um apartamento T4\r\n\r\nPara mais informações
+    contacte-me através do +351 93 28 29 084 ou do email:
+    sofia.galvao@kwportugal\r\n"
   final_text:
   :created_at: 2023-03-10 19:38:52 UTC
   :updated_at: 2023-03-10 19:38:52 UTC
