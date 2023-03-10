@@ -1,0 +1,36 @@
+
+1st_variable_translation:
+  id: 3
+  name: Prémio kw 2021
+  value: Prata
+  locale: pt
+  variable_id: 18
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC
+
+2nd_variable_translation:
+  id: 5
+  name: Negócios 2022
+  value: '15000000'
+  locale: pt
+  variable_id: 19
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC
+
+3rd_variable_translation:
+  id: 6
+  name: Business 2022
+  value: '15000000'
+  locale: en
+  variable_id: 19
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC
+
+4th_variable_translation:
+  id: 4
+  name: Award kw 2021
+  value: Silver
+  locale: en
+  variable_id: 18
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC

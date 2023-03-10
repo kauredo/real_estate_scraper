@@ -1,11 +1,12 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+1st_variable:
+  id: 19
+  name: Negócios 2022
+  value: '15000000'
+  icon: fas fa-hand-holding-usd
+
+2nd_variable:
+  id: 18
+  name: Prémio kw 2021
+  value: Prata
+  icon: fas fa-trophy

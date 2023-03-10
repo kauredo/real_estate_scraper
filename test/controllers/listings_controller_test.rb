@@ -4,7 +4,10 @@ require 'test_helper'
 
 class ListingsControllerTest < ActionDispatch::IntegrationTest
   test 'should get show' do
-    get listings_show_url
+    listing = Listing.first
+
+    get listing_path(id: listing.id)
+
     assert_response :success
   end
 end

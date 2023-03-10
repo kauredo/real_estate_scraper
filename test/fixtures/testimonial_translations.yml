@@ -1,0 +1,89 @@
+
+1st_testimonial_translation:
+  id: 1
+  text: Sofia found me my home, she is a professional and made the experience so pleasant
+    and safe. I will trust her with all of my future real estate projects!
+  locale: pt
+  testimonial_id: 1
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC
+
+2nd_testimonial_translation:
+  id: 2
+  text: Sofia found me my home, she is a professional and made the experience so pleasant
+    and safe. I will trust her with all of my future real estate projects!
+  locale: en
+  testimonial_id: 1
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC
+
+3rd_testimonial_translation:
+  id: 3
+  text: Com o conhecimento de anos espelhado na confiança com que fala do assunto.
+    Nem hesitei...A Sofia fez um trabalho formidável na divulgação do meu imóvel e
+    em 3 tempos chegou ao cliente ideal, eu sózinha levaria muito mais tempo. Recomendo
+    vivamente os seus serviços!
+  locale: pt
+  testimonial_id: 2
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC
+
+4th_testimonial_translation:
+  id: 5
+  text: 'Trabalhar com a Sofia foi uma lufada de ar fresco num mundo nem sempre profissional.
+    Assertiva, dedicada e extremamente profissional, sentimo-nos acompanhados durante
+    todo o processo. Conhecedora do mercado, e dos seus clientes, todas as visitas
+    que realizou concretizaram-se numa proposta realista. Vendi numa semana! Não penso
+    em mais ninguém quando quiser comprar ou vender a minha casa! '
+  locale: pt
+  testimonial_id: 3
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC
+
+5th_testimonial_translation:
+  id: 7
+  text: 'A Sofia é uma profissional incansável e extremamente competente. Apresenta
+    soluções realistas e enquadradas no mercado imobiliário e com o cliente. Defende
+    os seus clientes (vendedores e compradores) sempre com o objetivo de realizar
+    um bom negocio (para todos). As visitas que realiza são estudadas e assertivas,
+    e quase sempre concretizam-se numa venda/ compra. É com certeza, a nossa parceira
+    imobiliária! '
+  locale: pt
+  testimonial_id: 4
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC
+
+6th_testimonial_translation:
+  id: 4
+  text: With the knowledge of years mirrored in the confidence with which she speaks
+    on the subject. I didn't hesitate...Sofia did a fantastic job in promoting my
+    property and in 3 times she reached the ideal client, I alone would have taken
+    much longer. I highly recommend her services!
+  locale: en
+  testimonial_id: 2
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC
+
+7th_testimonial_translation:
+  id: 6
+  text: Working with Sofia was a breath of fresh air in a not always professional
+    world. Assertive, dedicated and extremely professional, we felt accompanied during
+    the whole process. Knowing the market, and her clients, all the visits she made
+    resulted in a realistic proposal. I sold it in a week! I won't think of anyone
+    else when I want to buy or sell my house!
+  locale: en
+  testimonial_id: 3
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC
+
+8th_testimonial_translation:
+  id: 8
+  text: Sofia is a tireless and extremely competent professional. She presents realistic
+    solutions that fit the real estate market and the client. She defends her clients
+    (sellers and buyers) always with the objective of making a good deal (for everyone).
+    The visits it makes are studied and assertive, and almost always result in a sale/
+    purchase. It is for sure, our real estate partner!
+  locale: en
+  testimonial_id: 4
+  :created_at: 2023-03-10 19:38:52 UTC
+  :updated_at: 2023-03-10 19:38:52 UTC

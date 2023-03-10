@@ -1,11 +1,33 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+1st_testimonial:
+  id: 1
+  name: Nir
+  text: Sofia found me my home, she is a professional and made the experience so pleasant
+    and safe. I will trust her with all of my future real estate projects!
+
+2nd_testimonial:
+  id: 2
+  name: Patrícia Figueiredo
+  text: Com o conhecimento de anos espelhado na confiança com que fala do assunto.
+    Nem hesitei...A Sofia fez um trabalho formidável na divulgação do meu imóvel e
+    em 3 tempos chegou ao cliente ideal, eu sózinha levaria muito mais tempo. Recomendo
+    vivamente os seus serviços!
+
+3rd_testimonial:
+  id: 3
+  name: 'Sónia Maia '
+  text: 'Trabalhar com a Sofia foi uma lufada de ar fresco num mundo nem sempre profissional.
+    Assertiva, dedicada e extremamente profissional, sentimo-nos acompanhados durante
+    todo o processo. Conhecedora do mercado, e dos seus clientes, todas as visitas
+    que realizou concretizaram-se numa proposta realista. Vendi numa semana! Não penso
+    em mais ninguém quando quiser comprar ou vender a minha casa! '
+
+4th_testimonial:
+  id: 4
+  name: " ProjetObra by Aguiar Maia Arquitectos"
+  text: 'A Sofia é uma profissional incansável e extremamente competente. Apresenta
+    soluções realistas e enquadradas no mercado imobiliário e com o cliente. Defende
+    os seus clientes (vendedores e compradores) sempre com o objetivo de realizar
+    um bom negocio (para todos). As visitas que realiza são estudadas e assertivas,
+    e quase sempre concretizam-se numa venda/ compra. É com certeza, a nossa parceira
+    imobiliária! '

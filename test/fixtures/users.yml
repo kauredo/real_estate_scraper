@@ -1,13 +1,56 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone_string: MyString
+1st_user:
+  id: 2
+  first_name: hugo
+  last_name: figueiredo
+  email: hugo.central.00@gmail.com
+  phone:
+  confirmed_email:
 
-two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone_string: MyString
+2nd_user:
+  id: 1
+  first_name: Vasco
+  last_name: Figueiredo
+  email: vasco.kf@gmail.com
+  phone:
+  confirmed_email: true
+
+3rd_user:
+  id: 3
+  first_name: sofia
+  last_name: galvão
+  email: sgalvaopt@gmail.com
+  phone:
+  confirmed_email:
+
+4th_user:
+  id: 4
+  first_name: João
+  last_name: Maria Costa
+  email: joaocosta296@gmail.com
+  phone:
+  confirmed_email:
+
+5th_user:
+  id: 7
+  first_name: Andreia
+  last_name: Teste
+  email: andreialopesc6@gmail.com
+  phone:
+  confirmed_email: true
+
+6th_user:
+  id: 8
+  first_name: Vasco
+  last_name: Teste
+  email: vaskafig@gmail.com
+  phone:
+  confirmed_email:
+
+7th_user:
+  id: 10
+  first_name: Vasco
+  last_name: Kaufmann Figueiredo
+  email: vasco@imkaufmann.com
+  phone:
+  confirmed_email:

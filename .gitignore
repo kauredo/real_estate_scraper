@@ -40,3 +40,4 @@ latest.dump
 /app/javascript/routes.d.ts
 .env
 *.DS_Store
+/coverage
