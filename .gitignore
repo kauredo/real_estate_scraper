@@ -41,3 +41,4 @@ latest.dump
 .env
 *.DS_Store
 /coverage
+.fly-pg-secrets
