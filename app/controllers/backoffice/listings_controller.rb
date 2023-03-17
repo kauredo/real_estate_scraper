@@ -57,6 +57,7 @@ module Backoffice
     end
 
     def update_video_link
+      return unless @listing.present?
       return if @listing.video_link.blank?
 
       @listing.video_link.sub!('watch?v=', 'embed/')

@@ -53,7 +53,7 @@ gem 'bootsnap', require: false
 # Other gems here
 gem 'carrierwave'
 gem 'cloudinary'
-gem 'devise', '~> 4.8'
+gem 'devise'
 gem 'i18n-js'
 gem 'js-routes'
 gem 'jwt'

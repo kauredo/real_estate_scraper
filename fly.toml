@@ -4,17 +4,20 @@ app = "sofia-galvao-group"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "mad"
-processes = []
 
 [env]
 
 [experimental]
   auto_rollback = true
 
+[processes]
+  web = "bundle exec puma -C config/puma.rb"
+  worker = "bundle exec sidekiq -C config/sidekiq.yml"
+
 [[services]]
   http_checks = []
   internal_port = 3000
-  processes = ["app"]
+  processes = ["web"]
   protocol = "tcp"
   script_checks = []
   [services.concurrency]
