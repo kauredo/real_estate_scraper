@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     devise_scope :admin do
@@ -50,5 +52,9 @@ Rails.application.routes.draw do
     end
 
     resources :errors, only: 'show' if Rails.env.development?
+  end
+
+  authenticate :admin, ->(a) { a.confirmed? } do
+    mount Sidekiq::Web => '/sidekiq'
   end
 end

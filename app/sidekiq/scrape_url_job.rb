@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class ScrapeUrlJob < ApplicationJob
+class ScrapeUrlJob
+  include Sidekiq::Worker
   require 'rake'
   queue_as :default
 
