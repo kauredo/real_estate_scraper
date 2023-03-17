@@ -140,8 +140,13 @@ GEM
       rubocop
       smart_properties
     erubi (1.12.0)
+    et-orbi (1.2.7)
+      tzinfo
     execjs (2.8.1)
     ffi (1.15.5)
+    fugit (1.8.1)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     glob (0.4.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -227,6 +232,7 @@ GEM
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.6.2)
     rack (2.2.6.4)
     rack-test (2.1.0)
@@ -309,6 +315,8 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
+    rufus-scheduler (3.8.2)
+      fugit (~> 1.1, >= 1.1.6)
     selenium-webdriver (4.8.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -323,6 +331,10 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.11.0)
+    sidekiq-scheduler (5.0.2)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 6, < 8)
+      tilt (>= 1.4.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -414,6 +426,7 @@ DEPENDENCIES
   sentry-rails
   sentry-ruby
   sidekiq
+  sidekiq-scheduler
   simplecov
   sprockets-rails
   stimulus-rails
@@ -424,7 +437,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.0p0
+   ruby 3.1.3p185
 
 BUNDLED WITH
-   2.3.7
+   2.4.8

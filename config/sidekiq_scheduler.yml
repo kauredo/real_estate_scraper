@@ -1,0 +1,2 @@
+ScrapeAll:
+  cron: "10 3 * * *" # Runs when second = 0
