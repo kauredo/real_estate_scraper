@@ -1,8 +1,8 @@
 import React, { Suspense, lazy, useLayoutEffect, useState } from "react";
 import { Listing, ResultNumbers, Testimonial } from "../utils/Interfaces";
-const Newsletter = lazy(() => import('./Newsletter'));
-const Cards = lazy(() => import('./Cards'));
-const Results = lazy(() => import('./Results'));
+const Newsletter = lazy(() => import("./Newsletter"));
+const Cards = lazy(() => import("./Cards"));
+const Results = lazy(() => import("./Results"));
 import Hero from "../shared/Hero";
 
 interface Props {

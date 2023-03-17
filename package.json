@@ -11,6 +11,8 @@
     "@heroicons/react": "^1.0.5",
     "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo-rails": "^7.1.1",
+    "@sentry/react": "^7.43.0",
+    "@sentry/tracing": "^7.43.0",
     "@types/react-transition-group": "^4.4.4",
     "autoprefixer": "^10.4.8",
     "esbuild": "^0.14.23",

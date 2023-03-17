@@ -65,6 +65,8 @@ gem 'rails-i18n'
 gem 'react-rails'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
+gem 'sentry-ruby'
+gem 'sentry-rails'
 gem 'sidekiq'
 gem 'watir'
 
