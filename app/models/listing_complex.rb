@@ -5,12 +5,13 @@ class ListingComplex < ApplicationRecord
   translates :name, :description, :subtext, :final_text
   has_many :listings, dependent: :destroy
   has_many :photos, dependent: :destroy
+  has_one :translation, class_name: 'ListingComplex::Translation'
   validates :name, presence: { message: 'não pode estar vazio' }
   validates :description, presence: { message: 'não pode estar vazio' }
   after_save :update_orders
 
   scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
-  default_scope { order(order: :asc) }
+  default_scope { includes(:translation).order(order: :asc) }
 
   def main_photo
     photos.find_by(main: true) || photos.first
