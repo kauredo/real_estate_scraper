@@ -352,3 +352,6 @@ pt:
       title: O servidor está em baixo!
       text_1: Estamos a fazer o nosso melhor para o resolver.
       text_2: Por favor tente novamente dentro de momentos.
+    email:
+      invalid: não é um email válido
+    presence: não pode estar vazio

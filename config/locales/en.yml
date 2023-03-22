@@ -343,3 +343,6 @@ en:
       title: The server is down!
       text_1: We're trying our best to fix it.
       text_2: Please try again in a few minutes.
+    email:
+      invalid: is not a valid email
+    presence: cannot be empty

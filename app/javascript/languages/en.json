@@ -296,6 +296,9 @@
         "title": "The server is down!"
       },
       "connection_refused": "Oops! Failed to connect to the Web Console middleware.\nPlease make sure a rails development server is running.\n",
+      "email": {
+        "invalid": "is not a valid email"
+      },
       "format": "%{attribute} %{message}",
       "messages": {
         "accepted": "must be accepted",
@@ -354,6 +357,7 @@
           "other": "is the wrong length (should be %{count} characters)"
         }
       },
+      "presence": "cannot be empty",
       "template": {
         "body": "There were problems with the following fields:",
         "header": {

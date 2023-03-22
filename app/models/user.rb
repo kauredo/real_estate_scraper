@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 
 class EmailValidator < ActiveModel::EachValidator
-  def validate_each(record, attribute, value)
-    return if value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  EMAIL_REGEX = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
 
-    record.errors.add attribute, (options[:message] || 'não é um email válido')
+  def validate_each(record, attribute, value)
+    return if value.match(EMAIL_REGEX)
+
+    record.errors.add attribute, (options[:message] || I18n.t('errors.email.invalid'))
   end
 end
 
 class User < ApplicationRecord
-  validates :email, presence: { message: 'não pode estar vazio' }, uniqueness: { case_sensitive: false }, email: true
-  validates :first_name, presence: { message: 'não pode estar vazio' }
-  validates :last_name, presence: { message: 'não pode estar vazio' }
+  validates :email, presence: { message: I18n.t('errors.presence') }, uniqueness: { case_sensitive: false }, email: true
+  validates :first_name, presence: { message: I18n.t('errors.presence') }
+  validates :last_name, presence: { message: I18n.t('errors.presence') }
 
   scope :for_newsletter, -> { where(confirmed_email: true) }
 

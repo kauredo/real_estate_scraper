@@ -359,6 +359,9 @@
         "text_2": "Por favor tente novamente dentro de momentos.",
         "title": "O servidor está em baixo!"
       },
+      "email": {
+        "invalid": "não é um email válido"
+      },
       "format": "%{attribute} %{message}",
       "messages": {
         "accepted": "tem de ser aceite",
@@ -395,6 +398,7 @@
         "too_short": "é demasiado pequeno (o mínimo é de %{count} caracteres)",
         "wrong_length": "comprimento errado (deve ter %{count} caracteres)"
       },
+      "presence": "não pode estar vazio",
       "template": {
         "body": "Por favor, verifique os seguintes campos:",
         "header": {
