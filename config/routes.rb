@@ -43,6 +43,9 @@ Rails.application.routes.draw do
         member do
           post '/update_details', to: 'listings#update_details'
         end
+        collection do
+          post '/update_all', to: 'listings#update_all'
+        end
       end
       resources :listing_complexes do
         patch 'photos'

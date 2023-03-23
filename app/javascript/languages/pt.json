@@ -561,6 +561,9 @@
       "update": {
         "notice": "Imóvel editado com sucesso"
       },
+      "update_all": {
+        "notice": "Todos os imóveis serão atualizado dentro de minutos, espera antes de tentar novamente"
+      },
       "update_details": {
         "notice": "O imóvel será atualizado dentro de minutos, espera antes de tentar novamente"
       },

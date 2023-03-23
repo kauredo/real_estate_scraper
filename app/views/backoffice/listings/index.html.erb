@@ -1,6 +1,10 @@
 <div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
   <%# Variáveis %>
   <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
+    <%= form_for(Listing.new, url: update_all_backoffice_listings_path, html: { class: 'my-6' }) do |f| %>
+      <%= f.submit 'Buscar os imóveis em falta ao site KW', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    <% end %>
+
     <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Imóveis</h2>
     <%= react_component 'indexPage--Listings', { listings: @listings, backoffice: true }  %>
   </div>

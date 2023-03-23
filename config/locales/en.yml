@@ -328,6 +328,10 @@ en:
     update_details:
       notice:
         Listing will be updated shortly, please wait and check in a few minutes
+    update_all:
+      notice:
+        All listings will be updated shortly, please wait and check in a few
+        minutes
 
   tasks:
     scrape:

@@ -43,7 +43,9 @@ export default function LongCard(props: Props) {
   };
 
   useEffect(() => {
-    box = document.getElementById(`listing_complex_listing_ids_${listing.id}`);
+    let box = document.getElementById(
+      `listing_complex_listing_ids_${listing.id}`
+    );
     if (box) {
       setCheckbox(box);
       setChecked(box.checked);

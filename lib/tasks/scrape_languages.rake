@@ -2,6 +2,7 @@
 
 require 'selenium-webdriver'
 require 'scrape_listing_details'
+require 'task_helper'
 
 desc 'Scrape english listings off KW website'
 task scrape_en: :environment do |_t, args|
@@ -22,19 +23,18 @@ task scrape_en: :environment do |_t, args|
 
   puts "Found #{listings.size} listings"
 
-  listings.each do |listing|
+  def scrape_listing(listing)
     puts ''
     puts "Started listing #{listing.id}"
     I18n.with_locale(:en) do
-      ScrapeListingDetails.scrape_language_details(@browser, listing, 'English (United States)')
+      ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
     end
     puts "Finished listing #{listing.id}"
     puts ''
-  rescue StandardError => e
-    puts '~~~~~~~~~~~~~'
-    puts "Error: #{e}"
-    puts '~~~~~~~~~~~~~'
-    retry
+  end
+
+  listings.each do |listing|
+    TaskHelper.run_and_retry_on_exception(method(:scrape_listing), params: listing)
   end
 
   @browser.close
@@ -54,19 +54,18 @@ task scrape_pt: :environment do |_t, args|
     l.title_pt.blank? || l.description_pt.blank?
   end
 
-  listings.each do |listing|
+  def scrape_listing(listing)
     puts ''
     puts "Started listing #{listing.id}"
-    I18n.with_locale(:pt) do
+    I18n.with_locale(:en) do
       ScrapeListingDetails.scrape_language_details(@browser, listing, 'Português')
     end
     puts "Finished listing #{listing.id}"
     puts ''
-  rescue StandardError => e
-    puts '~~~~~~~~~~~~~'
-    puts "Error: #{e}"
-    puts '~~~~~~~~~~~~~'
-    retry
+  end
+
+  listings.each do |listing|
+    TaskHelper.run_and_retry_on_exception(method(:scrape_listing), params: listing)
   end
 
   @browser.close

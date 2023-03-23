@@ -2,7 +2,7 @@
 
 module Backoffice
   class ListingsController < BackofficeController
-    before_action :find_listing, except: %i[index create]
+    before_action :find_listing, except: %i[index create update_all]
     after_action :update_video_link, only: %i[create update]
     include Pagy::Backend
 
@@ -38,6 +38,12 @@ module Backoffice
       @listing.update(new_params)
       flash[:notice] = I18n.t('listing.update.notice')
       redirect_to edit_backoffice_listing_path(@listing)
+    end
+
+    def update_all
+      ScrapeAll.perform_async
+      flash[:notice] = I18n.t('listing.update_all.notice')
+      redirect_to backoffice_listings_path
     end
 
     def destroy
