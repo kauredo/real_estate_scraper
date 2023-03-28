@@ -137,7 +137,7 @@ export default function NewShow(props: Props) {
                           "text-center border border-slate-700 relative"
                         }
                       >
-                        <td className=" p-2">
+                        <td className=" p-2 relative">
                           {["agreed"].includes(listing.status) && (
                             <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white opacity-50 flex items-center justify-center"></span>
                           )}
@@ -223,10 +223,10 @@ export default function NewShow(props: Props) {
           )}
           <div
             className={`m-2 py-4 tablet:mx-0 w-full ${
-              complex.listings.length > 0 ||
-              (complex.listing_prices &&
-                complex.listing_prices.length > 0 &&
-                "tablet:w-1/2")
+              (complex.listings.length > 0 ||
+                (complex.listing_prices &&
+                  complex.listing_prices.length > 0)) &&
+              "tablet:w-1/2"
             }`}
           >
             {video()}
