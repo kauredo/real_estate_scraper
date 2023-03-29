@@ -69,6 +69,7 @@ gem 'sentry-ruby'
 gem 'sentry-rails'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
+gem 'tinymce-rails'
 gem 'watir'
 
 # Tests / Scrape

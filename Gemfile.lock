@@ -355,6 +355,8 @@ GEM
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
+    tinymce-rails (6.4.0)
+      railties (>= 3.1.1)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -430,6 +432,7 @@ DEPENDENCIES
   simplecov
   sprockets-rails
   stimulus-rails
+  tinymce-rails
   turbo-rails
   tzinfo-data
   watir

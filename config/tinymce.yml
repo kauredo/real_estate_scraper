@@ -1,0 +1,9 @@
+height: 500
+menubar: false
+toolbar:
+  - undo redo | blocks | bold italic | alignleft aligncenter alignright |
+    bullist numlist outdent indent | removeformat | help
+plugins:
+  - insertdatetime lists media table code help wordcount - undo redo | blocks |
+    bold italic | alignleft aligncenter alignright | bullist numlist outdent
+    indent | removeformat | help | code
