@@ -10,6 +10,7 @@ pt:
     listings: Imóveis
     testimonies: Testemunhos
     language: Change site to English
+    blog_posts: Blog
 
   footer:
     about: sobre nós
@@ -296,6 +297,9 @@ pt:
 
   privacy:
     header: Política de Privacidade
+
+  blog_posts:
+    header: Blog
 
   terms:
     header: Termos e Condições

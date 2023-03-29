@@ -38,6 +38,9 @@
         }
       }
     },
+    "blog_posts": {
+      "header": "Blog"
+    },
     "buy": {
       "header": "Buy"
     },
@@ -516,6 +519,7 @@
     },
     "navbar": {
       "about": "About Us",
+      "blog_posts": "Blog",
       "buy": "Buy",
       "contacts": "Contacts",
       "enterprises": "Enterprises",

@@ -27,6 +27,9 @@
         "title": "Who are we?"
       }
     },
+    "blog_posts": {
+      "header": "Blog"
+    },
     "buy": {
       "header": "Buy"
     },
@@ -420,6 +423,7 @@
     },
     "navbar": {
       "about": "About Us",
+      "blog_posts": "Blog",
       "buy": "Buy",
       "contacts": "Contacts",
       "enterprises": "Enterprises",
@@ -597,6 +601,9 @@
         "sub2": "Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
         "title": "Quem somos?"
       }
+    },
+    "blog_posts": {
+      "header": "Blog"
     },
     "buy": {
       "header": "Comprar"
@@ -1071,6 +1078,7 @@
     },
     "navbar": {
       "about": "Sobre Nós",
+      "blog_posts": "Blog",
       "buy": "Comprar",
       "contacts": "Contactos",
       "enterprises": "Empreendimentos",

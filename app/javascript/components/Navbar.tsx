@@ -109,6 +109,12 @@ export default function Navbar(props: Props) {
       url: sanitizeURL(window.Routes.backoffice_testimonials_path),
       img: null,
     },
+    {
+      title: `${i18n.t("navbar.blog_posts")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.backoffice_blog_posts_path),
+      img: null,
+    },
   ];
 
   const usedItems = backoffice ? backofficeItems : items;

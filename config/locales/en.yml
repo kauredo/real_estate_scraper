@@ -10,6 +10,7 @@ en:
     listings: Listings
     testimonies: Testimonies
     language: Mudar site para Português
+    blog_posts: Blog
 
   footer:
     about: about us
@@ -284,6 +285,9 @@ en:
         What will make Keller Williams better in the long run is the way people
         think.
     more: Find out more about KW Portugal
+
+  blog_posts:
+    header: Blog
 
   privacy:
     header: Privacy Policy
