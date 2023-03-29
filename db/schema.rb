@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_29_141332) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_29_163911) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,9 +27,30 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_141332) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "blog_photos", force: :cascade do |t|
+    t.text "image"
+    t.boolean "main", default: false
+    t.bigint "blog_post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_post_id"], name: "index_blog_photos_on_blog_post_id"
+  end
+
+  create_table "blog_post_translations", force: :cascade do |t|
+    t.text "title"
+    t.text "text"
+    t.string "locale", null: false
+    t.bigint "blog_post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_post_id", "locale"], name: "index_blog_post_translations_on_blog_post_id_and_locale", unique: true
+    t.index ["locale"], name: "index_blog_post_translations_on_locale"
+  end
+
   create_table "blog_posts", force: :cascade do |t|
     t.string "title"
     t.text "text"
+    t.boolean "hidden", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -182,6 +203,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_141332) do
     t.string "icon"
   end
 
+  add_foreign_key "blog_post_translations", "blog_posts"
   add_foreign_key "listing_complex_translations", "listing_complexes"
   add_foreign_key "listing_translations", "listings"
   add_foreign_key "newsletter_subscriptions", "users"

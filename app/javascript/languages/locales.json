@@ -28,7 +28,7 @@
       }
     },
     "blog_posts": {
-      "header": "Blog"
+      "header": "Blog Posts"
     },
     "buy": {
       "header": "Buy"
@@ -603,7 +603,7 @@
       }
     },
     "blog_posts": {
-      "header": "Blog"
+      "header": "Blog Posts"
     },
     "buy": {
       "header": "Comprar"

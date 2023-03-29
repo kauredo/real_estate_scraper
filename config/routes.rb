@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     get '/comprar', to: 'listings#buy', as: :buy
     get '/comprar/:id', to: 'listings#show', as: :listing
     get '/vender', to: 'listings#sell', as: :sell
+    post '/tinymce_assets' => 'blog_photos#create'
+    resources :blog_photos, only: %i[create destroy]
     resources :photos, only: [:destroy]
     resources :newsletter_subscriptions, only: %i[create destroy] do
       member do

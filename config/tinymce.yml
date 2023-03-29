@@ -1,9 +1,14 @@
-height: 500
-menubar: false
+width: "100%"
+height: 2000
 toolbar:
-  - undo redo | blocks | bold italic | alignleft aligncenter alignright |
-    bullist numlist outdent indent | removeformat | help
+  - undo redo | blocks | styleselect | bold italic | alignleft aligncenter
+    alignright | bullist numlist outdent indent | removeformat
+  - image | link | media
 plugins:
-  - insertdatetime lists media table code help wordcount - undo redo | blocks |
-    bold italic | alignleft aligncenter alignright | bullist numlist outdent
-    indent | removeformat | help | code
+  - insertdatetime lists media table help wordcount - undo redo | blocks | bold
+    italic | alignleft aligncenter alignright | bullist numlist outdent indent |
+    removeformat | help
+  - image
+  - link
+images_upload_url: "/tinymce_assets" # for automatic_uploads
+images_upload_credentials: true # sends session information with the upload
