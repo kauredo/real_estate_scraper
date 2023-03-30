@@ -19,6 +19,8 @@ module SofiaGalvao
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.i18n.available_locales = %i[pt en]
     config.i18n.default_locale = :pt
+    config.action_view.sanitized_allowed_attributes = %w[style src alt width height title href target rel allowfullscreen]
+    config.action_view.sanitized_allowed_tags = %w[a img h1 h2 h3 h4 h5 h6 p div span iframe ul ol li em strong]
     config.exceptions_app = lambda { |env|
       ErrorsController.action(:show).call(env)
     }
