@@ -37,3 +37,4 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 /public/assets
+/public/uploads/tmp
