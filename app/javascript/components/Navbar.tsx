@@ -4,6 +4,7 @@ import { i18n } from "../languages/languages";
 import { changeLocale, sanitizeURL } from "./utils/Functions";
 import { NavbarItemProps } from "./utils/Interfaces";
 const NavbarItem = lazy(() => import("./shared/NavbarItem"));
+const DropdownLink = lazy(() => import("./shared/DropdownLink"));
 
 interface Props {
   backoffice?: boolean;
@@ -15,16 +16,32 @@ export default function Navbar(props: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  const moreDropdown: NavbarItemProps = {
+    title: `${i18n.t("navbar.more")}`,
+    items: [
+      {
+        title: `${i18n.t("navbar.services")}`,
+        turbo: "true",
+        url: sanitizeURL(window.Routes.services_path),
+      },
+      {
+        title: `${i18n.t("navbar.house_360")}`,
+        turbo: "true",
+        url: sanitizeURL(window.Routes.house_360_path),
+      },
+      {
+        title: `${i18n.t("navbar.contacts")}`,
+        turbo: "true",
+        url: sanitizeURL(window.Routes.contact_path),
+      },
+    ],
+  };
+
   const items: NavbarItemProps[] = [
     {
       title: `${i18n.t("navbar.buy")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.buy_path),
-    },
-    {
-      title: `${i18n.t("navbar.sell")}`,
-      turbo: "false",
-      url: sanitizeURL(window.Routes.sell_path),
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
@@ -35,21 +52,6 @@ export default function Navbar(props: Props) {
       title: `${i18n.t("navbar.about")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.about_path),
-    },
-    {
-      title: `${i18n.t("navbar.contacts")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.contact_path),
-    },
-    {
-      title: `${i18n.t("navbar.services")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.services_path),
-    },
-    {
-      title: `${i18n.t("navbar.house_360")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.house_360_path),
     },
     {
       title: "Powered by ",
@@ -63,6 +65,7 @@ export default function Navbar(props: Props) {
       turbo: "true",
       url: sanitizeURL(window.Routes.kw_path),
     },
+    moreDropdown,
   ];
 
   const backofficeItems: NavbarItemProps[] = [
@@ -90,16 +93,16 @@ export default function Navbar(props: Props) {
 
   const middleItems = backoffice ? backofficeItems : items;
 
+  const img = i18n.locale === "pt" ? "uk" : "pt";
+
+  const rightItems: NavbarItemProps[] = [];
+
   admin &&
-    middleItems.push({
+    rightItems.push({
       title: "Backoffice",
       url: sanitizeURL(window.Routes.backoffice_path),
       turbo: "true",
     });
-
-  const img = i18n.locale === "pt" ? "uk" : "pt";
-
-  const rightItems: NavbarItemProps[] = [];
 
   rightItems.push({
     title: "",
@@ -117,7 +120,7 @@ export default function Navbar(props: Props) {
 
   return (
     <div>
-      <nav className="bg-white overflow-hidden container mx-auto">
+      <nav className="bg-white container mx-auto">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -138,14 +141,22 @@ export default function Navbar(props: Props) {
               <div className="hidden tablet:block">
                 <div className="ml-10 flex items-baseline">
                   {middleItems.map(item => {
-                    return (
-                      <Suspense
-                        fallback={<div>Loading...</div>}
-                        key={`${item.title}_middle`}
-                      >
-                        <NavbarItem item={item} />
-                      </Suspense>
-                    );
+                    if (item.items?.length && item.items.length > 0) {
+                      return (
+                        <Suspense fallback={<div>Loading...</div>}>
+                          <DropdownLink title={item.title} items={item.items} />
+                        </Suspense>
+                      );
+                    } else {
+                      return (
+                        <Suspense
+                          fallback={<div>Loading...</div>}
+                          key={`${item.title}_middle`}
+                        >
+                          <NavbarItem item={item} />
+                        </Suspense>
+                      );
+                    }
                   })}
                 </div>
               </div>
@@ -230,14 +241,27 @@ export default function Navbar(props: Props) {
           <div className="tablet:hidden" id="mobile-menu">
             <div ref={dropdownRef} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {middleItems.map(item => {
-                return (
-                  <Suspense
-                    fallback={<div>Loading...</div>}
-                    key={`${item.title}_mobile`}
-                  >
-                    <NavbarItem item={item} />;
-                  </Suspense>
-                );
+                if (item.items?.length && item.items.length > 0) {
+                  return item.items.map(insideItem => {
+                    return (
+                      <Suspense
+                        fallback={<div>Loading...</div>}
+                        key={`${insideItem.title}_mobile`}
+                      >
+                        <NavbarItem item={insideItem} fullWidth />
+                      </Suspense>
+                    );
+                  });
+                } else {
+                  return (
+                    <Suspense
+                      fallback={<div>Loading...</div>}
+                      key={`${item.title}_mobile`}
+                    >
+                      <NavbarItem item={item} fullWidth />
+                    </Suspense>
+                  );
+                }
               })}
             </div>
           </div>

@@ -86,3 +86,29 @@ export function waitForElm(selector) {
     });
   });
 }
+
+export const navbarItemClass = (path, isMobile, children: string[] = []) => {
+  const base =
+    "whitespace-nowrap hover:bg-beige hover:text-white px-3 py-2 rounded-md font-medium mx-1 lowercase ";
+  const mobile = "block text-base relative z-3 ";
+  const desktop = "text-sm ";
+  const inactive = "text-gray-800 ";
+  const active = "bg-beige text-white ";
+
+  if (path === window.location.pathname && isMobile) {
+    return base + active + mobile;
+  }
+  if (path === window.location.pathname) {
+    return base + active + desktop;
+  }
+  if (
+    children.length > 0 &&
+    children.filter(path => path === window.location.pathname).length > 0
+  ) {
+    return base + active + desktop;
+  }
+  if (isMobile) {
+    return base + inactive + mobile;
+  }
+  return base + inactive + desktop;
+};

@@ -1,29 +1,16 @@
 import React, { useState } from "react";
+import { navbarItemClass } from "../utils/Functions";
 import { NavbarItemProps } from "../utils/Interfaces";
 
-export default function NavbarItem(props: { item: NavbarItemProps }) {
-  const { item } = props;
+interface Props {
+  item: NavbarItemProps;
+  fullWidth?: boolean;
+}
+
+export default function NavbarItem(props: Props) {
+  const { item, fullWidth } = props;
   const { turbo, title, url, hover, img } = item;
-
-  const itemClass = (path, isMobile) => {
-    const base =
-      "whitespace-nowrap hover:bg-beige hover:text-white px-3 py-2 rounded-md font-medium mx-1 lowercase ";
-    const mobile = "block text-base relative z-3 ";
-    const desktop = "text-sm ";
-    const inactive = "text-gray-800 ";
-    const active = "bg-beige text-white ";
-
-    if (path === window.location.pathname && isMobile) {
-      return base + active + mobile;
-    }
-    if (path === window.location.pathname) {
-      return base + active + desktop;
-    }
-    if (isMobile) {
-      return base + inactive + mobile;
-    }
-    return base + inactive + desktop;
-  };
+  const className = title.length > 0 ? navbarItemClass(url, false) : "";
 
   return (
     <a
@@ -31,7 +18,7 @@ export default function NavbarItem(props: { item: NavbarItemProps }) {
       key={`${title}--desktop`}
       href={url}
       title={hover}
-      className={title.length > 0 ? itemClass(url, false) : ""}
+      className={`${className} ${fullWidth && "block text-right"}`}
     >
       {title}
       {img}
