@@ -1,7 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { lazy, Suspense, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { i18n } from "../languages/languages";
 import { changeLocale, sanitizeURL } from "./utils/Functions";
+import { NavbarItemProps } from "./utils/Interfaces";
+const NavbarItem = lazy(() => import("./shared/NavbarItem"));
 
 interface Props {
   backoffice?: boolean;
@@ -13,68 +15,41 @@ export default function Navbar(props: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const itemClass = (path, isMobile) => {
-    const base =
-      "whitespace-nowrap hover:bg-beige hover:text-white px-3 py-2 rounded-md font-medium mx-1 lowercase ";
-    const mobile = "block text-base relative z-3 ";
-    const desktop = "text-sm ";
-    const inactive = "text-gray-800 ";
-    const active = "bg-beige text-white ";
-
-    if (path === window.location.pathname && isMobile) {
-      return base + active + mobile;
-    }
-    if (path === window.location.pathname) {
-      return base + active + desktop;
-    }
-    if (isMobile) {
-      return base + inactive + mobile;
-    }
-    return base + inactive + desktop;
-  };
-
-  const items = [
+  const items: NavbarItemProps[] = [
     {
       title: `${i18n.t("navbar.buy")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.buy_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.sell")}`,
       turbo: "false",
       url: sanitizeURL(window.Routes.sell_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.latest_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.about")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.about_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.contacts")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.contact_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.services")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.services_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.house_360")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.house_360_path),
-      img: null,
     },
     {
       title: "Powered by ",
@@ -90,46 +65,43 @@ export default function Navbar(props: Props) {
     },
   ];
 
-  const backofficeItems = [
+  const backofficeItems: NavbarItemProps[] = [
     {
       title: `${i18n.t("navbar.listings")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_listings_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_listing_complexes_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.testimonies")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_testimonials_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_blog_posts_path),
-      img: null,
     },
   ];
 
-  const usedItems = backoffice ? backofficeItems : items;
+  const middleItems = backoffice ? backofficeItems : items;
 
   admin &&
-    usedItems.push({
+    middleItems.push({
       title: "Backoffice",
       url: sanitizeURL(window.Routes.backoffice_path),
       turbo: "true",
-      img: null,
     });
 
   const img = i18n.locale === "pt" ? "uk" : "pt";
 
-  usedItems.push({
+  const rightItems: NavbarItemProps[] = [];
+
+  rightItems.push({
     title: "",
     url: changeLocale(),
     turbo: "false",
@@ -165,22 +137,30 @@ export default function Navbar(props: Props) {
             <div className="flex items-center">
               <div className="hidden tablet:block">
                 <div className="ml-10 flex items-baseline">
-                  {usedItems.map(item => {
+                  {middleItems.map(item => {
                     return (
-                      <a
-                        data-turbo={item.turbo}
-                        key={`${item.title}--desktop`}
-                        href={item.url}
-                        title={item.hover}
-                        className={
-                          item.title.length > 0
-                            ? itemClass(item.url, false)
-                            : ""
-                        }
+                      <Suspense
+                        fallback={<div>Loading...</div>}
+                        key={`${item.title}_middle`}
                       >
-                        {item.title}
-                        {item.img}
-                      </a>
+                        <NavbarItem item={item} />
+                      </Suspense>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <div className="hidden tablet:block">
+                <div className="ml-10 flex items-baseline">
+                  {rightItems.map(item => {
+                    return (
+                      <Suspense
+                        fallback={<div>Loading...</div>}
+                        key={`${item.title}_right`}
+                      >
+                        <NavbarItem item={item} />
+                      </Suspense>
                     );
                   })}
                 </div>
@@ -249,17 +229,14 @@ export default function Navbar(props: Props) {
         >
           <div className="tablet:hidden" id="mobile-menu">
             <div ref={dropdownRef} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {usedItems.map(item => {
+              {middleItems.map(item => {
                 return (
-                  <a
-                    data-turbo={item.turbo}
-                    key={`${item.title}--desktop`}
-                    href={item.url}
-                    className={itemClass(item.url, true)}
+                  <Suspense
+                    fallback={<div>Loading...</div>}
+                    key={`${item.title}_mobile`}
                   >
-                    {item.title}
-                    {item.img}
-                  </a>
+                    <NavbarItem item={item} />;
+                  </Suspense>
                 );
               })}
             </div>

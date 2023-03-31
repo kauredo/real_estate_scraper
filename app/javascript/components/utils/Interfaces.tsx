@@ -79,3 +79,11 @@ export interface Testimonial {
   text: string;
   name: string;
 }
+
+export interface NavbarItemProps {
+  title: string;
+  url: string;
+  turbo: string;
+  hover?: string;
+  img?: any;
+}
