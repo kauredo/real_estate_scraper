@@ -423,6 +423,7 @@
     },
     "navbar": {
       "about": "About Us",
+      "backoffice": "Backoffice",
       "blog_posts": "Blog",
       "buy": "Buy",
       "contacts": "Contacts",
@@ -1079,6 +1080,7 @@
     },
     "navbar": {
       "about": "Sobre Nós",
+      "backoffice": "Backoffice",
       "blog_posts": "Blog",
       "buy": "Comprar",
       "contacts": "Contactos",

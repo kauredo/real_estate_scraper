@@ -18,7 +18,7 @@ export default function NavbarItem(props: Props) {
       key={`${title}--desktop`}
       href={url}
       title={hover}
-      className={`${className} ${fullWidth && "block text-right"}`}
+      className={`${className} ${fullWidth && "block !w-full text-right"}`}
     >
       {title}
       {img}

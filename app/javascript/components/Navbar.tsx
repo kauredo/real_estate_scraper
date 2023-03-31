@@ -44,6 +44,11 @@ export default function Navbar(props: Props) {
       url: sanitizeURL(window.Routes.buy_path),
     },
     {
+      title: `${i18n.t("navbar.sell")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.sell_path),
+    },
+    {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.latest_path),
@@ -97,8 +102,10 @@ export default function Navbar(props: Props) {
 
   const rightItems: NavbarItemProps[] = [];
 
+  const mobileItems: NavbarItemProps[] = middleItems.slice();
+
   admin &&
-    rightItems.push({
+    mobileItems.push({
       title: "Backoffice",
       url: sanitizeURL(window.Routes.backoffice_path),
       turbo: "true",
@@ -118,28 +125,48 @@ export default function Navbar(props: Props) {
     ),
   });
 
+  mobileItems.push(...rightItems);
+
+  const showBtnOnNavbar = sanitizeURL(window.Routes.sell_path) !==
+    window.location.pathname && (
+    <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
+      <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
+        <p>{i18n.t("home.cta.long")}</p>
+      </div>
+    </a>
+  );
+
+  const backofficeBtn = admin && (
+    <a href={sanitizeURL(window.Routes.backoffice_path)} data-turbo={false}>
+      <div className="z-10 absolute top-24 left-0 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <p>{i18n.t("navbar.backoffice")}</p>
+      </div>
+    </a>
+  );
+
   return (
     <div>
       <nav className="bg-white container mx-auto">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between min-h-[4rem]">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 relative">
                 <a
                   data-turbo="true"
                   href={sanitizeURL(window.Routes.root_path)}
                 >
                   <img
-                    className="w-[8rem] relative z-1"
+                    className="w-[8rem] relative z-10"
                     src="/logos/main_color.webp"
                     alt="Sofia Galvão Group Logo"
                   />
+                  {backofficeBtn}
                 </a>
               </div>
             </div>
             <div className="flex items-center">
               <div className="hidden tablet:block">
-                <div className="ml-10 flex items-baseline">
+                <div className="ml-10 flex items-baseline flex-wrap justify-center">
                   {middleItems.map(item => {
                     if (item.items?.length && item.items.length > 0) {
                       return (
@@ -164,6 +191,7 @@ export default function Navbar(props: Props) {
             <div className="flex items-center">
               <div className="hidden tablet:block">
                 <div className="ml-10 flex items-baseline">
+                  {showBtnOnNavbar}
                   {rightItems.map(item => {
                     return (
                       <Suspense
@@ -240,7 +268,7 @@ export default function Navbar(props: Props) {
         >
           <div className="tablet:hidden" id="mobile-menu">
             <div ref={dropdownRef} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {middleItems.map(item => {
+              {mobileItems.map(item => {
                 if (item.items?.length && item.items.length > 0) {
                   return item.items.map(insideItem => {
                     return (

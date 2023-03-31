@@ -519,6 +519,7 @@
     },
     "navbar": {
       "about": "About Us",
+      "backoffice": "Backoffice",
       "blog_posts": "Blog",
       "buy": "Buy",
       "contacts": "Contacts",

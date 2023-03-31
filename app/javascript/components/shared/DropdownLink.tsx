@@ -71,7 +71,7 @@ const DropdownLink = (props: DropdownProps) => {
         )}
       </a>
       <div
-        className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white z-10 ${
+        className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white z-20 px-4 ${
           showMenu ? "block" : "hidden"
         }`}
         ref={dropdownMenuRef}
