@@ -39,13 +39,16 @@ class Backoffice::BlogPostsController < BackofficeController
   private
 
   def update_blog_photos
-    params[:blog_photos].each do |id, values|
-      next if id == 'image'
+    if params[:blog_photos].present?
 
-      photo = BlogPhoto.find(id)
-      photo.main = values['main']
+      params[:blog_photos].each do |id, values|
+        next if id == 'image'
 
-      photo.save if photo.changed?
+        photo = BlogPhoto.find(id)
+        photo.main = values['main']
+
+        photo.save if photo.changed?
+      end
     end
 
     if @blog_post.blog_photos

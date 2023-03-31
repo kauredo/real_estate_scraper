@@ -5,9 +5,8 @@ toolbar:
     alignright | bullist numlist outdent indent | removeformat
   - image | link | media
 plugins:
-  - insertdatetime lists media table help wordcount - undo redo | blocks | bold
-    italic | alignleft aligncenter alignright | bullist numlist outdent indent |
-    removeformat | help
+  - insertdatetime lists media table help wordcount
+  - help
   - image
   - link
 images_upload_url: "/tinymce_assets" # for automatic_uploads
