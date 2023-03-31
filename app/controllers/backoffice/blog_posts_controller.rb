@@ -27,8 +27,7 @@ class Backoffice::BlogPostsController < BackofficeController
 
   def update
     @blog_post.update(blog_post_params)
-    flash[:notice] = 'Post atualizado'
-    redirect_to edit_backoffice_blog_post_path(@blog_post)
+    update_blog_photos
   end
 
   def destroy
@@ -39,11 +38,32 @@ class Backoffice::BlogPostsController < BackofficeController
 
   private
 
+  def update_blog_photos
+    params[:blog_photos].each do |id, values|
+      next if id == 'image'
+
+      photo = BlogPhoto.find(id)
+      photo.main = values['main']
+
+      photo.save if photo.changed?
+    end
+
+    flash[:notice] = 'Post atualizado'
+    redirect_to edit_backoffice_blog_post_path(@blog_post)
+  end
+
   def find_blog_post
     @blog_post = BlogPost.find(params[:id])
   end
 
   def blog_post_params
-    params.require(:blog_post).permit(:title, :text)
+    params.require(:blog_post).permit(:title,
+                                      :text,
+                                      blog_photos: %i[
+                                        id
+                                        blog_post_id
+                                        image
+                                        main
+                                      ])
   end
 end
