@@ -48,6 +48,13 @@ class Backoffice::BlogPostsController < BackofficeController
       photo.save if photo.changed?
     end
 
+    if @blog_post.blog_photos
+      @blog_post.blog_photos.each do |photo|
+        url = photo.image.url
+        photo.destroy! unless @blog_post.text.include?(url)
+      end
+    end
+
     flash[:notice] = 'Post atualizado'
     redirect_to edit_backoffice_blog_post_path(@blog_post)
   end
