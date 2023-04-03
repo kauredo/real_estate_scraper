@@ -3,8 +3,15 @@
 <% content_for(:meta_image) { @blog_post.main_photo } %>
 
 <div id="blog-show" class="relative">
-  <div class="tinymce pt-20 px-8 mx-auto container">
-    <h1 class='pb-4'><%= @blog_post.title %></h1>
+  <header class="bg-beige">
+    <div class="tinymce mx-auto py-8">
+      <div class="flex flex-wrap justify-around gap-4 items-center h-full w-full px-8">
+        <h1><%= @blog_post.title %></h1>
+        <img class="w-2/5 min-w-[20rem] border shadow-lg" src="<%= @blog_post.main_photo %>" alt="<%= @blog_post.title %>">
+      </div>
+    </div>
+  </header>
+  <div class="tinymce pt-8 px-8 mx-auto container">
     <%= sanitize @blog_post.text %>
   </div>
 </div>
