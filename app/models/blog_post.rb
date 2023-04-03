@@ -3,6 +3,8 @@ class BlogPost < ApplicationRecord
   translates :title, :text
   has_many :blog_photos, dependent: :destroy
 
+  scope :visible, -> { where.not(hidden: true) }
+
   def sample_text
     return if text.nil?
 

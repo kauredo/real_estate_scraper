@@ -39,6 +39,7 @@
       }
     },
     "blog_posts": {
+      "empty": "Novos posts em breve...",
       "header": "Blog Posts",
       "resource": "Post"
     },

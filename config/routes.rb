@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     get '/empreendimentos/:id', to: 'listing_complexes#show', as: :listing_complex
     get '/comprar', to: 'listings#buy', as: :buy
     get '/comprar/:id', to: 'listings#show', as: :listing
+    get '/blog', to: 'blog_posts#index', as: :blog
+    get '/blog/:id', to: 'blog_posts#show', as: :blog_post
     get '/vender', to: 'listings#sell', as: :sell
     post '/tinymce_assets' => 'blog_photos#create'
     resources :blog_photos, only: %i[create destroy]

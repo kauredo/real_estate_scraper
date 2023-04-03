@@ -304,6 +304,7 @@ pt:
   blog_posts:
     resource: Post
     header: Blog Posts
+    empty: Novos posts em breve...
 
   terms:
     header: Termos e Condições

@@ -292,6 +292,7 @@ en:
   blog_posts:
     resource: Post
     header: Blog Posts
+    empty: New posts coming soon...
 
   privacy:
     header: Privacy Policy

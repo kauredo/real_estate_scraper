@@ -28,6 +28,7 @@
       }
     },
     "blog_posts": {
+      "empty": "New posts coming soon...",
       "header": "Blog Posts",
       "resource": "Post"
     },
@@ -608,6 +609,7 @@
       }
     },
     "blog_posts": {
+      "empty": "Novos posts em breve...",
       "header": "Blog Posts",
       "resource": "Post"
     },

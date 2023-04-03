@@ -26,6 +26,11 @@ export default function Navbar(props: Props) {
     title: `${i18n.t("navbar.more")}`,
     items: [
       {
+        title: `${i18n.t("navbar.about")}`,
+        turbo: "true",
+        url: sanitizeURL(window.Routes.about_path),
+      },
+      {
         title: `${i18n.t("navbar.services")}`,
         turbo: "true",
         url: sanitizeURL(window.Routes.services_path),
@@ -60,9 +65,9 @@ export default function Navbar(props: Props) {
       url: sanitizeURL(window.Routes.latest_path),
     },
     {
-      title: `${i18n.t("navbar.about")}`,
+      title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.about_path),
+      url: sanitizeURL(window.Routes.blog_path),
     },
     {
       title: "Powered by ",

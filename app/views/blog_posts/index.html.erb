@@ -1,0 +1,20 @@
+<div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
+  <%# Variáveis %>
+  <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+    <h1 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl"><%= I18n.t('blog_posts.header') %></h1>
+    <br>
+    <div class="flex flex-wrap gap-4">
+      <% if @blog_posts.present? %>
+        <% @blog_posts.each do |blog_post| %>
+          <%= render 'blog_post', blog_post: %>
+        <% end %>
+      <% else %>
+        <div class="w-full text-center p-8 text-xl">
+          <h2>
+            <%= I18n.t('blog_posts.empty') %>
+          </h2>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
