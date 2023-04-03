@@ -6,7 +6,11 @@
   <header class="bg-beige">
     <div class="tinymce mx-auto py-8">
       <div class="flex flex-wrap justify-around gap-4 items-center h-full w-full px-8">
-        <h1><%= @blog_post.title %></h1>
+        <div>
+          <h1><%= @blog_post.title %></h1>
+          <p><%= @blog_post.created_at.strftime("%d/%m/%Y") %></p>
+        </div>
+
         <img class="w-2/5 min-w-[20rem] border shadow-lg" src="<%= @blog_post.main_photo %>" alt="<%= @blog_post.title %>">
       </div>
     </div>
