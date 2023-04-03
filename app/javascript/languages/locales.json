@@ -28,7 +28,8 @@
       }
     },
     "blog_posts": {
-      "header": "Blog Posts"
+      "header": "Blog Posts",
+      "resource": "Post"
     },
     "buy": {
       "header": "Buy"
@@ -264,6 +265,7 @@
           "title": "Property to your measure"
         }
       },
+      "resource": "Enterprise",
       "show": {
         "bedrooms": "Bedrooms",
         "built": "Built Area",
@@ -400,6 +402,7 @@
       },
       "details": "Listing Details",
       "price": "Price",
+      "resource": "Listing",
       "status": {
         "agreed": "Sales Agreed",
         "recent": "New to Market",
@@ -605,7 +608,8 @@
       }
     },
     "blog_posts": {
-      "header": "Blog Posts"
+      "header": "Blog Posts",
+      "resource": "Post"
     },
     "buy": {
       "header": "Comprar"
@@ -905,6 +909,7 @@
           "title": "Imóvel à sua medida"
         }
       },
+      "resource": "Empreendimento",
       "show": {
         "bedrooms": "Tipologia",
         "built": "Área Bruta",
@@ -1057,6 +1062,7 @@
       },
       "details": "Detalhes do Imóvel",
       "price": "Preço",
+      "resource": "Imóvel",
       "status": {
         "agreed": "Reservado",
         "recent": "Novo",

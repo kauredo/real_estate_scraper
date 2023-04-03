@@ -84,6 +84,7 @@ pt:
       acompanhamento de proximidade ao longo de todo o processo.
 
   enterprises:
+    resource: Empreendimento
     header: Empreendimentos
     subheader:
       Porquê Comprar <span class="underline decoration-beige">em Planta?</span>
@@ -301,6 +302,7 @@ pt:
     header: Política de Privacidade
 
   blog_posts:
+    resource: Post
     header: Blog Posts
 
   terms:
@@ -321,6 +323,7 @@ pt:
     next: Próxima
 
   listing:
+    resource: Imóvel
     watch_video: Assistir Vídeo
     details: Detalhes do Imóvel
     characteristics: Características do Imóvel

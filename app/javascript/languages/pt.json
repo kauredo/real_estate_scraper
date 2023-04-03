@@ -39,7 +39,8 @@
       }
     },
     "blog_posts": {
-      "header": "Blog Posts"
+      "header": "Blog Posts",
+      "resource": "Post"
     },
     "buy": {
       "header": "Comprar"
@@ -339,6 +340,7 @@
           "title": "Imóvel à sua medida"
         }
       },
+      "resource": "Empreendimento",
       "show": {
         "bedrooms": "Tipologia",
         "built": "Área Bruta",
@@ -551,6 +553,7 @@
       },
       "details": "Detalhes do Imóvel",
       "price": "Preço",
+      "resource": "Imóvel",
       "status": {
         "agreed": "Reservado",
         "recent": "Novo",

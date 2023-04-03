@@ -6,13 +6,19 @@ import { NavbarItemProps } from "./utils/Interfaces";
 const NavbarItem = lazy(() => import("./shared/NavbarItem"));
 const DropdownLink = lazy(() => import("./shared/DropdownLink"));
 
+interface Resource {
+  path: string;
+  name: string;
+}
+
 interface Props {
   backoffice?: boolean;
   admin?: boolean;
+  resource?: Resource;
 }
 
 export default function Navbar(props: Props) {
-  const { backoffice, admin } = props;
+  const { backoffice, admin, resource } = props;
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -138,10 +144,25 @@ export default function Navbar(props: Props) {
 
   const backofficeBtn = admin && (
     <a href={sanitizeURL(window.Routes.backoffice_path)} data-turbo={false}>
-      <div className="z-10 absolute top-24 left-0 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
         <p>{i18n.t("navbar.backoffice")}</p>
       </div>
     </a>
+  );
+
+  const resourceBtn = admin && resource && (
+    <a href={resource.path} data-turbo={false}>
+      <div className="ml-2 whitespace-nowrap bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <p>Editar {resource.name} no Backoffice</p>
+      </div>
+    </a>
+  );
+
+  const adminBtns = admin && (
+    <div className="z-10 absolute top-24 left-0 flex">
+      {backofficeBtn}
+      {resourceBtn}
+    </div>
   );
 
   return (
@@ -160,7 +181,7 @@ export default function Navbar(props: Props) {
                     src="/logos/main_color.webp"
                     alt="Sofia Galvão Group Logo"
                   />
-                  {backofficeBtn}
+                  {adminBtns}
                 </a>
               </div>
             </div>

@@ -5,7 +5,12 @@ class Backoffice::BlogPostsController < BackofficeController
     @blog_posts = BlogPost.all
   end
 
-  def show; end
+  def show
+    @resource = {
+      path: edit_backoffice_blog_post_path(@blog_post),
+      name: I18n.t('blog_posts.resource')
+    }
+  end
 
   def new
     @blog_post = BlogPost.create

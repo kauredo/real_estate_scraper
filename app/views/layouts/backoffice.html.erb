@@ -17,7 +17,7 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
-    <%= react_component 'Navbar', { admin: current_admin.present?, backoffice: true } %>
+    <%= react_component 'Navbar', { admin: current_admin.present?, backoffice: true, resource: @resource } %>
     <%= yield %>
   </body>
 </html>
