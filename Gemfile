@@ -54,6 +54,7 @@ gem 'bootsnap', require: false
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'devise'
+gem 'friendly_id'
 gem 'i18n-js'
 gem 'js-routes'
 gem 'jwt'

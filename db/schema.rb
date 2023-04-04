@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_30_170540) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_04_001455) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_170540) do
     t.datetime "updated_at", null: false
     t.text "meta_title"
     t.text "meta_description"
+    t.string "slug"
+    t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "listing_complex_translations", force: :cascade do |t|
@@ -81,6 +94,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_170540) do
     t.text "final_text"
     t.boolean "new_format", default: false
     t.boolean "hidden", default: false
+    t.string "slug"
+    t.index ["slug"], name: "index_listing_complexes_on_slug", unique: true
   end
 
   create_table "listing_translations", force: :cascade do |t|
@@ -113,8 +128,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_170540) do
     t.datetime "status_changed_at"
     t.integer "status"
     t.string "video_link"
+    t.string "slug"
     t.index ["deleted_at"], name: "index_listings_on_deleted_at"
     t.index ["listing_complex_id"], name: "index_listings_on_listing_complex_id"
+    t.index ["slug"], name: "index_listings_on_slug", unique: true
   end
 
   create_table "mobility_string_translations", force: :cascade do |t|

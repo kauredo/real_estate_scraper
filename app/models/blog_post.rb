@@ -1,6 +1,9 @@
 class BlogPost < ApplicationRecord
   extend Mobility
+  extend FriendlyId
+
   translates :title, :text
+  friendly_id :title, use: %i[slugged history]
   has_many :blog_photos, dependent: :destroy
 
   scope :visible, -> { where.not(hidden: true) }

@@ -109,10 +109,10 @@ export default function ContactForm(props: Props) {
             }
           ></textarea>
           {listing && (
-            <input type="hidden" name="contact[listing]" value={listing.id} />
+            <input type="hidden" name="contact[listing]" value={listing.slug} />
           )}
           {complex && (
-            <input type="hidden" name="contact[complex]" value={complex.id} />
+            <input type="hidden" name="contact[complex]" value={complex.slug} />
           )}
         </div>
         <div>

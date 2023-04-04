@@ -147,13 +147,14 @@ export default function Navbar(props: Props) {
     </a>
   );
 
-  const backofficeBtn = admin && (
-    <a href={sanitizeURL(window.Routes.backoffice_path)} data-turbo={false}>
-      <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-        <p>{i18n.t("navbar.backoffice")}</p>
-      </div>
-    </a>
-  );
+  const backofficeBtn = admin &&
+    sanitizeURL(window.Routes.backoffice_path) !== window.location.pathname && (
+      <a href={sanitizeURL(window.Routes.backoffice_path)} data-turbo={false}>
+        <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <p>{i18n.t("navbar.backoffice")}</p>
+        </div>
+      </a>
+    );
 
   const resourceBtn = admin && resource && (
     <a href={resource.path} data-turbo={false}>

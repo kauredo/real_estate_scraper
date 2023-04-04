@@ -31,7 +31,7 @@ module Backoffice
     def edit; end
 
     def update
-      @listing_complex.update(listing_complex_params)
+      @listing_complex.slug = nil
       if @listing_complex.update(listing_complex_params)
         if params[:photos]['image']&.any?(&:present?)
           params[:photos]['image'].each do |a|
@@ -66,7 +66,7 @@ module Backoffice
     private
 
     def find_listing_complex
-      @listing_complex = ListingComplex.find(params[:id])
+      @listing_complex = ListingComplex.friendly.find(params[:id])
     end
 
     def update_video_link

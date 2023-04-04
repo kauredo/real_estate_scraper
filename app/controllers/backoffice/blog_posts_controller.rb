@@ -31,6 +31,7 @@ class Backoffice::BlogPostsController < BackofficeController
   end
 
   def update
+    @blog_post.slug = nil
     @blog_post.update(blog_post_params)
     update_blog_photos
   end
@@ -68,7 +69,7 @@ class Backoffice::BlogPostsController < BackofficeController
   end
 
   def find_blog_post
-    @blog_post = BlogPost.find(params[:id])
+    @blog_post = BlogPost.friendly.find(params[:id])
   end
 
   def blog_post_params

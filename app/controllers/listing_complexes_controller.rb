@@ -10,7 +10,7 @@ class ListingComplexesController < ApplicationController
   end
 
   def show
-    @listing_complex = ListingComplex.includes(:listings, :photos).find(params[:id])
+    @listing_complex = ListingComplex.includes(:listings, :photos).friendly.find(params[:id])
     @resource = {
       path: edit_backoffice_listing_complex_path(@listing_complex),
       name: I18n.t('enterprises.resource')

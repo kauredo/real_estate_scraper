@@ -22,7 +22,10 @@ export default function LongCard(props: Props) {
     confirm("De certeza que queres apagar o imóvel?");
 
     fetch(
-      sanitizeURLWithParams(window.Routes.backoffice_listing_path, listing.id),
+      sanitizeURLWithParams(
+        window.Routes.backoffice_listing_path,
+        listing.slug
+      ),
       {
         method: "DELETE",
         headers: {
@@ -44,7 +47,7 @@ export default function LongCard(props: Props) {
 
   useEffect(() => {
     let box = document.getElementById(
-      `listing_complex_listing_ids_${listing.id}`
+      `listing_complex_listing_ids_${listing.slug}`
     );
     if (box) {
       setCheckbox(box);
@@ -69,9 +72,9 @@ export default function LongCard(props: Props) {
             : backoffice
             ? sanitizeURLWithParams(
                 window.Routes.edit_backoffice_listing_path,
-                listing.id
+                listing.slug
               )
-            : sanitizeURLWithParams(window.Routes.listing_path, listing.id)
+            : sanitizeURLWithParams(window.Routes.listing_path, listing.slug)
         }
         onClick={e => small && e.preventDefault()}
       >
