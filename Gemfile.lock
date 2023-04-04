@@ -144,8 +144,11 @@ GEM
       tzinfo
     execjs (2.8.1)
     ffi (1.15.5)
-    friendly_id (5.5.0)
+    friendly_id (5.4.2)
       activerecord (>= 4.0.0)
+    friendly_id-mobility (1.0.4)
+      friendly_id (>= 5.0.0, < 5.5)
+      mobility (>= 1.0.1, < 2.0)
     fugit (1.8.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -408,6 +411,7 @@ DEPENDENCIES
   dotenv-rails
   erb_lint
   friendly_id
+  friendly_id-mobility
   i18n-js
   jbuilder
   js-routes

@@ -187,8 +187,8 @@ export default function Navbar(props: Props) {
                     src="/logos/main_color.webp"
                     alt="Sofia Galvão Group Logo"
                   />
-                  {adminBtns}
                 </a>
+                {adminBtns}
               </div>
             </div>
             <div className="flex items-center">
@@ -197,7 +197,10 @@ export default function Navbar(props: Props) {
                   {middleItems.map(item => {
                     if (item.items?.length && item.items.length > 0) {
                       return (
-                        <Suspense fallback={<div>Loading...</div>}>
+                        <Suspense
+                          key={`${item.title}_middle`}
+                          fallback={<div>Loading...</div>}
+                        >
                           <DropdownLink title={item.title} items={item.items} />
                         </Suspense>
                       );

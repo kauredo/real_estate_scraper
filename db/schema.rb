@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_001455) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_04_004116) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_001455) do
     t.bigint "blog_post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "slug"
     t.index ["blog_post_id", "locale"], name: "index_blog_post_translations_on_blog_post_id_and_locale", unique: true
     t.index ["locale"], name: "index_blog_post_translations_on_locale"
   end
@@ -79,6 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_001455) do
     t.datetime "updated_at", null: false
     t.text "subtext"
     t.text "final_text"
+    t.text "slug"
     t.index ["listing_complex_id", "locale"], name: "index_08ff862f275e86f460eb017836002c84b1ca958b", unique: true
     t.index ["locale"], name: "index_listing_complex_translations_on_locale"
   end
@@ -106,6 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_001455) do
     t.bigint "listing_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "slug"
     t.index ["listing_id", "locale"], name: "index_listing_translations_on_listing_id_and_locale", unique: true
     t.index ["locale"], name: "index_listing_translations_on_locale"
   end

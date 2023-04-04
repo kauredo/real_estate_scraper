@@ -4,8 +4,8 @@ class ListingComplex < ApplicationRecord
   extend Mobility
   extend FriendlyId
 
-  translates :name, :description, :subtext, :final_text
-  friendly_id :name, use: %i[slugged history]
+  translates :name, :description, :subtext, :final_text, :slug
+  friendly_id :name, use: %i[mobility history]
 
   has_many :listings, dependent: :destroy
   has_many :photos, dependent: :destroy
