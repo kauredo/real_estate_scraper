@@ -75,6 +75,9 @@ class Backoffice::BlogPostsController < BackofficeController
   def blog_post_params
     params.require(:blog_post).permit(:title,
                                       :text,
+                                      :hidden,
+                                      :meta_title,
+                                      :meta_description,
                                       blog_photos: %i[
                                         id
                                         blog_post_id

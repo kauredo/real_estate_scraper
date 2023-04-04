@@ -1,12 +1,8 @@
-<% content_for(:meta_title) { @blog_post.meta_title } %>
-<% content_for(:meta_description) { @blog_post.meta_description } %>
-<% content_for(:meta_image) { @blog_post.main_photo } %>
-
 <div id="blog-show" class="relative">
   <header class="bg-beige">
     <div class="tinymce mx-auto py-8">
       <div class="flex flex-wrap justify-around gap-4 items-center h-full w-full px-8">
-        <div>
+        <div class="w-full tablet:w-1/2">
           <h1><%= @blog_post.title %></h1>
           <p><%= @blog_post.created_at.strftime("%d/%m/%Y") %></p>
         </div>

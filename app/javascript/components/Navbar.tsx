@@ -115,13 +115,6 @@ export default function Navbar(props: Props) {
 
   const mobileItems: NavbarItemProps[] = middleItems.slice();
 
-  admin &&
-    mobileItems.push({
-      title: "Backoffice",
-      url: sanitizeURL(window.Routes.backoffice_path),
-      turbo: "true",
-    });
-
   rightItems.push({
     title: "",
     url: changeLocale(),
@@ -138,6 +131,20 @@ export default function Navbar(props: Props) {
 
   mobileItems.push(...rightItems);
 
+  admin &&
+    rightItems.unshift({
+      title: "Backoffice",
+      url: sanitizeURL(window.Routes.backoffice_path),
+      turbo: "true",
+    });
+
+  admin &&
+    mobileItems.unshift({
+      title: "Backoffice",
+      url: sanitizeURL(window.Routes.backoffice_path),
+      turbo: "true",
+    });
+
   const showBtnOnNavbar = sanitizeURL(window.Routes.sell_path) !==
     window.location.pathname && (
     <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
@@ -147,14 +154,14 @@ export default function Navbar(props: Props) {
     </a>
   );
 
-  const backofficeBtn = admin &&
-    sanitizeURL(window.Routes.backoffice_path) !== window.location.pathname && (
-      <a href={sanitizeURL(window.Routes.backoffice_path)} data-turbo={false}>
-        <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          <p>{i18n.t("navbar.backoffice")}</p>
-        </div>
-      </a>
-    );
+  // const backofficeBtn = admin &&
+  //   !window.location.pathname.includes("backoffice") && (
+  //     <a href={sanitizeURL(window.Routes.backoffice_path)} data-turbo={false}>
+  //       <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+  //         <p>{i18n.t("navbar.backoffice")}</p>
+  //       </div>
+  //     </a>
+  //   );
 
   const resourceBtn = admin && resource && (
     <a href={resource.path} data-turbo={false}>
@@ -166,7 +173,7 @@ export default function Navbar(props: Props) {
 
   const adminBtns = admin && (
     <div className="z-10 absolute top-24 left-0 flex">
-      {backofficeBtn}
+      {/* {backofficeBtn} */}
       {resourceBtn}
     </div>
   );
