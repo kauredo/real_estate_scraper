@@ -1,80 +1,73 @@
-import React, { useRef, useState } from "react";
+import React, { lazy, Suspense, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { i18n } from "../languages/languages";
 import { changeLocale, sanitizeURL } from "./utils/Functions";
+import { NavbarItemProps } from "./utils/Interfaces";
+const NavbarItem = lazy(() => import("./shared/NavbarItem"));
+const DropdownLink = lazy(() => import("./shared/DropdownLink"));
+
+interface Resource {
+  path: string;
+  name: string;
+}
 
 interface Props {
   backoffice?: boolean;
   admin?: boolean;
+  resource?: Resource;
 }
 
 export default function Navbar(props: Props) {
-  const { backoffice, admin } = props;
+  const { backoffice, admin, resource } = props;
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const itemClass = (path, isMobile) => {
-    const base =
-      "whitespace-nowrap hover:bg-beige hover:text-white px-3 py-2 rounded-md font-medium mx-1 lowercase ";
-    const mobile = "block text-base relative z-3 ";
-    const desktop = "text-sm ";
-    const inactive = "text-gray-800 ";
-    const active = "bg-beige text-white ";
-
-    if (path === window.location.pathname && isMobile) {
-      return base + active + mobile;
-    }
-    if (path === window.location.pathname) {
-      return base + active + desktop;
-    }
-    if (isMobile) {
-      return base + inactive + mobile;
-    }
-    return base + inactive + desktop;
+  const moreDropdown: NavbarItemProps = {
+    title: `${i18n.t("navbar.more")}`,
+    items: [
+      {
+        title: `${i18n.t("navbar.about")}`,
+        turbo: "true",
+        url: sanitizeURL(window.Routes.about_path),
+      },
+      {
+        title: `${i18n.t("navbar.services")}`,
+        turbo: "true",
+        url: sanitizeURL(window.Routes.services_path),
+      },
+      {
+        title: `${i18n.t("navbar.house_360")}`,
+        turbo: "true",
+        url: sanitizeURL(window.Routes.house_360_path),
+      },
+      {
+        title: `${i18n.t("navbar.contacts")}`,
+        turbo: "true",
+        url: sanitizeURL(window.Routes.contact_path),
+      },
+    ],
   };
 
-  const items = [
+  const items: NavbarItemProps[] = [
     {
       title: `${i18n.t("navbar.buy")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.buy_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.sell")}`,
-      turbo: "false",
+      turbo: "true",
       url: sanitizeURL(window.Routes.sell_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.latest_path),
-      img: null,
     },
     {
-      title: `${i18n.t("navbar.about")}`,
+      title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.about_path),
-      img: null,
-    },
-    {
-      title: `${i18n.t("navbar.contacts")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.contact_path),
-      img: null,
-    },
-    {
-      title: `${i18n.t("navbar.services")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.services_path),
-      img: null,
-    },
-    {
-      title: `${i18n.t("navbar.house_360")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.house_360_path),
-      img: null,
+      url: sanitizeURL(window.Routes.blog_path),
     },
     {
       title: "Powered by ",
@@ -88,42 +81,41 @@ export default function Navbar(props: Props) {
       turbo: "true",
       url: sanitizeURL(window.Routes.kw_path),
     },
+    moreDropdown,
   ];
 
-  const backofficeItems = [
+  const backofficeItems: NavbarItemProps[] = [
     {
       title: `${i18n.t("navbar.listings")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_listings_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_listing_complexes_path),
-      img: null,
     },
     {
       title: `${i18n.t("navbar.testimonies")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_testimonials_path),
-      img: null,
+    },
+    {
+      title: `${i18n.t("navbar.blog_posts")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.backoffice_blog_posts_path),
     },
   ];
 
-  const usedItems = backoffice ? backofficeItems : items;
-
-  admin &&
-    usedItems.push({
-      title: "Backoffice",
-      url: sanitizeURL(window.Routes.backoffice_path),
-      turbo: "true",
-      img: null,
-    });
+  const middleItems = backoffice ? backofficeItems : items;
 
   const img = i18n.locale === "pt" ? "uk" : "pt";
 
-  usedItems.push({
+  const rightItems: NavbarItemProps[] = [];
+
+  const mobileItems: NavbarItemProps[] = middleItems.slice();
+
+  rightItems.push({
     title: "",
     url: changeLocale(),
     turbo: "false",
@@ -137,44 +129,114 @@ export default function Navbar(props: Props) {
     ),
   });
 
+  mobileItems.push(...rightItems);
+
+  admin &&
+    rightItems.unshift({
+      title: "Backoffice",
+      url: sanitizeURL(window.Routes.backoffice_path),
+      turbo: "true",
+    });
+
+  admin &&
+    mobileItems.unshift({
+      title: "Backoffice",
+      url: sanitizeURL(window.Routes.backoffice_path),
+      turbo: "true",
+    });
+
+  const showBtnOnNavbar = sanitizeURL(window.Routes.sell_path) !==
+    window.location.pathname && (
+    <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
+      <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
+        <p>{i18n.t("home.cta.long")}</p>
+      </div>
+    </a>
+  );
+
+  // const backofficeBtn = admin &&
+  //   !window.location.pathname.includes("backoffice") && (
+  //     <a href={sanitizeURL(window.Routes.backoffice_path)} data-turbo={false}>
+  //       <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+  //         <p>{i18n.t("navbar.backoffice")}</p>
+  //       </div>
+  //     </a>
+  //   );
+
+  const resourceBtn = admin && resource && (
+    <a href={resource.path} data-turbo={false}>
+      <div className="ml-2 whitespace-nowrap bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <p>Editar {resource.name} no Backoffice</p>
+      </div>
+    </a>
+  );
+
+  const adminBtns = admin && (
+    <div className="z-10 absolute top-24 left-0 flex">
+      {/* {backofficeBtn} */}
+      {resourceBtn}
+    </div>
+  );
+
   return (
     <div>
-      <nav className="bg-white overflow-hidden container mx-auto">
+      <nav className="bg-white container mx-auto">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between min-h-[4rem]">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 relative">
                 <a
                   data-turbo="true"
                   href={sanitizeURL(window.Routes.root_path)}
                 >
                   <img
-                    className="w-[8rem] relative z-1"
+                    className="w-[8rem] relative z-10"
                     src="/logos/main_color.webp"
                     alt="Sofia Galvão Group Logo"
                   />
                 </a>
+                {adminBtns}
+              </div>
+            </div>
+            <div className="flex items-center">
+              <div className="hidden tablet:block">
+                <div className="ml-10 flex items-baseline flex-wrap justify-center">
+                  {middleItems.map(item => {
+                    if (item.items?.length && item.items.length > 0) {
+                      return (
+                        <Suspense
+                          key={`${item.title}_middle`}
+                          fallback={<div>Loading...</div>}
+                        >
+                          <DropdownLink title={item.title} items={item.items} />
+                        </Suspense>
+                      );
+                    } else {
+                      return (
+                        <Suspense
+                          fallback={<div>Loading...</div>}
+                          key={`${item.title}_middle`}
+                        >
+                          <NavbarItem item={item} />
+                        </Suspense>
+                      );
+                    }
+                  })}
+                </div>
               </div>
             </div>
             <div className="flex items-center">
               <div className="hidden tablet:block">
                 <div className="ml-10 flex items-baseline">
-                  {usedItems.map(item => {
+                  {showBtnOnNavbar}
+                  {rightItems.map(item => {
                     return (
-                      <a
-                        data-turbo={item.turbo}
-                        key={`${item.title}--desktop`}
-                        href={item.url}
-                        title={item.hover}
-                        className={
-                          item.title.length > 0
-                            ? itemClass(item.url, false)
-                            : ""
-                        }
+                      <Suspense
+                        fallback={<div>Loading...</div>}
+                        key={`${item.title}_right`}
                       >
-                        {item.title}
-                        {item.img}
-                      </a>
+                        <NavbarItem item={item} />
+                      </Suspense>
                     );
                   })}
                 </div>
@@ -243,18 +305,28 @@ export default function Navbar(props: Props) {
         >
           <div className="tablet:hidden" id="mobile-menu">
             <div ref={dropdownRef} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {usedItems.map(item => {
-                return (
-                  <a
-                    data-turbo={item.turbo}
-                    key={`${item.title}--desktop`}
-                    href={item.url}
-                    className={itemClass(item.url, true)}
-                  >
-                    {item.title}
-                    {item.img}
-                  </a>
-                );
+              {mobileItems.map(item => {
+                if (item.items?.length && item.items.length > 0) {
+                  return item.items.map(insideItem => {
+                    return (
+                      <Suspense
+                        fallback={<div>Loading...</div>}
+                        key={`${insideItem.title}_mobile`}
+                      >
+                        <NavbarItem item={insideItem} fullWidth />
+                      </Suspense>
+                    );
+                  });
+                } else {
+                  return (
+                    <Suspense
+                      fallback={<div>Loading...</div>}
+                      key={`${item.title}_mobile`}
+                    >
+                      <NavbarItem item={item} fullWidth />
+                    </Suspense>
+                  );
+                }
               })}
             </div>
           </div>

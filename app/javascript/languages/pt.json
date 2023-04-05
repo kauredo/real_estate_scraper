@@ -38,6 +38,11 @@
         }
       }
     },
+    "blog_posts": {
+      "empty": "Novos posts em breve...",
+      "header": "Blog Posts",
+      "resource": "Post"
+    },
     "buy": {
       "header": "Comprar"
     },
@@ -336,6 +341,7 @@
           "title": "Imóvel à sua medida"
         }
       },
+      "resource": "Empreendimento",
       "show": {
         "bedrooms": "Tipologia",
         "built": "Área Bruta",
@@ -548,6 +554,7 @@
       },
       "details": "Detalhes do Imóvel",
       "price": "Preço",
+      "resource": "Imóvel",
       "status": {
         "agreed": "Reservado",
         "recent": "Novo",
@@ -571,12 +578,15 @@
     },
     "navbar": {
       "about": "Sobre Nós",
+      "backoffice": "Backoffice",
+      "blog_posts": "Blog",
       "buy": "Comprar",
       "contacts": "Contactos",
       "enterprises": "Empreendimentos",
       "house_360": "Casa 360",
       "language": "Change site to English",
       "listings": "Imóveis",
+      "more": "Saber mais",
       "sell": "Vender",
       "services": "Serviços",
       "testimonies": "Testemunhos"

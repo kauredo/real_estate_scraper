@@ -144,6 +144,11 @@ GEM
       tzinfo
     execjs (2.8.1)
     ffi (1.15.5)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
+    friendly_id-mobility (1.0.4)
+      friendly_id (>= 5.0.0, < 5.5)
+      mobility (>= 1.0.1, < 2.0)
     fugit (1.8.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -355,6 +360,8 @@ GEM
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
+    tinymce-rails (6.4.1)
+      railties (>= 3.1.1)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -403,6 +410,8 @@ DEPENDENCIES
   dockerfile-rails (>= 1.2)
   dotenv-rails
   erb_lint
+  friendly_id
+  friendly_id-mobility
   i18n-js
   jbuilder
   js-routes
@@ -430,6 +439,7 @@ DEPENDENCIES
   simplecov
   sprockets-rails
   stimulus-rails
+  tinymce-rails
   turbo-rails
   tzinfo-data
   watir

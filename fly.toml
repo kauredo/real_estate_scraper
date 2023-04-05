@@ -1,6 +1,5 @@
 # fly.toml file generated for sofia-galvao-group on 2023-03-17T12:30:21Z
 
-app = "sofia-galvao-group"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "mad"

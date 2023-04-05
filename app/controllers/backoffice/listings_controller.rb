@@ -35,6 +35,7 @@ module Backoffice
                                          end
       end
 
+      @listing.slug = nil
       @listing.update(new_params)
       flash[:notice] = I18n.t('listing.update.notice')
       redirect_to edit_backoffice_listing_path(@listing)
@@ -59,7 +60,7 @@ module Backoffice
     private
 
     def find_listing
-      @listing = Listing.find(params[:id])
+      @listing = Listing.friendly.find(params[:id])
     end
 
     def update_video_link

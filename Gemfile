@@ -54,6 +54,8 @@ gem 'bootsnap', require: false
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'devise'
+gem 'friendly_id'
+gem 'friendly_id-mobility'
 gem 'i18n-js'
 gem 'js-routes'
 gem 'jwt'
@@ -69,6 +71,7 @@ gem 'sentry-ruby'
 gem 'sentry-rails'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
+gem 'tinymce-rails'
 gem 'watir'
 
 # Tests / Scrape

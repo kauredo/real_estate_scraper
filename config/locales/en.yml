@@ -10,6 +10,9 @@ en:
     listings: Listings
     testimonies: Testimonies
     language: Mudar site para Português
+    blog_posts: Blog
+    more: More
+    backoffice: Backoffice
 
   footer:
     about: about us
@@ -80,6 +83,7 @@ en:
       monitoring throughout the entire process.
 
   enterprises:
+    resource: Enterprise
     header: Enterprises
     subheader: Why buy  <span class="underline decoration-beige">a Plan?</span>
     list:
@@ -285,6 +289,11 @@ en:
         think.
     more: Find out more about KW Portugal
 
+  blog_posts:
+    resource: Post
+    header: Blog Posts
+    empty: New posts coming soon...
+
   privacy:
     header: Privacy Policy
 
@@ -307,6 +316,7 @@ en:
     next: Next
 
   listing:
+    resource: Listing
     watch_video: Watch Video
     details: Listing Details
     characteristics: Listing Characteristics

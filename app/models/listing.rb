@@ -2,7 +2,11 @@
 
 class Listing < ApplicationRecord
   extend Mobility
-  translates :title, :description, :features
+  extend FriendlyId
+
+  translates :title, :description, :features, :slug
+  friendly_id :title, use: %i[mobility history]
+
   acts_as_paranoid
   after_save :update_orders
 

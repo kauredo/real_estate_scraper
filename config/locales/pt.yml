@@ -10,6 +10,9 @@ pt:
     listings: Imóveis
     testimonies: Testemunhos
     language: Change site to English
+    blog_posts: Blog
+    more: Saber mais
+    backoffice: Backoffice
 
   footer:
     about: sobre nós
@@ -81,6 +84,7 @@ pt:
       acompanhamento de proximidade ao longo de todo o processo.
 
   enterprises:
+    resource: Empreendimento
     header: Empreendimentos
     subheader:
       Porquê Comprar <span class="underline decoration-beige">em Planta?</span>
@@ -297,6 +301,11 @@ pt:
   privacy:
     header: Política de Privacidade
 
+  blog_posts:
+    resource: Post
+    header: Blog Posts
+    empty: Novos posts em breve...
+
   terms:
     header: Termos e Condições
 
@@ -315,6 +324,7 @@ pt:
     next: Próxima
 
   listing:
+    resource: Imóvel
     watch_video: Assistir Vídeo
     details: Detalhes do Imóvel
     characteristics: Características do Imóvel

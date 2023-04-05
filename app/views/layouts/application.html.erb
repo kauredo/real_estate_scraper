@@ -15,6 +15,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
     <link rel="manifest" href="/favicons/site.webmanifest">
     <%= favicon_link_tag '/favicons/favicon.ico' %>
+    <%= tinymce_assets %>
+    <script type="text/javascript" src="/assets/tinymce.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src='https://www.googletagmanager.com/gtag/js?id=<%= ENV['GOOGLE_TAG_ID'] %>'></script>
     <script>
@@ -63,7 +65,7 @@
   <body>
     <main class="flex flex-col min-h-screen">
       <%= render 'shared/flashes' %>
-      <%= react_component 'Navbar', { admin: current_admin.present? } %>
+      <%= react_component 'Navbar', { admin: current_admin.present?, resource: @resource } %>
       <div class="flex-auto">
         <%= yield %>
       </div>
