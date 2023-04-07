@@ -28,7 +28,6 @@ class Listing < ApplicationRecord
   has_one :translation, class_name: 'Listing::Translation'
 
   default_scope { includes(:translation).order(order: :asc, status: :asc, created_at: :desc) }
-  scope :newest, -> { where(status: 'Novo') }
   scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
   scope :by_geography, lambda {
                          all.group_by(&:city).to_h

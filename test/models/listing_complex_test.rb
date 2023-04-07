@@ -39,7 +39,7 @@ class ListingComplexTest < ActiveSupport::TestCase
     listing_complex.final_text = 'Para mais informações contacte-me através do telefone'
     listing_complex.save
 
-    expected = ['290 000€ para um Estúdio', [['Estúdio', '290.000 €'], ['T1', '425.000 €'], ['T2', '610.000 €'], ['T3', '880.000 €'], ['T3+1', '1.215.000 €'], ['T4', '1.510.000 €']]]
+    expected = ['PRATA RIVERSIDE VILLAGE', [['Estúdio', '290.000 €'], ['T1', '425.000 €'], ['T2', '610.000 €'], ['T3', '880.000 €'], ['T3+1', '1.215.000 €'], ['T4', '1.510.000 €']]]
     assert_equal expected, listing_complex.listing_prices
   end
 
