@@ -1,0 +1,27 @@
+one:
+  id: 1
+  title: Como fazer o melhor negócio no mais curto tempo possível?
+  text:
+    "<h2>LALALALALA</h2>\r\n<p>Boris is a menace</p>\r\n<p><img
+    src=\"http://res.cloudinary.com/drpwozhzg/image/upload/v1680864317/adxq3otwuyhiniiivwse.jpg\"
+    alt=\"Mamma mia logo\" width=\"437\"
+    height=\"497\"></p>\r\n<p>&nbsp;</p>\r\n<p style=\"text-align:
+    center;\">This is insane</p>\r\n<ul>\r\n<li style=\"text-align:
+    left;\">one</li>\r\n<li style=\"text-align: left;\">two</li>\r\n<li
+    style=\"text-align: left;\">three\r\n<ul>\r\n<li style=\"text-align:
+    left;\">four and
+    five</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p><em><strong>Wow
+    Man</strong></em></p>\r\n<p>&nbsp;</p>\r\n<p><em><strong><iframe
+    src=\"https://www.youtube.com/embed/aYFwSlxe8ZI\" width=\"560\"
+    height=\"314\"
+    allowfullscreen=\"allowfullscreen\"></iframe></strong></em></p>\r\n<p>&nbsp;</p>\r\n<p><em><strong><a
+    href=\"https://www.youtube.com/watch?v=aYFwSlxe8ZI\" target=\"_blank\"
+    rel=\"noopener\">Link to video
+    above</a></strong></em></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Alright
+    that's enough for me</p>\r\n<p style=\"text-align: right;\">Love,</p>\r\n<p
+    style=\"text-align: right;\">Vasco</p>"
+  locale: pt
+  blog_post_id: 1
+  slug: como-fazer-o-melhor-negocio-no-mais-curto-tempo-possivel
+  :created_at: 2023-04-07 10:48:26 UTC
+  :updated_at: 2023-04-07 10:48:26 UTC

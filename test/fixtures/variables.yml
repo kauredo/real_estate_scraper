@@ -1,11 +1,16 @@
-
-1st_variable:
+one:
   id: 19
   name: Negócios 2022
-  value: '15000000'
+  value: "15000000"
   icon: fas fa-hand-holding-usd
 
-2nd_variable:
+two:
+  id: 23
+  name: "Top 7 nacional "
+  value: KW_Acumulado 2022
+  icon: fas fa-medal
+
+three:
   id: 18
   name: Prémio kw 2021
   value: Prata

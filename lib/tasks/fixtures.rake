@@ -42,7 +42,7 @@ namespace :fixtures do
                                                                                       "created_at": Time.zone.now.to_s,
                                                                                       "updated_at": Time.zone.now.to_s
                                                                                     })
-              { "#{idx.ordinalize}_#{name}_translation" => attributes }
+              { idx.humanize => attributes }
             end
 
             instances.each { |instance| file.write instance.to_yaml.sub!(/---\s?/, "\n") }
@@ -53,7 +53,7 @@ namespace :fixtures do
           File.open(path, 'w') do |file|
             instances = model.all.to_a.map.with_index(1) do |m, idx|
               attributes = m.attributes.select { |k, _v| !k.include?('_at') }.select { |k, _v| !k.include?('password') }
-              { "#{idx.ordinalize}_#{model_name.singularize}" => attributes }
+              { idx.humanize => attributes }
             end
 
             instances.each { |instance| file.write instance.to_yaml.sub!(/---\s?/, "\n") }

@@ -1,4 +1,23 @@
+one:
+  id: 1
+  user_id: 1
 
-1st_newsletter_subscription:
-  id: 11
+two:
+  id: 2
+  user_id: 2
+
+three:
+  id: 3
+  user_id: 3
+
+four:
+  id: 4
+  user_id: 4
+
+five:
+  id: 7
+  user_id: 7
+
+six:
+  id: 10
   user_id: 10

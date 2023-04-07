@@ -1,20 +1,14 @@
-
-1st_admin:
+one:
   id: 4
   email: vasco.kf@gmail.com
   confirmed: true
 
-2nd_admin:
+two:
   id: 5
   email: sofia.galvao@kwportugal.pt
   confirmed: true
 
-3rd_admin:
+three:
   id: 6
   email: sofiagalvaogroup@gmail.com
-  confirmed: true
-
-4th_admin:
-  id: 7
-  email: vaskafig@gmail.com
   confirmed: true
