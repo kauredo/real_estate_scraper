@@ -6,6 +6,7 @@ class Photo < ApplicationRecord
   after_save :update_orders
   after_save :update_main
   after_create :update_main
+  validates :main, inclusion: [true, false]
 
   default_scope { sort_order }
   scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
@@ -16,7 +17,7 @@ class Photo < ApplicationRecord
   def update_main
     return unless saved_change_to_main?
 
-    photos = Photo.where(listing_complex_id:).where.not(id:)
+    photos = Photo.unscoped.where(listing_complex_id:).where.not(id:)
     photos.update_all(main: false)
   end
 
