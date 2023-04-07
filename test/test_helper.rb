@@ -9,6 +9,9 @@ require 'rails/test_help'
 
 module ActiveSupport
   class TestCase
+    include ActiveRecord::TestFixtures
+    include ActiveRecord::TestFixtures::ClassMethods
+
     # Run tests in parallel with specified workers
     parallelize(workers: :number_of_processors)
 

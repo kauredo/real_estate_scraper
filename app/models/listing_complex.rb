@@ -33,7 +33,7 @@ class ListingComplex < ApplicationRecord
 
       [apt, ApplicationHelper.number_to_currency(price, unit: '€', precision: 0, format: '%n %u', delimiter: '.')]
     end
-    [prices.first, apt_and_price]
+    [name, apt_and_price]
   end
 
   def update_orders
