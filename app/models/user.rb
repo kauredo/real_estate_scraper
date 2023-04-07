@@ -4,7 +4,7 @@ class EmailValidator < ActiveModel::EachValidator
   EMAIL_REGEX = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
 
   def validate_each(record, attribute, value)
-    return if value.match(EMAIL_REGEX)
+    return if value&.match(EMAIL_REGEX)
 
     record.errors.add attribute, (options[:message] || I18n.t('errors.email.invalid'))
   end
