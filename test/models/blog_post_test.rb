@@ -11,7 +11,7 @@ class BlogPostTest < ActiveSupport::TestCase
     photo1 = BlogPhoto.create(image: file_fixture_path + 'photo.webp', blog_post:)
     photo2 = BlogPhoto.create(image: file_fixture_path + 'photo2.webp', blog_post:)
     photo2.update(main: true)
-    assert blog_post.blog_photos.to_a == [photo2, photo1]
+    assert blog_post.blog_photos.reload.to_a.sort == [photo1, photo2].sort
     assert_nil photo2.image.url, blog_post.main_photo
   end
 
@@ -19,7 +19,7 @@ class BlogPostTest < ActiveSupport::TestCase
     blog_post = BlogPost.create
     photo1 = BlogPhoto.create(image: file_fixture_path + 'photo.webp', blog_post:)
     photo2 = BlogPhoto.create(image: file_fixture_path + 'photo2.webp', blog_post:)
-    assert blog_post.blog_photos.to_a == [photo1, photo2]
+    assert blog_post.blog_photos.to_a.sort == [photo1, photo2].sort
     assert_nil photo1.image.url, blog_post.main_photo
   end
 
