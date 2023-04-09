@@ -11,8 +11,4 @@ class Variable < ApplicationRecord
   validates :icon, presence: { message: 'não pode estar vazio' }
 
   default_scope { includes(:translation) }
-
-  def self.volume
-    where('name LIKE ?', '%volume%')&.first&.value || 0
-  end
 end
