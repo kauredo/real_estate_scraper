@@ -17,8 +17,10 @@ module Backoffice
     def create
       @listing_complex = ListingComplex.new(listing_complex_params)
       if @listing_complex.save
-        params[:photos]['image']&.each do |a|
-          @photo = @listing_complex.photos.create!(image: a, listing_complex_id: @listing_complex.id) if a.present?
+        if params[:photos]
+          params[:photos]['image']&.each do |a|
+            @photo = @listing_complex.photos.create!(image: a, listing_complex_id: @listing_complex.id) if a.present?
+          end
         end
         flash[:notice] = 'Empreendimento criado'
         redirect_to edit_backoffice_listing_complex_path(@listing_complex)
@@ -33,7 +35,7 @@ module Backoffice
     def update
       @listing_complex.slug = nil
       if @listing_complex.update(listing_complex_params)
-        if params[:photos]['image']&.any?(&:present?)
+        if params[:photos] && params[:photos]['image']&.any?(&:present?)
           params[:photos]['image'].each do |a|
             @photo = @listing_complex.photos.create!(image: a, listing_complex_id: @listing_complex.id) if a.present?
           end
@@ -45,14 +47,16 @@ module Backoffice
     end
 
     def photos
-      params[:photos].each do |id, values|
-        next if id == 'image'
+      if params[:photos]
+        params[:photos].each do |id, values|
+          next if id == 'image'
 
-        photo = Photo.find(id)
-        photo.main = values['main']
-        photo.order = values['order']
+          photo = Photo.find(id)
+          photo.main = values['main']
+          photo.order = values['order']
 
-        photo.save if photo.changed?
+          photo.save if photo.changed?
+        end
       end
 
       flash[:notice] = 'Empreendimento atualizado'
@@ -61,6 +65,7 @@ module Backoffice
 
     def destroy
       @listing_complex.destroy
+      redirect_to backoffice_listing_complexes_path
     end
 
     private
