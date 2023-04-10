@@ -49,6 +49,7 @@ module Backoffice
 
     def destroy
       @listing.destroy
+      redirect_to backoffice_listings_path
     end
 
     def update_details
