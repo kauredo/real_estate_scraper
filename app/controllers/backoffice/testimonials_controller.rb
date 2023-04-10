@@ -26,8 +26,13 @@ module Backoffice
     def edit; end
 
     def update
-      @testimonial.update(testimonial_params)
-      redirect_to backoffice_testimonials_path
+      if @testimonial.update(testimonial_params)
+        flash[:notice] = 'Testemunho atualizado'
+        redirect_to backoffice_testimonials_path
+      else
+        flash.now[:error] = @testimonial.errors.full_messages.join('. ')
+        render :edit
+      end
     end
 
     def destroy
