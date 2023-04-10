@@ -6,7 +6,7 @@ class NewsletterSubscriptionsController < ApplicationController
 
   def create
     @user = User.find_or_initialize_by(email: email_params[:email])
-    @user.name = email_params[:name]
+    @user.name = email_params[:name] if email_params[:name]
 
     if @user.save
       NewsletterSubscription.find_or_create_by(user: @user)
