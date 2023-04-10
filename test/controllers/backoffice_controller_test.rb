@@ -5,7 +5,6 @@ class BackofficeControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     @admin = admins(:one)
-    @admin.update(confirmed: true)
     sign_in @admin
   end
 
