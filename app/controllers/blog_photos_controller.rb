@@ -20,6 +20,9 @@ class BlogPhotosController < ApplicationController
 
   def destroy
     photo = BlogPhoto.find(params[:id])
+    blog_post_id = photo.blog_post_id
     photo.destroy!
+
+    redirect_to edit_backoffice_blog_post_path(blog_post_id)
   end
 end

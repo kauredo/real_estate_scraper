@@ -55,7 +55,7 @@ module Backoffice
     def update_details
       ScrapeUrlJob.perform_async(@listing.id)
       flash[:notice] = I18n.t('listing.update_details.notice')
-      redirect_to backoffice_listing_path(@listing)
+      redirect_to edit_backoffice_listing_path(@listing)
     end
 
     private

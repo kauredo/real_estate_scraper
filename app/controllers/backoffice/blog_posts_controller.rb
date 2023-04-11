@@ -26,7 +26,7 @@ module Backoffice
       @blog_post = BlogPost.new(blog_post_params)
       @blog_post.save
 
-      redirect_to backoffice_blog_post_path(@blog_post)
+      redirect_to edit_backoffice_blog_post_path(@blog_post)
     end
 
     def edit
@@ -36,7 +36,12 @@ module Backoffice
     def update
       @blog_post.slug = nil
       @blog_post.update(blog_post_params)
-      update_blog_photos
+
+      create_blog_photos if params[:blog_photos][:image].any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
+      update_blog_photos if params[:blog_photos].present? && !params[:blog_photos][:image].any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
+
+      flash[:notice] = 'Post atualizado'
+      redirect_to edit_backoffice_blog_post_path(@blog_post)
     end
 
     def destroy
@@ -47,26 +52,23 @@ module Backoffice
 
     private
 
+    def create_blog_photos
+      params[:blog_photos][:image].each do |photo|
+        next unless photo.is_a?(ActionDispatch::Http::UploadedFile)
+
+        photo = BlogPhoto.create(image: photo, blog_post_id: @blog_post.id)
+      end
+    end
+
     def update_blog_photos
-      if params[:blog_photos].present?
+      params[:blog_photos].each do |id, values|
+        next if id == 'image'
 
-        params[:blog_photos].each do |id, values|
-          next if id == 'image'
+        photo = BlogPhoto.find(id)
+        photo.main = values['main']
 
-          photo = BlogPhoto.find(id)
-          photo.main = values['main']
-
-          photo.save if photo.changed?
-        end
+        photo.save if photo.changed?
       end
-
-      @blog_post.blog_photos&.each do |photo|
-        url = photo.image.url
-        photo.destroy! unless @blog_post.text.include?(url)
-      end
-
-      flash[:notice] = 'Post atualizado'
-      redirect_to edit_backoffice_blog_post_path(@blog_post)
     end
 
     def find_blog_post

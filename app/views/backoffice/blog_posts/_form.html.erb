@@ -26,14 +26,21 @@
   <%= tinymce %>
 </div>
 
-<div class="field mb-4 flex flex-col items-center gap-4">
+<div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
+  <%= f.label :blog_photos, class: 'w-1/4' %>
+  <%= f.fields_for :blog_photos do |p| %>
+    <div class="field">
+      <%= p.label :image %><br>
+      <%= p.file_field :image, multiple: true, name: "blog_photos[image][]" %>
+    </div>
+  <% end %>
   <% if @blog_post.blog_photos.present? %>
-    <%= f.label :blog_photos, class: 'w-1/4' %>
-    <div class="max-w-sm flex flex-wrap justify-between content-center">
+    <div class="flex flex-wrap justify-between content-center">
       <% @blog_post.blog_photos.each do |photo| %>
         <div class="w-full sm:w-1/4 m-2">
+          <%= link_to '❌', blog_photo_path(photo), method: :delete, data: { "turbo-method": :delete }, onclick: "return confirm('Are you sure you want to delete this photo?');" %>
           <%= cl_image_tag(photo.image)  %>
-          <%= fields_for "blog_photos[]", photo do |f| %>
+          <%= fields_for "blog_photos[]",photo do |f| %>
             <div class="flex gap-2">
               <%= f.label :main_photo? %><br>
               <%= f.check_box :main, value: photo.main %>

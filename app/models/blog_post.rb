@@ -13,7 +13,11 @@ class BlogPost < ApplicationRecord
   def sample_text
     return if text.nil?
 
-    ActionView::Base.full_sanitizer.sanitize(text.gsub('<p>&nbsp;</p>', '<br>')).first(100).concat('...')
+    ActionView::Base.full_sanitizer.sanitize(text.gsub('<p>&nbsp;</p>', '<br>'))
+                    .gsub("\r\n\r\n\r\n\r\n\r\n", "\r\n\r\n")
+                    .gsub("\r\n\r\n\r\n\r\n", "\r\n\r\n")
+                    .gsub("\r\n\r\n\r\n", "\r\n\r\n")
+                    .first(100).concat('...')
   end
 
   def main_photo
