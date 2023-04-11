@@ -3,19 +3,18 @@
 <% content_for(:meta_image) { @blog_post.main_photo } %>
 
 <div id="blog-show" class="relative">
-  <header class="bg-beige">
-    <div class="tinymce mx-auto py-8">
-      <div class="flex flex-wrap justify-around gap-4 items-center h-full w-full px-8">
-        <div class="w-full tablet:w-1/2">
-          <h1><%= @blog_post.title %></h1>
-          <p><%= @blog_post.created_at.strftime("%d/%m/%Y") %></p>
-        </div>
+  <header
+    class="!bg-center !bg-no-repeat !bg-cover min-h-[320px]"
+    style="background: url(<%= @blog_post.main_photo %>)"
+  >
 
-        <img class="w-2/5 min-w-[20rem] border shadow-lg" src="<%= @blog_post.main_photo %>" alt="<%= @blog_post.title %>">
-      </div>
-    </div>
   </header>
   <div class="tinymce pt-8 px-8 mx-auto container">
+    <div class="w-full tablet:w-2/3 mb-4">
+      <h1><%= @blog_post.title %></h1>
+      <p><%= @blog_post.created_at.strftime("%d/%m/%Y") %></p>
+    </div>
+
     <%= sanitize @blog_post.text %>
   </div>
 </div>
