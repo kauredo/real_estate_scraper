@@ -18,12 +18,13 @@ class TaskHelper
       sleep delay
       retry
     end
+    raise e
   end
 
-  def self.consent_cookies(browser)
+  def self.consent_cookies(browser, sleep_time: 5)
     browser.cookies.clear
     browser.refresh
-    sleep 5
+    sleep sleep_time
     banner = browser.div(class: 'cc-banner')
     return if banner.blank?
 
