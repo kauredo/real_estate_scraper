@@ -5,6 +5,10 @@
     <%= yield :extra_meta %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <% if !Rails.env.production? %>
+      <meta name="robots" content="noindex">
+    <% end %>
+
     <meta name="facebook-domain-verification" content="i1srcxt1ep5l2pqjfzs1cj5knhihcv" />
     <script src="https://kit.fontawesome.com/f01d8e868a.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', "data-turbo-track": 'reload' %>
