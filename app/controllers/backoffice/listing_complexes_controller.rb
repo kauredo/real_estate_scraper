@@ -34,6 +34,7 @@ module Backoffice
 
     def update
       @listing_complex.slug = nil
+
       if @listing_complex.update(listing_complex_params)
         if params[:photos] && params[:photos]['image']&.any?(&:present?)
           params[:photos]['image'].each do |a|
@@ -42,6 +43,7 @@ module Backoffice
         end
         photos
       else
+        flash.now[:error] = @listing_complex.errors.full_messages.join('. ')
         render action: 'edit'
       end
     end
