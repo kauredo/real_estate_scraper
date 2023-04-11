@@ -76,9 +76,11 @@ class ScrapeListingDetails
     # listing.location = scrape_location(listing.address)
     listing.title&.gsub! 'm2', 'm²'
     listing.description_pt&.gsub! 'm2', 'm²'
-    listing.stats['Área Útil']&.gsub! 'm 2', 'm²'
-    listing.stats['Área Bruta (CP)']&.gsub! 'm 2', 'm²'
-    listing.stats['Área do Terreno']&.gsub! 'm 2', 'm²'
+    if listing.stats
+      listing.stats['Área Útil']&.gsub! 'm 2', 'm²'
+      listing.stats['Área Bruta (CP)']&.gsub! 'm 2', 'm²'
+      listing.stats['Área do Terreno']&.gsub! 'm 2', 'm²'
+    end
 
     if listing.save
       Rails.logger.debug "Finished listing #{listing.title}"

@@ -380,15 +380,6 @@
                       </div>
 
                       <div class="fw-listing-topbar-details">
-                        <div class="fw-listing-topbar-address">
-                          <p
-                            class="ng-binding"
-                            ng-bind-html="vm.listing.listingAddress"
-                          >
-                            Estrela, Campo de Ourique, Lisboa
-                          </p>
-                        </div>
-
                         <div class="fw-listing-topbar-actions">
                           <div class="listing-details-action">
                             <i
@@ -1420,12 +1411,42 @@
                               ng-if="vm.listing.bannerId == 6"
                               class="ls-salesagreed ng-scope"
                             >
-                              <span> Vendido </span>
+                              <span> Reservado </span>
                             </div>
                           </div>
                         </div>
 
                         <div class="fw-listing-gallery-images">
+                          <div
+                            class="fw-listing-gallery-image hidden-xs ng-scope"
+                            ng-repeat="image in vm.listingImages track by $index"
+                          >
+                            <img
+                              alt="Apartamento T2 com 64,29 m2 + pátio 9,83 m2, a estrear, Estrela - Campo de Ourique"
+                              title="Apartamento T2 com 64,29 m2 + pátio 9,83 m2, a estrear, Estrela - Campo de Ourique"
+                              ng-if="image.listingImageType != 1 &amp;&amp; image.listingImageType != 2"
+                              class="img-responsive ng-scope"
+                              ng-click="vm.openLightboxModal($index)"
+                              ng-src="https://repstaticneu.azureedge.net/images/2001/L/WM/Large/92a22747-0aa3-4c3d-aeef-04f54de15cf3-87ea35e5-bfdf-4498-acaf-3a7bdd977621.jpg"
+                              src="https://repstaticneu.azureedge.net/images/2001/L/WM/Large/92a22747-0aa3-4c3d-aeef-04f54de15cf3-87ea35e5-bfdf-4498-acaf-3a7bdd977621.jpg"
+                            />
+                          </div>
+
+                          <div
+                            class="fw-listing-gallery-image hidden-xs ng-scope"
+                            ng-repeat="image in vm.listingImages track by $index"
+                          >
+                            <img
+                              alt="Apartamento T2 com 64,29 m2 + pátio 9,83 m2, a estrear, Estrela - Campo de Ourique"
+                              title="Apartamento T2 com 64,29 m2 + pátio 9,83 m2, a estrear, Estrela - Campo de Ourique"
+                              ng-if="image.listingImageType != 1 &amp;&amp; image.listingImageType != 2"
+                              class="img-responsive ng-scope"
+                              ng-click="vm.openLightboxModal($index)"
+                              ng-src="https://repstaticneu.azureedge.net/images/2001/L/WM/Large/92a22747-0aa3-4c3d-aeef-04f54de15cf3-d6efe47b-3289-44a3-9645-33cd1fd1b99b.jpg"
+                              src="https://repstaticneu.azureedge.net/images/2001/L/WM/Large/92a22747-0aa3-4c3d-aeef-04f54de15cf3-d6efe47b-3289-44a3-9645-33cd1fd1b99b.jpg"
+                            />
+                          </div>
+
                           <div
                             class="visible-xs flexslider-container"
                             slider-id="slider"
@@ -1438,6 +1459,60 @@
                             init-delay="100"
                           >
                             <div class="flexslider" id="slider">
+                              <ul class="slides">
+                                <li
+                                  class="ng-scope flex-active-slide"
+                                  style="
+                                    width: 100%;
+                                    float: left;
+                                    margin-right: -100%;
+                                    position: relative;
+                                    opacity: 1;
+                                    display: block;
+                                    z-index: 2;
+                                  "
+                                >
+                                  <div>
+                                    <img
+                                      alt="Apartamento T2 com 64,29 m2 + pátio 9,83 m2, a estrear, Estrela - Campo de Ourique"
+                                      title="Apartamento T2 com 64,29 m2 + pátio 9,83 m2, a estrear, Estrela - Campo de Ourique"
+                                      ng-if="image.listingImageType != 1 &amp;&amp; image.listingImageType != 2"
+                                      class="img-responsive ng-scope"
+                                      ng-click="vm.openLightboxModal($index)"
+                                      ng-src="https://repstaticneu.azureedge.net/images/2001/L/WM/Large/92a22747-0aa3-4c3d-aeef-04f54de15cf3-87ea35e5-bfdf-4498-acaf-3a7bdd977621.jpg"
+                                      src="https://repstaticneu.azureedge.net/images/2001/L/WM/Large/92a22747-0aa3-4c3d-aeef-04f54de15cf3-87ea35e5-bfdf-4498-acaf-3a7bdd977621.jpg"
+                                      draggable="false"
+                                    />
+                                  </div>
+                                </li>
+
+                                <li
+                                  class="ng-scope"
+                                  style="
+                                    width: 100%;
+                                    float: left;
+                                    margin-right: -100%;
+                                    position: relative;
+                                    opacity: 0;
+                                    display: block;
+                                    z-index: 1;
+                                  "
+                                >
+                                  <div>
+                                    <img
+                                      alt="Apartamento T2 com 64,29 m2 + pátio 9,83 m2, a estrear, Estrela - Campo de Ourique"
+                                      title="Apartamento T2 com 64,29 m2 + pátio 9,83 m2, a estrear, Estrela - Campo de Ourique"
+                                      ng-if="image.listingImageType != 1 &amp;&amp; image.listingImageType != 2"
+                                      class="img-responsive ng-scope"
+                                      ng-click="vm.openLightboxModal($index)"
+                                      ng-src="https://repstaticneu.azureedge.net/images/2001/L/WM/Large/92a22747-0aa3-4c3d-aeef-04f54de15cf3-d6efe47b-3289-44a3-9645-33cd1fd1b99b.jpg"
+                                      src="https://repstaticneu.azureedge.net/images/2001/L/WM/Large/92a22747-0aa3-4c3d-aeef-04f54de15cf3-d6efe47b-3289-44a3-9645-33cd1fd1b99b.jpg"
+                                      draggable="false"
+                                    />
+                                  </div>
+                                </li>
+                              </ul>
+
                               <ul class="flex-direction-nav">
                                 <li>
                                   <a
