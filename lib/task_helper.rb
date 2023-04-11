@@ -1,7 +1,19 @@
 # frozen_string_literal: true
 
 class TaskHelper
-  def self.run_and_retry_on_exception(cmd, params: {}, tries: 0, max_tries: 5, delay: 10)
+  SLEEP_TIME = if Rails.env.test?
+                 0.1
+               else
+                 5
+               end
+
+  DELAY = if Rails.env.test?
+            0.1
+          else
+            10
+          end
+
+  def self.run_and_retry_on_exception(cmd, params: {}, tries: 0, max_tries: 5, delay: DELAY)
     tries += 1
 
     if params.present?
@@ -21,7 +33,7 @@ class TaskHelper
     raise e
   end
 
-  def self.consent_cookies(browser, sleep_time: 5)
+  def self.consent_cookies(browser, sleep_time: SLEEP_TIME)
     browser.cookies.clear
     browser.refresh
     sleep sleep_time

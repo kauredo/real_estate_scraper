@@ -3,6 +3,12 @@
 require 'task_helper'
 
 class ScrapeListingDetails
+  SLEEP_TIME = if Rails.env.test?
+                 0.1
+               else
+                 5
+               end
+
   def self.scrape_details(browser, imovel_url, force_images = false)
     listing = Listing.find_or_initialize_by(url: imovel_url)
 
@@ -10,7 +16,7 @@ class ScrapeListingDetails
 
     TaskHelper.consent_cookies(browser)
 
-    sleep 5
+    sleep SLEEP_TIME
     browser.refresh
 
     listing.title_pt = browser.title
