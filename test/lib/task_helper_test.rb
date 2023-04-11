@@ -72,6 +72,6 @@ class TaskHelperTest < ActiveSupport::TestCase
       FakeBanner.new
     end
 
-    TaskHelper.consent_cookies(browser, sleep_time: 0.1)
+    TaskHelper.consent_cookies(browser)
   end
 end
