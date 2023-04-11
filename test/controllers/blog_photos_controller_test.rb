@@ -35,7 +35,7 @@ class BlogPhotosControllerTest < ActionDispatch::IntegrationTest
 
     delete blog_photo_url(id: photo.id)
 
-    assert_response :success
+    assert_redirected_to edit_backoffice_blog_post_path(id: @blog_post_id)
     assert_nil BlogPhoto.find_by(id: photo.id)
   end
 

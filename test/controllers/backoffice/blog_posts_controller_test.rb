@@ -27,7 +27,7 @@ module Backoffice
         post backoffice_blog_posts_url, params: { blog_post: { title: 'New blog post' } }
       end
 
-      assert_redirected_to backoffice_blog_post_path(id: BlogPost.last.slug)
+      assert_redirected_to edit_backoffice_blog_post_path(id: BlogPost.last.slug)
     end
 
     test 'should show blog_post' do
