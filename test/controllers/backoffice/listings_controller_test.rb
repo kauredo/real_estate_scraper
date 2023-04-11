@@ -122,5 +122,23 @@ module Backoffice
       assert_equal 'https://www.youtube.com/embed/abcdefghijk', listing.video_link
       assert_redirected_to edit_backoffice_listing_path(listing)
     end
+
+    test 'should update all listings' do
+      post update_all_backoffice_listings_path
+
+      assert_response :redirect
+      assert_redirected_to backoffice_listings_path
+      assert_equal I18n.t('listing.update_all.notice'), flash[:notice]
+    end
+
+    test 'should update details for listing' do
+      listing = listings(:two)
+
+      post update_details_backoffice_listing_path(id: listing.id)
+
+      assert_response :redirect
+      assert_redirected_to edit_backoffice_listing_path(id: listing.slug)
+      assert_equal I18n.t('listing.update_details.notice'), flash[:notice]
+    end
   end
 end
