@@ -17,8 +17,8 @@ class ListingComplexTest < ActiveSupport::TestCase
     listing_complex = listing_complexes(:one)
     listing_complex.photos.destroy_all
 
-    assert listing_complex.photos.create(image: fixture_path + 'files/photo.webp', main: true)
-    assert listing_complex.photos.create(image: fixture_path + 'files/photo2.webp')
+    assert listing_complex.photos.create(image: "#{fixture_path}files/photo.webp", main: true)
+    assert listing_complex.photos.create(image: "#{fixture_path}files/photo2.webp")
 
     assert_equal listing_complex.photos.first, listing_complex.main_photo
   end
@@ -27,7 +27,7 @@ class ListingComplexTest < ActiveSupport::TestCase
     listing_complex = listing_complexes(:one)
     listing_complex.photos.destroy_all
 
-    assert listing_complex.photos.create(image: fixture_path + 'files/photo.webp')
+    assert listing_complex.photos.create(image: "#{fixture_path}files/photo.webp")
 
     assert_equal listing_complex.photos.first, listing_complex.main_photo
   end

@@ -5,7 +5,7 @@ require 'test_helper'
 class PhotoTest < ActiveSupport::TestCase
   def setup
     @listing_complex = listing_complexes(:one)
-    @photo = @listing_complex.photos.create(image: fixture_path + 'files/photo.webp')
+    @photo = @listing_complex.photos.create(image: "#{fixture_path}files/photo.webp")
   end
 
   test 'photo should be valid' do
@@ -31,7 +31,7 @@ class PhotoTest < ActiveSupport::TestCase
   end
 
   test 'update_main should set all other photos in the listing complex to false when main is true' do
-    photo2 = @listing_complex.photos.create(image: fixture_path + 'files/photo.webp')
+    photo2 = @listing_complex.photos.create(image: "#{fixture_path}files/photo.webp")
     photo2.update!(main: true)
 
     assert photo2.main
@@ -44,7 +44,7 @@ class PhotoTest < ActiveSupport::TestCase
 
   test 'update_main should not update other photos in different listing complexes' do
     listing_complex2 = listing_complexes(:two)
-    photo2 = listing_complex2.photos.create(image: fixture_path + 'files/photo.webp', main: true)
+    photo2 = listing_complex2.photos.create(image: "#{fixture_path}files/photo.webp", main: true)
     @photo.update!(main: true)
     assert photo2.reload.main
   end
@@ -58,8 +58,8 @@ class PhotoTest < ActiveSupport::TestCase
 
   test 'update_orders should not update the order of photos in other listing complexes' do
     listing_complex2 = listing_complexes(:two)
-    photo1 = listing_complex2.photos.create(image: fixture_path + 'files/photo.webp', order: 1)
-    photo2 = listing_complex2.photos.create(image: fixture_path + 'files/photo.webp', order: 2)
+    photo1 = listing_complex2.photos.create(image: "#{fixture_path}files/photo.webp", order: 1)
+    photo2 = listing_complex2.photos.create(image: "#{fixture_path}files/photo.webp", order: 2)
     @photo.update!(order: 2)
     assert_equal [photo1, photo2], listing_complex2.photos.reload.to_a
   end

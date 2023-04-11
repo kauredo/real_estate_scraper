@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BlogPost < ApplicationRecord
   extend Mobility
   extend FriendlyId

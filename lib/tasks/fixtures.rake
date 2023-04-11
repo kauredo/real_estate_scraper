@@ -25,7 +25,7 @@ namespace :fixtures do
       models.map do |model|
         model_name = model.name.pluralize.underscore
 
-        next if (model_name.include?('/') && !model_name.include?('translations')) || (model_name.split('/').count > 2) || ['application_records'].include?(model_name)
+        next if (model_name.include?('/') && model_name.exclude?('translations')) || (model_name.split('/').count > 2) || ['application_records'].include?(model_name)
 
         puts "Creating for #{model.name}"
         if model_name.include?('translations')
@@ -38,10 +38,10 @@ namespace :fixtures do
 
           File.open(path, 'w') do |file|
             instances = model.all.to_a.map.with_index(1) do |m, idx|
-              attributes = m.attributes.select { |k, _v| !k.include?('_at') }.merge({
-                                                                                      "created_at": Time.zone.now.to_s,
-                                                                                      "updated_at": Time.zone.now.to_s
-                                                                                    })
+              attributes = m.attributes.reject { |k, _v| k.include?('_at') }.merge({
+                                                                                     "created_at": Time.zone.now.to_s,
+                                                                                     "updated_at": Time.zone.now.to_s
+                                                                                   })
               { idx.humanize => attributes }
             end
 
@@ -52,7 +52,7 @@ namespace :fixtures do
 
           File.open(path, 'w') do |file|
             instances = model.all.to_a.map.with_index(1) do |m, idx|
-              attributes = m.attributes.select { |k, _v| !k.include?('_at') }.select { |k, _v| !k.include?('password') }
+              attributes = m.attributes.reject { |k, _v| k.include?('_at') }.reject { |k, _v| k.include?('password') }
               { idx.humanize => attributes }
             end
 

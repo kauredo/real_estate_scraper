@@ -10,9 +10,9 @@ class TaskHelper
       cmd.call
     end
   rescue StandardError => e
-    puts '~~~~~~~~~~~~~'
-    puts "Error: #{e}"
-    puts '~~~~~~~~~~~~~'
+    Rails.logger.debug '~~~~~~~~~~~~~'
+    Rails.logger.debug "Error: #{e}"
+    Rails.logger.debug '~~~~~~~~~~~~~'
     Sentry.capture_exception(e)
     unless tries >= max_tries
       sleep delay
@@ -25,7 +25,7 @@ class TaskHelper
     browser.refresh
     sleep 5
     banner = browser.div(class: 'cc-banner')
-    return unless banner.present?
+    return if banner.blank?
 
     banner.a(class: 'cc-btn').locate.click
     browser.refresh

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class BlogPhotosController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    return unless params[:file].present?
+    return if params[:file].blank?
     return unless params[:file].instance_of?(ActionDispatch::Http::UploadedFile)
 
     @image = BlogPhoto.new(image: params[:file], blog_post_id: Rails.cache.read('blog-id'))

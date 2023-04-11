@@ -1,23 +1,25 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class BlogPhotoTest < ActiveSupport::TestCase
   test 'should save valid blog photo' do
     blog_post = BlogPost.create(title: 'Test Blog Post', text: 'Lorem ipsum dolor sit amet.')
-    blog_photo = BlogPhoto.new(image: file_fixture_path + 'photo.webp', blog_post:)
+    blog_photo = BlogPhoto.new(image: "#{file_fixture_path}photo.webp", blog_post:)
 
     assert blog_photo.save
   end
 
   test 'should not save blog photo without blog post' do
-    blog_photo = BlogPhoto.new(image: file_fixture_path + 'photo.webp')
+    blog_photo = BlogPhoto.new(image: "#{file_fixture_path}photo.webp")
 
     assert_not blog_photo.save
   end
 
   test 'should update main photo' do
     blog_post = BlogPost.create(title: 'Test Blog Post', text: 'Lorem ipsum dolor sit amet.')
-    main_photo = BlogPhoto.create(image: file_fixture_path + 'photo.webp', main: true, blog_post:)
-    other_photo = BlogPhoto.create(image: file_fixture_path + 'photo.webp', main: false, blog_post:)
+    main_photo = BlogPhoto.create(image: "#{file_fixture_path}photo.webp", main: true, blog_post:)
+    other_photo = BlogPhoto.create(image: "#{file_fixture_path}photo.webp", main: false, blog_post:)
 
     other_photo.update(main: true)
 
@@ -27,8 +29,8 @@ class BlogPhotoTest < ActiveSupport::TestCase
 
   test 'should not update main photo when main is false' do
     blog_post = BlogPost.create(title: 'Test Blog Post', text: 'Lorem ipsum dolor sit amet.')
-    main_photo = BlogPhoto.create(image: file_fixture_path + 'photo.webp', main: true, blog_post:)
-    other_photo = BlogPhoto.create(image: file_fixture_path + 'photo.webp', main: false, blog_post:)
+    main_photo = BlogPhoto.create(image: "#{file_fixture_path}photo.webp", main: true, blog_post:)
+    other_photo = BlogPhoto.create(image: "#{file_fixture_path}photo.webp", main: false, blog_post:)
 
     other_photo.update(main: false)
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class BlogPostTest < ActiveSupport::TestCase
@@ -8,8 +10,8 @@ class BlogPostTest < ActiveSupport::TestCase
 
   test 'should return main photo when exists' do
     blog_post = BlogPost.create
-    photo1 = BlogPhoto.create(image: file_fixture_path + 'photo.webp', blog_post:)
-    photo2 = BlogPhoto.create(image: file_fixture_path + 'photo2.webp', blog_post:)
+    photo1 = BlogPhoto.create(image: "#{file_fixture_path}photo.webp", blog_post:)
+    photo2 = BlogPhoto.create(image: "#{file_fixture_path}photo2.webp", blog_post:)
     photo2.update(main: true)
     assert blog_post.blog_photos.reload.to_a.sort == [photo1, photo2].sort
     assert_nil photo2.image.url, blog_post.main_photo
@@ -17,8 +19,8 @@ class BlogPostTest < ActiveSupport::TestCase
 
   test 'should return first photo when main photo does not exist' do
     blog_post = BlogPost.create
-    photo1 = BlogPhoto.create(image: file_fixture_path + 'photo.webp', blog_post:)
-    photo2 = BlogPhoto.create(image: file_fixture_path + 'photo2.webp', blog_post:)
+    photo1 = BlogPhoto.create(image: "#{file_fixture_path}photo.webp", blog_post:)
+    photo2 = BlogPhoto.create(image: "#{file_fixture_path}photo2.webp", blog_post:)
     assert blog_post.blog_photos.to_a.sort == [photo1, photo2].sort
     assert_nil photo1.image.url, blog_post.main_photo
   end

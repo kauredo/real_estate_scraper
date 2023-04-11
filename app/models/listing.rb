@@ -21,7 +21,7 @@ class Listing < ApplicationRecord
             'moura', 'santiago do cacém', 'estremoz', 'alcácer do sal', 'reguengos de monsaraz',
             'serpa', 'borba', 'portimão', 'faro', 'loulé', 'quarteira', 'loulé', 'lagos',
             'tavira', 'olhão', 'vila real de santo antónio', 'almancil', 'silves', 'lagoa']
-  }
+  }.freeze
 
   enum :status, { recent: 0, standard: 1, agreed: 2, sold: 3 }
   belongs_to :listing_complex, optional: true

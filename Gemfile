@@ -69,8 +69,8 @@ gem 'rails-i18n'
 gem 'react-rails'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
-gem 'sentry-ruby'
 gem 'sentry-rails'
+gem 'sentry-ruby'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'tinymce-rails'
@@ -89,7 +89,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "dockerfile-rails", ">= 1.2"
+  gem 'dockerfile-rails', '>= 1.2'
   gem 'erb_lint', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
@@ -99,4 +99,3 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
 end
-

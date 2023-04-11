@@ -47,16 +47,14 @@ module Backoffice
     end
 
     def photos
-      if params[:photos]
-        params[:photos].each do |id, values|
-          next if id == 'image'
+      params[:photos]&.each do |id, values|
+        next if id == 'image'
 
-          photo = Photo.find(id)
-          photo.main = values['main']
-          photo.order = values['order']
+        photo = Photo.find(id)
+        photo.main = values['main']
+        photo.order = values['order']
 
-          photo.save if photo.changed?
-        end
+        photo.save if photo.changed?
       end
 
       flash[:notice] = 'Empreendimento atualizado'
