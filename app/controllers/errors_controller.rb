@@ -4,7 +4,7 @@ class ErrorsController < ApplicationController
   layout 'error'
 
   def show
-    if Rails.env.development? && params[:id].present?
+    if [Rails.env.development? || Rails.env.test?] && params[:id].present?
       @status_code = params[:id].to_i
     else
       @exception = request.env['action_dispatch.exception']
@@ -14,7 +14,7 @@ class ErrorsController < ApplicationController
                      ).status_code
     end
 
-    render view_for_code(@status_code), status: @status_code
+    render view_for_code(@status_code), status: view_for_code(@status_code).to_i
   end
 
   private
