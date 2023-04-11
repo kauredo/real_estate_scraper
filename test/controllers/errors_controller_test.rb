@@ -20,4 +20,10 @@ class ErrorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :not_found
     assert_template 'errors/404'
   end
+
+  test 'should render default 404 page if no code specified' do
+    get '/foo'
+    assert_response :not_found
+    assert_template 'errors/404'
+  end
 end

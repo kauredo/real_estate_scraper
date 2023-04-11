@@ -27,9 +27,9 @@ class BlogPostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should return 404 if trying to access non-existent blog post' do
-    assert_raises(ActiveRecord::RecordNotFound) do
-      get blog_post_url(id: 999, locale: I18n.locale)
-    end
+    get blog_post_url(id: 999, locale: I18n.locale)
+    assert_response :not_found
+    assert_template 'errors/404'
   end
 
   test 'should set resource variable in show action' do

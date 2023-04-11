@@ -40,9 +40,9 @@ class BlogPhotosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should return 404 if trying to destroy non-existent blog photo' do
-    assert_raises(ActiveRecord::RecordNotFound) do
-      delete blog_photo_url(id: 999)
-    end
+    delete blog_photo_url(id: 999)
+    assert_response :not_found
+    assert_template 'errors/404'
   end
 
   test 'should return error message if photo cannot be saved' do
