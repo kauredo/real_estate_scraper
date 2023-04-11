@@ -46,17 +46,18 @@ module Backoffice
     end
 
     test 'should update listing_complex' do
+      assert_nil @listing_complex.main_photo
       patch backoffice_listing_complex_path(@listing_complex, locale: I18n.locale), params: { listing_complex: { name: 'Updated Test Listing Complex' }, photos: { image: ['photo.webp'] } }
       @listing_complex.reload
       assert_redirected_to edit_backoffice_listing_complex_path(id: @listing_complex.slug)
       assert_equal 'Empreendimento atualizado', flash[:notice]
       assert_equal 'Updated Test Listing Complex', @listing_complex.name
+      assert_not_nil @listing_complex.main_photo
     end
 
     test 'should update photos listing_complex' do
       photo1 = @listing_complex.photos.create(main: true, order: 1)
       photo2 = @listing_complex.photos.create(main: false, order: 2)
-      photo3 = @listing_complex.photos.create(main: false)
 
       patch backoffice_listing_complex_path(@listing_complex, locale: I18n.locale), params: { listing_complex: { name: 'Updated Test Listing Complex' }, photos: { "#{photo1.id}": { main: false, order: 1 }, "#{photo2.id}": { main: true } } }
       @listing_complex.reload

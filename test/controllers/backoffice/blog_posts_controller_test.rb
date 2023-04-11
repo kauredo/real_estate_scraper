@@ -42,9 +42,37 @@ module Backoffice
 
     test 'should update blog_post' do
       patch backoffice_blog_post_url(@blog_post, locale: I18n.locale), params: { blog_post: { title: 'Updated blog post' } }
+
       @blog_post.reload
+
       assert_redirected_to edit_backoffice_blog_post_path(id: @blog_post.slug)
       assert_equal 'Updated blog post', @blog_post.reload.title
+    end
+
+    test 'should create photos on blog_post' do
+      assert_equal 'https://sofiagalvaogroup.com/images/banner.webp', @blog_post.main_photo
+      @file = fixture_file_upload('photo.webp', 'image/webp')
+
+      patch backoffice_blog_post_url(@blog_post, locale: I18n.locale), params: { blog_post: { title: 'Updated blog post' }, blog_photos: { image: [@file] } }
+      @blog_post.reload
+
+      assert_not_equal 'https://sofiagalvaogroup.com/images/banner.webp', @blog_post.main_photo
+    end
+
+    test 'should update photos on blog_post' do
+      @file = fixture_file_upload('photo.webp', 'image/webp')
+
+      photo1 = @blog_post.blog_photos.create(main: true)
+      photo2 = @blog_post.blog_photos.create(main: false, image: @file)
+
+      patch backoffice_blog_post_url(@blog_post, locale: I18n.locale), params: { blog_post: { title: 'Updated blog post' }, blog_photos: { image: [], "#{photo1.id}": { main: false }, "#{photo2.id}": { main: true } } }
+
+      @blog_post.reload
+
+      assert_not photo1.reload.main
+      assert photo2.reload.main
+
+      assert_equal photo2.image.url, @blog_post.main_photo
     end
 
     test 'should destroy blog_post' do

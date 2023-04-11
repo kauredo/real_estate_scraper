@@ -25,7 +25,7 @@ class BlogPost < ApplicationRecord
       blog_photos.detect(&:main).image.url
     elsif blog_photos.present?
       blog_photos.first.image.url
-    elsif text&.include? 'src='
+    elsif text&.include?('src=') && text&.include?('<img')
       Nokogiri::HTML.parse(text).xpath('//img[@src]').first.attributes['src'].value
     else
       'https://sofiagalvaogroup.com/images/banner.webp'
