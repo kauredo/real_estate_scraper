@@ -22,7 +22,7 @@ function Hero(props: Props) {
           />
           <h2
             className={`text-4xl md:text-7xl ${
-              i18n.locale === "pt" && "whitespace-nowrap"
+              i18n.locale === "pt" ? "whitespace-nowrap" : ""
             }`}
           >
             {i18n.t("home.slogan.top")}

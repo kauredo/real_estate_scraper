@@ -79,7 +79,7 @@ export default function Newsletter() {
       <div
         className="h-[20rem] md:w-1/2 w-5/6 hidden md:block object-cover bg-center bg-no-repeat bg-cover object-center"
         style={{
-          backgroundImage: `url(images/email.webp)`,
+          backgroundImage: `url(/images/email.webp)`,
         }}
       ></div>
     </section>
