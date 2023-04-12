@@ -38,7 +38,7 @@ module Backoffice
       @blog_post.update(blog_post_params)
 
       create_blog_photos if params[:blog_photos] && params[:blog_photos][:image]&.any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
-      update_blog_photos if params[:blog_photos].present? && !params[:blog_photos][:image].any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
+      update_blog_photos if params[:blog_photos].present? && params[:blog_photos][:image].none? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
 
       flash[:notice] = 'Post atualizado' if flash[:error].nil?
       redirect_to edit_backoffice_blog_post_path(@blog_post)
