@@ -5,7 +5,7 @@ module MetaTagsHelper
     temp_title = if request.path_info.include?('backoffice')
                    localized_meta['meta_title_backoffice']
                  else
-                   content_for?(:meta_title) ? content_for(:meta_title) : localized_meta['meta_title']
+                   content_for?(:meta_title) ? "#{content_for(:meta_title)} | Sofia Galvão Group" : localized_meta['meta_title']
                  end
 
     if Rails.env.development?
