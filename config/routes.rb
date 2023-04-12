@@ -65,4 +65,6 @@ Rails.application.routes.draw do
   authenticate :admin, ->(a) { a.confirmed? } do
     mount Sidekiq::Web => '/sidekiq'
   end
+
+  get '/sitemap', to: 'testsuite#sitemap'
 end
