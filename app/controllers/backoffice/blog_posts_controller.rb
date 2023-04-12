@@ -40,7 +40,7 @@ module Backoffice
       create_blog_photos if params[:blog_photos] && params[:blog_photos][:image]&.any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
       update_blog_photos if params[:blog_photos].present? && !params[:blog_photos][:image].any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
 
-      flash[:notice] = 'Post atualizado'
+      flash[:notice] = 'Post atualizado' if flash[:error].nil?
       redirect_to edit_backoffice_blog_post_path(@blog_post)
     end
 
@@ -56,7 +56,11 @@ module Backoffice
       params[:blog_photos][:image].each do |photo|
         next unless photo.is_a?(ActionDispatch::Http::UploadedFile)
 
-        photo = BlogPhoto.create(image: photo, blog_post_id: @blog_post.id)
+        if File.size(photo) > 10_485_760
+          flash[:error] = 'A imagem é demasiado grande, por favor comprime-a ou usa outra imagem'
+        else
+          photo = BlogPhoto.create(image: photo, blog_post_id: @blog_post.id)
+        end
       end
     end
 
