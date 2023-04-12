@@ -16,11 +16,11 @@ export default function ComplexCard(props: Props) {
           backoffice
             ? sanitizeURLWithParams(
                 window.Routes.edit_backoffice_listing_complex_path,
-                listing_complex.id
+                listing_complex.slug
               )
             : sanitizeURLWithParams(
                 window.Routes.listing_complex_path,
-                listing_complex.id
+                listing_complex.slug
               )
         }
       >

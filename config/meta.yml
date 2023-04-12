@@ -13,5 +13,5 @@ meta_description:
   Desenvolvo a consultoria imobiliária com exigência, rigor, profissionalismo e
   confiança. Tenho o “know how” do mercado e proporciono aos meus Clientes os
   melhores negócios, os que os fazem mais Felizes!"
-meta_image: "banner_small.webp" # should exist in `app/public/images/`
+meta_image: "banner_small.jpg" # should exist in `app/public/images/`
 twitter_account: "@sofiagalvaokw" # required for Twitter Cards

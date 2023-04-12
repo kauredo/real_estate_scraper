@@ -2,7 +2,11 @@
 
 class ListingComplex < ApplicationRecord
   extend Mobility
-  translates :name, :description, :subtext, :final_text
+  extend FriendlyId
+
+  translates :name, :description, :subtext, :final_text, :slug
+  friendly_id :name, use: %i[mobility history]
+
   has_many :listings, dependent: :destroy
   has_many :photos, dependent: :destroy
   has_one :translation, class_name: 'ListingComplex::Translation'
@@ -29,7 +33,7 @@ class ListingComplex < ApplicationRecord
 
       [apt, ApplicationHelper.number_to_currency(price, unit: '€', precision: 0, format: '%n %u', delimiter: '.')]
     end
-    [prices.first, apt_and_price]
+    [name, apt_and_price]
   end
 
   def update_orders

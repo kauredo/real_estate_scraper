@@ -68,7 +68,7 @@ export default function Cards(props: Props) {
                 }}
               >
                 {listings[selectedLocation].map(listing => (
-                  <Card listing={listing} key={listing.id} />
+                  <Card listing={listing} key={listing.slug} />
                 ))}
               </Carousel>
             </div>
@@ -138,7 +138,7 @@ export default function Cards(props: Props) {
                 }}
               >
                 {listings.map(listing => (
-                  <Card listing={listing} key={listing.id} />
+                  <Card listing={listing} key={listing.slug} />
                 ))}
               </Carousel>
             </div>

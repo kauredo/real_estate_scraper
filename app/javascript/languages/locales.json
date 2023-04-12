@@ -27,6 +27,11 @@
         "title": "Who are we?"
       }
     },
+    "blog_posts": {
+      "empty": "New posts coming soon...",
+      "header": "Blog Posts",
+      "resource": "Post"
+    },
     "buy": {
       "header": "Buy"
     },
@@ -261,6 +266,7 @@
           "title": "Property to your measure"
         }
       },
+      "resource": "Enterprise",
       "show": {
         "bedrooms": "Bedrooms",
         "built": "Built Area",
@@ -397,6 +403,7 @@
       },
       "details": "Listing Details",
       "price": "Price",
+      "resource": "Listing",
       "status": {
         "agreed": "Sales Agreed",
         "recent": "New to Market",
@@ -420,12 +427,15 @@
     },
     "navbar": {
       "about": "About Us",
+      "backoffice": "Backoffice",
+      "blog_posts": "Blog",
       "buy": "Buy",
       "contacts": "Contacts",
       "enterprises": "Enterprises",
       "house_360": "360 House",
       "language": "Mudar site para Português",
       "listings": "Listings",
+      "more": "More",
       "sell": "Sell",
       "services": "Services",
       "testimonies": "Testimonies"
@@ -597,6 +607,11 @@
         "sub2": "Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
         "title": "Quem somos?"
       }
+    },
+    "blog_posts": {
+      "empty": "Novos posts em breve...",
+      "header": "Blog Posts",
+      "resource": "Post"
     },
     "buy": {
       "header": "Comprar"
@@ -896,6 +911,7 @@
           "title": "Imóvel à sua medida"
         }
       },
+      "resource": "Empreendimento",
       "show": {
         "bedrooms": "Tipologia",
         "built": "Área Bruta",
@@ -1048,6 +1064,7 @@
       },
       "details": "Detalhes do Imóvel",
       "price": "Preço",
+      "resource": "Imóvel",
       "status": {
         "agreed": "Reservado",
         "recent": "Novo",
@@ -1071,12 +1088,15 @@
     },
     "navbar": {
       "about": "Sobre Nós",
+      "backoffice": "Backoffice",
+      "blog_posts": "Blog",
       "buy": "Comprar",
       "contacts": "Contactos",
       "enterprises": "Empreendimentos",
       "house_360": "Casa 360",
       "language": "Change site to English",
       "listings": "Imóveis",
+      "more": "Saber mais",
       "sell": "Vender",
       "services": "Serviços",
       "testimonies": "Testemunhos"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sidekiq-scheduler'
 
 class ScrapeAll
@@ -5,10 +7,10 @@ class ScrapeAll
   require 'rake'
 
   def perform
-    puts 'ScrapeAll is being performed'
+    Rails.logger.debug 'ScrapeAll is being performed'
     Rails.application.load_tasks
     Rake::Task['scrape_all'].invoke
 
-    puts 'ScrapeAll DONE'
+    Rails.logger.debug 'ScrapeAll DONE'
   end
 end

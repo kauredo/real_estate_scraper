@@ -1,0 +1,46 @@
+.tinymce {
+  max-width: 1024px;
+}
+.tinymce h1 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.tinymce h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.tinymce h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.tinymce h4 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.tinymce h5 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.tinymce h6 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.tinymce p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  max-width: 100%;
+}
+.tinymce a {
+  color: #d3af79;
+}
+.tinymce ul {
+  margin-left: 20px;
+  list-style: circle;
+}
+.tinymce ol {
+  margin-left: 20px;
+  list-style: decimal;
+}
+.tinymce * {
+  max-width: 100%;
+}

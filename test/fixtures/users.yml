@@ -1,5 +1,4 @@
-
-1st_user:
+one:
   id: 2
   first_name: hugo
   last_name: figueiredo
@@ -7,7 +6,7 @@
   phone:
   confirmed_email:
 
-2nd_user:
+two:
   id: 1
   first_name: Vasco
   last_name: Figueiredo
@@ -15,7 +14,7 @@
   phone:
   confirmed_email: true
 
-3rd_user:
+three:
   id: 3
   first_name: sofia
   last_name: galvão
@@ -23,7 +22,7 @@
   phone:
   confirmed_email:
 
-4th_user:
+four:
   id: 4
   first_name: João
   last_name: Maria Costa
@@ -31,7 +30,7 @@
   phone:
   confirmed_email:
 
-5th_user:
+five:
   id: 7
   first_name: Andreia
   last_name: Teste
@@ -39,18 +38,10 @@
   phone:
   confirmed_email: true
 
-6th_user:
-  id: 8
-  first_name: Vasco
-  last_name: Teste
-  email: vaskafig@gmail.com
-  phone:
-  confirmed_email:
-
-7th_user:
+six:
   id: 10
   first_name: Vasco
-  last_name: Kaufmann Figueiredo
-  email: vasco@imkaufmann.com
+  last_name: Teste 2
+  email: vaskafig@gmail.com
   phone:
   confirmed_email:

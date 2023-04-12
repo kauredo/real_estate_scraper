@@ -132,7 +132,7 @@ export default function NewShow(props: Props) {
                   {complex.listings.map(listing => {
                     return (
                       <tr
-                        key={listing.id}
+                        key={listing.slug}
                         className={
                           "text-center border border-slate-700 relative"
                         }
@@ -172,7 +172,7 @@ export default function NewShow(props: Props) {
                             <a
                               href={sanitizeURLWithParams(
                                 window.Routes.listing_path,
-                                listing.id
+                                listing.slug
                               )}
                               target="_blank"
                               className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"

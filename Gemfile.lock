@@ -144,6 +144,11 @@ GEM
       tzinfo
     execjs (2.8.1)
     ffi (1.15.5)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
+    friendly_id-mobility (1.0.4)
+      friendly_id (>= 5.0.0, < 5.5)
+      mobility (>= 1.0.1, < 2.0)
     fugit (1.8.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -153,6 +158,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
+    humanize (2.5.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     i18n-js (4.2.2)
@@ -251,6 +257,10 @@ GEM
       activesupport (= 7.0.4)
       bundler (>= 1.15.0)
       railties (= 7.0.4)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -355,6 +365,8 @@ GEM
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
+    tinymce-rails (6.4.1)
+      railties (>= 3.1.1)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -403,6 +415,9 @@ DEPENDENCIES
   dockerfile-rails (>= 1.2)
   dotenv-rails
   erb_lint
+  friendly_id
+  friendly_id-mobility
+  humanize
   i18n-js
   jbuilder
   js-routes
@@ -417,6 +432,7 @@ DEPENDENCIES
   pry-byebug
   puma (~> 5.6)
   rails (= 7.0.4)
+  rails-controller-testing
   rails-i18n
   react-rails
   redis
@@ -430,6 +446,7 @@ DEPENDENCIES
   simplecov
   sprockets-rails
   stimulus-rails
+  tinymce-rails
   turbo-rails
   tzinfo-data
   watir

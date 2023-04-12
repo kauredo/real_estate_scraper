@@ -10,11 +10,11 @@ class ScrapeListingDetails
 
     TaskHelper.consent_cookies(browser)
 
-    sleep 5
+    sleep ENV['SLEEP_TIME']&.to_i || 5
     browser.refresh
 
     listing.title_pt = browser.title
-    puts "Gathering data for listing #{listing.title_pt}"
+    Rails.logger.debug "Gathering data for listing #{listing.title_pt}"
 
     # price
     price = browser.span(class: 'fw-listing-price').wait_until(&:present?).text
@@ -76,15 +76,17 @@ class ScrapeListingDetails
     # listing.location = scrape_location(listing.address)
     listing.title&.gsub! 'm2', 'm²'
     listing.description_pt&.gsub! 'm2', 'm²'
-    listing.stats['Área Útil']&.gsub! 'm 2', 'm²'
-    listing.stats['Área Bruta (CP)']&.gsub! 'm 2', 'm²'
-    listing.stats['Área do Terreno']&.gsub! 'm 2', 'm²'
+    if listing.stats
+      listing.stats['Área Útil']&.gsub! 'm 2', 'm²'
+      listing.stats['Área Bruta (CP)']&.gsub! 'm 2', 'm²'
+      listing.stats['Área do Terreno']&.gsub! 'm 2', 'm²'
+    end
 
     if listing.save
-      puts "Finished listing #{listing.title}"
+      Rails.logger.debug "Finished listing #{listing.title}"
     else
       message = "ERROR: Listing at #{listing.url} has errors"
-      puts message
+      Rails.logger.debug message
     end
   end
 
@@ -104,15 +106,15 @@ class ScrapeListingDetails
     en = menu.a(text: language)
 
     if en.present?
-      puts 'changing language btn present'
+      Rails.logger.debug 'changing language btn present'
       browser.nav(id: 'menu').wait_until(&:present?).a(text: language).wait_until(&:present?).click
     else
-      puts 'changing language btn not present'
+      Rails.logger.debug 'changing language btn not present'
       browser.refresh
     end
 
     listing.title = browser.title
-    puts "Gathering data for listing #{listing.title}"
+    Rails.logger.debug "Gathering data for listing #{listing.title}"
 
     # features
     count = 0
@@ -131,11 +133,11 @@ class ScrapeListingDetails
     listing.description&.gsub! 'm2', 'm²'
 
     if listing.save
-      puts "Finished listing #{listing.title}"
+      Rails.logger.debug "Finished listing #{listing.title}"
     else
       message = "ERROR: Listing at #{listing.url} has errors"
       @errors << [listing, message]
-      puts message
+      Rails.logger.debug message
     end
   end
 end

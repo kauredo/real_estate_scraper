@@ -13,5 +13,5 @@ meta_description:
   Sofia Galvão Group's real estate brand with rigour, professionalism and trust.
   I have the market 'know how' and I provide my Clients the best deals, the ones
   that make them the happiest!"
-meta_image: "banner_small.webp" # should exist in `app/public/images/`
+meta_image: "banner_small.jpg" # should exist in `app/public/images/`
 twitter_account: "@sofiagalvaokw" # required for Twitter Cards

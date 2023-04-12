@@ -2,7 +2,11 @@
 
 class Listing < ApplicationRecord
   extend Mobility
-  translates :title, :description, :features
+  extend FriendlyId
+
+  translates :title, :description, :features, :slug
+  friendly_id :title, use: %i[mobility history]
+
   acts_as_paranoid
   after_save :update_orders
 
@@ -17,14 +21,13 @@ class Listing < ApplicationRecord
             'moura', 'santiago do cacém', 'estremoz', 'alcácer do sal', 'reguengos de monsaraz',
             'serpa', 'borba', 'portimão', 'faro', 'loulé', 'quarteira', 'loulé', 'lagos',
             'tavira', 'olhão', 'vila real de santo antónio', 'almancil', 'silves', 'lagoa']
-  }
+  }.freeze
 
   enum :status, { recent: 0, standard: 1, agreed: 2, sold: 3 }
   belongs_to :listing_complex, optional: true
   has_one :translation, class_name: 'Listing::Translation'
 
   default_scope { includes(:translation).order(order: :asc, status: :asc, created_at: :desc) }
-  scope :newest, -> { where(status: 'Novo') }
   scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
   scope :by_geography, lambda {
                          all.group_by(&:city).to_h

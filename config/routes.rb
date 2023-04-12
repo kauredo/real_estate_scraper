@@ -28,7 +28,11 @@ Rails.application.routes.draw do
     get '/empreendimentos/:id', to: 'listing_complexes#show', as: :listing_complex
     get '/comprar', to: 'listings#buy', as: :buy
     get '/comprar/:id', to: 'listings#show', as: :listing
+    get '/blog', to: 'blog_posts#index', as: :blog
+    get '/blog/:id', to: 'blog_posts#show', as: :blog_post
     get '/vender', to: 'listings#sell', as: :sell
+    post '/tinymce_assets' => 'blog_photos#create'
+    resources :blog_photos, only: %i[create destroy]
     resources :photos, only: [:destroy]
     resources :newsletter_subscriptions, only: %i[create destroy] do
       member do
@@ -39,6 +43,7 @@ Rails.application.routes.draw do
     namespace :backoffice do
       get '/', to: 'pages#home'
       resources :variables, only: %i[create update destroy]
+      resources :blog_posts
       resources :listings, only: %i[index create edit update destroy] do
         member do
           post '/update_details', to: 'listings#update_details'
@@ -54,7 +59,7 @@ Rails.application.routes.draw do
       resources :testimonials
     end
 
-    resources :errors, only: 'show' if Rails.env.development?
+    resources :errors, only: 'show' if [Rails.env.development? || Rails.env.test?]
   end
 
   authenticate :admin, ->(a) { a.confirmed? } do

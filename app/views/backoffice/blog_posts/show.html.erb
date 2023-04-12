@@ -1,0 +1,16 @@
+<div id="blog-show" class="relative">
+  <header
+    class="!bg-center !bg-no-repeat !bg-cover min-h-[320px]"
+    style="background: url('<%= @blog_post.main_photo %>')"
+  >
+
+  </header>
+  <div class="tinymce pt-8 px-8 mx-auto container">
+    <div class="w-full tablet:w-2/3 mb-4">
+      <h1><%= @blog_post.title %></h1>
+      <p><%= @blog_post.created_at.strftime("%d/%m/%Y") %></p>
+    </div>
+
+    <%= sanitize @blog_post.text %>
+  </div>
+</div>

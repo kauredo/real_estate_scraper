@@ -54,6 +54,9 @@ gem 'bootsnap', require: false
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'devise'
+gem 'friendly_id'
+gem 'friendly_id-mobility'
+gem 'humanize'
 gem 'i18n-js'
 gem 'js-routes'
 gem 'jwt'
@@ -61,14 +64,16 @@ gem 'listen', '~> 3.7', '>= 3.7.1'
 gem 'mobility', '~> 1.2.9'
 gem 'pagy', '~> 5.10'
 gem 'paranoia'
+gem 'rails-controller-testing'
 gem 'rails-i18n'
 gem 'react-rails'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
-gem 'sentry-ruby'
 gem 'sentry-rails'
+gem 'sentry-ruby'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
+gem 'tinymce-rails'
 gem 'watir'
 
 # Tests / Scrape
@@ -84,7 +89,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "dockerfile-rails", ">= 1.2"
+  gem 'dockerfile-rails', '>= 1.2'
   gem 'erb_lint', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
@@ -94,4 +99,3 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
 end
-

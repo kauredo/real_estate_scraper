@@ -2,10 +2,18 @@
 
 module MetaTagsHelper
   def meta_title
-    if request.path_info.include?('backoffice')
-      localized_meta['meta_title_backoffice']
+    temp_title = if request.path_info.include?('backoffice')
+                   localized_meta['meta_title_backoffice']
+                 else
+                   content_for?(:meta_title) ? content_for(:meta_title) : localized_meta['meta_title']
+                 end
+
+    if Rails.env.development?
+      "DEV | #{temp_title}"
+    elsif Rails.env.staging?
+      "TESTES | #{temp_title}"
     else
-      content_for?(:meta_title) ? content_for(:meta_title) : localized_meta['meta_title']
+      temp_title
     end
   end
 

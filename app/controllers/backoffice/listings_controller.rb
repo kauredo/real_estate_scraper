@@ -35,6 +35,7 @@ module Backoffice
                                          end
       end
 
+      @listing.slug = nil
       @listing.update(new_params)
       flash[:notice] = I18n.t('listing.update.notice')
       redirect_to edit_backoffice_listing_path(@listing)
@@ -48,22 +49,23 @@ module Backoffice
 
     def destroy
       @listing.destroy
+      redirect_to backoffice_listings_path
     end
 
     def update_details
       ScrapeUrlJob.perform_async(@listing.id)
       flash[:notice] = I18n.t('listing.update_details.notice')
-      redirect_to backoffice_listing_path(@listing)
+      redirect_to edit_backoffice_listing_path(@listing)
     end
 
     private
 
     def find_listing
-      @listing = Listing.find(params[:id])
+      @listing = Listing.friendly.find(params[:id])
     end
 
     def update_video_link
-      return unless @listing.present?
+      return if @listing.blank?
       return if @listing.video_link.blank?
 
       @listing.video_link.sub!('watch?v=', 'embed/')

@@ -17,8 +17,10 @@ module Backoffice
     def create
       @listing_complex = ListingComplex.new(listing_complex_params)
       if @listing_complex.save
-        params[:photos]['image']&.each do |a|
-          @photo = @listing_complex.photos.create!(image: a, listing_complex_id: @listing_complex.id) if a.present?
+        if params[:photos]
+          params[:photos]['image']&.each do |a|
+            @photo = @listing_complex.photos.create!(image: a, listing_complex_id: @listing_complex.id) if a.present?
+          end
         end
         flash[:notice] = 'Empreendimento criado'
         redirect_to edit_backoffice_listing_complex_path(@listing_complex)
@@ -31,21 +33,23 @@ module Backoffice
     def edit; end
 
     def update
-      @listing_complex.update(listing_complex_params)
+      @listing_complex.slug = nil
+
       if @listing_complex.update(listing_complex_params)
-        if params[:photos]['image']&.any?(&:present?)
+        if params[:photos] && params[:photos]['image']&.any?(&:present?)
           params[:photos]['image'].each do |a|
             @photo = @listing_complex.photos.create!(image: a, listing_complex_id: @listing_complex.id) if a.present?
           end
         end
         photos
       else
+        flash.now[:error] = @listing_complex.errors.full_messages.join('. ')
         render action: 'edit'
       end
     end
 
     def photos
-      params[:photos].each do |id, values|
+      params[:photos]&.each do |id, values|
         next if id == 'image'
 
         photo = Photo.find(id)
@@ -61,12 +65,13 @@ module Backoffice
 
     def destroy
       @listing_complex.destroy
+      redirect_to backoffice_listing_complexes_path
     end
 
     private
 
     def find_listing_complex
-      @listing_complex = ListingComplex.find(params[:id])
+      @listing_complex = ListingComplex.friendly.find(params[:id])
     end
 
     def update_video_link
