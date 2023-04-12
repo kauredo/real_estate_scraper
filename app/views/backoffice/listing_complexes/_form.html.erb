@@ -63,16 +63,16 @@
   <%= f.fields_for :photos do |p| %>
     <div class="field">
       <%= p.label :image %><br>
-      <%= p.file_field :image, multiple: true, name: "photos[image][]" %>
+      <%= p.file_field :image, multiple: true, name: 'photos[image][]' %>
     </div>
   <% end %>
   <% if @listing_complex.photos.present? %>
     <div class="flex flex-wrap justify-between content-center">
       <% @listing_complex.photos.each do |photo| %>
         <div class="w-full sm:w-1/4 m-2">
-          <%= link_to '❌', photo_path(photo), method: :delete, data: { "turbo-method": :delete, confirm: 'Are you sure?'} %>
+          <%= link_to '❌', photo_path(photo), method: :delete, data: { "turbo-method": :delete, confirm: 'Are you sure?' } %>
           <%= cl_image_tag(photo.image)  %>
-          <%= fields_for "photos[]",photo do |f| %>
+          <%= fields_for 'photos[]', photo do |f| %>
             <div class="flex gap-2">
               <%= f.label :main_photo? %><br>
               <%= f.check_box :main, value: photo.main %>

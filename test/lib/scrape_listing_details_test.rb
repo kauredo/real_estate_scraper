@@ -1,4 +1,4 @@
-# test/models/scrape_listing_details_test.rb
+# frozen_string_literal: true
 
 require 'test_helper'
 
