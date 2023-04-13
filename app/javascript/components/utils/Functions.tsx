@@ -1,7 +1,7 @@
 import { i18n } from "../../languages/languages";
 
 export function truncateText(title, length) {
-  if (title.length > 90) {
+  if (title && title.length > 90) {
     return title.substring(0, length) + "...";
   } else {
     return title;
@@ -27,7 +27,11 @@ export function getUrlParameter(sParam) {
 }
 
 export function toCapitalize(string) {
-  return string[0].toUpperCase() + string.substring(1);
+  if (string[0]) {
+    return string[0].toUpperCase() + string.substring(1);
+  }
+
+  return string;
 }
 
 export const sanitizeURL = url => {
