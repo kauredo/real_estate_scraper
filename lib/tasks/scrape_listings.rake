@@ -100,7 +100,7 @@ end
 desc 'Scrape one listing off KW website'
 task :scrape_one, [:id] => :environment do |_t, arguments|
   id = arguments.id
-  listing = Listing.find id
+  listing = Listing.friendly.find id
   url = listing.url
 
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
