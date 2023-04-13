@@ -36,7 +36,8 @@ class Listing < ApplicationRecord
   def city
     return if address.nil?
 
-    city = address.split(',').last.squish
+    city = address.split(',')&.last&.squish
+    return if city.nil?
 
     if CITIES[:south].include? city.downcase
       'Sul'
