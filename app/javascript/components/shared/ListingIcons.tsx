@@ -9,13 +9,13 @@ export default function ListingIcons({ listing }) {
     <>
       <div className="flex justify-between items-center mt-4 text-gray-700">
         <div className="flex items-center">
-          {listing.stats.Quartos && (
+          {listing.stats && listing.stats["Quartos"] && (
             <>
               <FontAwesomeIcon icon={faBed} />
-              <p className="px-2 text-sm pr-4">{listing.stats.Quartos}</p>
+              <p className="px-2 text-sm pr-4">{listing.stats["Quartos"]}</p>
             </>
           )}
-          {listing.stats["Casas de Banho"] && (
+          {listing.stats && listing.stats["Casas de Banho"] && (
             <>
               <FontAwesomeIcon icon={faBath} />
               <p className="px-2 text-sm">{listing.stats["Casas de Banho"]}</p>
