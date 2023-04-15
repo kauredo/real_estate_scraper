@@ -9,7 +9,11 @@ class ScrapeAll
   def perform
     Rails.logger.debug 'ScrapeAll is being performed'
     Rails.application.load_tasks
-    Rake::Task['scrape_all'].invoke
+
+    ActiveRecord::Base.connection_pool.release_connection
+    ActiveRecord::Base.connection_pool.with_connection do
+      Rake::Task['scrape_all'].invoke
+    end
 
     Rails.logger.debug 'ScrapeAll DONE'
   end
