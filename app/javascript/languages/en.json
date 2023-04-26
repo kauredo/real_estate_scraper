@@ -662,6 +662,7 @@
     },
     "tasks": {
       "scrape": {
+        "awaiting": "Updating Results",
         "unavailable": "is no longer available on our website"
       }
     },

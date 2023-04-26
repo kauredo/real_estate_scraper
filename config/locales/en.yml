@@ -346,6 +346,7 @@ en:
   tasks:
     scrape:
       unavailable: is no longer available on our website
+      awaiting: Updating Results
 
   errors:
     404:
