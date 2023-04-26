@@ -355,6 +355,7 @@ pt:
   tasks:
     scrape:
       unavailable: já não se encontra disponível no website
+      awaiting: Actualizar Resultados
 
   errors:
     404:

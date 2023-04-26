@@ -94,12 +94,6 @@ class ScrapeListingDetails
     browser.goto(listing.url)
     TaskHelper.consent_cookies(browser)
 
-    text = browser.div(class: 'listing-details').wait_until(&:present?).text
-    if text.include?(I18n.t('tasks.scrape.unavailable'))
-      listing.destroy
-      return
-    end
-
     toggle = browser.button(class: 'navbar-toggle').wait_until(&:present?)
     toggle.click
     menu = browser.nav(id: 'menu').wait_until(&:present?)
@@ -111,6 +105,20 @@ class ScrapeListingDetails
     else
       Rails.logger.debug 'changing language btn not present'
       browser.refresh
+    end
+
+    text = I18n.t('tasks.scrape.awaiting')
+
+    until text != I18n.t('tasks.scrape.awaiting') do
+      text = browser.div(class: 'listing-details').wait_until(&:present?).text
+      sleep 1
+    end
+
+    Rails.logger.debug "!!!!!!!!!!!!!!!!!!!!"
+    Rails.logger.debug "text: #{text}"
+    if text.include?(I18n.t('tasks.scrape.unavailable'))
+      listing.destroy
+      return
     end
 
     listing.title = browser.title
