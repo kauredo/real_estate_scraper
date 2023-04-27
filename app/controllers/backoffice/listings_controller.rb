@@ -14,7 +14,7 @@ module Backoffice
       if listing_params[:url].present? && listing_params[:url].starts_with?('https://www.kwportugal.pt/')
         ActiveRecord::Base.transaction do
           listing = Listing.find_or_create_by(url: listing_params[:url])
-          ScrapeUrlJob.perform_async(listing.id)
+          ScrapeUrlJob.perform_async(listing_params[:url])
           flash[:notice] = I18n.t('listing.create.notice')
         end
       else
@@ -53,7 +53,7 @@ module Backoffice
     end
 
     def update_details
-      ScrapeUrlJob.perform_async(@listing.id)
+      ScrapeUrlJob.perform_async(@listing.url)
       flash[:notice] = I18n.t('listing.update_details.notice')
       redirect_to edit_backoffice_listing_path(@listing)
     end

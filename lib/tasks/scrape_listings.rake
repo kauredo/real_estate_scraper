@@ -98,10 +98,9 @@ task scrape: :environment do |_t, args|
 end
 
 desc 'Scrape one listing off KW website'
-task :scrape_one, [:id] => :environment do |_t, arguments|
-  id = arguments.id
-  listing = Listing.friendly.find id
-  url = listing.url
+task :scrape_one, [:url] => :environment do |_t, arguments|
+  url = arguments.url
+  listing = Listing.find_by(url:)
 
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
   args << 'headless'
