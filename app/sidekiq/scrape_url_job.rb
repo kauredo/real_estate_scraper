@@ -5,13 +5,13 @@ class ScrapeUrlJob
   require 'rake'
   queue_as :default
 
-  def perform(id)
-    Rails.logger.debug "ScrapeJobUrl is being performed for #{id}"
+  def perform(url)
+    Rails.logger.debug "ScrapeJobUrl is being performed for #{url}"
     Rails.application.load_tasks
 
     ActiveRecord::Base.connection_pool.release_connection
     ActiveRecord::Base.connection_pool.with_connection do
-      Rake::Task['scrape_one'].invoke(id)
+      Rake::Task['scrape_one'].invoke(url)
     end
 
     Rails.logger.debug 'DONE'

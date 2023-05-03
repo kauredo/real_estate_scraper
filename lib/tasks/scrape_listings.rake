@@ -11,22 +11,20 @@ task scrape: :environment do |_t, args|
 
   def scrape_total
     sleep 5
-    @browser.refresh
-    @browser.div(class: 'gallery-container').wait_until(&:present?)
-    matches = @browser.lis(class: 'pagination-page').wait_until(&:present?)
+    $browser.refresh
+    $browser.div(class: 'gallery-container').wait_until(&:present?)
+    matches = $browser.lis(class: 'pagination-page').wait_until(&:present?)
     matches.count
-    # @browser.close
   end
 
   def scrape_page(page)
     url = "#{@url.slice(0...(@url.index('&pageNumber')))}&pageNumber=#{page + 1}"
-    @browser.goto(url)
+    $browser.goto(url)
     sleep 5
-    @browser.refresh
+    $browser.refresh
 
-    js_doc = @browser.div(class: 'gallery-container').wait_until(&:present?)
+    js_doc = $browser.div(class: 'gallery-container').wait_until(&:present?)
     imoveis = Nokogiri::HTML(js_doc.inner_html)
-    # @browser.close
     res = imoveis.css('.gallery-item')
 
     res.each do |imovel|
@@ -38,7 +36,7 @@ task scrape: :environment do |_t, args|
   end
 
   def scrape_details(url)
-    ScrapeListingDetails.scrape_details(@browser, url)
+    ScrapeListingDetails.scrape_details($browser, url)
   end
 
   def total_pages
@@ -63,24 +61,24 @@ task scrape: :environment do |_t, args|
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
   args << 'headless'
   options = Selenium::WebDriver::Chrome::Options.new(args:)
-  @browser = Watir::Browser.new(:chrome, options:)
+  $browser = Watir::Browser.new(:chrome, options:)
 
-  @browser.goto(@url)
-  TaskHelper.consent_cookies(@browser)
+  $browser.goto(@url)
+  TaskHelper.consent_cookies($browser)
 
   puts @url
 
-  properties = @browser.as(class: 'our-properties').detect(&:visible?)
+  properties = $browser.as(class: 'our-properties').detect(&:visible?)
 
   if properties
     puts 'found properties'
     properties.click
     sleep 2
-    @url = @browser.url
+    @url = $browser.url
   else
     puts 'no found properties'
     @url = 'https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=pt-PT&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=1'
-    @browser.goto(@url)
+    $browser.goto(@url)
   end
 
   @lister = Rack::Utils.parse_nested_query(@url)['agentName']
@@ -92,26 +90,32 @@ task scrape: :environment do |_t, args|
     TaskHelper.run_and_retry_on_exception(method(:one_page), params: page)
   end
 
-  @browser.close
+  $browser.close
   puts ''
   puts 'Completed'
 end
 
 desc 'Scrape one listing off KW website'
-task :scrape_one, [:id] => :environment do |_t, arguments|
-  id = arguments.id
-  listing = Listing.friendly.find id
-  url = listing.url
+task :scrape_one, [:url] => :environment do |_t, arguments|
+  url = arguments.url
+  listing = Listing.find_by(url:)
 
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
   args << 'headless'
   options = Selenium::WebDriver::Chrome::Options.new(args:)
-  browser = Watir::Browser.new(:chrome, options:)
+  $browser = Watir::Browser.new(:chrome, options:)
 
-  ScrapeListingDetails.scrape_details(browser, url, true)
+  ScrapeListingDetails.scrape_details($browser, url, true)
   I18n.with_locale(:en) do
-    ScrapeListingDetails.scrape_language_details(browser, listing, 'English (United States)')
+    ScrapeListingDetails.scrape_language_details($browser, listing, 'English (United States)')
   end
 
-  browser.close
+  $browser.close
+end
+
+Rake::Task.tasks.each do |t|
+  t.enhance do
+    puts $browser
+    $browser.close if $browser
+  end
 end
