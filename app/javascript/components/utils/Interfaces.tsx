@@ -54,6 +54,7 @@ export interface Listing {
   status: string;
   slug: string;
   video_link: string;
+  order?: number;
 }
 
 export interface Pagy {

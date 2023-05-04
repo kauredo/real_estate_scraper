@@ -107,11 +107,18 @@ export default function LongCard(props: Props) {
                 {i18n.t("listing.status.sold")}
               </div>
             )}
-            <img
-              alt=""
-              className="w-full md:w-128 h-full block mx-auto object-cover"
-              src={listing.photos[0]}
-            />
+            <div className="w-full md:w-128 h-full block mx-auto object-cover relative">
+              {backoffice && (
+                <div className="absolute top-0 left-0 w-10 p-2 bg-black text-white font-bold text-center">
+                  {listing.order || "N/A"}
+                </div>
+              )}
+              <img
+                alt={listing.title}
+                className="w-full md:w-128 h-full block mx-auto object-cover"
+                src={listing.photos[0]}
+              />
+            </div>
           </div>
           <div className="flex-1 card-block relative w-full md:w-2/3">
             <div className="p-6">
