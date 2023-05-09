@@ -43,6 +43,10 @@ export const sanitizeURL = url => {
 };
 
 export const sanitizeURLWithParams = (url, params) => {
+  if (params === undefined || params === null) {
+    return "#";
+  }
+
   if (i18n.locale === "pt") {
     return url(params);
   } else {
