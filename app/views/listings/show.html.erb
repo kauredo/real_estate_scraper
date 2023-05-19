@@ -1,6 +1,9 @@
 <% content_for(:meta_title) { @listing.title } %>
 <% content_for(:meta_description) { @listing.description.squish } %>
 <% content_for(:meta_image) { @listing.photos.first } %>
+<% content_for(:extra_meta) do %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>comprar/<%= @listing.slug %>" />
+<% end %>
 <div id="show" class="relative">
   <%= react_component 'showPage--Show', { listing: @listing }  %>
 </div>
