@@ -1,1 +1,4 @@
+<% content_for(:extra_meta) do %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com<%= I18n.locale == :pt ? '' : "/#{I18n.locale}" %>" />
+<% end %>
 <%= react_component 'homePage--Home', { listings: @listings, results: @results, photos: @photos, testimonials: @testimonials }  %>

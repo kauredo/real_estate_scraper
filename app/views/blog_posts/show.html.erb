@@ -1,6 +1,9 @@
 <% content_for(:meta_title) { @blog_post.meta_title } %>
 <% content_for(:meta_description) { @blog_post.meta_description } %>
 <% content_for(:meta_image) { @blog_post.main_photo } %>
+<% content_for(:extra_meta) do %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>blog/<%= @blog_post.slug %>" />
+<% end %>
 
 <div id="blog-show" class="relative">
   <header

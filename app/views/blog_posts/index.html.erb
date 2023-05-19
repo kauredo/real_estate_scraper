@@ -1,3 +1,9 @@
+<% meta_title = I18n.t('blog_posts.header') %>
+<% content_for(:meta_title) { meta_title } %>
+<% content_for(:extra_meta) do %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>blog" />
+<% end %>
+
 <div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
   <%# Variáveis %>
   <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
