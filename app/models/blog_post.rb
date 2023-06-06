@@ -8,6 +8,7 @@ class BlogPost < ApplicationRecord
   friendly_id :title, use: %i[mobility history]
   has_many :blog_photos, dependent: :destroy
 
+  default_scope { order(created_at: :desc) }
   scope :visible, -> { where.not(hidden: true) }
 
   def sample_text

@@ -47,9 +47,15 @@ pt:
 
   buy:
     header: Comprar
+    meta_description:
+      Comprar propriedades em Portugal com consultora imobiliária Sofia Galvão
+      de Sofia Galvão Group.
 
   sell:
     header: Vender
+    meta_description:
+      Vender propriedades em Portugal com consultora imobiliária Sofia Galvão de
+      Sofia Galvão Group.
     subheader: Saiba quanto vale a sua casa
     paragraph:
       top: Garantimos o melhor negócio para a venda da sua casa.
@@ -86,6 +92,9 @@ pt:
   enterprises:
     resource: Empreendimento
     header: Empreendimentos
+    meta_description:
+      Os melhores empreendimentos em Portugal para comprar com Sofia Galvão
+      Group.
     subheader:
       Porquê Comprar <span class="underline decoration-beige">em Planta?</span>
     list:
@@ -129,6 +138,9 @@ pt:
 
   about:
     header: Sobre Nós
+    meta_description:
+      Sofia Galvão Group, uma equipa dedicada e exigente que motivada pelo
+      melhor serviço ao Cliente cresce e vai mais longe todos os dias.
     profile:
       slogan: Juntos criamos Lares Felizes!
       description:
@@ -173,6 +185,7 @@ pt:
 
   contacts:
     header: Contactos
+    meta_description: Entre em contacto com Sofia Galvão Group.
     contact_us: Contacte-nos
     cta: ENTRE EM CONTACTO CONNOSCO
     form:
@@ -195,6 +208,9 @@ pt:
 
   services:
     header: Serviços
+    meta_description:
+      Enquanto profissionais do mercado imobiliário conheça aqui os serviços da
+      equipa Sofia Galvão Group.
     text:
       top:
         Enquanto profissionais do mercado imobiliário todos os serviços ligados
@@ -226,6 +242,9 @@ pt:
 
   house_360:
     header: Casa 360
+    meta_description:
+      O serviço especial 360 coloca à sua disposição soluções à medida para cada
+      uma das necessidades relaCvas ao universo imobiliário.
     sub1:
       O serviço especial 360 coloca à sua disposição soluções à medida para cada
       uma das necessidades relativas ao universo imobiliário.
@@ -245,6 +264,7 @@ pt:
 
   kw:
     header: KW Portugal
+    meta_description: Sofia Galvão Group em parceria com Kw Portugal.
     subheader: Uma empresa feita de consultores para consultores!
     first_paragraph:
       top:
@@ -298,13 +318,16 @@ pt:
         pessoas pensam.
     more: Descubra mais sobre a KW Portugal
 
-  privacy:
-    header: Política de Privacidade
-
   blog_posts:
     resource: Post
     header: Blog Posts
+    meta_description:
+      Conheça mais sobre imobiliário e as melhores dicas dos locais onde morar
+      em Lisboa com Sofia Galvão Group.
     empty: Novos posts em breve...
+
+  privacy:
+    header: Política de Privacidade
 
   terms:
     header: Termos e Condições

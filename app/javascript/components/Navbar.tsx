@@ -70,7 +70,7 @@ export default function Navbar(props: Props) {
       url: sanitizeURL(window.Routes.blog_path),
     },
     {
-      title: "Powered by ",
+      title: "Partnership with ",
       img: (
         <img
           className="h-5 inline-block mb-[6px]"
