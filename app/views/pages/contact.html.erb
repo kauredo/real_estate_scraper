@@ -1,4 +1,9 @@
-<% content_for(:meta_title) { 'Contactos' } %>
+<% meta_title = I18n.t('contacts.header') %>
+<% meta_description = I18n.t('contacts.meta_description') %>
+
+
+<% content_for(:meta_title) { meta_title } %>
+<% content_for(:meta_description) { meta_description } %>
 <% content_for(:extra_meta) do %>
   <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>contactos" />
 <% end %>

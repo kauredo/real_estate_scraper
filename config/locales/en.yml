@@ -47,9 +47,15 @@ en:
 
   buy:
     header: Buy
+    meta_description:
+      Buy properties in Portugal with real estate consultant Sofia Galvão from
+      Sofia Galvão Group.
 
   sell:
     header: Sell
+    meta_description:
+      Sell properties in Portugal with real estate consultant Sofia Galvão from
+      Sofia Galvão Group.
     subheader: Find out how much your home is worth.
     paragraph:
       top: We guarantee the best deal for your home.
@@ -85,6 +91,8 @@ en:
   enterprises:
     resource: Enterprise
     header: Enterprises
+    meta_description:
+      The best developments in Portugal to buy with Sofia Galvão Group.
     subheader: Why buy  <span class="underline decoration-beige">a Plan?</span>
     list:
       own:
@@ -126,6 +134,9 @@ en:
 
   about:
     header: About Us
+    meta_description:
+      Sofia Galvão Group, a dedicated and demanding team that motivated by the
+      best customer service grows and goes further every day.
     profile:
       slogan: Together we make Happy Homes!
       description:
@@ -168,6 +179,7 @@ en:
 
   contacts:
     header: Contacts
+    meta_description: Contact Sofia Galvão Group.
     contact_us: Contact us
     cta: GET IN TOUCH WITH US
     form:
@@ -189,6 +201,9 @@ en:
 
   services:
     header: Services
+    meta_description:
+      As professionals in the real estate market, get to know Sofia Galvão
+      Group's services here.
     text:
       top:
         As professionals in the real estate market, all the services related to
@@ -218,6 +233,9 @@ en:
 
   house_360:
     header: 360 House
+    meta_description:
+      The special 360 service provides you with tailor-made solutions for each
+      of your real estate needs.
     sub1:
       The special 360 service provides you with tailor-made solutions for each
       of your needs in the real estate universe.
@@ -237,6 +255,7 @@ en:
 
   kw:
     header: KW Portugal
+    meta_description: Sofia Galvão Group in partnership with Kw Portugal.
     subheader: A company made up of consultants for consultants!
     first_paragraph:
       top:
@@ -292,6 +311,9 @@ en:
   blog_posts:
     resource: Post
     header: Blog Posts
+    meta_description:
+      Learn more about real estate and the best tips on where to live in Lisbon
+      with Sofia Galvão Group.
     empty: New posts coming soon...
 
   privacy:

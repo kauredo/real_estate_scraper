@@ -2,6 +2,7 @@
   "en": {
     "about": {
       "header": "About Us",
+      "meta_description": "",
       "mission": {
         "sub1": "To be by your side in the real estate world to make the big \"changes\" in your life happy!",
         "title": "Mission"
@@ -41,10 +42,12 @@
     "blog_posts": {
       "empty": "New posts coming soon...",
       "header": "Blog Posts",
+      "meta_description": "",
       "resource": "Post"
     },
     "buy": {
-      "header": "Buy"
+      "header": "Buy",
+      "meta_description": ""
     },
     "contacts": {
       "contact_us": "Contact us",
@@ -64,7 +67,8 @@
           "visit": "Need more information? Want to schedule a visit? Get in touch with us!"
         }
       },
-      "header": "Contacts"
+      "header": "Contacts",
+      "meta_description": ""
     },
     "date": {
       "abbr_day_names": [
@@ -277,6 +281,7 @@
           "title": "Property to your measure"
         }
       },
+      "meta_description": "",
       "resource": "Enterprise",
       "show": {
         "bedrooms": "Bedrooms",
@@ -451,6 +456,7 @@
         "remodel": "Small jobs and renovations",
         "transport": "Removals and Transport"
       },
+      "meta_description": "",
       "sub1": "The special 360 service provides you with tailor-made solutions for each of your needs in the real estate universe.",
       "sub2": "With the quality guarantee of the partnerships we establish, we recommend companies that are a reference in their areas and \"Together We make Happy Homes!\""
     },
@@ -477,6 +483,7 @@
         "top": "KW operates on the principle that if you focus all your resources on building your consultants' businesses, they will, in return, help build a company that exceeds all expectations. With this philosophy in practice, we are transforming the real estate landscape."
       },
       "header": "KW Portugal",
+      "meta_description": "",
       "more": "Find out more about KW Portugal",
       "perspectives": {
         "agent": "Keller Williams thinks like a success agent, acts like a consultant/trainer providing models/systems, technology, products and services that enhance productivity and profitability.",
@@ -628,6 +635,7 @@
         "socials": "Social Media Outreach.",
         "warranty": "Ensuring implementation of industry regulated processes and procedures."
       },
+      "meta_description": "",
       "paragraph": {
         "bottom": "Our aim is to find the best Client in the shortest amount of time and for that we offer:",
         "middle": "We offer a consulting service that works in a unique way and is tailored to what you want - focusing on the strategy of promotion, dissemination and our best negotiation.",
@@ -647,6 +655,7 @@
           "title": "Real Estate Management and Consultancy"
         }
       },
+      "meta_description": "",
       "text": {
         "bottom": "Get to know some of them. <br> If you want to know more please",
         "link": "contact us.",
