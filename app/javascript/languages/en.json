@@ -2,7 +2,7 @@
   "en": {
     "about": {
       "header": "About Us",
-      "meta_description": "",
+      "meta_description": "Sofia Galvão Group, a dedicated and demanding team that motivated by the best customer service grows and goes further every day.",
       "mission": {
         "sub1": "To be by your side in the real estate world to make the big \"changes\" in your life happy!",
         "title": "Mission"
@@ -42,12 +42,12 @@
     "blog_posts": {
       "empty": "New posts coming soon...",
       "header": "Blog Posts",
-      "meta_description": "",
+      "meta_description": "Learn more about real estate and the best tips on where to live in Lisbon with Sofia Galvão Group.",
       "resource": "Post"
     },
     "buy": {
       "header": "Buy",
-      "meta_description": ""
+      "meta_description": "Buy properties in Portugal with real estate consultant Sofia Galvão from Sofia Galvão Group."
     },
     "contacts": {
       "contact_us": "Contact us",
@@ -68,7 +68,7 @@
         }
       },
       "header": "Contacts",
-      "meta_description": ""
+      "meta_description": "Contact Sofia Galvão Group."
     },
     "date": {
       "abbr_day_names": [
@@ -281,7 +281,7 @@
           "title": "Property to your measure"
         }
       },
-      "meta_description": "",
+      "meta_description": "The best developments in Portugal to buy with Sofia Galvão Group.",
       "resource": "Enterprise",
       "show": {
         "bedrooms": "Bedrooms",
@@ -456,7 +456,7 @@
         "remodel": "Small jobs and renovations",
         "transport": "Removals and Transport"
       },
-      "meta_description": "",
+      "meta_description": "The special 360 service provides you with tailor-made solutions for each of your real estate needs.",
       "sub1": "The special 360 service provides you with tailor-made solutions for each of your needs in the real estate universe.",
       "sub2": "With the quality guarantee of the partnerships we establish, we recommend companies that are a reference in their areas and \"Together We make Happy Homes!\""
     },
@@ -483,7 +483,7 @@
         "top": "KW operates on the principle that if you focus all your resources on building your consultants' businesses, they will, in return, help build a company that exceeds all expectations. With this philosophy in practice, we are transforming the real estate landscape."
       },
       "header": "KW Portugal",
-      "meta_description": "",
+      "meta_description": "Sofia Galvão Group in partnership with Kw Portugal.",
       "more": "Find out more about KW Portugal",
       "perspectives": {
         "agent": "Keller Williams thinks like a success agent, acts like a consultant/trainer providing models/systems, technology, products and services that enhance productivity and profitability.",
@@ -635,7 +635,7 @@
         "socials": "Social Media Outreach.",
         "warranty": "Ensuring implementation of industry regulated processes and procedures."
       },
-      "meta_description": "",
+      "meta_description": "Sell properties in Portugal with real estate consultant Sofia Galvão from Sofia Galvão Group.",
       "paragraph": {
         "bottom": "Our aim is to find the best Client in the shortest amount of time and for that we offer:",
         "middle": "We offer a consulting service that works in a unique way and is tailored to what you want - focusing on the strategy of promotion, dissemination and our best negotiation.",
@@ -655,7 +655,7 @@
           "title": "Real Estate Management and Consultancy"
         }
       },
-      "meta_description": "",
+      "meta_description": "As professionals in the real estate market, get to know Sofia Galvão Group's services here.",
       "text": {
         "bottom": "Get to know some of them. <br> If you want to know more please",
         "link": "contact us.",

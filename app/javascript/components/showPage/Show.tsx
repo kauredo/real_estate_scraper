@@ -40,25 +40,43 @@ export default function Show(props: Props) {
         </section>
       )}
       <div className="relative container mx-auto overflow-hidden sm:overflow-visible">
-        <Carousel
-          heightMode="max"
-          style={{ maxHeight: "90vh" }}
-          defaultControlsConfig={{
-            containerClassName: "m-h-[90vh]",
-            nextButtonText: "➤",
-            prevButtonStyle: { transform: "rotate(180deg)" },
-            prevButtonText: "➤",
-            pagingDotsClassName: "mx-1",
-          }}
-        >
-          {listing.photos.map(photo => (
-            <img
-              style={{ maxHeight: "70vh", objectFit: "contain" }}
-              key={photo}
-              src={photo}
-            />
-          ))}
-        </Carousel>
+        <div className="relative">
+          {listing.status === "agreed" && (
+            <div
+              style={{ zIndex: 1 }}
+              className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white text-4xl opacity-50 flex items-center justify-center"
+            >
+              {i18n.t("listing.status.agreed")}
+            </div>
+          )}
+          {listing.status === "sold" && (
+            <div
+              style={{ zIndex: 1 }}
+              className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-black font-bold text-white text-4xl opacity-50 flex items-center justify-center"
+            >
+              {i18n.t("listing.status.sold")}
+            </div>
+          )}
+          <Carousel
+            heightMode="max"
+            style={{ maxHeight: "90vh" }}
+            defaultControlsConfig={{
+              containerClassName: "m-h-[90vh] z-10",
+              nextButtonText: "➤",
+              prevButtonStyle: { transform: "rotate(180deg)" },
+              prevButtonText: "➤",
+              pagingDotsClassName: "mx-1",
+            }}
+          >
+            {listing.photos.map(photo => (
+              <img
+                style={{ maxHeight: "70vh", objectFit: "contain" }}
+                key={photo}
+                src={photo}
+              />
+            ))}
+          </Carousel>
+        </div>
         <div className="pt-6 bg-white text-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
             <h1
