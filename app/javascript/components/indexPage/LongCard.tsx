@@ -93,17 +93,26 @@ export default function LongCard(props: Props) {
             }
           >
             {checked && (
-              <div className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-green-500 font-bold text-white text-4xl opacity-50 flex items-center justify-center">
+              <div
+                style={{ zIndex: 1 }}
+                className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-green-500 font-bold text-white text-4xl opacity-50 flex items-center justify-center"
+              >
                 ✓
               </div>
             )}
             {listing.status === "agreed" && (
-              <div className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white text-4xl opacity-50 flex items-center justify-center">
+              <div
+                style={{ zIndex: 1 }}
+                className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white text-4xl opacity-50 flex items-center justify-center"
+              >
                 {i18n.t("listing.status.agreed")}
               </div>
             )}
             {listing.status === "sold" && (
-              <div className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-black font-bold text-white text-4xl opacity-50 flex items-center justify-center">
+              <div
+                style={{ zIndex: 1 }}
+                className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-black font-bold text-white text-4xl opacity-50 flex items-center justify-center"
+              >
                 {i18n.t("listing.status.sold")}
               </div>
             )}

@@ -2,7 +2,7 @@
   "pt": {
     "about": {
       "header": "Sobre Nós",
-      "meta_description": "",
+      "meta_description": "Sofia Galvão Group, uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
       "mission": {
         "sub1": "Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!",
         "title": "Missão"
@@ -42,12 +42,12 @@
     "blog_posts": {
       "empty": "Novos posts em breve...",
       "header": "Blog Posts",
-      "meta_description": "",
+      "meta_description": "Conheça mais sobre imobiliário e as melhores dicas dos locais onde morar em Lisboa com Sofia Galvão Group.",
       "resource": "Post"
     },
     "buy": {
       "header": "Comprar",
-      "meta_description": ""
+      "meta_description": "Comprar propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group."
     },
     "contacts": {
       "contact_us": "Contacte-nos",
@@ -68,7 +68,7 @@
         }
       },
       "header": "Contactos",
-      "meta_description": ""
+      "meta_description": "Entre em contacto com Sofia Galvão Group."
     },
     "date": {
       "abbr_day_names": [
@@ -345,7 +345,7 @@
           "title": "Imóvel à sua medida"
         }
       },
-      "meta_description": "",
+      "meta_description": "Os melhores empreendimentos em Portugal para comprar com Sofia Galvão Group.",
       "resource": "Empreendimento",
       "show": {
         "bedrooms": "Tipologia",
@@ -483,7 +483,7 @@
         "remodel": "Pequenas obras e remodelações",
         "transport": "Mudanças e Transportes"
       },
-      "meta_description": "",
+      "meta_description": "O serviço especial 360 coloca à sua disposição soluções à medida para cada uma das necessidades relaCvas ao universo imobiliário.",
       "sub1": "O serviço especial 360 coloca à sua disposição soluções à medida para cada uma das necessidades relativas ao universo imobiliário.",
       "sub2": "Com a garantia de qualidade das parcerias que estabelecemos, recomendamos empresas que são uma referência nas suas áreas e “Juntos Criamos Lares Felizes!”"
     },
@@ -538,7 +538,7 @@
         "top": "A KW actua segundo o princípio de que, se focar todos os seus recursos na construção dos negócios dos seus consultores, estes irão, em retorno, ajudar a construir uma empresa acima de todas as expectativas. Com esta filosofia em prática, estamos a transformar o panorama geral da mediação imobiliária."
       },
       "header": "KW Portugal",
-      "meta_description": "",
+      "meta_description": "Sofia Galvão Group em parceria com Kw Portugal.",
       "more": "Descubra mais sobre a KW Portugal",
       "perspectives": {
         "agent": "A Keller Williams pensa como um agente de sucesso, atua como um consultor/formador fornecendo modelos/sistemas, tecnologia, produtos e serviços que potenciam a produtividade e a rentabilidade.",
@@ -699,7 +699,7 @@
         "socials": "Divulgação Social Media.",
         "warranty": "Garantia de implementação de processos e procedimentos regulados pelo sector."
       },
-      "meta_description": "",
+      "meta_description": "Vender propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group.",
       "paragraph": {
         "bottom": "O nosso objectivo é encontrar o melhor Cliente no mais breve tempo possível e para isso disponibilizamos:",
         "middle": "Oferecemos um serviço de consultoria que trabalha de forma única e à medida do que pretende, com foco na estratégia de promoção, divulgação e na melhor negociação.",
@@ -719,7 +719,7 @@
           "title": "Gestão e Consultoria Imobiliária"
         }
       },
-      "meta_description": "",
+      "meta_description": "Enquanto profissionais do mercado imobiliário conheça aqui os serviços da equipa Sofia Galvão Group.",
       "text": {
         "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais entre em contacto",
         "link": "connosco.",
