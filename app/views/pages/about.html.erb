@@ -47,6 +47,8 @@
   <script>
     function resizeFrame() {
       const frame = document.getElementById("iframe");
+      if (!frame) return;
+
       frame.style.height = frame.scrollWidth / 16 * 9 + 'px';
     }
 
