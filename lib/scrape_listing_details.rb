@@ -36,7 +36,7 @@ class ScrapeListingDetails
     begin
       attributes = browser.div(class: 'attributes-data').wait_until(&:present?)
       listing.stats = attributes.divs(class: 'attributes-data-item').map do |row|
-        row.text.squish.split(': ')
+        row&.text&.squish&.split(': ')
       end.to_h
     rescue StandardError => e
       count += 1
