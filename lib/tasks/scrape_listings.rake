@@ -114,7 +114,7 @@ task :scrape_one, [:url] => :environment do |_t, arguments|
 
   ScrapeListingDetails.scrape_details(@browser, url, true)
   I18n.with_locale(:en) do
-    ScrapeListingDetails.scrape_language_details(@browser, listing, 'English (United States)')
+    ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
   end
 
   @browser.close
