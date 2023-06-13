@@ -29,7 +29,11 @@ task scrape: :environment do |_t, args|
 
     res.each do |imovel|
       url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.first}"
-      next if Listing.unscoped.where(url:).present?
+
+      ActiveRecord::Base.connection_pool.release_connection
+      ActiveRecord::Base.connection_pool.with_connection do
+        next if Listing.unscoped.where(url:).present?
+      end
 
       TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
     end
@@ -98,7 +102,10 @@ end
 desc 'Scrape one listing off KW website'
 task :scrape_one, [:url] => :environment do |_t, arguments|
   url = arguments.url
-  listing = Listing.find_by(url:)
+  ActiveRecord::Base.connection_pool.release_connection
+  ActiveRecord::Base.connection_pool.with_connection do
+    listing = Listing.find_by(url:)
+  end
 
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
   args << 'headless'
