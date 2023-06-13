@@ -10,9 +10,9 @@ class TaskHelper
       cmd.call
     end
   rescue StandardError => e
-    Rails.logger.debug '~~~~~~~~~~~~~'
-    Rails.logger.debug "Error: #{e}"
-    Rails.logger.debug '~~~~~~~~~~~~~'
+    puts '~~~~~~~~~~~~~'
+    puts "Error: #{e}"
+    puts '~~~~~~~~~~~~~'
     Sentry.capture_exception(e)
     unless tries >= max_tries
       sleep ENV['SLEEP_TIME']&.to_i || delay

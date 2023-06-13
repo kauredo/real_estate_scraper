@@ -12,16 +12,13 @@ task scrape_en: :environment do |_t, args|
   options = Selenium::WebDriver::Chrome::Options.new(args:)
   @browser = Watir::Browser.new(:chrome, options:)
 
-  ActiveRecord::Base.connection_pool.release_connection
-  ActiveRecord::Base.connection_pool.with_connection do
-    translations = Listing::Translation.where(locale: 'en')
-    ids = translations.select do |t|
-      Listing::Translation.where(locale: 'pt', title: t.title).present?
-    end.map(&:listing_id)
+  translations = Listing::Translation.where(locale: 'en')
+  ids = translations.select do |t|
+    Listing::Translation.where(locale: 'pt', title: t.title).present?
+  end.map(&:listing_id)
 
-    listings = Listing.all.select do |l|
-      l.title_en.blank? || l.description_en.blank? || l.features_en.blank? || ids.include?(l.id)
-    end
+  listings = Listing.all.select do |l|
+    l.title_en.blank? || l.description_en.blank? || l.features_en.blank? || ids.include?(l.id)
   end
 
   puts "Found #{listings.size} listings"
@@ -53,11 +50,8 @@ task scrape_pt: :environment do |_t, args|
   options = Selenium::WebDriver::Chrome::Options.new(args:)
   @browser = Watir::Browser.new(:chrome, options:)
 
-  ActiveRecord::Base.connection_pool.release_connection
-  ActiveRecord::Base.connection_pool.with_connection do
-    listings = Listing.all.select do |l|
-      l.title_pt.blank? || l.description_pt.blank?
-    end
+  listings = Listing.all.select do |l|
+    l.title_pt.blank? || l.description_pt.blank?
   end
 
   def scrape_listing(listing)

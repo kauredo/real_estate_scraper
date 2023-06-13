@@ -12,8 +12,8 @@ task scrape: :environment do |_t, args|
   def scrape_total
     sleep 5
     @browser.refresh
-    @browser.div(class: 'gallery-container').wait_until(&:present?)
-    matches = @browser.lis(class: 'pagination-page').wait_until(&:present?)
+    @browser.div(class: 'gallery-container').wait_until(timeout: 10, &:present?)
+    matches = @browser.lis(class: 'pagination-page').wait_until(timeout: 10, &:present?)
     matches.count
   end
 
@@ -23,7 +23,7 @@ task scrape: :environment do |_t, args|
     sleep 5
     @browser.refresh
 
-    js_doc = @browser.div(class: 'gallery-container').wait_until(&:present?)
+    js_doc = @browser.div(class: 'gallery-container').wait_until(timeout: 10, &:present?)
     imoveis = Nokogiri::HTML(js_doc.inner_html)
     res = imoveis.css('.gallery-item')
 
@@ -61,7 +61,7 @@ task scrape: :environment do |_t, args|
   end
 
   @errors = []
-  @lister = Rack::Utils.parse_nested_query(@url)['agentName']
+  @lister = @url.split('/').last
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
   args << 'headless'
   options = Selenium::WebDriver::Chrome::Options.new(args:)
@@ -72,11 +72,10 @@ task scrape: :environment do |_t, args|
 
   puts @url
 
-  properties = @browser.as(class: 'our-properties').detect(&:visible?)
-
-  if properties
+  # if clickable, click
+  if (properties = @browser.as(class: 'our-properties').wait_until(timeout: 10, &:present?))
     puts 'found properties'
-    properties.click
+    properties.detect(&:visible?).click
     sleep 2
     @url = @browser.url
   else

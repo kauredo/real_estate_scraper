@@ -19,7 +19,7 @@ class ScrapeListingDetails
     # price
     count = 0
     begin
-      price = browser.span(class: 'fw-listing-price').wait_until(&:present?)&.text
+      price = browser.span(class: 'fw-listing-price').wait_until(timeout: 10, &:present?)&.text
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -31,7 +31,7 @@ class ScrapeListingDetails
     # status
     count = 0
     begin
-      status = browser.div(class: 'listing-status').wait_until(&:present?)
+      status = browser.div(class: 'listing-status').wait_until(timeout: 10, &:present?)
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -51,7 +51,7 @@ class ScrapeListingDetails
     # stats
     count = 0
     begin
-      attributes = browser.div(class: 'attributes-data').wait_until(&:present?)
+      attributes = browser.div(class: 'attributes-data').wait_until(timeout: 10, &:present?)
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -68,7 +68,7 @@ class ScrapeListingDetails
     # address
     count = 0
     begin
-      address = browser.div(class: 'fw-listing-topbar-address').wait_until(&:present?)&.text&.squish
+      address = browser.div(class: 'fw-listing-topbar-address').wait_until(timeout: 10, &:present?)&.text&.squish
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -80,7 +80,7 @@ class ScrapeListingDetails
     # features
     count = 0
     begin
-      features = browser.div(class: 'features-container').wait_until(&:present?)&.child(class: 'row')&.children&.map(&:text)
+      features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.map(&:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -92,7 +92,7 @@ class ScrapeListingDetails
     # description
     count = 0
     begin
-      description = browser.div(class: 'listing-details-desc').wait_until(&:present?)&.text
+      description = browser.div(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.text
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -104,7 +104,7 @@ class ScrapeListingDetails
 
     # images
     if listing.photos.empty? || force_images
-      js_doc = browser.div(class: 'fw-listing-gallery').wait_until(&:present?)
+      js_doc = browser.div(class: 'fw-listing-gallery').wait_until(timeout: 10, &:present?)
       images = Nokogiri::HTML(js_doc.inner_html)
       res = images.css('img')
       listing.photos = res.map { |img| img.attr('src') }.uniq
@@ -135,14 +135,14 @@ class ScrapeListingDetails
     browser.goto(listing.url)
     TaskHelper.consent_cookies(browser)
 
-    toggle = browser.button(class: 'navbar-toggle').wait_until(&:present?)
+    toggle = browser.button(class: 'navbar-toggle').wait_until(timeout: 10, &:present?)
     toggle.click
-    menu = browser.nav(id: 'menu').wait_until(&:present?)
+    menu = browser.nav(id: 'menu').wait_until(timeout: 10, &:present?)
     en = menu.a(text: language)
 
     if en.present?
       Rails.logger.debug 'changing language btn present'
-      browser.nav(id: 'menu').wait_until(&:present?)&.a(text: language)&.wait_until(&:present?)&.click
+      browser.nav(id: 'menu').wait_until(timeout: 10, &:present?)&.a(text: language)&.wait_until(timeout: 10, &:present?)&.click
     else
       Rails.logger.debug 'changing language btn not present'
       browser.refresh
@@ -151,7 +151,7 @@ class ScrapeListingDetails
     text = I18n.t('tasks.scrape.awaiting')
 
     until text != I18n.t('tasks.scrape.awaiting')
-      text = browser.div(class: 'listing-details').wait_until(&:present?)&.text
+      text = browser.div(class: 'listing-details').wait_until(timeout: 10, &:present?)&.text
       sleep 1
     end
 
@@ -168,14 +168,14 @@ class ScrapeListingDetails
     # features
     count = 0
     begin
-      listing.features = browser.div(class: 'features-container').wait_until(&:present?)&.child(class: 'row')&.children&.map(&:text)
+      listing.features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.map(&:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
     end
 
     # description
-    listing.description = browser.divs(class: 'listing-details-desc').wait_until(&:present?)&.map(&:text)&.reject(&:empty?)&.first
+    listing.description = browser.divs(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.map(&:text)&.reject(&:empty?)&.first
 
     # # geo data
     listing.title&.gsub! 'm2', 'm²'
