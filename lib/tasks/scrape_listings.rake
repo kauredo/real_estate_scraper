@@ -104,16 +104,16 @@ task :scrape_one, [:url] => :environment do |_t, arguments|
   ActiveRecord::Base.connection_pool.release_connection
   ActiveRecord::Base.connection_pool.with_connection do
     listing = Listing.find_by(url:)
-  end
 
-  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-  args << 'headless'
-  options = Selenium::WebDriver::Chrome::Options.new(args:)
-  @browser = Watir::Browser.new(:chrome, options:)
+    args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
+    args << 'headless'
+    options = Selenium::WebDriver::Chrome::Options.new(args:)
+    @browser = Watir::Browser.new(:chrome, options:)
 
-  ScrapeListingDetails.scrape_details(@browser, url, true)
-  I18n.with_locale(:en) do
-    ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
+    ScrapeListingDetails.scrape_details(@browser, url, true)
+    I18n.with_locale(:en) do
+      ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
+    end
   end
 
   @browser.close
