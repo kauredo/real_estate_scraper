@@ -119,7 +119,7 @@ export default function Show(props: Props) {
                 <div key={"price"} className="border p-2 w-1/2">
                   <span className="font-bold">{i18n.t("listing.price")}:</span>
                   <br />
-                  <span>{listing.price}€</span>
+                  <span>{listing.price} €</span>
                 </div>
                 {Object.keys(listing.stats).map((k, v) => {
                   return (
