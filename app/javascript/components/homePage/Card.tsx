@@ -35,9 +35,9 @@ export default function Card({ listing }) {
           )}
         </div>
         <div className="px-6 py-4 h-1/3 justify-between flex flex-col bg-white">
-          <h3 className="text-l grow  text-gray-800">
+          <h2 className="text-l grow  text-gray-800">
             <span>{truncateText(listing.title, 80)}</span>
-          </h3>
+          </h2>
           <ListingIcons listing={listing} />
         </div>
       </a>
