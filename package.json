@@ -14,11 +14,12 @@
     "@sentry/react": "^7.43.0",
     "@sentry/tracing": "^7.43.0",
     "@types/react-transition-group": "^4.4.4",
-    "autoprefixer": "^10.4.8",
+    "autoprefixer": "^10.4.14",
     "esbuild": "^0.14.23",
     "i18n-js": "^4.1.1",
     "nuka-carousel": "^4.8.4",
     "postcss": "^8.4.16",
+    "postcss-cli": "^10.1.0",
     "react": "^17.0.2",
     "react-countup": "^6.1.1",
     "react-dom": "^17.0.2",
@@ -28,7 +29,8 @@
   },
   "scripts": {
     "build": "node esbuild.config.js",
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css.scss -o ./app/assets/builds/application.css --minify"
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css.scss -o ./app/assets/builds/application.css --minify",
+    "build:postcss": "postcss ./app/assets/builds/application.css -o ./app/assets/builds/application.css --use autoprefixer"
   },
   "devDependencies": {
     "esbuild-plugin-import-glob": "^0.1.1",

@@ -20,7 +20,7 @@ function Hero(props: Props) {
             src="/logos/main.webp"
             alt="Sofia Galvão Group Logo"
           />
-          <h2
+          <h1
             className={`text-4xl md:text-7xl ${
               i18n.locale === "pt" ? "whitespace-nowrap" : ""
             }`}
@@ -28,7 +28,7 @@ function Hero(props: Props) {
             {i18n.t("home.slogan.top")}
             <br />
             {i18n.t("home.slogan.bottom")}
-          </h2>
+          </h1>
         </div>
       </div>
       <div className="relative bottom-5 left-0 right-0 center">

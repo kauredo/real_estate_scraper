@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       listingCount: listings.count,
       variables: Variable.all
     }
-    @photos = listings.map(&:photos).map(&:first).uniq
+    @photos = Listing.random_photos(listings, 3)
     @testimonials = Testimonial.all
   end
 
