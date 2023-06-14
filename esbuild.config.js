@@ -10,7 +10,7 @@ esbuild
     outdir: path.join(process.cwd(), "app/assets/builds"),
     absWorkingDir: path.join(process.cwd(), "app/javascript"),
     watch: process.argv.includes("--watch"),
-    minify: false,
+    minify: true,
     plugins: [rails(), ImportGlobPlugin()],
   })
   .catch(() => process.exit(1));

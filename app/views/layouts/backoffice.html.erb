@@ -13,8 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
     <link rel="manifest" href="/favicons/site.webmanifest">
     <%= favicon_link_tag '/favicons/favicon.ico' %>
-    <%= tinymce_assets %>
-    <script type="text/javascript" src="/assets/tinymce.js"></script>
+    <%= yield :extra_meta %>
   </head>
   <body>
     <%= render 'shared/flashes' %>

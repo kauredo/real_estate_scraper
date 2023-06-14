@@ -122,6 +122,6 @@ end
 Rake::Task.tasks.each do |t|
   t.enhance do
     puts @browser
-    @browser.close if @browser
+    @browser&.close
   end
 end

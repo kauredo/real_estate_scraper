@@ -27,6 +27,7 @@ export default function NewShow(props: Props) {
       return (
         <div className="mx-auto w-auto">
           <img
+            loading="lazy"
             style={{ maxHeight: "70vh", objectFit: "contain" }}
             src={complex.photos[0].image.url}
           />
@@ -49,6 +50,7 @@ export default function NewShow(props: Props) {
             {complex.photos.map(photo => {
               return (
                 <img
+                  loading="lazy"
                   key={photo.image.url}
                   style={{ maxHeight: "70vh", objectFit: "contain" }}
                   src={photo.image.url}

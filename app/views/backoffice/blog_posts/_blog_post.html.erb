@@ -1,6 +1,6 @@
 <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm w-96 mb-5">
   <%= link_to backoffice_blog_post_path(blog_post) do %>
-    <img class="w-full rounded-t-lg aspect-video object-cover" src="<%= blog_post.main_photo %>" alt="<%= blog_post.title %>">
+    <img loading="lazy" class="w-full rounded-t-lg aspect-video object-cover" src="<%= blog_post.main_photo %>" alt="<%= blog_post.title %>">
   <% end %>
   <div class="p-5">
     <%= link_to backoffice_blog_post_path(blog_post) do %>

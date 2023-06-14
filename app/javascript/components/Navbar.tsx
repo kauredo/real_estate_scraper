@@ -73,6 +73,7 @@ export default function Navbar(props: Props) {
       title: "Partnership with ",
       img: (
         <img
+          loading="lazy"
           className="h-5 inline-block mb-[6px]"
           src="/images/kw_logo.webp"
           alt="KW Logo"
@@ -122,6 +123,7 @@ export default function Navbar(props: Props) {
     hover: `${i18n.t("navbar.language")}`,
     img: (
       <img
+        loading="lazy"
         className="h-5 inline-block mb-[6px]"
         src={`https://hatscripts.github.io/circle-flags/flags/${img}.svg`}
         style={{ maxWidth: "none" }}
@@ -190,6 +192,7 @@ export default function Navbar(props: Props) {
                   href={sanitizeURL(window.Routes.root_path)}
                 >
                   <img
+                    loading="lazy"
                     className="w-[8rem] relative z-10"
                     src="/logos/main_color.webp"
                     alt="Sofia Galvão Group Logo"

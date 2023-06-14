@@ -11,10 +11,11 @@ export default function Card({ listing }) {
     >
       <a href={sanitizeURLWithParams(window.Routes.listing_path, listing.slug)}>
         <div
-          className="object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"
+          className="ajustedBackground object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"
           style={{
-            backgroundImage: `url(${listing.photos[0]})`,
+            backgroundImage: "url(/images/banner.webp)",
           }}
+          data-src={listing.photos[0]}
         >
           {listing.status === "agreed" && (
             <div
@@ -34,9 +35,9 @@ export default function Card({ listing }) {
           )}
         </div>
         <div className="px-6 py-4 h-1/3 justify-between flex flex-col bg-white">
-          <h3 className="text-l grow  text-gray-800">
+          <h2 className="text-l grow  text-gray-800">
             <span>{truncateText(listing.title, 80)}</span>
-          </h3>
+          </h2>
           <ListingIcons listing={listing} />
         </div>
       </a>

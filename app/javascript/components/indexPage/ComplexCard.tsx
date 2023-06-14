@@ -27,6 +27,7 @@ export default function ComplexCard(props: Props) {
         <div className="relative m-0 shadow-lg flex flex-col md:flex-row bg-white">
           <div className="flex-no-shrink w-full md:w-1/3">
             <img
+              loading="lazy"
               alt={listing_complex.name}
               className="w-full md:w-128 h-full block mx-auto object-cover"
               src={
