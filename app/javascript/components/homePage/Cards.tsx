@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Card from "./Card";
 import Carousel from "nuka-carousel";
-import { toCapitalize } from "../utils/Functions";
+import { toCapitalize, lazyloadImages } from "../utils/Functions";
 import { Photo, Listing } from "../utils/Interfaces";
 
 interface Props {
@@ -28,6 +28,8 @@ export default function Cards(props: Props) {
       setSlideNumber(windowWidth);
     }
   };
+
+  lazyloadImages();
 
   if (locations.length !== listings.length) {
     const [selectedLocation, setSelectedLocation] = useState(locations[0]);
@@ -100,6 +102,7 @@ export default function Cards(props: Props) {
                 {photos.map(photo => {
                   return (
                     <img
+                      loading="lazy"
                       key={photo.image.url}
                       style={{
                         maxHeight: "70vh",

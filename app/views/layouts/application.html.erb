@@ -13,7 +13,6 @@
     <script src="https://kit.fontawesome.com/f01d8e868a.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', "data-turbo-track": 'reload' %>
     <%= javascript_include_tag 'application', "data-turbo-track": 'reload', defer: true %>
-    <script type="text/javascript" src="https://www.casafari.com/valuation-widget/widget.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
@@ -55,7 +54,7 @@
       fbq("track", "PageView");
     </script>
     <noscript>
-      <img
+      <img loading="lazy"
         height="1"
         width="1"
         style="display:none"

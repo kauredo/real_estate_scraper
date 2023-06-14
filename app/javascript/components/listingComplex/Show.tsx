@@ -26,6 +26,7 @@ export default function Show(props: Props) {
     } else {
       return (
         <img
+          loading="lazy"
           style={{ maxHeight: "70vh", objectFit: "contain" }}
           src={complex.listings[0].photos[1]}
         />

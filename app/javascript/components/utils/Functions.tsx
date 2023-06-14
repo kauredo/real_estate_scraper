@@ -1,5 +1,15 @@
 import { i18n } from "../../languages/languages";
 
+export function lazyloadImages() {
+  var tablinks = document.getElementsByClassName("ajustedBackground");
+  for (i = 0; i < tablinks.length; i++) {
+    var lazy = tablinks[i];
+    var src = lazy.dataset.src;
+
+    lazy.style.backgroundImage = 'url("' + src + '")';
+  }
+}
+
 export function truncateText(title, length) {
   if (title && title.length > 90) {
     return title.substring(0, length) + "...";

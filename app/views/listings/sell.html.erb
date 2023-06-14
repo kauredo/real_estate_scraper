@@ -5,6 +5,7 @@
 <% content_for(:meta_title) { meta_title } %>
 <% content_for(:meta_description) { meta_description } %>
 <% content_for(:extra_meta) do %>
+  <script type="text/javascript" src="https://www.casafari.com/valuation-widget/widget.js"></script>
   <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>vender" />
   <meta name="turbo-visit-control" content="reload">
 <% end %>
@@ -22,7 +23,7 @@
         <p class="mt-2 text-3xl text-black sm:text-4xl"><%= I18n.t('sell.subheader') %></p>
       </div>
       <script type="text/javascript" defer>
-        var locale = "<%= I18n.locale %>" 
+        var locale = "<%= I18n.locale %>"
         window.initializeCasafariWidget({key: "D9557C7E502424960F866EE4286B", startingPage: "2", showStartingPage: false, operationType: "", lang: locale });
       </script>
       <div class="px-2 sm:px-0">

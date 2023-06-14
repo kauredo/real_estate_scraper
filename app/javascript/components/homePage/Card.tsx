@@ -11,10 +11,11 @@ export default function Card({ listing }) {
     >
       <a href={sanitizeURLWithParams(window.Routes.listing_path, listing.slug)}>
         <div
-          className="object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"
+          className="ajustedBackground object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"
           style={{
-            backgroundImage: `url(${listing.photos[0]})`,
+            backgroundImage: "url(/images/banner.webp)",
           }}
+          data-src={listing.photos[0]}
         >
           {listing.status === "agreed" && (
             <div

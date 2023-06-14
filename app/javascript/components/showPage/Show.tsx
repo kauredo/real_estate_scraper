@@ -70,6 +70,7 @@ export default function Show(props: Props) {
           >
             {listing.photos.map(photo => (
               <img
+                loading="lazy"
                 style={{ maxHeight: "70vh", objectFit: "contain" }}
                 key={photo}
                 src={photo}
