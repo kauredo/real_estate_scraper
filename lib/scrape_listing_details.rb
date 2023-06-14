@@ -17,11 +17,28 @@ class ScrapeListingDetails
     Rails.logger.debug "Gathering data for listing #{listing.title_pt}"
 
     # price
-    price = browser.span(class: 'fw-listing-price').wait_until(&:present?).text
+    count = 0
+    begin
+      price = browser.span(class: 'fw-listing-price').wait_until(timeout: 10, &:present?)&.text
+    rescue StandardError => e
+      count += 1
+      retry if count < 3
+
+      price = nil
+    end
     listing.price = price
 
     # status
-    status = browser.div(class: 'listing-status').wait_until(&:present?)
+    count = 0
+    begin
+      status = browser.div(class: 'listing-status').wait_until(timeout: 10, &:present?)
+    rescue StandardError => e
+      count += 1
+      retry if count < 3
+
+      status = nil
+    end
+
     if status.present?
       listing.status = case status.text.strip
                        when 'Novo' then 0
@@ -34,39 +51,60 @@ class ScrapeListingDetails
     # stats
     count = 0
     begin
-      attributes = browser.div(class: 'attributes-data').wait_until(&:present?)
-      listing.stats = attributes.divs(class: 'attributes-data-item').map do |row|
-        row&.text&.squish&.split(': ')
-      end.to_h
+      attributes = browser.div(class: 'attributes-data').wait_until(timeout: 10, &:present?)
     rescue StandardError => e
       count += 1
       retry if count < 3
+
+      attributes = nil
+    end
+
+    if attributes.present?
+      listing.stats = attributes.divs(class: 'attributes-data-item').map do |row|
+        row&.text&.squish&.split(': ')
+      end.to_h
     end
 
     # address
     count = 0
     begin
-      listing.address = browser.div(class: 'fw-listing-topbar-address').wait_until(&:present?).text&.squish
+      address = browser.div(class: 'fw-listing-topbar-address').wait_until(timeout: 10, &:present?)&.text&.squish
     rescue StandardError => e
       count += 1
       retry if count < 3
+
+      address = nil
     end
+    listing.address = address
 
     # features
     count = 0
     begin
-      listing.features_pt = browser.div(class: 'features-container').wait_until(&:present?).child(class: 'row').children.map(&:text)
+      features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.map(&:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
+
+      features = nil
     end
+    listing.features_pt = features
 
     # description
-    listing.description_pt = browser.div(class: 'listing-details-desc').wait_until(&:present?).text
+    count = 0
+    begin
+      description = browser.div(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.text
+    rescue StandardError => e
+      count += 1
+      retry if count < 3
+
+      description = nil
+    end
+
+    listing.description_pt = description
 
     # images
     if listing.photos.empty? || force_images
-      js_doc = browser.div(class: 'fw-listing-gallery').wait_until(&:present?)
+      js_doc = browser.div(class: 'fw-listing-gallery').wait_until(timeout: 10, &:present?)
       images = Nokogiri::HTML(js_doc.inner_html)
       res = images.css('img')
       listing.photos = res.map { |img| img.attr('src') }.uniq
@@ -82,11 +120,14 @@ class ScrapeListingDetails
       listing.stats['Área do Terreno']&.gsub! 'm 2', 'm²'
     end
 
-    if listing.save
-      Rails.logger.debug "Finished listing #{listing.title}"
-    else
-      message = "ERROR: Listing at #{listing.url} has errors"
-      Rails.logger.debug message
+    ActiveRecord::Base.connection_pool.release_connection
+    ActiveRecord::Base.connection_pool.with_connection do
+      if listing.save
+        Rails.logger.debug "Finished listing #{listing.title}"
+      else
+        message = "ERROR: Listing at #{listing.url} has errors"
+        Rails.logger.debug message
+      end
     end
   end
 
@@ -94,14 +135,14 @@ class ScrapeListingDetails
     browser.goto(listing.url)
     TaskHelper.consent_cookies(browser)
 
-    toggle = browser.button(class: 'navbar-toggle').wait_until(&:present?)
+    toggle = browser.button(class: 'navbar-toggle').wait_until(timeout: 10, &:present?)
     toggle.click
-    menu = browser.nav(id: 'menu').wait_until(&:present?)
+    menu = browser.nav(id: 'menu').wait_until(timeout: 10, &:present?)
     en = menu.a(text: language)
 
     if en.present?
       Rails.logger.debug 'changing language btn present'
-      browser.nav(id: 'menu').wait_until(&:present?).a(text: language).wait_until(&:present?).click
+      browser.nav(id: 'menu').wait_until(timeout: 10, &:present?)&.a(text: language)&.wait_until(timeout: 10, &:present?)&.click
     else
       Rails.logger.debug 'changing language btn not present'
       browser.refresh
@@ -109,12 +150,12 @@ class ScrapeListingDetails
 
     text = I18n.t('tasks.scrape.awaiting')
 
-    until text != I18n.t('tasks.scrape.awaiting') do
-      text = browser.div(class: 'listing-details').wait_until(&:present?).text
+    until text != I18n.t('tasks.scrape.awaiting')
+      text = browser.div(class: 'listing-details').wait_until(timeout: 10, &:present?)&.text
       sleep 1
     end
 
-    Rails.logger.debug "!!!!!!!!!!!!!!!!!!!!"
+    Rails.logger.debug '!!!!!!!!!!!!!!!!!!!!'
     Rails.logger.debug "text: #{text}"
     if text.include?(I18n.t('tasks.scrape.unavailable'))
       listing.destroy
@@ -127,25 +168,28 @@ class ScrapeListingDetails
     # features
     count = 0
     begin
-      listing.features = browser.div(class: 'features-container').wait_until(&:present?).child(class: 'row').children.map(&:text)
+      listing.features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.map(&:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
     end
 
     # description
-    listing.description = browser.divs(class: 'listing-details-desc').wait_until(&:present?).map(&:text).reject(&:empty?).first
+    listing.description = browser.divs(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.map(&:text)&.reject(&:empty?)&.first
 
     # # geo data
     listing.title&.gsub! 'm2', 'm²'
     listing.description&.gsub! 'm2', 'm²'
 
-    if listing.save
-      Rails.logger.debug "Finished listing #{listing.title}"
-    else
-      message = "ERROR: Listing at #{listing.url} has errors"
-      @errors << [listing, message]
-      Rails.logger.debug message
+    ActiveRecord::Base.connection_pool.release_connection
+    ActiveRecord::Base.connection_pool.with_connection do
+      if listing.save
+        Rails.logger.debug "Finished listing #{listing.title}"
+      else
+        message = "ERROR: Listing at #{listing.url} has errors"
+        @errors << [listing, message]
+        Rails.logger.debug message
+      end
     end
   end
 end

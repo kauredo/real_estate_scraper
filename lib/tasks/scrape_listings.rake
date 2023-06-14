@@ -12,8 +12,8 @@ task scrape: :environment do |_t, args|
   def scrape_total
     sleep 5
     @browser.refresh
-    @browser.div(class: 'gallery-container').wait_until(&:present?)
-    matches = @browser.lis(class: 'pagination-page').wait_until(&:present?)
+    @browser.div(class: 'gallery-container').wait_until(timeout: 10, &:present?)
+    matches = @browser.lis(class: 'pagination-page').wait_until(timeout: 10, &:present?)
     matches.count
   end
 
@@ -23,13 +23,17 @@ task scrape: :environment do |_t, args|
     sleep 5
     @browser.refresh
 
-    js_doc = @browser.div(class: 'gallery-container').wait_until(&:present?)
+    js_doc = @browser.div(class: 'gallery-container').wait_until(timeout: 10, &:present?)
     imoveis = Nokogiri::HTML(js_doc.inner_html)
     res = imoveis.css('.gallery-item')
 
     res.each do |imovel|
       url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.first}"
-      next if Listing.unscoped.where(url:).present?
+
+      ActiveRecord::Base.connection_pool.release_connection
+      ActiveRecord::Base.connection_pool.with_connection do
+        next if Listing.unscoped.where(url:).present?
+      end
 
       TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
     end
@@ -57,7 +61,7 @@ task scrape: :environment do |_t, args|
   end
 
   @errors = []
-  @lister = Rack::Utils.parse_nested_query(@url)['agentName']
+  @lister = @url.split('/').last
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
   args << 'headless'
   options = Selenium::WebDriver::Chrome::Options.new(args:)
@@ -68,11 +72,10 @@ task scrape: :environment do |_t, args|
 
   puts @url
 
-  properties = @browser.as(class: 'our-properties').detect(&:visible?)
-
-  if properties
+  # if clickable, click
+  if (properties = @browser.as(class: 'our-properties').wait_until(timeout: 10, &:present?))
     puts 'found properties'
-    properties.click
+    properties.detect(&:visible?).click
     sleep 2
     @url = @browser.url
   else
@@ -98,16 +101,19 @@ end
 desc 'Scrape one listing off KW website'
 task :scrape_one, [:url] => :environment do |_t, arguments|
   url = arguments.url
-  listing = Listing.find_by(url:)
+  ActiveRecord::Base.connection_pool.release_connection
+  ActiveRecord::Base.connection_pool.with_connection do
+    listing = Listing.find_by(url:)
 
-  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-  args << 'headless'
-  options = Selenium::WebDriver::Chrome::Options.new(args:)
-  @browser = Watir::Browser.new(:chrome, options:)
+    args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
+    args << 'headless'
+    options = Selenium::WebDriver::Chrome::Options.new(args:)
+    @browser = Watir::Browser.new(:chrome, options:)
 
-  ScrapeListingDetails.scrape_details(@browser, url, true)
-  I18n.with_locale(:en) do
-    ScrapeListingDetails.scrape_language_details(@browser, listing, 'English (United States)')
+    ScrapeListingDetails.scrape_details(@browser, url, true)
+    I18n.with_locale(:en) do
+      ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
+    end
   end
 
   @browser.close

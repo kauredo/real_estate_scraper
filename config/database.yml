@@ -85,5 +85,6 @@ production:
   database: sofia_galvao_production
   username: sofia_galvao
   password: <%= ENV["SOFIA_GALVAO_DATABASE_PASSWORD"] %>
-  prepared_statements: false
-  advisory_locks: false
+  reaping_frequency: 10
+  # prepared_statements: false
+  # advisory_locks: false

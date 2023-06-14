@@ -9,6 +9,7 @@ class Listing < ApplicationRecord
 
   acts_as_paranoid
   after_save :update_orders
+  after_save :remove_currency_from_price
 
   CITIES = {
     north: %w[porto braga],
@@ -47,6 +48,14 @@ class Listing < ApplicationRecord
   end
 
   private
+
+  def remove_currency_from_price
+    new_price = price&.gsub('€', '')&.strip
+    return unless price != new_price
+
+    self.price = new_price
+    save
+  end
 
   def update_orders
     return unless saved_change_to_order? && Listing.where(order:).count > 1
