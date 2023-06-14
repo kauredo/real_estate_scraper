@@ -5,9 +5,11 @@ require 'sidekiq-scheduler'
 
 Sidekiq.configure_server do |config|
   config.on(:startup) do
-    return if Rails.env.staging?
-
-    Sidekiq.schedule = YAML.load_file(File.expand_path('../sidekiq_scheduler.yml', __dir__))
+    Sidekiq.schedule = if Rails.env.staging? || Rails.env.development?
+                         YAML.load_file(File.expand_path('../sidekiq_scheduler_dev.yml', __dir__))
+                       else
+                         YAML.load_file(File.expand_path('../sidekiq_scheduler.yml', __dir__))
+                       end
     SidekiqScheduler::Scheduler.instance.reload_schedule!
   end
 end
