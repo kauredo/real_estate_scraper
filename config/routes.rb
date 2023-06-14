@@ -3,6 +3,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  match '(*any)', to: redirect(subdomain: ''), via: :all, constraints: { subdomain: 'www' }
+
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     devise_scope :admin do
       # Redirests signing out users back to sign-in

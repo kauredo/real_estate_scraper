@@ -47,6 +47,10 @@ class Listing < ApplicationRecord
     end
   end
 
+  def self.random_photos(listings, number)
+    listings.sample(number).map { |listing| listing.photos.first }
+  end
+
   private
 
   def remove_currency_from_price

@@ -123,6 +123,7 @@ export default function LongCard(props: Props) {
                 </div>
               )}
               <img
+                loading="lazy"
                 alt={listing.title}
                 className="w-full md:w-128 h-full block mx-auto object-cover"
                 src={listing.photos[0]}

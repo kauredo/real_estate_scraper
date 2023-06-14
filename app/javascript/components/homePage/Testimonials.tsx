@@ -41,9 +41,9 @@ export default function Testimonials(props: Props) {
   return (
     <div className="p-6 text-center w-full lg:w-2/3  mx-auto flex justify-center items-center">
       <div className="w-full">
-        <h3 id="testimony-title" className="text-2xl mb-4 mx-auto">
+        <h2 id="testimony-title" className="text-2xl mb-4 mx-auto">
           {i18n.t("about.testimonies.title")}
-        </h3>
+        </h2>
         <ul className="w-full h-full flex lg:gap-8 lg:gap-6 items-center justify-start transition ease-out duration-700 my-2">
           <Carousel
             autoplay={slideNumber === 1}
