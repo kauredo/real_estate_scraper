@@ -7,7 +7,11 @@ module Backoffice
     include Pagy::Backend
 
     def index
-      @listings = Listing.all
+      @listings = if params[:order] == 'recent'
+                    Listing.all.reorder(created_at: :desc)
+                  else
+                    Listing.all
+                  end
     end
 
     def create
@@ -42,9 +46,9 @@ module Backoffice
     end
 
     def update_all
-      ScrapeAll.perform_async
+      # ScrapeAll.perform_async
       flash[:notice] = I18n.t('listing.update_all.notice')
-      redirect_to backoffice_listings_path
+      redirect_to backoffice_listings_path(order: params[:order])
     end
 
     def destroy
