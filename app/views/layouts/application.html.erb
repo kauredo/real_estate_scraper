@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
   <head>
+    <meta charset="utf-8">
     <%= render 'shared/meta_tags' %>
     <%= yield :extra_meta %>
     <%= csrf_meta_tags %>
@@ -53,14 +54,6 @@
       fbq("init", "<%= ENV['FACEBOOK_PIXEL_ID'] %>");
       fbq("track", "PageView");
     </script>
-    <noscript>
-      <img loading="lazy"
-        height="1"
-        width="1"
-        style="display:none"
-        src="https://www.facebook.com/tr?id=<%= ENV['FACEBOOK_PIXEL_ID'] %>&ev=PageView&noscript=1"
-      />
-    </noscript>
     <!-- End Meta Pixel Code -->
   </head>
   <body>
