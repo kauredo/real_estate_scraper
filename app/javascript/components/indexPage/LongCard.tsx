@@ -3,6 +3,7 @@ import { Listing } from "../utils/Interfaces";
 import { truncateText, sanitizeURLWithParams } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
 import { i18n } from "../../languages/languages";
+import Overlay from "../shared/Overlay";
 
 interface Props {
   listing: Listing;
@@ -100,22 +101,7 @@ export default function LongCard(props: Props) {
                 ✓
               </div>
             )}
-            {listing.status === "agreed" && (
-              <div
-                style={{ zIndex: 1 }}
-                className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white text-4xl opacity-50 flex items-center justify-center"
-              >
-                {i18n.t("listing.status.agreed")}
-              </div>
-            )}
-            {listing.status === "sold" && (
-              <div
-                style={{ zIndex: 1 }}
-                className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-black font-bold text-white text-4xl opacity-50 flex items-center justify-center"
-              >
-                {i18n.t("listing.status.sold")}
-              </div>
-            )}
+            <Overlay status={listing.status} />
             <div className="w-full md:w-128 h-full block mx-auto object-cover relative">
               {backoffice && (
                 <div className="absolute top-0 left-0 w-10 p-2 bg-black text-white font-bold text-center">

@@ -414,6 +414,7 @@
       "status": {
         "agreed": "Sales Agreed",
         "recent": "New to Market",
+        "rented": "Rented",
         "sold": "Sold",
         "standard": ""
       },
@@ -1085,6 +1086,7 @@
       "status": {
         "agreed": "Reservado",
         "recent": "Novo",
+        "rented": "Arrendado",
         "sold": "Vendido",
         "standard": ""
       },
