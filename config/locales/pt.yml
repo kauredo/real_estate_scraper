@@ -358,6 +358,7 @@ pt:
     status:
       agreed: Reservado
       recent: Novo
+      rented: Arrendado
       sold: Vendido
       standard: ""
     create:

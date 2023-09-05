@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { sanitizeURLWithParams, truncateText } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
 import { i18n } from "../../languages/languages";
+import Overlay from "../shared/Overlay";
 
 export default function Card({ listing }) {
   return (
@@ -17,22 +18,7 @@ export default function Card({ listing }) {
           }}
           data-src={listing.photos[0]}
         >
-          {listing.status === "agreed" && (
-            <div
-              style={{ zIndex: 1 }}
-              className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white text-4xl opacity-50 flex items-center justify-center pt-12"
-            >
-              {i18n.t("listing.status.agreed")}
-            </div>
-          )}
-          {listing.status === "sold" && (
-            <div
-              style={{ zIndex: 1 }}
-              className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-black font-bold text-white text-4xl opacity-50 flex items-center justify-center pt-12"
-            >
-              {i18n.t("listing.status.sold")}
-            </div>
-          )}
+          <Overlay status={listing.status} padding={true} />
         </div>
         <div className="px-6 py-4 h-1/3 justify-between flex flex-col bg-white">
           <h2 className="text-l grow  text-gray-800">

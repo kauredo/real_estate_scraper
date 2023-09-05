@@ -349,6 +349,7 @@ en:
     status:
       agreed: Sales Agreed
       recent: New to Market
+      rented: Rented
       sold: Sold
       standard: ""
     create:
