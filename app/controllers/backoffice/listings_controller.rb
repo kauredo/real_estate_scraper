@@ -46,7 +46,7 @@ module Backoffice
     end
 
     def update_all
-      # ScrapeAll.perform_async
+      ScrapeAll.perform_async
       flash[:notice] = I18n.t('listing.update_all.notice')
       redirect_to backoffice_listings_path(order: params[:order])
     end
