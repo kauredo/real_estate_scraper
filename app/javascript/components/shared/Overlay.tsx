@@ -10,6 +10,10 @@ export default function Overlay(props: Props) {
   const { status, padding } = props;
   const color = status === "sold" ? "black" : "beige";
 
+  if (status === "recent" || status === "standard") {
+    return null;
+  }
+
   return (
     <div
       style={{ zIndex: 1 }}

@@ -14,7 +14,7 @@ class ScrapeListingDetails
     browser.refresh
 
     listing.title_pt = browser.title
-    Rails.logger.debug "Gathering data for listing #{listing.title_pt}"
+    log "Gathering data for listing #{listing.title_pt}"
 
     # price
     count = 0
@@ -104,10 +104,8 @@ class ScrapeListingDetails
 
     # images
     if listing.photos.empty? || force_images
-      js_doc = browser.div(class: 'fw-listing-gallery').wait_until(timeout: 10, &:present?)
-      images = Nokogiri::HTML(js_doc.inner_html)
-      res = images.css('img')
-      listing.photos = res.map { |img| img.attr('src') }.uniq
+      images = browser.divs(class: 'fw-listing-gallery-image').wait_until(timeout: 10, &:present?)
+      listing.photos = images.map { |div| div.img.src}.uniq
     end
 
     # # geo data
@@ -123,10 +121,10 @@ class ScrapeListingDetails
     ActiveRecord::Base.connection_pool.release_connection
     ActiveRecord::Base.connection_pool.with_connection do
       if listing.save
-        Rails.logger.debug "Finished listing #{listing.title}"
+        log "Finished listing #{listing.title}"
       else
         message = "ERROR: Listing at #{listing.url} has errors"
-        Rails.logger.debug message
+        log message
       end
     end
   end
@@ -141,10 +139,10 @@ class ScrapeListingDetails
     en = menu.a(text: language)
 
     if en.present?
-      Rails.logger.debug 'changing language btn present'
+      log 'changing language btn present'
       browser.nav(id: 'menu').wait_until(timeout: 10, &:present?)&.a(text: language)&.wait_until(timeout: 10, &:present?)&.click
     else
-      Rails.logger.debug 'changing language btn not present'
+      log 'changing language btn not present'
       browser.refresh
     end
 
@@ -155,15 +153,15 @@ class ScrapeListingDetails
       sleep 1
     end
 
-    Rails.logger.debug '!!!!!!!!!!!!!!!!!!!!'
-    Rails.logger.debug "text: #{text}"
+    log '!!!!!!!!!!!!!!!!!!!!'
+    log "text: #{text}"
     if text.include?(I18n.t('tasks.scrape.unavailable'))
       listing.destroy
       return
     end
 
     listing.title = browser.title
-    Rails.logger.debug "Gathering data for listing #{listing.title}"
+    log "Gathering data for listing #{listing.title}"
 
     # features
     count = 0
@@ -184,12 +182,17 @@ class ScrapeListingDetails
     ActiveRecord::Base.connection_pool.release_connection
     ActiveRecord::Base.connection_pool.with_connection do
       if listing.save
-        Rails.logger.debug "Finished listing #{listing.title}"
+        log "Finished listing #{listing.title}"
       else
         message = "ERROR: Listing at #{listing.url} has errors"
         @errors << [listing, message]
-        Rails.logger.debug message
+        log message
       end
     end
+  end
+
+  def self.log(message)
+    puts message
+    Rails.logger.debug message
   end
 end
