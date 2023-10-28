@@ -105,7 +105,7 @@ class ScrapeListingDetails
     # images
     if listing.photos.empty? || force_images
       images = browser.divs(class: 'fw-listing-gallery-image').wait_until(timeout: 10, &:present?)
-      listing.photos = images.map { |div| div.img.src}.uniq
+      listing.photos = images.map { |div| div.img.src }.uniq
     end
 
     # # geo data
@@ -140,6 +140,7 @@ class ScrapeListingDetails
 
     if en.present?
       log 'changing language btn present'
+      sleep ENV['SLEEP_TIME']&.to_i || 5
       browser.nav(id: 'menu').wait_until(timeout: 10, &:present?)&.a(text: language)&.wait_until(timeout: 10, &:present?)&.click
     else
       log 'changing language btn not present'
