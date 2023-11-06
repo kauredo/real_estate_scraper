@@ -12,9 +12,25 @@ class ScrapeListingDetails
 
     sleep ENV['SLEEP_TIME']&.to_i || 5
     browser.refresh
+    sleep ENV['SLEEP_TIME']&.to_i || 5
 
     listing.title_pt = browser.title
     log "Gathering data for listing #{listing.title_pt}"
+
+    text = I18n.t('tasks.scrape.awaiting')
+
+    until text != I18n.t('tasks.scrape.awaiting') && !text.start_with?(I18n.t('tasks.scrape.see_other'))
+      text = browser.div(class: 'listing-details').wait_until(timeout: 10, &:present?)&.text
+      sleep 1
+    end
+
+    log '!!!!!!!!!!!!!!!!!!!!'
+    log "text: #{text}"
+    if text.include?(I18n.t('tasks.scrape.unavailable'))
+      log 'listing unavailable'
+      listing.destroy
+      return
+    end
 
     # price
     count = 0
@@ -148,8 +164,9 @@ class ScrapeListingDetails
     end
 
     text = I18n.t('tasks.scrape.awaiting')
+    sleep ENV['SLEEP_TIME']&.to_i || 5
 
-    until text != I18n.t('tasks.scrape.awaiting')
+    until text != I18n.t('tasks.scrape.awaiting') && !text.start_with?(I18n.t('tasks.scrape.see_other'))
       text = browser.div(class: 'listing-details').wait_until(timeout: 10, &:present?)&.text
       sleep 1
     end

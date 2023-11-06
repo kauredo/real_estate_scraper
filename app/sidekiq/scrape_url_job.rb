@@ -9,6 +9,7 @@ class ScrapeUrlJob
     Rails.logger.debug "ScrapeJobUrl is being performed for #{url}"
     Rails.application.load_tasks
 
+    Rake::Task['scrape_one'].reenable
     Rake::Task['scrape_one'].invoke(url)
     Rake::Task['scrape_one'].reenable
 

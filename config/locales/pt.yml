@@ -380,6 +380,7 @@ pt:
     scrape:
       unavailable: já não se encontra disponível no website
       awaiting: Actualizar Resultados
+      see_other: Ver mais Imóveis
 
   errors:
     404:

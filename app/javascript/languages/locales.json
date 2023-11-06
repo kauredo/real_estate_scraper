@@ -575,6 +575,7 @@
     "tasks": {
       "scrape": {
         "awaiting": "Updating Results",
+        "see_other": "See more Listings",
         "unavailable": "is no longer available on our website"
       }
     },
@@ -1258,6 +1259,7 @@
     "tasks": {
       "scrape": {
         "awaiting": "Actualizar Resultados",
+        "see_other": "Ver mais Imóveis",
         "unavailable": "já não se encontra disponível no website"
       }
     },
