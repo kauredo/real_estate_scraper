@@ -413,6 +413,7 @@
       "resource": "Listing",
       "status": {
         "agreed": "Sales Agreed",
+        "closed": "Closed",
         "recent": "New to Market",
         "rented": "Rented",
         "sold": "Sold",
@@ -1086,6 +1087,7 @@
       "resource": "Imóvel",
       "status": {
         "agreed": "Reservado",
+        "closed": "Encerrado",
         "recent": "Novo",
         "rented": "Arrendado",
         "sold": "Vendido",

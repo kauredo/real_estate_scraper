@@ -357,6 +357,7 @@ pt:
       less: " mostrar menos"
     status:
       agreed: Reservado
+      closed: Encerrado
       recent: Novo
       rented: Arrendado
       sold: Vendido

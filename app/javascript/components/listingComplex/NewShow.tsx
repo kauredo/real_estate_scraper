@@ -177,7 +177,7 @@ export default function NewShow(props: Props) {
                                 listing.slug
                               )}
                               target="_blank"
-                              className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
+                              className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
                             >
                               {i18n.t("enterprises.show.more")}
                             </a>

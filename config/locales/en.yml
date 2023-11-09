@@ -348,6 +348,7 @@ en:
       less: " show less"
     status:
       agreed: Sales Agreed
+      closed: Closed
       recent: New to Market
       rented: Rented
       sold: Sold

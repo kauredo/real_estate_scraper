@@ -509,6 +509,7 @@
       "resource": "Listing",
       "status": {
         "agreed": "Sales Agreed",
+        "closed": "Closed",
         "recent": "New to Market",
         "rented": "Rented",
         "sold": "Sold",

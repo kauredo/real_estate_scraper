@@ -564,6 +564,7 @@
       "resource": "Imóvel",
       "status": {
         "agreed": "Reservado",
+        "closed": "Encerrado",
         "recent": "Novo",
         "rented": "Arrendado",
         "sold": "Vendido",

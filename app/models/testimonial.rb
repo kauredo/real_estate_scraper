@@ -4,7 +4,7 @@ class Testimonial < ApplicationRecord
   extend Mobility
   translates :text
 
-  has_one :translation, class_name: 'Testimonial::Translation'
+  has_one :translation, class_name: 'Testimonial::Translation', dependent: :destroy
 
   validates :name, uniqueness: { scope: :text }, presence: { message: 'não pode estar vazio' }
   validates :text, presence: { message: 'não pode estar vazio' }
