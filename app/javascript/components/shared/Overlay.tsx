@@ -10,7 +10,7 @@ export default function Overlay(props: Props) {
   const { status, padding } = props;
   const color = status === "sold" ? "black" : "beige";
 
-  if (status === "recent" || status === "standard") {
+  if (status === "recent" || status === "standard" || status === null) {
     return null;
   }
 
