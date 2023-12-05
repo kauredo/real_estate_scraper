@@ -12,6 +12,9 @@ interface Props {
 export default function Results(props: Props) {
   const { results, testimonials } = props;
   const { variables, listingCount } = results;
+
+  if (!variables) return null;
+
   const volume = variables.filter(
     vari =>
       vari.name.toLowerCase().includes("negócios") ||

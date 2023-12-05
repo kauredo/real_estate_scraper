@@ -4,7 +4,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { i18n } from "../../../../app/javascript/languages/languages";
+import { i18n } from "../languages/languages";
 import { sanitizeURL } from "./utils/Functions";
 
 export default function Footer() {
@@ -45,7 +45,7 @@ export default function Footer() {
           <ul className="flex flex-wrap items-center text-sm text-gray-500">
             <li>
               <a
-                href={sanitizeURL(window.Routes.about_path)}
+                href={sanitizeURL("#about")}
                 className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6 "
               >
                 {i18n.t("footer.about")}
@@ -53,7 +53,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={sanitizeURL(window.Routes.privacy_path)}
+                href={sanitizeURL("#privacy")}
                 className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6"
               >
                 {i18n.t("footer.privacy")}
@@ -61,7 +61,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={sanitizeURL(window.Routes.terms_and_conditions_path)}
+                href={sanitizeURL("#terms_and_conditions")}
                 className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6 "
               >
                 {i18n.t("footer.terms")}
@@ -69,7 +69,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={sanitizeURL(window.Routes.contact_path)}
+                href={sanitizeURL("#contact")}
                 className="hover:underline text-white hover:text-gray-100"
               >
                 {i18n.t("footer.contacts")}

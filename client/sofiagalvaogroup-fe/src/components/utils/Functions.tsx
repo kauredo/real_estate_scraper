@@ -1,4 +1,4 @@
-import { i18n } from "../../../../../app/javascript/languages/languages";
+import { i18n } from "../../languages/languages";
 
 export function lazyloadImages() {
   var tablinks = document.getElementsByClassName("ajustedBackground");
@@ -45,6 +45,8 @@ export function toCapitalize(string) {
 }
 
 export const sanitizeURL = url => {
+  // TODO: fix this
+  return url;
   if (i18n.locale === "pt") {
     return url();
   } else {
@@ -53,6 +55,8 @@ export const sanitizeURL = url => {
 };
 
 export const sanitizeURLWithParams = (url, params) => {
+  // TODO: fix this
+  return url;
   if (params === undefined || params === null) {
     return "#";
   }

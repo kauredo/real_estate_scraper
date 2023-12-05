@@ -1,10 +1,10 @@
-import React, { lazy, Suspense, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
-import { i18n } from "../../../../app/javascript/languages/languages";
+import { i18n } from "../languages/languages";
 import { changeLocale, sanitizeURL } from "./utils/Functions";
 import { NavbarItemProps } from "./utils/Interfaces";
-const NavbarItem = lazy(() => import("./shared/NavbarItem"));
-const DropdownLink = lazy(() => import("./shared/DropdownLink"));
+import NavbarItem from "./shared/NavbarItem";
+import DropdownLink from "./shared/DropdownLink";
 
 interface Resource {
   path: string;
@@ -28,22 +28,22 @@ export default function Navbar(props: Props) {
       {
         title: `${i18n.t("navbar.about")}`,
         turbo: "true",
-        url: sanitizeURL(window.Routes.about_path),
+        url: sanitizeURL("#about"),
       },
       {
         title: `${i18n.t("navbar.services")}`,
         turbo: "true",
-        url: sanitizeURL(window.Routes.services_path),
+        url: sanitizeURL("#services"),
       },
       {
         title: `${i18n.t("navbar.house_360")}`,
         turbo: "true",
-        url: sanitizeURL(window.Routes.house_360_path),
+        url: sanitizeURL("#house_360"),
       },
       {
         title: `${i18n.t("navbar.contacts")}`,
         turbo: "true",
-        url: sanitizeURL(window.Routes.contact_path),
+        url: sanitizeURL("#contact"),
       },
     ],
   };
@@ -52,22 +52,22 @@ export default function Navbar(props: Props) {
     {
       title: `${i18n.t("navbar.buy")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.buy_path),
+      url: sanitizeURL("#buy"),
     },
     {
       title: `${i18n.t("navbar.sell")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.sell_path),
+      url: sanitizeURL("#sell"),
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.latest_path),
+      url: sanitizeURL("#latest"),
     },
     {
       title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.blog_path),
+      url: sanitizeURL("#blog"),
     },
     {
       title: "Partnership with ",
@@ -80,7 +80,7 @@ export default function Navbar(props: Props) {
         />
       ),
       turbo: "true",
-      url: sanitizeURL(window.Routes.kw_path),
+      url: sanitizeURL("#kw"),
     },
     moreDropdown,
   ];
@@ -89,22 +89,22 @@ export default function Navbar(props: Props) {
     {
       title: `${i18n.t("navbar.listings")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.backoffice_listings_path),
+      url: sanitizeURL("#backoffice_listings"),
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.backoffice_listing_complexes_path),
+      url: sanitizeURL("#backoffice_listing_complexes"),
     },
     {
       title: `${i18n.t("navbar.testimonies")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.backoffice_testimonials_path),
+      url: sanitizeURL("#backoffice_testimonials"),
     },
     {
       title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.backoffice_blog_posts_path),
+      url: sanitizeURL("#backoffice_blog_posts"),
     },
   ];
 
@@ -136,20 +136,19 @@ export default function Navbar(props: Props) {
   admin &&
     rightItems.unshift({
       title: "Backoffice",
-      url: sanitizeURL(window.Routes.backoffice_path),
+      url: sanitizeURL("#backoffice"),
       turbo: "true",
     });
 
   admin &&
     mobileItems.unshift({
       title: "Backoffice",
-      url: sanitizeURL(window.Routes.backoffice_path),
+      url: sanitizeURL("#backoffice"),
       turbo: "true",
     });
 
-  const showBtnOnNavbar = sanitizeURL(window.Routes.sell_path) !==
-    window.location.pathname && (
-    <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
+  const showBtnOnNavbar = sanitizeURL("#sell") !== window.location.pathname && (
+    <a href={sanitizeURL("#sell")} data-turbo={false}>
       <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
         <p>{i18n.t("home.cta.long")}</p>
       </div>
@@ -158,7 +157,7 @@ export default function Navbar(props: Props) {
 
   // const backofficeBtn = admin &&
   //   !window.location.pathname.includes("backoffice") && (
-  //     <a href={sanitizeURL(window.Routes.backoffice_path)} data-turbo={false}>
+  //     <a href={sanitizeURL('#backoffice')} data-turbo={false}>
   //       <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
   //         <p>{i18n.t("navbar.backoffice")}</p>
   //       </div>
@@ -187,10 +186,7 @@ export default function Navbar(props: Props) {
           <div className="flex items-center justify-between min-h-[4rem]">
             <div className="flex items-center">
               <div className="flex-shrink-0 relative">
-                <a
-                  data-turbo="true"
-                  href={sanitizeURL(window.Routes.root_path)}
-                >
+                <a data-turbo="true" href={sanitizeURL("#root")}>
                   <img
                     loading="lazy"
                     className="w-[8rem] relative z-10"
@@ -207,22 +203,10 @@ export default function Navbar(props: Props) {
                   {middleItems?.map(item => {
                     if (item.items?.length && item.items.length > 0) {
                       return (
-                        <Suspense
-                          key={`${item.title}_middle`}
-                          fallback={<div>Loading...</div>}
-                        >
-                          <DropdownLink title={item.title} items={item.items} />
-                        </Suspense>
+                        <DropdownLink title={item.title} items={item.items} />
                       );
                     } else {
-                      return (
-                        <Suspense
-                          fallback={<div>Loading...</div>}
-                          key={`${item.title}_middle`}
-                        >
-                          <NavbarItem item={item} />
-                        </Suspense>
-                      );
+                      return <NavbarItem item={item} />;
                     }
                   })}
                 </div>
@@ -233,20 +217,13 @@ export default function Navbar(props: Props) {
                 <div className="ml-10 flex items-baseline">
                   {showBtnOnNavbar}
                   {rightItems?.map(item => {
-                    return (
-                      <Suspense
-                        fallback={<div>Loading...</div>}
-                        key={`${item.title}_right`}
-                      >
-                        <NavbarItem item={item} />
-                      </Suspense>
-                    );
+                    return <NavbarItem item={item} />;
                   })}
                 </div>
               </div>
             </div>
             <div className="-mr-2 flex tablet:hidden">
-              <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
+              <a href={sanitizeURL("#sell")} data-turbo={false}>
                 <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
                   <p>{i18n.t("home.cta.short")}</p>
                 </div>
@@ -311,24 +288,10 @@ export default function Navbar(props: Props) {
               {mobileItems?.map(item => {
                 if (item.items?.length && item.items.length > 0) {
                   return item.items?.map(insideItem => {
-                    return (
-                      <Suspense
-                        fallback={<div>Loading...</div>}
-                        key={`${insideItem.title}_mobile`}
-                      >
-                        <NavbarItem item={insideItem} fullWidth />
-                      </Suspense>
-                    );
+                    return <NavbarItem item={insideItem} fullWidth />;
                   });
                 } else {
-                  return (
-                    <Suspense
-                      fallback={<div>Loading...</div>}
-                      key={`${item.title}_mobile`}
-                    >
-                      <NavbarItem item={item} fullWidth />
-                    </Suspense>
-                  );
+                  return <NavbarItem item={item} fullWidth />;
                 }
               })}
             </div>

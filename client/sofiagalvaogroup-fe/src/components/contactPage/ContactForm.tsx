@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { i18n } from "../../../../../app/javascript/languages/languages";
+import { i18n } from "../../languages/languages";
 import { Listing, ListingComplex } from "../utils/Interfaces";
 
 interface Props {
@@ -56,7 +56,7 @@ export default function ContactForm(props: Props) {
       <form
         ref={form}
         onSubmit={e => validateUser(e)}
-        action={window.Routes.new_contact_path()}
+        action={"#new_contact"}
         method="post"
       >
         <div className="mb-6">

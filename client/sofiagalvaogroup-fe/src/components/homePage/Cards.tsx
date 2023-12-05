@@ -12,6 +12,7 @@ interface Props {
 export default function Cards(props: Props) {
   const { listings, photos } = props;
   const [slideNumber, setSlideNumber] = useState(1);
+  const [selectedLocation, setSelectedLocation] = useState("");
   const locations = Object.keys(listings);
 
   useEffect(() => {

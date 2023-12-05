@@ -1,6 +1,6 @@
 import Carousel from "nuka-carousel";
 import React, { useEffect, useRef, useState } from "react";
-import { i18n } from "../../../../../app/javascript/languages/languages";
+import { i18n } from "../../languages/languages";
 import { waitForElm } from "../utils/Functions";
 
 import { Testimonial } from "../utils/Interfaces";

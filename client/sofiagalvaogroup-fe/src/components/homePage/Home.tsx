@@ -1,9 +1,9 @@
-import React, { Suspense, lazy, useLayoutEffect, useState } from "react";
+import React from "react";
 import { Listing, ResultNumbers, Testimonial } from "../utils/Interfaces";
-const Newsletter = lazy(() => import("./Newsletter"));
-const Cards = lazy(() => import("./Cards"));
-const Results = lazy(() => import("./Results"));
 import Hero from "../shared/Hero";
+import Newsletter from "./Newsletter";
+import Cards from "./Cards";
+import Results from "./Results";
 
 interface Props {
   listings: Listing[];
@@ -18,11 +18,10 @@ export default function Home(props: Props) {
   return (
     <>
       <Hero photos={photos} />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Cards listings={listings} />
-        <Results results={results} testimonials={testimonials} />
-        <Newsletter />
-      </Suspense>
+
+      <Cards listings={listings} />
+      <Results results={results} testimonials={testimonials} />
+      <Newsletter />
     </>
   );
 }

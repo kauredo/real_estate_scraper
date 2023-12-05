@@ -8,14 +8,15 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :listings
-      resources :listing_complexes
-      resources :blog_posts
-      resources :testimonials
-      resources :newsletter_subscriptions
       resources :photos
+      resources :results
+      resources :testimonials
+
       resources :blog_photos
       resources :variables
-      resources :admins
+      resources :listing_complexes
+      resources :blog_posts
+      resources :newsletter_subscriptions
     end
   end
 

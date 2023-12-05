@@ -15,13 +15,10 @@ export default function ComplexCard(props: Props) {
         href={
           backoffice
             ? sanitizeURLWithParams(
-                window.Routes.edit_backoffice_listing_complex_path,
+                "#edit_backoffice_listing_complex",
                 listing_complex.slug
               )
-            : sanitizeURLWithParams(
-                window.Routes.listing_complex_path,
-                listing_complex.slug
-              )
+            : sanitizeURLWithParams("#listing_complex", listing_complex.slug)
         }
       >
         <div className="relative m-0 shadow-lg flex flex-col md:flex-row bg-white">

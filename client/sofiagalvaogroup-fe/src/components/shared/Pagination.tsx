@@ -1,5 +1,5 @@
 import React from "react";
-import { i18n } from "../../../../../app/javascript/languages/languages";
+import { i18n } from "../../languages/languages";
 import { getUrlParameter } from "../utils/Functions";
 import { Pagy } from "../utils/Interfaces";
 

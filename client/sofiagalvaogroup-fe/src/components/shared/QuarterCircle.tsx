@@ -17,7 +17,7 @@ export default function QuarterCircle(props: Props) {
   };
 
   const changeImage = e => {
-    e.preventDefault;
+    e.preventDefault();
 
     let random_photo = photos[Math.floor(Math.random() * photos.length)];
 

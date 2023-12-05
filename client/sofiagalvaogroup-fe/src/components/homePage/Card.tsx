@@ -9,7 +9,7 @@ export default function Card({ listing }) {
       style={{ marginTop: "-2rem" }}
       className="card mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto"
     >
-      <a href={sanitizeURLWithParams(window.Routes.listing_path, listing.slug)}>
+      <a href={sanitizeURLWithParams("#listing", listing.slug)}>
         <div
           className="ajustedBackground object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"
           style={{

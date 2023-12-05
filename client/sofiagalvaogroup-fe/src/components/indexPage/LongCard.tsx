@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Listing } from "../utils/Interfaces";
 import { truncateText, sanitizeURLWithParams } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
-import { i18n } from "../../../../../app/javascript/languages/languages";
+import { i18n } from "../../languages/languages";
 import Overlay from "../shared/Overlay";
 
 interface Props {
@@ -27,19 +27,13 @@ export default function LongCard(props: Props) {
 
       confirm("De certeza que queres apagar o imóvel?");
 
-      fetch(
-        sanitizeURLWithParams(
-          window.Routes.backoffice_listing_path,
-          listing.slug
-        ),
-        {
-          method: "DELETE",
-          headers: {
-            "X-CSRF-Token": token,
-            "Content-Type": "application/json",
-          },
-        }
-      ).then(res => {
+      fetch(sanitizeURLWithParams("#backoffice_listing", listing.slug), {
+        method: "DELETE",
+        headers: {
+          "X-CSRF-Token": token,
+          "Content-Type": "application/json",
+        },
+      }).then(res => {
         setIsVilible(false);
       });
     }
@@ -77,11 +71,8 @@ export default function LongCard(props: Props) {
           small
             ? "#"
             : backoffice
-            ? sanitizeURLWithParams(
-                window.Routes.edit_backoffice_listing_path,
-                listing.slug
-              )
-            : sanitizeURLWithParams(window.Routes.listing_path, listing.slug)
+            ? sanitizeURLWithParams("#edit_backoffice_listing", listing.slug)
+            : sanitizeURLWithParams("#listing", listing.slug)
         }
         onClick={e => small && e.preventDefault()}
       >

@@ -1,6 +1,6 @@
 import Carousel from "nuka-carousel";
 import React, { useEffect } from "react";
-import { i18n } from "../../../../../app/javascript/languages/languages";
+import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
 import Cards from "../homePage/Cards";
 import { sanitizeURLWithParams } from "../utils/Functions";
@@ -172,7 +172,7 @@ export default function NewShow(props: Props) {
                           listing.status === "recent" ? (
                             <a
                               href={sanitizeURLWithParams(
-                                window.Routes.listing_path,
+                                "#listing",
                                 listing.slug
                               )}
                               target="_blank"

@@ -7,11 +7,11 @@ export const i18n = new I18n({
   ...en,
 });
 
-allowed_locales = ["pt", "en"];
-default_locale = "pt";
+const allowed_locales = ["pt", "en"];
+const default_locale = "pt";
 i18n.defaultLocale = default_locale;
 
-current_locale = window.location.pathname.split("/")[1];
+let current_locale = window.location.pathname.split("/")[1];
 i18n.locale = allowed_locales.includes(current_locale)
   ? current_locale
   : default_locale;

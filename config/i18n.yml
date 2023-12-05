@@ -6,6 +6,6 @@ translations:
       - "!*.activerecord"
       - "!*.errors"
       - "!*.number.nth"
-  - file: app/javascript/languages/:locale.json
+  - file: client/sofiagalvaogroup-fe/src/languages/:locale.json
     patterns:
       - "*"
