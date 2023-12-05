@@ -58,7 +58,6 @@ export default function Cards(props: Props) {
             <div className="overflow-hidden h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700 my-2">
               <Carousel
                 autoplay={slideNumber === 1}
-                heightMode="max"
                 slidesToShow={slideNumber}
                 defaultControlsConfig={{
                   nextButtonText: "➤",
@@ -88,7 +87,6 @@ export default function Cards(props: Props) {
             <div className="overflow-hidden h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700 my-2">
               <Carousel
                 autoplay={slideNumber === 1}
-                heightMode="max"
                 slidesToShow={slideNumber}
                 defaultControlsConfig={{
                   nextButtonText: "➤",
@@ -129,7 +127,6 @@ export default function Cards(props: Props) {
             <div className="overflow-hidden h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700 my-2">
               <Carousel
                 autoplay={slideNumber === 1}
-                heightMode="max"
                 slidesToShow={slideNumber}
                 defaultControlsConfig={{
                   nextButtonText: "➤",

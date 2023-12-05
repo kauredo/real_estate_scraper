@@ -37,7 +37,6 @@ export default function NewShow(props: Props) {
       return (
         <div className="mx-auto w-auto">
           <Carousel
-            heightMode="max"
             slidesToShow={1}
             defaultControlsConfig={{
               nextButtonText: "➤",

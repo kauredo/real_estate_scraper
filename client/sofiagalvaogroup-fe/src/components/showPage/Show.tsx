@@ -44,7 +44,6 @@ export default function Show(props: Props) {
         <div className="relative">
           <Overlay status={listing.status} />
           <Carousel
-            heightMode="max"
             style={{ maxHeight: "90vh" }}
             defaultControlsConfig={{
               containerClassName: "m-h-[90vh] z-10",

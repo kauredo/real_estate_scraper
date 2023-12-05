@@ -11,8 +11,8 @@ export interface DropdownProps {
 const DropdownLink = (props: DropdownProps) => {
   const { title, items } = props;
   const [showMenu, setShowMenu] = useState(false);
-  const dropdownMenuRef = useRef(null);
-  const dropdownLinkRef = useRef(null);
+  const dropdownMenuRef = useRef<any>(null);
+  const dropdownLinkRef = useRef<any>(null);
 
   useEffect(() => {
     const handleClickOutside = event => {

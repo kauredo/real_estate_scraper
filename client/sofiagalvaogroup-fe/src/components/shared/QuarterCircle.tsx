@@ -6,7 +6,7 @@ interface Props {
 
 export default function QuarterCircle(props: Props) {
   const { photos } = props;
-  const doorRef = useRef<HTMLDivElement | null>(null);
+  const doorRef = useRef<any>(null);
 
   const removeClass = () => {
     setTimeout(() => {

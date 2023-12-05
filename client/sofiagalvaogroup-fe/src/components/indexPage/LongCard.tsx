@@ -15,28 +15,34 @@ export default function LongCard(props: Props) {
   let { listing, backoffice, small } = props;
   const [isVisible, setIsVilible] = useState(true);
   const [checked, setChecked] = useState(false);
-  const [checkbox, setCheckbox] = useState<HTMLElement | null>(null);
+  const [checkbox, setCheckbox] = useState<HTMLInputElement | null>(null);
   const handleRemoveItem = e => {
     e.preventDefault();
-    const token = document.querySelector('meta[name="csrf-token"]').content;
+    const element: HTMLElement | null = document.getElementById(
+      'meta[name="csrf-token"]'
+    );
 
-    confirm("De certeza que queres apagar o imóvel?");
+    if (element instanceof HTMLMetaElement) {
+      const token = element.content;
 
-    fetch(
-      sanitizeURLWithParams(
-        window.Routes.backoffice_listing_path,
-        listing.slug
-      ),
-      {
-        method: "DELETE",
-        headers: {
-          "X-CSRF-Token": token,
-          "Content-Type": "application/json",
-        },
-      }
-    ).then(res => {
-      setIsVilible(false);
-    });
+      confirm("De certeza que queres apagar o imóvel?");
+
+      fetch(
+        sanitizeURLWithParams(
+          window.Routes.backoffice_listing_path,
+          listing.slug
+        ),
+        {
+          method: "DELETE",
+          headers: {
+            "X-CSRF-Token": token,
+            "Content-Type": "application/json",
+          },
+        }
+      ).then(res => {
+        setIsVilible(false);
+      });
+    }
   };
 
   const clickId = () => {
@@ -50,7 +56,7 @@ export default function LongCard(props: Props) {
     let box = document.getElementById(
       `listing_complex_listing_ids_${listing.slug}`
     );
-    if (box) {
+    if (box && box instanceof HTMLInputElement) {
       setCheckbox(box);
       setChecked(box.checked);
     }

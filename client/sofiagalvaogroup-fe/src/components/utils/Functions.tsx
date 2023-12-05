@@ -3,7 +3,7 @@ import { i18n } from "../../../../../app/javascript/languages/languages";
 export function lazyloadImages() {
   var tablinks = document.getElementsByClassName("ajustedBackground");
   for (let i = 0; i < tablinks.length; i++) {
-    var lazy = tablinks[i] as HTMLElement;
+    var lazy: any = tablinks[i];
     var src = lazy.dataset.src;
 
     lazy.style.backgroundImage = 'url("' + src + '")';
@@ -105,7 +105,11 @@ export function waitForElm(selector) {
   });
 }
 
-export const navbarItemClass = (path, isMobile, children: string[] = []) => {
+export const navbarItemClass = (
+  path,
+  isMobile,
+  children: string[] | any[] = []
+) => {
   const base =
     "whitespace-nowrap hover:bg-beige hover:text-white px-3 py-2 rounded-md font-medium mx-1 lowercase block w-max ";
   const mobile = "block text-base relative z-3 ";

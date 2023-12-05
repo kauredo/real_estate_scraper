@@ -20,7 +20,7 @@ export default function Testimonials(props: Props) {
   }, []);
 
   const handleResize = () => {
-    waitForElm("#testimony-title").then(title => {
+    waitForElm("#testimony-title").then((title: any) => {
       const windowWidth = Math.floor(title.scrollWidth / 400);
       if (windowWidth == 0) {
         setSlideNumber(1);
@@ -48,7 +48,6 @@ export default function Testimonials(props: Props) {
           <Carousel
             autoplay={slideNumber === 1}
             slidesToShow={slidesToShow()}
-            heightMode="max"
             defaultControlsConfig={{
               nextButtonText: "➤",
               prevButtonStyle: {

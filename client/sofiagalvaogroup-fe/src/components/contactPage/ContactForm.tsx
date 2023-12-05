@@ -15,7 +15,7 @@ export default function ContactForm(props: Props) {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const form = useRef(null);
+  const form = useRef<HTMLFormElement>(null);
   const pattern =
     /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
 
@@ -23,10 +23,8 @@ export default function ContactForm(props: Props) {
     e.preventDefault();
     const valid_params = pattern.test(email) && name && message;
 
-    if (valid_params) {
-      form.current.submit().then(res => {
-        console.log(res);
-      });
+    if (valid_params && form.current) {
+      form.current.submit();
     } else {
       setError(i18n.t("contacts.form.error"));
     }

@@ -6,17 +6,15 @@ export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState("");
-  const form = useRef(null);
+  const form = useRef<HTMLFormElement>(null);
   const pattern = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i;
 
   const validateUser = e => {
     e.preventDefault();
     const valid_email = pattern.test(email);
 
-    if (valid_email && name) {
-      form.current.submit().then(res => {
-        console.log(res);
-      });
+    if (valid_email && name && form.current) {
+      form.current.submit();
     } else if (valid_email) {
       setError(i18n.t("home.newsletter.form.errors.name"));
     } else {
