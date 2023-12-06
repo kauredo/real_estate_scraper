@@ -5,7 +5,7 @@ import Newsletter from "./Newsletter";
 import Cards from "./Cards";
 import Results from "./Results";
 import {
-  find_all_listings,
+  find_all_listings_by_geography,
   find_all_photos,
   find_all_testimonials,
   find_all_results,
@@ -18,31 +18,26 @@ export default function Home() {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    find_all_listings().then((listings: any) => {
-      setListings(listings);
-      console.log("listings", listings);
-    });
+    const fetchData = async () => {
+      const tempListings = await find_all_listings_by_geography();
+      const tempPhotos = await find_all_photos();
+      const tempResults = await find_all_results();
+      const tempTestimonials = await find_all_testimonials();
 
-    find_all_photos().then((photos: any) => {
-      setPhotos(photos);
-      console.log("photos", photos);
-    });
+      return { tempListings, tempPhotos, tempResults, tempTestimonials };
+    };
 
-    find_all_results().then((results: any) => {
-      setResults(results);
-      console.log("results", results);
-    });
-
-    find_all_testimonials().then((testimonials: any) => {
-      setTestimonials(testimonials);
-      console.log("testimonials", testimonials);
+    fetchData().then(data => {
+      setListings(data.tempListings);
+      setPhotos(data.tempPhotos);
+      setResults(data.tempResults);
+      setTestimonials(data.tempTestimonials);
     });
   }, []);
 
   return (
     <>
       <Hero photos={photos} />
-
       <Cards listings={listings} />
       <Results results={results} testimonials={testimonials} />
       <Newsletter />

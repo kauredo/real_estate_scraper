@@ -10,6 +10,7 @@ interface Props {
 }
 
 export default function Cards(props: Props) {
+  console.log(props);
   const { listings, photos } = props;
   const [slideNumber, setSlideNumber] = useState(1);
   const [selectedLocation, setSelectedLocation] = useState("");
@@ -31,8 +32,11 @@ export default function Cards(props: Props) {
     }
   };
 
-  if (locations.length !== listings.length) {
-    const [selectedLocation, setSelectedLocation] = useState(locations[0]);
+  lazyloadImages();
+
+  if (listings && locations && locations.length !== listings.length) {
+    console.log("locations");
+    setSelectedLocation(locations[0]);
 
     return (
       <section
@@ -78,6 +82,7 @@ export default function Cards(props: Props) {
       </section>
     );
   } else if (listings.length === 0 && photos && photos.length > 0) {
+    console.log("photos");
     return (
       <section
         id="card"
@@ -119,6 +124,7 @@ export default function Cards(props: Props) {
       </section>
     );
   } else {
+    console.log("listings");
     return (
       <section
         id="cards"

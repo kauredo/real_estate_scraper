@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :listings
+      resources :listings do
+        collection do
+          get '/by_geography', to: 'listings#by_geography'
+        end
+      end
       resources :photos
       resources :results
       resources :testimonials

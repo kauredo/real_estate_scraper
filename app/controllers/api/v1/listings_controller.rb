@@ -19,6 +19,11 @@ module Api
         }
         render json: @listing
       end
+
+      def by_geography
+        @listings = Listing.by_geography
+        render json: @listings
+      end
     end
   end
 end
