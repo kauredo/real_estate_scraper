@@ -84,7 +84,7 @@ class ScrapeListingDetails
     # address
     count = 0
     begin
-      address = browser.div(class: 'fw-listing-topbar-address').wait_until(timeout: 10, &:present?)&.text&.squish
+      address = browser.div(class: 'fw-mobile-address').wait_until(timeout: 10, &:present?).p(class: 'ng-binding').wait_until(timeout: 10, &:present?)&.text&.squish
     rescue StandardError => e
       count += 1
       retry if count < 3
