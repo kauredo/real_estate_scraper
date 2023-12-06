@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { i18n } from "../../languages/languages";
 import { Listing, ListingComplex } from "../utils/Interfaces";
 

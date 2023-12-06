@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Card";
 import Carousel from "nuka-carousel";
 import { toCapitalize, lazyloadImages } from "../utils/Functions";
@@ -24,7 +24,7 @@ export default function Cards(props: Props) {
 
   const handleResize = () => {
     const windowWidth = Math.floor(window.innerWidth / 412);
-    if (windowWidth == 0) {
+    if (windowWidth === 0) {
       setSlideNumber(1);
     } else {
       setSlideNumber(windowWidth);
@@ -102,6 +102,7 @@ export default function Cards(props: Props) {
                     <img
                       loading="lazy"
                       key={photo.image.url}
+                      alt={""}
                       style={{
                         maxHeight: "70vh",
                         objectFit: "contain",

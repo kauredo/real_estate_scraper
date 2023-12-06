@@ -1,9 +1,5 @@
 module.exports = {
-  content: [
-    "./app/assets/stylesheets/**/*.css",
-    "./app/javascript/**/*.js",
-    "./app/javascript/**/*.tsx",
-  ],
+  content: ["./src/**/*.{scss,css,sass}", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     listStyleType: {
       none: "none",

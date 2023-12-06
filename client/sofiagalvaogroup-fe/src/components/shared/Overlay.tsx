@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { i18n } from "../../languages/languages";
 
 interface Props {

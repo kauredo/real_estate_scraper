@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import { useRef } from "react";
+import banner from "../../assets/images/banner.webp";
 
 interface Props {
   photos: string[];
@@ -43,7 +44,7 @@ export default function QuarterCircle(props: Props) {
       ref={doorRef}
       className={`quarter`}
       style={{
-        backgroundImage: "url(/images/banner.webp)",
+        backgroundImage: `url(${banner})`,
       }}
       onMouseEnter={() => {
         doorRef.current?.classList.add("moving");

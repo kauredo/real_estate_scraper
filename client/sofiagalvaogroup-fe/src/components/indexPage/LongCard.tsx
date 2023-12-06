@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Listing } from "../utils/Interfaces";
 import { truncateText, sanitizeURLWithParams } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
-import { i18n } from "../../languages/languages";
 import Overlay from "../shared/Overlay";
+import { Link } from "react-router-dom";
 
 interface Props {
   listing: Listing;
@@ -65,9 +65,9 @@ export default function LongCard(props: Props) {
       }
       onClick={() => clickId()}
     >
-      <a
+      <Link
         className={small ? "cursor-not-allowed" : ""}
-        href={
+        to={
           small
             ? "#"
             : backoffice
@@ -145,7 +145,7 @@ export default function LongCard(props: Props) {
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   ) : (
     <></>

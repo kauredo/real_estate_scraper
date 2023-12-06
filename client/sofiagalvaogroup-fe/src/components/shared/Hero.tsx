@@ -1,7 +1,8 @@
-import React, { useState } from "react";
 import { i18n } from "../../languages/languages";
 import { sanitizeURL } from "../utils/Functions";
 import QuarterCircle from "./QuarterCircle";
+import { Link } from "react-router-dom";
+import mainLogo from "../../assets/logos/main.webp";
 
 interface Props {
   photos: string[];
@@ -18,7 +19,7 @@ function Hero(props: Props) {
           <img
             loading="lazy"
             className="h-auto md:h-1/3 w-1/2"
-            src="/logos/main.webp"
+            src={mainLogo}
             alt="Sofia Galvão Group Logo"
           />
           <h1
@@ -34,21 +35,21 @@ function Hero(props: Props) {
       </div>
       <div className="relative bottom-5 left-0 right-0 center">
         <div className="flex justify-center">
-          <a href={sanitizeURL("#buy")}>
+          <Link to={sanitizeURL("/buy")}>
             <div className="px-5 lowercase">
               <p>{i18n.t("navbar.buy")}</p>
             </div>
-          </a>
-          <a href={sanitizeURL("#sell")} data-turbolinks={false}>
+          </Link>
+          <Link to={sanitizeURL("/sell")} data-turbolinks={false}>
             <div className="px-5 lowercase">
               <p>{i18n.t("navbar.sell")}</p>
             </div>
-          </a>
-          <a href="#cards">
+          </Link>
+          <Link to="#cards">
             <div className="px-5">
               <i className="fas fa-arrow-down"></i>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

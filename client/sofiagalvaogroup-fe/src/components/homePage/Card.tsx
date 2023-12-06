@@ -1,7 +1,8 @@
-import React, { useState } from "react";
 import { sanitizeURLWithParams, truncateText } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
+import { Link } from "react-router-dom";
+import banner from "../../assets/images/banner.webp";
 
 export default function Card({ listing }) {
   return (
@@ -9,7 +10,7 @@ export default function Card({ listing }) {
       style={{ marginTop: "-2rem" }}
       className="card mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto"
     >
-      <a href={sanitizeURLWithParams("#listing", listing.slug)}>
+      <Link to={sanitizeURLWithParams("#listing", listing.slug)}>
         <div
           className="ajustedBackground object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"
           style={{
@@ -25,7 +26,7 @@ export default function Card({ listing }) {
           </h2>
           <ListingIcons listing={listing} />
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

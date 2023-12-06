@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
 import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
 import { sanitizeURLWithParams } from "../utils/Functions";
-import { Listing, ListingComplex } from "../utils/Interfaces";
+import { ListingComplex } from "../utils/Interfaces";
+import { Link } from "react-router-dom";
 
 interface Props {
   complex: ListingComplex;
@@ -100,19 +100,19 @@ export default function Show(props: Props) {
                       </td>
                       <td className={" p-2 "}>
                         {["sold", "agreed"].includes(listing.status)
-                          ? listing.status == "agreed"
+                          ? listing.status === "agreed"
                             ? i18n.t("listing.status.agreed")
                             : i18n.t("listing.status.sold")
                           : `${listing.price} €`}
                       </td>
                       <td className=" p-2">
-                        <a
-                          href={sanitizeURLWithParams("#listing", listing.slug)}
+                        <Link
+                          to={sanitizeURLWithParams("#listing", listing.slug)}
                           target="_blank"
                           className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
                         >
                           {i18n.t("enterprises.show.more")}
-                        </a>
+                        </Link>
                       </td>
                     </tr>
                   );

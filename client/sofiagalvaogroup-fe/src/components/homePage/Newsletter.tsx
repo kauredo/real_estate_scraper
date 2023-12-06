@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { i18n } from "../../languages/languages";
 import { sanitizeURL } from "../utils/Functions";
+import emailPhoto from "../../assets/images/email.webp";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -40,7 +41,7 @@ export default function Newsletter() {
         <form
           ref={form}
           onSubmit={e => validateUser(e)}
-          action={sanitizeURL("#newsletter_subscriptions")}
+          action={sanitizeURL("/newsletter_subscriptions")}
           method="post"
         >
           <div className="w-full">
@@ -77,7 +78,7 @@ export default function Newsletter() {
       <div
         className="h-[20rem] md:w-1/2 w-5/6 hidden md:block object-cover bg-center bg-no-repeat bg-cover object-center"
         style={{
-          backgroundImage: `url(/images/email.webp)`,
+          backgroundImage: `url(${emailPhoto})`,
         }}
       ></div>
     </section>

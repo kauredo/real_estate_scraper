@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { navbarItemClass } from "../utils/Functions";
 import { NavbarItemProps } from "../utils/Interfaces";
 import NavbarItem from "./NavbarItem";
+import { Link } from "react-router-dom";
 
 export interface DropdownProps {
   title: string;
@@ -49,8 +50,8 @@ const DropdownLink = (props: DropdownProps) => {
 
   return (
     <div className="relative">
-      <a
-        href="#"
+      <Link
+        to="#"
         ref={dropdownLinkRef}
         onClick={handleLinkClick}
         className={`${className} flex flex-nowrap`}
@@ -69,7 +70,7 @@ const DropdownLink = (props: DropdownProps) => {
             aria-hidden="true"
           ></i>
         )}
-      </a>
+      </Link>
       <div
         className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white z-20 px-4 ${
           showMenu ? "block" : "hidden"
@@ -77,8 +78,8 @@ const DropdownLink = (props: DropdownProps) => {
         ref={dropdownMenuRef}
       >
         <ul className="py-2">
-          {items?.map(item => (
-            <li>
+          {items.map(item => (
+            <li key={item.title}>
               <NavbarItem item={item} fullWidth />
             </li>
           ))}

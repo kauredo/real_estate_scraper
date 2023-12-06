@@ -1,4 +1,3 @@
-import React from "react";
 import { Listing } from "../utils/Interfaces";
 import LongCard from "./LongCard";
 

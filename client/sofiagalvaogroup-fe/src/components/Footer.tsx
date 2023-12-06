@@ -1,4 +1,3 @@
-import React, { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
@@ -6,6 +5,8 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { i18n } from "../languages/languages";
 import { sanitizeURL } from "./utils/Functions";
+import { Link } from "react-router-dom";
+import main_white from "../assets/logos/main_white.webp";
 
 export default function Footer() {
   const items = [
@@ -31,49 +32,49 @@ export default function Footer() {
     <footer className="bg-beige p-4 sm:p-12 mt-12">
       <div className="container mx-auto">
         <div className="sm:flex sm:items-center sm:justify-between">
-          <a
-            href="https://sofiagalvaogroup.com/"
+          <Link
+            to="https://sofiagalvaogroup.com/"
             className="flex items-center mb-4 sm:mb-0"
           >
             <img
               loading="lazy"
-              src="/logos/main_white.webp"
+              src={main_white}
               className="h-12"
               alt="Sofia Galvão Group Alternative Logo"
             />
-          </a>
+          </Link>
           <ul className="flex flex-wrap items-center text-sm text-gray-500">
             <li>
-              <a
-                href={sanitizeURL("#about")}
+              <Link
+                to={sanitizeURL("/about")}
                 className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6 "
               >
                 {i18n.t("footer.about")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href={sanitizeURL("#privacy")}
+              <Link
+                to={sanitizeURL("/privacy")}
                 className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6"
               >
                 {i18n.t("footer.privacy")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href={sanitizeURL("#terms_and_conditions")}
+              <Link
+                to={sanitizeURL("/terms_and_conditions")}
                 className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6 "
               >
                 {i18n.t("footer.terms")}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href={sanitizeURL("#contact")}
+              <Link
+                to={sanitizeURL("/contact")}
                 className="hover:underline text-white hover:text-gray-100"
               >
                 {i18n.t("footer.contacts")}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -94,13 +95,13 @@ export default function Footer() {
           <div className="flex mt-4 space-x-4 sm:justify-center sm:mt-0">
             {items?.map(item => {
               return (
-                <a
+                <Link
                   key={`${item.title}--desktop`}
-                  href={item.url}
+                  to={item.url}
                   className="text-white hover:text-gray-100"
                 >
                   <FontAwesomeIcon icon={item.icon} />
-                </a>
+                </Link>
               );
             })}
           </div>

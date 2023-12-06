@@ -1,7 +1,7 @@
-import React from "react";
 import { i18n } from "../../languages/languages";
 import { getUrlParameter } from "../utils/Functions";
 import { Pagy } from "../utils/Interfaces";
+import { Link } from "react-router-dom";
 
 interface Props {
   pagy: Pagy;
@@ -18,7 +18,7 @@ export default function Pagination(props: Props) {
           <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
             {pagy.prev && (
               <>
-                <a href={pagy.prevUrl}>
+                <Link to={pagy.prevUrl}>
                   <svg
                     width="14"
                     height="8"
@@ -48,12 +48,12 @@ export default function Pagination(props: Props) {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </a>
-                <a href={pagy.prevUrl}>
+                </Link>
+                <Link to={pagy.prevUrl}>
                   <p className="text-sm ml-3 font-medium leading-none ">
                     {i18n.t("pagination.previous")}
                   </p>
-                </a>
+                </Link>
               </>
             )}
           </div>
@@ -66,21 +66,21 @@ export default function Pagination(props: Props) {
                   ? classes + " !text-beige !border-beige"
                   : classes;
               return (
-                <a key={`page-${page}`} href={`/comprar?page=${page}`}>
+                <Link key={`page-${page}`} to={`/comprar?page=${page}`}>
                   <p className={classes}>{page}</p>
-                </a>
+                </Link>
               );
             })}
           </div>
           <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
             {pagy.next && (
               <>
-                <a href={pagy.nextUrl}>
+                <Link to={pagy.nextUrl}>
                   <p className="text-sm font-medium leading-none mr-3">
                     {i18n.t("pagination.next")}
                   </p>
-                </a>
-                <a href={pagy.nextUrl}>
+                </Link>
+                <Link to={pagy.nextUrl}>
                   <svg
                     width="14"
                     height="8"
@@ -110,7 +110,7 @@ export default function Pagination(props: Props) {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </a>
+                </Link>
               </>
             )}
           </div>

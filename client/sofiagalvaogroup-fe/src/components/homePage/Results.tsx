@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 import { ResultNumbers, Testimonial } from "../utils/Interfaces";
@@ -11,7 +10,8 @@ interface Props {
 
 export default function Results(props: Props) {
   const { results, testimonials } = props;
-  const { variables, listingCount } = results;
+  const variables = results?.variables;
+  // const listingCount = results?.listingCount;
 
   if (!variables) return null;
 

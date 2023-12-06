@@ -1,5 +1,5 @@
 import Carousel from "nuka-carousel";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { i18n } from "../../languages/languages";
 import { waitForElm } from "../utils/Functions";
 
@@ -22,7 +22,7 @@ export default function Testimonials(props: Props) {
   const handleResize = () => {
     waitForElm("#testimony-title").then((title: any) => {
       const windowWidth = Math.floor(title.scrollWidth / 400);
-      if (windowWidth == 0) {
+      if (windowWidth === 0) {
         setSlideNumber(1);
       } else {
         setSlideNumber(windowWidth);

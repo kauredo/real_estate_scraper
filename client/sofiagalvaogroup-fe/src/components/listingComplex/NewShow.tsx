@@ -1,10 +1,10 @@
 import Carousel from "nuka-carousel";
-import React, { useEffect } from "react";
 import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
 import Cards from "../homePage/Cards";
 import { sanitizeURLWithParams } from "../utils/Functions";
 import { ListingComplex } from "../utils/Interfaces";
+import { Link } from "react-router-dom";
 
 interface Props {
   complex: ListingComplex;
@@ -170,8 +170,8 @@ export default function NewShow(props: Props) {
                           {listing.status === "new" ||
                           listing.status === "standard" ||
                           listing.status === "recent" ? (
-                            <a
-                              href={sanitizeURLWithParams(
+                            <Link
+                              to={sanitizeURLWithParams(
                                 "#listing",
                                 listing.slug
                               )}
@@ -179,7 +179,7 @@ export default function NewShow(props: Props) {
                               className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
                             >
                               {i18n.t("enterprises.show.more")}
-                            </a>
+                            </Link>
                           ) : (
                             <></>
                           )}

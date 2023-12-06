@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Carousel from "nuka-carousel";
 import { Listing } from "../utils/Interfaces";
 import ContactForm from "../contactPage/ContactForm";
@@ -69,10 +69,10 @@ export default function Show(props: Props) {
               id="main-title"
               className="relative block mt-2 text-2xl text-black sm:text-4xl px-4"
             >
-              {listing.status == "agreed" && (
+              {listing.status === "agreed" && (
                 <span>{i18n.t("listing.status.agreed")} - </span>
               )}{" "}
-              {listing.status == "sold" && (
+              {listing.status === "sold" && (
                 <span>{i18n.t("listing.status.sold")} - </span>
               )}
               {listing.title}
@@ -94,10 +94,10 @@ export default function Show(props: Props) {
               )}
               <h2 className="standard mb-2 text-2xl font-bold">
                 {i18n.t("listing.details")}
-                {listing.status == "agreed" && (
+                {listing.status === "agreed" && (
                   <span> ({i18n.t("listing.status.agreed")})</span>
                 )}{" "}
-                {listing.status == "sold" && (
+                {listing.status === "sold" && (
                   <span> ({i18n.t("listing.status.sold")})</span>
                 )}
               </h2>

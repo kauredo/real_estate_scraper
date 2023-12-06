@@ -1,5 +1,4 @@
-import React from "react";
-import { Listing, ListingComplex } from "../utils/Interfaces";
+import { ListingComplex } from "../utils/Interfaces";
 import ComplexCard from "./ComplexCard";
 
 interface Props {

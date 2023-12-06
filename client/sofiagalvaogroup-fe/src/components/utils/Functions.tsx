@@ -1,4 +1,4 @@
-import { i18n } from "../../languages/languages";
+// import { i18n } from "../../languages/languages";
 
 export function lazyloadImages() {
   var tablinks = document.getElementsByClassName("ajustedBackground");
@@ -47,25 +47,25 @@ export function toCapitalize(string) {
 export const sanitizeURL = url => {
   // TODO: fix this
   return url;
-  if (i18n.locale === "pt") {
-    return url();
-  } else {
-    return url({ locale: i18n.locale });
-  }
+  // if (i18n.locale === "pt") {
+  //   return url();
+  // } else {
+  //   return url({ locale: i18n.locale });
+  // }
 };
 
 export const sanitizeURLWithParams = (url, params) => {
   // TODO: fix this
   return url;
-  if (params === undefined || params === null) {
-    return "#";
-  }
+  // if (params === undefined || params === null) {
+  //   return "#";
+  // }
 
-  if (i18n.locale === "pt") {
-    return url(params);
-  } else {
-    return url(params, { locale: i18n.locale });
-  }
+  // if (i18n.locale === "pt") {
+  //   return url(params);
+  // } else {
+  //   return url(params, { locale: i18n.locale });
+  // }
 };
 
 export const changeLocale = () => {

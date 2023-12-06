@@ -1,10 +1,13 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { i18n } from "../languages/languages";
 import { changeLocale, sanitizeURL } from "./utils/Functions";
 import { NavbarItemProps } from "./utils/Interfaces";
 import NavbarItem from "./shared/NavbarItem";
 import DropdownLink from "./shared/DropdownLink";
+import { Link } from "react-router-dom";
+import kw_logo from "../assets/images/kw_logo.webp";
+import main_color from "../assets/logos/main_color.webp";
 
 interface Resource {
   path: string;
@@ -24,26 +27,27 @@ export default function Navbar(props: Props) {
 
   const moreDropdown: NavbarItemProps = {
     title: `${i18n.t("navbar.more")}`,
+    url: "#",
     items: [
       {
         title: `${i18n.t("navbar.about")}`,
         turbo: "true",
-        url: sanitizeURL("#about"),
+        url: sanitizeURL("/about"),
       },
       {
         title: `${i18n.t("navbar.services")}`,
         turbo: "true",
-        url: sanitizeURL("#services"),
+        url: sanitizeURL("/services"),
       },
       {
         title: `${i18n.t("navbar.house_360")}`,
         turbo: "true",
-        url: sanitizeURL("#house_360"),
+        url: sanitizeURL("/house_360"),
       },
       {
         title: `${i18n.t("navbar.contacts")}`,
         turbo: "true",
-        url: sanitizeURL("#contact"),
+        url: sanitizeURL("/contact"),
       },
     ],
   };
@@ -52,22 +56,22 @@ export default function Navbar(props: Props) {
     {
       title: `${i18n.t("navbar.buy")}`,
       turbo: "true",
-      url: sanitizeURL("#buy"),
+      url: sanitizeURL("/buy"),
     },
     {
       title: `${i18n.t("navbar.sell")}`,
       turbo: "true",
-      url: sanitizeURL("#sell"),
+      url: sanitizeURL("/sell"),
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
-      url: sanitizeURL("#latest"),
+      url: sanitizeURL("/latest"),
     },
     {
       title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
-      url: sanitizeURL("#blog"),
+      url: sanitizeURL("/blog"),
     },
     {
       title: "Partnership with ",
@@ -75,12 +79,12 @@ export default function Navbar(props: Props) {
         <img
           loading="lazy"
           className="h-5 inline-block mb-[6px]"
-          src="/images/kw_logo.webp"
+          src={kw_logo}
           alt="KW Logo"
         />
       ),
       turbo: "true",
-      url: sanitizeURL("#kw"),
+      url: sanitizeURL("/kw"),
     },
     moreDropdown,
   ];
@@ -89,22 +93,22 @@ export default function Navbar(props: Props) {
     {
       title: `${i18n.t("navbar.listings")}`,
       turbo: "true",
-      url: sanitizeURL("#backoffice_listings"),
+      url: sanitizeURL("/backoffice_listings"),
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
-      url: sanitizeURL("#backoffice_listing_complexes"),
+      url: sanitizeURL("/backoffice_listing_complexes"),
     },
     {
       title: `${i18n.t("navbar.testimonies")}`,
       turbo: "true",
-      url: sanitizeURL("#backoffice_testimonials"),
+      url: sanitizeURL("/backoffice_testimonials"),
     },
     {
       title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
-      url: sanitizeURL("#backoffice_blog_posts"),
+      url: sanitizeURL("/backoffice_blog_posts"),
     },
   ];
 
@@ -127,6 +131,7 @@ export default function Navbar(props: Props) {
         className="h-5 inline-block mb-[6px]"
         src={`https://hatscripts.github.io/circle-flags/flags/${img}.svg`}
         style={{ maxWidth: "none" }}
+        alt="Language"
       />
     ),
   });
@@ -136,40 +141,40 @@ export default function Navbar(props: Props) {
   admin &&
     rightItems.unshift({
       title: "Backoffice",
-      url: sanitizeURL("#backoffice"),
+      url: sanitizeURL("/backoffice"),
       turbo: "true",
     });
 
   admin &&
     mobileItems.unshift({
       title: "Backoffice",
-      url: sanitizeURL("#backoffice"),
+      url: sanitizeURL("/backoffice"),
       turbo: "true",
     });
 
-  const showBtnOnNavbar = sanitizeURL("#sell") !== window.location.pathname && (
-    <a href={sanitizeURL("#sell")} data-turbo={false}>
+  const showBtnOnNavbar = sanitizeURL("/sell") !== window.location.pathname && (
+    <Link to={sanitizeURL("/sell")} data-turbo={false}>
       <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
         <p>{i18n.t("home.cta.long")}</p>
       </div>
-    </a>
+    </Link>
   );
 
   // const backofficeBtn = admin &&
   //   !window.location.pathname.includes("backoffice") && (
-  //     <a href={sanitizeURL('#backoffice')} data-turbo={false}>
+  //     <Link to={sanitizeURL('#backoffice')} data-turbo={false}>
   //       <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
   //         <p>{i18n.t("navbar.backoffice")}</p>
   //       </div>
-  //     </a>
+  //     </Link>
   //   );
 
   const resourceBtn = admin && resource && (
-    <a href={resource.path} data-turbo={false}>
+    <Link to={resource.path} data-turbo={false}>
       <div className="ml-2 whitespace-nowrap bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
         <p>Editar {resource.name} no Backoffice</p>
       </div>
-    </a>
+    </Link>
   );
 
   const adminBtns = admin && (
@@ -186,14 +191,14 @@ export default function Navbar(props: Props) {
           <div className="flex items-center justify-between min-h-[4rem]">
             <div className="flex items-center">
               <div className="flex-shrink-0 relative">
-                <a data-turbo="true" href={sanitizeURL("#root")}>
+                <Link data-turbo="true" to={sanitizeURL("/root")}>
                   <img
                     loading="lazy"
                     className="w-[8rem] relative z-10"
-                    src="/logos/main_color.webp"
+                    src={main_color}
                     alt="Sofia Galvão Group Logo"
                   />
-                </a>
+                </Link>
                 {adminBtns}
               </div>
             </div>
@@ -203,10 +208,14 @@ export default function Navbar(props: Props) {
                   {middleItems?.map(item => {
                     if (item.items?.length && item.items.length > 0) {
                       return (
-                        <DropdownLink title={item.title} items={item.items} />
+                        <DropdownLink
+                          title={item.title}
+                          items={item.items}
+                          key={item.title}
+                        />
                       );
                     } else {
-                      return <NavbarItem item={item} />;
+                      return <NavbarItem item={item} key={item.title} />;
                     }
                   })}
                 </div>
@@ -216,18 +225,18 @@ export default function Navbar(props: Props) {
               <div className="hidden tablet:block">
                 <div className="ml-10 flex items-baseline">
                   {showBtnOnNavbar}
-                  {rightItems?.map(item => {
-                    return <NavbarItem item={item} />;
+                  {rightItems.map(item => {
+                    return <NavbarItem item={item} key={item.title} />;
                   })}
                 </div>
               </div>
             </div>
             <div className="-mr-2 flex tablet:hidden">
-              <a href={sanitizeURL("#sell")} data-turbo={false}>
+              <Link to={sanitizeURL("/sell")} data-turbo={false}>
                 <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
                   <p>{i18n.t("home.cta.short")}</p>
                 </div>
-              </a>
+              </Link>
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -287,11 +296,17 @@ export default function Navbar(props: Props) {
             <div ref={dropdownRef} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {mobileItems?.map(item => {
                 if (item.items?.length && item.items.length > 0) {
-                  return item.items?.map(insideItem => {
-                    return <NavbarItem item={insideItem} fullWidth />;
+                  return item.items.map(insideItem => {
+                    return (
+                      <NavbarItem
+                        item={insideItem}
+                        fullWidth
+                        key={insideItem.title}
+                      />
+                    );
                   });
                 } else {
-                  return <NavbarItem item={item} fullWidth />;
+                  return <NavbarItem item={item} fullWidth key={item.title} />;
                 }
               })}
             </div>

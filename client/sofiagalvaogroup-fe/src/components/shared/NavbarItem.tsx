@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import { navbarItemClass } from "../utils/Functions";
 import { NavbarItemProps } from "../utils/Interfaces";
+import { Link } from "react-router-dom";
 
 interface Props {
   item: NavbarItemProps;
@@ -13,15 +13,15 @@ export default function NavbarItem(props: Props) {
   const className = title.length > 0 ? navbarItemClass(url, false) : "";
 
   return (
-    <a
+    <Link
       data-turbo={turbo}
       key={`${title}--desktop`}
-      href={url}
+      to={url}
       title={hover}
       className={`${className} ${fullWidth && "block !w-full text-right"}`}
     >
       {title}
       {img}
-    </a>
+    </Link>
   );
 }
