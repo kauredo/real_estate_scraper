@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Carousel from "nuka-carousel";
 import { Listing } from "../utils/Interfaces";
-import ContactForm from "../contactPage/ContactForm";
+import ContactForm from "../shared/ContactForm";
 import { i18n } from "../../languages/languages";
 import { ReadMore } from "../shared/ReadMore";
 import Overlay from "../shared/Overlay";

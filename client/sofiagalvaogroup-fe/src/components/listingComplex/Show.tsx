@@ -1,5 +1,5 @@
 import { i18n } from "../../languages/languages";
-import ContactForm from "../contactPage/ContactForm";
+import ContactForm from "../shared/ContactForm";
 import { sanitizeURLWithParams } from "../utils/Functions";
 import { ListingComplex } from "../utils/Interfaces";
 import { HashLink } from "react-router-hash-link";

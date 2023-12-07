@@ -1,6 +1,6 @@
 import Carousel from "nuka-carousel";
 import { i18n } from "../../languages/languages";
-import ContactForm from "../contactPage/ContactForm";
+import ContactForm from "../shared/ContactForm";
 import Cards from "../homePage/Cards";
 import { sanitizeURLWithParams } from "../utils/Functions";
 import { ListingComplex } from "../utils/Interfaces";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Profile from "./Profile";
+import Profile from "../shared/Profile";
 import Results from "../homePage/Results";
 import Banner from "../shared/Banner";
 import { find_all_results, find_all_testimonials } from "../../utils/getters";
@@ -9,7 +9,8 @@ import { i18n } from "../../languages/languages";
 function About() {
   const [results, setResults] = useState({} as ResultNumbers | any);
   const [testimonials, setTestimonials] = useState([]);
-  const meta_title = "About Sofia Galvão Group";
+  const meta_title = i18n.t("about.header");
+  const meta_description = i18n.t("about.meta_description");
 
   useEffect(() => {
     const resizeFrame = () => {
