@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

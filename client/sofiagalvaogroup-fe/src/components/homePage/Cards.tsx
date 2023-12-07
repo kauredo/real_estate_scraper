@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
-import Carousel from "nuka-carousel";
 import { toCapitalize, lazyloadImages } from "../utils/Functions";
 import { Photo, Listing } from "../utils/Interfaces";
+import CarouselComponent from "../shared/CarouselComponent";
+import SectionComponent from "../shared/SectionComponent";
 
 interface Props {
   listings: Listing[];
@@ -10,7 +11,6 @@ interface Props {
 }
 
 export default function Cards(props: Props) {
-  console.log(props);
   const { listings, photos } = props;
   const [slideNumber, setSlideNumber] = useState(1);
   const [selectedLocation, setSelectedLocation] = useState("");
@@ -22,6 +22,12 @@ export default function Cards(props: Props) {
 
     return;
   }, []);
+
+  useEffect(() => {
+    if (listings && locations && locations.length !== listings.length) {
+      setSelectedLocation(locations[0]);
+    }
+  }, [listings]);
 
   const handleResize = () => {
     const windowWidth = Math.floor(window.innerWidth / 412);
@@ -35,123 +41,76 @@ export default function Cards(props: Props) {
   lazyloadImages();
 
   if (listings && locations && locations.length !== listings.length) {
-    console.log("locations");
-    setSelectedLocation(locations[0]);
-
     return (
-      <section
+      <SectionComponent
         id="cards"
         className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4"
       >
-        <div className="w-full relative flex items-center justify-center">
-          <div className="w-full h-full mx-auto overflow-y-hidden">
-            <div className="sm:w-min mx-auto flex flex-col sm:flex-row mb-6">
-              {locations?.map(location => (
-                <button
-                  key={`${location}-tab`}
-                  onClick={() => setSelectedLocation(location)}
-                  className={`whitespace-nowrap py-4 px-6 block hover:text-beige hover:border-beige focus:outline-none border-b-2 font-medium ${
-                    selectedLocation === location
-                      ? "border-beige text-beige"
-                      : "border-grey text-grey"
-                  }`}
-                >
-                  {`${toCapitalize(location)} (${listings[location].length})`}
-                </button>
-              ))}
-            </div>
-            <div className="overflow-hidden h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700 my-2">
-              <Carousel
-                autoplay={slideNumber === 1}
-                slidesToShow={slideNumber}
-                defaultControlsConfig={{
-                  nextButtonText: "➤",
-                  prevButtonStyle: { transform: "rotate(180deg)" },
-                  prevButtonText: "➤",
-                  pagingDotsContainerClassName: "!top-0",
-                  pagingDotsClassName: "mx-1 hidden sm:block",
-                }}
-              >
-                {listings[selectedLocation]?.map(listing => (
-                  <Card listing={listing} key={listing.slug} />
-                ))}
-              </Carousel>
-            </div>
-          </div>
+        <div className="sm:w-min mx-auto flex flex-col sm:flex-row mb-6">
+          {locations?.map(location => (
+            <button
+              key={`${location}-tab`}
+              onClick={() => setSelectedLocation(location)}
+              className={`whitespace-nowrap py-4 px-6 block hover:text-beige hover:border-beige focus:outline-none border-b-2 font-medium ${
+                selectedLocation === location
+                  ? "border-beige text-beige"
+                  : "border-grey text-grey"
+              }`}
+            >
+              {`${toCapitalize(location)} (${listings[location].length})`}
+            </button>
+          ))}
         </div>
-      </section>
+        <CarouselComponent
+          slideNumber={slideNumber}
+          items={listings[selectedLocation]}
+          renderItem={listing => <Card listing={listing} key={listing.slug} />}
+        />
+      </SectionComponent>
     );
   } else if (listings.length === 0 && photos && photos.length > 0) {
-    console.log("photos");
     return (
-      <section
+      <SectionComponent
         id="card"
         className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4"
       >
-        <div className="w-full relative flex items-center justify-center">
-          <div className="w-full h-full mx-auto overflow-y-hidden">
-            <div className="overflow-hidden h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700 my-2">
-              <Carousel
-                autoplay={slideNumber === 1}
-                slidesToShow={slideNumber}
-                defaultControlsConfig={{
-                  nextButtonText: "➤",
-                  prevButtonStyle: { transform: "rotate(180deg)" },
-                  prevButtonText: "➤",
-                  pagingDotsContainerClassName: "!top-0",
-                  pagingDotsClassName: "mx-1 hidden sm:block",
+        <div className="overflow-hidden h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700 my-2">
+          <CarouselComponent
+            items={photos}
+            slideNumber={slideNumber}
+            renderItem={photo => (
+              <img
+                loading="lazy"
+                key={photo.image.url}
+                alt={""}
+                style={{
+                  maxHeight: "70vh",
+                  objectFit: "contain",
+                  padding: "0 1rem",
                 }}
-              >
-                {photos?.map(photo => {
-                  return (
-                    <img
-                      loading="lazy"
-                      key={photo.image.url}
-                      alt={""}
-                      style={{
-                        maxHeight: "70vh",
-                        objectFit: "contain",
-                        padding: "0 1rem",
-                      }}
-                      src={photo.image.url}
-                    />
-                  );
-                })}
-              </Carousel>
-            </div>
-          </div>
+                src={photo.image.url}
+              />
+            )}
+          />
         </div>
-      </section>
+      </SectionComponent>
     );
   } else {
-    console.log("listings");
     return (
-      <section
+      <SectionComponent
         id="cards"
         className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4"
       >
-        <div className="w-full relative flex items-center justify-center">
-          <div className="w-full h-full mx-auto overflow-y-hidden">
-            <div className="overflow-hidden h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700 my-2">
-              <Carousel
-                autoplay={slideNumber === 1}
-                slidesToShow={slideNumber}
-                defaultControlsConfig={{
-                  nextButtonText: "➤",
-                  prevButtonStyle: { transform: "rotate(180deg)" },
-                  prevButtonText: "➤",
-                  pagingDotsContainerClassName: "!top-0",
-                  pagingDotsClassName: "mx-1 hidden sm:block",
-                }}
-              >
-                {listings?.map(listing => (
-                  <Card listing={listing} key={listing.slug} />
-                ))}
-              </Carousel>
-            </div>
-          </div>
+        <div className="overflow-hidden h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700 my-2">
+          <CarouselComponent
+            items={listings}
+            slideNumber={slideNumber}
+            renderItem={listing => (
+              <Card listing={listing} key={listing.slug} />
+            )}
+          />
         </div>
-      </section>
+      </SectionComponent>
     );
   }
 }
