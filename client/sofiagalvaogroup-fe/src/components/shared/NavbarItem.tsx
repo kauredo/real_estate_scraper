@@ -1,6 +1,6 @@
 import { navbarItemClass } from "../utils/Functions";
 import { NavbarItemProps } from "../utils/Interfaces";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 interface Props {
   item: NavbarItemProps;
@@ -13,7 +13,7 @@ export default function NavbarItem(props: Props) {
   const className = title.length > 0 ? navbarItemClass(url, false) : "";
 
   return (
-    <Link
+    <HashLink
       data-turbo={turbo}
       key={`${title}--desktop`}
       to={url}
@@ -22,6 +22,6 @@ export default function NavbarItem(props: Props) {
     >
       {title}
       {img}
-    </Link>
+    </HashLink>
   );
 }

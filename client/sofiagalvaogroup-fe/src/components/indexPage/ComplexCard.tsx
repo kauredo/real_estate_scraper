@@ -1,6 +1,6 @@
 import { ListingComplex } from "../utils/Interfaces";
 import { sanitizeURLWithParams, truncateText } from "../utils/Functions";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 interface Props {
   listing_complex: ListingComplex;
@@ -11,7 +11,7 @@ export default function ComplexCard(props: Props) {
   const { listing_complex, backoffice } = props;
   return (
     <div className="w-full max-w-7xl mx-auto px-4 my-8 drop-shadow-sm hover:drop-shadow-lg">
-      <Link
+      <HashLink
         to={
           backoffice
             ? sanitizeURLWithParams(
@@ -52,7 +52,7 @@ export default function ComplexCard(props: Props) {
             </div>
           </div>
         </div>
-      </Link>
+      </HashLink>
     </div>
   );
 }

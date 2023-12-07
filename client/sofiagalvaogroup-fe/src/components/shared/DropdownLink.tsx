@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { navbarItemClass } from "../utils/Functions";
 import { NavbarItemProps } from "../utils/Interfaces";
 import NavbarItem from "./NavbarItem";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export interface DropdownProps {
   title: string;
@@ -50,7 +50,7 @@ const DropdownLink = (props: DropdownProps) => {
 
   return (
     <div className="relative">
-      <Link
+      <HashLink
         to="#"
         ref={dropdownLinkRef}
         onClick={handleLinkClick}
@@ -70,7 +70,7 @@ const DropdownLink = (props: DropdownProps) => {
             aria-hidden="true"
           ></i>
         )}
-      </Link>
+      </HashLink>
       <div
         className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white z-20 px-4 ${
           showMenu ? "block" : "hidden"

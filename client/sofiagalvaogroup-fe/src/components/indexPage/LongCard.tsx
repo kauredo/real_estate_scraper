@@ -3,7 +3,7 @@ import { Listing } from "../utils/Interfaces";
 import { truncateText, sanitizeURLWithParams } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 interface Props {
   listing: Listing;
@@ -65,7 +65,7 @@ export default function LongCard(props: Props) {
       }
       onClick={() => clickId()}
     >
-      <Link
+      <HashLink
         className={small ? "cursor-not-allowed" : ""}
         to={
           small
@@ -145,7 +145,7 @@ export default function LongCard(props: Props) {
             </div>
           </div>
         </div>
-      </Link>
+      </HashLink>
     </div>
   ) : (
     <></>

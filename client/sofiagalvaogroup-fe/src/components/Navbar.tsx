@@ -5,7 +5,7 @@ import { changeLocale, sanitizeURL } from "./utils/Functions";
 import { NavbarItemProps } from "./utils/Interfaces";
 import NavbarItem from "./shared/NavbarItem";
 import DropdownLink from "./shared/DropdownLink";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import kw_logo from "../assets/images/kw_logo.webp";
 import main_color from "../assets/logos/main_color.webp";
 
@@ -153,28 +153,28 @@ export default function Navbar(props: Props) {
     });
 
   const showBtnOnNavbar = sanitizeURL("/sell") !== window.location.pathname && (
-    <Link to={sanitizeURL("/sell")} data-turbo={false}>
+    <HashLink to={sanitizeURL("/sell")} data-turbo={false}>
       <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
         <p>{i18n.t("home.cta.long")}</p>
       </div>
-    </Link>
+    </HashLink>
   );
 
   // const backofficeBtn = admin &&
   //   !window.location.pathname.includes("backoffice") && (
-  //     <Link to={sanitizeURL('#backoffice')} data-turbo={false}>
+  //     <HashLink to={sanitizeURL('#backoffice')} data-turbo={false}>
   //       <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
   //         <p>{i18n.t("navbar.backoffice")}</p>
   //       </div>
-  //     </Link>
+  //     </HashLink>
   //   );
 
   const resourceBtn = admin && resource && (
-    <Link to={resource.path} data-turbo={false}>
+    <HashLink to={resource.path} data-turbo={false}>
       <div className="ml-2 whitespace-nowrap bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
         <p>Editar {resource.name} no Backoffice</p>
       </div>
-    </Link>
+    </HashLink>
   );
 
   const adminBtns = admin && (
@@ -191,14 +191,14 @@ export default function Navbar(props: Props) {
           <div className="flex items-center justify-between min-h-[4rem]">
             <div className="flex items-center">
               <div className="flex-shrink-0 relative">
-                <Link data-turbo="true" to={sanitizeURL("/root")}>
+                <HashLink to="/">
                   <img
                     loading="lazy"
                     className="w-[8rem] relative z-10"
                     src={main_color}
                     alt="Sofia Galvão Group Logo"
                   />
-                </Link>
+                </HashLink>
                 {adminBtns}
               </div>
             </div>
@@ -232,11 +232,11 @@ export default function Navbar(props: Props) {
               </div>
             </div>
             <div className="-mr-2 flex tablet:hidden">
-              <Link to={sanitizeURL("/sell")} data-turbo={false}>
+              <HashLink to={sanitizeURL("/sell")} data-turbo={false}>
                 <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
                   <p>{i18n.t("home.cta.short")}</p>
                 </div>
-              </Link>
+              </HashLink>
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"

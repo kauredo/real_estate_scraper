@@ -1,7 +1,7 @@
 import { i18n } from "../../languages/languages";
 import { sanitizeURL } from "../utils/Functions";
 import QuarterCircle from "./QuarterCircle";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import mainLogo from "../../assets/logos/main.webp";
 
 interface Props {
@@ -35,21 +35,21 @@ function Hero(props: Props) {
       </div>
       <div className="relative bottom-5 left-0 right-0 center">
         <div className="flex justify-center">
-          <Link to={sanitizeURL("/buy")}>
+          <HashLink to={sanitizeURL("/buy")}>
             <div className="px-5 lowercase">
               <p>{i18n.t("navbar.buy")}</p>
             </div>
-          </Link>
-          <Link to={sanitizeURL("/sell")} data-turbolinks={false}>
+          </HashLink>
+          <HashLink to={sanitizeURL("/sell")} data-turbolinks={false}>
             <div className="px-5 lowercase">
               <p>{i18n.t("navbar.sell")}</p>
             </div>
-          </Link>
-          <Link to="#cards">
+          </HashLink>
+          <HashLink to="#cards">
             <div className="px-5">
               <i className="fas fa-arrow-down"></i>
             </div>
-          </Link>
+          </HashLink>
         </div>
       </div>
     </section>

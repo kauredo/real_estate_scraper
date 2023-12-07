@@ -4,7 +4,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { i18n } from "../../languages/languages";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function Profile() {
   return (
@@ -42,7 +42,7 @@ export default function Profile() {
             />
           </div>
           <div className="mx-6 mb-8 mt-4 md:mt-0">
-            <Link
+            <HashLink
               to="https://www.linkedin.com/in/sofia-galv%C3%A3o-a141621/"
               target="_blank"
               rel="noopener noreferrer"
@@ -51,8 +51,8 @@ export default function Profile() {
                 <FontAwesomeIcon icon={faLinkedin} />
                 <p className="px-2 text-sm">Sofia Galvão</p>
               </div>
-            </Link>
-            <Link
+            </HashLink>
+            <HashLink
               to="https://www.instagram.com/sofiagalvaogroupkw/"
               target="_blank"
               rel="noopener noreferrer"
@@ -61,8 +61,8 @@ export default function Profile() {
                 <FontAwesomeIcon icon={faInstagram} />
                 <p className="px-2 text-sm">@sofiagalvaogroupkw</p>
               </div>
-            </Link>
-            <Link
+            </HashLink>
+            <HashLink
               to="https://www.facebook.com/sofiagalvaokw"
               target="_blank"
               rel="noopener noreferrer"
@@ -71,8 +71,8 @@ export default function Profile() {
                 <FontAwesomeIcon icon={faFacebook} />
                 <p className="px-2 text-sm">/sofiagalvaokw</p>
               </div>
-            </Link>
-            <Link
+            </HashLink>
+            <HashLink
               to="https://wa.me/351932829084"
               target="_blank"
               rel="noopener noreferrer"
@@ -81,7 +81,7 @@ export default function Profile() {
                 <FontAwesomeIcon icon={faWhatsapp} />
                 <p className="px-2 text-sm">+351 932829084</p>
               </div>
-            </Link>
+            </HashLink>
           </div>
         </div>
       </div>

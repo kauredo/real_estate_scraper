@@ -2,7 +2,7 @@ import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
 import { sanitizeURLWithParams } from "../utils/Functions";
 import { ListingComplex } from "../utils/Interfaces";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 interface Props {
   complex: ListingComplex;
@@ -106,13 +106,13 @@ export default function Show(props: Props) {
                           : `${listing.price} €`}
                       </td>
                       <td className=" p-2">
-                        <Link
+                        <HashLink
                           to={sanitizeURLWithParams("#listing", listing.slug)}
                           target="_blank"
                           className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
                         >
                           {i18n.t("enterprises.show.more")}
-                        </Link>
+                        </HashLink>
                       </td>
                     </tr>
                   );
