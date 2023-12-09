@@ -551,17 +551,17 @@
       "header": "Services",
       "list": {
         "house_lens": {
-          "description": "Buying or selling a house is most often about investing a large part, if not all, of your individual or family assets. This investment requires a careful and thoughtful analysis and safe options that will give you the confidence of an investment with return. <br> <br> In every deal we carry out we look at you, our Client, also from an investor's perspective and we ensure that the profitability of the sale or purchase is part of the transaction's success criteria.",
+          "description": "Buying or selling a house is most often about investing a large part, if not all, of your individual or family assets. This investment requires a careful and thoughtful analysis and safe options that will give you the confidence of an investment with return. <br/> <br/> In every deal we carry out we look at you, our Client, also from an investor's perspective and we ensure that the profitability of the sale or purchase is part of the transaction's success criteria.",
           "title": "Property investment"
         },
         "house_trees": {
-          "description": "With access to exclusive platforms and tools for professionals we ensure the necessary market knowledge to identify your best options and pursue the best solutions. <br> <br> We offer you an informed, personalised service, based on an experienced and competitive negotiation.",
+          "description": "With access to exclusive platforms and tools for professionals we ensure the necessary market knowledge to identify your best options and pursue the best solutions. <br/> <br/> We offer you an informed, personalised service, based on an experienced and competitive negotiation.",
           "title": "Real Estate Management and Consultancy"
         }
       },
       "meta_description": "As professionals in the real estate market, get to know Sofia Galvão Group's services here.",
       "text": {
-        "bottom": "Get to know some of them. <br> If you want to know more please",
+        "bottom": "Get to know some of them. <br/> If you want to know more please",
         "link": "contact us.",
         "top": "As professionals in the real estate market, all the services related to real estate mediation and consultancy are within the scope of our activity for your benefit."
       }
@@ -1236,17 +1236,17 @@
       "header": "Serviços",
       "list": {
         "house_lens": {
-          "description": "Comprar ou vender uma casa é na maior parte das vezes investir grande parte, se não a totalidade, do património individual ou familiar. Esse investimento requer uma análise cuidada, ponderada e opções seguras que lhe darão a confiança de um investimento com retorno. <br> <br> Em cada negócio que levamos a cabo olhamos para si, o nosso Cliente, também numa perspetiva de investidor e asseguramos que a rentabilidade da venda ou da compra faz parte do critério de sucesso da transação.",
+          "description": "Comprar ou vender uma casa é na maior parte das vezes investir grande parte, se não a totalidade, do património individual ou familiar. Esse investimento requer uma análise cuidada, ponderada e opções seguras que lhe darão a confiança de um investimento com retorno. <br/> <br/> Em cada negócio que levamos a cabo olhamos para si, o nosso Cliente, também numa perspetiva de investidor e asseguramos que a rentabilidade da venda ou da compra faz parte do critério de sucesso da transação.",
           "title": "Investimento imobiliário"
         },
         "house_trees": {
-          "description": "Com acesso a plataformas e ferramentas exclusivas para profissionais asseguramos o conhecimento necessário do mercado para identificar as suas melhores opções e perseguir as melhores soluções. <br> <br> Oferecemos-lhe um serviço informado, personalizado, alicerçado numa negociação experiente e competitiva.",
+          "description": "Com acesso a plataformas e ferramentas exclusivas para profissionais asseguramos o conhecimento necessário do mercado para identificar as suas melhores opções e perseguir as melhores soluções. <br/> <br/> Oferecemos-lhe um serviço informado, personalizado, alicerçado numa negociação experiente e competitiva.",
           "title": "Gestão e Consultoria Imobiliária"
         }
       },
       "meta_description": "Enquanto profissionais do mercado imobiliário conheça aqui os serviços da equipa Sofia Galvão Group.",
       "text": {
-        "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais entre em contacto",
+        "bottom": "Fique a conhecer alguns deles. <br/> Se pretender saber mais entre em contacto",
         "link": "connosco.",
         "top": "Enquanto profissionais do mercado imobiliário todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
       }

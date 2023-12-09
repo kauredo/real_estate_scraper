@@ -54,7 +54,7 @@ export default function Footer() {
             </li>
             <li>
               <HashLink
-                to={sanitizeURL("/privacy")}
+                to={sanitizeURL("/privacy_policy")}
                 className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6"
               >
                 {i18n.t("footer.privacy")}

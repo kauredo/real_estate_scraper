@@ -217,7 +217,7 @@ pt:
         à mediação e consultoria imobiliária estão no âmbito da nossa actividade
         para seu benefício.
       bottom:
-        Fique a conhecer alguns deles. <br> Se pretender saber mais entre em
+        Fique a conhecer alguns deles. <br/> Se pretender saber mais entre em
         contacto
       link: connosco.
     list:
@@ -226,7 +226,7 @@ pt:
         description:
           Com acesso a plataformas e ferramentas exclusivas para profissionais
           asseguramos o conhecimento necessário do mercado para identificar as
-          suas melhores opções e perseguir as melhores soluções. <br> <br>
+          suas melhores opções e perseguir as melhores soluções. <br/> <br/>
           Oferecemos-lhe um serviço informado, personalizado, alicerçado numa
           negociação experiente e competitiva.
       house_lens:
@@ -235,8 +235,8 @@ pt:
           Comprar ou vender uma casa é na maior parte das vezes investir grande
           parte, se não a totalidade, do património individual ou familiar. Esse
           investimento requer uma análise cuidada, ponderada e opções seguras
-          que lhe darão a confiança de um investimento com retorno. <br> <br> Em
-          cada negócio que levamos a cabo olhamos para si, o nosso Cliente,
+          que lhe darão a confiança de um investimento com retorno. <br/> <br/>
+          Em cada negócio que levamos a cabo olhamos para si, o nosso Cliente,
           também numa perspetiva de investidor e asseguramos que a rentabilidade
           da venda ou da compra faz parte do critério de sucesso da transação.
 

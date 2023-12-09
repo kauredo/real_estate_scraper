@@ -14,7 +14,7 @@ class BlogPost < ApplicationRecord
   def sample_text
     return if text.nil?
 
-    ActionView::Base.full_sanitizer.sanitize(text.gsub('<p>&nbsp;</p>', '<br>'))
+    ActionView::Base.full_sanitizer.sanitize(text.gsub('<p>&nbsp;</p>', '<br/>'))
                     .gsub("\r\n\r\n\r\n\r\n\r\n", "\r\n\r\n")
                     .gsub("\r\n\r\n\r\n\r\n", "\r\n\r\n")
                     .gsub("\r\n\r\n\r\n", "\r\n\r\n")

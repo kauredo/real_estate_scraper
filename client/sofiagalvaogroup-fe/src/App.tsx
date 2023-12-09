@@ -7,6 +7,9 @@ import About from "./components/staticPages/About";
 import Contact from "./components/staticPages/Contact";
 import House360 from "./components/staticPages/House360";
 import KW from "./components/staticPages/KW";
+import PrivacyPolicy from "./components/staticPages/PrivacyPolicy";
+import Services from "./components/staticPages/Services";
+import TermsAndConditions from "./components/staticPages/TermsAndConditions";
 import NotFound from "./components/errorPages/404";
 
 export default function App() {
@@ -19,6 +22,10 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="house_360" element={<House360 />} />
           <Route path="kw" element={<KW />} />
+          <Route path="privacy_policy" element={<PrivacyPolicy />} />
+          <Route path="services" element={<Services />} />
+          <Route path="terms_and_conditions" element={<TermsAndConditions />} />
+
           {/* <Route path="dashboard" element={<Dashboard />} /> */}
 
           <Route path="*" element={<NotFound />} />

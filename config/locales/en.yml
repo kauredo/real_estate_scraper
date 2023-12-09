@@ -209,7 +209,7 @@ en:
         As professionals in the real estate market, all the services related to
         real estate mediation and consultancy are within the scope of our
         activity for your benefit.
-      bottom: Get to know some of them. <br> If you want to know more please
+      bottom: Get to know some of them. <br/> If you want to know more please
       link: contact us.
     list:
       house_trees:
@@ -217,7 +217,7 @@ en:
         description:
           With access to exclusive platforms and tools for professionals we
           ensure the necessary market knowledge to identify your best options
-          and pursue the best solutions. <br> <br> We offer you an informed,
+          and pursue the best solutions. <br/> <br/> We offer you an informed,
           personalised service, based on an experienced and competitive
           negotiation.
       house_lens:
@@ -226,7 +226,7 @@ en:
           Buying or selling a house is most often about investing a large part,
           if not all, of your individual or family assets. This investment
           requires a careful and thoughtful analysis and safe options that will
-          give you the confidence of an investment with return. <br> <br> In
+          give you the confidence of an investment with return. <br/> <br/> In
           every deal we carry out we look at you, our Client, also from an
           investor's perspective and we ensure that the profitability of the
           sale or purchase is part of the transaction's success criteria.
