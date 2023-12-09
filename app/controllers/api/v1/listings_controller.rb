@@ -8,7 +8,7 @@ module Api
       def index
         pagy, @listings = pagy(Listing.all)
         @pagy = pagy_metadata(pagy)
-        render json: @listings
+        render json: { listings: @listings, pagy: @pagy }
       end
 
       def show

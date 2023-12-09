@@ -5,11 +5,12 @@ import { HashLink } from "react-router-hash-link";
 
 interface Props {
   pagy: Pagy;
+  page: number;
+  setPage: Function;
 }
 
 export default function Pagination(props: Props) {
-  const { pagy } = props;
-  const currentPage = getUrlParameter("page");
+  const { pagy, page, setPage } = props;
 
   if (pagy.pages > 1) {
     return (
@@ -49,37 +50,44 @@ export default function Pagination(props: Props) {
                     />
                   </svg>
                 </HashLink>
-                <HashLink to={pagy.prevUrl}>
-                  <p className="text-sm ml-3 font-medium leading-none ">
-                    {i18n.t("pagination.previous")}
-                  </p>
-                </HashLink>
+                <p
+                  className="text-sm ml-3 font-medium leading-none "
+                  onClick={() => page && setPage && setPage(page - 1)}
+                >
+                  {i18n.t("pagination.previous")}
+                </p>
               </>
             )}
           </div>
           <div className="sm:flex hidden">
-            {pagy.series?.map(page => {
+            {pagy.series.map(thisPage => {
+              console.log(thisPage);
               let classes =
                 "text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-beige border-t border-transparent hover:border-beige pt-3 mr-4 px-2";
               classes =
-                currentPage === page
+                page === Number(thisPage)
                   ? classes + " !text-beige !border-beige"
                   : classes;
               return (
-                <HashLink key={`page-${page}`} to={`/comprar?page=${page}`}>
-                  <p className={classes}>{page}</p>
-                </HashLink>
+                <p
+                  key={`page-${thisPage}`}
+                  className={classes}
+                  onClick={() => page && setPage && setPage(thisPage)}
+                >
+                  {thisPage}
+                </p>
               );
             })}
           </div>
           <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
             {pagy.next && (
               <>
-                <HashLink to={pagy.nextUrl}>
-                  <p className="text-sm font-medium leading-none mr-3">
-                    {i18n.t("pagination.next")}
-                  </p>
-                </HashLink>
+                <p
+                  className="text-sm font-medium leading-none mr-3"
+                  onClick={() => page && setPage && setPage(page + 1)}
+                >
+                  {i18n.t("pagination.next")}
+                </p>
                 <HashLink to={pagy.nextUrl}>
                   <svg
                     width="14"

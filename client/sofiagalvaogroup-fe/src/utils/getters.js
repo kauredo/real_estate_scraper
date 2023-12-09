@@ -2,8 +2,10 @@ import axios from "axios";
 
 const API_URL = "http://localhost:3000/api/v1";
 
-export async function find_all_listings() {
-  return axios.get(`${API_URL}/listings/`).then(response => response.data);
+export async function find_all_listings(page = 1) {
+  return axios
+    .get(`${API_URL}/listings?page=${page}`)
+    .then(response => response.data);
 }
 
 export async function find_listing_by_id(id) {

@@ -25,7 +25,7 @@ export default function LongCard(props: Props) {
     if (element instanceof HTMLMetaElement) {
       const token = element.content;
 
-      confirm("De certeza que queres apagar o imóvel?");
+      window.confirm("De certeza que queres apagar o imóvel?");
 
       fetch(sanitizeURLWithParams("#backoffice_listing", listing.slug), {
         method: "DELETE",
