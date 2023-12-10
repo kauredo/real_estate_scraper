@@ -28,7 +28,7 @@ export default function Home() {
     };
 
     fetchData().then(data => {
-      setListings(data.tempListings.listings);
+      setListings(data.tempListings);
       setPhotos(data.tempPhotos);
       setResults(data.tempResults);
       setTestimonials(data.tempTestimonials);

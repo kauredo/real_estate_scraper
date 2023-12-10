@@ -12,6 +12,8 @@ import Services from "./components/staticPages/Services";
 import TermsAndConditions from "./components/staticPages/TermsAndConditions";
 import NotFound from "./components/errorPages/404";
 import Buy from "./components/pages/Buy";
+import Sell from "./components/pages/Sell";
+import Enterprises from "./components/pages/Enterprises";
 
 export default function App() {
   return (
@@ -27,6 +29,8 @@ export default function App() {
           <Route path="services" element={<Services />} />
           <Route path="terms_and_conditions" element={<TermsAndConditions />} />
           <Route path="buy" element={<Buy />} />
+          <Route path="sell" element={<Sell />} />
+          <Route path="latest" element={<Enterprises />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

@@ -3,7 +3,6 @@ import { HashLink } from "react-router-hash-link";
 import Banner from "../shared/Banner";
 import HouseTrees from "../svgs/HouseTrees";
 import HouseLens from "../svgs/HouseLens";
-import DOMPurify from "dompurify";
 
 export default function Services() {
   const meta_title = i18n.t("services.header");

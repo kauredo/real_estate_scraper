@@ -28,3 +28,9 @@ export async function find_all_testimonials() {
 export async function find_all_results() {
   return axios.get(`${API_URL}/results/`).then(response => response.data);
 }
+
+export async function find_all_listing_complexes(page = 1) {
+  return axios
+    .get(`${API_URL}/listing_complexes?page=${page}`)
+    .then(response => response.data);
+}
