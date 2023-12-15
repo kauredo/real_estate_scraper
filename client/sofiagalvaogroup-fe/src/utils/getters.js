@@ -34,3 +34,9 @@ export async function find_all_listing_complexes(page = 1) {
     .get(`${API_URL}/listing_complexes?page=${page}`)
     .then(response => response.data);
 }
+
+export async function find_all_blog_posts(page = 1) {
+  return axios
+    .get(`${API_URL}/blog_posts?page=${page}`)
+    .then(response => response.data);
+}
