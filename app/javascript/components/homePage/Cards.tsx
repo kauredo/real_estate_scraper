@@ -17,6 +17,7 @@ export default function Cards(props: Props) {
   useEffect(() => {
     window.addEventListener("resize", handleResize, false);
     handleResize();
+
     return;
   }, []);
 
@@ -28,8 +29,6 @@ export default function Cards(props: Props) {
       setSlideNumber(windowWidth);
     }
   };
-
-  lazyloadImages();
 
   if (locations.length !== listings.length) {
     const [selectedLocation, setSelectedLocation] = useState(locations[0]);
