@@ -12,6 +12,7 @@ import Services from "./components/staticPages/Services";
 import TermsAndConditions from "./components/staticPages/TermsAndConditions";
 import NotFound from "./components/errorPages/404";
 import Buy from "./components/listing/Buy";
+import ListingShow from "./components/listing/ListingShow";
 import Sell from "./components/listing/Sell";
 import Enterprises from "./components/listingComplex/Enterprises";
 import Blog from "./components/blog/Blog";
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="services" element={<Services />} />
           <Route path="terms_and_conditions" element={<TermsAndConditions />} />
           <Route path="buy" element={<Buy />} />
+          <Route path="/buy/:slug" element={<ListingShow />} />
           <Route path="sell" element={<Sell />} />
           <Route path="latest" element={<Enterprises />} />
           <Route path="blog" element={<Blog />} />

@@ -23,7 +23,6 @@ export default function Blog() {
     };
 
     fetchData().then(data => {
-      console.log(data);
       setBlogPosts(data.tempPosts.blog_posts);
       setPagy(data.tempPosts.pagy);
     });

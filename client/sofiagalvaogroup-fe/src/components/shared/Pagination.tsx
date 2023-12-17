@@ -61,7 +61,6 @@ export default function Pagination(props: Props) {
           </div>
           <div className="sm:flex hidden">
             {pagy.series.map(thisPage => {
-              console.log(thisPage);
               let classes =
                 "text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-beige border-t border-transparent hover:border-beige pt-3 mr-4 px-2";
               classes =

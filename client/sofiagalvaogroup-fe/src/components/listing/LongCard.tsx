@@ -68,11 +68,7 @@ export default function LongCard(props: Props) {
       <HashLink
         className={small ? "cursor-not-allowed" : ""}
         to={
-          small
-            ? "#"
-            : backoffice
-            ? sanitizeURLWithParams("#edit_backoffice_listing", listing.slug)
-            : sanitizeURLWithParams("#listing", listing.slug)
+          small ? "#" : backoffice ? `backoffice/${listing.slug}` : listing.slug
         }
         onClick={e => small && e.preventDefault()}
       >

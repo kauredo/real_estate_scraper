@@ -1,18 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Carousel from "nuka-carousel";
 import { Listing } from "../utils/Interfaces";
 import ContactForm from "../shared/ContactForm";
 import { i18n } from "../../languages/languages";
 import { ReadMore } from "../shared/ReadMore";
 import Overlay from "../shared/Overlay";
+import { find_listing_by_id } from "../../utils/getters";
 
-interface Props {
-  listing: Listing;
-}
+export default function ListingShow() {
+  const meta_title = i18n.t("buy.header");
+  const meta_description = i18n.t("buy.meta_description");
 
-export default function Show(props: Props) {
-  const listing = props.listing;
+  const [listing, setListing] = useState<Listing | any>(null);
   const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const id = window.location.pathname.split("/")[2];
+      const tempListing = await find_listing_by_id(id);
+
+      return { tempListing };
+    };
+
+    fetchData().then(data => {
+      setListing(data.tempListing);
+    });
+  }, []);
+
+  if (!listing) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -56,7 +73,11 @@ export default function Show(props: Props) {
             {listing.photos?.map(photo => (
               <img
                 loading="lazy"
-                style={{ maxHeight: "70vh", objectFit: "contain" }}
+                style={{
+                  maxHeight: "70vh",
+                  objectFit: "contain",
+                  margin: "auto",
+                }}
                 key={photo}
                 src={photo}
               />
