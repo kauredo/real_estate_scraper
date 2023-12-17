@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { i18n } from "../../languages/languages";
-import Complexes from "../indexPage/Complexes";
+import Complexes from "../listingComplex/Complexes";
 import Banner from "../shared/Banner";
 import Pagination from "../shared/Pagination";
 import { Pagy } from "../utils/Interfaces";
 import { find_all_blog_posts } from "../../utils/getters";
-import BlogPost from "../homePage/BlogPost";
+import BlogPost from "./BlogPost";
 
 export default function Blog() {
   const meta_title = i18n.t("blog_posts.header");

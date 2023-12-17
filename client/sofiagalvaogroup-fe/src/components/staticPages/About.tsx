@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Profile from "../shared/Profile";
-import Results from "../homePage/Results";
+import Results from "../home/Results";
 import Banner from "../shared/Banner";
 import { find_all_results, find_all_testimonials } from "../../utils/getters";
 import { ResultNumbers } from "../utils/Interfaces";

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { i18n } from "../../languages/languages";
-import Complexes from "../indexPage/Complexes";
+import Complexes from "./Complexes";
 import Banner from "../shared/Banner";
 import Pagination from "../shared/Pagination";
 import { Pagy } from "../utils/Interfaces";

@@ -3,10 +3,10 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { i18n } from "../languages/languages";
-import { sanitizeURL } from "./utils/Functions";
+import { i18n } from "../../languages/languages";
+import { sanitizeURL } from "../utils/Functions";
 import { HashLink } from "react-router-hash-link";
-import main_white from "../assets/logos/main_white.webp";
+import main_white from "../../assets/logos/main_white.webp";
 
 export default function Footer() {
   const items = [

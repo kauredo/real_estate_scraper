@@ -1,8 +1,8 @@
 import "./stylesheets/application.tailwind.css.scss";
-import Home from "./components/homePage/Home";
+import Home from "./components/home/Home";
 import { Routes, Route, Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/home/Navbar";
+import Footer from "./components/home/Footer";
 import About from "./components/staticPages/About";
 import Contact from "./components/staticPages/Contact";
 import House360 from "./components/staticPages/House360";
@@ -11,10 +11,10 @@ import PrivacyPolicy from "./components/staticPages/PrivacyPolicy";
 import Services from "./components/staticPages/Services";
 import TermsAndConditions from "./components/staticPages/TermsAndConditions";
 import NotFound from "./components/errorPages/404";
-import Buy from "./components/pages/Buy";
-import Sell from "./components/pages/Sell";
-import Enterprises from "./components/pages/Enterprises";
-import Blog from "./components/pages/Blog";
+import Buy from "./components/listing/Buy";
+import Sell from "./components/listing/Sell";
+import Enterprises from "./components/listingComplex/Enterprises";
+import Blog from "./components/blog/Blog";
 
 export default function App() {
   return (

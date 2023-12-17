@@ -1,7 +1,7 @@
 import Carousel from "nuka-carousel";
 import { i18n } from "../../languages/languages";
 import ContactForm from "../shared/ContactForm";
-import Cards from "../homePage/Cards";
+import Cards from "../listing/Cards";
 import { sanitizeURLWithParams } from "../utils/Functions";
 import { ListingComplex } from "../utils/Interfaces";
 import { HashLink } from "react-router-hash-link";

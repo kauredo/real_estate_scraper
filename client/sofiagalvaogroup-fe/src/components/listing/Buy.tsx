@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { i18n } from "../../languages/languages";
 import { find_all_listings } from "../../utils/getters";
 import Pagination from "../shared/Pagination";
-import Listings from "../indexPage/Listings";
+import Listings from "./Listings";
 import { Pagy } from "../utils/Interfaces";
 
 export default function Buy() {

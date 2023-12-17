@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ResultNumbers } from "../utils/Interfaces";
 import Hero from "../shared/Hero";
 import Newsletter from "./Newsletter";
-import Cards from "./Cards";
+import Cards from "../listing/Cards";
 import Results from "./Results";
 import {
   find_all_listings_by_geography,

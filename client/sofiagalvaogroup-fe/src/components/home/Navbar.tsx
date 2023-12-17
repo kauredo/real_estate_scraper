@@ -1,13 +1,13 @@
 import { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
-import { i18n } from "../languages/languages";
-import { changeLocale, sanitizeURL } from "./utils/Functions";
-import { NavbarItemProps } from "./utils/Interfaces";
-import NavbarItem from "./shared/NavbarItem";
-import DropdownLink from "./shared/DropdownLink";
+import { i18n } from "../../languages/languages";
+import { changeLocale, sanitizeURL } from "../utils/Functions";
+import { NavbarItemProps } from "../utils/Interfaces";
+import NavbarItem from "../shared/NavbarItem";
+import DropdownLink from "../shared/DropdownLink";
 import { HashLink } from "react-router-hash-link";
-import kw_logo from "../assets/images/kw_logo.webp";
-import main_color from "../assets/logos/main_color.webp";
+import kw_logo from "../../assets/images/kw_logo.webp";
+import main_color from "../../assets/logos/main_color.webp";
 
 interface Resource {
   path: string;
