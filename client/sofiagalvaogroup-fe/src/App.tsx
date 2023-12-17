@@ -17,6 +17,7 @@ import Sell from "./components/listing/Sell";
 import Enterprises from "./components/listingComplex/Enterprises";
 import ListingComplexShow from "./components/listingComplex/ListingComplexShow";
 import Blog from "./components/blog/Blog";
+import BlogShow from "./components/blog/BlogShow";
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="latest" element={<Enterprises />} />
           <Route path="latest/:slug" element={<ListingComplexShow />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="blog/:slug" element={<BlogShow />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>

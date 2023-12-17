@@ -46,3 +46,9 @@ export async function find_all_blog_posts(page = 1) {
     .get(`${API_URL}/blog_posts?page=${page}`)
     .then(response => response.data);
 }
+
+export async function find_blog_post_by_id(id) {
+  return axios
+    .get(`${API_URL}/blog_posts/${id}`)
+    .then(response => response.data);
+}

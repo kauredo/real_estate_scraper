@@ -32,4 +32,8 @@ class BlogPost < ApplicationRecord
       'https://sofiagalvaogroup.com/images/banner.webp'
     end
   end
+
+  def date_created
+    created_at.strftime('%d/%m/%Y')
+  end
 end

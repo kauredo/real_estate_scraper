@@ -91,3 +91,14 @@ export interface NavbarItemProps {
   img?: any;
   items?: NavbarItemProps[];
 }
+
+export interface BlogPost {
+  id: number;
+  meta_title: string;
+  meta_description: string;
+  main_photo: string;
+  slug: string;
+  title: string;
+  date_created: string;
+  text: string;
+}
