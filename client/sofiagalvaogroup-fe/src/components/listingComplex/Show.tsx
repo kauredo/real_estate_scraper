@@ -107,7 +107,7 @@ export default function Show(props: Props) {
                       </td>
                       <td className=" p-2">
                         <HashLink
-                          to={sanitizeURLWithParams("#listing", listing.slug)}
+                          to={`/buy/${listing.slug}`}
                           target="_blank"
                           className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige  hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
                         >

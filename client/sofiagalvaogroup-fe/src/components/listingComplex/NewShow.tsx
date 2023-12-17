@@ -23,7 +23,6 @@ export default function NewShow(props: Props) {
 
   const header = () => {
     if (complex?.photos?.length > 0) {
-      // if (complex.photos.length === 1) {
       return (
         <div className="mx-auto w-auto">
           <img
@@ -33,33 +32,6 @@ export default function NewShow(props: Props) {
           />
         </div>
       );
-      // } else {
-      return (
-        <div className="mx-auto w-auto">
-          <Carousel
-            slidesToShow={1}
-            defaultControlsConfig={{
-              nextButtonText: "➤",
-              prevButtonStyle: { transform: "rotate(180deg)" },
-              prevButtonText: "➤",
-              pagingDotsContainerClassName: "!top-0",
-              pagingDotsClassName: "mx-1 hidden tablet:block",
-            }}
-          >
-            {complex.photos?.map(photo => {
-              return (
-                <img
-                  loading="lazy"
-                  key={photo.image.url}
-                  style={{ maxHeight: "70vh", objectFit: "contain" }}
-                  src={photo.image.url}
-                />
-              );
-            })}
-          </Carousel>
-        </div>
-      );
-      // }
     }
   };
 
@@ -171,10 +143,7 @@ export default function NewShow(props: Props) {
                           listing.status === "standard" ||
                           listing.status === "recent" ? (
                             <HashLink
-                              to={sanitizeURLWithParams(
-                                "#listing",
-                                listing.slug
-                              )}
+                              to={`/buy/${listing.slug}`}
                               target="_blank"
                               className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
                             >

@@ -15,6 +15,7 @@ import Buy from "./components/listing/Buy";
 import ListingShow from "./components/listing/ListingShow";
 import Sell from "./components/listing/Sell";
 import Enterprises from "./components/listingComplex/Enterprises";
+import ListingComplexShow from "./components/listingComplex/ListingComplexShow";
 import Blog from "./components/blog/Blog";
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="/buy/:slug" element={<ListingShow />} />
           <Route path="sell" element={<Sell />} />
           <Route path="latest" element={<Enterprises />} />
+          <Route path="latest/:slug" element={<ListingComplexShow />} />
           <Route path="blog" element={<Blog />} />
 
           <Route path="*" element={<NotFound />} />
