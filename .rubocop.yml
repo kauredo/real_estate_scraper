@@ -19,3 +19,6 @@ Metrics/PerceivedComplexity:
 
 Metrics/MethodLength:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       get 'admins', to: 'devise/sessions#new'
     end
 
-    devise_for :admins
+    devise_for :admins, defaults: { format: :json }
     # resources :listings, only: [:show]
     # resources :listing_complexes, only: [:show]
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

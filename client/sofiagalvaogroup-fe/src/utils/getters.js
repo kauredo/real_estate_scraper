@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api/v1";
+export const BASE_URL = "http://localhost:3000";
+export const API_URL = `${BASE_URL}/api/v1`;
 
 export async function find_all_listings(page = 1) {
   return axios

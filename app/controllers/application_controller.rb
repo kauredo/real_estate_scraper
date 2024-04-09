@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
   before_action :set_locale
   before_action :set_resource
 

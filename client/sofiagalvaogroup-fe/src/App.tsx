@@ -18,6 +18,7 @@ import Enterprises from "./components/listingComplex/Enterprises";
 import ListingComplexShow from "./components/listingComplex/ListingComplexShow";
 import Blog from "./components/blog/Blog";
 import BlogShow from "./components/blog/BlogShow";
+import Login from "./components/admins/Login";
 
 export default function App() {
   return (
@@ -33,7 +34,7 @@ export default function App() {
           <Route path="services" element={<Services />} />
           <Route path="terms_and_conditions" element={<TermsAndConditions />} />
           <Route path="buy" element={<Buy />} />
-          <Route path="/buy/:slug" element={<ListingShow />} />
+          <Route path="buy/:slug" element={<ListingShow />} />
           <Route path="sell" element={<Sell />} />
           <Route path="latest" element={<Enterprises />} />
           <Route path="latest/:slug" element={<ListingComplexShow />} />
@@ -42,6 +43,13 @@ export default function App() {
 
           <Route path="*" element={<NotFound />} />
         </Route>
+
+        {/* BACKOFFICE */}
+
+        <Route path="/backoffice" element={<Layout />}>
+          {/* <Route index element={<BackofficeHome />} /> */}
+          <Route path="login" element={<Login />} />
+        </Route>
       </Routes>
     </div>
   );
@@ -49,10 +57,12 @@ export default function App() {
 
 function Layout() {
   return (
-    <>
+    <main className="flex flex-col min-h-screen">
       <Navbar />
-      <Outlet />
+      <div className="flex-auto">
+        <Outlet />
+      </div>
       <Footer />
-    </>
+    </main>
   );
 }
