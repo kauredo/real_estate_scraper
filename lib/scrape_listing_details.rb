@@ -96,7 +96,7 @@ class ScrapeListingDetails
     # features
     count = 0
     begin
-      features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.map(&:text)
+      features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.pluck(:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -184,14 +184,14 @@ class ScrapeListingDetails
     # features
     count = 0
     begin
-      listing.features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.map(&:text)
+      listing.features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.pluck(:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
     end
 
     # description
-    listing.description = browser.divs(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.map(&:text)&.reject(&:empty?)&.first
+    listing.description = browser.divs(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.pluck(:text)&.reject(&:empty?)&.first
 
     # # geo data
     listing.title&.gsub! 'm2', 'm²'

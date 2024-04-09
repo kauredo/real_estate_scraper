@@ -30,7 +30,7 @@ class Photo < ApplicationRecord
     end
 
     photos = Photo.unscoped.where(listing_complex_id:).where(order: nil)
-    order = existing_photos.map(&:order).max || 0
+    order = existing_photos.pluck(:order).max || 0
     photos.each do |photo|
       photo.update(order: order + 1)
       order += 1

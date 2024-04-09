@@ -8,14 +8,14 @@ desc 'Scrape english listings off KW website'
 task scrape_en: :environment do |_t, args|
   @errors = []
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-  args << 'headless'
+  args << 'headless' if ENV.fetch('HEADFULL', '').blank?
   options = Selenium::WebDriver::Chrome::Options.new(args:)
   @browser = Watir::Browser.new(:chrome, options:)
 
   translations = Listing::Translation.where(locale: 'en')
   ids = translations.select do |t|
     Listing::Translation.where(locale: 'pt', title: t.title).present?
-  end.map(&:listing_id)
+  end.pluck(:listing_id)
 
   listings = Listing.all.select do |l|
     l.title_en.blank? || l.description_en.blank? || l.features_en.blank? || ids.include?(l.id)
@@ -46,7 +46,7 @@ desc 'Scrape portuguese listings off KW website'
 task scrape_pt: :environment do |_t, args|
   @errors = []
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-  args << 'headless'
+  args << 'headless' if ENV.fetch('HEADFULL', '').blank?
   options = Selenium::WebDriver::Chrome::Options.new(args:)
   @browser = Watir::Browser.new(:chrome, options:)
 

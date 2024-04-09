@@ -63,7 +63,7 @@ task scrape: :environment do |_t, args|
   @errors = []
   @lister = @url.split('/').last
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-  args << 'headless'
+  args << 'headless' if ENV.fetch('HEADFULL', '').blank?
   options = Selenium::WebDriver::Chrome::Options.new(args:)
   @browser = Watir::Browser.new(:chrome, options:)
 
@@ -106,7 +106,7 @@ task :scrape_one, [:url] => :environment do |_t, arguments|
     listing = Listing.unscoped.find_by(url:)
 
     args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-    args << 'headless'
+    args << 'headless' if ENV.fetch('HEADFULL', '').blank?
     options = Selenium::WebDriver::Chrome::Options.new(args:)
     @browser = Watir::Browser.new(:chrome, options:)
 
