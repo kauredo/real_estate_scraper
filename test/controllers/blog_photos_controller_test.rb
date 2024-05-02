@@ -6,7 +6,7 @@ class BlogPhotosControllerTest < ActionDispatch::IntegrationTest
   setup do
     # Set up any necessary objects or variables here
     @blog_post_id = 1
-    Rails.cache.write('blog-id', @blog_post_id)
+    Rails.cache.write('blog-id', @blog_post_id, expires_in: 10.minutes.in_seconds)
     @file = fixture_file_upload('photo.webp', 'image/webp')
   end
 
