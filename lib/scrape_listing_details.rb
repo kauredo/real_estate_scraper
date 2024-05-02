@@ -191,7 +191,7 @@ class ScrapeListingDetails
     end
 
     # description
-    listing.description = browser.divs(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.pluck(:text)&.reject(&:empty?)&.first
+    listing.description = browser.divs(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.map(&:text)&.reject(&:empty?)&.first
 
     # # geo data
     listing.title&.gsub! 'm2', 'm²'
