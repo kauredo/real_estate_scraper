@@ -71,6 +71,7 @@ gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'sentry-rails'
 gem 'sentry-ruby'
+gem 'sentry-sidekiq'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'tinymce-rails'

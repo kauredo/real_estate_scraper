@@ -6,11 +6,13 @@ interface Props {
 
 export default function QuarterCircle(props: Props) {
   const { photos } = props;
-  const doorRef = useRef(null);
+  const doorRef = useRef<HTMLDivElement | null>(null);
 
   const removeClass = () => {
     setTimeout(() => {
-      doorRef.current.classList.remove("moving");
+      if (doorRef.current) {
+        doorRef.current.classList.remove("moving");
+      }
     }, 1600);
   };
 
@@ -19,11 +21,19 @@ export default function QuarterCircle(props: Props) {
 
     let random_photo = photos[Math.floor(Math.random() * photos.length)];
 
+    if (!doorRef.current) {
+      return;
+    }
+
     while (doorRef.current.style.backgroundImage == random_photo) {
       random_photo = photos[Math.floor(Math.random() * photos.length)];
     }
 
     setTimeout(() => {
+      if (!doorRef.current) {
+        return;
+      }
+
       doorRef.current.style.backgroundImage = `url(${random_photo})`;
     }, 600);
   };
@@ -36,14 +46,14 @@ export default function QuarterCircle(props: Props) {
         backgroundImage: "url(/images/banner.webp)",
       }}
       onMouseEnter={() => {
-        doorRef.current.classList.add("moving");
+        doorRef.current?.classList.add("moving");
       }}
       onClick={() => {
-        doorRef.current.classList.add("moving");
+        doorRef.current?.classList.add("moving");
       }}
       onAnimationStart={e => changeImage(e)}
       onAnimationEnd={() => {
-        doorRef.current.classList.remove("moving");
+        doorRef.current?.classList.remove("moving");
       }}
     ></div>
   );

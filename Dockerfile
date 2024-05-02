@@ -1,8 +1,8 @@
 # syntax = docker/dockerfile:1
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
-ARG RUBY_VERSION=3.1.0
-FROM nbulai/ruby-chromedriver:latest as base
+ARG RUBY_VERSION=3.1.3
+FROM ruby:$RUBY_VERSION-slim as base
 
 LABEL fly_launch_runtime="rails"
 
@@ -30,6 +30,53 @@ RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz
     /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
     rm -rf /tmp/node-build-master
 
+# Install Chrome and dependencies
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends \
+        wget \
+        gnupg2 \
+        ca-certificates \
+        fonts-liberation \
+        libappindicator3-1 \
+        libasound2 \
+        libatk-bridge2.0-0 \
+        libatk1.0-0 \
+        libc6 \
+        libcairo2 \
+        libcups2 \
+        libdbus-1-3 \
+        libexpat1 \
+        libfontconfig1 \
+        libgbm1 \
+        libgcc1 \
+        libglib2.0-0 \
+        libgtk-3-0 \
+        libnspr4 \
+        libnss3 \
+        libpango-1.0-0 \
+        libx11-6 \
+        libx11-xcb1 \
+        libxcb1 \
+        libxcomposite1 \
+        libxcursor1 \
+        libxdamage1 \
+        libxext6 \
+        libxfixes3 \
+        libxi6 \
+        libxrandr2 \
+        libxrender1 \
+        libxss1 \
+        libxtst6 \
+        lsb-release \
+        xdg-utils \
+        && rm -rf /var/lib/apt/lists/*
+
+# Download and install Chrome
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
+
+# Clean up
+RUN rm google-chrome-stable_current_amd64.deb
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
@@ -67,8 +114,6 @@ RUN grep -l '#!/usr/bin/env ruby' /rails/bin/* | xargs sed -i '/^#!/aDir.chdir F
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE=DUMMY ./bin/rails assets:precompile
 
-run mkdir ./.webdrivers && chmod -R 777 ./.webdrivers
-run mkdir ./.local && chmod -R 777 ./.local
 
 # Final stage for app image
 FROM base

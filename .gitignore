@@ -43,3 +43,4 @@ latest.dump
 *.DS_Store
 /coverage
 .fly-pg-secrets
+client

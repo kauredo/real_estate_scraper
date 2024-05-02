@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { sanitizeURLWithParams, truncateText } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
-import { i18n } from "../../languages/languages";
 import Overlay from "../shared/Overlay";
 
 export default function Card({ listing }) {
@@ -14,9 +13,9 @@ export default function Card({ listing }) {
         <div
           className="ajustedBackground object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"
           style={{
-            backgroundImage: "url(/images/banner.webp)",
+            backgroundImage: `url(${listing.photos[0]})`,
+            // backgroundImage: "url(/images/banner.webp)",
           }}
-          data-src={listing.photos[0]}
         >
           <Overlay status={listing.status} padding={true} />
         </div>

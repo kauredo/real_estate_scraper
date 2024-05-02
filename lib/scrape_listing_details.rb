@@ -12,9 +12,25 @@ class ScrapeListingDetails
 
     sleep ENV['SLEEP_TIME']&.to_i || 5
     browser.refresh
+    sleep ENV['SLEEP_TIME']&.to_i || 5
 
     listing.title_pt = browser.title
     log "Gathering data for listing #{listing.title_pt}"
+
+    text = I18n.t('tasks.scrape.awaiting')
+
+    until text != I18n.t('tasks.scrape.awaiting') && !text.start_with?(I18n.t('tasks.scrape.see_other'))
+      text = browser.div(class: 'listing-details').wait_until(timeout: 10, &:present?)&.text
+      sleep 1
+    end
+
+    log '!!!!!!!!!!!!!!!!!!!!'
+    log "text: #{text}"
+    if text.include?(I18n.t('tasks.scrape.unavailable'))
+      log 'listing unavailable'
+      listing.destroy
+      return
+    end
 
     # price
     count = 0
@@ -68,7 +84,7 @@ class ScrapeListingDetails
     # address
     count = 0
     begin
-      address = browser.div(class: 'fw-listing-topbar-address').wait_until(timeout: 10, &:present?)&.text&.squish
+      address = browser.div(class: 'fw-mobile-address').wait_until(timeout: 10, &:present?).p(class: 'ng-binding').wait_until(timeout: 10, &:present?)&.text&.squish
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -80,7 +96,7 @@ class ScrapeListingDetails
     # features
     count = 0
     begin
-      features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.map(&:text)
+      features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.pluck(:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -105,7 +121,7 @@ class ScrapeListingDetails
     # images
     if listing.photos.empty? || force_images
       images = browser.divs(class: 'fw-listing-gallery-image').wait_until(timeout: 10, &:present?)
-      listing.photos = images.map { |div| div.img.src}.uniq
+      listing.photos = images.map { |div| div.img.src }.uniq
     end
 
     # # geo data
@@ -140,6 +156,7 @@ class ScrapeListingDetails
 
     if en.present?
       log 'changing language btn present'
+      sleep ENV['SLEEP_TIME']&.to_i || 5
       browser.nav(id: 'menu').wait_until(timeout: 10, &:present?)&.a(text: language)&.wait_until(timeout: 10, &:present?)&.click
     else
       log 'changing language btn not present'
@@ -147,8 +164,9 @@ class ScrapeListingDetails
     end
 
     text = I18n.t('tasks.scrape.awaiting')
+    sleep ENV['SLEEP_TIME']&.to_i || 5
 
-    until text != I18n.t('tasks.scrape.awaiting')
+    until text != I18n.t('tasks.scrape.awaiting') && !text.start_with?(I18n.t('tasks.scrape.see_other'))
       text = browser.div(class: 'listing-details').wait_until(timeout: 10, &:present?)&.text
       sleep 1
     end
@@ -166,14 +184,14 @@ class ScrapeListingDetails
     # features
     count = 0
     begin
-      listing.features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.map(&:text)
+      listing.features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.pluck(:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
     end
 
     # description
-    listing.description = browser.divs(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.map(&:text)&.reject(&:empty?)&.first
+    listing.description = browser.divs(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.pluck(:text)&.reject(&:empty?)&.first
 
     # # geo data
     listing.title&.gsub! 'm2', 'm²'

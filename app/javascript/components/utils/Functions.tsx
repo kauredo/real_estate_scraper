@@ -2,8 +2,8 @@ import { i18n } from "../../languages/languages";
 
 export function lazyloadImages() {
   var tablinks = document.getElementsByClassName("ajustedBackground");
-  for (i = 0; i < tablinks.length; i++) {
-    var lazy = tablinks[i];
+  for (let i = 0; i < tablinks.length; i++) {
+    var lazy = tablinks[i] as HTMLElement;
     var src = lazy.dataset.src;
 
     lazy.style.backgroundImage = 'url("' + src + '")';

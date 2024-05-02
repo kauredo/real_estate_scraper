@@ -30,7 +30,7 @@ module Backoffice
     end
 
     def edit
-      Rails.cache.write('blog-id', @blog_post.id)
+      Rails.cache.write('blog-id', @blog_post.id, expires_in: 10.minutes.in_seconds)
     end
 
     def update

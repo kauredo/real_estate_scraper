@@ -10,7 +10,9 @@ class ScrapeAll
     Rails.logger.debug 'ScrapeAll is being performed'
     Rails.application.load_tasks
 
+    Rake::Task['scrape_all'].reenable
     Rake::Task['scrape_all'].invoke
+    Rake::Task['scrape_all'].reenable
 
     Rails.logger.debug 'ScrapeAll DONE'
   end

@@ -278,8 +278,8 @@ pt:
         consultores</span> e mais de <span class="font-bold">1.000 Market
         Centers</span> são filiados KW.
       bottom:
-        A KW conta com um total de <span class="font-bold">19
-        representações</span> e mais de <span class="font-bold">1.300
+        A KW conta com um total de <span class="font-bold">23
+        representações</span> e mais de <span class="font-bold">2.000
         consultores e associados</span> em Portugal.
     beliefs:
       title: Crenças
@@ -357,6 +357,7 @@ pt:
       less: " mostrar menos"
     status:
       agreed: Reservado
+      closed: Encerrado
       recent: Novo
       rented: Arrendado
       sold: Vendido
@@ -380,6 +381,7 @@ pt:
     scrape:
       unavailable: já não se encontra disponível no website
       awaiting: Actualizar Resultados
+      see_other: Ver mais Imóveis
 
   errors:
     404:

@@ -4,7 +4,7 @@ class Variable < ApplicationRecord
   extend Mobility
   translates :name, :value
 
-  has_one :translation, class_name: 'Variable::Translation'
+  has_one :translation, class_name: 'Variable::Translation', dependent: :destroy
 
   validates :name, presence: { message: 'não pode estar vazio' }
   validates :value, presence: { message: 'não pode estar vazio' }

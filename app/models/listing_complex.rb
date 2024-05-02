@@ -9,7 +9,7 @@ class ListingComplex < ApplicationRecord
 
   has_many :listings, dependent: :destroy
   has_many :photos, dependent: :destroy
-  has_one :translation, class_name: 'ListingComplex::Translation'
+  has_one :translation, class_name: 'ListingComplex::Translation', dependent: :destroy
   validates :name, presence: { message: 'não pode estar vazio' }
   validates :description, presence: { message: 'não pode estar vazio' }
   after_save :update_orders

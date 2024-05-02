@@ -7,7 +7,7 @@ class ScrapeListingDetailsTest < ActiveSupport::TestCase
     Watir.default_timeout = 0.1
 
     args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-    args << 'headless'
+    args << 'headless' if ENV.fetch('HEADFULL', '').blank?
     options = Selenium::WebDriver::Chrome::Options.new(args:)
     @browser = Watir::Browser.new(:chrome, options:)
 
