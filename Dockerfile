@@ -71,23 +71,23 @@ RUN apt-get update -qq && \
         xdg-utils \
         && rm -rf /var/lib/apt/lists/*
 
-# Download and install Chrome
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
+ARG CHROME_VERSION=124.0.6367.91
 
-# Clean up
-RUN rm google-chrome-stable_current_amd64.deb
+# Download and install Chrome
+RUN apt-get update && \
+    apt-get install -yqq unzip && \
+    wget https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64/chrome-linux64.zip && \
+    unzip chrome-linux64.zip -d /opt && \
+    rm chrome-linux64.zip
 
 # Install ChromeDriver
 RUN apt-get update && \
     apt-get install -yqq unzip && \
-    CHROMEDRIVER_VERSION=124.0.6367.91 && \
-    # CHROMEDRIVER_VERSION=$(curl -sS "https://chromedriver.storage.googleapis.com/LATEST_RELEASE") && \
-    wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip && \
-    unzip chromedriver_linux64.zip && \
-    mv chromedriver /usr/local/bin/chromedriver && \
+    wget https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64/chromedriver-linux64.zip && \
+    unzip chromedriver-linux64.zip && \
+    mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver && \
     chmod +x /usr/local/bin/chromedriver && \
-    rm chromedriver_linux64.zip
+    rm chromedriver-linux64.zip
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
