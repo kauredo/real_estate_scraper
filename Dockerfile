@@ -81,8 +81,8 @@ RUN rm google-chrome-stable_current_amd64.deb
 # Install ChromeDriver
 RUN apt-get update && \
     apt-get install -yqq unzip && \
-    # CHROMEDRIVER_VERSION=124.0.6367.91 && \
-    CHROMEDRIVER_VERSION=$(curl -sS "https://chromedriver.storage.googleapis.com/LATEST_RELEASE") && \
+    CHROMEDRIVER_VERSION=124.0.6367.91 && \
+    # CHROMEDRIVER_VERSION=$(curl -sS "https://chromedriver.storage.googleapis.com/LATEST_RELEASE") && \
     wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip && \
     unzip chromedriver_linux64.zip && \
     mv chromedriver /usr/local/bin/chromedriver && \
