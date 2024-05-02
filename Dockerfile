@@ -78,6 +78,15 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
 # Clean up
 RUN rm google-chrome-stable_current_amd64.deb
 
+# Install ChromeDriver
+RUN apt-get update && \
+    apt-get install -yqq unzip && \
+    wget https://chromedriver.storage.googleapis.com/$(curl https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip && \
+    unzip chromedriver_linux64.zip && \
+    mv chromedriver /usr/local/bin/chromedriver && \
+    chmod +x /usr/local/bin/chromedriver && \
+    rm chromedriver_linux64.zip
+
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
@@ -125,6 +134,7 @@ RUN apt-get update -qq && \
 
 # Run and own the application files as a non-root user for security
 RUN useradd rails --home /rails --shell /bin/bash
+RUN chown -R rails:rails /rails
 USER rails:rails
 
 # Copy built artifacts: gems, application
