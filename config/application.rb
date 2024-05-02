@@ -18,5 +18,6 @@ module SofiaGalvao
     config.i18n.available_locales = %i[pt en]
     config.i18n.default_locale = :pt
     config.api_only = true
+    config.session_store :cache_store, key: 'sofia_galvao_session'
   end
 end

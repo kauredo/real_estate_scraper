@@ -54,6 +54,7 @@ gem 'bootsnap', require: false
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'devise'
+gem 'devise-jwt'
 gem 'friendly_id'
 gem 'friendly_id-mobility'
 gem 'humanize'
