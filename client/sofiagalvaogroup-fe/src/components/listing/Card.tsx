@@ -12,6 +12,7 @@ export default function Card({ listing }) {
     >
       <HashLink to={sanitizeURLWithParams("#listing", listing.slug)}>
         <div
+          data-src={listing.photos[0]}
           className="ajustedBackground object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"
           style={{
             backgroundImage: `url(${listing.photos[0]})`,
