@@ -6,36 +6,34 @@ require 'task_helper'
 
 desc 'Scrape listings off KW website'
 task scrape: :environment do |_t, args|
-  @url = 'https://www.kwportugal.pt/sofiagalvao'
-  # @url = 'https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=pt-PT&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=1'
+  @url = 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
 
   def scrape_total
-    sleep 5
     @browser.refresh
-    @browser.div(class: 'gallery-container').wait_until(timeout: 10, &:present?)
-    matches = @browser.lis(class: 'pagination-page').wait_until(timeout: 10, &:present?)
-    matches.count
+    @browser.div(class: 'properties').wait_until(timeout: 10, &:present?)
+    matches = @browser.ul(class: 'pagination').wait_until(timeout: 10, &:present?).lis
+    matches.count - 2
   end
 
   def scrape_page(page)
-    url = "#{@url.slice(0...(@url.index('&pageNumber')))}&pageNumber=#{page + 1}"
-    @browser.goto(url)
-    sleep 5
-    @browser.refresh
+    url = @url + "/pagina-#{page + 1}"
 
-    js_doc = @browser.div(class: 'gallery-container').wait_until(timeout: 10, &:present?)
+    @browser.goto(url)
+
+    js_doc = @browser.div(class: 'properties').wait_until(timeout: 10, &:present?)
     imoveis = Nokogiri::HTML(js_doc.inner_html)
-    res = imoveis.css('.gallery-item')
+    res = imoveis.css('.property-tile2')
 
     res.each do |imovel|
-      url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.first}"
+      url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.compact.first}"
 
       ActiveRecord::Base.connection_pool.release_connection
-      ActiveRecord::Base.connection_pool.with_connection do
-        next if Listing.unscoped.where(url:).present?
+      existing = ActiveRecord::Base.connection_pool.with_connection do
+        Listing.unscoped.where(url:).present?
       end
 
-      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
+      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url) unless existing
+      # scrape_details(url)
     end
   end
 
@@ -53,9 +51,9 @@ task scrape: :environment do |_t, args|
   def one_page(page)
     puts ''
     puts '*********'
-    puts "Started page #{page}"
+    puts "Started page #{page + 1}"
     scrape_page(page)
-    puts "Finished page #{page}"
+    puts "Finished page #{page + 1}"
     puts '*********'
     puts ''
   end
@@ -68,29 +66,20 @@ task scrape: :environment do |_t, args|
   @browser = Watir::Browser.new(:chrome, options:)
 
   @browser.goto(@url)
-  TaskHelper.consent_cookies(@browser)
+  # TaskHelper.consent_cookies(@browser)
 
   puts @url
 
-  # if clickable, click
-  if (properties = @browser.as(class: 'our-properties').wait_until(timeout: 10, &:present?))
-    puts 'found properties'
-    properties.detect(&:visible?).click
-    sleep 2
-    @url = @browser.url
-  else
-    puts 'no found properties'
-    @url = 'https://www.kwportugal.pt/listings#?agentId=34672&agentName=Sofia%20Galv%C3%A3o&resCom=0&transactionType=0&lan=pt-PT&currency=EUR&filterVal=1026&refineSearch=1&pageNumber=1'
-    @browser.goto(@url)
-  end
-
-  @lister = Rack::Utils.parse_nested_query(@url)['agentName']
+  # from url get the lister, it is the last part of the url (format agente-{lister}-id)
+  @lister = @url.split('/').last.split('-')[1..-2].join(' ')
 
   ## Count total to see how many pages
   total = TaskHelper.run_and_retry_on_exception(method(:total_pages))
+  # total = total_pages
 
   total.times do |page|
     TaskHelper.run_and_retry_on_exception(method(:one_page), params: page)
+    # one_page(page)
   end
 
   @browser.close

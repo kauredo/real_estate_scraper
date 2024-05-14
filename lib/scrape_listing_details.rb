@@ -4,29 +4,28 @@ require 'task_helper'
 
 class ScrapeListingDetails
   def self.scrape_details(browser, imovel_url, force_images = false)
-    listing = Listing.find_or_initialize_by(url: imovel_url)
-
     browser.goto(imovel_url)
+    sleep 1
 
-    TaskHelper.consent_cookies(browser)
+    # check if redirect happened
+    if browser.url != imovel_url
+      listing = Listing.find_or_initialize_by(title: browser.title)
+      listing.url = browser.url
+    else
+      listing = Listing.find_or_initialize_by(url: imovel_url)
+    end
 
-    sleep ENV['SLEEP_TIME']&.to_i || 5
+    # TaskHelper.consent_cookies(browser)
+
     browser.refresh
-    sleep ENV['SLEEP_TIME']&.to_i || 5
 
     listing.title_pt = browser.title
     log "Gathering data for listing #{listing.title_pt}"
 
-    text = I18n.t('tasks.scrape.awaiting')
-
-    until text != I18n.t('tasks.scrape.awaiting') && !text.start_with?(I18n.t('tasks.scrape.see_other'))
-      text = browser.div(class: 'listing-details').wait_until(timeout: 10, &:present?)&.text
-      sleep 1
-    end
-
-    log '!!!!!!!!!!!!!!!!!!!!'
-    log "text: #{text}"
-    if text.include?(I18n.t('tasks.scrape.unavailable'))
+    # unless url has div with id 'property', destroy listing and return
+    begin
+      browser.div(id: 'property').wait_until(timeout: 10, &:present?)
+    rescue StandardError => _e
       log 'listing unavailable'
       listing.destroy
       return
@@ -35,8 +34,8 @@ class ScrapeListingDetails
     # price
     count = 0
     begin
-      price = browser.span(class: 'fw-listing-price').wait_until(timeout: 10, &:present?)&.text
-    rescue StandardError => e
+      price = browser.div(class: 'price').wait_until(timeout: 10, &:present?)&.text
+    rescue StandardError => _e
       count += 1
       retry if count < 3
 
@@ -44,30 +43,32 @@ class ScrapeListingDetails
     end
     listing.price = price
 
-    # status
-    count = 0
-    begin
-      status = browser.div(class: 'listing-status').wait_until(timeout: 10, &:present?)
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
+    # # status
+    # count = 0
+    # begin
+    #   status = browser.div(class: 'listing-status').wait_until(timeout: 10, &:present?)
+    # rescue StandardError => e
+    #   count += 1
+    #   retry if count < 3
 
-      status = nil
-    end
+    #   status = nil
+    # end
 
-    if status.present?
-      listing.status = case status.text.strip
-                       when 'Novo' then 0
-                       when 'Reservado' then 2
-                       when 'Vendido' then 3
-                       else 1
-                       end
-    end
+    # if status.present?
+    #   listing.status = case status.text.strip
+    #                    when 'Novo' then 0
+    #                    when 'Reservado' then 2
+    #                    when 'Vendido' then 3
+    #                    else 1
+    #                    end
+    # end
+
+    listing.status = 1
 
     # stats
     count = 0
     begin
-      attributes = browser.div(class: 'attributes-data').wait_until(timeout: 10, &:present?)
+      attributes = browser.div(class: 'infopoints').wait_until(timeout: 10, &:present?)
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -76,7 +77,7 @@ class ScrapeListingDetails
     end
 
     if attributes.present?
-      listing.stats = attributes.divs(class: 'attributes-data-item').map do |row|
+      listing.stats = attributes.divs(class: 'point').map do |row|
         row&.text&.squish&.split(': ')
       end.to_h
     end
@@ -84,7 +85,7 @@ class ScrapeListingDetails
     # address
     count = 0
     begin
-      address = browser.div(class: 'fw-mobile-address').wait_until(timeout: 10, &:present?).p(class: 'ng-binding').wait_until(timeout: 10, &:present?)&.text&.squish
+      address = browser.div(class: 'location').wait_until(timeout: 10, &:present?)&.text&.squish
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -96,7 +97,7 @@ class ScrapeListingDetails
     # features
     count = 0
     begin
-      features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.pluck(:text)
+      features = browser.div(class: 'characteristics').wait_until(timeout: 10, &:present?)&.lis&.map(&:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -108,7 +109,7 @@ class ScrapeListingDetails
     # description
     count = 0
     begin
-      description = browser.div(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.text
+      description = browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.text
     rescue StandardError => e
       count += 1
       retry if count < 3
@@ -120,8 +121,8 @@ class ScrapeListingDetails
 
     # images
     if listing.photos.empty? || force_images
-      images = browser.divs(class: 'fw-listing-gallery-image').wait_until(timeout: 10, &:present?)
-      listing.photos = images.map { |div| div.img.src }.uniq
+      images = browser.div(class: 'content-photos').wait_until(timeout: 10, &:present?).as(class: 'lightbox')
+      listing.photos = images.map(&:href)
     end
 
     # # geo data
@@ -129,9 +130,9 @@ class ScrapeListingDetails
     listing.title&.gsub! 'm2', 'm²'
     listing.description_pt&.gsub! 'm2', 'm²'
     if listing.stats
-      listing.stats['Área Útil']&.gsub! 'm 2', 'm²'
-      listing.stats['Área Bruta (CP)']&.gsub! 'm 2', 'm²'
-      listing.stats['Área do Terreno']&.gsub! 'm 2', 'm²'
+      listing.stats['Área Útil']&.gsub! 'm2', 'm²'
+      listing.stats['Área Bruta (CP)']&.gsub! 'm2', 'm²'
+      listing.stats['Área do Terreno']&.gsub! 'm2', 'm²'
     end
 
     ActiveRecord::Base.connection_pool.release_connection
@@ -147,33 +148,27 @@ class ScrapeListingDetails
 
   def self.scrape_language_details(browser, listing, language)
     browser.goto(listing.url)
-    TaskHelper.consent_cookies(browser)
+    # TaskHelper.consent_cookies(browser)
 
-    toggle = browser.button(class: 'navbar-toggle').wait_until(timeout: 10, &:present?)
+    toggle = browser.button(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
     toggle.click
-    menu = browser.nav(id: 'menu').wait_until(timeout: 10, &:present?)
-    en = menu.a(text: language)
+
+    language_list = browser.ul(class: 'dropdown-menu show').wait_until(timeout: 10, &:present?)
+    en = language_list.a(text: language)
 
     if en.present?
       log 'changing language btn present'
-      sleep ENV['SLEEP_TIME']&.to_i || 5
       browser.nav(id: 'menu').wait_until(timeout: 10, &:present?)&.a(text: language)&.wait_until(timeout: 10, &:present?)&.click
     else
       log 'changing language btn not present'
       browser.refresh
     end
 
-    text = I18n.t('tasks.scrape.awaiting')
-    sleep ENV['SLEEP_TIME']&.to_i || 5
-
-    until text != I18n.t('tasks.scrape.awaiting') && !text.start_with?(I18n.t('tasks.scrape.see_other'))
-      text = browser.div(class: 'listing-details').wait_until(timeout: 10, &:present?)&.text
-      sleep 1
-    end
-
-    log '!!!!!!!!!!!!!!!!!!!!'
-    log "text: #{text}"
-    if text.include?(I18n.t('tasks.scrape.unavailable'))
+    # unless url has div with id 'property', destroy listing and return
+    begin
+      browser.div(id: 'property').wait_until(timeout: 10, &:present?)
+    rescue StandardError => _e
+      log 'listing unavailable'
       listing.destroy
       return
     end
@@ -184,14 +179,14 @@ class ScrapeListingDetails
     # features
     count = 0
     begin
-      listing.features = browser.div(class: 'features-container').wait_until(timeout: 10, &:present?)&.child(class: 'row')&.children&.pluck(:text)
+      listing.features = browser.div(class: 'characteristics').wait_until(timeout: 10, &:present?)&.lis&.map(&:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
     end
 
     # description
-    listing.description = browser.divs(class: 'listing-details-desc').wait_until(timeout: 10, &:present?)&.map(&:text)&.reject(&:empty?)&.first
+    listing.description = browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.text
 
     # # geo data
     listing.title&.gsub! 'm2', 'm²'
