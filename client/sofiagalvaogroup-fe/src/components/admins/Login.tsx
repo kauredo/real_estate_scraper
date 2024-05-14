@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../../utils/getters";
+import { API_URL } from "../../utils/getters";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -14,7 +14,7 @@ export default function Login() {
     event.preventDefault();
 
     try {
-      const response = axios.post(`${BASE_URL}/login`, {
+      const response = axios.post(`${API_URL}/admins/sign_in`, {
         email,
         password,
       });
