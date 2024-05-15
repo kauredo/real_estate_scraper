@@ -27,12 +27,7 @@ task scrape: :environment do |_t, args|
     res.each do |imovel|
       url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.compact.first}"
 
-      ActiveRecord::Base.connection_pool.release_connection
-      existing = ActiveRecord::Base.connection_pool.with_connection do
-        Listing.unscoped.where(url:).present?
-      end
-
-      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url) unless existing
+      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
       # scrape_details(url)
     end
   end

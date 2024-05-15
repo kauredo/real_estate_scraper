@@ -3,23 +3,40 @@
 require 'task_helper'
 
 class ScrapeListingDetails
-  def self.scrape_details(browser, imovel_url, force_images = false)
+  def self.scrape_details(browser, imovel_url, force = false)
     browser.goto(imovel_url)
     sleep 1
 
-    # check if redirect happened
-    if browser.url != imovel_url
-      listing = Listing.find_or_initialize_by(title: browser.title)
-      listing.url = browser.url
-    else
-      listing = Listing.find_or_initialize_by(url: imovel_url)
-    end
+    title = browser.title
+    url = browser.url
+
+    old_url_exists = Listing.exists?(url: imovel_url)
+    new_url_exists = Listing.exists?(url:)
+    name_exists = Listing.exists?(title:)
+
+    listing = if old_url_exists && name_exists
+                Listing.find_by(url: imovel_url, title:)
+              elsif new_url_exists && name_exists
+                Listing.find_by(url:, title:)
+              elsif old_url_exists
+                Listing.find_by(url: imovel_url)
+              elsif new_url_exists
+                Listing.find_by(url:)
+              else
+                Listing.find_or_initialize_by(title:)
+              end
 
     # TaskHelper.consent_cookies(browser)
 
+    if !force && (!listing.persisted? && Listing.unscoped.exists?(url:, title:))
+      log "Listing #{listing.title} already exists, not updating"
+      return
+    end
+
     browser.refresh
 
-    listing.title_pt = browser.title
+    listing.url = url
+    listing.title_pt = title
     log "Gathering data for listing #{listing.title_pt}"
 
     # unless url has div with id 'property', destroy listing and return
@@ -120,7 +137,7 @@ class ScrapeListingDetails
     listing.description_pt = description
 
     # images
-    if listing.photos.empty? || force_images
+    if listing.photos.empty? || force
       images = browser.div(class: 'content-photos').wait_until(timeout: 10, &:present?).as(class: 'lightbox')
       listing.photos = images.map(&:href)
     end
@@ -150,7 +167,7 @@ class ScrapeListingDetails
     browser.goto(listing.url)
     # TaskHelper.consent_cookies(browser)
 
-    toggle = browser.button(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
+    toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
     toggle.click
 
     language_list = browser.ul(class: 'dropdown-menu show').wait_until(timeout: 10, &:present?)
@@ -158,18 +175,18 @@ class ScrapeListingDetails
 
     if en.present?
       log 'changing language btn present'
-      browser.nav(id: 'menu').wait_until(timeout: 10, &:present?)&.a(text: language)&.wait_until(timeout: 10, &:present?)&.click
+      en.click
     else
       log 'changing language btn not present'
       browser.refresh
     end
 
-    # unless url has div with id 'property', destroy listing and return
+    # unless url has div with id 'property', return
     begin
       browser.div(id: 'property').wait_until(timeout: 10, &:present?)
     rescue StandardError => _e
       log 'listing unavailable'
-      listing.destroy
+      # listing.destroy
       return
     end
 
