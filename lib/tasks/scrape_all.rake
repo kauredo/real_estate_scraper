@@ -20,5 +20,11 @@ task scrape_all: :environment do
   Rake::Task['scrape_en'].reenable
   puts 'ScrapeJob is completed, in english'
 
+  puts 'cleaning up listings'
+  Rake::Task['fix_duplicates'].reenable
+  Rake::Task['fix_duplicates'].invoke
+  Rake::Task['fix_duplicates'].reenable
+  puts 'cleaning up listings is done'
+
   puts 'DONE'
 end
