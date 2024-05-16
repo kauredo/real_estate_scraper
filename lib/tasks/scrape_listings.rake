@@ -5,11 +5,17 @@ require 'scrape_listing_details'
 require 'task_helper'
 
 desc 'Scrape listings off KW website'
-task scrape: :environment do |_t, args|
+task scrape: :environment do |_t, _args|
   @url = 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
 
   def scrape_total
     @browser.refresh
+
+    unless @browser.text.include? 'Sofia Galvão'
+      ScrapeListingDetails.log 'KW website down'
+      return 0
+    end
+
     @browser.div(class: 'properties').wait_until(timeout: 10, &:present?)
     matches = @browser.ul(class: 'pagination').wait_until(timeout: 10, &:present?).lis
     matches.count - 2
@@ -82,27 +88,72 @@ task scrape: :environment do |_t, args|
   puts 'Completed'
 end
 
+desc 'Re-scrape listings off KW website'
+task rescrape: :environment do |_t, _args|
+  listings = Listing.all
+
+  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
+  args << 'headless' if ENV.fetch('HEADFULL', '').blank?
+  options = Selenium::WebDriver::Chrome::Options.new(args:)
+  @browser = Watir::Browser.new(:chrome, options:)
+
+  def scrape_one(url, listing)
+    I18n.with_locale(:pt) do
+      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
+    end
+
+    I18n.with_locale(:en) do
+      TaskHelper.run_and_retry_on_exception(method(:scrape_language_details), params: listing) if listing.reload.deleted_at.nil?
+    end
+  end
+
+  def scrape_details(url)
+    ScrapeListingDetails.scrape_details(@browser, url)
+  end
+
+  def scrape_language_details(listing)
+    ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
+  end
+
+  listings.each do |listing|
+    scrape_one(listing.url, listing)
+  end
+
+  @browser.close
+end
+
 desc 'Scrape one listing off KW website'
 task :scrape_one, [:url] => :environment do |_t, arguments|
   url = arguments.url
   ActiveRecord::Base.connection_pool.release_connection
-  ActiveRecord::Base.connection_pool.with_connection do
-    listing = Listing.unscoped.find_by(url:)
+  listing = ActiveRecord::Base.connection_pool.with_connection do
+    Listing.unscoped.find_by(url:)
+  end
 
-    args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-    args << 'headless' if ENV.fetch('HEADFULL', '').blank?
-    options = Selenium::WebDriver::Chrome::Options.new(args:)
-    @browser = Watir::Browser.new(:chrome, options:)
+  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
+  args << 'headless' if ENV.fetch('HEADFULL', '').blank?
+  options = Selenium::WebDriver::Chrome::Options.new(args:)
+  @browser = Watir::Browser.new(:chrome, options:)
 
+  def scrape_one(url, listing)
     I18n.with_locale(:pt) do
-      ScrapeListingDetails.scrape_details(@browser, url, true)
+      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
     end
 
     I18n.with_locale(:en) do
-      ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
+      TaskHelper.run_and_retry_on_exception(method(:scrape_language_details), params: listing) if listing.reload.deleted_at.nil?
     end
   end
 
+  def scrape_details(url)
+    ScrapeListingDetails.scrape_details(@browser, url, true)
+  end
+
+  def scrape_language_details(listing)
+    ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
+  end
+
+  scrape_one(url, listing)
   @browser.close
 end
 

@@ -5,19 +5,42 @@ require 'task_helper'
 class ScrapeListingDetails
   def self.scrape_details(browser, imovel_url, force = false)
     browser.goto(imovel_url)
+
+    unless browser.text.include? 'Sofia Galvão'
+      log 'listing unavailable on KW website, it will be destroyed'
+      listing = Listing.find_by(url: imovel_url)
+      listing&.destroy
+      return
+    end
+
+    toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
+    retry_count = 0
+    until toggle&.text == 'Português' || retry_count >= 2
+      toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
+
+      toggle.click
+      language_list = browser.ul(class: 'dropdown-menu show').wait_until(timeout: 10, &:present?)
+      language_list.a(text: 'Português').click
+
+      # go back on the page to refresh the page with the new language
+      browser.back
+      browser.refresh
+      retry_count += 1
+    end
     sleep 1
 
-    title = browser.title
+    title = browser.title.gsub! 'm2', 'm²'
     url = browser.url
+    log "Gathering data for listing #{title}"
 
     old_url_exists = Listing.exists?(url: imovel_url)
     new_url_exists = Listing.exists?(url:)
-    name_exists = Listing.exists?(title:)
+    name_exists = Listing.includes(:translations).where(translations: { locale: 'pt', title: }).exists?
 
     listing = if old_url_exists && name_exists
-                Listing.find_by(url: imovel_url, title:)
+                Listing.includes(:translations).find_by(url: imovel_url, translations: { locale: 'pt', title: })
               elsif new_url_exists && name_exists
-                Listing.find_by(url:, title:)
+                Listing.includes(:translations).find_by(url:, translations: { locale: 'pt', title: })
               elsif old_url_exists
                 Listing.find_by(url: imovel_url)
               elsif new_url_exists
@@ -27,8 +50,16 @@ class ScrapeListingDetails
               end
 
     # TaskHelper.consent_cookies(browser)
+    listing = Listing.find_or_initialize_by(title:) if listing.nil?
 
-    if !force && (!listing.persisted? && Listing.unscoped.exists?(url:, title:))
+    # unless url has div with id 'property', destroy listing and return
+    unless browser.text.include? 'Sofia Galvão'
+      log 'listing unavailable on KW website, it will be destroyed'
+      listing.destroy
+      return
+    end
+
+    if !force && (listing.persisted? && Listing.includes(:translations).where(url:, translations: { locale: 'pt', title: }))
       log "Listing #{listing.title} already exists, not updating"
       return
     end
@@ -37,16 +68,6 @@ class ScrapeListingDetails
 
     listing.url = url
     listing.title_pt = title
-    log "Gathering data for listing #{listing.title_pt}"
-
-    # unless url has div with id 'property', destroy listing and return
-    begin
-      browser.div(id: 'property').wait_until(timeout: 10, &:present?)
-    rescue StandardError => _e
-      log 'listing unavailable'
-      listing.destroy
-      return
-    end
 
     # price
     count = 0
@@ -166,19 +187,29 @@ class ScrapeListingDetails
   def self.scrape_language_details(browser, listing, language)
     browser.goto(listing.url)
     # TaskHelper.consent_cookies(browser)
-
     toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
-    toggle.click
 
-    language_list = browser.ul(class: 'dropdown-menu show').wait_until(timeout: 10, &:present?)
-    en = language_list.a(text: language)
+    until toggle.text == language
+      toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
 
-    if en.present?
-      log 'changing language btn present'
-      en.click
-    else
-      log 'changing language btn not present'
-      browser.refresh
+      if toggle.text != language
+        toggle.click
+
+        language_list = browser.ul(class: 'dropdown-menu show').wait_until(timeout: 10, &:present?)
+        lang_button = language_list.a(text: language)
+
+        if lang_button.present?
+          log 'changing language btn present'
+          lang_button.click
+          browser.back
+        else
+          log 'changing language btn not present'
+        end
+
+        browser.refresh
+      else
+        log 'language already set'
+      end
     end
 
     # unless url has div with id 'property', return

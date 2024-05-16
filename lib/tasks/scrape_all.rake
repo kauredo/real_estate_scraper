@@ -8,17 +8,11 @@ task scrape_all: :environment do
   Rake::Task['scrape'].reenable
   puts 'ScrapeJob is completed for Sofia'
 
-  puts 'ScrapeJob starting, in PT'
-  Rake::Task['scrape_pt'].reenable
-  Rake::Task['scrape_pt'].invoke
-  Rake::Task['scrape_pt'].reenable
-  puts 'ScrapeJob is completed, in PT'
-
-  puts 'ScrapeJob starting, in english'
-  Rake::Task['scrape_en'].reenable
-  Rake::Task['scrape_en'].invoke
-  Rake::Task['scrape_en'].reenable
-  puts 'ScrapeJob is completed, in english'
+  puts 'rescrape existing listings'
+  Rake::Task['rescrape'].reenable
+  Rake::Task['rescrape'].invoke
+  Rake::Task['rescrape'].reenable
+  puts 'rescrape existing listings is done'
 
   puts 'cleaning up listings'
   Rake::Task['fix_duplicates'].reenable
