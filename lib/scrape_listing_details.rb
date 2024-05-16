@@ -6,6 +6,11 @@ class ScrapeListingDetails
   def self.scrape_details(browser, imovel_url, force = false)
     browser.goto(imovel_url)
 
+    unless @browser.text.downcase.include? 'imóveis'
+      log 'KW website down'
+      return
+    end
+
     unless browser.text.include? 'Sofia Galvão'
       log 'listing unavailable on KW website, it will be destroyed'
       listing = Listing.find_by(url: imovel_url)
@@ -52,7 +57,11 @@ class ScrapeListingDetails
     # TaskHelper.consent_cookies(browser)
     listing = Listing.find_or_initialize_by(title:) if listing.nil?
 
-    # unless url has div with id 'property', destroy listing and return
+    unless @browser.text.downcase.include? 'imóveis'
+      log 'KW website down'
+      return
+    end
+
     unless browser.text.include? 'Sofia Galvão'
       log 'listing unavailable on KW website, it will be destroyed'
       listing.destroy
@@ -186,6 +195,12 @@ class ScrapeListingDetails
 
   def self.scrape_language_details(browser, listing, language)
     browser.goto(listing.url)
+
+    unless browser.text.include? 'Sofia Galvão'
+      log 'listing unavailable on KW website'
+      return
+    end
+
     # TaskHelper.consent_cookies(browser)
     toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
 

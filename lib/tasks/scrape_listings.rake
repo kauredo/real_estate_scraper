@@ -11,7 +11,7 @@ task scrape: :environment do |_t, _args|
   def scrape_total
     @browser.refresh
 
-    unless @browser.text.include? 'Sofia Galvão'
+    unless @browser.text.downcase.include? 'imóveis'
       ScrapeListingDetails.log 'KW website down'
       return 0
     end
@@ -115,6 +115,17 @@ task rescrape: :environment do |_t, _args|
     ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
   end
 
+  if listings.empty?
+    puts 'No listings to scrape'
+    return
+  end
+
+  @browser.goto 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
+  unless @browser.text.downcase.include? 'imóveis'
+    ScrapeListingDetails.log 'KW website down'
+    return
+  end
+
   listings.each do |listing|
     scrape_one(listing.url, listing)
   end
@@ -151,6 +162,12 @@ task :scrape_one, [:url] => :environment do |_t, arguments|
 
   def scrape_language_details(listing)
     ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
+  end
+
+  @browser.goto 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
+  unless @browser.text.downcase.include? 'imóveis'
+    ScrapeListingDetails.log 'KW website down'
+    return
   end
 
   scrape_one(url, listing)
