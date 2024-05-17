@@ -1,4 +1,4 @@
-// import { i18n } from "../../languages/languages";
+import { i18n } from "../../languages/languages";
 
 export function lazyloadImages() {
   var tablinks = document.getElementsByClassName("ajustedBackground");
@@ -45,27 +45,23 @@ export function toCapitalize(string) {
 }
 
 export const sanitizeURL = url => {
-  // TODO: fix this
-  return url;
-  // if (i18n.locale === "pt") {
-  //   return url();
-  // } else {
-  //   return url({ locale: i18n.locale });
-  // }
+  if (i18n.locale === "pt") {
+    return url;
+  } else {
+    return `/${i18n.locale}${url}`;
+  }
 };
 
 export const sanitizeURLWithParams = (url, params) => {
-  // TODO: fix this
-  return url;
-  // if (params === undefined || params === null) {
-  //   return "#";
-  // }
+  if (params === undefined || params === null) {
+    return "#";
+  }
 
-  // if (i18n.locale === "pt") {
-  //   return url(params);
-  // } else {
-  //   return url(params, { locale: i18n.locale });
-  // }
+  if (i18n.locale === "pt") {
+    return `${url}/${params}`;
+  } else {
+    return `/${i18n.locale}${url}/${params}`;
+  }
 };
 
 export const changeLocale = () => {
@@ -84,9 +80,7 @@ export const changeLocale = () => {
     url.push(window.location.pathname);
   }
 
-  url.push(window.location.search);
-
-  return url.join("");
+  window.location = url.join("") as unknown as Location;
 };
 
 export function waitForElm(selector) {

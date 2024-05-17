@@ -1,4 +1,4 @@
-import "./stylesheets/application.tailwind.css.scss";
+import "./stylesheets/application.tailwind.scss";
 import Home from "./components/home/Home";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "./components/home/Navbar";
@@ -24,7 +24,7 @@ export default function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/:locale?" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />

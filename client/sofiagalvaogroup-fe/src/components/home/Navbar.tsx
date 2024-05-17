@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { i18n } from "../../languages/languages";
 import { changeLocale, sanitizeURL } from "../utils/Functions";
@@ -122,9 +122,10 @@ export default function Navbar(props: Props) {
 
   rightItems.push({
     title: "",
-    url: changeLocale(),
+    url: "#",
     turbo: "false",
     hover: `${i18n.t("navbar.language")}`,
+    onClick: () => changeLocale(),
     img: (
       <img
         loading="lazy"
@@ -160,14 +161,14 @@ export default function Navbar(props: Props) {
     </HashLink>
   );
 
-  // const backofficeBtn = admin &&
-  //   !window.location.pathname.includes("backoffice") && (
-  //     <HashLink to={sanitizeURL('#backoffice')} data-turbo={false}>
-  //       <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-  //         <p>{i18n.t("navbar.backoffice")}</p>
-  //       </div>
-  //     </HashLink>
-  //   );
+  const backofficeBtn = admin &&
+    !window.location.pathname.includes("backoffice") && (
+      <HashLink to={sanitizeURL("/backoffice")} data-turbo={false}>
+        <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <p>{i18n.t("navbar.backoffice")}</p>
+        </div>
+      </HashLink>
+    );
 
   const resourceBtn = admin && resource && (
     <HashLink to={resource.path} data-turbo={false}>
@@ -179,7 +180,7 @@ export default function Navbar(props: Props) {
 
   const adminBtns = admin && (
     <div className="z-10 absolute top-24 left-0 flex">
-      {/* {backofficeBtn} */}
+      {backofficeBtn}
       {resourceBtn}
     </div>
   );

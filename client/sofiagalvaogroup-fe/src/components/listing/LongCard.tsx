@@ -27,7 +27,7 @@ export default function LongCard(props: Props) {
 
       window.confirm("De certeza que queres apagar o imóvel?");
 
-      fetch(sanitizeURLWithParams("#backoffice_listing", listing.slug), {
+      fetch(sanitizeURLWithParams("/backoffice_listing", listing.slug), {
         method: "DELETE",
         headers: {
           "X-CSRF-Token": token,

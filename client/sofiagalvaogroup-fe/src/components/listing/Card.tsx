@@ -2,7 +2,6 @@ import { sanitizeURLWithParams, truncateText } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
 import { HashLink } from "react-router-hash-link";
-import banner from "../../assets/images/banner.webp";
 
 export default function Card({ listing }) {
   return (
@@ -10,7 +9,7 @@ export default function Card({ listing }) {
       style={{ marginTop: "-2rem" }}
       className="card mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto"
     >
-      <HashLink to={sanitizeURLWithParams("#listing", listing.slug)}>
+      <HashLink to={sanitizeURLWithParams("/buy", listing.slug)}>
         <div
           data-src={listing.photos[0]}
           className="ajustedBackground object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"

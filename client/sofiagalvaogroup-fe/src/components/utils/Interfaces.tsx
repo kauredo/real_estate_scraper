@@ -90,6 +90,7 @@ export interface NavbarItemProps {
   hover?: string;
   img?: any;
   items?: NavbarItemProps[];
+  onClick?: () => void;
 }
 
 export interface BlogPost {

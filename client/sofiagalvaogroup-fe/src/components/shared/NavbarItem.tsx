@@ -9,7 +9,7 @@ interface Props {
 
 export default function NavbarItem(props: Props) {
   const { item, fullWidth } = props;
-  const { turbo, title, url, hover, img } = item;
+  const { turbo, title, url, hover, img, onClick } = item;
   const className = title.length > 0 ? navbarItemClass(url, false) : "";
 
   return (
@@ -19,6 +19,7 @@ export default function NavbarItem(props: Props) {
       to={url}
       title={hover}
       className={`${className} ${fullWidth && "block !w-full text-right"}`}
+      onClick={onClick}
     >
       {title}
       {img}
