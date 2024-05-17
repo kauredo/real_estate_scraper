@@ -11,7 +11,7 @@ export function lazyloadImages() {
 }
 
 export function truncateText(title, length) {
-  if (title && title.length > 90) {
+  if (title && title.length > length) {
     return title.substring(0, length) + "...";
   } else {
     return title;
