@@ -54,7 +54,7 @@ export default function Show(props: Props) {
               pagingDotsClassName: "mx-1",
             }}
           >
-            {listing.photos.map(photo => (
+            {listing.photos?.map(photo => (
               <img
                 loading="lazy"
                 style={{ maxHeight: "70vh", objectFit: "contain" }}
@@ -108,7 +108,7 @@ export default function Show(props: Props) {
                   <br />
                   <span>{listing.price} €</span>
                 </div>
-                {Object.keys(listing.stats).map((k, v) => {
+                {Object.keys(listing.stats)?.map((k, v) => {
                   return (
                     <div key={k} className="border p-2 w-1/2">
                       <span className="font-bold">{k}:</span>
