@@ -6,7 +6,7 @@ class ScrapeListingDetails
   def self.scrape_details(browser, imovel_url, force = false)
     browser.goto(imovel_url)
 
-    unless @browser.text.downcase.include? 'imóveis'
+    unless browser.text.downcase.include? 'imóveis'
       log 'KW website down'
       return
     end
@@ -57,7 +57,7 @@ class ScrapeListingDetails
     # TaskHelper.consent_cookies(browser)
     listing = Listing.find_or_initialize_by(title:) if listing.nil?
 
-    unless @browser.text.downcase.include? 'imóveis'
+    unless browser.text.downcase.include? 'imóveis'
       log 'KW website down'
       return
     end
