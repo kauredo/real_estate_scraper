@@ -18,6 +18,9 @@ class ScrapeListingDetails
       return
     end
 
+    # set browser to full screen
+    browser.window.resize_to(1920, 1080)
+
     toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
     retry_count = 0
     until toggle&.text == 'Português' || retry_count >= 2
@@ -200,6 +203,9 @@ class ScrapeListingDetails
       log 'listing unavailable on KW website'
       return
     end
+
+    # set browser to full screen
+    browser.window.resize_to(1920, 1080)
 
     # TaskHelper.consent_cookies(browser)
     toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
