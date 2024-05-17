@@ -91,7 +91,7 @@ class ScrapeListingDetails
 
       price = nil
     end
-    listing.price = price
+    listing.price = price if price.present?
 
     # # status
     # count = 0
@@ -142,7 +142,7 @@ class ScrapeListingDetails
 
       address = nil
     end
-    listing.address = address
+    listing.address = address if address.present?
 
     # features
     count = 0
@@ -152,9 +152,9 @@ class ScrapeListingDetails
       count += 1
       retry if count < 3
 
-      features = nil
+      features = listing.features || []
     end
-    listing.features_pt = features
+    listing.features_pt = features if features.present?
 
     # description
     count = 0
@@ -167,12 +167,12 @@ class ScrapeListingDetails
       description = nil
     end
 
-    listing.description_pt = description
+    listing.description_pt = description if description.present?
 
     # images
     if listing.photos.empty? || force
       images = browser.div(class: 'content-photos').wait_until(timeout: 10, &:present?).as(class: 'lightbox')
-      listing.photos = images.map(&:href)
+      listing.photos = images.map(&:href) if images.present?
     end
 
     # # geo data
@@ -246,16 +246,26 @@ class ScrapeListingDetails
     log "Gathering data for listing #{listing.title}"
 
     # features
-    count = 0
     begin
-      listing.features = browser.div(class: 'characteristics').wait_until(timeout: 10, &:present?)&.lis&.map(&:text)
+      features = browser.div(class: 'characteristics').wait_until(timeout: 10, &:present?)&.lis&.map(&:text)
     rescue StandardError => e
       count += 1
       retry if count < 3
+
+      features = listing.features || []
     end
+    listing.features = features if features.present?
 
     # description
-    listing.description = browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.text
+    begin
+      description = browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.text
+    rescue StandardError => e
+      count += 1
+      retry if count < 3
+
+      description = nil
+    end
+    listing.description = description if description.present?
 
     # # geo data
     listing.title&.gsub! 'm2', 'm²'
@@ -274,7 +284,7 @@ class ScrapeListingDetails
   end
 
   def self.log(message)
-    puts message
+    puts message # rubocop:disable Rails/Output
     Rails.logger.debug message
   end
 end
