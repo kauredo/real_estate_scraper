@@ -14,15 +14,16 @@ export default function Login() {
     event.preventDefault();
 
     try {
-      const response = axios.post(`${API_URL}/admins/sign_in`, {
+      const response = await axios.post(`${API_URL}/admins/sign_in`, {
         email,
         password,
       });
-      console.log(response);
 
-      // if (response.status === 200) {
-      //   navigate("/admin/dashboard");
-      // }
+      localStorage.setItem("auth_token", response.data.status.data.token);
+
+      if (response.status === 200) {
+        navigate("/admin/dashboard");
+      }
     } catch (error) {
       console.error(error);
     }

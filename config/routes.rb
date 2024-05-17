@@ -7,7 +7,13 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      devise_for :admins, defaults: { format: :json }
+      devise_for :admins, controllers: {
+        sessions: 'api/v1/admins/sessions',
+        registrations: 'api/v1/admins/registrations',
+        confirmations: 'api/v1/admins/confirmations',
+        passwords: 'api/v1/admins/passwords',
+        unlocks: 'api/v1/admins/unlocks'
+      }
       resources :listings do
         collection do
           get '/by_geography', to: 'listings#by_geography'

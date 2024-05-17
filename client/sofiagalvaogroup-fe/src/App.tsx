@@ -46,9 +46,9 @@ export default function App() {
 
         {/* BACKOFFICE */}
 
-        <Route path="/backoffice" element={<Layout />}>
+        <Route path="backoffice" element={<Layout />}>
           {/* <Route index element={<BackofficeHome />} /> */}
-          <Route path="login" element={<Login />} />
+          <Route index element={<Login />} />
         </Route>
       </Routes>
     </div>
