@@ -47,9 +47,12 @@ export default function Enterprises() {
         <div className="py-8 md:py-0 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="lg:text-center">
-              <p className="mt-2 text-3xl text-black sm:text-4xl">
-                {i18n.t("enterprises.subheader")}
-              </p>
+              <p
+                className="mt-2 text-3xl text-black sm:text-4xl decoration-beige"
+                dangerouslySetInnerHTML={{
+                  __html: i18n.t("enterprises.subheader"),
+                }}
+              ></p>
             </div>
             <div className="my-10">
               <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">

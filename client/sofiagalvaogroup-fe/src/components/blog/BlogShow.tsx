@@ -10,7 +10,14 @@ export default function BlogShow() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const id = window.location.pathname.split("/")[2];
+      const path = window.location.pathname.split("/");
+      let id;
+      if (Object.keys(i18n.translations).includes(path[1])) {
+        id = path[3];
+      } else {
+        id = path[2];
+      }
+
       const tempBlogPost = await find_blog_post_by_id(id);
 
       return { tempBlogPost };

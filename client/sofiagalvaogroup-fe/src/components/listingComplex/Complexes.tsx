@@ -12,6 +12,8 @@ export default function Complexes(props: Props) {
   return (
     <div className="container mx-auto">
       {listing_complexes?.map(listing_complex => {
+        if (!listing_complex.name || !listing_complex.description) return null;
+
         return (
           <ComplexCard
             backoffice={backoffice}
