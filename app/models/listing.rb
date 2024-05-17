@@ -35,7 +35,7 @@ class Listing < ApplicationRecord
                        }
 
   def city
-    if CITIES[:south].any? { |c| address.downcase.include?(c) }
+    if CITIES[:south].any? { |c| address&.downcase&.include?(c) }
       'Sul'
     else
       'Norte'
