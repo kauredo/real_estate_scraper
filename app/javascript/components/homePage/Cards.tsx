@@ -41,7 +41,7 @@ export default function Cards(props: Props) {
         <div className="w-full relative flex items-center justify-center">
           <div className="w-full h-full mx-auto overflow-y-hidden">
             <div className="sm:w-min mx-auto flex flex-col sm:flex-row mb-6">
-              {locations.map(location => (
+              {locations?.map(location => (
                 <button
                   key={`${location}-tab`}
                   onClick={() => setSelectedLocation(location)}
@@ -68,7 +68,7 @@ export default function Cards(props: Props) {
                   pagingDotsClassName: "mx-1 hidden sm:block",
                 }}
               >
-                {listings[selectedLocation].map(listing => (
+                {listings[selectedLocation]?.map(listing => (
                   <Card listing={listing} key={listing.slug} />
                 ))}
               </Carousel>
@@ -98,7 +98,7 @@ export default function Cards(props: Props) {
                   pagingDotsClassName: "mx-1 hidden sm:block",
                 }}
               >
-                {photos.map(photo => {
+                {photos?.map(photo => {
                   return (
                     <img
                       loading="lazy"
@@ -139,7 +139,7 @@ export default function Cards(props: Props) {
                   pagingDotsClassName: "mx-1 hidden sm:block",
                 }}
               >
-                {listings.map(listing => (
+                {listings?.map(listing => (
                   <Card listing={listing} key={listing.slug} />
                 ))}
               </Carousel>

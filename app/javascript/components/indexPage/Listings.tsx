@@ -12,7 +12,7 @@ export default function Listings(props: Props) {
 
   return (
     <div className="container mx-auto">
-      {listings.map(listing => {
+      {listings?.map(listing => {
         return (
           <LongCard
             backoffice={backoffice}

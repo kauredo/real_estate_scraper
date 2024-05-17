@@ -61,7 +61,7 @@ export default function Testimonials(props: Props) {
               pagingDotsClassName: "mx-1 hidden sm:block",
             }}
           >
-            {testimonials.map(testimonial => {
+            {testimonials?.map(testimonial => {
               return (
                 <li key={`${testimonial.name}--testimonial`} className="p-6">
                   <div className="h-full w-full text-left">

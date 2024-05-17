@@ -71,7 +71,7 @@ export default function Show(props: Props) {
                 </tr>
               </thead>
               <tbody>
-                {complex.listings.map(listing => {
+                {complex.listings?.map(listing => {
                   return (
                     <tr
                       key={listing.slug}

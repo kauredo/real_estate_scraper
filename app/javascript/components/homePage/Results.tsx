@@ -25,7 +25,7 @@ export default function Results(props: Props) {
       className="container mx-auto flex flex-col justify-between items-center min-h-[30vh] md:py-8 "
     >
       <div className="text-center w-full sm:w-1/2 mx-auto text-2xl flex flex-col sm:flex-row justify-around items-center flex-wrap pb-6">
-        {variables.map(variable => {
+        {variables?.map(variable => {
           return (
             <div
               key={variable.name}

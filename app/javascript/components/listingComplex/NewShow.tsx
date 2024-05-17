@@ -47,7 +47,7 @@ export default function NewShow(props: Props) {
               pagingDotsClassName: "mx-1 hidden tablet:block",
             }}
           >
-            {complex.photos.map(photo => {
+            {complex.photos?.map(photo => {
               return (
                 <img
                   loading="lazy"
@@ -131,7 +131,7 @@ export default function NewShow(props: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {complex.listings.map(listing => {
+                  {complex.listings?.map(listing => {
                     return (
                       <tr
                         key={listing.slug}
@@ -206,7 +206,7 @@ export default function NewShow(props: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {complex.listing_prices[1].map(prices => {
+                  {complex.listing_prices[1]?.map(prices => {
                     return (
                       <tr
                         key={prices}

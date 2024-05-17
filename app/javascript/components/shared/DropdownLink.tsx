@@ -43,7 +43,7 @@ const DropdownLink = (props: DropdownProps) => {
       ? navbarItemClass(
           null,
           false,
-          items.map(item => item.url)
+          items?.map(item => item.url)
         )
       : "";
 
@@ -77,7 +77,7 @@ const DropdownLink = (props: DropdownProps) => {
         ref={dropdownMenuRef}
       >
         <ul className="py-2">
-          {items.map(item => (
+          {items?.map(item => (
             <Suspense
               fallback={<div>Loading...</div>}
               key={`${item.title}_middle`}

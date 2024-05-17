@@ -134,7 +134,7 @@ export default function Show(props: Props) {
                   gridTemplateColumns: "repeat( auto-fit, minmax(230px, 1fr) )",
                 }}
               >
-                {listing?.features.map(feat => {
+                {listing?.features?.map(feat => {
                   return (
                     <li key={feat} className="mx-8 list-disc">
                       {feat}

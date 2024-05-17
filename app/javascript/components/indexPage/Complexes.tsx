@@ -12,7 +12,7 @@ export default function Complexes(props: Props) {
 
   return (
     <div className="container mx-auto">
-      {listing_complexes.map(listing_complex => {
+      {listing_complexes?.map(listing_complex => {
         return (
           <ComplexCard
             backoffice={backoffice}
