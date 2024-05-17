@@ -133,6 +133,51 @@ task rescrape: :environment do |_t, _args|
   @browser.close
 end
 
+desc 'Force re-scrape listings off KW website'
+task force_rescrape: :environment do |_t, _args|
+  listings = Listing.all
+
+  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
+  args << 'headless' if ENV.fetch('HEADFULL', '').blank?
+  options = Selenium::WebDriver::Chrome::Options.new(args:)
+  @browser = Watir::Browser.new(:chrome, options:)
+
+  def scrape_one(url, listing)
+    I18n.with_locale(:pt) do
+      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
+    end
+
+    I18n.with_locale(:en) do
+      TaskHelper.run_and_retry_on_exception(method(:scrape_language_details), params: listing) if listing.reload.deleted_at.nil?
+    end
+  end
+
+  def scrape_details(url)
+    ScrapeListingDetails.scrape_details(@browser, url, true)
+  end
+
+  def scrape_language_details(listing)
+    ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
+  end
+
+  if listings.empty?
+    puts 'No listings to scrape'
+    return
+  end
+
+  @browser.goto 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
+  unless @browser.text.downcase.include? 'imóveis'
+    ScrapeListingDetails.log 'KW website down'
+    return
+  end
+
+  listings.each do |listing|
+    scrape_one(listing.url, listing)
+  end
+
+  @browser.close
+end
+
 desc 'Scrape one listing off KW website'
 task :scrape_one, [:url] => :environment do |_t, arguments|
   url = arguments.url
