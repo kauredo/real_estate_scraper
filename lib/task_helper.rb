@@ -5,7 +5,7 @@ class TaskHelper
     tries += 1
 
     if params.present?
-      cmd.call(params)
+      cmd.call(*params)
     else
       cmd.call
     end

@@ -13,6 +13,6 @@ class ScrapeUrlJob
     Rake::Task['scrape_one'].invoke(url)
     Rake::Task['scrape_one'].reenable
 
-    Rails.logger.debug 'DONE'
+    Rails.logger.debug 'DONE ScrapeUrlJob'
   end
 end

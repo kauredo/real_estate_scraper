@@ -4,43 +4,206 @@ require 'task_helper'
 
 class ScrapeListingDetails
   def self.scrape_details(browser, imovel_url, force = false)
-    browser.goto(imovel_url)
+    website_avaliable = navigate_and_check_website(browser, imovel_url, delete: true)
+    return unless website_avaliable
 
+    change_language(browser, 'Português')
+    gather_listing_data(browser, imovel_url, force)
+  end
+
+  def self.scrape_language_details(browser, listing, language)
+    website_avaliable = navigate_and_check_website(browser, listing.url)
+    return unless website_avaliable
+
+    change_language(browser, language)
+    update_translatable_listing_fields(browser, listing)
+  end
+
+  def self.navigate_and_check_website(browser, url, delete: false)
+    browser.goto(url)
+    check_website_availability(browser, url, delete)
+  end
+
+  def self.check_website_availability(browser, url, delete)
     unless browser.text.downcase.include? 'imóveis'
       log 'KW website down'
-      return
+      return false
     end
 
-    unless browser.text.include? 'Sofia Galvão'
-      log 'listing unavailable on KW website, it will be destroyed'
-      listing = Listing.find_by(url: imovel_url)
-      listing&.destroy
-      return
-    end
+    return true if browser.text.include? 'Sofia Galvão'
 
-    # set browser to full screen
+    log 'listing unavailable on KW website, it will be destroyed'
+    destroy_listing_if_exists(url) if delete
+    false
+  end
+
+  def self.change_language(browser, target_language)
+    set_browser_to_full_screen(browser)
+    toggle_language(browser, target_language)
+  end
+
+  def self.set_browser_to_full_screen(browser)
     browser.window.resize_to(1920, 1080)
+  end
 
+  def self.toggle_language(browser, target_language)
     toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
     retry_count = 0
-    until toggle&.text == 'Português' || retry_count >= 2
+
+    until toggle&.text == target_language || retry_count >= 2
       toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
 
       toggle.click
       language_list = browser.ul(class: 'dropdown-menu show').wait_until(timeout: 10, &:present?)
-      language_list.a(text: 'Português').click
+      language_list.a(text: target_language).click
 
       # go back on the page to refresh the page with the new language
       browser.back
       browser.refresh
       retry_count += 1
     end
-    sleep 1
+  end
 
-    title = browser.title.gsub! 'm2', 'm²'
+  def self.gather_listing_data(browser, imovel_url, force)
+    title = browser.title.gsub('m2', 'm²')
     url = browser.url
-    log "Gathering data for listing #{title}"
+    log "Gathering data for listing \"#{title}\""
 
+    listing = find_or_create_listing(imovel_url, title, url)
+    if !force && (listing.persisted? && Listing.includes(:translations).where(url:, translations: { locale: 'pt', title: }))
+      log "Listing \"#{listing.title}\" already exists"
+      return
+    end
+
+    update_listing_fields(browser, listing, force)
+  end
+
+  def self.update_listing_fields(browser, listing, force)
+    listing.title = browser.title.gsub('m2', 'm²')
+    listing.url = browser.url
+    listing.status = 1
+
+    price = extract_price(browser)
+    listing.price = price if price
+
+    stats = extract_stats(browser)
+    listing.stats = stats if stats
+
+    address = extract_address(browser)
+    listing.address = address if address
+
+    features = extract_features(browser)
+    listing.features = features if features
+
+    description = extract_description(browser)
+    listing.description = description if description
+
+    if listing.photos.blank? || force
+      photos = extract_images(browser)
+      listing.photos = photos if photos
+    end
+
+    save_listing(listing)
+  end
+
+  def self.update_translatable_listing_fields(browser, listing)
+    log "Gathering translated data for listing \"#{listing.title}\""
+
+    listing.title = browser.title.gsub('m2', 'm²')
+
+    features = extract_features(browser)
+    listing.features = features if features
+
+    description = extract_description(browser)
+    listing.description = description.gsub!('m2', 'm²') if description
+
+    save_listing(listing)
+  end
+
+  def self.extract_price(browser)
+    count = 0
+    begin
+      browser.div(class: 'price').wait_until(timeout: 10, &:present?)&.text
+    rescue StandardError => _e
+      count += 1
+      retry if count < 3
+
+      nil
+    end
+  end
+
+  def self.extract_stats(browser)
+    count = 0
+    begin
+      browser.div(class: 'infopoints').wait_until(timeout: 10, &:present?)&.divs(class: 'point')&.map { |row| row&.text&.squish&.split(': ') }.to_h
+    rescue StandardError => _e
+      count += 1
+      retry if count < 3
+
+      nil
+    end
+  end
+
+  def self.extract_address(browser)
+    count = 0
+    begin
+      browser.div(class: 'location').wait_until(timeout: 10, &:present?)&.text&.squish
+    rescue StandardError => _e
+      count += 1
+      retry if count < 3
+
+      nil
+    end
+  end
+
+  def self.extract_features(browser)
+    count = 0
+    begin
+      browser.div(class: 'characteristics').wait_until(timeout: 10, &:present?)&.lis&.map(&:text)
+    rescue StandardError => _e
+      count += 1
+      retry if count < 3
+
+      []
+    end
+  end
+
+  def self.extract_description(browser)
+    count = 0
+    begin
+      browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.text
+    rescue StandardError => _e
+      count += 1
+      retry if count < 3
+
+      nil
+    end
+  end
+
+  def self.extract_images(browser)
+    count = 0
+    begin
+      browser.div(class: 'content-photos').wait_until(timeout: 10, &:present?)&.as(class: 'lightbox')&.map(&:href)
+    rescue StandardError => _e
+      count += 1
+      retry if count < 3
+
+      []
+    end
+  end
+
+  def self.save_listing(listing)
+    ActiveRecord::Base.connection_pool.release_connection
+    ActiveRecord::Base.connection_pool.with_connection do
+      if listing.save
+        log "Finished listing \"#{listing.title}\""
+      else
+        log "ERROR: Listing at \"#{listing.url}\" has errors"
+      end
+    end
+  end
+
+  def self.find_or_create_listing(imovel_url, title, url)
     old_url_exists = Listing.exists?(url: imovel_url)
     new_url_exists = Listing.exists?(url:)
     name_exists = Listing.includes(:translations).where(translations: { locale: 'pt', title: }).exists?
@@ -57,230 +220,17 @@ class ScrapeListingDetails
                 Listing.find_or_initialize_by(title:)
               end
 
-    # TaskHelper.consent_cookies(browser)
-    listing = Listing.find_or_initialize_by(title:) if listing.nil?
+    return listing if listing.present?
 
-    unless browser.text.downcase.include? 'imóveis'
-      log 'KW website down'
-      return
-    end
-
-    unless browser.text.include? 'Sofia Galvão'
-      log 'listing unavailable on KW website, it will be destroyed'
-      listing.destroy
-      return
-    end
-
-    if !force && (listing.persisted? && Listing.includes(:translations).where(url:, translations: { locale: 'pt', title: }))
-      log "Listing #{listing.title} already exists, not updating"
-      return
-    end
-
-    browser.refresh
-
-    listing.url = url
-    listing.title_pt = title
-
-    # price
-    count = 0
-    begin
-      price = browser.div(class: 'price').wait_until(timeout: 10, &:present?)&.text
-    rescue StandardError => _e
-      count += 1
-      retry if count < 3
-
-      price = nil
-    end
-    listing.price = price if price.present?
-
-    # # status
-    # count = 0
-    # begin
-    #   status = browser.div(class: 'listing-status').wait_until(timeout: 10, &:present?)
-    # rescue StandardError => e
-    #   count += 1
-    #   retry if count < 3
-
-    #   status = nil
-    # end
-
-    # if status.present?
-    #   listing.status = case status.text.strip
-    #                    when 'Novo' then 0
-    #                    when 'Reservado' then 2
-    #                    when 'Vendido' then 3
-    #                    else 1
-    #                    end
-    # end
-
-    listing.status = 1
-
-    # stats
-    count = 0
-    begin
-      attributes = browser.div(class: 'infopoints').wait_until(timeout: 10, &:present?)
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-
-      attributes = nil
-    end
-
-    if attributes.present?
-      listing.stats = attributes.divs(class: 'point').map do |row|
-        row&.text&.squish&.split(': ')
-      end.to_h
-    end
-
-    # address
-    count = 0
-    begin
-      address = browser.div(class: 'location').wait_until(timeout: 10, &:present?)&.text&.squish
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-
-      address = nil
-    end
-    listing.address = address if address.present?
-
-    # features
-    count = 0
-    begin
-      features = browser.div(class: 'characteristics').wait_until(timeout: 10, &:present?)&.lis&.map(&:text)
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-
-      features = listing.features || []
-    end
-    listing.features_pt = features if features.present?
-
-    # description
-    count = 0
-    begin
-      description = browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.text
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-
-      description = nil
-    end
-
-    listing.description_pt = description if description.present?
-
-    # images
-    if listing.photos.empty? || force
-      images = browser.div(class: 'content-photos').wait_until(timeout: 10, &:present?).as(class: 'lightbox')
-      listing.photos = images.map(&:href) if images.present?
-    end
-
-    # # geo data
-    # listing.location = scrape_location(listing.address)
-    listing.title&.gsub! 'm2', 'm²'
-    listing.description_pt&.gsub! 'm2', 'm²'
-    if listing.stats
-      listing.stats['Área Útil']&.gsub! 'm2', 'm²'
-      listing.stats['Área Bruta (CP)']&.gsub! 'm2', 'm²'
-      listing.stats['Área do Terreno']&.gsub! 'm2', 'm²'
-    end
-
-    ActiveRecord::Base.connection_pool.release_connection
-    ActiveRecord::Base.connection_pool.with_connection do
-      if listing.save
-        log "Finished listing #{listing.title}"
-      else
-        message = "ERROR: Listing at #{listing.url} has errors"
-        log message
-      end
-    end
+    Listing.find_or_initialize_by(title:) if listing.nil?
   end
 
-  def self.scrape_language_details(browser, listing, language)
-    browser.goto(listing.url)
+  def self.destroy_listing_if_exists(url)
+    listing = Listing.find_by(url:)
+    return unless listing
 
-    unless browser.text.include? 'Sofia Galvão'
-      log 'listing unavailable on KW website'
-      return
-    end
-
-    # set browser to full screen
-    browser.window.resize_to(1920, 1080)
-
-    # TaskHelper.consent_cookies(browser)
-    toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
-
-    until toggle.text == language
-      toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
-
-      if toggle.text != language
-        toggle.click
-
-        language_list = browser.ul(class: 'dropdown-menu show').wait_until(timeout: 10, &:present?)
-        lang_button = language_list.a(text: language)
-
-        if lang_button.present?
-          log 'changing language btn present'
-          lang_button.click
-          browser.back
-        else
-          log 'changing language btn not present'
-        end
-
-        browser.refresh
-      else
-        log 'language already set'
-      end
-    end
-
-    # unless url has div with id 'property', return
-    begin
-      browser.div(id: 'property').wait_until(timeout: 10, &:present?)
-    rescue StandardError => _e
-      log 'listing unavailable'
-      # listing.destroy
-      return
-    end
-
-    listing.title = browser.title
-    log "Gathering data for listing #{listing.title}"
-
-    # features
-    begin
-      features = browser.div(class: 'characteristics').wait_until(timeout: 10, &:present?)&.lis&.map(&:text)
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-
-      features = listing.features || []
-    end
-    listing.features = features if features.present?
-
-    # description
-    begin
-      description = browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.text
-    rescue StandardError => e
-      count += 1
-      retry if count < 3
-
-      description = nil
-    end
-    listing.description = description if description.present?
-
-    # # geo data
-    listing.title&.gsub! 'm2', 'm²'
-    listing.description&.gsub! 'm2', 'm²'
-
-    ActiveRecord::Base.connection_pool.release_connection
-    ActiveRecord::Base.connection_pool.with_connection do
-      if listing.save
-        log "Finished listing #{listing.title}"
-      else
-        message = "ERROR: Listing at #{listing.url} has errors"
-        @errors << [listing, message]
-        log message
-      end
-    end
+    log 'listing unavailable on KW website, it will be destroyed'
+    listing&.destroy
   end
 
   def self.log(message)

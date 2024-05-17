@@ -4,17 +4,23 @@ require 'selenium-webdriver'
 require 'scrape_listing_details'
 require 'task_helper'
 
+BASE_URL = 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
+
+def setup_browser(headless: true)
+  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
+  args << 'headless' if headless
+  options = Selenium::WebDriver::Chrome::Options.new(args:)
+  Watir::Browser.new(:chrome, options:)
+end
+
 desc 'Scrape listings off KW website'
 task scrape: :environment do |_t, _args|
-  @url = 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
+  @url = BASE_URL
 
   def scrape_total
     @browser.refresh
 
-    unless @browser.text.downcase.include? 'imóveis'
-      ScrapeListingDetails.log 'KW website down'
-      return 0
-    end
+    return 0 if ScraperHelper.check_if_invalid?(@browser)
 
     @browser.div(class: 'properties').wait_until(timeout: 10, &:present?)
     matches = @browser.ul(class: 'pagination').wait_until(timeout: 10, &:present?).lis
@@ -61,10 +67,7 @@ task scrape: :environment do |_t, _args|
 
   @errors = []
   @lister = @url.split('/').last
-  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-  args << 'headless' if ENV.fetch('HEADFULL', '').blank?
-  options = Selenium::WebDriver::Chrome::Options.new(args:)
-  @browser = Watir::Browser.new(:chrome, options:)
+  @browser = setup_browser(headless: ENV.fetch('HEADFULL', '').blank?)
 
   @browser.goto(@url)
   # TaskHelper.consent_cookies(@browser)
@@ -92,42 +95,18 @@ desc 'Re-scrape listings off KW website'
 task rescrape: :environment do |_t, _args|
   listings = Listing.all
 
-  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-  args << 'headless' if ENV.fetch('HEADFULL', '').blank?
-  options = Selenium::WebDriver::Chrome::Options.new(args:)
-  @browser = Watir::Browser.new(:chrome, options:)
-
-  def scrape_one(url, listing)
-    I18n.with_locale(:pt) do
-      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
-    end
-
-    I18n.with_locale(:en) do
-      TaskHelper.run_and_retry_on_exception(method(:scrape_language_details), params: listing) if listing.reload.deleted_at.nil?
-    end
-  end
-
-  def scrape_details(url)
-    ScrapeListingDetails.scrape_details(@browser, url)
-  end
-
-  def scrape_language_details(listing)
-    ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
-  end
+  @browser = setup_browser(headless: ENV.fetch('HEADFULL', '').blank?)
 
   if listings.empty?
     puts 'No listings to scrape'
     return
   end
 
-  @browser.goto 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
-  unless @browser.text.downcase.include? 'imóveis'
-    ScrapeListingDetails.log 'KW website down'
-    return
-  end
+  @browser.goto BASE_URL
+  return if ScraperHelper.check_if_invalid?(@browser)
 
   listings.each do |listing|
-    scrape_one(listing.url, listing)
+    ScraperHelper.scrape_one(@browser, listing.url, listing)
   end
 
   @browser.close
@@ -137,42 +116,18 @@ desc 'Force re-scrape listings off KW website'
 task force_rescrape: :environment do |_t, _args|
   listings = Listing.all
 
-  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-  args << 'headless' if ENV.fetch('HEADFULL', '').blank?
-  options = Selenium::WebDriver::Chrome::Options.new(args:)
-  @browser = Watir::Browser.new(:chrome, options:)
-
-  def scrape_one(url, listing)
-    I18n.with_locale(:pt) do
-      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
-    end
-
-    I18n.with_locale(:en) do
-      TaskHelper.run_and_retry_on_exception(method(:scrape_language_details), params: listing) if listing.reload.deleted_at.nil?
-    end
-  end
-
-  def scrape_details(url)
-    ScrapeListingDetails.scrape_details(@browser, url, true)
-  end
-
-  def scrape_language_details(listing)
-    ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
-  end
-
   if listings.empty?
     puts 'No listings to scrape'
     return
   end
 
-  @browser.goto 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
-  unless @browser.text.downcase.include? 'imóveis'
-    ScrapeListingDetails.log 'KW website down'
-    return
-  end
+  @browser = setup_browser(headless: ENV.fetch('HEADFULL', '').blank?)
+
+  @browser.goto BASE_URL
+  return if ScraperHelper.check_if_invalid?(@browser)
 
   listings.each do |listing|
-    scrape_one(listing.url, listing)
+    ScraperHelper.scrape_one(@browser, listing.url, listing, force: true)
   end
 
   @browser.close
@@ -186,42 +141,18 @@ task :scrape_one, [:url] => :environment do |_t, arguments|
     Listing.unscoped.find_by(url:)
   end
 
-  args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
-  args << 'headless' if ENV.fetch('HEADFULL', '').blank?
-  options = Selenium::WebDriver::Chrome::Options.new(args:)
-  @browser = Watir::Browser.new(:chrome, options:)
+  @browser = setup_browser(headless: ENV.fetch('HEADFULL', '').blank?)
 
-  def scrape_one(url, listing)
-    I18n.with_locale(:pt) do
-      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
-    end
+  @browser.goto BASE_URL
+  return if ScraperHelper.check_if_invalid?(@browser)
 
-    I18n.with_locale(:en) do
-      TaskHelper.run_and_retry_on_exception(method(:scrape_language_details), params: listing) if listing.reload.deleted_at.nil?
-    end
-  end
-
-  def scrape_details(url)
-    ScrapeListingDetails.scrape_details(@browser, url, true)
-  end
-
-  def scrape_language_details(listing)
-    ScrapeListingDetails.scrape_language_details(@browser, listing, 'English')
-  end
-
-  @browser.goto 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
-  unless @browser.text.downcase.include? 'imóveis'
-    ScrapeListingDetails.log 'KW website down'
-    return
-  end
-
-  scrape_one(url, listing)
+  ScraperHelper.scrape_one(@browser, url, listing, force: true)
   @browser.close
 end
 
 Rake::Task.tasks.each do |t|
   t.enhance do
-    puts @browser
+    puts 'Closing browser'
     @browser&.close
   end
 end
