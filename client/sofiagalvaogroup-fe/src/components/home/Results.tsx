@@ -17,8 +17,8 @@ export default function Results(props: Props) {
 
   const volume = variables.filter(
     vari =>
-      vari.name.toLowerCase().includes("negócios") ||
-      vari.name.toLowerCase().includes("business")
+      vari.name?.toLowerCase()?.includes("negócios") ||
+      vari.name?.toLowerCase()?.includes("business")
   )[0];
 
   return (

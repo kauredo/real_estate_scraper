@@ -68,3 +68,5 @@ latest.dump
 /client/**/yarn-error.log*
 
 /client/**/.cache
+
+dump.rdb

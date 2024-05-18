@@ -1,6 +1,8 @@
 import "./stylesheets/application.tailwind.scss";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import Home from "./components/home/Home";
-import { Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "./components/home/Navbar";
 import Footer from "./components/home/Footer";
 import About from "./components/staticPages/About";
@@ -19,12 +21,33 @@ import ListingComplexShow from "./components/listingComplex/ListingComplexShow";
 import Blog from "./components/blog/Blog";
 import BlogShow from "./components/blog/BlogShow";
 import Login from "./components/admins/Login";
+import BackofficeHome from "./components/backoffice/BackofficeHome";
 
 export default function App() {
+  const [isBackoffice, setIsBackoffice] = useState(false);
+  const location = useLocation();
+
+  const isAuthenticated = () => {
+    // Check if there is a token in localStorage
+    return !!localStorage.getItem("auth_token");
+  };
+
+  useEffect(() => {
+    // Update isBackoffice based on the current URL
+    setIsBackoffice(location.pathname.includes("backoffice"));
+  }, [location]);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Routes>
-        <Route path="/:locale?" element={<Layout />}>
+        <Route
+          path="/:locale?"
+          element={
+            <Layout admin={isAuthenticated()} backoffice={isBackoffice}>
+              <Outlet />
+            </Layout>
+          }
+        >
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
@@ -41,27 +64,45 @@ export default function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<BlogShow />} />
 
+          {/* BACKOFFICE */}
+          <Route
+            path="backoffice/*"
+            element={
+              isAuthenticated() ? (
+                <Outlet />
+              ) : (
+                <Navigate to="/backoffice/login" replace />
+              )
+            }
+          >
+            <Route index element={<BackofficeHome />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Route>
 
-        {/* BACKOFFICE */}
-
-        <Route path="backoffice" element={<Layout />}>
-          {/* <Route index element={<BackofficeHome />} /> */}
-          <Route index element={<Login />} />
-        </Route>
+        <Route
+          path="/backoffice/login"
+          element={
+            isAuthenticated() ? (
+              <Navigate to="/backoffice" replace />
+            ) : (
+              <Layout>
+                <Login />
+              </Layout>
+            )
+          }
+        />
       </Routes>
     </div>
   );
 }
 
-function Layout() {
+function Layout({ children, ...props }) {
   return (
     <main className="flex flex-col min-h-screen">
-      <Navbar />
-      <div className="flex-auto">
-        <Outlet />
-      </div>
+      <Navbar {...props} />
+      <div className="flex-auto">{children}</div>
       <Footer />
     </main>
   );
