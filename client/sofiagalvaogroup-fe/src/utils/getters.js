@@ -19,6 +19,12 @@ export async function find_all_listings(page = 1) {
     .then(response => response.data);
 }
 
+export async function find_all_backoffice_listings() {
+  return axios
+    .get(`${API_URL}/backoffice/listings?&locale=${current_locale()}`)
+    .then(response => response.data);
+}
+
 export async function find_listing_by_id(id) {
   return axios
     .get(`${API_URL}/listings/${id}?locale=${current_locale()}`)
@@ -56,6 +62,12 @@ export async function find_all_listing_complexes(page = 1) {
     .then(response => response.data);
 }
 
+export async function find_all_backoffice_listing_complexes() {
+  return axios
+    .get(`${API_URL}/backoffice/listing_complexes?&locale=${current_locale()}`)
+    .then(response => response.data);
+}
+
 export async function find_listing_complex_by_id(id) {
   return axios
     .get(`${API_URL}/listing_complexes/${id}?locale=${current_locale()}`)
@@ -71,5 +83,17 @@ export async function find_all_blog_posts(page = 1) {
 export async function find_blog_post_by_id(id) {
   return axios
     .get(`${API_URL}/blog_posts/${id}?locale=${current_locale()}`)
+    .then(response => response.data);
+}
+
+export async function find_all_backoffice_variables() {
+  return axios
+    .get(`${API_URL}/backoffice/variables`)
+    .then(response => response.data);
+}
+
+export async function find_all_backoffice_newsletter_subscriptions() {
+  return axios
+    .get(`${API_URL}/backoffice/newsletter_subscriptions`)
     .then(response => response.data);
 }

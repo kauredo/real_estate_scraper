@@ -2,4 +2,5 @@
 
 class NewsletterSubscription < ApplicationRecord
   belongs_to :user
+  delegate :name, :email, to: :user
 end

@@ -21,7 +21,7 @@ import ListingComplexShow from "./components/listingComplex/ListingComplexShow";
 import Blog from "./components/blog/Blog";
 import BlogShow from "./components/blog/BlogShow";
 import Login from "./components/admins/Login";
-import BackofficeHome from "./components/backoffice/BackofficeHome";
+import BackofficeHome from "./components/backoffice/home/BackofficeHome";
 
 export default function App() {
   const [isBackoffice, setIsBackoffice] = useState(false);

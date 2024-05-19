@@ -50,6 +50,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# Serializers
+gem 'jsonapi-serializer'
+
 # Other gems here
 gem 'carrierwave'
 gem 'cloudinary'
@@ -59,7 +62,6 @@ gem 'friendly_id'
 gem 'friendly_id-mobility'
 gem 'humanize'
 gem 'i18n-js'
-gem 'jsonapi-serializer'
 gem 'js-routes'
 gem 'jwt'
 gem 'listen', '~> 3.7', '>= 3.7.1'

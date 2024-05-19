@@ -24,20 +24,38 @@ Rails.application.routes.draw do
       resources :testimonials
 
       resources :blog_photos
-      resources :variables
       resources :listing_complexes
       resources :blog_posts
       resources :newsletter_subscriptions
+
+      namespace :backoffice do
+        resources :blog_posts, only: %i[index show create update destroy]
+        resources :variables, only: %i[index create update destroy]
+        resources :testimonials, only: %i[create update destroy]
+        resources :newsletter_subscriptions, only: %i[index]
+        resources :listings, only: %i[index create update destroy] do
+          member do
+            post '/update_details', to: 'listings#update_details'
+          end
+          collection do
+            post '/update_all', to: 'listings#update_all'
+          end
+        end
+        resources :listing_complexes, only: %i[index create update destroy] do
+          patch 'photos'
+          delete 'delete_photo'
+        end
+      end
     end
   end
 
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
-    devise_scope :admin do
-      # Redirests signing out users back to sign-in
-      get 'admins', to: 'devise/sessions#new'
-    end
+    # devise_scope :admin do
+    #   # Redirests signing out users back to sign-in
+    #   get 'admins', to: 'devise/sessions#new'
+    # end
 
-    devise_for :admins, defaults: { format: :json }
+    # devise_for :admins, defaults: { format: :json }
     # resources :listings, only: [:show]
     # resources :listing_complexes, only: [:show]
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -52,25 +70,6 @@ Rails.application.routes.draw do
       member do
         get '/confirm', to: 'newsletter_subscriptions#confirm'
       end
-    end
-
-    namespace :backoffice do
-      get '/', to: 'pages#home'
-      resources :variables, only: %i[create update destroy]
-      resources :blog_posts
-      resources :listings, only: %i[index create edit update destroy] do
-        member do
-          post '/update_details', to: 'listings#update_details'
-        end
-        collection do
-          post '/update_all', to: 'listings#update_all'
-        end
-      end
-      resources :listing_complexes do
-        patch 'photos'
-        delete 'delete_photo'
-      end
-      resources :testimonials
     end
   end
 
