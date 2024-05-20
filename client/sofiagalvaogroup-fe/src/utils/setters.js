@@ -141,3 +141,46 @@ export const deleteVariable = async (id, setFlashMessage) => {
     setFlashMessage
   );
 };
+
+/**
+ * Creates a new Testimonial.
+ * @param {Object} postData - The data for the new Testimonial.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const createTestimonial = async (postData, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/testimonials`,
+    postData,
+    "post",
+    setFlashMessage
+  );
+};
+
+/**
+ * Updates an existing Testimonial.
+ * @param {number} id - The ID of the Testimonial to update.
+ * @param {Object} updatedData - The updated data for the Testimonial.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const updateTestimonial = async (id, updatedData, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/testimonials/${id}`,
+    updatedData,
+    "put",
+    setFlashMessage
+  );
+};
+
+/**
+ * Deletes a Testimonial.
+ * @param {number} id - The ID of the Testimonial to delete.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const deleteTestimonial = async (id, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/testimonials/${id}`,
+    null,
+    "delete",
+    setFlashMessage
+  );
+};

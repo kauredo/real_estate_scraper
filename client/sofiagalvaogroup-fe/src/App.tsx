@@ -27,6 +27,9 @@ import BackofficeHome from "./components/backoffice/home/BackofficeHome";
 import Flashes from "./components/shared/Flashes";
 import BackofficeListings from "./components/backoffice/listings/BackofficeListings";
 import EditListing from "./components/backoffice/listings/EditListing";
+import BackofficeTestimonials from "./components/backoffice/testimonials/BackofficeTestimonials";
+import EditTestimonial from "./components/backoffice/testimonials/EditTestimonial";
+import NewTestimonial from "./components/backoffice/testimonials/NewTestimonial";
 
 export default function App() {
   const [isBackoffice, setIsBackoffice] = useState(false);
@@ -88,6 +91,15 @@ export default function App() {
                 <Route index element={<BackofficeHome />} />
                 <Route path="listings" element={<BackofficeListings />} />
                 <Route path="listings/:slug/edit" element={<EditListing />} />
+                <Route
+                  path="testimonials"
+                  element={<BackofficeTestimonials />}
+                />
+                <Route
+                  path="testimonials/:slug/edit"
+                  element={<EditTestimonial />}
+                />
+                <Route path="testimonials/new" element={<NewTestimonial />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
               <Route path="*" element={<NotFound />} />

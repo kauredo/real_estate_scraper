@@ -6,28 +6,30 @@ module Api
       class TestimonialsController < BackofficeController
         before_action :find_testimonial, except: %i[create]
 
+        def show
+          render json: @testimonial
+        end
+
         def create
           @testimonial = Testimonial.new(testimonial_params)
           if @testimonial.save
-            render json: @testimonial, status: :created
+            render json: { message: 'Testimonial created successfully', testimonial: @testimonial }
           else
             render json: { errors: @testimonial.errors.full_messages }, status: :unprocessable_entity
           end
         end
 
         def update
-          @testimonial = Testimonial.find(params[:id])
           if @testimonial.update(testimonial_params)
-            render json: @testimonial, status: :ok
+            render json: { message: 'Testimonial updated successfully', testimonial: @testimonial }
           else
             render json: { errors: @testimonial.errors.full_messages }, status: :unprocessable_entity
           end
         end
 
         def destroy
-          @testimonial = Testimonial.find(params[:id])
           @testimonial.destroy
-          head :no_content
+          render json: { message: 'Testimonial deleted successfully' }
         end
 
         private

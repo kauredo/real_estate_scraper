@@ -52,6 +52,12 @@ export async function find_all_testimonials() {
     .then(response => response.data);
 }
 
+export async function find_testimonial_by_id(id) {
+  return axios
+    .get(`${API_URL}/backoffice/testimonials/${id}?locale=${current_locale()}`)
+    .then(response => response.data);
+}
+
 export async function find_all_results() {
   return axios
     .get(`${API_URL}/results?locale=${current_locale()}`)

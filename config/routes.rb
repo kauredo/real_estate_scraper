@@ -31,7 +31,7 @@ Rails.application.routes.draw do
       namespace :backoffice do
         resources :blog_posts, only: %i[index show create update destroy]
         resources :variables, only: %i[index create update destroy]
-        resources :testimonials, only: %i[create update destroy]
+        resources :testimonials, only: %i[show create update destroy]
         resources :newsletter_subscriptions, only: %i[index]
         resources :listings, only: %i[index create update destroy] do
           member do
