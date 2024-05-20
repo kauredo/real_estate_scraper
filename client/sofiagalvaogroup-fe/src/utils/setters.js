@@ -15,12 +15,41 @@ export const createListing = async (postData, setFlashMessage) => {
 };
 
 /**
+ * Updates an existing listing.
+ * @param {number} id - The ID of the listing to update.
+ * @param {Object} updatedData - The updated data for the listing.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const updateListing = async (id, updatedData, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/listings/${id}`,
+    updatedData,
+    "put",
+    setFlashMessage
+  );
+};
+
+/**
  * Updates all listings.
  * @param {Function} setFlashMessage - Function to set flash messages.
  */
 export const updateAllListings = async setFlashMessage => {
   return executeApiCall(
     "/backoffice/listings/update_all",
+    null,
+    "post",
+    setFlashMessage
+  );
+};
+
+/**
+ * Update listing details from website.
+ * @param {number} id - The ID of the listing to update.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const updateListingDetails = async (id, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/listings/${id}/update_details`,
     null,
     "post",
     setFlashMessage

@@ -12,8 +12,10 @@ module Api
       end
 
       def show
-        @listing = Listing.friendly.find(params[:id])
-        render json: @listing
+        listing = Listing.friendly.find(params[:id])
+        statuses = Listing.statuses.map { |key, _value| [I18n.t("listing.status.#{key}"), key] }
+        complexes = ListingComplex.all.map { |complex| [complex.name, complex.id] }
+        render json: { listing:, statuses:, complexes: }
       end
 
       def by_geography

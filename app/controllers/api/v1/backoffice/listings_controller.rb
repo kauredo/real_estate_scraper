@@ -41,7 +41,7 @@ module Api
 
           @listing.slug = nil
           @listing.update(new_params)
-          render json: @listing, status: :ok
+          render json: { message: I18n.t('listing.update.notice'), listing: @listing }, status: :ok
         rescue ActiveRecord::RecordInvalid => e
           render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
         end

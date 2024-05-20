@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { find_listing_by_id } from "../../../utils/getters";
-import { updateAllListings } from "../../../utils/setters";
+import { updateListing, updateListingDetails } from "../../../utils/setters";
 import { useFlashMessage } from "../../../contexts/FlashMessageContext";
 import { Listing } from "../../utils/Interfaces";
 import { i18n } from "../../../languages/languages";
@@ -9,7 +9,9 @@ import { HashLink } from "react-router-hash-link";
 const EditListing = () => {
   const [listing, setListing] = useState<Listing | any>(null);
   const [formState, setFormState] = useState<Listing>({ ...listing });
-  const [isOpen, setOpen] = useState(false);
+  const [listingStatuses, setListingStatuses] = useState([]);
+  const [listingComplexes, setListingComplexes] = useState([]);
+  const { setFlashMessage } = useFlashMessage();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,8 +29,10 @@ const EditListing = () => {
     };
 
     fetchData().then(data => {
-      setListing(data.tempListing);
-      setFormState({ ...data.tempListing });
+      setListing(data.tempListing.listing);
+      setFormState({ ...data.tempListing.listing });
+      setListingStatuses(data.tempListing.statuses);
+      setListingComplexes(data.tempListing.complexes);
     });
   }, []);
 
@@ -37,7 +41,9 @@ const EditListing = () => {
   }
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormState({ ...formState, [name]: value });
@@ -46,8 +52,7 @@ const EditListing = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log(formState);
-    // You might want to send the formState to your server here
+    updateListing(listing.id, formState, setFlashMessage);
   };
 
   return (
@@ -61,7 +66,7 @@ const EditListing = () => {
           mudar para a linguagem desejada
         </p>
         <form onSubmit={handleSubmit} className="my-6">
-          <ActionBtns listing={listing} gap />
+          <ActionBtns setFlashMessage={setFlashMessage} listing={listing} gap />
 
           {/* Form Fields */}
           <div className="field mb-4 flex flex-col sm:flex-row items-center gap-4">
@@ -71,7 +76,7 @@ const EditListing = () => {
             <input
               type="text"
               name="title"
-              value={formState.title}
+              value={formState.title || ""}
               onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
@@ -83,7 +88,7 @@ const EditListing = () => {
             <input
               type="text"
               name="url"
-              value={formState.url}
+              value={formState.url || ""}
               onChange={handleChange}
               disabled
               className="input-disabled shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -96,7 +101,7 @@ const EditListing = () => {
             <input
               type="text"
               name="order"
-              value={formState.order}
+              value={formState.order || ""}
               onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
@@ -108,7 +113,7 @@ const EditListing = () => {
             <input
               type="text"
               name="address"
-              value={formState.address}
+              value={formState.address || ""}
               onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
@@ -120,7 +125,7 @@ const EditListing = () => {
             <input
               type="text"
               name="price"
-              value={formState.price}
+              value={formState.price || ""}
               onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
@@ -132,23 +137,31 @@ const EditListing = () => {
             <input
               type="text"
               name="video_link"
-              value={formState.video_link}
+              value={formState.video_link || ""}
               onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          {/* <div className="field mb-4 flex flex-col sm:flex-row items-center gap-4">
+          <div className="field mb-4 flex flex-col sm:flex-row items-center gap-4">
             <label htmlFor="status" className="w-1/4">
               Status:
             </label>
             <select
               name="status"
-              value={formState.status}
+              value={formState.status || ""}
               onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             >
-              <option value="order">Ordem normal</option>
-              <option value="recent">Mais recentes</option>
+              {listingStatuses.map(status => {
+                const text = status[0];
+                const value = status[1] || status[0];
+
+                return (
+                  <option value={value} key={value}>
+                    {text}
+                  </option>
+                );
+              })}
             </select>
           </div>
           <div className="field mb-4 flex flex-col sm:flex-row items-center gap-4">
@@ -157,28 +170,36 @@ const EditListing = () => {
             </label>
             <select
               name="listing_complex_id"
-              value={formState.listing_complex_id}
+              value={formState.listing_complex_id || ""}
               onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             >
               <option value="">Associar a Empreendimento?</option>
+              {listingComplexes.map(complex => {
+                const text = complex[0];
+                const value = complex[1] || complex[0];
+
+                return (
+                  <option value={value} key={value}>
+                    {text}
+                  </option>
+                );
+              })}
             </select>
-          </div> */}
+          </div>
           <div className="field mb-4 flex flex-col sm:flex-row items-center gap-4">
             <label htmlFor="description" className="w-1/4">
               Description:
             </label>
             <textarea
               name="description"
-              value={formState.description}
+              value={formState.description || ""}
               onChange={handleChange}
               rows={30}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-
-          {/* Repeat similar blocks for other fields */}
-          <ActionBtns listing={listing} />
+          <ActionBtns setFlashMessage={setFlashMessage} listing={listing} />
         </form>
 
         {/* Photos Section */}
@@ -202,7 +223,7 @@ const EditListing = () => {
 
 export default EditListing;
 
-const ActionBtns = ({ listing, gap = false }) => {
+const ActionBtns = ({ listing, setFlashMessage, gap = false }) => {
   return (
     <div className={`flex items-center gap-2 ${gap && "mb-4"}`}>
       <button
@@ -212,7 +233,7 @@ const ActionBtns = ({ listing, gap = false }) => {
         Atualizar Imóvel
       </button>
       <HashLink
-        to={`/update-details-backoffice-listing/${listing.id}`}
+        onClick={() => updateListingDetails(listing.id, setFlashMessage)}
         className="bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
       >
         Atualizar informação - site KW

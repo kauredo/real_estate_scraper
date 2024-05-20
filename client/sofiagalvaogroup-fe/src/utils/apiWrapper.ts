@@ -26,8 +26,6 @@ export const executeApiCall = async (
 
     return response.data;
   } catch (error) {
-    console.log(error);
-
     // Handle error case
     setFlashMessage({
       type: "error",
