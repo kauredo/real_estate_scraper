@@ -50,18 +50,6 @@ Rails.application.routes.draw do
   end
 
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
-    # devise_scope :admin do
-    #   # Redirests signing out users back to sign-in
-    #   get 'admins', to: 'devise/sessions#new'
-    # end
-
-    # devise_for :admins, defaults: { format: :json }
-    # resources :listings, only: [:show]
-    # resources :listing_complexes, only: [:show]
-    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-    # Defines the root path route ("/")
-
     post '/novo_contacto', to: 'pages#new_contact', as: :new_contact
     post '/tinymce_assets' => 'blog_photos#create'
     resources :blog_photos, only: %i[create destroy]
@@ -73,9 +61,7 @@ Rails.application.routes.draw do
     end
   end
 
-  authenticate :admin, ->(a) { a.confirmed? } do
-    mount Sidekiq::Web => '/sidekiq'
-  end
+  mount Sidekiq::Web => '/sidekiq'
 
   get '/sitemap', to: 'testsuite#sitemap'
 end

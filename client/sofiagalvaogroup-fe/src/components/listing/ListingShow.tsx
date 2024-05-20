@@ -32,9 +32,9 @@ export default function ListingShow() {
     };
 
     fetchData().then(data => {
-      setListing(data.tempListing);
+      setListing(data.tempListing.listing);
       setResource({
-        path: `/backoffice/listings/${data.tempListing.slug}/edit`,
+        path: `/backoffice/listings/${data.tempListing.listing.slug}/edit`,
         name: "Imóvel",
       });
     });
