@@ -11,14 +11,23 @@ const NewComplex = () => {
     description: "",
     subtext: "",
     final_text: "",
+    listings: [],
+    hidden: false,
+    new_format: false,
+    photos: [],
   };
   const { setFlashMessage } = useFlashMessage();
   const navigate = useNavigate();
 
   const onCreate = (values: ListingComplex) => {
     // Handle form submission logic here
-    createListingComplex(values, setFlashMessage);
-    navigate("/backoffice/testimonials");
+    createListingComplex(values, setFlashMessage).then(res => {
+      if (res?.listing_complex) {
+        navigate(
+          `/backoffice/listing_complexes/${res.listing_complex.id}/edit`
+        );
+      }
+    });
   };
 
   return (

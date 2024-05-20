@@ -33,6 +33,7 @@ Rails.application.routes.draw do
         resources :variables, only: %i[index create update destroy]
         resources :testimonials, only: %i[show create update destroy]
         resources :newsletter_subscriptions, only: %i[index]
+        resources :photos, only: %i[destroy]
         resources :listings, only: %i[index create update destroy] do
           member do
             post '/update_details', to: 'listings#update_details'

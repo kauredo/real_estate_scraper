@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'rack/auth/basic'
 class BasicAuth < Rack::Auth::Basic
   def call(env)
     request = Rack::Request.new(env)

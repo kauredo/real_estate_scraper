@@ -26,7 +26,7 @@ module Api
             render json: { errors: [I18n.t('listing.create.error')] }, status: :unprocessable_entity
           end
         rescue ActiveRecord::RecordInvalid => e
-          render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+          render json: { errors: e.record.errors.full_messages.to_sentence }, status: :unprocessable_entity
         end
 
         def update
@@ -43,7 +43,7 @@ module Api
           @listing.update(new_params)
           render json: { message: I18n.t('listing.update.notice'), listing: @listing }, status: :ok
         rescue ActiveRecord::RecordInvalid => e
-          render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+          render json: { errors: e.record.errors.full_messages.to_sentence }, status: :unprocessable_entity
         end
 
         def update_all

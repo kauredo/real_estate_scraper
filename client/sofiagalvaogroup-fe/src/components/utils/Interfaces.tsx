@@ -38,6 +38,7 @@ export interface ListingComplex {
   order: number;
   photos: Photo[];
   slug: string;
+  listing_ids: number[];
   listing_prices?: [string, string[]];
 }
 

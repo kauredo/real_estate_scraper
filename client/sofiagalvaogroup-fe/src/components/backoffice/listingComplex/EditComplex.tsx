@@ -31,9 +31,10 @@ const EditComplex = () => {
   }, []);
 
   const onUpdate = (values: ListingComplex) => {
+    // remove listings key from values if it exists
+    const { listings, listing_prices, ...rest } = values;
     // Handle form submission logic here
-    updateListingComplex(complex.id, values, setFlashMessage);
-    setComplex(values);
+    updateListingComplex(complex.id, rest, setFlashMessage);
   };
 
   return (

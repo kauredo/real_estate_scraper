@@ -15,7 +15,7 @@ module Api
           if @testimonial.save
             render json: { message: 'Testimonial created successfully', testimonial: @testimonial }
           else
-            render json: { errors: @testimonial.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @testimonial.errors.full_messages.to_sentence }, status: :unprocessable_entity
           end
         end
 
@@ -23,7 +23,7 @@ module Api
           if @testimonial.update(testimonial_params)
             render json: { message: 'Testimonial updated successfully', testimonial: @testimonial }
           else
-            render json: { errors: @testimonial.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @testimonial.errors.full_messages.to_sentence }, status: :unprocessable_entity
           end
         end
 

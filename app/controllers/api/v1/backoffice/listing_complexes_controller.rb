@@ -14,36 +14,35 @@ module Api
         end
 
         def create
-          @listing_complex = ListingComplex.new(listing_complex_params)
+          @listing_complex = ListingComplex.new(listing_complex_params.except(:photos))
           if @listing_complex.save
-            if params[:photos]
-              params[:photos]['image']&.each do |a|
-                @photo = @listing_complex.photos.create!(image: a, listing_complex_id: @listing_complex.id) if a.present?
-              end
-            end
-            render json: @listing_complex, status: :created
+            render json: { message: 'Listing complex created successfully', listing_complex: @listing_complex }, status: :created
           else
-            render json: { errors: @listing_complex.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @listing_complex.errors.full_messages.to_sentence }, status: :unprocessable_entity
           end
         end
 
         def update
           @listing_complex.slug = nil
 
-          if @listing_complex.update(listing_complex_params)
-            if params[:photos] && params[:photos]['image']&.any?(&:present?)
+          if @listing_complex.update(listing_complex_params.except(:photos))
+            if !params[:photos].is_a?(Array) && params[:photos]['image']&.any?
               params[:photos]['image'].each do |a|
                 @photo = @listing_complex.photos.create!(image: a, listing_complex_id: @listing_complex.id) if a.present?
               end
             end
             photos
           else
-            render json: { errors: @listing_complex.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @listing_complex.errors.full_messages.to_sentence }, status: :unprocessable_entity
           end
         end
 
         def photos
           params[:photos]&.each do |id, values|
+            unless values
+              values = id
+              id = id['id']
+            end
             next if id == 'image'
 
             photo = Photo.find(id)
@@ -53,7 +52,7 @@ module Api
             photo.save if photo.changed?
           end
 
-          render json: @listing_complex, status: :ok
+          render json: { message: 'Photos updated successfully', listing_complex: @listing_complex }, status: :ok
         end
 
         def destroy
@@ -92,22 +91,22 @@ module Api
         end
 
         def listing_complex_params
-          params.require(:listing_complex).permit(:name,
-                                                  :description,
-                                                  :order,
-                                                  :video_link,
-                                                  :new_format,
-                                                  :hidden,
-                                                  :subtext,
-                                                  :final_text,
-                                                  listing_ids: [],
-                                                  photos: %i[
-                                                    id
-                                                    listing_complex_id
-                                                    image
-                                                    main
-                                                    order
-                                                  ])
+          params.permit(:name,
+                        :description,
+                        :order,
+                        :video_link,
+                        :new_format,
+                        :hidden,
+                        :subtext,
+                        :final_text,
+                        listing_ids: [],
+                        photos: %i[
+                          id
+                          listing_complex_id
+                          image
+                          main
+                          order
+                        ])
         end
       end
     end

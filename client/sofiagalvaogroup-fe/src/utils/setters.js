@@ -104,6 +104,40 @@ export const updateListingComplex = async (
 };
 
 /**
+ * Updates an existing listing complex with photos.
+ * @param {number} id - The ID of the listing complex to update.
+ * @param {Object} updatedData - The updated data for the listing complex.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const updatePhotosListingComplex = async (
+  id,
+  updatedData,
+  setFlashMessage
+) => {
+  return executeApiCall(
+    `/backoffice/listing_complexes/${id}`,
+    updatedData,
+    "put",
+    setFlashMessage,
+    "multipart/form-data"
+  );
+};
+
+/**
+ * Deletes a photo.
+ * @param {number} id - The ID of the photo to delete.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const deletePhoto = async (id, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/photos/${id}`,
+    null,
+    "delete",
+    setFlashMessage
+  );
+};
+
+/**
  * Deletes a listing complex.
  * @param {number} id - The ID of the listing complex to delete.
  * @param {Function} setFlashMessage - Function to set flash messages.

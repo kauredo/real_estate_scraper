@@ -14,10 +14,15 @@ export const executeApiCall = async (
   endpoint,
   data,
   method,
-  setFlashMessage
+  setFlashMessage,
+  type = "application/json"
 ) => {
   try {
-    const response = await axios[method](`${API_URL}${endpoint}`, data);
+    const response = await axios[method](`${API_URL}${endpoint}`, data, {
+      headers: {
+        "Content-Type": type,
+      },
+    });
     // Assuming the response contains a type and message
     setFlashMessage({
       type: response.data.type || "success",
