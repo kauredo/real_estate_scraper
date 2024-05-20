@@ -28,6 +28,20 @@ export const updateAllListings = async setFlashMessage => {
 };
 
 /**
+ * Deletes a listing.
+ * @param {number} id - The ID of the listing to delete.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const deleteListing = async (id, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/listings/${id}`,
+    null,
+    "delete",
+    setFlashMessage
+  );
+};
+
+/**
  * Creates a new blog post.
  * @param {Object} postData - The data for the new blog post.
  * @param {Function} setFlashMessage - Function to set flash messages.

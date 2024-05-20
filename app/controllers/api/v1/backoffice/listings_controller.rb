@@ -53,7 +53,7 @@ module Api
 
         def destroy
           @listing.destroy
-          head :no_content
+          render json: { message: 'Imóvel eliminado com sucesso' }, status: :ok
         end
 
         def update_details

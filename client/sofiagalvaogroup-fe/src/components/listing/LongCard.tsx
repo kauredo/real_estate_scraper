@@ -4,37 +4,33 @@ import { truncateText, sanitizeURLWithParams } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
 import { HashLink } from "react-router-hash-link";
+import { deleteListing } from "../../utils/setters";
+import { useFlashMessage } from "../../contexts/FlashMessageContext";
 
 interface Props {
   listing: Listing;
   backoffice?: boolean;
   small?: boolean;
+  listingsCount?: number;
+  setListingsCount?: (count: number) => void;
 }
 
 export default function LongCard(props: Props) {
-  let { listing, backoffice, small } = props;
+  let { listing, backoffice, small, listingsCount, setListingsCount } = props;
   const [isVisible, setIsVilible] = useState(true);
   const [checked, setChecked] = useState(false);
   const [checkbox, setCheckbox] = useState<HTMLInputElement | null>(null);
+  const { setFlashMessage } = useFlashMessage();
+
   const handleRemoveItem = e => {
     e.preventDefault();
-    const element: HTMLElement | null = document.getElementById(
-      'meta[name="csrf-token"]'
-    );
 
-    if (element instanceof HTMLMetaElement) {
-      const token = element.content;
-
-      window.confirm("De certeza que queres apagar o imóvel?");
-
-      fetch(sanitizeURLWithParams("/backoffice/listing", listing.slug), {
-        method: "DELETE",
-        headers: {
-          "X-CSRF-Token": token,
-          "Content-Type": "application/json",
-        },
-      }).then(res => {
+    if (window.confirm("De certeza que queres apagar o imóvel?")) {
+      deleteListing(listing.id, setFlashMessage).then(res => {
         setIsVilible(false);
+        if (setListingsCount && listingsCount) {
+          setListingsCount(listingsCount - 1);
+        }
       });
     }
   };
@@ -71,7 +67,7 @@ export default function LongCard(props: Props) {
           small
             ? "#"
             : backoffice
-            ? `/backoffice/${listing.slug}`
+            ? `/backoffice/listings/${listing.slug}/edit`
             : listing.slug
         }
         onClick={e => small && e.preventDefault()}

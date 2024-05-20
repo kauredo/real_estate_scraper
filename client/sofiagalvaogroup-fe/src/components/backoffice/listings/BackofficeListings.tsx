@@ -8,6 +8,7 @@ const BackofficeListings = () => {
   // Assuming you have a way to fetch or manage the listings data here
   const [selectedOrder, setSelectedOrder] = useState("order");
   const [listings, setListings] = useState([]);
+  const [listingsCount, setListingsCount] = useState(0);
   const { setFlashMessage } = useFlashMessage();
 
   const handleOrderChange = event => {
@@ -30,6 +31,7 @@ const BackofficeListings = () => {
 
     fetchData().then(data => {
       setListings(data.tempListings);
+      setListingsCount(data.tempListings.length);
     });
   }, [selectedOrder]);
 
@@ -64,9 +66,14 @@ const BackofficeListings = () => {
           Imóveis
         </h2>
         <p className="text-center text-gray-600 max-w-none">
-          Total {listings?.length} imóveis
+          Total {listingsCount} imóveis
         </p>
-        <Listings listings={listings} backoffice={true} />
+        <Listings
+          listings={listings}
+          backoffice={true}
+          listingsCount={listingsCount}
+          setListingsCount={setListingsCount}
+        />
       </div>
     </div>
   );
