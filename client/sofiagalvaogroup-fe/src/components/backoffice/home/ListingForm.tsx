@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { createListing } from "../../../utils/setters";
 
 export default function ListingForm() {
   const [url, setUrl] = useState("");
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(url);
+
+    createListing({ url });
   };
 
   return (

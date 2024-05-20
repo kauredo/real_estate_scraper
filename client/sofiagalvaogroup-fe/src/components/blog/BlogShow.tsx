@@ -24,7 +24,6 @@ export default function BlogShow() {
     };
 
     fetchData().then(data => {
-      console.log(data);
       setBlogPost(data.tempBlogPost.blog_post);
     });
   }, []);

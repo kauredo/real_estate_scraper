@@ -93,22 +93,22 @@ export default function Navbar(props: Props) {
     {
       title: `${i18n.t("navbar.listings")}`,
       turbo: "true",
-      url: sanitizeURL("/backoffice_listings"),
+      url: sanitizeURL("/backoffice/listings"),
     },
     {
       title: `${i18n.t("navbar.enterprises")}`,
       turbo: "true",
-      url: sanitizeURL("/backoffice_listing_complexes"),
+      url: sanitizeURL("/backoffice/listing_complexes"),
     },
     {
       title: `${i18n.t("navbar.testimonies")}`,
       turbo: "true",
-      url: sanitizeURL("/backoffice_testimonials"),
+      url: sanitizeURL("/backoffice/testimonials"),
     },
     {
       title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
-      url: sanitizeURL("/backoffice_blog_posts"),
+      url: sanitizeURL("/backoffice/blog_posts"),
     },
   ];
 

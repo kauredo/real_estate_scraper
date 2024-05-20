@@ -4,7 +4,7 @@ module Api
   module V1
     module Backoffice
       class VariablesController < BackofficeController
-        before_action :find_variable, except: %i[index create update destroy]
+        before_action :find_variable, except: %i[index create]
 
         def index
           @variables = Variable.all
@@ -29,7 +29,6 @@ module Api
         end
 
         def destroy
-          binding.pry
           @variable.destroy
           head :no_content
         end

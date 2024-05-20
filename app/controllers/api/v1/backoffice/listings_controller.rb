@@ -23,7 +23,7 @@ module Api
             ScrapeUrlJob.perform_async(listing.url, true)
             render json: { message: I18n.t('listing.create.notice') }, status: :created
           else
-            render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: [I18n.t('listing.create.error')] }, status: :unprocessable_entity
           end
         rescue ActiveRecord::RecordInvalid => e
           render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity

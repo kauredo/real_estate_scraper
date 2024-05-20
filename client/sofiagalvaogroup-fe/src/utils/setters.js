@@ -3,12 +3,32 @@ import axios from "axios";
 import { API_URL } from "./getters";
 
 /**
+ * Creates a new listing.
+ * @param {Object} postData - The data for the new listing.
+ */
+export const createListing = async postData => {
+  try {
+    const response = await axios.post(
+      `${API_URL}/backoffice/listings`,
+      postData
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+/**
  * Creates a new blog post.
  * @param {Object} postData - The data for the new blog post.
  */
 export const createBlogPost = async postData => {
   try {
-    const response = await axios.post(`${API_URL}/blog_posts`, postData);
+    const response = await axios.post(
+      `${API_URL}/backoffice/blog_posts`,
+      postData
+    );
     return response.data;
   } catch (error) {
     console.error(error);
@@ -24,7 +44,7 @@ export const createBlogPost = async postData => {
 export const updateBlogPost = async (id, updatedData) => {
   try {
     const response = await axios.put(
-      `${API_URL}/blog_posts/${id}`,
+      `${API_URL}/backoffice/blog_posts/${id}`,
       updatedData
     );
     return response.data;
