@@ -6,6 +6,7 @@ import { i18n } from "../../languages/languages";
 import { ReadMore } from "../shared/ReadMore";
 import Overlay from "../shared/Overlay";
 import { find_listing_by_id } from "../../utils/getters";
+import { useResource } from "../../contexts/ResourceContext";
 
 export default function ListingShow() {
   const meta_title = i18n.t("buy.header");
@@ -13,6 +14,7 @@ export default function ListingShow() {
 
   const [listing, setListing] = useState<Listing | any>(null);
   const [isOpen, setOpen] = useState(false);
+  const { setResource } = useResource();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +33,10 @@ export default function ListingShow() {
 
     fetchData().then(data => {
       setListing(data.tempListing);
+      setResource({
+        path: `/backoffice/listings/${data.tempListing.slug}/edit`,
+        name: "Imóvel",
+      });
     });
   }, []);
 

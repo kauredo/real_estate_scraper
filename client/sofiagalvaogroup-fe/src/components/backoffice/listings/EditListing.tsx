@@ -29,7 +29,6 @@ const EditListing = () => {
     fetchData().then(data => {
       setListing(data.tempListing);
       setFormState({ ...data.tempListing });
-      // set resource here
     });
   }, []);
 

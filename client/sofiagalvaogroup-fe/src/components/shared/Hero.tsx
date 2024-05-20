@@ -40,7 +40,7 @@ function Hero(props: Props) {
               <p>{i18n.t("navbar.buy")}</p>
             </div>
           </HashLink>
-          <HashLink to={sanitizeURL("/sell")} data-turbolinks={false}>
+          <HashLink to={sanitizeURL("/sell")}>
             <div className="px-5 lowercase">
               <p>{i18n.t("navbar.sell")}</p>
             </div>

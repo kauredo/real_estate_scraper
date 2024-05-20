@@ -8,6 +8,7 @@ import DropdownLink from "../shared/DropdownLink";
 import { HashLink } from "react-router-hash-link";
 import kw_logo from "../../assets/images/kw_logo.webp";
 import main_color from "../../assets/logos/main_color.webp";
+import { useResource } from "../../contexts/ResourceContext";
 
 interface Resource {
   path: string;
@@ -17,11 +18,11 @@ interface Resource {
 interface Props {
   backoffice?: boolean;
   admin?: boolean;
-  resource?: Resource;
 }
 
 export default function Navbar(props: Props) {
-  const { backoffice, admin, resource } = props;
+  const { backoffice, admin } = props;
+  const { resource } = useResource();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -154,7 +155,7 @@ export default function Navbar(props: Props) {
     });
 
   const showBtnOnNavbar = sanitizeURL("/sell") !== window.location.pathname && (
-    <HashLink to={sanitizeURL("/sell")} data-turbo={false}>
+    <HashLink to={sanitizeURL("/sell")}>
       <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
         <p>{i18n.t("home.cta.long")}</p>
       </div>
@@ -163,7 +164,7 @@ export default function Navbar(props: Props) {
 
   const backofficeBtn = admin &&
     !window.location.pathname.includes("backoffice") && (
-      <HashLink to={sanitizeURL("/backoffice")} data-turbo={false}>
+      <HashLink to={sanitizeURL("/backoffice")}>
         <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
           <p>{i18n.t("navbar.backoffice")}</p>
         </div>
@@ -171,9 +172,9 @@ export default function Navbar(props: Props) {
     );
 
   const resourceBtn = admin && resource && (
-    <HashLink to={resource.path} data-turbo={false}>
+    <HashLink to={resource?.path}>
       <div className="ml-2 whitespace-nowrap bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-        <p>Editar {resource.name} no Backoffice</p>
+        <p>Editar {resource?.name} no Backoffice</p>
       </div>
     </HashLink>
   );
@@ -233,7 +234,7 @@ export default function Navbar(props: Props) {
               </div>
             </div>
             <div className="-mr-2 flex tablet:hidden">
-              <HashLink to={sanitizeURL("/sell")} data-turbo={false}>
+              <HashLink to={sanitizeURL("/sell")}>
                 <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
                   <p>{i18n.t("home.cta.short")}</p>
                 </div>

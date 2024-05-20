@@ -14,7 +14,6 @@ export default function NavbarItem(props: Props) {
 
   return (
     <HashLink
-      data-turbo={turbo}
       key={`${title}--desktop`}
       to={url}
       title={hover}
