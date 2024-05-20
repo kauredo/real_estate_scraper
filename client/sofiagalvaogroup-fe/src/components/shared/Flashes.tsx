@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
+import { useFlashMessage } from "../../contexts/FlashMessageContext";
 
-interface Props {
-  type: string;
-  message: string;
-}
-
-export default function Flashes(props: Props) {
+export default function Flashes() {
   const [visible, setVisible] = useState(false);
-  const { type, message } = props;
+  const { flashMessage, setFlashMessage } = useFlashMessage();
 
   useEffect(() => {
-    setVisible(true);
-    setTimeout(() => {
-      setVisible(false);
-    }, 3000);
-  }, []);
+    if (flashMessage) {
+      setVisible(true);
+      setTimeout(() => {
+        setVisible(false);
+        setFlashMessage(null);
+      }, 3000);
+    }
+  }, [flashMessage, setFlashMessage]);
 
-  return visible ? (
+  if (!visible || !flashMessage) return <></>;
+
+  const { type, message } = flashMessage;
+
+  return (
     <div
       className={`container mx-auto absolute top-0 left-0 right-0 z-50 border px-4 py-3 rounded ${
         type === "error"
@@ -28,8 +31,11 @@ export default function Flashes(props: Props) {
       <div className="relative container mx-auto">
         <span className="block sm:inline">{message}.</span>
         <span
-          onClick={() => setVisible(false)}
-          className="absolute top-0 bottom-0 right-0"
+          onClick={() => {
+            setVisible(false);
+            setFlashMessage(null); // Clear the flash message immediately upon close
+          }}
+          className="absolute top-0 bottom-0 right-0 cursor-pointer"
         >
           <svg
             className={`fill-current h-6 w-6 ${
@@ -45,7 +51,5 @@ export default function Flashes(props: Props) {
         </span>
       </div>
     </div>
-  ) : (
-    ""
   );
 }

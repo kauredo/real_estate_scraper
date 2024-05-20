@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { createListing } from "../../../utils/setters";
+import { useFlashMessage } from "../../../contexts/FlashMessageContext";
 
 export default function ListingForm() {
   const [url, setUrl] = useState("");
+  const { setFlashMessage } = useFlashMessage();
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    createListing({ url });
+    createListing(url, setFlashMessage);
   };
 
   return (

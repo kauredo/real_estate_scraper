@@ -1,103 +1,88 @@
 import axios from "axios";
-
-import { API_URL } from "./getters";
+import { executeApiCall } from "./apiWrapper";
 
 /**
  * Creates a new listing.
  * @param {Object} postData - The data for the new listing.
+ * @param {Function} setFlashMessage - Function to set flash messages.
  */
-export const createListing = async postData => {
-  try {
-    const response = await axios.post(
-      `${API_URL}/backoffice/listings`,
-      postData
-    );
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+export const createListing = async (postData, setFlashMessage) => {
+  return executeApiCall(
+    "/backoffice/listings",
+    postData,
+    "post",
+    setFlashMessage
+  );
 };
 
 /**
  * Creates a new blog post.
  * @param {Object} postData - The data for the new blog post.
+ * @param {Function} setFlashMessage - Function to set flash messages.
  */
-export const createBlogPost = async postData => {
-  try {
-    const response = await axios.post(
-      `${API_URL}/backoffice/blog_posts`,
-      postData
-    );
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+export const createBlogPost = async (postData, setFlashMessage) => {
+  return executeApiCall(
+    "/backoffice/blog_posts",
+    postData,
+    "post",
+    setFlashMessage
+  );
 };
 
 /**
  * Updates an existing blog post.
  * @param {number} id - The ID of the blog post to update.
  * @param {Object} updatedData - The updated data for the blog post.
+ * @param {Function} setFlashMessage - Function to set flash messages.
  */
-export const updateBlogPost = async (id, updatedData) => {
-  try {
-    const response = await axios.put(
-      `${API_URL}/backoffice/blog_posts/${id}`,
-      updatedData
-    );
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+export const updateBlogPost = async (id, updatedData, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/blog_posts/${id}`,
+    updatedData,
+    "put",
+    setFlashMessage
+  );
 };
 
 /**
  * Creates a new Variable.
  * @param {Object} postData - The data for the new Variable.
+ * @param {Function} setFlashMessage - Function to set flash messages.
  */
-export const createVariable = async postData => {
-  try {
-    const response = await axios.post(
-      `${API_URL}/backoffice/variables`,
-      postData
-    );
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+export const createVariable = async (postData, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/variables`,
+    postData,
+    "post",
+    setFlashMessage
+  );
 };
 
 /**
  * Updates an existing Variable.
  * @param {number} id - The ID of the Variable to update.
  * @param {Object} updatedData - The updated data for the Variable.
+ * @param {Function} setFlashMessage - Function to set flash messages.
  */
-export const updateVariable = async (id, updatedData) => {
-  try {
-    const response = await axios.put(
-      `${API_URL}/backoffice/variables/${id}`,
-      updatedData
-    );
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+export const updateVariable = async (id, updatedData, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/variables/${id}`,
+    updatedData,
+    "put",
+    setFlashMessage
+  );
 };
 
 /**
  * Deletes a Variable.
  * @param {number} id - The ID of the Variable to delete.
+ * @param {Function} setFlashMessage - Function to set flash messages.
  */
-export const deleteVariable = async id => {
-  try {
-    await axios.delete(`${API_URL}/backoffice/variables/${id}`);
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+export const deleteVariable = async (id, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/variables/${id}`,
+    null,
+    "delete",
+    setFlashMessage
+  );
 };

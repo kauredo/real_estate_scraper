@@ -14,23 +14,25 @@ module Api
         def create
           var = Variable.new(variable_params)
           if var.save
-            render json: var, status: :created
+            message = 'Variable created successfully'
+            render json: { message:, variable: var }, status: :created
           else
-            render json: { errors: var.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: var.errors.full_messages.join(', ') }, status: :unprocessable_entity
           end
         end
 
         def update
           if @variable.update(variable_params)
-            render json: @variable, status: :ok
+            message = 'Variable updated successfully'
+            render json: { message:, variable: @variable }
           else
-            render json: { errors: @variable.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @variable.errors.full_messages.join(', ') }, status: :unprocessable_entity
           end
         end
 
         def destroy
           @variable.destroy
-          head :no_content
+          render json: { message: 'Variable deleted successfully' }
         end
 
         private

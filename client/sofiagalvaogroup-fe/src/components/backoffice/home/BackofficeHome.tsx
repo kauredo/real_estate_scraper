@@ -17,8 +17,15 @@ interface Subscription {
   user: User;
 }
 
+interface Variable {
+  id: number;
+  name: string;
+  value: string;
+  icon: string;
+}
+
 export default function BackofficeHome() {
-  const [variables, setVariables] = useState<User[]>([]);
+  const [variables, setVariables] = useState<Variable[]>([]);
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
 
   useEffect(() => {
@@ -56,6 +63,8 @@ export default function BackofficeHome() {
         </p>
         {variables.length > 0 &&
           variables.map(variable => {
+            if (!variable.name || !variable.value || !variable.icon) return;
+
             return (
               <VariableForm
                 key={variable.id}

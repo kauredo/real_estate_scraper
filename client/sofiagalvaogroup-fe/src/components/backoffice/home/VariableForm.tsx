@@ -4,30 +4,32 @@ import {
   updateVariable,
   deleteVariable,
 } from "../../../utils/setters";
+import { useFlashMessage } from "../../../contexts/FlashMessageContext";
 
 export default function VariableForm({ variable, variables, setVariables }) {
   const [name, setName] = useState(variable?.name);
   const [value, setValue] = useState(variable?.value);
   const [icon, setIcon] = useState(variable?.icon);
+  const { setFlashMessage } = useFlashMessage();
 
   const handleSubmit = event => {
     event.preventDefault();
 
     if (variable) {
-      updateVariable(variable.id, { name, value, icon });
+      updateVariable(variable.id, { name, value, icon }, setFlashMessage);
       setVariables(
         variables.map(v =>
           v.id === variable.id ? { ...v, name, value, icon } : v
         )
       );
     } else {
-      createVariable({ name, value, icon });
+      createVariable({ name, value, icon }, setFlashMessage);
       setVariables([...variables, { name, value, icon }]);
     }
   };
 
   const handleDelete = id => {
-    deleteVariable(id);
+    deleteVariable(id, setFlashMessage);
     setVariables(variables.filter(v => v.id !== id));
   };
 
