@@ -71,6 +71,53 @@ export const deleteListing = async (id, setFlashMessage) => {
 };
 
 /**
+ * Creates a new listing complex.
+ * @param {Object} postData - The data for the new listing complex.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const createListingComplex = async (postData, setFlashMessage) => {
+  return executeApiCall(
+    "/backoffice/listing_complexes",
+    postData,
+    "post",
+    setFlashMessage
+  );
+};
+
+/**
+ * Updates an existing listing complex.
+ * @param {number} id - The ID of the listing complex to update.
+ * @param {Object} updatedData - The updated data for the listing complex.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const updateListingComplex = async (
+  id,
+  updatedData,
+  setFlashMessage
+) => {
+  return executeApiCall(
+    `/backoffice/listing_complexes/${id}`,
+    updatedData,
+    "put",
+    setFlashMessage
+  );
+};
+
+/**
+ * Deletes a listing complex.
+ * @param {number} id - The ID of the listing complex to delete.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const deleteListingComplex = async (id, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/listing_complexes/${id}`,
+    null,
+    "delete",
+    setFlashMessage
+  );
+};
+
+/**
  * Creates a new blog post.
  * @param {Object} postData - The data for the new blog post.
  * @param {Function} setFlashMessage - Function to set flash messages.

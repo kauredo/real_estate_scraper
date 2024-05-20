@@ -4,12 +4,14 @@ import { i18n } from "../../languages/languages";
 import { find_listing_complex_by_id } from "../../utils/getters";
 import NewShow from "./NewShow";
 import Show from "./Show";
+import { useResource } from "../../contexts/ResourceContext";
 
 export default function ListingComplexShow() {
   const meta_title = i18n.t("buy.header");
   const meta_description = i18n.t("buy.meta_description");
 
   const [complex, setComplex] = useState<ListingComplex | any>(null);
+  const { setResource } = useResource();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,6 +30,10 @@ export default function ListingComplexShow() {
 
     fetchData().then(data => {
       setComplex(data.tempComplex.listing_complex);
+      setResource({
+        path: `/backoffice/listing_complexes/${data.tempComplex.listing_complex.slug}/edit`,
+        name: "Empreendimento",
+      });
     });
   }, []);
 

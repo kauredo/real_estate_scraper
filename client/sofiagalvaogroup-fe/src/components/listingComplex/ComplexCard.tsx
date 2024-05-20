@@ -14,10 +14,7 @@ export default function ComplexCard(props: Props) {
       <HashLink
         to={
           backoffice
-            ? sanitizeURLWithParams(
-                "#edit_backoffice_listing_complex",
-                listing_complex.slug
-              )
+            ? `/backoffice/listing_complexes/${listing_complex.slug}/edit`
             : listing_complex.slug
         }
       >
