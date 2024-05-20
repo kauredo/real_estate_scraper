@@ -34,6 +34,8 @@ class Listing < ApplicationRecord
                          all.group_by(&:city).to_h
                        }
 
+  delegate :main_photo, to: :listing_complex, allow_nil: true
+
   def city
     if CITIES[:south].any? { |c| address&.downcase&.include?(c) }
       'Sul'

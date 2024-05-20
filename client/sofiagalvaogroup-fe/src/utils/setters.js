@@ -1,4 +1,3 @@
-import axios from "axios";
 import { executeApiCall } from "./apiWrapper";
 
 /**
@@ -10,6 +9,19 @@ export const createListing = async (postData, setFlashMessage) => {
   return executeApiCall(
     "/backoffice/listings",
     postData,
+    "post",
+    setFlashMessage
+  );
+};
+
+/**
+ * Updates all listings.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const updateAllListings = async setFlashMessage => {
+  return executeApiCall(
+    "/backoffice/listings/update_all",
+    null,
     "post",
     setFlashMessage
   );

@@ -19,9 +19,11 @@ export async function find_all_listings(page = 1) {
     .then(response => response.data);
 }
 
-export async function find_all_backoffice_listings() {
+export async function find_all_backoffice_listings(order = "order") {
   return axios
-    .get(`${API_URL}/backoffice/listings?&locale=${current_locale()}`)
+    .get(
+      `${API_URL}/backoffice/listings?&locale=${current_locale()}&order=${order}`
+    )
     .then(response => response.data);
 }
 

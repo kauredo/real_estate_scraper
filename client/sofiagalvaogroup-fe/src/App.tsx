@@ -24,6 +24,7 @@ import BlogShow from "./components/blog/BlogShow";
 import Login from "./components/admins/Login";
 import BackofficeHome from "./components/backoffice/home/BackofficeHome";
 import Flashes from "./components/shared/Flashes";
+import BackofficeListings from "./components/backoffice/listings/BackofficeListings";
 
 export default function App() {
   const [isBackoffice, setIsBackoffice] = useState(false);
@@ -82,6 +83,7 @@ export default function App() {
               }
             >
               <Route index element={<BackofficeHome />} />
+              <Route path="listings" element={<BackofficeListings />} />
               <Route path="*" element={<NotFound />} />
             </Route>
             <Route path="*" element={<NotFound />} />

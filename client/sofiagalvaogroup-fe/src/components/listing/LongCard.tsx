@@ -27,7 +27,7 @@ export default function LongCard(props: Props) {
 
       window.confirm("De certeza que queres apagar o imóvel?");
 
-      fetch(sanitizeURLWithParams("/backoffice_listing", listing.slug), {
+      fetch(sanitizeURLWithParams("/backoffice/listing", listing.slug), {
         method: "DELETE",
         headers: {
           "X-CSRF-Token": token,
@@ -68,7 +68,11 @@ export default function LongCard(props: Props) {
       <HashLink
         className={small ? "cursor-not-allowed" : ""}
         to={
-          small ? "#" : backoffice ? `backoffice/${listing.slug}` : listing.slug
+          small
+            ? "#"
+            : backoffice
+            ? `/backoffice/${listing.slug}`
+            : listing.slug
         }
         onClick={e => small && e.preventDefault()}
       >

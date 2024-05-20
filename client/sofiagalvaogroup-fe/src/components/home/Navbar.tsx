@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { i18n } from "../../languages/languages";
 import { changeLocale, sanitizeURL } from "../utils/Functions";
