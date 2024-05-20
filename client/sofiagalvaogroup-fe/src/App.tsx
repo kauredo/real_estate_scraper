@@ -25,6 +25,7 @@ import Login from "./components/admins/Login";
 import BackofficeHome from "./components/backoffice/home/BackofficeHome";
 import Flashes from "./components/shared/Flashes";
 import BackofficeListings from "./components/backoffice/listings/BackofficeListings";
+import EditListing from "./components/backoffice/listings/EditListing";
 
 export default function App() {
   const [isBackoffice, setIsBackoffice] = useState(false);
@@ -84,6 +85,7 @@ export default function App() {
             >
               <Route index element={<BackofficeHome />} />
               <Route path="listings" element={<BackofficeListings />} />
+              <Route path="listings/:slug/edit" element={<EditListing />} />
               <Route path="*" element={<NotFound />} />
             </Route>
             <Route path="*" element={<NotFound />} />

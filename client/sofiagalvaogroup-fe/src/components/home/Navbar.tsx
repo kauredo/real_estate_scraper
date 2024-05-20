@@ -180,7 +180,7 @@ export default function Navbar(props: Props) {
 
   const adminBtns = admin && (
     <div className="z-10 absolute top-24 left-0 flex">
-      {backofficeBtn}
+      {/* {backofficeBtn} */}
       {resourceBtn}
     </div>
   );

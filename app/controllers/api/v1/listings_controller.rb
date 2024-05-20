@@ -13,10 +13,6 @@ module Api
 
       def show
         @listing = Listing.friendly.find(params[:id])
-        @resource = {
-          path: edit_backoffice_listing_path(@listing),
-          name: I18n.t('listing.resource')
-        }
         render json: @listing
       end
 
