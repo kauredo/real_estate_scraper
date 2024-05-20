@@ -4,7 +4,7 @@ module Api
   module V1
     module Backoffice
       class VariablesController < BackofficeController
-        before_action :find_variable, except: %i[index create]
+        before_action :find_variable, except: %i[index create update destroy]
 
         def index
           @variables = Variable.all
@@ -21,7 +21,6 @@ module Api
         end
 
         def update
-          @variable = Variable.find(params[:id])
           if @variable.update(variable_params)
             render json: @variable, status: :ok
           else
@@ -30,7 +29,7 @@ module Api
         end
 
         def destroy
-          @variable = Variable.find(params[:id])
+          binding.pry
           @variable.destroy
           head :no_content
         end

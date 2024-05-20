@@ -56,12 +56,23 @@ export default function BackofficeHome() {
         </p>
         {variables.length > 0 &&
           variables.map(variable => {
-            return <VariableForm variable={variable} />;
+            return (
+              <VariableForm
+                key={variable.id}
+                variable={variable}
+                variables={variables}
+                setVariables={setVariables}
+              />
+            );
           })}
 
         <div className="my-6">
           <div className="field mb-4 flex flex-col sm:flex-row items-center gap-4">
-            <VariableForm variable={null} />
+            <VariableForm
+              variable={null}
+              variables={variables}
+              setVariables={setVariables}
+            />
           </div>
         </div>
       </div>

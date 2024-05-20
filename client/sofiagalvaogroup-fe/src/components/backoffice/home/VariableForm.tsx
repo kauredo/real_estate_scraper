@@ -1,12 +1,34 @@
 import { useState } from "react";
+import {
+  createVariable,
+  updateVariable,
+  deleteVariable,
+} from "../../../utils/setters";
 
-export default function VariableForm({ variable }) {
+export default function VariableForm({ variable, variables, setVariables }) {
   const [name, setName] = useState(variable?.name);
   const [value, setValue] = useState(variable?.value);
   const [icon, setIcon] = useState(variable?.icon);
 
   const handleSubmit = event => {
     event.preventDefault();
+
+    if (variable) {
+      updateVariable(variable.id, { name, value, icon });
+      setVariables(
+        variables.map(v =>
+          v.id === variable.id ? { ...v, name, value, icon } : v
+        )
+      );
+    } else {
+      createVariable({ name, value, icon });
+      setVariables([...variables, { name, value, icon }]);
+    }
+  };
+
+  const handleDelete = id => {
+    deleteVariable(id);
+    setVariables(variables.filter(v => v.id !== id));
   };
 
   const classes =
@@ -50,7 +72,7 @@ export default function VariableForm({ variable }) {
                 if (
                   window.confirm("Are you sure you want to delete this item?")
                 ) {
-                  // Delete logic
+                  handleDelete(variable.id);
                 }
               }}
             >
