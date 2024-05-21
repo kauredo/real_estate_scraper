@@ -192,8 +192,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    js-routes (2.2.5)
-      railties (>= 4)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
     json (2.6.3)
@@ -447,7 +445,6 @@ DEPENDENCIES
   humanize
   i18n-js
   jbuilder
-  js-routes
   jsbundling-rails
   jsonapi-serializer
   jwt
