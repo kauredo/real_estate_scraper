@@ -25,6 +25,7 @@ class ScrapeListingDetails
   end
 
   def self.check_website_availability(browser, url, delete)
+    sleep 5
     unless browser.text.downcase.include? 'imóveis'
       log 'KW website down'
       return false

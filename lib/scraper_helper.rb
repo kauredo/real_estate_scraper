@@ -14,6 +14,7 @@ module ScraperHelper
   end
 
   def self.check_if_invalid?(browser)
+    sleep 5
     valid = browser.text.downcase.include? 'imóveis'
     if valid
       false
