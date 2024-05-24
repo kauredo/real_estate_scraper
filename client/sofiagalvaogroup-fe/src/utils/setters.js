@@ -181,6 +181,20 @@ export const updateBlogPost = async (id, updatedData, setFlashMessage) => {
 };
 
 /**
+ * Deletes a blog post.
+ * @param {number} id - The ID of the blog post to delete.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const deleteBlogPost = async (id, setFlashMessage) => {
+  return executeApiCall(
+    `/backoffice/blog_posts/${id}`,
+    null,
+    "delete",
+    setFlashMessage
+  );
+};
+
+/**
  * Creates a new Variable.
  * @param {Object} postData - The data for the new Variable.
  * @param {Function} setFlashMessage - Function to set flash messages.

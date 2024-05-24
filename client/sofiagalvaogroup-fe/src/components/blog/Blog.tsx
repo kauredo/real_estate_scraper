@@ -3,7 +3,7 @@ import { i18n } from "../../languages/languages";
 import Complexes from "../listingComplex/Complexes";
 import Banner from "../shared/Banner";
 import Pagination from "../shared/Pagination";
-import { Pagy } from "../utils/Interfaces";
+import { Pagy, BlogPost as BlogPostType  } from "../utils/Interfaces";
 import { find_all_blog_posts } from "../../utils/getters";
 import BlogPost from "./BlogPost";
 
@@ -11,7 +11,7 @@ export default function Blog() {
   const meta_title = i18n.t("blog_posts.header");
   const meta_description = i18n.t("blog_posts.meta_description");
 
-  const [blogPosts, setBlogPosts] = useState([]);
+  const [blogPosts, setBlogPosts] = useState<BlogPostType[]>([]);
   const [pagy, setPagy] = useState<Pagy | null>(null);
   const [page, setPage] = useState(1);
 
@@ -39,7 +39,7 @@ export default function Blog() {
           <div className="flex flex-wrap gap-4">
             {pagy && <Pagination pagy={pagy} page={page} setPage={setPage} />}
             {blogPosts?.map(blogPost => (
-              <BlogPost blogPost={blogPost} />
+              <BlogPost blogPost={blogPost} key={blogPost.id} />
             ))}
             {pagy && <Pagination pagy={pagy} page={page} setPage={setPage} />}
           </div>

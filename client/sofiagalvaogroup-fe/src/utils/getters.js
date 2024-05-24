@@ -88,6 +88,12 @@ export async function find_all_blog_posts(page = 1) {
     .then(response => response.data);
 }
 
+export async function find_all_backoffice_blog_posts() {
+  return axios
+    .get(`${API_URL}/backoffice/blog_posts?&locale=${current_locale()}`)
+    .then(response => response.data);
+}
+
 export async function find_blog_post_by_id(id) {
   return axios
     .get(`${API_URL}/blog_posts/${id}?locale=${current_locale()}`)

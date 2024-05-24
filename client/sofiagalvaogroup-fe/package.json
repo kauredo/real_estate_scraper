@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@tinymce/tinymce-react": "^5.0.1",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.67",
     "@types/react": "^18.2.42",
@@ -27,6 +28,7 @@
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
     "react-visibility-sensor": "^5.1.1",
+    "tinymce": "^7.1.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },

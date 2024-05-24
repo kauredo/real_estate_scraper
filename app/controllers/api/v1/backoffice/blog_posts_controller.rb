@@ -8,20 +8,15 @@ module Api
 
         def index
           @blog_posts = BlogPost.all
-          render json: @blog_posts.as_json(include: :blog_photos)
-        end
-
-        def show
-          @blog_post = BlogPost.friendly.find(params[:id])
-          render json: @blog_post.as_json(include: :blog_photos)
+          render json: @blog_posts.as_json(include: :blog_photos, methods: %i[main_photo sample_text])
         end
 
         def create
           @blog_post = BlogPost.new(blog_post_params)
           if @blog_post.save
-            render json: @blog_post.as_json(include: :blog_photos), status: :created
+            render json: { blog_post: @blog_post.as_json(include: :blog_photos), message: 'Post criado com sucesso' }, status: :created
           else
-            render json: @blog_post.errors, status: :unprocessable_entity
+            render json: { errors: @blog_post.errors.full_messages.to_sentence }, status: :unprocessable_entity
           end
         end
 
@@ -32,15 +27,15 @@ module Api
             create_blog_photos if params[:blog_photos] && params[:blog_photos][:image]&.any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
             update_blog_photos if params[:blog_photos].present? && params[:blog_photos][:image].none? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
 
-            render json: @blog_post.as_json(include: :blog_photos), status: :ok
+            render json: { blog_post: @blog_post.as_json(include: :blog_photos), message: 'Post atualizado com sucesso' }
           else
-            render json: @blog_post.errors, status: :unprocessable_entity
+            render json: { errors: @blog_post.errors.full_messages.to_sentence }, status: :unprocessable_entity
           end
         end
 
         def destroy
           @blog_post.destroy
-          head :no_content
+          render json: { message: 'Post eliminado com sucesso' }
         end
 
         private

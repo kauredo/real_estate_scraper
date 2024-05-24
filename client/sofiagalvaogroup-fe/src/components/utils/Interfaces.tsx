@@ -106,4 +106,6 @@ export interface BlogPost {
   title: string;
   date_created: string;
   text: string;
+  hidden: boolean;
+  sample_text: string;
 }

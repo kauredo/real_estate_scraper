@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { BlogPost } from "../utils/Interfaces";
 import { i18n } from "../../languages/languages";
 import { find_blog_post_by_id } from "../../utils/getters";
+import { useResource } from "../../contexts/ResourceContext";
 
 export default function BlogShow() {
   const [blogPost, setBlogPost] = useState<BlogPost | any>(null);
   const meta_title = blogPost ? blogPost.meta_title : "";
   const meta_description = blogPost ? blogPost.meta_description : "";
+  const { setResource } = useResource();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +27,10 @@ export default function BlogShow() {
 
     fetchData().then(data => {
       setBlogPost(data.tempBlogPost.blog_post);
+      setResource({
+        path: `/backoffice/blog_posts/${data.tempBlogPost.blog_post.slug}/edit`,
+        name: "Post",
+      });
     });
   }, []);
 

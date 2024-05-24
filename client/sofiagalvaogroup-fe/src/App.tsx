@@ -33,6 +33,9 @@ import NewTestimonial from "./components/backoffice/testimonials/NewTestimonial"
 import BackofficeComplexes from "./components/backoffice/listingComplex/BackofficeComplexes";
 import EditComplex from "./components/backoffice/listingComplex/EditComplex";
 import NewComplex from "./components/backoffice/listingComplex/NewComplex";
+import BackofficeBlog from "./components/backoffice/blog/BackofficeBlog";
+import EditBlog from "./components/backoffice/blog/EditBlog";
+import NewBlog from "./components/backoffice/blog/NewBlog";
 
 export default function App() {
   const [isBackoffice, setIsBackoffice] = useState(false);
@@ -112,6 +115,14 @@ export default function App() {
                   element={<EditComplex />}
                 />
                 <Route path="listing_complexes/new" element={<NewComplex />} />
+
+                <Route path="blog_posts" element={<BackofficeBlog />} />
+                <Route
+                  path="blog_posts/:slug/edit"
+                  element={<EditBlog />}
+                />
+                <Route path="blog_posts/new" element={<NewBlog />} />
+
                 <Route path="*" element={<NotFound />} />
               </Route>
               <Route path="*" element={<NotFound />} />
