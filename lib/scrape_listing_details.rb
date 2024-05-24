@@ -184,7 +184,7 @@ class ScrapeListingDetails
   def self.extract_images(browser)
     count = 0
     begin
-      browser.div(class: 'content-photos').wait_until(timeout: 10, &:present?)&.as(class: 'lightbox')&.map(&:href)
+      browser.div(class: 'content-photos').wait_until(timeout: 10, &:present?)&.as&.map(&:href)
     rescue StandardError => _e
       count += 1
       retry if count < 3
