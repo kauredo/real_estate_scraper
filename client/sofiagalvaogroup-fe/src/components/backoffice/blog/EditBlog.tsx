@@ -32,8 +32,6 @@ const EditBlog = () => {
 
   const onUpdate = (values: BlogPost) => {
     // Handle form submission logic here
-    console.log(blog_post);
-    console.log(values);
     updateBlogPost(blog_post.id, values, setFlashMessage);
     setBlog(values);
   };

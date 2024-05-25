@@ -20,7 +20,6 @@ const BackofficeBlog = () => {
 
     fetchData().then(data => {
       setBlogs(data.tempBlogs);
-      console.log(data.tempBlogs);
     });
   }, []);
 

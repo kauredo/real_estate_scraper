@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       resources :results
       resources :testimonials
 
-      resources :blog_photos
+      resources :blog_photos, only: %i[create destroy]
       resources :listing_complexes
       resources :blog_posts
       resources :newsletter_subscriptions
@@ -52,9 +52,6 @@ Rails.application.routes.draw do
 
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     post '/novo_contacto', to: 'pages#new_contact', as: :new_contact
-    post '/tinymce_assets' => 'blog_photos#create'
-    resources :blog_photos, only: %i[create destroy]
-    resources :photos, only: [:destroy]
     resources :newsletter_subscriptions, only: %i[create destroy] do
       member do
         get '/confirm', to: 'newsletter_subscriptions#confirm'

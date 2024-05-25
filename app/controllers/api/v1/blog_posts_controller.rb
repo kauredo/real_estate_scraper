@@ -12,7 +12,7 @@ module Api
 
       def show
         @blog_post = BlogPost.friendly.find(params[:id])
-        render json: { blog_post: @blog_post.as_json(methods: %i[main_photo date_created]) }, status: :ok
+        render json: { blog_post: @blog_post.as_json(include: %i[blog_photos], methods: %i[main_photo date_created]) }, status: :ok
       end
     end
   end

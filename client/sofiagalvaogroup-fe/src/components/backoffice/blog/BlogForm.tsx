@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import { useNavigate } from "react-router-dom";
-import { deleteBlogPost } from "../../../utils/setters";
+import {
+  createBlogPhoto,
+  deleteBlogPhoto,
+  deleteBlogPost,
+} from "../../../utils/setters";
 import { useFlashMessage } from "../../../contexts/FlashMessageContext";
 import { Editor } from "@tinymce/tinymce-react";
+import { API_URL } from "../../../utils/getters";
+import { Photo } from "../../utils/Interfaces";
 
 const BlogForm = ({ handleSubmit, initialValues }) => {
   const [values, setValues] = useState(initialValues);
+  const { setFlashMessage } = useFlashMessage();
 
   const handleChange = event => {
     setValues({
@@ -20,6 +27,71 @@ const BlogForm = ({ handleSubmit, initialValues }) => {
       ...values,
       text: content,
     });
+  };
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+
+    if (e.target.files && e.target.files.length > 0) {
+      const formData = new FormData();
+      Array.from(e.target.files).forEach((file: File, index: number) => {
+        // Append the file to the form data as an array of files
+        formData.append("file", file, file.name);
+      });
+
+      const newPhotos = Array.from(e.target.files).map(
+        (file: File) =>
+          ({
+            id: 0,
+            image: { url: URL.createObjectURL(file) },
+            main: false,
+          } as unknown as Photo)
+      );
+
+      setValues({
+        ...values,
+        blog_photos: [...values.blog_photos, ...newPhotos],
+      });
+
+      createBlogPhoto(formData, values.id, setFlashMessage);
+    }
+  };
+
+  const handleChangePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked, value } = e.target;
+
+    // Determine which photo to update based on the name attribute
+    const photoIndex = parseInt(name.split("[")[1].split("]")[0]);
+    const photoToUpdate = values.blog_photos.find(
+      photo => photo.id === photoIndex
+    );
+
+    let blogPhotos = values.blog_photos.map(photo =>
+      photo === photoToUpdate ? { ...photo, main: checked } : photo
+    );
+
+    // Update the photo with the new value
+    setValues({
+      ...values,
+      blog_photos: blogPhotos,
+    });
+  };
+
+  const removePhoto = (e, indexToRemove) => {
+    e.preventDefault();
+
+    if (window.confirm("Are you sure you want to remove this photo?")) {
+      URL.revokeObjectURL(values.blog_photos[indexToRemove].image.url);
+
+      setValues({
+        ...values,
+        blog_photos: values.blog_photos.filter(
+          (_, index) => index !== indexToRemove
+        ),
+      });
+
+      deleteBlogPhoto(values.blog_photos[indexToRemove].id, setFlashMessage);
+    }
   };
 
   const handleSubmitForm = event => {
@@ -110,12 +182,51 @@ const BlogForm = ({ handleSubmit, initialValues }) => {
               "image",
               "link",
             ],
-            images_upload_url: "/tinymce_assets",
-            images_upload_credentials: true,
+            images_file_types: "jpg,jpeg,png,gif",
+            images_upload_url: `${API_URL}/blog_photos?blog_post_id=${initialValues.id}`,
           }}
           onEditorChange={handleEditorChange}
         />
       </div>
+
+      {values.id && (
+        <div className="field mb-4 flex flex-col sm:flex-row items-center gap-4">
+          <label className="sm:w-auto w-full">Blog photos</label>
+          <div className="field sm:w-1/4 w-full">
+            <label>Image</label>
+            <br />
+            <input
+              type="file"
+              multiple
+              name="blog_photos[image][]"
+              onChange={handleFileChange}
+              className=" appearance-none w-full text-gray-700 leading-tight"
+            />
+          </div>
+          <div className="flex flex-wrap justify-between content-center flex-grow gap-2">
+            {values.blog_photos?.map((photo, index) => (
+              <div key={index} className="w-full sm:w-1/3">
+                <button onClick={e => removePhoto(e, index)}>❌</button>
+                <img
+                  src={photo.image.url}
+                  alt={`Uploaded Photo ${index + 1}`}
+                  style={{ maxWidth: "100%", maxHeight: "200px" }}
+                  className="m-auto pb-4"
+                />
+                <div className="flex gap-2">
+                  <label>Main Photo?</label>
+                  <input
+                    checked={photo.main}
+                    type="checkbox"
+                    name={`blog_photos[${photo.id}][main]`}
+                    onChange={handleChangePhoto}
+                  ></input>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <ActionBtns initialValues={initialValues} />
     </form>

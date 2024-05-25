@@ -24,8 +24,7 @@ module Api
           @blog_post.slug = nil
 
           if @blog_post.update(blog_post_params)
-            create_blog_photos if params[:blog_photos] && params[:blog_photos][:image]&.any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
-            update_blog_photos if params[:blog_photos].present? && params[:blog_photos][:image].none? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
+            update_blog_photos if params[:blog_photos].present?
 
             render json: { blog_post: @blog_post.as_json(include: :blog_photos), message: 'Post atualizado com sucesso' }
           else
@@ -40,24 +39,15 @@ module Api
 
         private
 
-        def create_blog_photos
-          params[:blog_photos][:image].each do |photo|
-            next unless photo.is_a?(ActionDispatch::Http::UploadedFile)
-
-            if File.size(photo) > 10_485_760
-              flash[:error] = 'A imagem é demasiado grande, por favor comprime-a ou usa outra imagem'
-            else
-              BlogPhoto.create(image: photo, blog_post_id: @blog_post.id)
-            end
-          end
-        end
-
         def update_blog_photos
-          params[:blog_photos].each do |id, values|
-            next if id == 'image'
+          params[:blog_photos].each do |photo|
+            id = photo['id']
+            next if id.zero?
 
+            main = photo['main']
             photo = BlogPhoto.find(id)
-            photo.main = values['main']
+
+            photo.main = main
 
             photo.save if photo.changed?
           end

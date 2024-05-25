@@ -279,3 +279,32 @@ export const deleteTestimonial = async (id, setFlashMessage) => {
     setFlashMessage
   );
 };
+
+/**
+ * Creates a new BlogPhoto.
+ * @param {Object} postData - The data for the new BlogPhoto.
+ * @param {number} blogPostId - The ID of the BlogPost to associate the BlogPhoto with.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const createBlogPhoto = async (
+  postData,
+  blogPostId,
+  setFlashMessage
+) => {
+  return executeApiCall(
+    `/blog_photos?blog_post_id=${blogPostId}`,
+    postData,
+    "post",
+    setFlashMessage,
+    "multipart/form-data"
+  );
+};
+
+/**
+ * Deletes a BlogPhoto.
+ * @param {number} id - The ID of the BlogPhoto to delete.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const deleteBlogPhoto = async (id, setFlashMessage) => {
+  return executeApiCall(`/blog_photos/${id}`, null, "delete", setFlashMessage);
+};
