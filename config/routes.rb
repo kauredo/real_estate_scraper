@@ -14,19 +14,23 @@ Rails.application.routes.draw do
         passwords: 'api/v1/admins/passwords',
         unlocks: 'api/v1/admins/unlocks'
       }
-      resources :listings do
+      resources :listings, only: %i[index show] do
         collection do
           get '/by_geography', to: 'listings#by_geography'
         end
       end
-      resources :photos
-      resources :results
-      resources :testimonials
+      resources :photos, only: %i[index]
+      resources :results, only: %i[index]
+      resources :testimonials, only: %i[index]
 
       resources :blog_photos, only: %i[create destroy]
-      resources :listing_complexes
-      resources :blog_posts
-      resources :newsletter_subscriptions
+      resources :listing_complexes, only: %i[index show]
+      resources :blog_posts, only: %i[index show]
+      resources :newsletter_subscriptions, only: %i[create destroy] do
+        member do
+          get '/confirm', to: 'newsletter_subscriptions#confirm'
+        end
+      end
 
       namespace :backoffice do
         resources :blog_posts, only: %i[index show create update destroy]
@@ -52,11 +56,6 @@ Rails.application.routes.draw do
 
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     post '/novo_contacto', to: 'pages#new_contact', as: :new_contact
-    resources :newsletter_subscriptions, only: %i[create destroy] do
-      member do
-        get '/confirm', to: 'newsletter_subscriptions#confirm'
-      end
-    end
   end
 
   mount Sidekiq::Web => '/sidekiq'

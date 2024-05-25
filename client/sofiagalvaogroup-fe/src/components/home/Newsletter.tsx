@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { i18n } from "../../languages/languages";
 import { sanitizeURL } from "../utils/Functions";
 import emailPhoto from "../../assets/images/email.webp";
+import { useFlashMessage } from "../../contexts/FlashMessageContext";
+import { createNewsletterSubscribtion } from "../../utils/setters";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -9,18 +11,43 @@ export default function Newsletter() {
   const [error, setError] = useState("");
   const form = useRef<HTMLFormElement>(null);
   const pattern = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i;
+  const { setFlashMessage } = useFlashMessage();
 
-  const validateUser = e => {
-    e.preventDefault();
+  const validateUser = () => {
     const valid_email = pattern.test(email);
 
     if (valid_email && name && form.current) {
-      form.current.submit();
+      return true;
     } else if (valid_email) {
       setError(i18n.t("home.newsletter.form.errors.name"));
+      return false;
     } else {
       setError(i18n.t("home.newsletter.form.errors.email"));
+      return false;
     }
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault(); // Prevent default form submission
+    const valid = validateUser(); // Validate user input (email and name)
+
+    if (!valid) {
+      return;
+    }
+
+    const formData = form.current ? new FormData(form.current) : new FormData(); // Collect form data
+    const postData = {
+      newsletter: {
+        name: formData.get("newsletter[name]"),
+        email: formData.get("newsletter[email]"),
+      },
+    };
+
+    createNewsletterSubscribtion(postData, setFlashMessage);
+    // Clear form after successful submission
+    setEmail("");
+    setName("");
+    setError("");
   };
 
   return (
@@ -38,12 +65,7 @@ export default function Newsletter() {
             {i18n.t("home.newsletter.terms")}
           </span>
         </p>
-        <form
-          ref={form}
-          onSubmit={e => validateUser(e)}
-          action={sanitizeURL("/newsletter_subscriptions")}
-          method="post"
-        >
+        <form ref={form} onSubmit={handleSubmit} method="post">
           <div className="w-full">
             <input
               className="border-l-4 border-beige focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"

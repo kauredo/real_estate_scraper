@@ -308,3 +308,20 @@ export const createBlogPhoto = async (
 export const deleteBlogPhoto = async (id, setFlashMessage) => {
   return executeApiCall(`/blog_photos/${id}`, null, "delete", setFlashMessage);
 };
+
+/**
+ * Creates a new NewsletterSubscribtion.
+ * @param {Object} postData - The data for the new NewsletterSubscribtion.
+ * @param {Function} setFlashMessage - Function to set flash messages.
+ */
+export const createNewsletterSubscribtion = async (
+  postData,
+  setFlashMessage
+) => {
+  return executeApiCall(
+    `/newsletter_subscriptions`,
+    postData,
+    "post",
+    setFlashMessage
+  );
+};
