@@ -3,6 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import { useNavigate } from "react-router-dom";
 import { deleteBlogPost } from "../../../utils/setters";
 import { useFlashMessage } from "../../../contexts/FlashMessageContext";
+import { Editor } from "@tinymce/tinymce-react";
 
 const BlogForm = ({ handleSubmit, initialValues }) => {
   const [values, setValues] = useState(initialValues);
@@ -11,6 +12,13 @@ const BlogForm = ({ handleSubmit, initialValues }) => {
     setValues({
       ...values,
       [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleEditorChange = (content, editor) => {
+    setValues({
+      ...values,
+      text: content,
     });
   };
 
@@ -83,17 +91,30 @@ const BlogForm = ({ handleSubmit, initialValues }) => {
       </div>
 
       {/* Text Area */}
-      <div className="field mb-4 flex flex-col items-center gap-4">
-        <label htmlFor="text" className="sm:w-1/4 w-full">
-          Text:
-        </label>
-        <textarea
-          name="text"
-          id="text"
+      <div className="mb-4">
+        <Editor
+          apiKey="p0gber1mntbhnppg6z5hsb25l8vwr0qxirsy8u9jaor1usml"
           value={values.text || ""}
-          onChange={handleChange}
-          className="tinymce shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        ></textarea>
+          key="tinymce-1"
+          init={{
+            width: "100%",
+            height: 2000,
+            menubar: false,
+            toolbar: [
+              "undo redo | blocks | styleselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | removeformat",
+              "image | link | media",
+            ],
+            plugins: [
+              "insertdatetime lists media table help wordcount",
+              "help",
+              "image",
+              "link",
+            ],
+            images_upload_url: "/tinymce_assets",
+            images_upload_credentials: true,
+          }}
+          onEditorChange={handleEditorChange}
+        />
       </div>
 
       <ActionBtns initialValues={initialValues} />
