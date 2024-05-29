@@ -4,16 +4,11 @@ require 'sidekiq-scheduler'
 
 class RescrapeJob
   include Sidekiq::Worker
-  require 'rake'
   queue_as :default
 
   def perform
     Rails.logger.debug 'RescrapeJob is being performed'
-    Rails.application.load_tasks
-
-    Rake::Task['rescrape'].reenable
-    Rake::Task['rescrape'].invoke
-    Rake::Task['rescrape'].reenable
+    RealEstateScraperService.new.rescrape
 
     Rails.logger.debug 'RescrapeJob DONE'
   end
