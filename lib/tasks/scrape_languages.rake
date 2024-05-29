@@ -34,7 +34,7 @@ task scrape_en: :environment do |_t, args|
   end
 
   listings.each do |listing|
-    TaskHelper.run_and_retry_on_exception(method(:scrape_listing), params: listing)
+    scrape_listing(listing)
   end
 
   @browser.close
@@ -65,7 +65,7 @@ task scrape_pt: :environment do |_t, args|
   end
 
   listings.each do |listing|
-    TaskHelper.run_and_retry_on_exception(method(:scrape_listing), params: listing)
+    scrape_listing(listing)
   end
 
   @browser.close

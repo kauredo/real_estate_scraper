@@ -3,8 +3,7 @@
 require 'selenium-webdriver'
 require 'scrape_listing_details'
 require 'task_helper'
-
-BASE_URL = 'https://www.kwportugal.pt/imoveis/agente-Sofia-Galvao-34365'
+require 'constants'
 
 def setup_browser(headless: true)
   args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
@@ -15,7 +14,7 @@ end
 
 desc 'Scrape listings off KW website'
 task scrape: :environment do |_t, _args|
-  @url = BASE_URL
+  @url = RealEstateScraper::BASE_URL
 
   def scrape_total
     @browser.refresh
@@ -70,10 +69,10 @@ task scrape: :environment do |_t, _args|
 
   @lister = @url.split('/').last.split('-')[1..-2].join(' ')
 
-  total = TaskHelper.run_and_retry_on_exception(method(:total_pages))
+  total = total_pages
 
   total.times do |page|
-    TaskHelper.run_and_retry_on_exception(method(:one_page), params: page)
+    one_page(page)
   end
 
   @browser.close
@@ -92,7 +91,7 @@ task rescrape: :environment do |_t, _args|
     return
   end
 
-  @browser.goto BASE_URL
+  @browser.goto RealEstateScraper::BASE_URL
   return if ScraperHelper.check_if_invalid?(@browser)
 
   listings.each do |listing|
@@ -113,7 +112,7 @@ task force_rescrape: :environment do |_t, _args|
 
   @browser = setup_browser(headless: ENV.fetch('HEADFULL', '').blank?)
 
-  @browser.goto BASE_URL
+  @browser.goto RealEstateScraper::BASE_URL
   return if ScraperHelper.check_if_invalid?(@browser)
 
   listings.each do |listing|
@@ -135,7 +134,7 @@ task :scrape_one, %i[url force] => :environment do |_t, arguments|
 
   @browser = setup_browser(headless: ENV.fetch('HEADFULL', '').blank?)
 
-  @browser.goto BASE_URL
+  @browser.goto RealEstateScraper::BASE_URL
   return if ScraperHelper.check_if_invalid?(@browser)
 
   ScraperHelper.scrape_one(@browser, url, listing, force:)
