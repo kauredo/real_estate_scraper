@@ -14,7 +14,7 @@ end
 
 desc 'Scrape listings off KW website'
 task scrape: :environment do |_t, _args|
-  @url = RealEstateScraper::BASE_URL
+  @url = Constants::RealEstateScraper::BASE_URL
 
   def scrape_total
     @browser.refresh
@@ -91,7 +91,7 @@ task rescrape: :environment do |_t, _args|
     return
   end
 
-  @browser.goto RealEstateScraper::BASE_URL
+  @browser.goto Constants::RealEstateScraper::BASE_URL
   return if ScraperHelper.check_if_invalid?(@browser)
 
   listings.each do |listing|
@@ -112,7 +112,7 @@ task force_rescrape: :environment do |_t, _args|
 
   @browser = setup_browser(headless: ENV.fetch('HEADFULL', '').blank?)
 
-  @browser.goto RealEstateScraper::BASE_URL
+  @browser.goto Constants::RealEstateScraper::BASE_URL
   return if ScraperHelper.check_if_invalid?(@browser)
 
   listings.each do |listing|
@@ -134,7 +134,7 @@ task :scrape_one, %i[url force] => :environment do |_t, arguments|
 
   @browser = setup_browser(headless: ENV.fetch('HEADFULL', '').blank?)
 
-  @browser.goto RealEstateScraper::BASE_URL
+  @browser.goto Constants::RealEstateScraper::BASE_URL
   return if ScraperHelper.check_if_invalid?(@browser)
 
   ScraperHelper.scrape_one(@browser, url, listing, force:)
