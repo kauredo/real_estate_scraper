@@ -73,7 +73,7 @@ class ScrapeListingDetails
     listing = find_or_create_listing(imovel_url, title, url)
     if !force && (listing.persisted? && Listing.includes(:translations).where(url:, translations: { locale: 'pt', title: }))
       log "Listing \"#{listing.title}\" already exists"
-      return
+      return listing
     end
 
     update_listing_fields(browser, listing, force)
@@ -202,6 +202,7 @@ class ScrapeListingDetails
       log "ERROR: Listing at \"#{listing.url}\" has errors"
     end
     # end
+    listing
   end
 
   def self.find_or_create_listing(imovel_url, title, url)

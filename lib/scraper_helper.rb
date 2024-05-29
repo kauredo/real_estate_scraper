@@ -4,12 +4,17 @@ require 'task_helper'
 
 module ScraperHelper
   def self.scrape_one(browser, url, listing, force: false)
+    updated_listing = nil
     I18n.with_locale(:pt) do
-      ScrapeListingDetails.scrape_details(browser, url, force)
+      updated_listing = ScrapeListingDetails.scrape_details(browser, url, force)
     end
 
     I18n.with_locale(:en) do
-      ScrapeListingDetails.scrape_language_details(browser, listing, 'English') if listing&.reload&.deleted_at.nil?
+      if listing && listing.reload.deleted_at.nil?
+        ScrapeListingDetails.scrape_language_details(browser, listing, 'English')
+      elsif updated_listing.is_a?(Listing) && updated_listing.deleted_at.nil?
+        ScrapeListingDetails.scrape_language_details(browser, updated_listing, 'English')
+      end
     end
   end
 
