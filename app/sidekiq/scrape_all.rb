@@ -5,6 +5,7 @@ require 'sidekiq-scheduler'
 class ScrapeAll
   include Sidekiq::Worker
   require 'rake'
+  queue_as :default
 
   def perform
     Rails.logger.debug 'ScrapeAll is being performed'

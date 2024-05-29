@@ -5,6 +5,7 @@ require 'sidekiq-scheduler'
 class RescrapeJob
   include Sidekiq::Worker
   require 'rake'
+  queue_as :default
 
   def perform
     Rails.logger.debug 'RescrapeJob is being performed'

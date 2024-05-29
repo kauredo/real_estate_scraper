@@ -38,8 +38,6 @@ task scrape_en: :environment do |_t, args|
   end
 
   @browser.close
-  puts ''
-  puts 'Completed'
 end
 
 desc 'Scrape portuguese listings off KW website'
@@ -69,6 +67,4 @@ task scrape_pt: :environment do |_t, args|
   end
 
   @browser.close
-  puts ''
-  puts 'Completed'
 end

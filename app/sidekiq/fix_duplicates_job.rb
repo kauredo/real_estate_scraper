@@ -5,6 +5,7 @@ require 'sidekiq-scheduler'
 class FixDuplicatesJob
   include Sidekiq::Worker
   require 'rake'
+  queue_as :default
 
   def perform
     Rails.logger.debug 'FixDuplicatesJob is being performed'
