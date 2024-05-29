@@ -10,9 +10,9 @@ class TaskHelper
       cmd.call
     end
   rescue StandardError => e
-    puts '~~~~~~~~~~~~~'
-    puts "Error: #{e}"
-    puts '~~~~~~~~~~~~~'
+    ScrapeListingDetails.log '~~~~~~~~~~~~~'
+    ScrapeListingDetails.log "Error: #{e}"
+    ScrapeListingDetails.log '~~~~~~~~~~~~~'
     Sentry.capture_exception(e)
     unless tries >= max_tries
       sleep ENV['SLEEP_TIME']&.to_i || delay

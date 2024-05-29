@@ -46,23 +46,18 @@ class RealEstateScraperService
     return if ScraperHelper.check_if_invalid?(@browser)
 
     Listing.all.each do |listing|
+      log "Rescrape - Queuing ScrapeUrlJob for #{listing.url}"
       ScrapeUrlJob.perform_async(listing.url, force)
     end
   end
 
   def scrape_one(url, listing, force: false)
-    ActiveRecord::Base.connection_pool.release_connection
-
-    if listing.nil?
-      listing = ActiveRecord::Base.connection_pool.with_connection do
-        Listing.unscoped.find_by(url:)
-      end
-    end
+    listing = Listing.find_by(url:) if listing.nil?
 
     @browser.goto(@url)
     return if ScraperHelper.check_if_invalid?(@browser)
 
-    ScraperHelper.scrape_one(@browser, url, listing, force:) if listing
+    ScraperHelper.scrape_one(@browser, url, listing, force:)
   end
 
   def destroy

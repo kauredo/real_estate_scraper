@@ -7,9 +7,9 @@ class RescrapeJob
   queue_as :default
 
   def perform
-    Rails.logger.debug 'RescrapeJob is being performed'
+    ScrapeListingDetails.log 'RescrapeJob is being performed'
     RealEstateScraperService.new.rescrape
 
-    Rails.logger.debug 'RescrapeJob DONE'
+    ScrapeListingDetails.log 'RescrapeJob DONE'
   end
 end

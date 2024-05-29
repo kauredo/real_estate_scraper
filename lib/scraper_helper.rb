@@ -5,11 +5,11 @@ require 'task_helper'
 module ScraperHelper
   def self.scrape_one(browser, url, listing, force: false)
     I18n.with_locale(:pt) do
-      TaskHelper.run_and_retry_on_exception(ScrapeListingDetails.method(:scrape_details), params: [browser, url, force])
+      ScrapeListingDetails.scrape_details(browser, url, force)
     end
 
     I18n.with_locale(:en) do
-      TaskHelper.run_and_retry_on_exception(ScrapeListingDetails.method(:scrape_language_details), params: [browser, listing, 'English']) if listing.reload.deleted_at.nil?
+      ScrapeListingDetails.scrape_language_details(browser, listing, 'English') if listing&.reload&.deleted_at.nil?
     end
   end
 

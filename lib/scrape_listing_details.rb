@@ -194,14 +194,14 @@ class ScrapeListingDetails
   end
 
   def self.save_listing(listing)
-    ActiveRecord::Base.connection_pool.release_connection
-    ActiveRecord::Base.connection_pool.with_connection do
-      if listing.save
-        log "Finished listing \"#{listing.title}\""
-      else
-        log "ERROR: Listing at \"#{listing.url}\" has errors"
-      end
+    # ActiveRecord::Base.connection_pool.release_connection
+    # ActiveRecord::Base.connection_pool.with_connection do
+    if listing.save
+      log "Finished listing \"#{listing.title}\""
+    else
+      log "ERROR: Listing at \"#{listing.url}\" has errors"
     end
+    # end
   end
 
   def self.find_or_create_listing(imovel_url, title, url)

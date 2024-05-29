@@ -5,10 +5,10 @@ class ForceRescrapeJob
   queue_as :default
 
   def perform
-    Rails.logger.debug 'ForceRescrapeJob is being performed'
+    ScrapeListingDetails.log 'ForceRescrapeJob is being performed'
     Rails.application.load_tasks
     RealEstateScraperService.new.rescrape(force: true)
 
-    Rails.logger.debug 'DONE ForceRescrapeJob'
+    ScrapeListingDetails.log 'DONE ForceRescrapeJob'
   end
 end

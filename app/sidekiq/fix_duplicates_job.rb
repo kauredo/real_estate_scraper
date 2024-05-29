@@ -8,13 +8,13 @@ class FixDuplicatesJob
   queue_as :default
 
   def perform
-    Rails.logger.debug 'FixDuplicatesJob is being performed'
+    ScrapeListingDetails.log 'FixDuplicatesJob is being performed'
     Rails.application.load_tasks
 
     Rake::Task['fix_duplicates'].reenable
     Rake::Task['fix_duplicates'].invoke
     Rake::Task['fix_duplicates'].reenable
 
-    Rails.logger.debug 'FixDuplicatesJob DONE'
+    ScrapeListingDetails.log 'FixDuplicatesJob DONE'
   end
 end

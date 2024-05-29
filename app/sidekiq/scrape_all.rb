@@ -7,10 +7,10 @@ class ScrapeAll
   queue_as :default
 
   def perform
-    Rails.logger.debug 'ScrapeAll is being performed'
+    ScrapeListingDetails.log 'ScrapeAll is being performed'
     RealEstateScraperService.new.scrape_all
     RescrapeJob.perform_async
     FixDuplicatesJob.perform_async
-    Rails.logger.debug 'ScrapeAll DONE'
+    ScrapeListingDetails.log 'ScrapeAll DONE'
   end
 end
