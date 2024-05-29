@@ -39,13 +39,8 @@ task scrape: :environment do |_t, _args|
     res.each do |imovel|
       url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.compact.first}"
 
-      TaskHelper.run_and_retry_on_exception(method(:scrape_details), params: url)
-      # scrape_details(url)
+      ScrapeUrlJob.perform_async(url, false)
     end
-  end
-
-  def scrape_details(url)
-    ScrapeListingDetails.scrape_details(@browser, url)
   end
 
   def total_pages
@@ -70,20 +65,15 @@ task scrape: :environment do |_t, _args|
   @browser = setup_browser(headless: ENV.fetch('HEADFULL', '').blank?)
 
   @browser.goto(@url)
-  # TaskHelper.consent_cookies(@browser)
 
   puts @url
 
-  # from url get the lister, it is the last part of the url (format agente-{lister}-id)
   @lister = @url.split('/').last.split('-')[1..-2].join(' ')
 
-  ## Count total to see how many pages
   total = TaskHelper.run_and_retry_on_exception(method(:total_pages))
-  # total = total_pages
 
   total.times do |page|
     TaskHelper.run_and_retry_on_exception(method(:one_page), params: page)
-    # one_page(page)
   end
 
   @browser.close
@@ -134,8 +124,10 @@ task force_rescrape: :environment do |_t, _args|
 end
 
 desc 'Scrape one listing off KW website'
-task :scrape_one, [:url] => :environment do |_t, arguments|
+task :scrape_one, %i[url force] => :environment do |_t, arguments|
   url = arguments.url
+  force = arguments.force.to_s == 'true'
+
   ActiveRecord::Base.connection_pool.release_connection
   listing = ActiveRecord::Base.connection_pool.with_connection do
     Listing.unscoped.find_by(url:)
@@ -146,7 +138,7 @@ task :scrape_one, [:url] => :environment do |_t, arguments|
   @browser.goto BASE_URL
   return if ScraperHelper.check_if_invalid?(@browser)
 
-  ScraperHelper.scrape_one(@browser, url, listing, force: true)
+  ScraperHelper.scrape_one(@browser, url, listing, force:)
   @browser.close
 end
 
