@@ -7,7 +7,7 @@ class ScrapeListingDetails
     website_avaliable = navigate_and_check_website(browser, imovel_url, delete: true)
     return unless website_avaliable
 
-    change_language(browser, 'Português')
+    toggle_language(browser, 'Português')
     gather_listing_data(browser, imovel_url, force)
   end
 
@@ -15,7 +15,7 @@ class ScrapeListingDetails
     website_avaliable = navigate_and_check_website(browser, listing.url)
     return unless website_avaliable
 
-    change_language(browser, language)
+    toggle_language(browser, language)
     update_translatable_listing_fields(browser, listing)
   end
 
@@ -36,15 +36,6 @@ class ScrapeListingDetails
     log 'listing unavailable on KW website, it will be destroyed'
     destroy_listing_if_exists(url) if delete
     false
-  end
-
-  def self.change_language(browser, target_language)
-    set_browser_to_full_screen(browser)
-    toggle_language(browser, target_language)
-  end
-
-  def self.set_browser_to_full_screen(browser)
-    browser.window.resize_to(1920, 1080)
   end
 
   def self.toggle_language(browser, target_language)

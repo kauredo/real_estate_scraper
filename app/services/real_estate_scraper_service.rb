@@ -71,9 +71,12 @@ class RealEstateScraperService
   end
 
   def setup_browser(headless: true)
-    args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess']
+    args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800']
     args << 'headless' if headless
+    binary_path = '/opt/chrome-linux64/chrome'
+
     options = Selenium::WebDriver::Chrome::Options.new(args:)
+    options.binary = binary_path
     Watir::Browser.new(:chrome, options:)
   end
 
