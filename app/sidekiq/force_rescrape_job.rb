@@ -7,8 +7,9 @@ class ForceRescrapeJob
   def perform
     ScrapeListingDetails.log 'ForceRescrapeJob is being performed'
     Rails.application.load_tasks
-    RealEstateScraperService.new.rescrape(force: true)
-
+    scraper_service = RealEstateScraperService.new
+    scraper_service.rescrape(force: true)
+    scraper_service.destroy
     ScrapeListingDetails.log 'DONE ForceRescrapeJob'
   end
 end

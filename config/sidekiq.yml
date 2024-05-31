@@ -2,6 +2,7 @@ development:
   :concurrency: 1
 production:
   :concurrency: 1
+:max_retries: 3
 :queues:
   - priority
   - default

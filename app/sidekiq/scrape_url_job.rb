@@ -6,7 +6,9 @@ class ScrapeUrlJob
 
   def perform(url, force)
     ScrapeListingDetails.log("ScrapeJobUrl is being performed for #{url}")
-    RealEstateScraperService.new.scrape_one(url, nil, force:)
+    scraper_service = RealEstateScraperService.new
+    scraper_service.scrape_one(url, nil, force:)
+    scraper_service.destroy
     ScrapeListingDetails.log('DONE ScrapeUrlJob')
   end
 end
