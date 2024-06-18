@@ -15,7 +15,7 @@ module ScraperHelper
       end
 
       I18n.with_locale(:en) do
-        if updated_listing.is_a?(Listing) && updated_listing.deleted_at.nil?
+        if updated_listing.is_a?(Listing) && updated_listing.reload.deleted_at.nil?
           ScrapeListingDetails.scrape_language_details(browser, updated_listing, 'English')
         elsif listing && listing.reload.deleted_at.nil?
           ScrapeListingDetails.scrape_language_details(browser, listing, 'English')

@@ -5,7 +5,7 @@ require 'selenium-webdriver'
 desc 'Scrape listings off KW website'
 task scrape: :environment do |_t, _args|
   scraper_service = RealEstateScraperService.new(headless: ENV.fetch('HEADFULL', '').blank?)
-  scraper_service.run
+  scraper_service.scrape_all
   scraper_service.destroy
 end
 
