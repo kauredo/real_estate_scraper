@@ -17,7 +17,7 @@ export default function Card({ listing }) {
             // backgroundImage: "url(/images/banner.webp)",
           }}
         >
-          <Overlay status={listing.status} padding={true} />
+          <Overlay status={listing.status} padding={true} show />
         </div>
         <div className="px-6 py-4 h-1/3 justify-between flex flex-col bg-white">
           <h2 className="text-l grow  text-gray-800">
