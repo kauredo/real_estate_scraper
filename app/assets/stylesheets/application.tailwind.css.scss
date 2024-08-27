@@ -92,8 +92,8 @@ strong {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   border-width: 0;
-  height: 35vh;
-  width: 35vh;
+  height: 50vh;
+  width: 50vh;
   aspect-ratio: 1;
   /* overflow: hidden; */
 }
@@ -126,7 +126,7 @@ strong {
   justify-content: center;
 }
 
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: 1340px) {
   .center-hero {
     flex-direction: column;
     align-items: start;
@@ -145,12 +145,14 @@ strong {
   .center-hero {
     flex-direction: column;
     align-items: start;
+    width: auto;
   }
 
   .quarter {
     margin-left: 0;
-    height: 30vh;
-    width: 30vh;
+    max-width: 30vh;
+    width: 100%;
+    height: auto;
   }
 }
 

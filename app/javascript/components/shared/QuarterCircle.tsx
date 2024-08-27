@@ -43,7 +43,7 @@ export default function QuarterCircle(props: Props) {
       ref={doorRef}
       className={`quarter`}
       style={{
-        backgroundImage: "url(/images/banner.webp)",
+        backgroundImage: "url(/images/sofia.jpg)",
       }}
       onMouseEnter={() => {
         doorRef.current?.classList.add("moving");
