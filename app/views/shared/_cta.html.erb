@@ -1,7 +1,15 @@
 <% unless current_page? sell_path %>
-  <%= link_to sell_path, data: { "turbolinks": false } do %>
-    <div style="z-index: 99" class="hidden tablet:block shadow-md fixed bottom-5 right-5 bg-white border-beige border-2 text-beige text-lg px-6 py-3 rounded hover:bg-beige hover:text-white">
-      <p><%= I18n.t('home.cta.long') %></p>
-    </div>
+  <% if current_page?(services_path) || current_page?(about_path) %>
+    <%= link_to contact_path, data: { "turbolinks": false } do %>
+      <div style="z-index: 99" class="hidden tablet:block shadow-md fixed bottom-5 right-5 bg-beige border-white border-2 text-white text-lg px-6 py-3 rounded hover:bg-white hover:text-beige hover:border-beige">
+        <p><%= I18n.t('home.cta.contact') %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to sell_path, data: { "turbolinks": false } do %>
+      <div style="z-index: 99" class="hidden tablet:block shadow-md fixed bottom-5 right-5 bg-beige border-white border-2 text-white text-lg px-6 py-3 rounded hover:bg-white hover:text-beige hover:border-beige">
+        <p><%= I18n.t('home.cta.long') %></p>
+      </div>
+    <% end %>
   <% end %>
 <% end %>

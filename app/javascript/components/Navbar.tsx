@@ -82,7 +82,27 @@ export default function Navbar(props: Props) {
       turbo: "true",
       url: sanitizeURL(window.Routes.kw_path),
     },
-    moreDropdown,
+    // moreDropdown,
+    {
+      title: `${i18n.t("navbar.about")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.about_path),
+    },
+    {
+      title: `${i18n.t("navbar.services")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.services_path),
+    },
+    {
+      title: `${i18n.t("navbar.house_360")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.house_360_path),
+    },
+    {
+      title: `${i18n.t("navbar.contacts")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.contact_path),
+    },
   ];
 
   const backofficeItems: NavbarItemProps[] = [
@@ -231,7 +251,7 @@ export default function Navbar(props: Props) {
             <div className="flex items-center">
               <div className="hidden tablet:block">
                 <div className="ml-10 flex items-baseline">
-                  {showBtnOnNavbar}
+                  {/* {showBtnOnNavbar} */}
                   {rightItems?.map(item => {
                     return (
                       <Suspense

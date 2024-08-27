@@ -420,6 +420,7 @@
     },
     "home": {
       "cta": {
+        "contact": "Contact us",
         "long": "Evaluate your home",
         "short": "Evaluate home"
       },
