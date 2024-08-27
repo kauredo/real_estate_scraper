@@ -101,7 +101,7 @@ export default function LongCard(props: Props) {
                 ✓
               </div>
             )}
-            <Overlay status={listing.status} />
+            <Overlay status={listing.status} show />
             <div className="w-full md:w-128 h-full block mx-auto object-cover relative">
               {backoffice && (
                 <div className="absolute top-0 left-0 w-10 p-2 bg-black text-white font-bold text-center">
