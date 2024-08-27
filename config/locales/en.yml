@@ -13,6 +13,7 @@ en:
     blog_posts: Blog
     more: More
     backoffice: Backoffice
+    faq: FAQ
 
   footer:
     about: about us
@@ -308,6 +309,26 @@ en:
         What will make Keller Williams better in the long run is the way people
         think.
     more: Find out more about KW Portugal
+
+  faq:
+    header: FAQ (Frequently Asked Questions)
+    meta_description:
+      Frequently asked questions about real estate and the services provided by
+      Sofia Galvão Group.
+    subheader: "Guide for buyers and sellers:"
+    description:
+      We answer the most frequently asked questions about the process of buying
+      and selling real estate, including doubts about financing, necessary
+      documentation and the stages of the process. We provide clear and
+      practical guidance to help clear up any doubts and ensure an informed and
+      safe experience.
+    questions:
+      first:
+        title: How to buy a house?
+        answer:
+          To buy a house you must first define your budget and the type of
+          property you are looking for. Then you should contact a real estate
+          consultant who will help you find the best options for you.
 
   blog_posts:
     resource: Post

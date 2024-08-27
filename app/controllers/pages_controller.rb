@@ -41,6 +41,8 @@ class PagesController < ApplicationController
     redirect_back(fallback_location: contact_path)
   end
 
+  def faq; end
+
   private
 
   def email_params

@@ -418,6 +418,18 @@
         }
       }
     },
+    "faq": {
+      "description": "Respondemos às perguntas mais frequentes sobre o processo de compra e venda de imóveis, incluindo dúvidas sobre financiamento, documentação necessária e etapas do processo. Fornecemos orientação clara e prática para ajudar a esclarecer todas as dúvidas e garantir uma experiência informada e segura.",
+      "header": "FAQ (Perguntas Frequentes)",
+      "meta_description": "Perguntas frequentes sobre imobiliário e os serviços de Sofia Galvão Group.",
+      "questions": {
+        "first": {
+          "answer": "Para comprar um imóvel, o primeiro passo é definir o seu orçamento e as suas necessidades. Depois, deve procurar um consultor imobiliário que o ajude a encontrar a casa ideal. O consultor irá ajudá-lo a encontrar imóveis que correspondam às suas preferências e necessidades, agendar visitas e negociar o preço. Uma vez que tenha encontrado a casa ideal, o consultor irá ajudá-lo a preparar toda a documentação necessária para a compra.",
+          "title": "Como posso comprar um imóvel?"
+        }
+      },
+      "subheader": "Guia para Compradores e Vendedores:"
+    },
     "flash": {
       "contact": {
         "thanks": "Obrigado pela sua mensagem. Entraremos em contacto em breve"
@@ -593,6 +605,7 @@
       "buy": "Comprar",
       "contacts": "Contactos",
       "enterprises": "Empreendimentos",
+      "faq": "FAQ",
       "house_360": "Casa 360",
       "language": "Change site to English",
       "listings": "Imóveis",

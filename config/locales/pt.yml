@@ -13,6 +13,7 @@ pt:
     blog_posts: Blog
     more: Saber mais
     backoffice: Backoffice
+    faq: FAQ
 
   footer:
     about: sobre nós
@@ -318,6 +319,30 @@ pt:
         O que tornará a Keller Williams melhor no longo prazo é a forma como as
         pessoas pensam.
     more: Descubra mais sobre a KW Portugal
+
+  faq:
+    header: FAQ (Perguntas Frequentes)
+    meta_description:
+      Perguntas frequentes sobre imobiliário e os serviços de Sofia Galvão
+      Group.
+    subheader: "Guia para Compradores e Vendedores:"
+    description:
+      Respondemos às perguntas mais frequentes sobre o processo de compra e
+      venda de imóveis, incluindo dúvidas sobre financiamento, documentação
+      necessária e etapas do processo. Fornecemos orientação clara e prática
+      para ajudar a esclarecer todas as dúvidas e garantir uma experiência
+      informada e segura.
+    questions:
+      first:
+        title: Como posso comprar um imóvel?
+        answer:
+          Para comprar um imóvel, o primeiro passo é definir o seu orçamento e
+          as suas necessidades. Depois, deve procurar um consultor imobiliário
+          que o ajude a encontrar a casa ideal. O consultor irá ajudá-lo a
+          encontrar imóveis que correspondam às suas preferências e
+          necessidades, agendar visitas e negociar o preço. Uma vez que tenha
+          encontrado a casa ideal, o consultor irá ajudá-lo a preparar toda a
+          documentação necessária para a compra.
 
   blog_posts:
     resource: Post

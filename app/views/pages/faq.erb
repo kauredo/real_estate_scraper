@@ -1,0 +1,61 @@
+<% meta_title = I18n.t('faq.header') %>
+<% meta_description = I18n.t('faq.meta_description') %>
+
+<% content_for(:meta_title) { meta_title } %>
+<% content_for(:meta_description) { meta_description } %>
+<% content_for(:extra_meta) do %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>faq" />
+<% end %>
+
+<%= react_component 'shared--Banner', { height: '20vh', blurred: true, text: meta_title } %>
+<section class="container mx-auto pt-6 px-8">
+  <div class="pt-6 bg-white text-center md:hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
+      <h1 id="main-title" class="relative block md:hidden pt-2 text-3xl text-black sm:text-4xl px-4"><%= meta_title %></h1>
+    </div>
+  </div>
+  <div class="py-8 md:pb-0 md:pt-4 bg-white">
+    <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
+      <h2 class="block pt-2 text-2xl text-black sm:text-4xl mx-auto"><%= I18n.t('faq.subheader') %></h2>
+      <p class="pt-4 text-xl text-gray-500 max-w-max"><%= I18n.t('faq.description') %></p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
+    <% I18n.t('faq.questions').each_with_index do |question, idx| %>
+      <div class="transition-all duration-200 bg-white border border-gray-200 shadow-lg cursor-pointer hover:bg-gray-50 mb-4">
+        <button type="button" id="question<%= idx %>" data-state="closed" class="flex items-center justify-between w-full px-4 py-5 sm:p-6">
+          <span class="flex text-lg font-semibold text-black"><%= question.last[:title] %></span>
+          <svg id="arrow<%= idx %>" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  class="w-6 h-6 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="answer<%= idx %>" style="display:none" class="p-8 sm:p-6 border-beige">
+          <%= question.last[:answer] %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <script>
+    // JavaScript to toggle the answers and rotate the arrows
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('[id^="question"]').forEach(function(button, index) {
+            button.addEventListener('click', function() {
+                var answer = document.getElementById('answer' + (index));
+                var arrow = document.getElementById('arrow' + (index));
+
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    answer.style.borderTop = '2px solid rgb(211 175 121)';
+                    arrow.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.style.display = 'none';
+                    arrow.style.transform = 'rotate(-180deg)';
+                }
+            });
+        });
+    });
+  </script>
+</section>
