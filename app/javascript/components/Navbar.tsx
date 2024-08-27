@@ -22,31 +22,31 @@ export default function Navbar(props: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const moreDropdown: NavbarItemProps = {
-    title: `${i18n.t("navbar.more")}`,
-    items: [
-      {
-        title: `${i18n.t("navbar.about")}`,
-        turbo: "true",
-        url: sanitizeURL(window.Routes.about_path),
-      },
-      {
-        title: `${i18n.t("navbar.services")}`,
-        turbo: "true",
-        url: sanitizeURL(window.Routes.services_path),
-      },
-      {
-        title: `${i18n.t("navbar.house_360")}`,
-        turbo: "true",
-        url: sanitizeURL(window.Routes.house_360_path),
-      },
-      {
-        title: `${i18n.t("navbar.contacts")}`,
-        turbo: "true",
-        url: sanitizeURL(window.Routes.contact_path),
-      },
-    ],
-  };
+  // const moreDropdown: NavbarItemProps = {
+  //   title: `${i18n.t("navbar.more")}`,
+  //   items: [
+  //     {
+  //       title: `${i18n.t("navbar.about")}`,
+  //       turbo: "true",
+  //       url: sanitizeURL(window.Routes.about_path),
+  //     },
+  //     {
+  //       title: `${i18n.t("navbar.services")}`,
+  //       turbo: "true",
+  //       url: sanitizeURL(window.Routes.services_path),
+  //     },
+  //     {
+  //       title: `${i18n.t("navbar.house_360")}`,
+  //       turbo: "true",
+  //       url: sanitizeURL(window.Routes.house_360_path),
+  //     },
+  //     {
+  //       title: `${i18n.t("navbar.contacts")}`,
+  //       turbo: "true",
+  //       url: sanitizeURL(window.Routes.contact_path),
+  //     },
+  //   ],
+  // };
 
   const items: NavbarItemProps[] = [
     {
@@ -102,6 +102,11 @@ export default function Navbar(props: Props) {
       title: `${i18n.t("navbar.contacts")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.contact_path),
+    },
+    {
+      title: `${i18n.t("navbar.faq")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.faq_path),
     },
   ];
 

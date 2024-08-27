@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get '/privacidade', to: 'pages#privacy', as: :privacy
     get '/termos_e_condicoes', to: 'pages#terms_and_conditions', as: :terms_and_conditions
     get '/contactos', to: 'pages#contact', as: :contact
+    get '/faq', to: 'pages#faq', as: :faq
     post '/novo_contacto', to: 'pages#new_contact', as: :new_contact
     get '/empreendimentos', to: 'listing_complexes#index', as: :latest
     get '/empreendimentos/:id', to: 'listing_complexes#show', as: :listing_complex

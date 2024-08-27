@@ -379,6 +379,18 @@
       "unacceptable_request": "A supported version is expected in the Accept header.\n",
       "unavailable_session": "Session %{id} is no longer available in memory.\n\nIf you happen to run on a multi-process server (like Unicorn or Puma) the process\nthis request hit doesn't store %{id} in memory. Consider turning the number of\nprocesses/workers to one (1) or using a different server in development.\n"
     },
+    "faq": {
+      "description": "We answer the most frequently asked questions about the process of buying and selling real estate, including doubts about financing, necessary documentation and the stages of the process. We provide clear and practical guidance to help clear up any doubts and ensure an informed and safe experience.",
+      "header": "FAQ (Frequently Asked Questions)",
+      "meta_description": "Frequently asked questions about real estate and the services provided by Sofia Galvão Group.",
+      "questions": {
+        "first": {
+          "answer": "To buy a house you must first define your budget and the type of property you are looking for. Then you should contact a real estate consultant who will help you find the best options for you.",
+          "title": "How to buy a house?"
+        }
+      },
+      "subheader": "Guide for buyers and sellers:"
+    },
     "flash": {
       "actions": {
         "create": {
@@ -538,6 +550,7 @@
       "buy": "Buy",
       "contacts": "Contacts",
       "enterprises": "Enterprises",
+      "faq": "FAQ",
       "house_360": "360 House",
       "language": "Mudar site para Português",
       "listings": "Listings",
