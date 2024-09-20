@@ -14,7 +14,6 @@
 
 - home page is too empty at first sight
 - after advanced search/end of comprar page - have text and link to services and contact.
-- merge services and house360 into one page - have "for buyer" and "for seller" sections in the page (see docs)
 - enterprises - add small text from docs
 - sobre nos - make changes according to docs
 - merge /kw & /sobre, keep only /kw for SEO and title "Partnership KW" title. subtitles "Sobre Nos" and "KW Portugal", with the revised texts from the docs.
@@ -25,3 +24,4 @@
 - Change action "avalie a sua casa" to white on gold
 - On services and about us, change action to "fale connosco" and point to contacts page
 - add border to listings with status "NEW"
+- merge services and house360 into one page - have "for buyer" and "for seller" sections in the page (see docs)
