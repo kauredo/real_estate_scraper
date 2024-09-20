@@ -24,8 +24,6 @@ class PagesController < ApplicationController
 
   def services; end
 
-  def house_360; end
-
   def contact; end
 
   def kw; end

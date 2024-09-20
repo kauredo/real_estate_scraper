@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     root 'pages#home'
     get '/sobre', to: 'pages#about', as: :about
     get '/servicos', to: 'pages#services', as: :services
-    get '/casa_360', to: 'pages#house_360', as: :house_360
     get '/kw', to: 'pages#kw', as: :kw
     get '/privacidade', to: 'pages#privacy', as: :privacy
     get '/termos_e_condicoes', to: 'pages#terms_and_conditions', as: :terms_and_conditions

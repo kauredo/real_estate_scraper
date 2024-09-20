@@ -36,11 +36,6 @@ export default function Navbar(props: Props) {
   //       url: sanitizeURL(window.Routes.services_path),
   //     },
   //     {
-  //       title: `${i18n.t("navbar.house_360")}`,
-  //       turbo: "true",
-  //       url: sanitizeURL(window.Routes.house_360_path),
-  //     },
-  //     {
   //       title: `${i18n.t("navbar.contacts")}`,
   //       turbo: "true",
   //       url: sanitizeURL(window.Routes.contact_path),
@@ -92,11 +87,6 @@ export default function Navbar(props: Props) {
       title: `${i18n.t("navbar.services")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.services_path),
-    },
-    {
-      title: `${i18n.t("navbar.house_360")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.house_360_path),
     },
     {
       title: `${i18n.t("navbar.contacts")}`,
