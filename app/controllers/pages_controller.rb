@@ -26,8 +26,6 @@ class PagesController < ApplicationController
 
   def contact; end
 
-  def kw; end
-
   def privacy; end
 
   def terms_and_conditions; end

@@ -2,10 +2,70 @@
   "en": {
     "about": {
       "header": "About Us",
+      "history_and_values": {
+        "content": {
+          "first_paragraph": "Fundado por Sofia Galvão, o Sofia Galvão Group nasceu da paixão por oferecer soluções imobiliárias de qualidade. Com uma vasta experiência no setor, a nossa equipa está comprometida em fornecer um serviço de consultoria personalizado e transparente. Acreditamos que cada transação imobiliária é uma oportunidade de construir relacionamentos duradouros e ajudar nossos clientes a alcançar seus objetivos.",
+          "second_paragraph": "Desde 2022 que fazemos parte do Top 20 dos consultores mais produtivos em todo o País, da KW Portugal e estamos no top 3 na KW Lead Santos, integrando, por isso o Associate Leadership Council (ALC), um órgão coletivo que apoia a estratégia de negócio a nível local.",
+          "third_paragraph": "Fazemos parte do 3º market center mais bem-sucedido a nível nacional. Aqui ajudamos clientes a terem a casa com que sonham, ajudamos proprietários a encontrar a melhor solução de negócio e ajudamos consultores a terem a carreira que procuram!"
+        },
+        "title": "Nossa História e Valores"
+      },
+      "kw_luxury": {
+        "content": "Como parte de uma rede exclusiva de agentes de luxo da KW internacional, o Sofia Galvão Group é especializado na promoção e venda de propriedades de alto padrão. Oferecemos um serviço de excelência, com foco nas necessidades dos clientes mais exigentes. A nossa experiência e rede mundial permitem-nos oferecer uma abordagem personalizada e um atendimento de alto nível, garantindo que cada propriedade de luxo receba o destaque que merece.",
+        "subtitle": "Especialistas em Imóveis de Luxo",
+        "title": "Somos Agent KW Luxury"
+      },
+      "kw_partnership": {
+        "international_network": {
+          "content": "O Sofia Galvão Group faz parte da KW, uma rede global de consultores imobiliários, presente em 5 continentes e mais de 50 regiões. Como líder mundial em mediação imobiliária, a KW oferece acesso a uma rede extensa e recursos incomparáveis.",
+          "title": "Rede Internacional"
+        },
+        "national_network": {
+          "content": "Em Portugal, a KW conta com 23 representações e mais de 2.800 consultores e associados, proporcionando uma cobertura abrangente e um serviço de alta qualidade em todo o país. Esta vasta rede permite-nos oferecer aos nossos clientes uma experiência de compra e venda superior.",
+          "title": "Rede Nacional"
+        },
+        "principles": {
+          "list": [
+            {
+              "WIN-WIN": "Ou não se faz."
+            },
+            {
+              "INTEGRIDADE": "Fazer o que está certo."
+            },
+            {
+              "CLIENTES": "Sempre em primeiro lugar."
+            },
+            {
+              "COMPROMISSO": "Em tudo."
+            },
+            {
+              "COMUNICAÇÃO": "Procure primeiro entender."
+            },
+            {
+              "CRIATIVIDADE": "Ideias antes dos resultados."
+            },
+            {
+              "TRABALHO EM EQUIPA": "Juntos alcançamos mais."
+            },
+            {
+              "TER CONFIANÇA": "Começa com honestidade."
+            },
+            {
+              "SUCESSO": "Resultados através das pessoas."
+            }
+          ],
+          "title": "Princípios KW"
+        },
+        "title": "Parceria com Keller Williams"
+      },
       "meta_description": "Sofia Galvão Group, a dedicated and demanding team that motivated by the best customer service grows and goes further every day.",
       "mission": {
         "sub1": "To be by your side in the real estate world to make the big \"changes\" in your life happy!",
         "title": "Mission"
+      },
+      "mission_and_vision": {
+        "content": "A nossa missão é ser a escolha número um para serviços imobiliários de alta qualidade em todo o país. Trabalhamos com dedicação para garantir que cada cliente receba um serviço personalizado, focado nas suas necessidades únicas. A nossa visão é estabelecer um padrão de excelência no mercado imobiliário, oferecendo soluções inovadoras e uma experiência de cliente incomparável.",
+        "title": "Missão e Visão"
       },
       "profile": {
         "description": "I'm a trained marketer and value creator by passion. I worked for years with brands and products, in order to better serve the Client and offer him not only what he needed, but also what best met his aspirations. I have focused on people and realising their full potential, I am a Master in Neuro Linguistic Programming and I believe in empowering people to achieve their goals and realise their life purpose. I dedicated myself to the real estate sector with a focus on the discovery of the unique asset: the house, the client, the transaction, the service. At KW I found the right structure to develop the Sofia Galvão Group's real estate brand with rigour, professionalism and trust. I have the market 'know how' and I provide my Clients the best deals, the ones that make them the happiest!",
@@ -13,6 +73,10 @@
       },
       "results": {
         "title": "Results"
+      },
+      "team": {
+        "content": "A nossa equipa é composta por profissionais altamente qualificados e experientes, especializados em diversos segmentos do mercado. Trabalhamos com uma rede de parceiros confiáveis para fornecer um serviço completo, incluindo apoio jurídico e consultoria financeira. O nosso objetivo é garantir que cada cliente se sinta apoiado e confiante durante todo o processo de compra ou venda.",
+        "title": "Equipa"
       },
       "testimonies": {
         "title": "Testimonies"
@@ -667,10 +731,70 @@
   "pt": {
     "about": {
       "header": "Sobre Nós",
+      "history_and_values": {
+        "content": {
+          "first_paragraph": "Fundado por Sofia Galvão, o Sofia Galvão Group nasceu da paixão por oferecer soluções imobiliárias de qualidade. Com uma vasta experiência no setor, a nossa equipa está comprometida em fornecer um serviço de consultoria personalizado e transparente. Acreditamos que cada transação imobiliária é uma oportunidade de construir relacionamentos duradouros e ajudar nossos clientes a alcançar seus objetivos.",
+          "second_paragraph": "Desde 2022 que fazemos parte do Top 20 dos consultores mais produtivos em todo o País, da KW Portugal e estamos no top 3 na KW Lead Santos, integrando, por isso o Associate Leadership Council (ALC), um órgão coletivo que apoia a estratégia de negócio a nível local.",
+          "third_paragraph": "Fazemos parte do 3º market center mais bem-sucedido a nível nacional. Aqui ajudamos clientes a terem a casa com que sonham, ajudamos proprietários a encontrar a melhor solução de negócio e ajudamos consultores a terem a carreira que procuram!"
+        },
+        "title": "Nossa História e Valores"
+      },
+      "kw_luxury": {
+        "content": "Como parte de uma rede exclusiva de agentes de luxo da KW internacional, o Sofia Galvão Group é especializado na promoção e venda de propriedades de alto padrão. Oferecemos um serviço de excelência, com foco nas necessidades dos clientes mais exigentes. A nossa experiência e rede mundial permitem-nos oferecer uma abordagem personalizada e um atendimento de alto nível, garantindo que cada propriedade de luxo receba o destaque que merece.",
+        "subtitle": "Especialistas em Imóveis de Luxo",
+        "title": "Somos Agent KW Luxury"
+      },
+      "kw_partnership": {
+        "international_network": {
+          "content": "O Sofia Galvão Group faz parte da KW, uma rede global de consultores imobiliários, presente em 5 continentes e mais de 50 regiões. Como líder mundial em mediação imobiliária, a KW oferece acesso a uma rede extensa e recursos incomparáveis.",
+          "title": "Rede Internacional"
+        },
+        "national_network": {
+          "content": "Em Portugal, a KW conta com 23 representações e mais de 2.800 consultores e associados, proporcionando uma cobertura abrangente e um serviço de alta qualidade em todo o país. Esta vasta rede permite-nos oferecer aos nossos clientes uma experiência de compra e venda superior.",
+          "title": "Rede Nacional"
+        },
+        "principles": {
+          "list": [
+            {
+              "WIN-WIN": "Ou não se faz."
+            },
+            {
+              "INTEGRIDADE": "Fazer o que está certo."
+            },
+            {
+              "CLIENTES": "Sempre em primeiro lugar."
+            },
+            {
+              "COMPROMISSO": "Em tudo."
+            },
+            {
+              "COMUNICAÇÃO": "Procure primeiro entender."
+            },
+            {
+              "CRIATIVIDADE": "Ideias antes dos resultados."
+            },
+            {
+              "TRABALHO EM EQUIPA": "Juntos alcançamos mais."
+            },
+            {
+              "TER CONFIANÇA": "Começa com honestidade."
+            },
+            {
+              "SUCESSO": "Resultados através das pessoas."
+            }
+          ],
+          "title": "Princípios KW"
+        },
+        "title": "Parceria com Keller Williams"
+      },
       "meta_description": "Sofia Galvão Group, uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
       "mission": {
         "sub1": "Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!",
         "title": "Missão"
+      },
+      "mission_and_vision": {
+        "content": "A nossa missão é ser a escolha número um para serviços imobiliários de alta qualidade em todo o país. Trabalhamos com dedicação para garantir que cada cliente receba um serviço personalizado, focado nas suas necessidades únicas. A nossa visão é estabelecer um padrão de excelência no mercado imobiliário, oferecendo soluções inovadoras e uma experiência de cliente incomparável.",
+        "title": "Missão e Visão"
       },
       "profile": {
         "description": "Sou marketer de formação e criadora de valor por paixão. Trabalhei durante anos com marcas e produtos, no propósito de melhor servir o Cliente e de lhe oferecer não só o que ele necessitava, mas também o que melhor respondia às suas aspirações. Foquei-me nas pessoas e na realização do seu potencial máximo, sou Master em Programação Neuro linguística e acredito na conquista da capacitação para a concretização de objectivos e realização de propósitos de vida. Dediquei-me ao sector imobiliário e exerço na compra e venda de casas a descoberta do activo único: da casa, do cliente, da transação, do serviço. Encontrei na KW a estrutura certa para desenvolver a consultoria imobiliária do Sofia Galvão Group com exigência, rigor, profissionalismo e confiança. Tenho o “know how” do mercado e proporciono aos meus Clientes os melhores negócios, os que os fazem mais Felizes!",
@@ -678,6 +802,10 @@
       },
       "results": {
         "title": "Resultados"
+      },
+      "team": {
+        "content": "A nossa equipa é composta por profissionais altamente qualificados e experientes, especializados em diversos segmentos do mercado. Trabalhamos com uma rede de parceiros confiáveis para fornecer um serviço completo, incluindo apoio jurídico e consultoria financeira. O nosso objetivo é garantir que cada cliente se sinta apoiado e confiante durante todo o processo de compra ou venda.",
+        "title": "Equipa"
       },
       "testimonies": {
         "title": "Testemunhos"

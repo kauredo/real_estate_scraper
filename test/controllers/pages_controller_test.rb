@@ -54,13 +54,6 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal I18n.t('flash.contact.thanks'), flash[:notice]
   end
 
-  test 'should get kw' do
-    get kw_path
-    assert_response :success
-    assert_select 'title', 'KW Portugal | Sofia Galvão Group'
-    assert_select 'h1', 'KW Portugal'
-  end
-
   test 'should get privacy' do
     get privacy_path
     assert_response :success

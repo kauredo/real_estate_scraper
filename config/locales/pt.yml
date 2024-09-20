@@ -192,6 +192,84 @@ pt:
       title: Resultados
     testimonies:
       title: Testemunhos
+    history_and_values:
+      title: Nossa História e Valores
+      content:
+        first_paragraph:
+          Fundado por Sofia Galvão, o Sofia Galvão Group nasceu da paixão por
+          oferecer soluções imobiliárias de qualidade. Com uma vasta experiência
+          no setor, a nossa equipa está comprometida em fornecer um serviço de
+          consultoria personalizado e transparente. Acreditamos que cada
+          transação imobiliária é uma oportunidade de construir relacionamentos
+          duradouros e ajudar nossos clientes a alcançar seus objetivos.
+        second_paragraph:
+          Desde 2022 que fazemos parte do Top 20 dos consultores mais produtivos
+          em todo o País, da KW Portugal e estamos no top 3 na KW Lead Santos,
+          integrando, por isso o Associate Leadership Council (ALC), um órgão
+          coletivo que apoia a estratégia de negócio a nível local.
+        third_paragraph:
+          Fazemos parte do 3º market center mais bem-sucedido a nível nacional.
+          Aqui ajudamos clientes a terem a casa com que sonham, ajudamos
+          proprietários a encontrar a melhor solução de negócio e ajudamos
+          consultores a terem a carreira que procuram!
+    mission_and_vision:
+      title: Missão e Visão
+      content:
+        A nossa missão é ser a escolha número um para serviços imobiliários de
+        alta qualidade em todo o país. Trabalhamos com dedicação para garantir
+        que cada cliente receba um serviço personalizado, focado nas suas
+        necessidades únicas. A nossa visão é estabelecer um padrão de excelência
+        no mercado imobiliário, oferecendo soluções inovadoras e uma experiência
+        de cliente incomparável.
+    team:
+      title: Equipa
+      content:
+        A nossa equipa é composta por profissionais altamente qualificados e
+        experientes, especializados em diversos segmentos do mercado.
+        Trabalhamos com uma rede de parceiros confiáveis para fornecer um
+        serviço completo, incluindo apoio jurídico e consultoria financeira. O
+        nosso objetivo é garantir que cada cliente se sinta apoiado e confiante
+        durante todo o processo de compra ou venda.
+    kw_luxury:
+      title: Somos Agent KW Luxury
+      subtitle: Especialistas em Imóveis de Luxo
+      content:
+        Como parte de uma rede exclusiva de agentes de luxo da KW internacional,
+        o Sofia Galvão Group é especializado na promoção e venda de propriedades
+        de alto padrão. Oferecemos um serviço de excelência, com foco nas
+        necessidades dos clientes mais exigentes. A nossa experiência e rede
+        mundial permitem-nos oferecer uma abordagem personalizada e um
+        atendimento de alto nível, garantindo que cada propriedade de luxo
+        receba o destaque que merece.
+    kw_partnership:
+      title: Parceria com Keller Williams
+      international_network:
+        title: Rede Internacional
+        content:
+          O Sofia Galvão Group faz parte da KW, uma rede global de consultores
+          imobiliários, presente em 5 continentes e mais de 50 regiões. Como
+          líder mundial em mediação imobiliária, a KW oferece acesso a uma rede
+          extensa e recursos incomparáveis.
+      national_network:
+        title: Rede Nacional
+        content:
+          Em Portugal, a KW conta com 23 representações e mais de 2.800
+          consultores e associados, proporcionando uma cobertura abrangente e um
+          serviço de alta qualidade em todo o país. Esta vasta rede permite-nos
+          oferecer aos nossos clientes uma experiência de compra e venda
+          superior.
+      principles:
+        title: Princípios KW
+        list:
+          - WIN-WIN: Ou não se faz.
+          - INTEGRIDADE: Fazer o que está certo.
+          - CLIENTES: Sempre em primeiro lugar.
+          - COMPROMISSO: Em tudo.
+          - COMUNICAÇÃO: Procure primeiro entender.
+          - CRIATIVIDADE: Ideias antes dos resultados.
+          - TRABALHO EM EQUIPA: Juntos alcançamos mais.
+          - TER CONFIANÇA: Começa com honestidade.
+          - SUCESSO: Resultados através das pessoas.
 
   contacts:
     header: Contactos

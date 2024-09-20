@@ -64,19 +64,6 @@ export default function Navbar(props: Props) {
       turbo: "true",
       url: sanitizeURL(window.Routes.blog_path),
     },
-    {
-      title: "Partnership with ",
-      img: (
-        <img
-          loading="lazy"
-          className="h-5 inline-block mb-[6px]"
-          src="/images/kw_logo.webp"
-          alt="KW Logo"
-        />
-      ),
-      turbo: "true",
-      url: sanitizeURL(window.Routes.kw_path),
-    },
     // moreDropdown,
     {
       title: `${i18n.t("navbar.about")}`,
