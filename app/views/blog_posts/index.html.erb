@@ -11,6 +11,7 @@
   <%# Variáveis %>
   <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
     <h1 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl"><%= I18n.t('blog_posts.header') %></h1>
+    <p class="mx-auto text-gray-500 text-lg mt-2"><%= I18n.t('blog_posts.subheader') %></p>
     <br>
     <div class="flex flex-wrap gap-4">
       <% if @blog_posts.present? %>
