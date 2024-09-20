@@ -43,7 +43,8 @@
       "empty": "Novos posts em breve...",
       "header": "Blog Posts",
       "meta_description": "Conheça mais sobre imobiliário e as melhores dicas dos locais onde morar em Lisboa com Sofia Galvão Group.",
-      "resource": "Post"
+      "resource": "Post",
+      "subheader": "O nosso blog é uma fonte de conhecimento para compradores e vendedores. Incluímos artigos sobre as melhores práticas no mercado imobiliário, tendências de mercado e conselhos para quem quer comprar ou vender um imóvel. Mantenha-se informado e tome decisões seguras e acertadas com o nosso conteúdo."
     },
     "buy": {
       "header": "Comprar",
