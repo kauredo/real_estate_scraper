@@ -18,9 +18,8 @@ Rails.application.routes.draw do
 
     # Defines the root path route ("/")
     root 'pages#home'
-    get '/sobre', to: 'pages#about', as: :about
     get '/servicos', to: 'pages#services', as: :services
-    get '/kw', to: 'pages#kw', as: :kw
+    get '/kw', to: 'pages#about', as: :about
     get '/privacidade', to: 'pages#privacy', as: :privacy
     get '/termos_e_condicoes', to: 'pages#terms_and_conditions', as: :terms_and_conditions
     get '/contactos', to: 'pages#contact', as: :contact
@@ -41,6 +40,10 @@ Rails.application.routes.draw do
         get '/confirm', to: 'newsletter_subscriptions#confirm'
       end
     end
+
+    # redirect from /about to /kw
+    get '/about', to: redirect('/kw')
+    get '/sobre', to: redirect('/kw')
 
     namespace :backoffice do
       get '/', to: 'pages#home'
