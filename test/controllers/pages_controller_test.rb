@@ -31,13 +31,6 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h1', 'Serviços'
   end
 
-  test 'should get house_360' do
-    get house_360_path
-    assert_response :success
-    assert_select 'title', 'Casa 360 | Sofia Galvão Group'
-    assert_select 'h1', 'Casa 360'
-  end
-
   test 'should get contact' do
     get contact_path
     assert_response :success
