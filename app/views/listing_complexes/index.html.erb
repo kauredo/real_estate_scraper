@@ -13,6 +13,12 @@
     <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-black sm:text-4xl px-4"><%= meta_title %></h1>
   </div>
 </div>
+<div class="pt-6 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="relative block mt-2 text-2xl text-center text-black sm:text-4xl px-4"><%= I18n.t('enterprises.subtitle.title') %></h2>
+    <p class="mt-4 text-xl text-gray-500 mx-auto"><%= I18n.t('enterprises.subtitle.description') %></p>
+  </div>
+</div>
 <%= react_component 'shared--Pagination', { pagy: @pagy } %>
 <%= react_component 'indexPage--Complexes', { listing_complexes: @listing_complexes_json }  %>
 <%= react_component 'shared--Pagination', { pagy: @pagy } %>
