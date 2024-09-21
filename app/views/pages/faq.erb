@@ -40,7 +40,7 @@
 
   <script>
     // JavaScript to toggle the answers and rotate the arrows
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('turbo:load', function() {
         document.querySelectorAll('[id^="question"]').forEach(function(button, index) {
             button.addEventListener('click', function() {
                 var answer = document.getElementById('answer' + (index));
@@ -49,10 +49,10 @@
                 if (answer.style.display === 'none' || answer.style.display === '') {
                     answer.style.display = 'block';
                     answer.style.borderTop = '2px solid rgb(211 175 121)';
-                    arrow.style.transform = 'rotate(0deg)';
+                    arrow.style.transform = 'rotate(-180deg)';
                 } else {
                     answer.style.display = 'none';
-                    arrow.style.transform = 'rotate(-180deg)';
+                    arrow.style.transform = 'rotate(0deg)';
                 }
             });
         });
