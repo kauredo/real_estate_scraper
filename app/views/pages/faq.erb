@@ -22,20 +22,36 @@
   </div>
 
   <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
-    <% I18n.t('faq.questions').each_with_index do |question, idx| %>
-      <div class="transition-all duration-200 bg-white border border-gray-200 shadow-lg cursor-pointer hover:bg-gray-50 mb-4">
-        <button type="button" id="question<%= idx %>" data-state="closed" class="flex items-center justify-between w-full px-4 py-5 sm:p-6">
-          <span class="flex text-lg font-semibold text-black"><%= question.last[:title] %></span>
-          <svg id="arrow<%= idx %>" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                  class="w-6 h-6 text-gray-400">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div id="answer<%= idx %>" style="display:none" class="p-8 sm:p-6 border-beige">
-          <%= question.last[:answer] %>
-        </div>
+
+    <% I18n.t('faq.sections').each_with_index do |section, idx_1| %>
+      <div class="mb-3" id="<%= idx_1 %>">
+        <% section = section.last %>
+        <h3 class="pt-10 pb-3 text-2xl text-black sm:text-3xl"><%= section[:title] %></h3>
+        <% section[:questions].each_with_index do |question, idx_2| %>
+          <% @idx ||= 0 %>
+          <div class="transition-all duration-200 bg-white border border-gray-200 shadow-lg cursor-pointer hover:bg-gray-50">
+            <button type="button" id="question<%= @idx %>" data-state="closed" class="flex items-center justify-between w-full px-4 py-5 sm:p-6">
+              <span class="flex text-lg text-left font-semibold text-black"><%= question.last[:title] %></span>
+              <svg id="arrow<%= @idx %>" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="w-6 h-6 text-gray-400">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer<%= @idx %>" style="display:none" class="p-8 sm:p-6 border-beige">
+              <%= question.last[:answer] %>
+            </div>
+          </div>
+          <% @idx += 1 %>
+        <% end %>
       </div>
     <% end %>
+
+    <h3 class="pt-10 pb-3 text-2xl text-black sm:text-3xl"><%= I18n.t('faq.reason.title') %></h3>
+    <ul class="list-disc list-inside">
+      <% I18n.t('faq.reason.answers').each do |answer| %>
+        <li class="text-lg text-black"><strong><%= answer.last[:title] %>:</strong> <%= answer.last[:description] %></li>
+      <% end %>
+    </ul>
   </div>
 
   <script>
