@@ -4,59 +4,62 @@
       "header": "About Us",
       "history_and_values": {
         "content": {
-          "first_paragraph": "Fundado por Sofia Galvão, o Sofia Galvão Group nasceu da paixão por oferecer soluções imobiliárias de qualidade. Com uma vasta experiência no setor, a nossa equipa está comprometida em fornecer um serviço de consultoria personalizado e transparente. Acreditamos que cada transação imobiliária é uma oportunidade de construir relacionamentos duradouros e ajudar nossos clientes a alcançar seus objetivos.",
-          "second_paragraph": "Desde 2022 que fazemos parte do Top 20 dos consultores mais produtivos em todo o País, da KW Portugal e estamos no top 3 na KW Lead Santos, integrando, por isso o Associate Leadership Council (ALC), um órgão coletivo que apoia a estratégia de negócio a nível local.",
-          "third_paragraph": "Fazemos parte do 3º market center mais bem-sucedido a nível nacional. Aqui ajudamos clientes a terem a casa com que sonham, ajudamos proprietários a encontrar a melhor solução de negócio e ajudamos consultores a terem a carreira que procuram!"
+          "first_paragraph": "Founded by Sofia Galvão, Sofia Galvão Group was born out of a passion for offering quality real estate solutions. With extensive experience in the sector, our team is committed to providing a personalised and transparent consultancy service. We believe that every property transaction is an opportunity to build lasting relationships and help our clients achieve their goals.",
+          "second_paragraph": "Since 2022, we have been part of KW Portugal's Top 20 of the most productive consultants in the whole country, and we are in the top 3 at KW Lead Santos, thus making us part of the Associate Leadership Council (ALC), a committee of consultants that supports business strategy at a local level.",
+          "third_paragraph": "We are part of the 3rd most successful market centre in Portugal. Here we help clients get the home they dream of, we help homeowners find the best business solution and we help consultants get the career they're looking for!"
         },
-        "title": "Nossa História e Valores"
+        "title": "Our History and Our Values"
       },
       "kw_luxury": {
-        "content": "Como parte de uma rede exclusiva de agentes de luxo da KW internacional, o Sofia Galvão Group é especializado na promoção e venda de propriedades de alto padrão. Oferecemos um serviço de excelência, com foco nas necessidades dos clientes mais exigentes. A nossa experiência e rede mundial permitem-nos oferecer uma abordagem personalizada e um atendimento de alto nível, garantindo que cada propriedade de luxo receba o destaque que merece.",
-        "subtitle": "Especialistas em Imóveis de Luxo",
-        "title": "Somos Agent KW Luxury"
+        "content": "As part of an exclusive network of international KW Luxury agents, Sofia Galvão Group specialises in the promotion and sale of high-end real estate. We offer a service of excellence, focusing on the needs of the most demanding clients. Our experience and worldwide network allow us to offer a personalised approach and a high level of service, ensuring that each luxury property receives the upscale prominence it deserves.",
+        "subtitle": "Luxury Property Specialists",
+        "title": "We are Agent KW Luxury"
       },
       "kw_partnership": {
         "international_network": {
-          "content": "O Sofia Galvão Group faz parte da KW, uma rede global de consultores imobiliários, presente em 5 continentes e mais de 50 regiões. Como líder mundial em mediação imobiliária, a KW oferece acesso a uma rede extensa e recursos incomparáveis.",
-          "title": "Rede Internacional"
+          "content": "Sofia Galvão Group is part of KW, a global network of property consultants, present on 5 continents and in more than 50 regions. As a world leader in real estate brokerage, KW offers access to an extensive network and unrivalled resources.",
+          "title": "International framework"
         },
         "national_network": {
-          "content": "Em Portugal, a KW conta com 23 representações e mais de 2.800 consultores e associados, proporcionando uma cobertura abrangente e um serviço de alta qualidade em todo o país. Esta vasta rede permite-nos oferecer aos nossos clientes uma experiência de compra e venda superior.",
-          "title": "Rede Nacional"
+          "content": "In Portugal, KW has 23 representations and more than 2,800 consultants and associates, providing comprehensive reach and high-quality service throughout the country. This vast network allows us to offer our customers a superior buying and selling experience.",
+          "title": "National framework"
         },
         "principles": {
           "list": [
             {
-              "WIN-WIN": "Ou não se faz."
+              "WIN-WIN": "Or no deal."
             },
             {
-              "INTEGRIDADE": "Fazer o que está certo."
+              "INTEGRITY": "Do the right thing."
             },
             {
-              "CLIENTES": "Sempre em primeiro lugar."
+              "CUSTOMERS": "Always come first."
             },
             {
-              "COMPROMISSO": "Em tudo."
+              "COMMITMENT": "In all things."
             },
             {
-              "COMUNICAÇÃO": "Procure primeiro entender."
+              "COMMUNICATION": "Seek first to understand."
             },
             {
-              "CRIATIVIDADE": "Ideias antes dos resultados."
+              "CREATIVITY": "Ideas before results."
             },
             {
-              "TRABALHO EM EQUIPA": "Juntos alcançamos mais."
+              "TEAMWORK": "Together everyone achieves more."
             },
             {
-              "TER CONFIANÇA": "Começa com honestidade."
+              "TRUST": "Starts with honesty."
             },
             {
-              "SUCESSO": "Resultados através das pessoas."
+              "EQUITY": "Opportunities for all."
+            },
+            {
+              "SUCCESS": "Results through people."
             }
           ],
           "title": "Princípios KW"
         },
-        "title": "Parceria com Keller Williams"
+        "title": "Partnership with Keller Williams"
       },
       "meta_description": "Sofia Galvão Group, a dedicated and demanding team that motivated by the best customer service grows and goes further every day.",
       "mission": {
@@ -64,26 +67,26 @@
         "title": "Mission"
       },
       "mission_and_vision": {
-        "content": "A nossa missão é ser a escolha número um para serviços imobiliários de alta qualidade em todo o país. Trabalhamos com dedicação para garantir que cada cliente receba um serviço personalizado, focado nas suas necessidades únicas. A nossa visão é estabelecer um padrão de excelência no mercado imobiliário, oferecendo soluções inovadoras e uma experiência de cliente incomparável.",
-        "title": "Missão e Visão"
+        "content": "Our mission is to be the number one choice for high quality real estate services throughout the country. We devotedly work to ensure that each client receives a personalised service focused on their unique needs. Our vision is to set a standard of excellence in the real estate market by offering innovative solutions and an unrivalled customer experience.",
+        "title": "Mission and Vision"
       },
       "profile": {
-        "description": "I'm a trained marketer and value creator by passion. I worked for years with brands and products, in order to better serve the Client and offer him not only what he needed, but also what best met his aspirations. I have focused on people and realising their full potential, I am a Master in Neuro Linguistic Programming and I believe in empowering people to achieve their goals and realise their life purpose. I dedicated myself to the real estate sector with a focus on the discovery of the unique asset: the house, the client, the transaction, the service. At KW I found the right structure to develop the Sofia Galvão Group's real estate brand with rigour, professionalism and trust. I have the market 'know how' and I provide my Clients the best deals, the ones that make them the happiest!",
-        "slogan": "Together we make Happy Homes!"
+        "description": "I'm a marketer by training and a value creator by passion. I've worked with brands and products for years, with the aim of better serving Customers and offering them not only what they needed, but also what best fulfilled their aspirations. I focused on people and the accomplishment of their full potentials, I have a Master's degree in Neuro Linguistic Programming and I believe in empowering people to achieve their goals and fulfil their life purposes. I have dedicated myself to the real estate sector and in buying and selling houses I apply my skills to discovering the unique asset: the house, the client, the transaction and the service. At KW I found the right structure at to develop the Sofia Galvão Group's real estate consultancy with high standards, responsibility, professionalism and confidence. I have the market know-how and I provide my Clients with the best deals, the ones that make them the Happiest!",
+        "slogan": "Together we create Happy Homes!"
       },
       "results": {
         "title": "Results"
       },
       "team": {
-        "content": "A nossa equipa é composta por profissionais altamente qualificados e experientes, especializados em diversos segmentos do mercado. Trabalhamos com uma rede de parceiros confiáveis para fornecer um serviço completo, incluindo apoio jurídico e consultoria financeira. O nosso objetivo é garantir que cada cliente se sinta apoiado e confiante durante todo o processo de compra ou venda.",
-        "title": "Equipa"
+        "content": "Our team gathers highly qualified and experienced professionals who specialise in various market segments. We work with a network of trusted partners to provide a complete service, including legal support and financial advice. Our aim is to ensure that every client feels supported and confident throughout the buying or selling process.",
+        "title": "Our Team"
       },
       "testimonies": {
         "title": "Testimonies"
       },
       "vision": {
         "sub1": "To be the preferred team for clients who want to buy or sell property in the Lisbon and Porto areas, thanks to our professionalism, our capacity to generate good business and the values we profess on a daily basis.",
-        "sub2": "Together we make Happy Homes!",
+        "sub2": "Together we create Happy Homes!",
         "title": "Vision"
       },
       "who": {
@@ -97,7 +100,7 @@
       "header": "Blog Posts",
       "meta_description": "Learn more about real estate and the best tips on where to live in Lisbon with Sofia Galvão Group.",
       "resource": "Post",
-      "subheader": "Our blog is a source of knowledge for buyers and sellers. We include articles on the best practices in the real estate market, market trends and advice for those looking to buy or sell a property. Stay informed and make the best decisions our help."
+      "subheader": "Our blog is a source of knowledge for buyers and sellers. We include articles on best practices in the real estate market, market trends and advice for those looking to buy or sell a property. Stay informed and make safe, sound decisions by taking our content into account."
     },
     "buy": {
       "header": "Buy",
@@ -117,7 +120,7 @@
           "send": "Send"
         },
         "titles": {
-          "main": "Fill in the form and we will get in touch:",
+          "main": "Fill in the form and we will get in touch with you:",
           "visit": "Need more information? Want to schedule a visit? Get in touch with us!"
         }
       },
@@ -312,27 +315,27 @@
       }
     },
     "enterprises": {
-      "header": "Enterprises",
+      "header": "Developments",
       "list": {
         "invest": {
-          "description": "Possibility of making the payment according to the evolution phases of the work and construction.",
+          "description": "The possibility of making payments available according to the stages of development and construction.",
           "title": "Phased investment"
         },
         "own": {
-          "description": "When you buy a house on the planning stage you have the guarantee that the property will be move-in ready and you have the certainty that you will be the first owner.",
-          "title": "You will be the first owner of your new home"
+          "description": "Buying at the planning stage gives you the guarantee that the property is delivered pristine and never-used, and the certainty that you will be the first owner.",
+          "title": "You'll be the first owner of your new home"
         },
         "perspective": {
-          "description": "When you buy a plan, the investment you make is generally lower than if it were already a finished house. This means that your house, once ready, is a boost to your investment.",
-          "title": "Prospects of better return on investment"
+          "description": "When you buy a house on the drawing board, the investment you make is usually less than the investment you would have to make if it had already been completed. This means that your house, from the moment it is ready, already maximises your investment.",
+          "title": "Expectation on better return on investment"
         },
         "warranty": {
-          "description": "A new property has a construction guarantee, as well as the certainty that there will be no need for improvements in the coming years.",
-          "title": "Construction Guarantee"
+          "description": "A new property has a construction warrantee, as well as the certainty that there will be no need for improvements in the coming years.",
+          "title": "Construction warrantee"
         },
         "yours": {
-          "description": "The purchase in plan gives the future owner the possibility of making changes in terms of materials and sometimes in the configuration, so that your future home meets your needs and tastes.",
-          "title": "Property to your measure"
+          "description": "Buying at the planning stage grants the future owner the chance to make changes to materials and sometimes to the layout, so that their future home matches their needs and preferences.",
+          "title": "Customised property by your standards"
         }
       },
       "meta_description": "The best developments in Portugal to buy with Sofia Galvão Group.",
@@ -346,10 +349,10 @@
         "price": "Price",
         "type": "Type"
       },
-      "subheader": "Why buy  <span class=\"underline decoration-beige\">a Plan?</span>",
+      "subheader": "Why to buy at <span class=\"underline decoration-beige\">the Planning Stage?</span>",
       "subtitle": {
-        "description": "Conheça os nossos projetos de empreendimentos imobiliários, que oferecem oportunidades únicas de investimento. Com opções de compra na planta, pode personalizar o seu imóvel e investir em propriedades com alto potencial de valorização. A nossa equipa fornece informações detalhadas sobre cada empreendimento, incluindo localização, planos de pagamento e potencial de retorno.",
-        "title": "Oportunidades de Investimento"
+        "description": "Discover our real estate development projects, which offer unique investment opportunities. With buy-at-the-planning-stage options, you can personalise your property and invest in properties with a high potential for capital appreciation. Our team provides detailed information on each development, including location, payment plans and return potential.",
+        "title": "Investment Opportunities"
       }
     },
     "faq": {
@@ -526,7 +529,7 @@
     },
     "home": {
       "cta": {
-        "contact": "Contact us",
+        "contact": "Talk to us",
         "long": "Evaluate your home",
         "short": "Evaluate home"
       },
@@ -542,13 +545,13 @@
             "subscribe": "Subscribe"
           }
         },
-        "subtitle": "Subscribe to our newsletter and stay up to date with the most recent news, opportunities and tips on the market.",
+        "subtitle": "Subscribe to our newsletter and keep up to date with the latest opportunities, news and market tips.",
         "terms": "By contacting us you're allowing Sofia Galvão Group to store your data to later inform you about business opportunities, as stated in the Privacy Policy.",
         "title": "Get the latest Market news"
       },
       "slogan": {
         "bottom": "Happy Homes!",
-        "top": "Together we make"
+        "top": "Together we create"
       }
     },
     "i18n": {
@@ -627,7 +630,7 @@
       "blog_posts": "Blog",
       "buy": "Buy",
       "contacts": "Contacts",
-      "enterprises": "Enterprises",
+      "enterprises": "Developments",
       "faq": "FAQ",
       "language": "Mudar site para Português",
       "listings": "Listings",
@@ -710,27 +713,27 @@
       "header": "Privacy Policy"
     },
     "sell": {
-      "exclusive": "We work on your home with exclusivity, dedication and provide close monitoring throughout the entire process.",
+      "exclusive": "We work on your home with exclusivity and dedication, and we perform close monitoring throughout the entire process.",
       "header": "Sell",
       "list": {
         "agencies": "Sharing the sale with all agencies in the market.",
-        "eval": "Certified valuation of the property.",
+        "eval": "Certified evaluation of the property.",
         "feedback": "Detailed and regular feedback.",
-        "flyer": "Proximity actions: Flyers; brochures; newsletters.",
+        "flyer": "Outreach actions: Flyers; brochures; newsletters.",
         "kw": "Exclusive access to the entire KW PT network.",
-        "market": "Market Research - preparation of comparative market analysis and characterisation reports of the area under consideration.",
-        "media": "Multimedia Production: Photo + video coverage.",
+        "market": "Market research - preparation of comparative market analyses and characterisation reports of the area under consideration.",
+        "media": "Multimedia Production: Photo&video coverage.",
         "open": "Open House.",
-        "portal": "Disclosure in the most relevant national and international real estate portals.",
+        "portal": "Diffusion on the most important national and international real estate portals.",
         "promo": "Use of promo boards.",
-        "socials": "Social Media Outreach.",
-        "warranty": "Ensuring implementation of industry regulated processes and procedures."
+        "socials": "Social Media Promotion.",
+        "warranty": "Guaranteed implementation of industry regulated processes and procedures."
       },
       "meta_description": "Sell properties in Portugal with real estate consultant Sofia Galvão from Sofia Galvão Group.",
       "paragraph": {
-        "bottom": "Our aim is to find the best Client in the shortest amount of time and for that we offer:",
-        "middle": "We offer a consulting service that works in a unique way and is tailored to what you want - focusing on the strategy of promotion, dissemination and our best negotiation.",
-        "top": "We guarantee the best deal for your home."
+        "bottom": "Our aim is to find you the best Client in the shortest amount of time, and for that purpose we offer:",
+        "middle": "We offer a consultancy service that works in a unique way and tailored to your needs, focusing on the promotion strategy, publicity and the best negotiation.",
+        "top": "We guarantee the best deal for the sale of your home."
       },
       "subheader": "Find out how much your home is worth."
     },
@@ -738,86 +741,86 @@
       "for_buyers": {
         "list": {
           "legal_financial_support": {
-            "description": "Recomendamos serviços de consultoria sobre opções de financiamento e assistência jurídica, garantindo que todas as questões legais e burocráticas sejam tratadas com competência. A nossa rede de parceiros de confiança está à disposição para proporcionar segurança em todas as transações.",
-            "title": "Assistência Jurídica e Financeira"
+            "description": "We recommend advisory services on financing options and legal assistance, certifying that all legal and bureaucratic issues are handled competently. Our network of trusted partners is readily available to ensure security in all transactions.",
+            "title": "Legal and Financial Assistance"
           },
           "market_analysis": {
-            "description": "Realizamos análises de mercado detalhadas para garantir que os nossos clientes façam compras informadas e a preços justos. Somos especialistas em negociações e trabalhamos para garantir que obtenha as melhores condições possíveis",
-            "title": "Análise de Mercado e Negociação"
+            "description": "We carry out detailed market analyses to ensure that our clients make informed purchases at fair prices. We specialise in negotiations and work to ensure that you get the best possible conditions",
+            "title": "Market Analysis and Negotiation"
           },
           "personalized_consulting": {
-            "description": "Entendemos que cada comprador é único. Por isso, oferecemos uma consultoria personalizada, adaptada aos seus objetivos específicos. Se está à procura da sua primeira casa, uma segunda residência ou um investimento, fornecemos o suporte necessário para tomar decisões informadas. Desde a escolha da localização até a negociação do preço, estamos ao seu lado em todas as etapas",
-            "title": "Consultoria Personalizada"
+            "description": "We’ve acknowledged that each buyer is unique. That's why we offer personalised consultancy tailored to your specific objectives. Whether you're looking for your first home, a second home or an investment, we provide the support you need to make informed decisions. From choosing the location to negotiating the price, we're with you every step of the way",
+            "title": "Personalised Consultancy"
           },
           "post_purchase_support": {
-            "description": "O nosso serviço não termina com a compra. Oferecemos suporte contínuo após a transação, ajudando com a mudança, configuração do imóvel e quaisquer outras necessidades que possam surgir. Estamos aqui para garantir que a sua transição para o novo lar seja suave e sem complicações.",
-            "title": "Acompanhamento Pós-Compra"
+            "description": "Our service doesn't end with the purchase. We offer ongoing support after the transaction, helping with the move, setting up the property and any other needs that may arise. We are here to ensure that the transition to your new home is smooth and hassle-free.",
+            "title": "Post-purchase follow-up"
           },
           "property_variety": {
-            "description": "Explore uma vasta gama de opções, desde apartamentos urbanos a moradias de luxo, passando por propriedades comerciais e oportunidades de investimento e encontre o imóvel que corresponde às suas necessidades e preferências. A nossa equipa ajuda a identificar oportunidades e a concretizar o melhor negócio.",
-            "title": "Variedade de Imóveis"
+            "description": "Explore a wide range of options, from urban flats to luxury villas, as well as commercial properties and investment opportunities, and find the property that matches your needs and preferences. Our team will help you identify opportunities and seal the best deal.",
+            "title": "Variety of Properties"
           },
           "virtual_tours_visits": {
-            "description": "Oferecemos tours virtuais detalhados e organizamos visitas presenciais para que possa explorar as propriedades de forma detalhada. A nossa equipa está sempre disponível para responder a quaisquer questões e fornecer informações adicionais.",
-            "title": "Tours Virtuais e Visitas"
+            "description": "We offer detailed virtual tours and organise face-to-face visits so that you can explore the properties in detail. Our team is always available to answer any questions and provide additional information.",
+            "title": "Virtual Tours and Visits"
           }
         },
-        "subtitle": "Apoio Personalizado na Compra de Imóveis",
-        "title": "Para Compradores"
+        "subtitle": "Personalised Support for Real Estate Purchases",
+        "title": "For Buyers"
       },
       "for_sellers": {
         "list": {
           "accurate_evaluation": {
-            "description": "Realizamos avaliações detalhadas e desenvolvemos uma estratégia de venda personalizada, ajustada às características únicas de cada imóvel. Utilizamos uma abordagem baseada em dados de mercado e análises comparativas para garantir que o valor do seu imóvel é maximizado e possa atrair compradores.",
-            "title": "Avaliação Precisa e Estratégia de Venda"
+            "description": "We carry out detailed evaluations and develop a personalised sales strategy tailored to the unique characteristics of each property. We use an approach based on market data and comparative analyses to ensure that the value of your property is maximised and can attract buyers.",
+            "title": "Accurate Evaluation and Sales Strategy"
           },
           "full_service": {
-            "description": "Vender um imóvel pode ser um processo complexo, mas no Sofia Galvão Group, simplificamos cada etapa. Oferecemos um serviço de venda completo, desde a avaliação, estratégia de marketing, formalização da venda até à realização da escritura, garantindo que o seu imóvel seja vendido da forma mais simples, rápida e ao melhor preço.",
-            "title": "Acompanhamento Completo"
+            "description": "Selling a property can be a complex process, but at Sofia Galvão Group, we simplify every stage. We offer a complete sales service, from property evaluation and marketing strategy to formalisation of the sale and completion of the deed, ensuring that your property is sold in the simplest, fastest way and at the best price.",
+            "title": "Complete Follow-Up"
           },
           "home_staging": {
-            "description": "Oferecemos serviços de home staging para preparar o seu imóvel para o mercado. Isto inclui aconselhamento sobre decoração, organização e apresentação para maximizar o apelo visual do imóvel. A preparação adequada pode fazer uma diferença significativa na percepção do comprador e no preço final de venda.",
-            "title": "Home Staging e Preparação"
+            "description": "We offer home staging services to prepare your property for the market. This includes advice on decoration, tidiness and showcasing to maximise the property's visual appeal. Proper preparation can make a significant difference to buyer perception and the final sale price.",
+            "title": "Home Staging and Preparation"
           },
           "marketing": {
-            "description": "Para promover os imóveis dos nossos clientes, utilizamos uma estratégia de marketing abrangente que inclui reportagem multimédia profissional, tours virtuais, campanhas digitais em diversas plataformas, divulgação nas redes Sociais e marketing de proximidade (flyers; newsletter; placa). Contamos com uma vasta rede de contactos a nível nacional e Internacional bem como presença nos principais portais do sector imobiliário a nível mundial. Esta abordagem visa aumentar a visibilidade dos imóveis e atrair compradores qualificados, garantindo uma venda rápida e eficiente.",
-            "title": "Marketing Imobiliário Eficaz"
+            "description": "To promote our clients' properties, we use a comprehensive marketing strategy that includes professional multimedia reporting, virtual tours, digital campaigns on various platforms, social media outreach and proximity marketing (flyers; newsletter; outdoors advertisement plaque). We have a vast network of contacts at both national and international levels, as well as a presence on the world's main real estate portals. This approach aims to increase the visibility of our properties and attract qualified buyers, guaranteeing a quick and efficient sale.",
+            "title": "Effective Property Marketing"
           },
           "negotiation_legal_support": {
-            "description": "Com uma equipa experiente em negociações, garantimos que cada transação seja realizada nas melhores condições. Além disso, recomendamos suporte jurídico completo para assegurar que todos os aspectos legais sejam tratados com a devida diligência.",
-            "title": "Negociação e Suporte Jurídico"
+            "description": "With an experienced negotiating team, we ensure that each transaction is carried out under the best conditions. In addition, we recommend full legal support to guarantee that all legal aspects are handled with due diligence.",
+            "title": "Negotiation and legal support"
           },
           "post_sale_support": {
-            "description": "O nosso serviço não termina com a venda. Oferecemos suporte contínuo após a transação, ajudando a esclarecer todas as dúvidas ou questões que possam surgir. Estamos aqui para garantir que a venda da sua casa seja suave e sem complicações.",
-            "title": "Acompanhamento Pós-Venda"
+            "description": "Our service doesn't end with the sale. We offer ongoing support after the transaction, helping to clarify any doubts or questions that may arise. We are here to ensure that the sale of your home is smooth and hassle-free.",
+            "title": "After-sales follow-up"
           },
           "visits_qualification": {
-            "description": "Dispomos de uma vasta rede de contactos nacionais e internacionais para assegurar que os potenciais compradores conheçam a sua casa. Organizamos as visitas de forma a não prejudicarem a sua rotina e realizamos um serviço de qualificação rigorosa de interessados de forma a assegurar que reúnem todas as condições para lhe proporcionar o melhor negócio na venda do seu imóvel.",
-            "title": "Visitas e Qualificação de Clientes"
+            "description": "We have a vast network of national and international contacts to ensure that potential buyers get to know their home. We organise visits in such a way that they don't interfere with your routine and we carry out a rigorous qualification service of interested parties to ensure that they meet all the conditions which enable you to get the best deal on the sale of your property.",
+            "title": "Visits and Client Qualification"
           }
         },
-        "subtitle": "Serviço Completo de Venda",
-        "title": "Para Vendedores"
+        "subtitle": "Complete Sales Service",
+        "title": "For Sellers"
       },
       "header": "Services",
       "list": {
         "house_lens": {
-          "description": "Buying or selling a house is most often about investing a large part, if not all, of your individual or family assets. This investment requires a careful and thoughtful analysis and safe options that will give you the confidence of an investment with return. <br> <br> In every deal we carry out we look at you, our Client, also from an investor's perspective and we ensure that the profitability of the sale or purchase is part of the transaction's success criteria.",
-          "title": "Property investment"
+          "description": "We carry out professional and detailed evaluations to determine the fair market value of your property. We use a data-driven approach, including analysing market matchings and current trends. This service is essential for owners looking to sell or rent out their property, as well as for buyers looking to ensure they are making the right investment.",
+          "title": "Property evaluations"
         },
         "house_trees": {
-          "description": "With access to exclusive platforms and tools for professionals we ensure the necessary market knowledge to identify your best options and pursue the best solutions. <br> <br> We offer you an informed, personalised service, based on an experienced and competitive negotiation.",
+          "description": "At Sofia Galvão Group, we offer a full range of real estate consultancy services, including buying, selling and renting properties. Our service begins with a detailed analysis of the market, followed by a personalised strategy for each client. Our team specialises in identifying opportunities in the market and negotiating the best conditions, ensuring that clients get maximum value from every transaction.",
           "title": "Real Estate Management and Consultancy"
         }
       },
       "meta_description": "As professionals in the real estate market, get to know Sofia Galvão Group's services here.",
       "tailor_house": {
-        "description": "Oferecemos soluções personalizadas para todas as suas necessidades imobiliárias, garantindo um serviço premium e de alta qualidade. Desde certificação energética, arquitetura, construção, remodelações, até limpeza profissional, mudanças seguras, jardinagem, e design de interiores, proporcionamos um atendimento completo e integrado. Trabalhamos com parceiros de confiança para assegurar que cada detalhe seja tratado com cuidado e excelência proporcionando uma experiência imobiliária sem igual.",
-        "subtitle": "Soluções Personalizadas para Todas as Necessidades Imobiliárias",
-        "title": "Tailor House | Casa 360º"
+        "description": "We offer personalised solutions for all your real estate needs, guaranteeing a premium, high-quality service. From energy certification, architecture, construction, refurbishing, to professional cleaning, efficient moving process, gardening and interior design, we provide a complete and integrated service. We work with trusted partners to ensure that every detail is handled with care and excellence, providing an unrivalled real estate experience.",
+        "subtitle": "Personalised Solutions for Every Real Estate Need",
+        "title": "Tailor House | Home 360º"
       },
       "text": {
-        "bottom": "Get to know some of them. <br> If you want to know more please",
+        "bottom": "Get to know some of them. <br> If you would like to know more, please",
         "link": "contact us.",
         "top": "As professionals in the real estate market, all the services related to real estate mediation and consultancy are within the scope of our activity for your benefit."
       }
@@ -858,7 +861,7 @@
           "second_paragraph": "Desde 2022 que fazemos parte do Top 20 dos consultores mais produtivos em todo o País, da KW Portugal e estamos no top 3 na KW Lead Santos, integrando, por isso o Associate Leadership Council (ALC), um órgão coletivo que apoia a estratégia de negócio a nível local.",
           "third_paragraph": "Fazemos parte do 3º market center mais bem-sucedido a nível nacional. Aqui ajudamos clientes a terem a casa com que sonham, ajudamos proprietários a encontrar a melhor solução de negócio e ajudamos consultores a terem a carreira que procuram!"
         },
-        "title": "Nossa História e Valores"
+        "title": "A Nossa História e os Nossos Valores"
       },
       "kw_luxury": {
         "content": "Como parte de uma rede exclusiva de agentes de luxo da KW internacional, o Sofia Galvão Group é especializado na promoção e venda de propriedades de alto padrão. Oferecemos um serviço de excelência, com foco nas necessidades dos clientes mais exigentes. A nossa experiência e rede mundial permitem-nos oferecer uma abordagem personalizada e um atendimento de alto nível, garantindo que cada propriedade de luxo receba o destaque que merece.",
@@ -901,6 +904,9 @@
               "TER CONFIANÇA": "Começa com honestidade."
             },
             {
+              "EQUIDADE": "Oportunidades para todos."
+            },
+            {
               "SUCESSO": "Resultados através das pessoas."
             }
           ],
@@ -938,7 +944,7 @@
       },
       "who": {
         "sub1": "Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
-        "sub2": "Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
+        "sub2": "Focados na profissionalização do setor praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
         "title": "Quem somos?"
       }
     },
@@ -1233,7 +1239,7 @@
           "title": "Investimento Faseado"
         },
         "own": {
-          "description": "Na compra em planta tem a garantia que o imóvel está pronto a estrear e tem a certeza que você será o primeiro proprietário.",
+          "description": "Na compra em planta tem a garantia de que o imóvel está pronto a estrear e a certeza que será o primeiro proprietário.",
           "title": "Vai ser o primeiro dono da sua nova casa"
         },
         "perspective": {
@@ -1245,7 +1251,7 @@
           "title": "Garantia de construção"
         },
         "yours": {
-          "description": "A aquisição em planta confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua futura casa vá de encontro às suas necessidades e gostos.",
+          "description": "A aquisição em planta confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua futura casa vá ao encontro das suas necessidades e gostos.",
           "title": "Imóvel à sua medida"
         }
       },
@@ -1262,7 +1268,7 @@
       },
       "subheader": "Porquê Comprar <span class=\"underline decoration-beige\">em Planta?</span>",
       "subtitle": {
-        "description": "Conheça os nossos projetos de empreendimentos imobiliários, que oferecem oportunidades únicas de investimento. Com opções de compra na planta, pode personalizar o seu imóvel e investir em propriedades com alto potencial de valorização. A nossa equipa fornece informações detalhadas sobre cada empreendimento, incluindo localização, planos de pagamento e potencial de retorno.",
+        "description": "Conheça os nossos projetos de empreendimentos imobiliários, que oferecem oportunidades únicas de investimento. Com opções de compra em planta, pode personalizar o seu imóvel e investir em propriedades com alto potencial de valorização. A nossa equipa fornece informações detalhadas sobre cada empreendimento, incluindo localização, planos de pagamento e potencial de retorno.",
         "title": "Oportunidades de Investimento"
       }
     },
@@ -1657,15 +1663,15 @@
         "agencies": "Partilha da venda com todas as agências do mercado.",
         "eval": "Avaliação certificada do imóvel.",
         "feedback": "Feedback detalhado e regular.",
-        "flyer": "Acções de proximidade: Flyers; brochuras; newsletters.",
+        "flyer": "Ações de proximidade: Flyers; brochuras; newsletters.",
         "kw": "Acesso exclusivo a toda a rede Nacional KW.",
-        "market": "Estudo do Mercado - elaboração de analises comparativas de Mercado e relatórios de caracterização da zona a considerar.",
+        "market": "Estudo do Mercado - elaboração de análises comparativas de Mercado e relatórios de caracterização da zona a considerar.",
         "media": "Produção Multimédia: Reportagem fotográfica+vídeo.",
         "open": "Realização de Open House.",
         "portal": "Divulgação nos mais relevantes portais imobiliários nacionais e internacionais.",
         "promo": "Utilização de placas de promoção.",
         "socials": "Divulgação Social Media.",
-        "warranty": "Garantia de implementação de processos e procedimentos regulados pelo sector."
+        "warranty": "Garantia de implementação de processos e procedimentos regulados pelo setor."
       },
       "meta_description": "Vender propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group.",
       "paragraph": {
@@ -1721,7 +1727,7 @@
             "title": "Home Staging e Preparação"
           },
           "marketing": {
-            "description": "Para promover os imóveis dos nossos clientes, utilizamos uma estratégia de marketing abrangente que inclui reportagem multimédia profissional, tours virtuais, campanhas digitais em diversas plataformas, divulgação nas redes Sociais e marketing de proximidade (flyers; newsletter; placa). Contamos com uma vasta rede de contactos a nível nacional e Internacional bem como presença nos principais portais do sector imobiliário a nível mundial. Esta abordagem visa aumentar a visibilidade dos imóveis e atrair compradores qualificados, garantindo uma venda rápida e eficiente.",
+            "description": "Para promover os imóveis dos nossos clientes, utilizamos uma estratégia de marketing abrangente que inclui reportagem multimédia profissional, tours virtuais, campanhas digitais em diversas plataformas, divulgação nas redes Sociais e marketing de proximidade (flyers; newsletter; placa). Contamos com uma vasta rede de contactos a nível nacional e Internacional bem como presença nos principais portais do setor imobiliário a nível mundial. Esta abordagem visa aumentar a visibilidade dos imóveis e atrair compradores qualificados, garantindo uma venda rápida e eficiente.",
             "title": "Marketing Imobiliário Eficaz"
           },
           "negotiation_legal_support": {
@@ -1758,9 +1764,9 @@
         "title": "Tailor House | Casa 360º"
       },
       "text": {
-        "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais entre em contacto",
+        "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais, entre em contacto",
         "link": "connosco.",
-        "top": "Enquanto profissionais do mercado imobiliário todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
+        "top": "Enquanto profissionais do mercado imobiliário, todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
       }
     },
     "support": {

@@ -69,12 +69,12 @@ pt:
         possível e para isso disponibilizamos:"
     list:
       market:
-        Estudo do Mercado - elaboração de analises comparativas de Mercado e
+        Estudo do Mercado - elaboração de análises comparativas de Mercado e
         relatórios de caracterização da zona a considerar.
       eval: Avaliação certificada do imóvel.
       warranty:
         Garantia de implementação de processos e procedimentos regulados pelo
-        sector.
+        setor.
       media: "Produção Multimédia: Reportagem fotográfica+vídeo."
       kw: Acesso exclusivo a toda a rede Nacional KW.
       agencies: Partilha da venda com todas as agências do mercado.
@@ -84,7 +84,7 @@ pt:
       socials: Divulgação Social Media.
       promo: Utilização de placas de promoção.
       open: Realização de Open House.
-      flyer: "Acções de proximidade: Flyers; brochuras; newsletters."
+      flyer: "Ações de proximidade: Flyers; brochuras; newsletters."
       feedback: Feedback detalhado e regular.
     exclusive:
       Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um
@@ -97,7 +97,7 @@ pt:
       title: Oportunidades de Investimento
       description:
         Conheça os nossos projetos de empreendimentos imobiliários, que oferecem
-        oportunidades únicas de investimento. Com opções de compra na planta,
+        oportunidades únicas de investimento. Com opções de compra em planta,
         pode personalizar o seu imóvel e investir em propriedades com alto
         potencial de valorização. A nossa equipa fornece informações detalhadas
         sobre cada empreendimento, incluindo localização, planos de pagamento e
@@ -111,8 +111,8 @@ pt:
       own:
         title: Vai ser o primeiro dono da sua nova casa
         description:
-          Na compra em planta tem a garantia que o imóvel está pronto a estrear
-          e tem a certeza que você será o primeiro proprietário.
+          Na compra em planta tem a garantia de que o imóvel está pronto a
+          estrear e a certeza que será o primeiro proprietário.
       invest:
         title: Investimento Faseado
         description:
@@ -135,7 +135,7 @@ pt:
         description:
           A aquisição em planta confere a possibilidade do futuro proprietário
           fazer alterações ao nível de materiais e por vezes ao nível da
-          configuração, de forma a que a sua futura casa vá de encontro às suas
+          configuração, de forma a que a sua futura casa vá ao encontro das suas
           necessidades e gostos.
     show:
       type: Natureza
@@ -173,7 +173,7 @@ pt:
         Uma equipa dedicada e exigente que motivada pelo melhor serviço ao
         Cliente cresce e vai mais longe todos os dias.
       sub2:
-        Focados na profissionalização do sector praticamos consultoria
+        Focados na profissionalização do setor praticamos consultoria
         imobiliária com credibilidade, excelência e relevância.
     mission:
       title: Missão
@@ -193,7 +193,7 @@ pt:
     testimonies:
       title: Testemunhos
     history_and_values:
-      title: Nossa História e Valores
+      title: A Nossa História e os Nossos Valores
       content:
         first_paragraph:
           Fundado por Sofia Galvão, o Sofia Galvão Group nasceu da paixão por
@@ -269,6 +269,7 @@ pt:
           - CRIATIVIDADE: Ideias antes dos resultados.
           - TRABALHO EM EQUIPA: Juntos alcançamos mais.
           - TER CONFIANÇA: Começa com honestidade.
+          - EQUIDADE: Oportunidades para todos.
           - SUCESSO: Resultados através das pessoas.
 
   contacts:
@@ -301,11 +302,11 @@ pt:
       equipa Sofia Galvão Group.
     text:
       top:
-        Enquanto profissionais do mercado imobiliário todos os serviços ligados
+        Enquanto profissionais do mercado imobiliário, todos os serviços ligados
         à mediação e consultoria imobiliária estão no âmbito da nossa actividade
         para seu benefício.
       bottom:
-        Fique a conhecer alguns deles. <br> Se pretender saber mais entre em
+        Fique a conhecer alguns deles. <br> Se pretender saber mais, entre em
         contacto
       link: connosco.
     list:
@@ -369,7 +370,7 @@ pt:
             plataformas, divulgação nas redes Sociais e marketing de proximidade
             (flyers; newsletter; placa). Contamos com uma vasta rede de
             contactos a nível nacional e Internacional bem como presença nos
-            principais portais do sector imobiliário a nível mundial. Esta
+            principais portais do setor imobiliário a nível mundial. Esta
             abordagem visa aumentar a visibilidade dos imóveis e atrair
             compradores qualificados, garantindo uma venda rápida e eficiente.
         home_staging:
