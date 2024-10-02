@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Listing } from "../utils/Interfaces";
 import { truncateText, sanitizeURLWithParams } from "../utils/Functions";
 import ListingIcons from "../shared/ListingIcons";
-import { i18n } from "../../languages/languages";
 import Overlay from "../shared/Overlay";
 
 interface Props {

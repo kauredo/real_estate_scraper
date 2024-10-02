@@ -18,7 +18,7 @@ export default function Pagination(props: Props) {
           <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
             {pagy.prev && (
               <>
-                <a href={pagy.prevUrl}>
+                <a href={pagy.prev_url}>
                   <svg
                     width="14"
                     height="8"
@@ -49,7 +49,7 @@ export default function Pagination(props: Props) {
                     />
                   </svg>
                 </a>
-                <a href={pagy.prevUrl}>
+                <a href={pagy.prev_url}>
                   <p className="text-sm ml-3 font-medium leading-none ">
                     {i18n.t("pagination.previous")}
                   </p>
@@ -65,22 +65,25 @@ export default function Pagination(props: Props) {
                 currentPage === page
                   ? classes + " !text-beige !border-beige"
                   : classes;
+              let href = `${
+                i18n.locale === "en" ? "/en" : ""
+              }/comprar?page=${page}`;
               return (
-                <a key={`page-${page}`} href={`/comprar?page=${page}`}>
+                <a key={`page-${page}`} href={href}>
                   <p className={classes}>{page}</p>
                 </a>
               );
             })}
           </div>
           <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
-            {pagy.next && (
+            {pagy.next && pagy.next_url && (
               <>
-                <a href={pagy.nextUrl}>
+                <a href={pagy.next_url}>
                   <p className="text-sm font-medium leading-none mr-3">
                     {i18n.t("pagination.next")}
                   </p>
                 </a>
-                <a href={pagy.nextUrl}>
+                <a href={pagy.next_url}>
                   <svg
                     width="14"
                     height="8"
