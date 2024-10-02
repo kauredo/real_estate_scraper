@@ -59,20 +59,20 @@ export interface Listing {
 
 export interface Pagy {
   count: number;
-  firstUrl: string;
+  first_url: string;
   from: number;
   in: number;
   items: number;
   last: number;
-  lastUrl: string;
+  last_url: string;
   next: number;
-  nextUrl: string;
+  next_url: string;
   page: number;
-  pageUrl: string;
+  page_url: string;
   pages: number;
   prev: null;
-  prevUrl: string;
-  scaffoldUrl: string;
+  prev_url: string;
+  scaffold_url: string;
   series: string[];
   to: number;
 }
