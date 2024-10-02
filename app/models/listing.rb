@@ -36,9 +36,9 @@ class Listing < ApplicationRecord
 
   def city
     if CITIES[:south].any? { |c| address&.downcase&.include?(c) }
-      'Sul'
+      I18n.locale == :en ? 'South' : 'Sul'
     else
-      'Norte'
+      I18n.locale == :en ? 'North' : 'Norte'
     end
   end
 
