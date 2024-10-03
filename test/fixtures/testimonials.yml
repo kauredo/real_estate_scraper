@@ -36,3 +36,14 @@ four:
     realizar um bom negocio (para todos). As visitas que realiza são estudadas e
     assertivas, e quase sempre concretizam-se numa venda/ compra. É com certeza,
     a nossa parceira imobiliária! "
+
+# == Schema Information
+#
+# Table name: testimonials
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  text       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#

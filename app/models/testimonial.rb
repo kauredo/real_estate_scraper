@@ -11,3 +11,14 @@ class Testimonial < ApplicationRecord
 
   default_scope { includes(:translation) }
 end
+
+# == Schema Information
+#
+# Table name: testimonials
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  text       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#

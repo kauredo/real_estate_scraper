@@ -45,7 +45,7 @@ export interface Listing {
   };
   address: string;
   features: string[];
-  price: string;
+  price: number;
   title: string;
   url: string;
   description: string;

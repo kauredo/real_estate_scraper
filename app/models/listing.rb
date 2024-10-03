@@ -4,6 +4,8 @@ class Listing < ApplicationRecord
   extend Mobility
   extend FriendlyId
 
+  monetize :price_cents, as: :price, allow_nil: true
+
   translates :title, :description, :features, :slug
   friendly_id :title, use: %i[mobility history]
 
@@ -51,6 +53,12 @@ class Listing < ApplicationRecord
        slug stats status title url video_link]
   end
 
+  def as_json(options = {})
+    super.merge(
+      'price' => Money.new(price_cents.to_i).format(symbol: nil, no_cents_if_whole: true)
+    )
+  end
+
   private
 
   def remove_currency_from_price
@@ -70,3 +78,35 @@ class Listing < ApplicationRecord
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: listings
+#
+#  id                 :bigint           not null, primary key
+#  address            :string
+#  deleted_at         :datetime
+#  description        :text
+#  features           :string           default([]), is an Array
+#  old_status         :string
+#  order              :integer
+#  photos             :text             default([]), is an Array
+#  price_cents        :integer          default(0), not null
+#  price_string       :string
+#  slug               :string
+#  stats              :json
+#  status             :integer
+#  status_changed_at  :datetime
+#  title              :string
+#  url                :string
+#  video_link         :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  listing_complex_id :bigint
+#
+# Indexes
+#
+#  index_listings_on_deleted_at          (deleted_at)
+#  index_listings_on_listing_complex_id  (listing_complex_id)
+#  index_listings_on_slug                (slug) UNIQUE
+#

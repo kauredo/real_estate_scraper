@@ -53,6 +53,7 @@ gem 'bootsnap', require: false
 # Other gems here
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'data_migrate', '~> 9.1.0'
 gem 'devise'
 gem 'friendly_id'
 gem 'friendly_id-mobility'
@@ -63,6 +64,7 @@ gem 'jwt'
 gem 'listen', '~> 3.7', '>= 3.7.1'
 gem 'mobility', '~> 1.2.9'
 gem 'mobility-ransack', '~> 1.2.2'
+gem 'money-rails', '~> 1.12'
 gem 'pagy', '~> 5.10'
 gem 'paranoia'
 gem 'rails-controller-testing'
@@ -91,6 +93,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'dockerfile-rails', '>= 1.2'
   gem 'erb_lint', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]

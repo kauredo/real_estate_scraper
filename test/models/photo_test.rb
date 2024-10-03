@@ -64,3 +64,20 @@ class PhotoTest < ActiveSupport::TestCase
     assert_equal [photo1, photo2], listing_complex2.photos.reload.to_a
   end
 end
+
+# == Schema Information
+#
+# Table name: photos
+#
+#  id                 :bigint           not null, primary key
+#  image              :text
+#  main               :boolean          default(FALSE)
+#  order              :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  listing_complex_id :bigint
+#
+# Indexes
+#
+#  index_photos_on_listing_complex_id  (listing_complex_id)
+#
