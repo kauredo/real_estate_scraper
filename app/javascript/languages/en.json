@@ -695,12 +695,24 @@
         "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
       },
       "details": "Listing Details",
+      "no_listings": "No listings available with the selected criteria",
       "price": "Price",
+      "reset_filters": "Reset filters",
       "resource": "Listing",
       "search": {
         "address": "Address",
         "name": "Name",
         "price": "Price",
+        "status": {
+          "agreed": "Sales Agreed",
+          "all": "All",
+          "closed": "Closed",
+          "recent": "New to Market",
+          "rented": "Rented",
+          "sold": "Sold",
+          "standard": "Listed",
+          "title": "Status"
+        },
         "submit": "Search",
         "title": "Search for a property"
       },

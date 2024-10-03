@@ -599,12 +599,24 @@
         "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
       },
       "details": "Listing Details",
+      "no_listings": "No listings available with the selected criteria",
       "price": "Price",
+      "reset_filters": "Reset filters",
       "resource": "Listing",
       "search": {
         "address": "Address",
         "name": "Name",
         "price": "Price",
+        "status": {
+          "agreed": "Sales Agreed",
+          "all": "All",
+          "closed": "Closed",
+          "recent": "New to Market",
+          "rented": "Rented",
+          "sold": "Sold",
+          "standard": "Listed",
+          "title": "Status"
+        },
         "submit": "Search",
         "title": "Search for a property"
       },
@@ -1610,12 +1622,24 @@
         "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
       },
       "details": "Detalhes do Imóvel",
+      "no_listings": "Não foram encontrados imóveis com os critérios selecionados",
       "price": "Preço",
+      "reset_filters": "Limpar Filtros",
       "resource": "Imóvel",
       "search": {
         "address": "Morada",
         "name": "Nome",
         "price": "Preço",
+        "status": {
+          "agreed": "Reservados",
+          "all": "Todos",
+          "closed": "Encerrados",
+          "recent": "Novos",
+          "rented": "Arrendados",
+          "sold": "Vendidos",
+          "standard": "Listados",
+          "title": "Estado"
+        },
         "submit": "Pesquisar",
         "title": "Pesquisar Imóveis"
       },
