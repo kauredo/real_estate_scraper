@@ -130,3 +130,11 @@ export const navbarItemClass = (path, isMobile, children: string[] = []) => {
   }
   return base + inactive + desktop;
 };
+
+export const numberToCurrency = (number, currency = "EUR") => {
+  return new Intl.NumberFormat(i18n.locale, {
+    style: "currency",
+    currency: currency,
+    maximumFractionDigits: 0,
+  }).format(number);
+};
