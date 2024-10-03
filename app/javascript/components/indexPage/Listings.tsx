@@ -13,9 +13,8 @@ export default function Listings(props: Props) {
   const { listings, backoffice } = props;
 
   if (listings.length === 0) {
-    console.log("No listings");
     return (
-      <div>
+      <div id="listings">
         <div className="container mx-auto">
           <div className="flex flex-col justify-center items-center pt-4">
             <p className="text-xl text-gray-500 text-center">
@@ -34,7 +33,7 @@ export default function Listings(props: Props) {
   }
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto" id="listings">
       {listings?.map(listing => {
         return (
           <LongCard

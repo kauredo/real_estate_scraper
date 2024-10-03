@@ -111,7 +111,9 @@ export default function Show(props: Props) {
                 {Object.keys(listing.stats)?.map((k, v) => {
                   return (
                     <div key={k} className="border p-2 w-1/2">
-                      <span className="font-bold">{k}:</span>
+                      <span className="font-bold">
+                        {i18n.t(`listing.stats.${k.toLowerCase()}`)}:
+                      </span>
                       <br />
                       <span>{listing.stats[k]}</span>
                     </div>

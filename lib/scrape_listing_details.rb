@@ -76,7 +76,10 @@ class ScrapeListingDetails
     listing.status = 1
 
     price = extract_price(browser)
-    listing.price = price if price
+    if price
+      price = price.gsub(/\D/, '')
+      listing.price = price
+    end
 
     stats = extract_stats(browser)
     listing.stats = stats if stats
