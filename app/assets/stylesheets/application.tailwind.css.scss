@@ -189,3 +189,97 @@ strong {
 .slider-frame {
   padding-bottom: 3rem !important;
 }
+
+.rc-slider {
+  position: relative;
+  height: 14px;
+  padding: 5px 0;
+  width: 100%;
+  border-radius: 6px;
+  touch-action: none;
+  box-sizing: border-box;
+
+  .rc-slider-rail {
+    position: absolute;
+    width: 100%;
+    background-color: #e9e9e9;
+    height: 4px;
+    border-radius: 6px;
+  }
+
+  .rc-slider-track {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    border-radius: 6px;
+    background-color: #e9dbc6;
+  }
+
+  .rc-slider-step {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+  }
+
+  .rc-slider-handle {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    cursor: -webkit-grab;
+    margin-top: -5px;
+    cursor: grab;
+    border-radius: 50%;
+    border: solid 2px #d3af79;
+    background-color: #fff;
+    touch-action: pan-x;
+  }
+
+  .rc-slider-handle:active {
+    border-color: #d3af79;
+    box-shadow: 0 0 5px #d3af79;
+  }
+
+  .rc-slider-handle:focus {
+    border-color: #d3af79;
+    box-shadow: 0 0 0 5px #d3af79;
+    outline: none;
+  }
+
+  .rc-slider-handle-click-focused {
+    border-color: #d3af79;
+    box-shadow: 0 0 0 5px #d3af79;
+  }
+
+  .rc-slider-handle:hover {
+    border-color: #d3af79;
+  }
+
+  .rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+    border-color: #d3af79;
+    box-shadow: 0 0 5px #d3af79;
+    cursor: grabbing;
+  }
+
+  .rc-slider-mark {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .rc-slider-mark-text {
+    position: absolute;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  .rc-slider-mark-text-active {
+    color: rgba(0, 0, 0, 0.65);
+  }
+}
