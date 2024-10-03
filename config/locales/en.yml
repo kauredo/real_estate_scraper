@@ -753,6 +753,8 @@ en:
     next: Next
 
   listing:
+    no_listings: No listings available with the selected criteria
+    reset_filters: Reset filters
     resource: Listing
     watch_video: Watch Video
     details: Listing Details
@@ -787,6 +789,15 @@ en:
       address: Address
       price: Price
       submit: Search
+      status:
+        title: Status
+        all: All
+        recent: New to Market
+        standard: Listed
+        agreed: Sales Agreed
+        sold: Sold
+        rented: Rented
+        closed: Closed
 
   tasks:
     scrape:
