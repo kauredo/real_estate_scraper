@@ -12,8 +12,11 @@ class ListingsController < ApplicationController
   end
 
   def buy
-    pagy, @listings = pagy(Listing.all)
+    @q = Listing.ransack(params[:q])
+    listings = @q.result
+    pagy, @listings = pagy(listings)
     @pagy = pagy_metadata(pagy)
+    @listings_max_price = Listing.all.pluck(:price).uniq.reject(&:blank?).map(&:to_i).max * 1000
   end
 
   def sell; end

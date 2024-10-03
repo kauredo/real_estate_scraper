@@ -62,10 +62,12 @@ gem 'js-routes'
 gem 'jwt'
 gem 'listen', '~> 3.7', '>= 3.7.1'
 gem 'mobility', '~> 1.2.9'
+gem 'mobility-ransack', '~> 1.2.2'
 gem 'pagy', '~> 5.10'
 gem 'paranoia'
 gem 'rails-controller-testing'
 gem 'rails-i18n'
+gem 'ransack'
 gem 'react-rails'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false

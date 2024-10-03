@@ -752,6 +752,13 @@
       "details": "Detalhes do Imóvel",
       "price": "Preço",
       "resource": "Imóvel",
+      "search": {
+        "address": "Morada",
+        "name": "Nome",
+        "price": "Preço",
+        "submit": "Pesquisar",
+        "title": "Pesquisar Imóveis"
+      },
       "status": {
         "agreed": "Reservado",
         "closed": "Encerrado",

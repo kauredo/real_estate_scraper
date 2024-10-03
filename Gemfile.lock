@@ -203,6 +203,9 @@ GEM
     mobility (1.2.9)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
+    mobility-ransack (1.2.2)
+      mobility (>= 1.0.1, < 2.0)
+      ransack (>= 1.8.0, < 5.0)
     msgpack (1.7.0)
     net-imap (0.3.4)
       date
@@ -281,6 +284,10 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    ransack (4.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -430,6 +437,7 @@ DEPENDENCIES
   jwt
   listen (~> 3.7, >= 3.7.1)
   mobility (~> 1.2.9)
+  mobility-ransack (~> 1.2.2)
   pagy (~> 5.10)
   paranoia
   pg (~> 1.4)
@@ -439,6 +447,7 @@ DEPENDENCIES
   rails (= 7.0.4)
   rails-controller-testing
   rails-i18n
+  ransack
   react-rails
   redis
   rubocop

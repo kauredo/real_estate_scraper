@@ -781,6 +781,12 @@ en:
       notice:
         All listings will be updated shortly, please wait and check in a few
         minutes
+    search:
+      title: Search for a property
+      name: Name
+      address: Address
+      price: Price
+      submit: Search
 
   tasks:
     scrape:

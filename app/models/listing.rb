@@ -46,6 +46,11 @@ class Listing < ApplicationRecord
     listings.sample(number).map { |listing| listing.photos.first }
   end
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[address description features price
+       slug stats status title url video_link]
+  end
+
   private
 
   def remove_currency_from_price

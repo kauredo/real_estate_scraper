@@ -14,7 +14,7 @@ export default function Pagination(props: Props) {
   if (pagy.pages > 1) {
     return (
       <div className="flex items-center justify-center py-4 md:py-10 lg:px-0 sm:px-6 px-4">
-        <div className="lg:w-3/5 w-full  flex items-center justify-between border-t border-gray-200">
+        <div className="w-[90%] lg:w-3/5 flex items-center justify-between border-t border-gray-200">
           <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
             {pagy.prev && (
               <>
@@ -65,9 +65,10 @@ export default function Pagination(props: Props) {
                 currentPage === page
                   ? classes + " !text-beige !border-beige"
                   : classes;
-              let href = `${
-                i18n.locale === "en" ? "/en" : ""
-              }/comprar?page=${page}`;
+              let href = `${pagy.scaffold_url.replace(
+                "__pagy_page__",
+                page.toString()
+              )}`;
               return (
                 <a key={`page-${page}`} href={href}>
                   <p className={classes}>{page}</p>
@@ -122,5 +123,7 @@ export default function Pagination(props: Props) {
     );
   }
 
-  return <></>;
+  return (
+    <div className="mx-auto border-t border-gray-200 mb-4 mt-8 w-[90%] md:w-3/5"></div>
+  );
 }

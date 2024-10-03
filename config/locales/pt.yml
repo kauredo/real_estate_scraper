@@ -797,6 +797,12 @@ pt:
       notice:
         Todos os imóveis serão atualizado dentro de minutos, espera antes de
         tentar novamente
+    search:
+      title: Pesquisar Imóveis
+      name: Nome
+      address: Morada
+      price: Preço
+      submit: Pesquisar
 
   tasks:
     scrape:
