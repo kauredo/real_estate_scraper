@@ -406,6 +406,7 @@
         "in": "must be in %{count}",
         "inclusion": "is not included in the list",
         "invalid": "is invalid",
+        "invalid_currency": "has invalid format (must be '100', '5%{decimal}24', or '123%{thousands}456%{decimal}78'). Got %{currency}",
         "less_than": "must be less than %{count}",
         "less_than_or_equal_to": "must be less than or equal to %{count}",
         "max_size_error": "File size should be less than %{max_size}",

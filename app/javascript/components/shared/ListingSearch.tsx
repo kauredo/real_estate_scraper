@@ -126,7 +126,7 @@ export default function PriceSlider(props: Props) {
                 defaultValue={[prices[0], prices[1]]}
                 onChange={handlePriceChange}
                 allowCross={false}
-                step={100}
+                step={1000}
               />
               <div className="flex justify-between mt-2">
                 <span>{numberToCurrency(prices[0])}</span>

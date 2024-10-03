@@ -33,3 +33,14 @@ class TestimonialTest < ActiveSupport::TestCase
     assert_not_nil testimonial.translation, 'Did not include the translation when loading the testimonial'
   end
 end
+
+# == Schema Information
+#
+# Table name: testimonials
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  text       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#

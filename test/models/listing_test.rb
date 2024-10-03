@@ -37,3 +37,35 @@ class ListingTest < ActiveSupport::TestCase
     assert_equal [listing3, listing1, listing2], Listing.first(3)
   end
 end
+
+# == Schema Information
+#
+# Table name: listings
+#
+#  id                 :bigint           not null, primary key
+#  address            :string
+#  deleted_at         :datetime
+#  description        :text
+#  features           :string           default([]), is an Array
+#  old_status         :string
+#  order              :integer
+#  photos             :text             default([]), is an Array
+#  price_cents        :integer          default(0), not null
+#  price_string       :string
+#  slug               :string
+#  stats              :json
+#  status             :integer
+#  status_changed_at  :datetime
+#  title              :string
+#  url                :string
+#  video_link         :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  listing_complex_id :bigint
+#
+# Indexes
+#
+#  index_listings_on_deleted_at          (deleted_at)
+#  index_listings_on_listing_complex_id  (listing_complex_id)
+#  index_listings_on_slug                (slug) UNIQUE
+#

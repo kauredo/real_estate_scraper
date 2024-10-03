@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
     listings = @q.result
     pagy, @listings = pagy(listings)
     @pagy = pagy_metadata(pagy)
-    @listings_max_price = Listing.all.pluck(:price).uniq.reject(&:blank?).map(&:to_i).max * 1000
+    @listings_max_price = Listing.all.pluck(:price_cents).uniq.reject(&:blank?).map(&:to_i).max / 100
   end
 
   def sell; end
