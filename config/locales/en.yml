@@ -770,6 +770,15 @@ en:
       rented: Rented
       sold: Sold
       standard: ""
+    stats:
+      estacionamentos: Parking Spots
+      quartos: Bedrooms
+      salas: Living Rooms
+      "casas de banho": WCs
+      "área útil": Net Area
+      "área bruta (cp)": Gross Area (Licensed)
+      "ano de construção": Year of Construction
+      "área do terreno": Plot Area
     create:
       notice:
         Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma
@@ -786,7 +795,9 @@ en:
     search:
       title: Search for a property
       name: Name
+      name_placeholder: Duplex, 3 bedroom apartment, etc.
       address: Address
+      address_placeholder: Lisbon, Porto, etc.
       price: Price
       submit: Search
       status:

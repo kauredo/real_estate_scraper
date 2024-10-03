@@ -7,8 +7,8 @@ interface Props {
   params: {
     title_cont?: string;
     address_cont?: string;
-    price_gteq?: number;
-    price_lteq?: number;
+    price_cents_gteq?: number;
+    price_cents_lteq?: number;
     status_eq?: string;
   };
   listingMaxPrice: number;
@@ -20,9 +20,10 @@ export default function PriceSlider(props: Props) {
   const [title, setTitle] = useState(params?.title_cont || "");
   const [address, setAddress] = useState(params?.address_cont || "");
   const [status, setStatus] = useState(params?.status_eq || "");
+  const transformedMaxPrice = listingMaxPrice / 100;
   const [prices, setPrices] = useState([
-    params?.price_gteq || 0,
-    params?.price_lteq || listingMaxPrice,
+    (params?.price_cents_gteq ?? 0) / 100,
+    (params?.price_cents_lteq ?? transformedMaxPrice * 100) / 100,
   ]);
 
   const handlePriceChange = (value: number | number[]) => {
@@ -36,8 +37,8 @@ export default function PriceSlider(props: Props) {
     const formData = new FormData(e.currentTarget);
 
     // Add price parameters to the form data
-    formData.append("q[price_gteq]", prices[0].toString());
-    formData.append("q[price_lteq]", prices[1].toString());
+    formData.append("q[price_cents_gteq]", (prices[0] * 100).toString());
+    formData.append("q[price_cents_lteq]", (prices[1] * 100).toString());
 
     // Convert FormData to object
     const formDataObject: Record<string, string> = {};
@@ -54,7 +55,9 @@ export default function PriceSlider(props: Props) {
 
   return (
     <div className="container mx-auto lg:px-0 sm:px-6 px-4">
-      <h2 className="text-xl mb-4">{i18n.t("listing.search.title")}</h2>
+      <h2 className="text-xl mb-4 mt-8 md:mt-2">
+        {i18n.t("listing.search.title")}
+      </h2>
       <form
         action={sanitizeURL(window.Routes.buy_path)}
         onSubmit={handleSubmit}
@@ -69,6 +72,7 @@ export default function PriceSlider(props: Props) {
               id="q_title_cont"
               name="q[title_cont]"
               value={title}
+              placeholder={i18n.t("listing.search.name_placeholder")}
               onChange={e => setTitle(e.target.value)}
               className="w-full p-2 rounded-md border border-gray-300"
             />
@@ -82,12 +86,12 @@ export default function PriceSlider(props: Props) {
               id="q_address_cont"
               name="q[address_cont]"
               value={address}
+              placeholder={i18n.t("listing.search.address_placeholder")}
               onChange={e => setAddress(e.target.value)}
               className="w-full p-2 rounded-md border border-gray-300"
             />
           </div>
           <div className="mb-4 w-full md:w-[23%]">
-            {/* status */}
             <label htmlFor="q_status_eq" className="block mb-1">
               {i18n.t("listing.search.status.title")}
             </label>
@@ -115,14 +119,14 @@ export default function PriceSlider(props: Props) {
             </select>
           </div>
           <div className="mb-4 w-full md:w-[23%]">
-            <label htmlFor="q_price_lteq" className="block mb-1">
+            <label htmlFor="q_price_cents_lteq" className="block mb-1">
               {i18n.t("listing.search.price")}
             </label>
             <div className="price-slider-container">
               <Slider
                 range
                 min={0}
-                max={listingMaxPrice}
+                max={transformedMaxPrice}
                 defaultValue={[prices[0], prices[1]]}
                 onChange={handlePriceChange}
                 allowCross={false}

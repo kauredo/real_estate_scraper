@@ -11,7 +11,6 @@ class Listing < ApplicationRecord
 
   acts_as_paranoid
   after_save :update_orders
-  after_save :remove_currency_from_price
 
   CITIES = {
     north: %w[porto braga],
@@ -36,21 +35,21 @@ class Listing < ApplicationRecord
                          all.group_by(&:city).to_h
                        }
 
+  def self.random_photos(listings, number)
+    listings.sample(number).map { |listing| listing.photos.first }
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[title address status price_cents
+       stats features]
+  end
+
   def city
     if CITIES[:south].any? { |c| address&.downcase&.include?(c) }
       I18n.locale == :en ? 'South' : 'Sul'
     else
       I18n.locale == :en ? 'North' : 'Norte'
     end
-  end
-
-  def self.random_photos(listings, number)
-    listings.sample(number).map { |listing| listing.photos.first }
-  end
-
-  def self.ransackable_attributes(_auth_object = nil)
-    %w[address description features price
-       slug stats status title url video_link]
   end
 
   def as_json(options = {})
@@ -60,14 +59,6 @@ class Listing < ApplicationRecord
   end
 
   private
-
-  def remove_currency_from_price
-    new_price = price&.gsub('€', '')&.strip
-    return unless price != new_price
-
-    self.price = new_price
-    save
-  end
 
   def update_orders
     return unless saved_change_to_order? && Listing.where(order:).count > 1

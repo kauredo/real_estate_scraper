@@ -785,6 +785,15 @@ pt:
       rented: Arrendado
       sold: Vendido
       standard: ""
+    stats:
+      estacionamentos: Estacionamentos
+      quartos: Quartos
+      salas: Salas
+      "casas de banho": Casas de Banho
+      "área útil": Área Útil
+      "área bruta (cp)": Área Bruta (CP)
+      "ano de construção": Ano de Construção
+      "área do terreno": Área do Terreno
     create:
       notice:
         Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma
@@ -802,7 +811,9 @@ pt:
     search:
       title: Pesquisar Imóveis
       name: Nome
+      name_placeholder: Apartamento T3, Moradia, Terreno, etc.
       address: Morada
+      address_placeholder: Lisboa, Porto, Algarve, etc.
       price: Preço
       submit: Pesquisar
       status:

@@ -756,7 +756,9 @@
       "resource": "Imóvel",
       "search": {
         "address": "Morada",
+        "address_placeholder": "Lisboa, Porto, Algarve, etc.",
         "name": "Nome",
+        "name_placeholder": "Apartamento T3, Moradia, Terreno, etc.",
         "price": "Preço",
         "status": {
           "agreed": "Reservados",
@@ -770,6 +772,16 @@
         },
         "submit": "Pesquisar",
         "title": "Pesquisar Imóveis"
+      },
+      "stats": {
+        "ano de construção": "Ano de Construção",
+        "casas de banho": "Casas de Banho",
+        "estacionamentos": "Estacionamentos",
+        "quartos": "Quartos",
+        "salas": "Salas",
+        "área bruta (cp)": "Área Bruta (CP)",
+        "área do terreno": "Área do Terreno",
+        "área útil": "Área Útil"
       },
       "status": {
         "agreed": "Reservado",

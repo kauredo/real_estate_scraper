@@ -605,7 +605,9 @@
       "resource": "Listing",
       "search": {
         "address": "Address",
+        "address_placeholder": "Lisbon, Porto, etc.",
         "name": "Name",
+        "name_placeholder": "Duplex, 3 bedroom apartment, etc.",
         "price": "Price",
         "status": {
           "agreed": "Sales Agreed",
@@ -619,6 +621,16 @@
         },
         "submit": "Search",
         "title": "Search for a property"
+      },
+      "stats": {
+        "ano de construção": "Year of Construction",
+        "casas de banho": "WCs",
+        "estacionamentos": "Parking Spots",
+        "quartos": "Bedrooms",
+        "salas": "Living Rooms",
+        "área bruta (cp)": "Gross Area (Licensed)",
+        "área do terreno": "Plot Area",
+        "área útil": "Net Area"
       },
       "status": {
         "agreed": "Sales Agreed",
@@ -1628,7 +1640,9 @@
       "resource": "Imóvel",
       "search": {
         "address": "Morada",
+        "address_placeholder": "Lisboa, Porto, Algarve, etc.",
         "name": "Nome",
+        "name_placeholder": "Apartamento T3, Moradia, Terreno, etc.",
         "price": "Preço",
         "status": {
           "agreed": "Reservados",
@@ -1642,6 +1656,16 @@
         },
         "submit": "Pesquisar",
         "title": "Pesquisar Imóveis"
+      },
+      "stats": {
+        "ano de construção": "Ano de Construção",
+        "casas de banho": "Casas de Banho",
+        "estacionamentos": "Estacionamentos",
+        "quartos": "Quartos",
+        "salas": "Salas",
+        "área bruta (cp)": "Área Bruta (CP)",
+        "área do terreno": "Área do Terreno",
+        "área útil": "Área Útil"
       },
       "status": {
         "agreed": "Reservado",
