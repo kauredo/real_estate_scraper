@@ -25,7 +25,7 @@ export default function PriceSlider(props: Props) {
   const [statsFilters, setStatsFilters] = useState<Partial<StatsFilter>>(
     // only keep params that are in statsKeys
     Object.fromEntries(
-      Object.entries(params).filter(([key]) =>
+      Object.entries(params || {}).filter(([key]) =>
         statsKeys.includes(key.replace("_eq", ""))
       )
     )
