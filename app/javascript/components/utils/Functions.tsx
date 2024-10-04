@@ -138,3 +138,7 @@ export const numberToCurrency = (number, currency = "EUR") => {
     maximumFractionDigits: 0,
   }).format(number);
 };
+
+export const gsubMeterSquare = string => {
+  return string.replace("m2", "m²");
+};

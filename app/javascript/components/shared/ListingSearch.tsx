@@ -73,7 +73,7 @@ export default function PriceSlider(props: Props) {
         action={sanitizeURL(window.Routes.buy_path)}
         onSubmit={handleSubmit}
       >
-        <div className="w-full flex flex-wrap justify-between align-center gap-2">
+        <div className="w-full flex flex-wrap align-center gap-6">
           <div className="mb-4 w-full md:w-[23%]">
             <label htmlFor="q_title_cont" className="block mb-1">
               {i18n.t("listing.search.name")}
@@ -121,7 +121,7 @@ export default function PriceSlider(props: Props) {
             <select
               name="q[status_eq]"
               id="q_status_eq"
-              className="w-full p-2 rounded-md border border-gray-300"
+              className="w-full p-2 rounded-md border border-gray-300 bg-[white] h-[42px]"
               value={status}
               onChange={e => setStatus(e.target.value)}
             >
@@ -163,18 +163,25 @@ export default function PriceSlider(props: Props) {
           </div>
         </div>
         <AdvancedSearch
-          params={params}
           listingMaxPrice={listingMaxPrice}
           statsKeys={statsKeys}
           statsFilters={statsFilters}
           setStatsFilters={setStatsFilters}
         />
-        <button
-          type="submit"
-          className="bg-beige text-white font-bold py-2 px-4 rounded w-full md:w-[23%]"
-        >
-          {i18n.t("listing.search.submit")}
-        </button>
+        <div className="flex items-center flex-wrap">
+          <button
+            type="submit"
+            className="bg-beige text-white font-bold py-2 px-4 rounded w-full md:w-[23%]"
+          >
+            {i18n.t("listing.search.submit")}
+          </button>
+          <a
+            href={sanitizeURL(window.Routes.buy_path)}
+            className="text-beige font-bold underline sm:ml-2 mt-2 sm:mt-0 w-full md:w-[23%]"
+          >
+            {i18n.t("listing.reset_filters")}
+          </a>
+        </div>
       </form>
     </div>
   );
