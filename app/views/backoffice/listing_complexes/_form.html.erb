@@ -91,7 +91,7 @@
   <%= f.label :listings, class: 'w-1/4' %>
   <div class="mb-4">
     <div class="flex flex-col items-center gap-4 md:gap-6">
-      <%= f.collection_check_boxes :listing_ids, Listing.all, :id, :title, {}, { multiple: true } do |listing| %>
+      <%= f.collection_check_boxes :listing_ids, Listing.all, :id, :title, {}, { multiple: true, class: 'hidden' } do |listing| %>
         <div class="flex space-between items-center h-[200px]">
           <span class="w-1/4">
             <%= listing.check_box %>

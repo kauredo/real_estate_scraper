@@ -62,7 +62,11 @@ class Listing < ApplicationRecord
     end
 
     stats.reject do |key|
-      ['Área útil', 'Área bruta (CP)', 'Área do terreno'].include?(key)
+      [
+        'Área útil', 'Área bruta (CP)', 'Área do terreno', 'Casa de Banho Social', 'Support Staff Accommodations',
+        'City Tax', 'Land Tax', 'Garagens', 'Dining Rooms', 'Kitchens', 'Piso', 'Pisos', 'Common Area Ownership (coop)',
+        'Salas de Refeição', 'Cozinhas', 'Furnished'
+      ].include?(key)
     end
   end
 
