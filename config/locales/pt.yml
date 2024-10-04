@@ -768,6 +768,7 @@ pt:
     next: Próxima
 
   listing:
+    advanced_search: Pesquisa Avançada
     no_listings: Não foram encontrados imóveis com os critérios selecionados
     reset_filters: Limpar Filtros
     resource: Imóvel

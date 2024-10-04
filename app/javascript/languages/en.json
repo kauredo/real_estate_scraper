@@ -690,6 +690,7 @@
       "subheader": "A company made up of consultants for consultants!"
     },
     "listing": {
+      "advanced_search": "Advanced Search",
       "characteristics": "Listing Characteristics",
       "create": {
         "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",

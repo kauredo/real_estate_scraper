@@ -40,8 +40,30 @@ class Listing < ApplicationRecord
   end
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[title address status price_cents
-       stats features]
+    %w[title address status price_cents features]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[listing_complex slugs translation translations]
+  end
+
+  def self.possible_stats_keys
+    stats = all.map(&:stats).map(&:keys).flatten.uniq.sort_by do |key|
+      [
+        key == 'Quartos' ? 0 : 1,
+        key == 'Casas de Banho' ? 0 : 1,
+        key == 'Salas' ? 0 : 1,
+        key == 'Estacionamentos' ? 0 : 1,
+        key == 'Ano de construção' ? 0 : 1,
+        key == 'Área útil' ? 0 : 1,
+        key == 'Área bruta (CP)' ? 0 : 1,
+        key == 'Área do terreno' ? 0 : 1
+      ]
+    end
+
+    stats.reject do |key|
+      ['Área útil', 'Área bruta (CP)', 'Área do terreno'].include?(key)
+    end
   end
 
   def city

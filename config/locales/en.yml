@@ -753,6 +753,7 @@ en:
     next: Next
 
   listing:
+    advanced_search: Advanced Search
     no_listings: No listings available with the selected criteria
     reset_filters: Reset filters
     resource: Listing

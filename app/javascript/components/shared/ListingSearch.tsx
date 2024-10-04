@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { numberToCurrency, sanitizeURL } from "../utils/Functions";
 import { i18n } from "../../languages/languages";
 import Slider from "rc-slider";
+import AdvancedSearch from "./AdvancedSearch";
+import { StatsFilter } from "../utils/Interfaces";
 
 interface Props {
   params: {
@@ -12,14 +14,22 @@ interface Props {
     status_eq?: string;
   };
   listingMaxPrice: number;
+  statsKeys: string[];
 }
 
 export default function PriceSlider(props: Props) {
-  const { params, listingMaxPrice } = props;
-
+  const { params, listingMaxPrice, statsKeys } = props;
   const [title, setTitle] = useState(params?.title_cont || "");
   const [address, setAddress] = useState(params?.address_cont || "");
   const [status, setStatus] = useState(params?.status_eq || "");
+  const [statsFilters, setStatsFilters] = useState<Partial<StatsFilter>>(
+    // only keep params that are in statsKeys
+    Object.fromEntries(
+      Object.entries(params).filter(([key]) =>
+        statsKeys.includes(key.replace("_eq", ""))
+      )
+    )
+  );
   const transformedMaxPrice = listingMaxPrice / 100;
   const [prices, setPrices] = useState([
     (params?.price_cents_gteq ?? 0) / 100,
@@ -51,6 +61,7 @@ export default function PriceSlider(props: Props) {
     // Submit form
     const action = e.currentTarget.action;
     window.location.href = `${action}?${new URLSearchParams(formDataObject)}`;
+    // console.log(formDataObject);
   };
 
   return (
@@ -74,6 +85,12 @@ export default function PriceSlider(props: Props) {
               value={title}
               placeholder={i18n.t("listing.search.name_placeholder")}
               onChange={e => setTitle(e.target.value)}
+              onKeyDown={e => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  e.currentTarget.form?.submit();
+                }
+              }}
               className="w-full p-2 rounded-md border border-gray-300"
             />
           </div>
@@ -88,6 +105,12 @@ export default function PriceSlider(props: Props) {
               value={address}
               placeholder={i18n.t("listing.search.address_placeholder")}
               onChange={e => setAddress(e.target.value)}
+              onKeyDown={e => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  e.currentTarget.form?.submit();
+                }
+              }}
               className="w-full p-2 rounded-md border border-gray-300"
             />
           </div>
@@ -139,6 +162,13 @@ export default function PriceSlider(props: Props) {
             </div>
           </div>
         </div>
+        <AdvancedSearch
+          params={params}
+          listingMaxPrice={listingMaxPrice}
+          statsKeys={statsKeys}
+          statsFilters={statsFilters}
+          setStatsFilters={setStatsFilters}
+        />
         <button
           type="submit"
           className="bg-beige text-white font-bold py-2 px-4 rounded w-full md:w-[23%]"
