@@ -6,6 +6,7 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { i18n } from "../languages/languages";
 import { sanitizeURL } from "./utils/Functions";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export default function Footer() {
   const items = [
@@ -99,7 +100,7 @@ export default function Footer() {
                   href={item.url}
                   className="text-white hover:text-gray-100"
                 >
-                  <FontAwesomeIcon icon={item.icon} />
+                  <FontAwesomeIcon icon={item.icon as IconProp} />
                 </a>
               );
             })}
