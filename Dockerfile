@@ -90,7 +90,7 @@ RUN apt-get update && \
     rm chromedriver-linux64.zip
 
 # Throw-away build stage to reduce size of final image
-# FROM base as build
+FROM base as build
 
 # Install packages needed to build gems and node modules
 RUN apt-get update -qq && \
