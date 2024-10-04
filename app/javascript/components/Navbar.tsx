@@ -6,19 +6,13 @@ import { NavbarItemProps } from "./utils/Interfaces";
 const NavbarItem = lazy(() => import("./shared/NavbarItem"));
 const DropdownLink = lazy(() => import("./shared/DropdownLink"));
 
-interface Resource {
-  path: string;
-  name: string;
-}
-
 interface Props {
   backoffice?: boolean;
   admin?: boolean;
-  resource?: Resource;
 }
 
 export default function Navbar(props: Props) {
-  const { backoffice, admin, resource } = props;
+  const { backoffice, admin } = props;
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -112,7 +106,8 @@ export default function Navbar(props: Props) {
 
   const middleItems = backoffice ? backofficeItems : items;
 
-  const img = i18n.locale === "pt" ? "uk" : "pt";
+  const otherImg = i18n.locale === "pt" ? "uk" : "pt";
+  const img = i18n.locale === "pt" ? "pt" : "uk";
 
   const rightItems: NavbarItemProps[] = [];
 
@@ -120,13 +115,28 @@ export default function Navbar(props: Props) {
 
   rightItems.push({
     title: "",
-    url: changeLocale(),
-    turbo: "false",
-    hover: `${i18n.t("navbar.language")}`,
+    items: [
+      {
+        title: i18n.t("navbar.other_language"),
+        url: changeLocale(),
+        turbo: "false",
+        img: (
+          <img
+            loading="lazy"
+            className="h-5 inline-block mb-[2px] pl-1"
+            src={`https://hatscripts.github.io/circle-flags/flags/${otherImg}.svg`}
+            style={{ maxWidth: "none" }}
+          />
+        ),
+      },
+    ],
+    // url: changeLocale(),
+    // turbo: "false",
+    // hover: `${i18n.t("navbar.change_language")}`,
     img: (
       <img
         loading="lazy"
-        className="h-5 inline-block mb-[6px]"
+        className="h-5 inline-block mb-[3px] pl-1"
         src={`https://hatscripts.github.io/circle-flags/flags/${img}.svg`}
         style={{ maxWidth: "none" }}
       />
@@ -136,7 +146,9 @@ export default function Navbar(props: Props) {
   mobileItems.push(...rightItems);
 
   admin &&
-    rightItems.unshift({
+    rightItems[0] &&
+    rightItems[0].items &&
+    rightItems[0].items.unshift({
       title: "Backoffice",
       url: sanitizeURL(window.Routes.backoffice_path),
       turbo: "true",
@@ -149,14 +161,14 @@ export default function Navbar(props: Props) {
       turbo: "true",
     });
 
-  const showBtnOnNavbar = sanitizeURL(window.Routes.sell_path) !==
-    window.location.pathname && (
-    <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
-      <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
-        <p>{i18n.t("home.cta.long")}</p>
-      </div>
-    </a>
-  );
+  // const showBtnOnNavbar = sanitizeURL(window.Routes.sell_path) !==
+  //   window.location.pathname && (
+  //   <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
+  //     <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
+  //       <p>{i18n.t("home.cta.long")}</p>
+  //     </div>
+  //   </a>
+  // );
 
   // const backofficeBtn = admin &&
   //   !window.location.pathname.includes("backoffice") && (
@@ -167,19 +179,13 @@ export default function Navbar(props: Props) {
   //     </a>
   //   );
 
-  const resourceBtn = admin && resource && (
-    <a href={resource.path} data-turbo={false}>
-      <div className="ml-2 whitespace-nowrap bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-        <p>Editar {resource.name} no Backoffice</p>
+  const ctaBtn = sanitizeURL(window.Routes.sell_path) !==
+    window.location.pathname && (
+    <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
+      <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
+        <p>{i18n.t("home.cta.long")}</p>
       </div>
     </a>
-  );
-
-  const adminBtns = admin && (
-    <div className="z-10 absolute top-24 left-0 flex">
-      {/* {backofficeBtn} */}
-      {resourceBtn}
-    </div>
   );
 
   return (
@@ -200,7 +206,6 @@ export default function Navbar(props: Props) {
                     alt="Sofia Galvão Group Logo"
                   />
                 </a>
-                {adminBtns}
               </div>
             </div>
             <div className="flex items-center">
@@ -213,7 +218,11 @@ export default function Navbar(props: Props) {
                           key={`${item.title}_middle`}
                           fallback={<div>Loading...</div>}
                         >
-                          <DropdownLink title={item.title} items={item.items} />
+                          <DropdownLink
+                            title={item.title}
+                            items={item.items}
+                            img={item.img}
+                          />
                         </Suspense>
                       );
                     } else {
@@ -235,24 +244,35 @@ export default function Navbar(props: Props) {
                 <div className="ml-10 flex items-baseline">
                   {/* {showBtnOnNavbar} */}
                   {rightItems?.map(item => {
-                    return (
-                      <Suspense
-                        fallback={<div>Loading...</div>}
-                        key={`${item.title}_right`}
-                      >
-                        <NavbarItem item={item} />
-                      </Suspense>
-                    );
+                    if (item.items?.length && item.items.length > 0) {
+                      return (
+                        <Suspense
+                          key={`${item.title}_right`}
+                          fallback={<div>Loading...</div>}
+                        >
+                          <DropdownLink
+                            title={item.title}
+                            items={item.items}
+                            img={item.img}
+                          />
+                        </Suspense>
+                      );
+                    } else {
+                      return (
+                        <Suspense
+                          fallback={<div>Loading...</div>}
+                          key={`${item.title}_right`}
+                        >
+                          <NavbarItem item={item} />
+                        </Suspense>
+                      );
+                    }
                   })}
                 </div>
               </div>
             </div>
             <div className="-mr-2 flex tablet:hidden">
-              <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
-                <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
-                  <p>{i18n.t("home.cta.short")}</p>
-                </div>
-              </a>
+              {ctaBtn}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"

@@ -59,7 +59,8 @@
   <body>
     <main class="flex flex-col min-h-screen">
       <%= render 'shared/flashes' %>
-      <%= react_component 'Navbar', { admin: current_admin.present?, resource: @resource } %>
+      <%= react_component 'Navbar', { admin: current_admin.present? } %>
+      <%= react_component 'shared--AdminBtns', { admin: current_admin.present?, resource: @resource } %>
       <div class="flex-auto">
         <%= yield %>
       </div>
