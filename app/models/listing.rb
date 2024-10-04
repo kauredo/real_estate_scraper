@@ -105,7 +105,6 @@ end
 #  order              :integer
 #  photos             :text             default([]), is an Array
 #  price_cents        :integer          default(0), not null
-#  price_string       :string
 #  slug               :string
 #  stats              :json
 #  status             :integer

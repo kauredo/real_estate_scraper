@@ -81,6 +81,8 @@ gem 'sidekiq-scheduler'
 gem 'tinymce-rails'
 gem 'watir'
 
+gem 'execjs'
+
 # Tests / Scrape
 gem 'selenium-webdriver'
 gem 'simplecov', require: false

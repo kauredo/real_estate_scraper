@@ -444,6 +444,7 @@ DEPENDENCIES
   dockerfile-rails (>= 1.2)
   dotenv-rails
   erb_lint
+  execjs
   friendly_id
   friendly_id-mobility
   humanize
