@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Carousel from "nuka-carousel";
 import { Listing } from "../utils/Interfaces";
 import ContactForm from "../contactPage/ContactForm";
 import { i18n } from "../../languages/languages";
 import { ReadMore } from "../shared/ReadMore";
 import Overlay from "../shared/Overlay";
+import Slider from "react-slick";
 
 interface Props {
   listing: Listing;
@@ -13,6 +13,15 @@ interface Props {
 export default function Show(props: Props) {
   const listing = props.listing;
   const [isOpen, setOpen] = useState(false);
+
+  const settings = {
+    autoplay: false,
+    slidesToShow: 1,
+    arrows: true,
+    dots: true,
+    infinite: false,
+    speed: 500,
+  };
 
   return (
     <>
@@ -41,30 +50,7 @@ export default function Show(props: Props) {
         </section>
       )}
       <div className="relative container mx-auto overflow-hidden sm:overflow-visible">
-        <div className="relative">
-          <Overlay status={listing.status} />
-          <Carousel
-            heightMode="max"
-            style={{ maxHeight: "90vh" }}
-            defaultControlsConfig={{
-              containerClassName: "m-h-[90vh] z-10",
-              nextButtonText: "➤",
-              prevButtonStyle: { transform: "rotate(180deg)" },
-              prevButtonText: "➤",
-              pagingDotsClassName: "mx-1",
-            }}
-          >
-            {listing.photos?.map(photo => (
-              <img
-                loading="lazy"
-                style={{ maxHeight: "70vh", objectFit: "contain" }}
-                key={photo}
-                src={photo}
-              />
-            ))}
-          </Carousel>
-        </div>
-        <div className="pt-6 bg-white text-center">
+        <div className="pb-6 bg-white text-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
             <h1
               id="main-title"
@@ -80,6 +66,20 @@ export default function Show(props: Props) {
             </h1>
           </div>
         </div>
+        <div className="relative">
+          <Overlay status={listing.status} />
+          <Slider {...settings}>
+            {listing.photos?.map(photo => (
+              <img
+                loading="lazy"
+                className="object-contain max-h-[70vh]"
+                key={photo}
+                src={photo}
+              />
+            ))}
+          </Slider>
+        </div>
+
         <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">
           <div className="col-span-2">
             <div className="p-4 w-full bg-white m-2 tablet:mx-0">

@@ -287,3 +287,17 @@ strong {
     color: rgba(0, 0, 0, 0.65);
   }
 }
+
+.slick-arrow::before {
+  color: #d3af79 !important;
+}
+
+.slick-next {
+  right: 0 !important;
+  z-index: 10;
+}
+
+.slick-prev {
+  left: 0 !important;
+  z-index: 10;
+}
