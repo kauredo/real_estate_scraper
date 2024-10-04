@@ -5,6 +5,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { i18n } from "../../languages/languages";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export default function Profile() {
   return (
@@ -30,13 +31,13 @@ export default function Profile() {
           <div
             className="relative z-10"
             style={{
-              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw))"
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw))",
             }}
           >
             <img
               loading="lazy"
               className="w-full object-cover object-center max-h-96 bg-[white]"
-              src='/images/sofia.jpg'
+              src="/images/sofia.jpg"
               // src="https://repstaticneu.azureedge.net/images/2001/A/NWM/Medium/34672-45e231dc-f9d9-496b-81d6-2bec93045b4a.jpg"
               // src="https://scontent.flis8-1.fna.fbcdn.net/v/t1.6435-9/78767140_10217256708782271_7687124950188032000_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=174925&_nc_ohc=atnum074oEoAX-oZt0C&_nc_ht=scontent.flis8-1.fna&oh=00_AT-GURf34LVDqlCX_oFOaISIJystsNYCk4ktkbw5BCqVkQ&oe=62443225"
               alt="Sofia Galvão"
@@ -49,7 +50,7 @@ export default function Profile() {
               rel="noopener noreferrer"
             >
               <div className="flex items-center mb-4 text-gray-600">
-                <FontAwesomeIcon icon={faLinkedin} />
+                <FontAwesomeIcon icon={faLinkedin as IconProp} />
                 <p className="px-2 text-sm">Sofia Galvão</p>
               </div>
             </a>
@@ -59,7 +60,7 @@ export default function Profile() {
               rel="noopener noreferrer"
             >
               <div className="flex items-center mb-4 text-gray-600">
-                <FontAwesomeIcon icon={faInstagram} />
+                <FontAwesomeIcon icon={faInstagram as IconProp} />
                 <p className="px-2 text-sm">@sofiagalvaogroupkw</p>
               </div>
             </a>
@@ -69,7 +70,7 @@ export default function Profile() {
               rel="noopener noreferrer"
             >
               <div className="flex items-center mb-4 text-gray-600">
-                <FontAwesomeIcon icon={faFacebook} />
+                <FontAwesomeIcon icon={faFacebook as IconProp} />
                 <p className="px-2 text-sm">/sofiagalvaokw</p>
               </div>
             </a>
@@ -79,7 +80,7 @@ export default function Profile() {
               rel="noopener noreferrer"
             >
               <div className="flex items-center mb-4 text-gray-600">
-                <FontAwesomeIcon icon={faWhatsapp} />
+                <FontAwesomeIcon icon={faWhatsapp as IconProp} />
                 <p className="px-2 text-sm">+351 932829084</p>
               </div>
             </a>

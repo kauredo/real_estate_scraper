@@ -49,24 +49,40 @@ class Listing < ApplicationRecord
 
   def self.possible_stats_keys
     stats = all.map(&:stats).compact.map(&:keys).flatten.uniq.sort_by do |key|
+      downcased_key = key.downcase
       [
-        key == 'Quartos' ? 0 : 1,
-        key == 'Casas de Banho' ? 0 : 1,
-        key == 'Salas' ? 0 : 1,
-        key == 'Estacionamentos' ? 0 : 1,
-        key == 'Ano de construção' ? 0 : 1,
-        key == 'Área útil' ? 0 : 1,
-        key == 'Área bruta (CP)' ? 0 : 1,
-        key == 'Área do terreno' ? 0 : 1
+        downcased_key == 'quartos' ? 0 : 1,
+        downcased_key == 'casas de banho' ? 0 : 1,
+        downcased_key == 'salas' ? 0 : 1,
+        downcased_key == 'estacionamentos' ? 0 : 1,
+        downcased_key == 'ano de construção' ? 0 : 1,
+        downcased_key == 'área útil' ? 0 : 1,
+        downcased_key == 'área bruta (cp)' ? 0 : 1,
+        downcased_key == 'área do terreno' ? 0 : 1
       ]
     end
 
     stats.reject do |key|
+      downcased_key = key.downcase
       [
-        'Área útil', 'Área bruta (CP)', 'Área do terreno', 'Casa de Banho Social', 'Support Staff Accommodations',
-        'City Tax', 'Land Tax', 'Garagens', 'Dining Rooms', 'Kitchens', 'Piso', 'Pisos', 'Common Area Ownership (coop)',
-        'Salas de Refeição', 'Cozinhas', 'Furnished'
-      ].include?(key)
+        'área útil',
+        'área bruta (cp)',
+        'área do terreno',
+        'casa de banho social',
+        'support staff accommodations',
+        'city tax',
+        'land tax',
+        'ano de construção',
+        'garagens',
+        'dining rooms',
+        'kitchens',
+        'piso',
+        'pisos',
+        'common area ownership (coop)',
+        'salas de refeição',
+        'cozinhas',
+        'furnished'
+      ].include?(downcased_key)
     end
   end
 
