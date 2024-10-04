@@ -65,7 +65,7 @@ export default function PriceSlider(props: Props) {
   };
 
   return (
-    <div className="container mx-auto lg:px-0 sm:px-6 px-4">
+    <div className="container mx-auto sm:px-6 px-4">
       <h2 className="text-xl mb-4 mt-8 md:mt-2">
         {i18n.t("listing.search.title")}
       </h2>
@@ -73,8 +73,8 @@ export default function PriceSlider(props: Props) {
         action={sanitizeURL(window.Routes.buy_path)}
         onSubmit={handleSubmit}
       >
-        <div className="w-full flex flex-wrap align-center gap-6">
-          <div className="mb-4 w-full md:w-[23%]">
+        <div className="w-full flex flex-wrap align-center gap-6 mb-4">
+          <div className="w-full md:w-[23%]">
             <label htmlFor="q_title_cont" className="block mb-1">
               {i18n.t("listing.search.name")}
             </label>
@@ -94,7 +94,7 @@ export default function PriceSlider(props: Props) {
               className="w-full p-2 rounded-md border border-gray-300"
             />
           </div>
-          <div className="mb-4 w-full md:w-[23%]">
+          <div className="w-full md:w-[23%]">
             <label htmlFor="q_address_cont" className="block mb-1">
               {i18n.t("listing.search.address")}
             </label>
@@ -114,7 +114,7 @@ export default function PriceSlider(props: Props) {
               className="w-full p-2 rounded-md border border-gray-300"
             />
           </div>
-          <div className="mb-4 w-full md:w-[23%]">
+          <div className="w-full md:w-[23%]">
             <label htmlFor="q_status_eq" className="block mb-1">
               {i18n.t("listing.search.status.title")}
             </label>
@@ -141,7 +141,7 @@ export default function PriceSlider(props: Props) {
               </option>
             </select>
           </div>
-          <div className="mb-4 w-full md:w-[23%]">
+          <div className="w-full md:w-[23%]">
             <label htmlFor="q_price_cents_lteq" className="block mb-1">
               {i18n.t("listing.search.price")}
             </label>

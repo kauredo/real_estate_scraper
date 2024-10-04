@@ -290,6 +290,7 @@ strong {
 
 .slick-arrow::before {
   color: #d3af79 !important;
+  font-size: 1.5rem !important;
 }
 
 .slick-next {
@@ -300,4 +301,35 @@ strong {
 .slick-prev {
   left: 0 !important;
   z-index: 10;
+}
+
+@media screen and (max-width: 768px) {
+  .slick-next,
+  .slick-prev {
+    display: none !important;
+  }
+}
+
+.magic-dots.slick-dots ul {
+  padding: 0;
+  display: flex;
+  transition: all 0.2s;
+  position: relative;
+  margin: 0px;
+}
+
+.magic-dots.slick-dots li.slick-active button::before {
+  color: #d3af79;
+}
+
+.magic-dots.slick-dots li button::before {
+  transition: font-size 0.35s;
+  font-size: 12px;
+  color: #d3af79;
+  content: "\2022";
+}
+
+.magic-dots.slick-dots li.small button::before {
+  font-size: 8px;
+  line-height: 20px;
 }

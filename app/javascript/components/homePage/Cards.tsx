@@ -3,6 +3,7 @@ import Card from "./Card";
 import { toCapitalize, lazyloadImages } from "../utils/Functions";
 import { Photo, Listing } from "../utils/Interfaces";
 import Slider from "react-slick";
+import MagicSliderDots from "react-magic-slider-dots";
 
 interface Props {
   listings: Listing[];
@@ -39,6 +40,9 @@ export default function Cards(props: Props) {
     dotsClass: "slick-dots",
     infinite: false,
     speed: 500,
+    // appendDots: dots => {
+    //   return <MagicSliderDots dots={dots} numDotsToShow={10} dotWidth={30} />;
+    // },
   };
 
   if (locations.length !== listings.length) {
@@ -66,7 +70,20 @@ export default function Cards(props: Props) {
                 </button>
               ))}
             </div>
-            <Slider {...settings}>
+            <Slider
+              appendDots={dots => (
+                <MagicSliderDots
+                  dots={dots}
+                  numDotsToShow={
+                    listings[selectedLocation]?.length > 10
+                      ? 10
+                      : listings[selectedLocation]?.length
+                  }
+                  dotWidth={30}
+                />
+              )}
+              {...settings}
+            >
               {listings[selectedLocation]?.map(listing => (
                 <Card listing={listing} key={listing.slug} />
               ))}
@@ -83,7 +100,16 @@ export default function Cards(props: Props) {
       >
         <div className="w-full relative flex items-center justify-center">
           <div className="w-full h-full mx-auto">
-            <Slider {...settings}>
+            <Slider
+              {...settings}
+              appendDots={dots => (
+                <MagicSliderDots
+                  dots={dots}
+                  numDotsToShow={photos.length > 10 ? 10 : photos.length}
+                  dotWidth={30}
+                />
+              )}
+            >
               {photos?.map(photo => {
                 return (
                   <img
@@ -111,7 +137,16 @@ export default function Cards(props: Props) {
       >
         <div className="w-full relative flex items-center justify-center">
           <div className="w-full h-full mx-auto">
-            <Slider {...settings}>
+            <Slider
+              {...settings}
+              appendDots={dots => (
+                <MagicSliderDots
+                  dots={dots}
+                  numDotsToShow={listings.length > 10 ? 10 : listings.length}
+                  dotWidth={30}
+                />
+              )}
+            >
               {listings?.map(listing => (
                 <Card listing={listing} key={listing.slug} />
               ))}
