@@ -37,14 +37,14 @@ export default function AdvancedSearch(props: Props) {
         {i18n.t("listing.advanced_search")} {showAdvancedSearch ? "▲" : "▼"}
       </button>
       <div
-        className={`w-full flex flex-wrap align-center gap-6 ${
+        className={`w-full flex flex-wrap align-center gap-6 mb-4 ${
           showAdvancedSearch ? "block" : "hidden"
         }`}
       >
         {/* New stats fields */}
         {statsKeys.map(key => {
           return (
-            <div key={key} className="mb-4 w-full md:w-[23%]">
+            <div key={key} className="w-full md:w-[23%]">
               <label htmlFor={`q_${key}`} className="block mb-1">
                 {i18n.t(`listing.stats.${key.toLowerCase()}`)}
               </label>

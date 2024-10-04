@@ -1104,6 +1104,11 @@ react-is@^18.2.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
 
+react-magic-slider-dots@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-magic-slider-dots/-/react-magic-slider-dots-1.2.2.tgz#9e37b424ca0058374dc97b56e4064da48a5244da"
+  integrity sha512-I2ZhKcQLJ4QG11AyJwRhKprl4lWa1I1FkJzvMDr26dypqIoe4WwqH/stWyROetgqw5jqslb1ocePp8STfQ0tPQ==
+
 react-slick@^0.30.2:
   version "0.30.2"
   resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.30.2.tgz#b28e992f9c519bb516a0af8d37e82cb59fee08ce"
@@ -1204,6 +1209,11 @@ slash@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-5.1.0.tgz#be3adddcdf09ac38eebe8dcdc7b1a57a75b095ce"
   integrity sha512-ZA6oR3T/pEyuqwMgAKT0/hAv8oAXckzbkmR0UkUosQ+Mc4RxGoJkRmwHgHufaenlyAgE1Mxgpdcrf75y6XcnDg==
+
+slick-carousel@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.8.1.tgz#a4bfb29014887bb66ce528b90bd0cda262cc8f8d"
+  integrity sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==
 
 source-map-js@^1.0.2:
   version "1.0.2"

@@ -5,6 +5,7 @@ import { i18n } from "../../languages/languages";
 import { ReadMore } from "../shared/ReadMore";
 import Overlay from "../shared/Overlay";
 import Slider from "react-slick";
+import MagicSliderDots from "react-magic-slider-dots";
 
 interface Props {
   listing: Listing;
@@ -21,6 +22,9 @@ export default function Show(props: Props) {
     dots: true,
     infinite: false,
     speed: 500,
+    appendDots: dots => {
+      return <MagicSliderDots dots={dots} numDotsToShow={10} dotWidth={30} />;
+    },
   };
 
   return (
@@ -126,25 +130,28 @@ export default function Show(props: Props) {
                 <ReadMore length={1000}>{listing.description}</ReadMore>
               </div>
             </div>
-            <div className="p-4 w-full bg-white m-2 tablet:mx-0 h-fit">
-              <h2 className="standard mb-2 text-2xl font-bold">
-                {i18n.t("listing.characteristics")}
-              </h2>
-              <ul
-                className="tablet:ml-2 grid gap-4"
-                style={{
-                  gridTemplateColumns: "repeat( auto-fit, minmax(230px, 1fr) )",
-                }}
-              >
-                {listing?.features?.map(feat => {
-                  return (
-                    <li key={feat} className="mx-8 list-disc">
-                      {feat}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+            {listing?.features?.length > 0 && (
+              <div className="p-4 w-full bg-white m-2 tablet:mx-0 h-fit">
+                <h2 className="standard mb-2 text-2xl font-bold">
+                  {i18n.t("listing.characteristics")}
+                </h2>
+                <ul
+                  className="tablet:ml-2 grid gap-4"
+                  style={{
+                    gridTemplateColumns:
+                      "repeat( auto-fit, minmax(230px, 1fr) )",
+                  }}
+                >
+                  {listing?.features?.map(feat => {
+                    return (
+                      <li key={feat} className="mx-8 list-disc">
+                        {feat}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
           </div>
           <div className="col-start-3 p-1">
             <ContactForm listing={listing} />

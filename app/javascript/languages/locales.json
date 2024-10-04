@@ -657,7 +657,7 @@
       },
       "text": {
         "less": " show less",
-        "more": "...read more"
+        "more": "... read more"
       },
       "update": {
         "notice": "Listing updated successfully"
@@ -1707,7 +1707,7 @@
       },
       "text": {
         "less": " mostrar menos",
-        "more": "...ler mais"
+        "more": "... ler mais"
       },
       "update": {
         "notice": "Imóvel editado com sucesso"
