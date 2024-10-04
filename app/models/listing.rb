@@ -48,7 +48,7 @@ class Listing < ApplicationRecord
   end
 
   def self.possible_stats_keys
-    stats = all.map(&:stats).map(&:keys).flatten.uniq.sort_by do |key|
+    stats = all.map(&:stats).compact.map(&:keys).flatten.uniq.sort_by do |key|
       [
         key == 'Quartos' ? 0 : 1,
         key == 'Casas de Banho' ? 0 : 1,
