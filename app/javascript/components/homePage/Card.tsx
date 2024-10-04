@@ -5,10 +5,10 @@ import Overlay from "../shared/Overlay";
 
 export default function Card({ listing }) {
   return (
-    <div className="card mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto">
+    <div className="card m-2 mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto">
       <a href={sanitizeURLWithParams(window.Routes.listing_path, listing.slug)}>
         <div
-          className="ajustedBackground object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 relative"
+          className="ajustedBackground object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 min-h-[15rem] relative"
           style={{
             backgroundImage: `url(${listing.photos[0]})`,
             // backgroundImage: "url(/images/banner.webp)",

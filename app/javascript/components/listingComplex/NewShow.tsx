@@ -1,4 +1,3 @@
-import Carousel from "nuka-carousel";
 import React, { useEffect } from "react";
 import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
@@ -23,7 +22,6 @@ export default function NewShow(props: Props) {
 
   const header = () => {
     if (complex?.photos?.length > 0) {
-      // if (complex.photos.length === 1) {
       return (
         <div className="mx-auto w-auto">
           <img
@@ -33,34 +31,6 @@ export default function NewShow(props: Props) {
           />
         </div>
       );
-      // } else {
-      return (
-        <div className="mx-auto w-auto">
-          <Carousel
-            heightMode="max"
-            slidesToShow={1}
-            defaultControlsConfig={{
-              nextButtonText: "➤",
-              prevButtonStyle: { transform: "rotate(180deg)" },
-              prevButtonText: "➤",
-              pagingDotsContainerClassName: "!top-0",
-              pagingDotsClassName: "mx-1 hidden tablet:block",
-            }}
-          >
-            {complex.photos?.map(photo => {
-              return (
-                <img
-                  loading="lazy"
-                  key={photo.image.url}
-                  style={{ maxHeight: "70vh", objectFit: "contain" }}
-                  src={photo.image.url}
-                />
-              );
-            })}
-          </Carousel>
-        </div>
-      );
-      // }
     }
   };
 
