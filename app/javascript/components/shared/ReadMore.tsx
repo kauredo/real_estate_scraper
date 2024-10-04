@@ -16,6 +16,8 @@ export const ReadMore = (props: Props) => {
     setIsReadMore(!isReadMore);
   };
 
+  if (!text) return null;
+
   if (text.length > 1000) {
     return (
       <>
