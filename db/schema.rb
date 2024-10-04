@@ -134,7 +134,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_03_181456) do
     t.integer "status"
     t.string "video_link"
     t.string "slug"
-    t.string "price_string"
     t.integer "price_cents", default: 0, null: false
     t.index ["deleted_at"], name: "index_listings_on_deleted_at"
     t.index ["listing_complex_id"], name: "index_listings_on_listing_complex_id"

@@ -16,7 +16,7 @@ class ChangePriceToMoney < ActiveRecord::Migration[7.0]
   end
 
   def down
-    remove_monetize :listings, :price
+    remove_monetize :listings, :price, currency: { present: false }
 
     rename_column :listings, :price_string, :price
   end
