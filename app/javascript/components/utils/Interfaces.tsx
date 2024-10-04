@@ -91,3 +91,12 @@ export interface NavbarItemProps {
   img?: any;
   items?: NavbarItemProps[];
 }
+
+export interface StatsFilter {
+  Quartos: string;
+  Casas_de_Banho: string;
+  Area_do_terreno: string;
+  Area_util: string;
+  Area_bruta_CP: string;
+  Ano_de_construção: string;
+}

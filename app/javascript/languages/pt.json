@@ -744,6 +744,7 @@
       "subheader": "Uma empresa feita de consultores para consultores!"
     },
     "listing": {
+      "advanced_search": "Pesquisa Avançada",
       "characteristics": "Características do Imóvel",
       "create": {
         "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
