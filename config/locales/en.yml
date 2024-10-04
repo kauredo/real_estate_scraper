@@ -8,11 +8,12 @@ en:
     services: Services
     listings: Listings
     testimonies: Testimonies
-    language: Mudar site para Português
+    change_language: Mudar site para Português
     blog_posts: Blog
     more: More
     backoffice: Backoffice
     faq: FAQ
+    other_language: Português
 
   footer:
     about: about us
@@ -22,7 +23,8 @@ en:
 
   home:
     slogan:
-      top: Together we create
+      top: Together we
+      middle: create
       bottom: Happy Homes!
     cta:
       short: Evaluate home

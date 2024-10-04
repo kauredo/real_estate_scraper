@@ -6,13 +6,14 @@ const NavbarItem = lazy(() => import("./NavbarItem"));
 export interface DropdownProps {
   title: string;
   items: NavbarItemProps[];
+  img?: any;
 }
 
 const DropdownLink = (props: DropdownProps) => {
-  const { title, items } = props;
+  const { title, items, img } = props;
   const [showMenu, setShowMenu] = useState(false);
-  const dropdownMenuRef = useRef(null);
-  const dropdownLinkRef = useRef(null);
+  const dropdownMenuRef = useRef<HTMLDivElement>(null);
+  const dropdownLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const handleClickOutside = event => {
@@ -43,7 +44,9 @@ const DropdownLink = (props: DropdownProps) => {
       ? navbarItemClass(
           null,
           false,
-          items?.map(item => item.url)
+          items
+            ?.map(item => item.url)
+            .filter((url): url is string => url !== undefined)
         )
       : "";
 
@@ -56,6 +59,7 @@ const DropdownLink = (props: DropdownProps) => {
         className={`${className} flex flex-nowrap`}
       >
         {title}
+        {img}
         {!showMenu ? (
           <i
             className="fa fa-chevron-down ml-2 text-xs"
@@ -71,7 +75,7 @@ const DropdownLink = (props: DropdownProps) => {
         )}
       </a>
       <div
-        className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white z-20 px-4 ${
+        className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white z-20 ${
           showMenu ? "block" : "hidden"
         }`}
         ref={dropdownMenuRef}
@@ -82,8 +86,8 @@ const DropdownLink = (props: DropdownProps) => {
               fallback={<div>Loading...</div>}
               key={`${item.title}_middle`}
             >
-              <li>
-                <NavbarItem item={item} fullWidth />
+              <li className="pr-2">
+                <NavbarItem item={item} leftAlign />
               </li>
             </Suspense>
           ))}

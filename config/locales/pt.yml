@@ -8,11 +8,12 @@ pt:
     services: Serviços
     listings: Imóveis
     testimonies: Testemunhos
-    language: Change site to English
+    change_language: Change site to English
     blog_posts: Blog
     more: Saber mais
     backoffice: Backoffice
     faq: FAQ
+    other_language: English
 
   footer:
     about: sobre nós

@@ -64,9 +64,9 @@ export default function Testimonials(props: Props) {
             {testimonials?.map(testimonial => {
               return (
                 <li key={`${testimonial.name}--testimonial`} className="p-6">
-                  <div className="h-full w-full text-left">
+                  <div className="h-full w-full text-left flex flex-col">
                     <q>{testimonial.text}</q>
-                    <span className="font-bold float-right">
+                    <span className="font-bold text-right">
                       - {testimonial.name}
                     </span>
                   </div>

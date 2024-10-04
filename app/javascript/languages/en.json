@@ -648,7 +648,8 @@
       },
       "slogan": {
         "bottom": "Happy Homes!",
-        "top": "Together we create"
+        "middle": "create",
+        "top": "Together we"
       }
     },
     "i18n": {
@@ -771,12 +772,13 @@
       "backoffice": "Backoffice",
       "blog_posts": "Blog",
       "buy": "Buy",
+      "change_language": "Mudar site para Português",
       "contacts": "Contacts",
       "enterprises": "Developments",
       "faq": "FAQ",
-      "language": "Mudar site para Português",
       "listings": "Listings",
       "more": "More",
+      "other_language": "Português",
       "sell": "Sell",
       "services": "Services",
       "testimonies": "Testimonies"

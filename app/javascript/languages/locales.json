@@ -551,7 +551,8 @@
       },
       "slogan": {
         "bottom": "Happy Homes!",
-        "top": "Together we create"
+        "middle": "create",
+        "top": "Together we"
       }
     },
     "i18n": {
@@ -674,12 +675,13 @@
       "backoffice": "Backoffice",
       "blog_posts": "Blog",
       "buy": "Buy",
+      "change_language": "Mudar site para Português",
       "contacts": "Contacts",
       "enterprises": "Developments",
       "faq": "FAQ",
-      "language": "Mudar site para Português",
       "listings": "Listings",
       "more": "More",
+      "other_language": "Português",
       "sell": "Sell",
       "services": "Services",
       "testimonies": "Testimonies"
@@ -1723,12 +1725,13 @@
       "backoffice": "Backoffice",
       "blog_posts": "Blog",
       "buy": "Comprar",
+      "change_language": "Change site to English",
       "contacts": "Contactos",
       "enterprises": "Empreendimentos",
       "faq": "FAQ",
-      "language": "Change site to English",
       "listings": "Imóveis",
       "more": "Saber mais",
+      "other_language": "English",
       "sell": "Vender",
       "services": "Serviços",
       "testimonies": "Testemunhos"
