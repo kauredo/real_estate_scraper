@@ -7,7 +7,7 @@ task delete_old_sold: :environment do
   puts ''
 
   Listing.where.not(status_changed_at: nil).each do |listing|
-    # listing.destroy if listing.status_changed_at <= 6.months.ago && listing.sold?
+    listing.destroy if listing.status_changed_at <= 6.months.ago && listing.sold?
   end
 
   puts 'After: '

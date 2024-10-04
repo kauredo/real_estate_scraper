@@ -795,6 +795,19 @@ pt:
       "área bruta (cp)": Área Bruta (CP)
       "ano de construção": Ano de Construção
       "área do terreno": Área do Terreno
+      "casa de banho social": Casa de Banho Social
+      "support staff accommodations": Apoio a Empregados
+      "city tax": Taxa de Cidade
+      "land tax": Taxa de Terreno
+      "garagens": Garagens
+      "dining rooms": Salas de Jantar
+      "kitchens": Cozinhas
+      "piso": Piso
+      "pisos": Pisos
+      "common area ownership (coop)": Área Comum de Propriedade (Coop)
+      "salas de refeição": Salas de Refeição
+      cozinhas: Cozinhas
+      furnished: Mobilado
     create:
       notice:
         Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma

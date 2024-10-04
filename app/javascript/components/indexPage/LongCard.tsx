@@ -17,7 +17,8 @@ export default function LongCard(props: Props) {
   const [checkbox, setCheckbox] = useState<HTMLElement | null>(null);
   const handleRemoveItem = e => {
     e.preventDefault();
-    const token = document.querySelector('meta[name="csrf-token"]').content;
+    const tokenElement = document.querySelector('meta[name="csrf-token"]');
+    const token = tokenElement ? (tokenElement as HTMLMetaElement).content : "";
 
     confirm("De certeza que queres apagar o imóvel?");
 
@@ -41,17 +42,18 @@ export default function LongCard(props: Props) {
   const clickId = () => {
     if (checkbox) {
       checkbox.click();
-      setChecked(checkbox.checked);
+      setChecked((checkbox as HTMLInputElement).checked);
     }
   };
 
   useEffect(() => {
     let box = document.getElementById(
-      `listing_complex_listing_ids_${listing.slug}`
+      `listing_complex_listing_ids_${listing.id}`
     );
+
     if (box) {
       setCheckbox(box);
-      setChecked(box.checked);
+      setChecked((box as HTMLInputElement).checked);
     }
   }, []);
 
@@ -93,17 +95,14 @@ export default function LongCard(props: Props) {
             }
           >
             {checked && (
-              <div
-                style={{ zIndex: 1 }}
-                className="absolute uppercase top-0 bottom-0 left-0 right-0 bg-green-500 font-bold text-white text-4xl opacity-50 flex items-center justify-center"
-              >
+              <div className="absolute z-20 uppercase top-0 bottom-0 left-0 right-0 bg-green-500 font-bold text-white text-4xl opacity-50 flex items-center justify-center">
                 ✓
               </div>
             )}
             <Overlay status={listing.status} show />
             <div className="w-full md:w-128 h-full block mx-auto object-cover relative">
               {backoffice && (
-                <div className="absolute top-0 left-0 w-10 p-2 bg-black text-white font-bold text-center">
+                <div className="absolute top-0 left-0 w-20 p-2 bg-black text-white font-bold text-center z-10">
                   {listing.order || "N/A"}
                 </div>
               )}

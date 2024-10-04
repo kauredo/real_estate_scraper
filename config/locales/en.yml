@@ -780,6 +780,19 @@ en:
       "área bruta (cp)": Gross Area (Licensed)
       "ano de construção": Year of Construction
       "área do terreno": Plot Area
+      "casa de banho social": Social WC
+      "support staff accommodations": Support Staff Accommodations
+      "city tax": City Tax
+      "land tax": Land Tax
+      "garagens": Garages
+      "dining rooms": Dining Rooms
+      "kitchens": Kitchens
+      "piso": Floor
+      "pisos": Floors
+      "common area ownership (coop)": Common Area Ownership (Coop)
+      "salas de refeição": Dining Rooms
+      cozinhas: Kitchens
+      furnished: Furnished
     create:
       notice:
         Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma

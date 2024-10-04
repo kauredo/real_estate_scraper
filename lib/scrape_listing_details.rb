@@ -4,7 +4,7 @@ require 'task_helper'
 
 class ScrapeListingDetails
   def self.scrape_details(browser, imovel_url, force = false)
-    website_avaliable = navigate_and_check_website(browser, imovel_url, delete: true)
+    website_avaliable = navigate_and_check_website(browser, imovel_url)
     return unless website_avaliable
 
     toggle_language(browser, 'Português')
@@ -25,7 +25,7 @@ class ScrapeListingDetails
   end
 
   def self.check_website_availability(browser, url, delete)
-    sleep 5 # wait for the page to load fully
+    sleep ENV['SLEEP_TIME']&.to_i || 5 # wait for the page to load fully
     unless browser.text.downcase.include? 'imóveis'
       log 'KW website down'
       return false
