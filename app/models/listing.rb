@@ -26,6 +26,8 @@ class Listing < ApplicationRecord
   }.freeze
 
   enum :status, { recent: 0, standard: 1, agreed: 2, sold: 3, rented: 4, closed: 5 }
+  enum :objective, { other: 0, sale: 1, rent: 2 }, prefix: true
+  enum :kind, { other: 0, apartment: 1, house: 2, land: 3, office: 4, garage: 5, parking: 6, store: 7, storage: 8 }, prefix: true
   belongs_to :listing_complex, optional: true
   has_one :translation, class_name: 'Listing::Translation', dependent: :destroy
 
@@ -40,7 +42,7 @@ class Listing < ApplicationRecord
   end
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[title address status price_cents features]
+    %w[title address status price_cents features kind objective]
   end
 
   def self.ransackable_associations(_auth_object = nil)
@@ -100,6 +102,33 @@ class Listing < ApplicationRecord
     )
   end
 
+  def populate_type_and_objective
+    objective = url.split('/')[4]
+    type = url.split('/')[5]
+    self.objective = case objective.downcase
+                     when 'venda' then 1
+                     when 'arrendamento' then 2
+                     else 0
+                     end
+
+    self.kind = case type.downcase
+                when 'apartamento' then 1
+                when 'moradia' then 2
+                when 'terreno' then 3
+                when 'escritório' then 4
+                when 'garagem' then 5
+                when 'parqueamento' then 6
+                when 'loja' then 7
+                when 'arrecadação' then 8
+                else 0
+                end
+  end
+
+  def populate_type_and_objective!
+    populate_type_and_objective
+    save
+  end
+
   private
 
   def update_orders
@@ -121,6 +150,8 @@ end
 #  deleted_at         :datetime
 #  description        :text
 #  features           :string           default([]), is an Array
+#  kind               :integer          default(0), not null
+#  objective          :integer          default("other"), not null
 #  old_status         :string
 #  order              :integer
 #  photos             :text             default([]), is an Array

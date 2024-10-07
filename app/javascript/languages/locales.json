@@ -609,8 +609,24 @@
         "address": "Address",
         "address_placeholder": "Lisbon, Porto, etc.",
         "any": "Any",
+        "kind": {
+          "apartment": "Apartment",
+          "garage": "Garage",
+          "house": "House",
+          "land": "Land",
+          "office": "Office",
+          "parking": "Parking",
+          "storage": "Storage",
+          "store": "Store",
+          "title": "Property Type"
+        },
         "name": "Address, type, etc.",
         "name_placeholder": "Duplex, 3 bedroom apartment, etc.",
+        "objective": {
+          "rent": "Rent",
+          "sale": "Sale",
+          "title": "Sale / Rent"
+        },
         "price": "Price",
         "status": {
           "agreed": "Sales Agreed",
@@ -1660,8 +1676,24 @@
         "address": "Morada",
         "address_placeholder": "Lisboa, Porto, Algarve, etc.",
         "any": "Qualquer",
+        "kind": {
+          "apartment": "Apartamento",
+          "garage": "Garagem",
+          "house": "Moradia",
+          "land": "Terreno",
+          "office": "Escritório",
+          "parking": "Estacionamento",
+          "storage": "Arrecadação",
+          "store": "Loja",
+          "title": "Tipo de Imóvel"
+        },
         "name": "Morada, Localidade, Tipologia, etc.",
         "name_placeholder": "Apartamento T3, Moradia, Terreno, etc.",
+        "objective": {
+          "rent": "Arrendamento",
+          "sale": "Venda",
+          "title": "Venda / Arrendamento"
+        },
         "price": "Preço",
         "status": {
           "agreed": "Reservados",

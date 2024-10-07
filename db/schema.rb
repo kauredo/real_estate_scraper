@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_03_181456) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_07_101730) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -135,6 +135,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_03_181456) do
     t.string "video_link"
     t.string "slug"
     t.integer "price_cents", default: 0, null: false
+    t.integer "kind", default: 0, null: false
+    t.integer "objective", default: 0, null: false
     t.index ["deleted_at"], name: "index_listings_on_deleted_at"
     t.index ["listing_complex_id"], name: "index_listings_on_listing_complex_id"
     t.index ["slug"], name: "index_listings_on_slug", unique: true

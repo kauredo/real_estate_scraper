@@ -31,7 +31,7 @@ class ScrapeListingDetails
       return false
     end
 
-    return true if browser.text.include? 'Sofia Galvão'
+    return true if browser.text.include? 'Contacte-me'
 
     log 'listing unavailable on KW website, it will be destroyed'
     destroy_listing_if_exists(url) if delete
@@ -74,6 +74,8 @@ class ScrapeListingDetails
     listing.title = browser.title.gsub('m2', 'm²')
     listing.url = browser.url
     listing.status = 1
+
+    listing.populate_type_and_objective
 
     price = extract_price(browser)
     if price

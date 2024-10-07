@@ -706,8 +706,24 @@
         "address": "Address",
         "address_placeholder": "Lisbon, Porto, etc.",
         "any": "Any",
+        "kind": {
+          "apartment": "Apartment",
+          "garage": "Garage",
+          "house": "House",
+          "land": "Land",
+          "office": "Office",
+          "parking": "Parking",
+          "storage": "Storage",
+          "store": "Store",
+          "title": "Property Type"
+        },
         "name": "Address, type, etc.",
         "name_placeholder": "Duplex, 3 bedroom apartment, etc.",
+        "objective": {
+          "rent": "Rent",
+          "sale": "Sale",
+          "title": "Sale / Rent"
+        },
         "price": "Price",
         "status": {
           "agreed": "Sales Agreed",

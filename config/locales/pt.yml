@@ -831,6 +831,20 @@ pt:
       address: Morada
       address_placeholder: Lisboa, Porto, Algarve, etc.
       price: Preço
+      kind:
+        title: Tipo de Imóvel
+        apartment: Apartamento
+        house: Moradia
+        land: Terreno
+        office: Escritório
+        garage: Garagem
+        parking: Estacionamento
+        store: Loja
+        storage: Arrecadação
+      objective:
+        title: Venda / Arrendamento
+        sale: Venda
+        rent: Arrendamento
       submit: Pesquisar
       status:
         title: Estado

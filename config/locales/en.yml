@@ -817,6 +817,20 @@ en:
       address_placeholder: Lisbon, Porto, etc.
       price: Price
       submit: Search
+      kind:
+        title: Property Type
+        apartment: Apartment
+        house: House
+        land: Land
+        office: Office
+        garage: Garage
+        parking: Parking
+        store: Store
+        storage: Storage
+      objective:
+        title: Sale / Rent
+        sale: Sale
+        rent: Rent
       status:
         title: Status
         all: All
