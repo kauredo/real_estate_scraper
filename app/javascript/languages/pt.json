@@ -751,7 +751,25 @@
         "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
       },
       "details": "Detalhes do Imóvel",
+      "kind": {
+        "apartment": "Apartamento",
+        "garage": "Garagem",
+        "house": "Moradia",
+        "land": "Terreno",
+        "office": "Escritório",
+        "other": "Outro",
+        "parking": "Estacionamento",
+        "storage": "Arrecadação",
+        "store": "Loja",
+        "title": "Tipo de Imóvel"
+      },
       "no_listings": "Não foram encontrados imóveis com os critérios selecionados",
+      "objective": {
+        "other": "Outro",
+        "rent": "Arrendamento",
+        "sale": "Venda",
+        "title": "Venda / Arrendamento"
+      },
       "price": "Preço",
       "reset_filters": "Limpar Filtros",
       "resource": "Imóvel",
@@ -759,24 +777,8 @@
         "address": "Morada",
         "address_placeholder": "Lisboa, Porto, Algarve, etc.",
         "any": "Qualquer",
-        "kind": {
-          "apartment": "Apartamento",
-          "garage": "Garagem",
-          "house": "Moradia",
-          "land": "Terreno",
-          "office": "Escritório",
-          "parking": "Estacionamento",
-          "storage": "Arrecadação",
-          "store": "Loja",
-          "title": "Tipo de Imóvel"
-        },
         "name": "Morada, Localidade, Tipologia, etc.",
         "name_placeholder": "Apartamento T3, Moradia, Terreno, etc.",
-        "objective": {
-          "rent": "Arrendamento",
-          "sale": "Venda",
-          "title": "Venda / Arrendamento"
-        },
         "price": "Preço",
         "status": {
           "agreed": "Reservados",

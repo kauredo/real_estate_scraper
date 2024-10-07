@@ -698,7 +698,25 @@
         "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
       },
       "details": "Listing Details",
+      "kind": {
+        "apartment": "Apartment",
+        "garage": "Garage",
+        "house": "House",
+        "land": "Land",
+        "office": "Office",
+        "other": "Other",
+        "parking": "Parking",
+        "storage": "Storage",
+        "store": "Store",
+        "title": "Property Type"
+      },
       "no_listings": "No listings available with the selected criteria",
+      "objective": {
+        "other": "Other",
+        "rent": "Rent",
+        "sale": "Sale",
+        "title": "Sale / Rent"
+      },
       "price": "Price",
       "reset_filters": "Reset filters",
       "resource": "Listing",
@@ -706,24 +724,8 @@
         "address": "Address",
         "address_placeholder": "Lisbon, Porto, etc.",
         "any": "Any",
-        "kind": {
-          "apartment": "Apartment",
-          "garage": "Garage",
-          "house": "House",
-          "land": "Land",
-          "office": "Office",
-          "parking": "Parking",
-          "storage": "Storage",
-          "store": "Store",
-          "title": "Property Type"
-        },
         "name": "Address, type, etc.",
         "name_placeholder": "Duplex, 3 bedroom apartment, etc.",
-        "objective": {
-          "rent": "Rent",
-          "sale": "Sale",
-          "title": "Sale / Rent"
-        },
         "price": "Price",
         "status": {
           "agreed": "Sales Agreed",
