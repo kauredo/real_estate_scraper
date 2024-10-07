@@ -24,6 +24,8 @@ class ListingsController < ApplicationController
       listings = listings.where("stats->>'Área bruta (CP)' = ?", params[:q][:'Área bruta (CP)_eq']) if params[:q][:'Área bruta (CP)_eq'].present?
       listings = listings.where("stats->>'Ano de construção' = ?", params[:q][:'Ano de construção_eq']) if params[:q][:'Ano de construção_eq'].present?
       listings = listings.where("stats->>'Área do terreno' = ?", params[:q][:'Área do terreno_eq']) if params[:q][:'Área do terreno_eq'].present?
+
+      listings = listings.objective_sale if params[:q][:objective_eq].blank?
     end
 
     pagy, @listings = pagy(listings)

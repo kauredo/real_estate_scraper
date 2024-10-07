@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { numberToCurrency, sanitizeURL } from "../utils/Functions";
 import { i18n } from "../../languages/languages";
 import Slider from "rc-slider";
@@ -23,12 +23,11 @@ interface Props {
 
 export default function PriceSlider(props: Props) {
   const { params, listingMaxPrice, statsKeys, kinds, objectives } = props;
-  console.log(kinds);
   const [title, setTitle] = useState(params?.title_cont || "");
   const [address, setAddress] = useState(params?.address_cont || "");
   const [status, setStatus] = useState(params?.status_eq || "");
   const [kind, setKind] = useState(params?.kind_eq || "");
-  const [objective, setObjective] = useState(params?.objective_eq || "");
+  const [objective, setObjective] = useState(params?.objective_eq || "1");
   const [statsFilters, setStatsFilters] = useState<Partial<StatsFilter>>(
     // only keep params that are in statsKeys
     Object.fromEntries(
@@ -63,6 +62,7 @@ export default function PriceSlider(props: Props) {
     // Add price parameters to the form data
     formData.append("q[price_cents_gteq]", (prices[0] * 100).toString());
     formData.append("q[price_cents_lteq]", (prices[1] * 100).toString());
+    formData.append("q[objective_eq]", objective);
 
     // Convert FormData to object
     const formDataObject: Record<string, string> = {};
@@ -84,6 +84,20 @@ export default function PriceSlider(props: Props) {
     setStatsFilters(prev => ({ ...prev, [modifiedName]: value }));
   };
 
+  const setTab = (index: number) => e => {
+    e.preventDefault();
+    setObjective(index.toString());
+  };
+
+  useEffect(() => {
+    const oldObjective = params?.objective_eq;
+    // Submit the form when the objective changes
+    const form = document.querySelector("form");
+    if (form && oldObjective !== objective) {
+      form.requestSubmit();
+    }
+  }, [objective, setObjective]);
+
   return (
     <div className="container mx-auto sm:px-6 px-4">
       <h2 className="text-xl mb-4 mt-8 md:mt-2">
@@ -93,6 +107,25 @@ export default function PriceSlider(props: Props) {
         action={sanitizeURL(window.Routes.buy_path)}
         onSubmit={handleSubmit}
       >
+        <div className="w-full flex gap-2 justify-center mb-4">
+          {Object.entries(objectives).map(([key, index]) => {
+            if (typeof key !== "string" || typeof index !== "number") {
+              return null;
+            }
+
+            return (
+              <button
+                key={index}
+                onClick={setTab(index)}
+                className={`px-4 py-2 rounded-md ${
+                  objective == index ? "bg-beige text-white" : "bg-gray-200"
+                }`}
+              >
+                {i18n.t(`listing.search.objective.${key}`)}
+              </button>
+            );
+          })}
+        </div>
         <div className="w-full flex flex-wrap align-center gap-6 mb-4">
           <div className="w-full md:w-[23%]">
             <label htmlFor="q_kind_eq" className="block mb-1">
@@ -106,30 +139,17 @@ export default function PriceSlider(props: Props) {
               onChange={e => setKind(e.target.value)}
             >
               <option value="">{i18n.t("listing.search.status.all")}</option>
-              {Object.entries(kinds).map(([key, value]) => (
-                <option key={key} value={value}>
-                  {i18n.t(`listing.search.kind.${key}`)}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="w-full md:w-[23%]">
-            <label htmlFor="q_objective_eq" className="block mb-1">
-              {i18n.t("listing.search.objective.title")}
-            </label>
-            <select
-              name="q[objective_eq]"
-              id="q_objective_eq"
-              className="w-full p-2 rounded-md border border-gray-300 bg-[white] h-[42px]"
-              value={objective}
-              onChange={e => setObjective(e.target.value)}
-            >
-              <option value="">{i18n.t("listing.search.status.all")}</option>
-              {Object.entries(objectives).map(([key, value]) => (
-                <option key={key} value={value}>
-                  {i18n.t(`listing.search.objective.${key}`)}
-                </option>
-              ))}
+              {Object.entries(kinds).map(([key, value]) => {
+                if (typeof key !== "string" || typeof value !== "number") {
+                  return null;
+                }
+
+                return (
+                  <option key={key} value={value}>
+                    {i18n.t(`listing.search.kind.${key}`)}
+                  </option>
+                );
+              })}
             </select>
           </div>
           {otherStatsKeys.map(key => {
