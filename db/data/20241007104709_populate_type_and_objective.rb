@@ -8,6 +8,6 @@ class PopulateTypeAndObjective < ActiveRecord::Migration[7.0]
   end
 
   def down
-    raise ActiveRecord::IrreversibleMigration
+    true
   end
 end
