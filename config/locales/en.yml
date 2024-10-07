@@ -809,8 +809,9 @@ en:
         All listings will be updated shortly, please wait and check in a few
         minutes
     search:
+      any: Any
       title: Search for a property
-      name: Name
+      name: Address, type, etc.
       name_placeholder: Duplex, 3 bedroom apartment, etc.
       address: Address
       address_placeholder: Lisbon, Porto, etc.

@@ -824,8 +824,9 @@ pt:
         Todos os imóveis serão atualizado dentro de minutos, espera antes de
         tentar novamente
     search:
+      any: Qualquer
       title: Pesquisar Imóveis
-      name: Nome
+      name: Morada, Localidade, Tipologia, etc.
       name_placeholder: Apartamento T3, Moradia, Terreno, etc.
       address: Morada
       address_placeholder: Lisboa, Porto, Algarve, etc.

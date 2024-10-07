@@ -7,20 +7,24 @@ interface Props {
   listingMaxPrice: number;
   statsKeys: string[];
   statsFilters: Partial<StatsFilter>;
+  title: string;
+  setTitle: React.Dispatch<React.SetStateAction<string>>;
   setStatsFilters: (value: React.SetStateAction<Partial<StatsFilter>>) => void;
+  handleStatChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export default function AdvancedSearch(props: Props) {
-  const { statsKeys, statsFilters, setStatsFilters } = props;
-  const [showAdvancedSearch, setShowAdvancedSearch] = useState(
-    Object.values(statsFilters).some(value => value !== "")
+  const { statsKeys, statsFilters, handleStatChange, title, setTitle } = props;
+  const relevantStatsFilters = Object.fromEntries(
+    Object.entries(statsFilters).filter(([key]) =>
+      statsKeys.includes(key.replace("_eq", ""))
+    )
   );
 
-  const handleStatChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    const modifiedName = name.replace("q[", "").replace("]", "");
-    setStatsFilters(prev => ({ ...prev, [modifiedName]: value }));
-  };
+  const [showAdvancedSearch, setShowAdvancedSearch] = useState(
+    Object.values(relevantStatsFilters).some(value => value !== "") ||
+      title !== ""
+  );
 
   // Show advanced search if user clicks on a link, otherwise hide it
   const toggleAdvancedSearch = e => {
@@ -41,6 +45,26 @@ export default function AdvancedSearch(props: Props) {
           showAdvancedSearch ? "block" : "hidden"
         }`}
       >
+        <div className="w-full md:w-[calc(46%+1.5rem)]">
+          <label htmlFor="q_title_or_address_cont" className="block mb-1">
+            {i18n.t("listing.search.name")}
+          </label>
+          <input
+            type="text"
+            id="q_title_cont"
+            name="q[title_cont]"
+            value={title}
+            placeholder={i18n.t("listing.search.name_placeholder")}
+            onChange={e => setTitle(e.target.value)}
+            onKeyDown={e => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                e.currentTarget.form?.submit();
+              }
+            }}
+            className="w-full p-2 rounded-md border border-gray-300"
+          />
+        </div>
         {/* New stats fields */}
         {statsKeys.map(key => {
           return (
@@ -48,20 +72,20 @@ export default function AdvancedSearch(props: Props) {
               <label htmlFor={`q_${key}`} className="block mb-1">
                 {i18n.t(`listing.stats.${key.toLowerCase()}`)}
               </label>
-              <input
-                type="text"
+              <select
                 id={`q_${key}`}
                 name={`q[${key}_eq]`}
                 value={statsFilters?.[`${key}_eq`] || ""}
                 onChange={handleStatChange}
-                onKeyDown={e => {
-                  if (e.key === "Enter") {
-                    e.preventDefault();
-                    e.currentTarget.form?.submit();
-                  }
-                }}
-                className="w-full p-2 rounded-md border border-gray-300"
-              />
+                className="w-full p-2 rounded-md border border-gray-300 bg-[white] h-[42px]"
+              >
+                <option value="">{i18n.t("listing.search.any")}</option>
+                {[...Array(11).keys()].map(num => (
+                  <option key={num} value={num}>
+                    {num}
+                  </option>
+                ))}
+              </select>
             </div>
           );
         })}

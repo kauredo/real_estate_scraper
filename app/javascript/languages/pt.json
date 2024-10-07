@@ -758,7 +758,8 @@
       "search": {
         "address": "Morada",
         "address_placeholder": "Lisboa, Porto, Algarve, etc.",
-        "name": "Nome",
+        "any": "Qualquer",
+        "name": "Morada, Localidade, Tipologia, etc.",
         "name_placeholder": "Apartamento T3, Moradia, Terreno, etc.",
         "price": "Preço",
         "status": {
