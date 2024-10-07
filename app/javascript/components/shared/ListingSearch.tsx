@@ -112,7 +112,7 @@ export default function PriceSlider(props: Props) {
         <div className="w-full flex flex-wrap align-center gap-6 mb-4">
           <div className="w-full md:w-[23%]">
             <label htmlFor="q_kind_eq" className="block mb-1">
-              {i18n.t("listing.search.kind.title")}
+              {i18n.t("listing.kind.title")}
             </label>
             <select
               name="q[kind_eq]"
@@ -129,7 +129,7 @@ export default function PriceSlider(props: Props) {
 
                 return (
                   <option key={key} value={value}>
-                    {i18n.t(`listing.search.kind.${key}`)}
+                    {i18n.t(`listing.kind.${key}`)}
                   </option>
                 );
               })}

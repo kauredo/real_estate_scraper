@@ -35,7 +35,7 @@ export default function ObjectiveTabs(props: Props) {
 
         return (
           <button key={index} onClick={setTab(index)} className={tabClasses}>
-            {i18n.t(`listing.search.objective.${key}`)}
+            {i18n.t(`listing.objective.${key}`)}
           </button>
         );
       })}
