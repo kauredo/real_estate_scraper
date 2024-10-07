@@ -4,6 +4,7 @@ import { i18n } from "../../languages/languages";
 import Slider from "rc-slider";
 import AdvancedSearch from "./AdvancedSearch";
 import { StatsFilter } from "../utils/Interfaces";
+import ObjectiveTabs from "./ObjectiveTabs";
 
 interface Props {
   params: {
@@ -12,8 +13,8 @@ interface Props {
     price_cents_gteq?: number;
     price_cents_lteq?: number;
     status_eq?: string;
-    kind_eq?: string;
-    objective_eq?: string;
+    kind_eq?: number;
+    objective_eq?: number;
   };
   listingMaxPrice: number;
   statsKeys: string[];
@@ -26,8 +27,8 @@ export default function PriceSlider(props: Props) {
   const [title, setTitle] = useState(params?.title_cont || "");
   const [address, setAddress] = useState(params?.address_cont || "");
   const [status, setStatus] = useState(params?.status_eq || "");
-  const [kind, setKind] = useState(params?.kind_eq || "");
-  const [objective, setObjective] = useState(params?.objective_eq || "1");
+  const [kind, setKind] = useState(params?.kind_eq || 0);
+  const [objective, setObjective] = useState(params?.objective_eq || 1);
   const [statsFilters, setStatsFilters] = useState<Partial<StatsFilter>>(
     // only keep params that are in statsKeys
     Object.fromEntries(
@@ -62,7 +63,7 @@ export default function PriceSlider(props: Props) {
     // Add price parameters to the form data
     formData.append("q[price_cents_gteq]", (prices[0] * 100).toString());
     formData.append("q[price_cents_lteq]", (prices[1] * 100).toString());
-    formData.append("q[objective_eq]", objective);
+    formData.append("q[objective_eq]", objective.toString());
 
     // Convert FormData to object
     const formDataObject: Record<string, string> = {};
@@ -84,11 +85,6 @@ export default function PriceSlider(props: Props) {
     setStatsFilters(prev => ({ ...prev, [modifiedName]: value }));
   };
 
-  const setTab = (index: number) => e => {
-    e.preventDefault();
-    setObjective(index.toString());
-  };
-
   useEffect(() => {
     const oldObjective = params?.objective_eq;
     // Submit the form when the objective changes
@@ -107,25 +103,12 @@ export default function PriceSlider(props: Props) {
         action={sanitizeURL(window.Routes.buy_path)}
         onSubmit={handleSubmit}
       >
-        <div className="w-full flex gap-2 justify-center mb-4">
-          {Object.entries(objectives).map(([key, index]) => {
-            if (typeof key !== "string" || typeof index !== "number") {
-              return null;
-            }
+        <ObjectiveTabs
+          objective={objective}
+          objectives={objectives}
+          setObjective={setObjective}
+        />
 
-            return (
-              <button
-                key={index}
-                onClick={setTab(index)}
-                className={`px-4 py-2 rounded-md ${
-                  objective == index ? "bg-beige text-white" : "bg-gray-200"
-                }`}
-              >
-                {i18n.t(`listing.search.objective.${key}`)}
-              </button>
-            );
-          })}
-        </div>
         <div className="w-full flex flex-wrap align-center gap-6 mb-4">
           <div className="w-full md:w-[23%]">
             <label htmlFor="q_kind_eq" className="block mb-1">
@@ -136,7 +119,7 @@ export default function PriceSlider(props: Props) {
               id="q_kind_eq"
               className="w-full p-2 rounded-md border border-gray-300 bg-[white] h-[42px]"
               value={kind}
-              onChange={e => setKind(e.target.value)}
+              onChange={e => setKind(Number(e.target.value))}
             >
               <option value="">{i18n.t("listing.search.status.all")}</option>
               {Object.entries(kinds).map(([key, value]) => {
