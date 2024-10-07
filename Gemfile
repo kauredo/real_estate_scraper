@@ -53,7 +53,7 @@ gem 'bootsnap', require: false
 # Other gems here
 gem 'carrierwave'
 gem 'cloudinary'
-gem 'data_migrate', '~> 9.1.0'
+gem 'data_migrate'
 gem 'devise'
 gem 'friendly_id'
 gem 'friendly_id-mobility'
