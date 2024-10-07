@@ -88,11 +88,13 @@ export default function PriceSlider(props: Props) {
   useEffect(() => {
     const oldObjective = params?.objective_eq;
     // Submit the form when the objective changes
+    if (!oldObjective) return;
+
     const form = document.querySelector("form");
     if (form && oldObjective !== objective) {
       form.requestSubmit();
     }
-  }, [objective, setObjective]);
+  }, [objective]);
 
   return (
     <div className="container mx-auto sm:px-6 px-4">
