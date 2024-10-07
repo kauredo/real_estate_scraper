@@ -13,6 +13,9 @@ primary_region = "mad"
   web = "bundle exec puma -C config/puma.rb"
   worker = "bundle exec sidekiq -C config/sidekiq.yml"
 
+[deploy]
+  release_command = './bin/rails db:prepare:with_data'
+
 [[services]]
   http_checks = []
   internal_port = 3000
