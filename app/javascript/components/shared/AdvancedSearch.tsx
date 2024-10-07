@@ -68,7 +68,7 @@ export default function AdvancedSearch(props: Props) {
         {/* New stats fields */}
         {statsKeys.map(key => {
           return (
-            <div key={key} className="w-full md:w-[23%]">
+            <div key={key} className="w-full md:w-[calc((23%/2)-0.75rem)]">
               <label htmlFor={`q_${key}`} className="block mb-1">
                 {i18n.t(`listing.stats.${key.toLowerCase()}`)}
               </label>
