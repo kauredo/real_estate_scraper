@@ -47,6 +47,8 @@ end
 #  deleted_at         :datetime
 #  description        :text
 #  features           :string           default([]), is an Array
+#  kind               :integer          default(0), not null
+#  objective          :integer          default("other"), not null
 #  old_status         :string
 #  order              :integer
 #  photos             :text             default([]), is an Array

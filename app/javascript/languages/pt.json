@@ -759,8 +759,24 @@
         "address": "Morada",
         "address_placeholder": "Lisboa, Porto, Algarve, etc.",
         "any": "Qualquer",
+        "kind": {
+          "apartment": "Apartamento",
+          "garage": "Garagem",
+          "house": "Moradia",
+          "land": "Terreno",
+          "office": "Escritório",
+          "parking": "Estacionamento",
+          "storage": "Arrecadação",
+          "store": "Loja",
+          "title": "Tipo de Imóvel"
+        },
         "name": "Morada, Localidade, Tipologia, etc.",
         "name_placeholder": "Apartamento T3, Moradia, Terreno, etc.",
+        "objective": {
+          "rent": "Arrendamento",
+          "sale": "Venda",
+          "title": "Venda / Arrendamento"
+        },
         "price": "Preço",
         "status": {
           "agreed": "Reservados",

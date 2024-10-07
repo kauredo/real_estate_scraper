@@ -12,16 +12,23 @@ interface Props {
     price_cents_gteq?: number;
     price_cents_lteq?: number;
     status_eq?: string;
+    kind_eq?: string;
+    objective_eq?: string;
   };
   listingMaxPrice: number;
   statsKeys: string[];
+  kinds: { kind: string; index: number }[];
+  objectives: { objective: string; index: number }[];
 }
 
 export default function PriceSlider(props: Props) {
-  const { params, listingMaxPrice, statsKeys } = props;
+  const { params, listingMaxPrice, statsKeys, kinds, objectives } = props;
+  console.log(kinds);
   const [title, setTitle] = useState(params?.title_cont || "");
   const [address, setAddress] = useState(params?.address_cont || "");
   const [status, setStatus] = useState(params?.status_eq || "");
+  const [kind, setKind] = useState(params?.kind_eq || "");
+  const [objective, setObjective] = useState(params?.objective_eq || "");
   const [statsFilters, setStatsFilters] = useState<Partial<StatsFilter>>(
     // only keep params that are in statsKeys
     Object.fromEntries(
@@ -87,6 +94,44 @@ export default function PriceSlider(props: Props) {
         onSubmit={handleSubmit}
       >
         <div className="w-full flex flex-wrap align-center gap-6 mb-4">
+          <div className="w-full md:w-[23%]">
+            <label htmlFor="q_kind_eq" className="block mb-1">
+              {i18n.t("listing.search.kind.title")}
+            </label>
+            <select
+              name="q[kind_eq]"
+              id="q_kind_eq"
+              className="w-full p-2 rounded-md border border-gray-300 bg-[white] h-[42px]"
+              value={kind}
+              onChange={e => setKind(e.target.value)}
+            >
+              <option value="">{i18n.t("listing.search.status.all")}</option>
+              {Object.entries(kinds).map(([key, value]) => (
+                <option key={key} value={value}>
+                  {i18n.t(`listing.search.kind.${key}`)}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="w-full md:w-[23%]">
+            <label htmlFor="q_objective_eq" className="block mb-1">
+              {i18n.t("listing.search.objective.title")}
+            </label>
+            <select
+              name="q[objective_eq]"
+              id="q_objective_eq"
+              className="w-full p-2 rounded-md border border-gray-300 bg-[white] h-[42px]"
+              value={objective}
+              onChange={e => setObjective(e.target.value)}
+            >
+              <option value="">{i18n.t("listing.search.status.all")}</option>
+              {Object.entries(objectives).map(([key, value]) => (
+                <option key={key} value={value}>
+                  {i18n.t(`listing.search.objective.${key}`)}
+                </option>
+              ))}
+            </select>
+          </div>
           {otherStatsKeys.map(key => {
             return (
               <div key={key} className="w-full md:w-[23%]">

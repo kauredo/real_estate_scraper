@@ -30,6 +30,8 @@ class ListingsController < ApplicationController
     @pagy = pagy_metadata(pagy)
     @listings_max_price = Listing.all.pluck(:price_cents).uniq.reject(&:blank?).map(&:to_i).max
     @stats_keys = Listing.possible_stats_keys
+    @kinds = Listing.kinds.reject { |k, _v| k == 'other' }
+    @objectives = Listing.objectives.reject { |k, _v| k == 'other' }
   end
 
   def sell; end

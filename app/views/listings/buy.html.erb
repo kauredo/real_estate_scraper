@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<%= react_component 'shared--ListingSearch', { params: params.dig(:q), listingMaxPrice: @listings_max_price, statsKeys: @stats_keys } %>
+<%= react_component 'shared--ListingSearch', { params: params.dig(:q), listingMaxPrice: @listings_max_price, statsKeys: @stats_keys, kinds: @kinds, objectives: @objectives } %>
 <%= react_component 'shared--Pagination', { pagy: @pagy } %>
 <%= react_component 'indexPage--Listings', { listings: @listings, backoffice: false }  %>
 <%= react_component 'shared--Pagination', { pagy: @pagy } %>
