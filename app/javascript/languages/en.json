@@ -705,7 +705,8 @@
       "search": {
         "address": "Address",
         "address_placeholder": "Lisbon, Porto, etc.",
-        "name": "Name",
+        "any": "Any",
+        "name": "Address, type, etc.",
         "name_placeholder": "Duplex, 3 bedroom apartment, etc.",
         "price": "Price",
         "status": {

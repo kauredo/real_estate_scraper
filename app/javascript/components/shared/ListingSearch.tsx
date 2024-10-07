@@ -36,6 +36,13 @@ export default function PriceSlider(props: Props) {
     (params?.price_cents_lteq ?? transformedMaxPrice * 100) / 100,
   ]);
 
+  const advancedStatsKeys = statsKeys.filter(
+    key => !["Quartos", "Casas de Banho"].includes(key)
+  );
+  const otherStatsKeys = statsKeys.filter(key =>
+    ["Quartos", "Casas de Banho"].includes(key)
+  );
+
   const handlePriceChange = (value: number | number[]) => {
     if (Array.isArray(value)) {
       setPrices(value);
@@ -64,6 +71,12 @@ export default function PriceSlider(props: Props) {
     // console.log(formDataObject);
   };
 
+  const handleStatChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    const modifiedName = name.replace("q[", "").replace("]", "");
+    setStatsFilters(prev => ({ ...prev, [modifiedName]: value }));
+  };
+
   return (
     <div className="container mx-auto sm:px-6 px-4">
       <h2 className="text-xl mb-4 mt-8 md:mt-2">
@@ -74,46 +87,29 @@ export default function PriceSlider(props: Props) {
         onSubmit={handleSubmit}
       >
         <div className="w-full flex flex-wrap align-center gap-6 mb-4">
-          <div className="w-full md:w-[23%]">
-            <label htmlFor="q_title_cont" className="block mb-1">
-              {i18n.t("listing.search.name")}
-            </label>
-            <input
-              type="text"
-              id="q_title_cont"
-              name="q[title_cont]"
-              value={title}
-              placeholder={i18n.t("listing.search.name_placeholder")}
-              onChange={e => setTitle(e.target.value)}
-              onKeyDown={e => {
-                if (e.key === "Enter") {
-                  e.preventDefault();
-                  e.currentTarget.form?.submit();
-                }
-              }}
-              className="w-full p-2 rounded-md border border-gray-300"
-            />
-          </div>
-          <div className="w-full md:w-[23%]">
-            <label htmlFor="q_address_cont" className="block mb-1">
-              {i18n.t("listing.search.address")}
-            </label>
-            <input
-              type="text"
-              id="q_address_cont"
-              name="q[address_cont]"
-              value={address}
-              placeholder={i18n.t("listing.search.address_placeholder")}
-              onChange={e => setAddress(e.target.value)}
-              onKeyDown={e => {
-                if (e.key === "Enter") {
-                  e.preventDefault();
-                  e.currentTarget.form?.submit();
-                }
-              }}
-              className="w-full p-2 rounded-md border border-gray-300"
-            />
-          </div>
+          {otherStatsKeys.map(key => {
+            return (
+              <div key={key} className="w-full md:w-[23%]">
+                <label htmlFor={`q_${key}`} className="block mb-1">
+                  {i18n.t(`listing.stats.${key.toLowerCase()}`)}
+                </label>
+                <select
+                  id={`q_${key}`}
+                  name={`q[${key}_eq]`}
+                  value={statsFilters?.[`${key}_eq`] || ""}
+                  onChange={handleStatChange}
+                  className="w-full p-2 rounded-md border border-gray-300 bg-[white] h-[42px]"
+                >
+                  <option value="">{i18n.t("listing.search.any")}</option>
+                  {[...Array(11).keys()].map(num => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            );
+          })}
           <div className="w-full md:w-[23%]">
             <label htmlFor="q_status_eq" className="block mb-1">
               {i18n.t("listing.search.status.title")}
@@ -164,9 +160,12 @@ export default function PriceSlider(props: Props) {
         </div>
         <AdvancedSearch
           listingMaxPrice={listingMaxPrice}
-          statsKeys={statsKeys}
+          statsKeys={advancedStatsKeys}
           statsFilters={statsFilters}
           setStatsFilters={setStatsFilters}
+          handleStatChange={handleStatChange}
+          title={title}
+          setTitle={setTitle}
         />
         <div className="flex items-center flex-wrap">
           <button
