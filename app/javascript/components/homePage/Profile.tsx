@@ -1,11 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { i18n } from "../../languages/languages";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import Socials from "../shared/Socials";
 
 export default function Profile() {
   return (
@@ -43,48 +38,7 @@ export default function Profile() {
               alt="Sofia Galvão"
             />
           </div>
-          <div className="mx-6 mb-8 mt-4 md:mt-0">
-            <a
-              href="https://www.linkedin.com/in/sofia-galv%C3%A3o-a141621/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="flex items-center mb-4 text-gray-600">
-                <FontAwesomeIcon icon={faLinkedin as IconProp} />
-                <p className="px-2 text-sm">Sofia Galvão</p>
-              </div>
-            </a>
-            <a
-              href="https://www.instagram.com/sofiagalvaogroupkw/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="flex items-center mb-4 text-gray-600">
-                <FontAwesomeIcon icon={faInstagram as IconProp} />
-                <p className="px-2 text-sm">@sofiagalvaogroupkw</p>
-              </div>
-            </a>
-            <a
-              href="https://www.facebook.com/sofiagalvaokw"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="flex items-center mb-4 text-gray-600">
-                <FontAwesomeIcon icon={faFacebook as IconProp} />
-                <p className="px-2 text-sm">/sofiagalvaokw</p>
-              </div>
-            </a>
-            <a
-              href="https://wa.me/351932829084"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="flex items-center mb-4 text-gray-600">
-                <FontAwesomeIcon icon={faWhatsapp as IconProp} />
-                <p className="px-2 text-sm">+351 932829084</p>
-              </div>
-            </a>
-          </div>
+          <Socials />
         </div>
       </div>
     </section>
