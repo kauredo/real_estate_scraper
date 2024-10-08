@@ -3,6 +3,7 @@ import { Transition } from "@headlessui/react";
 import { i18n } from "../languages/languages";
 import { changeLocale, sanitizeURL } from "./utils/Functions";
 import { NavbarItemProps } from "./utils/Interfaces";
+import Socials from "./shared/Socials";
 const NavbarItem = lazy(() => import("./shared/NavbarItem"));
 const DropdownLink = lazy(() => import("./shared/DropdownLink"));
 
@@ -83,6 +84,11 @@ export default function Navbar(props: Props) {
 
   const backofficeItems: NavbarItemProps[] = [
     {
+      title: `${i18n.t("navbar.backoffice")}`,
+      url: sanitizeURL(window.Routes.backoffice_path),
+      turbo: "true",
+    },
+    {
       title: `${i18n.t("navbar.listings")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_listings_path),
@@ -146,6 +152,7 @@ export default function Navbar(props: Props) {
   mobileItems.push(...rightItems);
 
   admin &&
+    !backoffice &&
     rightItems[0] &&
     rightItems[0].items &&
     rightItems[0].items.unshift({
@@ -192,129 +199,135 @@ export default function Navbar(props: Props) {
     <div>
       <nav className="bg-white container mx-auto">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between min-h-[4rem]">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 relative">
-                <a
-                  data-turbo="true"
-                  href={sanitizeURL(window.Routes.root_path)}
+          <div>
+            <div className="flex items-center justify-between min-h-[4rem]">
+              <div className="flex items-center">
+                <div className="flex-shrink-0 relative">
+                  <a
+                    data-turbo="true"
+                    href={sanitizeURL(window.Routes.root_path)}
+                  >
+                    <img
+                      loading="lazy"
+                      className="w-[8rem] relative z-10"
+                      src="/logos/main_color.webp"
+                      alt="Sofia Galvão Group Logo"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <div className="hidden tablet:block">
+                  <div className="ml-4 flex items-baseline flex-wrap justify-center">
+                    {middleItems?.map(item => {
+                      if (item.items?.length && item.items.length > 0) {
+                        return (
+                          <Suspense
+                            key={`${item.title}_middle`}
+                            fallback={<div>Loading...</div>}
+                          >
+                            <DropdownLink
+                              title={item.title}
+                              items={item.items}
+                              img={item.img}
+                            />
+                          </Suspense>
+                        );
+                      } else {
+                        return (
+                          <Suspense
+                            fallback={<div>Loading...</div>}
+                            key={`${item.title}_middle`}
+                          >
+                            <NavbarItem item={item} />
+                          </Suspense>
+                        );
+                      }
+                    })}
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <div className="hidden tablet:block">
+                  <div className="ml-4 flex items-baseline">
+                    {/* {showBtnOnNavbar} */}
+                    <Socials small />
+                    {rightItems?.map(item => {
+                      if (item.items?.length && item.items.length > 0) {
+                        return (
+                          <Suspense
+                            key={`${item.title}_right`}
+                            fallback={<div>Loading...</div>}
+                          >
+                            <DropdownLink
+                              title={item.title}
+                              items={item.items}
+                              img={item.img}
+                            />
+                          </Suspense>
+                        );
+                      } else {
+                        return (
+                          <Suspense
+                            fallback={<div>Loading...</div>}
+                            key={`${item.title}_right`}
+                          >
+                            <NavbarItem item={item} />
+                          </Suspense>
+                        );
+                      }
+                    })}
+                  </div>
+                </div>
+              </div>
+              <div className="-mr-2 flex justify-end tablet:hidden relative">
+                {ctaBtn}
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  type="button"
+                  className="bg-white-900 inline-flex items-center justify-center p-2 rounded-md text-gray-800"
+                  aria-controls="mobile-menu"
+                  aria-expanded="false"
                 >
-                  <img
-                    loading="lazy"
-                    className="w-[8rem] relative z-10"
-                    src="/logos/main_color.webp"
-                    alt="Sofia Galvão Group Logo"
-                  />
-                </a>
+                  <span className="sr-only">Open main menu</span>
+                  {!isOpen ? (
+                    <svg
+                      className="block h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M4 6h16M4 12h16M4 18h16"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="block h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  )}
+                </button>
               </div>
             </div>
-            <div className="flex items-center">
-              <div className="hidden tablet:block">
-                <div className="ml-10 flex items-baseline flex-wrap justify-center">
-                  {middleItems?.map(item => {
-                    if (item.items?.length && item.items.length > 0) {
-                      return (
-                        <Suspense
-                          key={`${item.title}_middle`}
-                          fallback={<div>Loading...</div>}
-                        >
-                          <DropdownLink
-                            title={item.title}
-                            items={item.items}
-                            img={item.img}
-                          />
-                        </Suspense>
-                      );
-                    } else {
-                      return (
-                        <Suspense
-                          fallback={<div>Loading...</div>}
-                          key={`${item.title}_middle`}
-                        >
-                          <NavbarItem item={item} />
-                        </Suspense>
-                      );
-                    }
-                  })}
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <div className="hidden tablet:block">
-                <div className="ml-10 flex items-baseline">
-                  {/* {showBtnOnNavbar} */}
-                  {rightItems?.map(item => {
-                    if (item.items?.length && item.items.length > 0) {
-                      return (
-                        <Suspense
-                          key={`${item.title}_right`}
-                          fallback={<div>Loading...</div>}
-                        >
-                          <DropdownLink
-                            title={item.title}
-                            items={item.items}
-                            img={item.img}
-                          />
-                        </Suspense>
-                      );
-                    } else {
-                      return (
-                        <Suspense
-                          fallback={<div>Loading...</div>}
-                          key={`${item.title}_right`}
-                        >
-                          <NavbarItem item={item} />
-                        </Suspense>
-                      );
-                    }
-                  })}
-                </div>
-              </div>
-            </div>
-            <div className="-mr-2 flex tablet:hidden">
-              {ctaBtn}
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                type="button"
-                className="bg-white-900 inline-flex items-center justify-center p-2 rounded-md text-gray-800"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-              >
-                <span className="sr-only">Open main menu</span>
-                {!isOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
-              </button>
+            <div className="tablet:hidden">
+              <Socials small />
             </div>
           </div>
         </div>

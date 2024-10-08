@@ -56,19 +56,19 @@ const DropdownLink = (props: DropdownProps) => {
         href="#"
         ref={dropdownLinkRef}
         onClick={handleLinkClick}
-        className={`${className} flex flex-nowrap`}
+        className={`${className} flex flex-nowrap hover:bg-beige hover:text-white p-2 rounded-md font-medium`}
       >
         {title}
         {img}
         {!showMenu ? (
           <i
-            className="fa fa-chevron-down ml-2 text-xs"
+            className="fa fa-chevron-down mx-2 text-xs"
             style={{ transform: "translateY(15%)" }}
             aria-hidden="true"
           ></i>
         ) : (
           <i
-            className="fa fa-chevron-up ml-2 text-xs"
+            className="fa fa-chevron-up mx-2 text-xs"
             style={{ transform: "translateY(15%)" }}
             aria-hidden="true"
           ></i>
