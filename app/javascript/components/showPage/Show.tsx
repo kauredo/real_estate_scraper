@@ -27,6 +27,15 @@ export default function Show(props: Props) {
     },
   };
 
+  const photos = listing.photos?.map(photo => (
+    <img
+      loading="lazy"
+      className="object-contain max-h-[70vh]"
+      key={photo}
+      src={photo}
+    />
+  ));
+
   return (
     <>
       {listing.video_link && isOpen && (
@@ -72,16 +81,7 @@ export default function Show(props: Props) {
         </div>
         <div className="relative">
           <Overlay status={listing.status} />
-          <Slider {...settings}>
-            {listing.photos?.map(photo => (
-              <img
-                loading="lazy"
-                className="object-contain max-h-[70vh]"
-                key={photo}
-                src={photo}
-              />
-            ))}
-          </Slider>
+          <Slider {...settings}>{photos}</Slider>
         </div>
 
         <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">
@@ -93,7 +93,20 @@ export default function Show(props: Props) {
                     onClick={() => setOpen(true)}
                     className="cursor-pointer bg-beige text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   >
-                    {i18n.t("listing.watch_video")} 📹
+                    {i18n.t("listing.watch_video")}
+                  </button>
+                </div>
+              )}
+              {listing.virtual_tour_url && (
+                <div className="mb-2">
+                  <button
+                    // open virtual_tour_url on new tab
+                    onClick={() =>
+                      window.open(listing.virtual_tour_url, "_blank")
+                    }
+                    className="cursor-pointer bg-beige text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    {i18n.t("listing.open_tour")}
                   </button>
                 </div>
               )}

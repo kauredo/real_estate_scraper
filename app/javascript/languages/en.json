@@ -717,6 +717,7 @@
         "sale": "Sale",
         "title": "Sale / Rent"
       },
+      "open_tour": "Open Virtual Tour 🏠",
       "price": "Price",
       "reset_filters": "Reset filters",
       "resource": "Listing",
@@ -784,7 +785,7 @@
       "update_details": {
         "notice": "Listing will be updated shortly, please wait and check in a few minutes"
       },
-      "watch_video": "Watch Video"
+      "watch_video": "Watch Video 📹"
     },
     "navbar": {
       "about": "About Us",

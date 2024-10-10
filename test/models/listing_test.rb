@@ -60,6 +60,7 @@ end
 #  title              :string
 #  url                :string
 #  video_link         :string
+#  virtual_tour_url   :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  listing_complex_id :bigint
