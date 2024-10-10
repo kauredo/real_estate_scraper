@@ -54,6 +54,9 @@ export interface Listing {
   status: string;
   slug: string;
   video_link: string;
+  virtual_tour_url: string;
+  objective: string;
+  kind: string;
   order?: number;
 }
 

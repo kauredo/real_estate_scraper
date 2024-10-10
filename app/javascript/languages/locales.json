@@ -620,6 +620,7 @@
         "sale": "Sale",
         "title": "Sale / Rent"
       },
+      "open_tour": "Open Virtual Tour 🏠",
       "price": "Price",
       "reset_filters": "Reset filters",
       "resource": "Listing",
@@ -687,7 +688,7 @@
       "update_details": {
         "notice": "Listing will be updated shortly, please wait and check in a few minutes"
       },
-      "watch_video": "Watch Video"
+      "watch_video": "Watch Video 📹"
     },
     "navbar": {
       "about": "About Us",
@@ -1689,6 +1690,7 @@
         "sale": "Venda",
         "title": "Venda / Arrendamento"
       },
+      "open_tour": "Abrir Tour Virtual 🏠",
       "price": "Preço",
       "reset_filters": "Limpar Filtros",
       "resource": "Imóvel",
@@ -1756,7 +1758,7 @@
       "update_details": {
         "notice": "O imóvel será atualizado dentro de minutos, espera antes de tentar novamente"
       },
-      "watch_video": "Assistir Vídeo"
+      "watch_video": "Assistir Vídeo 📹"
     },
     "navbar": {
       "about": "Sobre Nós",
