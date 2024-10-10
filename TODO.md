@@ -3,7 +3,6 @@
 ### Complex stuff
 
 - add videos to blog post (like enterprises)
-- advanced search in "comprar" - title, bedrooms, etc.
 
 ### Research
 
@@ -14,7 +13,6 @@
 
 - home page is too empty at first sight
 - after advanced search/end of comprar page - have text and link to services and contact.
-- merge /kw & /sobre, keep only /kw for SEO and title "Partnership KW" title. subtitles "Sobre Nos" and "KW Portugal", with the revised texts from the docs.
 
 ## DONE
 
@@ -25,3 +23,5 @@
 - enterprises - add small text from docs
 - sobre nos - make changes according to docs
 - ADD FAQ PAGE.
+- advanced search in "comprar" - title, bedrooms, etc.
+- merge /kw & /sobre, keep only /kw for SEO and title "Partnership KW" title. subtitles "Sobre Nos" and "KW Portugal", with the revised texts from the docs.
