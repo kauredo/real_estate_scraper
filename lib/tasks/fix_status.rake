@@ -99,4 +99,10 @@ task fix_duplicates: :environment do
     puts 'Fixing duplicates for English listings'
     fix_duplicates(english_listings)
   end
+
+  duplicate_urls = Listing.unscoped.map(&:url).tally.select { |_, count| count > 1 }.keys
+  duplicates = Listing.unscoped.where(url: duplicate_urls)
+  duplicates.each do |listing|
+    listing.destroy_fully! if listing.deleted_at.present? && (Listing.where(url: listing.url).present? || Listing.unscoped.where(url: listing.url).count > 1)
+  end
 end

@@ -51,6 +51,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # Other gems here
+gem 'acts_as_paranoid'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'data_migrate'
@@ -66,7 +67,6 @@ gem 'mobility', '~> 1.2.9'
 gem 'mobility-ransack', '~> 1.2.2'
 gem 'money-rails', '~> 1.12'
 gem 'pagy', '~> 5.10'
-gem 'paranoia'
 gem 'rails-controller-testing'
 gem 'rails-i18n'
 gem 'ransack'

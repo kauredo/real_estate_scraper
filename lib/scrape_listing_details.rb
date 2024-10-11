@@ -61,7 +61,7 @@ class ScrapeListingDetails
     url = browser.url
     log "Gathering data for listing \"#{title}\""
 
-    listing = find_or_create_listing(imovel_url, title, url)
+    listing = find_or_initialize_listing(imovel_url, title, url)
     if !force && (listing.persisted? && Listing.includes(:translations).where(url:, translations: { locale: 'pt', title: }))
       log "Listing \"#{listing.title}\" already exists"
       return listing
@@ -201,9 +201,9 @@ class ScrapeListingDetails
     listing
   end
 
-  def self.find_or_create_listing(imovel_url, title, url)
-    old_url_exists = Listing.exists?(url: imovel_url)
-    new_url_exists = Listing.exists?(url:)
+  def self.find_or_initialize_listing(imovel_url, title, url)
+    old_url_exists = Listing.unscoped.exists?(url: imovel_url)
+    new_url_exists = Listing.unscoped.exists?(url:)
     name_exists = Listing.includes(:translations).where(translations: { locale: 'pt', title: }).exists?
 
     listing = if old_url_exists && name_exists
@@ -211,13 +211,14 @@ class ScrapeListingDetails
               elsif new_url_exists && name_exists
                 Listing.includes(:translations).find_by(url:, translations: { locale: 'pt', title: })
               elsif old_url_exists
-                Listing.find_by(url: imovel_url)
+                Listing.unscoped.find_by(url: imovel_url)
               elsif new_url_exists
-                Listing.find_by(url:)
+                Listing.unscoped.find_by(url:)
               else
                 Listing.find_or_initialize_by(title:)
               end
 
+    listing.restore if listing.deleted_at.present?
     return listing if listing.present?
 
     Listing.find_or_initialize_by(title:) if listing.nil?
