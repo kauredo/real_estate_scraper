@@ -58,6 +58,7 @@ export interface Listing {
   objective: string;
   kind: string;
   order?: number;
+  deleted_at?: string;
 }
 
 export interface Pagy {

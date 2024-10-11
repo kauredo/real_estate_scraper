@@ -218,7 +218,7 @@ class ScrapeListingDetails
                 Listing.find_or_initialize_by(title:)
               end
 
-    listing.restore if listing.deleted_at.present?
+    listing.recover if listing.deleted_at.present?
     return listing if listing.present?
 
     Listing.find_or_initialize_by(title:) if listing.nil?

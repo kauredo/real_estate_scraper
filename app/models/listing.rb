@@ -31,11 +31,29 @@ class Listing < ApplicationRecord
   belongs_to :listing_complex, optional: true
   has_one :translation, class_name: 'Listing::Translation', dependent: :destroy
 
-  default_scope { includes(:translation).order(order: :asc, status: :asc, created_at: :desc) }
-  scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
+  default_scope { with_locale_translations.default_order }
+  scope :default_order, -> { order(order: :asc, status: :asc, created_at: :desc) }
+  scope :with_locale_translations,
+        lambda {
+          joins(Arel.sql("LEFT JOIN listing_translations ON listing_translations.listing_id = listings.id AND listing_translations.locale = '#{I18n.locale}'"))
+        }
+
+  scope :with_order_over, ->(new_order) { where.not(order: nil).where(order: new_order..) }
   scope :by_geography, lambda {
                          all.group_by(&:city).to_h
                        }
+
+  def self.with_deleted_ordered(additional_order = {})
+    scope = unscoped
+            .joins(Arel.sql("LEFT JOIN listing_translations ON listing_translations.listing_id = listings.id AND listing_translations.locale = '#{I18n.locale}'"))
+            .order(Arel.sql('CASE WHEN "listings".deleted_at IS NULL THEN 0 ELSE 1 END'))
+
+    if additional_order.present?
+      scope.order(additional_order)
+    else
+      scope.order(order: :asc, status: :asc, created_at: :desc)
+    end
+  end
 
   def self.random_photos(listings, number)
     listings.sample(number).map { |listing| listing.photos.first }
@@ -132,9 +150,12 @@ class Listing < ApplicationRecord
   private
 
   def update_orders
+    deleted_with_order = Listing.unscoped.where.not(deleted_at: nil).where.not(order: nil)
+    deleted_with_order.update_all(order: nil) if deleted_with_order.any? # rubocop:disable Rails/SkipsModelValidations
+
     return unless saved_change_to_order? && Listing.where(order:).count > 1
 
-    listings = Listing.with_order_above(order)
+    listings = Listing.with_order_over(order)
     listings.each do |listing|
       listing.update(order: listing.order + 1) if listing != self
     end

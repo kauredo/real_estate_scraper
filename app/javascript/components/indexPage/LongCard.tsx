@@ -12,7 +12,6 @@ interface Props {
 
 export default function LongCard(props: Props) {
   let { listing, backoffice, small } = props;
-  const [isVisible, setIsVilible] = useState(true);
   const [checked, setChecked] = useState(false);
   const [checkbox, setCheckbox] = useState<HTMLElement | null>(null);
   const handleRemoveItem = e => {
@@ -20,13 +19,11 @@ export default function LongCard(props: Props) {
     const tokenElement = document.querySelector('meta[name="csrf-token"]');
     const token = tokenElement ? (tokenElement as HTMLMetaElement).content : "";
 
-    confirm("De certeza que queres apagar o imóvel?");
+    const confirmDelete = confirm("De certeza que queres apagar o imóvel?");
+    if (!confirmDelete) return;
 
     fetch(
-      sanitizeURLWithParams(
-        window.Routes.backoffice_listing_path,
-        listing.slug
-      ),
+      sanitizeURLWithParams(window.Routes.backoffice_listing_path, slugOrId),
       {
         method: "DELETE",
         headers: {
@@ -34,8 +31,32 @@ export default function LongCard(props: Props) {
           "Content-Type": "application/json",
         },
       }
-    ).then(res => {
-      setIsVilible(false);
+    ).then(() => {
+      window.location.reload();
+    });
+  };
+  const handleRecoverItem = e => {
+    e.preventDefault();
+    const tokenElement = document.querySelector('meta[name="csrf-token"]');
+    const token = tokenElement ? (tokenElement as HTMLMetaElement).content : "";
+
+    const confirmRecover = confirm("De certeza que queres restaurar o imóvel?");
+    if (!confirmRecover) return;
+
+    fetch(
+      sanitizeURLWithParams(
+        window.Routes.recover_backoffice_listing_path,
+        listing.id
+      ),
+      {
+        method: "POST",
+        headers: {
+          "X-CSRF-Token": token,
+          "Content-Type": "application/json",
+        },
+      }
+    ).then(() => {
+      window.location.reload();
     });
   };
 
@@ -45,6 +66,10 @@ export default function LongCard(props: Props) {
       setChecked((checkbox as HTMLInputElement).checked);
     }
   };
+
+  const photo = listing.photos ? listing.photos[0] : "";
+
+  const slugOrId = listing.slug || listing.id;
 
   useEffect(() => {
     let box = document.getElementById(
@@ -57,7 +82,9 @@ export default function LongCard(props: Props) {
     }
   }, []);
 
-  return isVisible ? (
+  if (!listing || !listing.title) return null;
+
+  return (
     <div
       className={
         small
@@ -74,9 +101,9 @@ export default function LongCard(props: Props) {
             : backoffice
             ? sanitizeURLWithParams(
                 window.Routes.edit_backoffice_listing_path,
-                listing.slug
+                slugOrId
               )
-            : sanitizeURLWithParams(window.Routes.listing_path, listing.slug)
+            : sanitizeURLWithParams(window.Routes.listing_path, slugOrId)
         }
         onClick={e => small && e.preventDefault()}
       >
@@ -110,7 +137,7 @@ export default function LongCard(props: Props) {
                 loading="lazy"
                 alt={listing.title}
                 className="w-full md:w-128 h-full block mx-auto object-cover"
-                src={listing.photos[0]}
+                src={photo}
               />
             </div>
           </div>
@@ -135,7 +162,7 @@ export default function LongCard(props: Props) {
                   <ListingIcons listing={listing} />
                 </>
               )}
-              {backoffice && (
+              {backoffice && !listing.deleted_at && (
                 <span
                   className="inline-block px-5 py-2 my-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800"
                   onClick={handleRemoveItem}
@@ -143,12 +170,18 @@ export default function LongCard(props: Props) {
                   Apagar Imóvel 🗑️
                 </span>
               )}
+              {backoffice && listing.deleted_at && (
+                <span
+                  className="inline-block px-5 py-2 my-2 text-red-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                  onClick={handleRecoverItem}
+                >
+                  Restaurar Imóvel 🔄
+                </span>
+              )}
             </div>
           </div>
         </div>
       </a>
     </div>
-  ) : (
-    <></>
   );
 }

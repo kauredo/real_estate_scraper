@@ -814,6 +814,13 @@ pt:
       notice:
         Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma
       error: "Erro: o link tem que começar por 'https://www.kwportugal.pt/'"
+    destroy:
+      notice: Imóvel eliminado com sucesso
+      error: "Erro: não foi possível eliminar o imóvel"
+    recover:
+      notice:
+        Imóvel recuperado com sucesso, aguarde um pouco para atualizar os dados.
+      error: "Erro: não foi possível recuperar o imóvel"
     update:
       notice: Imóvel editado com sucesso
     update_details:
