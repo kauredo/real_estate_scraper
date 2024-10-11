@@ -161,31 +161,6 @@ export default function Navbar(props: Props) {
       turbo: "true",
     });
 
-  admin &&
-    mobileItems.unshift({
-      title: "Backoffice",
-      url: sanitizeURL(window.Routes.backoffice_path),
-      turbo: "true",
-    });
-
-  // const showBtnOnNavbar = sanitizeURL(window.Routes.sell_path) !==
-  //   window.location.pathname && (
-  //   <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
-  //     <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
-  //       <p>{i18n.t("home.cta.long")}</p>
-  //     </div>
-  //   </a>
-  // );
-
-  // const backofficeBtn = admin &&
-  //   !window.location.pathname.includes("backoffice") && (
-  //     <a href={sanitizeURL(window.Routes.backoffice_path)} data-turbo={false}>
-  //       <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-  //         <p>{i18n.t("navbar.backoffice")}</p>
-  //       </div>
-  //     </a>
-  //   );
-
   const ctaBtn = sanitizeURL(window.Routes.sell_path) !==
     window.location.pathname && (
     <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
@@ -250,8 +225,7 @@ export default function Navbar(props: Props) {
               <div className="flex items-center">
                 <div className="hidden tablet:block">
                   <div className="ml-4 flex items-baseline">
-                    {/* {showBtnOnNavbar} */}
-                    <Socials small />
+                    {!backoffice && <Socials small />}
                     {rightItems?.map(item => {
                       if (item.items?.length && item.items.length > 0) {
                         return (
@@ -326,9 +300,11 @@ export default function Navbar(props: Props) {
                 </button>
               </div>
             </div>
-            <div className="tablet:hidden">
-              <Socials small />
-            </div>
+            {!backoffice && (
+              <div className="tablet:hidden">
+                <Socials small />
+              </div>
+            )}
           </div>
         </div>
 
