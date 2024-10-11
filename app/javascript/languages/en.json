@@ -697,6 +697,10 @@
         "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
         "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
       },
+      "destroy": {
+        "error": "Error removing listing",
+        "notice": "Listing removed successfully."
+      },
       "details": "Listing Details",
       "kind": {
         "apartment": "Apartment",
@@ -719,6 +723,10 @@
       },
       "open_tour": "Open Virtual Tour 🏠",
       "price": "Price",
+      "recover": {
+        "error": "Error recovering listing",
+        "notice": "Listing recovered successfully, it will be available shortly."
+      },
       "reset_filters": "Reset filters",
       "resource": "Listing",
       "search": {

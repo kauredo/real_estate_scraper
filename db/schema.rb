@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_10_102934) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_11_125647) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -112,6 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_10_102934) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "slug"
+    t.datetime "deleted_at"
     t.index ["listing_id", "locale"], name: "index_listing_translations_on_listing_id_and_locale", unique: true
     t.index ["locale"], name: "index_listing_translations_on_locale"
   end

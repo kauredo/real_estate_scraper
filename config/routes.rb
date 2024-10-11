@@ -52,6 +52,7 @@ Rails.application.routes.draw do
       resources :listings, only: %i[index create edit update destroy] do
         member do
           post '/update_details', to: 'listings#update_details'
+          post '/recover', to: 'listings#recover'
         end
         collection do
           post '/update_all', to: 'listings#update_all'

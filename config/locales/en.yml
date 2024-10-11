@@ -800,6 +800,12 @@ en:
       notice:
         Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma
       error: "Erro: o link tem que começar por 'https://www.kwportugal.pt/'"
+    destroy:
+      notice: Listing removed successfully.
+      error: Error removing listing
+    recover:
+      notice: Listing recovered successfully, it will be available shortly.
+      error: Error recovering listing
     update:
       notice: Listing updated successfully
     update_details:

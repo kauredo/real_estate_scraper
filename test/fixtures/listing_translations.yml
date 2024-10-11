@@ -5217,3 +5217,28 @@ eighty-six:
   slug: store-for-sale-with-331-m-8-parking-spaces-central-area-of-lisbon
   :created_at: 2023-04-07 10:48:26 UTC
   :updated_at: 2023-04-07 10:48:26 UTC
+
+# == Schema Information
+#
+# Table name: listing_translations
+#
+#  id          :bigint           not null, primary key
+#  deleted_at  :datetime
+#  description :text
+#  features    :string           default([]), is an Array
+#  locale      :string           not null
+#  slug        :text
+#  title       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  listing_id  :bigint           not null
+#
+# Indexes
+#
+#  index_listing_translations_on_listing_id_and_locale  (listing_id,locale) UNIQUE
+#  index_listing_translations_on_locale                 (locale)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (listing_id => listings.id)
+#
