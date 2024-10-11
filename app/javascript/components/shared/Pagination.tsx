@@ -9,7 +9,7 @@ interface Props {
 
 export default function Pagination(props: Props) {
   const { pagy } = props;
-  const currentPage = getUrlParameter("page");
+  const currentPage = getUrlParameter("page") || "1";
 
   if (pagy.pages > 1) {
     return (
@@ -65,10 +65,20 @@ export default function Pagination(props: Props) {
                 currentPage === page
                   ? classes + " !text-beige !border-beige"
                   : classes;
-              let href = `${pagy.scaffold_url.replace(
-                "__pagy_page__",
-                page.toString()
-              )}`;
+              let href =
+                currentPage === page
+                  ? "#"
+                  : `${pagy.scaffold_url.replace(
+                      "__pagy_page__",
+                      page.toString()
+                    )}`;
+              if (page === "gap") {
+                return (
+                  <p key={`gap-${page}`} className="pt-3 mr-4">
+                    ...
+                  </p>
+                );
+              }
               return (
                 <a key={`page-${page}`} href={href}>
                   <p className={classes}>{page}</p>

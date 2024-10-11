@@ -106,6 +106,10 @@ class Listing < ApplicationRecord
     end
   end
 
+  def self.ids_with_title
+    unscoped.map(&:as_json).select { |l| l['title'].present? }.pluck('id')
+  end
+
   def city
     if CITIES[:south].any? { |c| address&.downcase&.include?(c) }
       I18n.locale == :en ? 'South' : 'Sul'
