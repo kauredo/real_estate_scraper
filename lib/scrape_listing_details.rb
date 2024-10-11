@@ -168,7 +168,7 @@ class ScrapeListingDetails
   def self.extract_description(browser)
     count = 0
     begin
-      browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.text
+      browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.div(class: 'texts')&.wait_until(timeout: 10, &:present?)&.text
     rescue StandardError => _e
       count += 1
       retry if count < 3
