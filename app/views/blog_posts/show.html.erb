@@ -17,6 +17,7 @@
       <h1><%= @blog_post.title %></h1>
       <p><%= @blog_post.created_at.strftime('%d/%m/%Y') %></p>
     </div>
+    <%= react_component 'shared--ShareIcons', { title: meta_title } %>
 
     <%= sanitize @blog_post.text %>
   </div>

@@ -869,3 +869,14 @@ en:
     email:
       invalid: is not a valid email
     presence: cannot be empty
+
+  share:
+    title: Share
+    whatsapp: Share on WhatsApp
+    twitter: Share on Twitter
+    telegram: Share on Telegram
+    facebook: Share on Facebook
+    email: Share by Email
+    messenger: Share on Messenger
+    copy: Copy Link
+    copied: Link copied to clipboard!

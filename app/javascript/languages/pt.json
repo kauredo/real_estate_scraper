@@ -1061,6 +1061,17 @@
         "top": "Enquanto profissionais do mercado imobiliário, todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
       }
     },
+    "share": {
+      "copied": "Link copiado!",
+      "copy": "Copiar Link",
+      "email": "Patilhar por Email",
+      "facebook": "Partilhar no Facebook",
+      "messenger": "Partilhar no Messenger",
+      "telegram": "Partilhar no Telegram",
+      "title": "Partilhar",
+      "twitter": "Partilhar no Twitter",
+      "whatsapp": "Partilhar no WhatsApp"
+    },
     "support": {
       "array": {
         "last_word_connector": " e ",

@@ -885,3 +885,14 @@ pt:
     email:
       invalid: não é um email válido
     presence: não pode estar vazio
+
+  share:
+    title: Partilhar
+    whatsapp: Partilhar no WhatsApp
+    twitter: Partilhar no Twitter
+    telegram: Partilhar no Telegram
+    facebook: Partilhar no Facebook
+    email: Patilhar por Email
+    messenger: Partilhar no Messenger
+    copy: Copiar Link
+    copied: Link copiado!
