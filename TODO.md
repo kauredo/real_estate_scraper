@@ -7,7 +7,6 @@
 ### Research
 
 - instagram embed somewhere
-- check https://nodalview.com/ to see if we can have the virtual tour in the listing (same as video)
 
 ### UI
 
@@ -25,3 +24,4 @@
 - ADD FAQ PAGE.
 - advanced search in "comprar" - title, bedrooms, etc.
 - merge /kw & /sobre, keep only /kw for SEO and title "Partnership KW" title. subtitles "Sobre Nos" and "KW Portugal", with the revised texts from the docs.
+- check https://nodalview.com/ to see if we can have the virtual tour in the listing (same as video)
