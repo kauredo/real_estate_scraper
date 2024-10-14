@@ -2,7 +2,8 @@
 <% content_for(:meta_description) { @blog_post.meta_description } %>
 <% content_for(:meta_image) { @blog_post.main_photo } %>
 <% content_for(:extra_meta) do %>
-  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>blog/<%= @blog_post.slug %>" />
+  <% slug = @blog_post.slug || @blog_post.slug_pt %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>blog/<%= slug %>" />
 <% end %>
 
 <div id="blog-show" class="relative">

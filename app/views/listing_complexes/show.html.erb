@@ -2,7 +2,8 @@
 <% content_for(:meta_image) { @listing_complex.main_photo || @listing_complex.listings.first&.photos&.first } %>
 <% content_for(:meta_description) { @listing_complex&.description&.squish } %>
 <% content_for(:extra_meta) do %>
-  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>empreendimentos/<%= @listing_complex.slug %>" />
+  <% slug = @listing_complex.slug || @listing_complex.slug_pt %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>empreendimentos/<%= slug %>" />
 <% end %>
 
 <div id="show" class="relative">
