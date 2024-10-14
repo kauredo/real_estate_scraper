@@ -5,6 +5,7 @@
 <% content_for(:meta_description) { meta_description } %>
 <% content_for(:extra_meta) do %>
   <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>servicos" />
+  <link rel="alternate" hreflang="<%= I18n.locale == :pt ? 'en' : 'pt' %>" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? 'en/' : '' %>servicos" />
 <% end %>
 
 
