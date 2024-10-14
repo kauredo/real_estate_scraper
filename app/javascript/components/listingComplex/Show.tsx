@@ -3,6 +3,7 @@ import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
 import { sanitizeURLWithParams } from "../utils/Functions";
 import { Listing, ListingComplex } from "../utils/Interfaces";
+import ShareIcons from "../shared/ShareIcons";
 
 interface Props {
   complex: ListingComplex;
@@ -40,7 +41,10 @@ export default function Show(props: Props) {
       <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige text-white px-4 py-2">
         <h1 className="standard">{complex.name}</h1>
       </div>
-      <section className="tablet:grid overflow-hidden tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">
+      <div className="mt-10">
+        <ShareIcons title={complex.name} />
+      </div>
+      <section className="tablet:grid overflow-hidden tablet:grid-cols-3 tablet:grid-rows-1 gap-2 pb-8 mx-2 whitespace-pre-line">
         <div className="col-span-2">
           <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
             <div className="tablet:mr-2">{complex.description}</div>

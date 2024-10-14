@@ -6,6 +6,7 @@ import { ReadMore } from "../shared/ReadMore";
 import Overlay from "../shared/Overlay";
 import Slider from "react-slick";
 import MagicSliderDots from "react-magic-slider-dots";
+import ShareIcons from "../shared/ShareIcons";
 
 interface Props {
   listing: Listing;
@@ -83,8 +84,10 @@ export default function Show(props: Props) {
           <Overlay status={listing.status} />
           <Slider {...settings}>{photos}</Slider>
         </div>
-
-        <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2 whitespace-pre-line">
+        <div className="mt-20">
+          <ShareIcons title={listing.title} />
+        </div>
+        <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 pb-8 mx-2 whitespace-pre-line">
           <div className="col-span-2">
             <div className="p-4 w-full bg-white m-2 tablet:mx-0">
               {listing.video_link && (

@@ -4,6 +4,7 @@ import ContactForm from "../contactPage/ContactForm";
 import Cards from "../homePage/Cards";
 import { sanitizeURLWithParams } from "../utils/Functions";
 import { ListingComplex } from "../utils/Interfaces";
+import ShareIcons from "../shared/ShareIcons";
 
 interface Props {
   complex: ListingComplex;
@@ -67,6 +68,9 @@ export default function NewShow(props: Props) {
           <ContactForm complex={complex} />
         </div>
       </section>
+      <div className="mt-10">
+        <ShareIcons title={complex.name} />
+      </div>
       <div>
         <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
           <div className="tablet:mr-2 whitespace-pre-line">

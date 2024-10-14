@@ -971,6 +971,17 @@
         "top": "As professionals in the real estate market, all the services related to real estate mediation and consultancy are within the scope of our activity for your benefit."
       }
     },
+    "share": {
+      "copied": "Link copied to clipboard!",
+      "copy": "Copy Link",
+      "email": "Share by Email",
+      "facebook": "Share on Facebook",
+      "messenger": "Share on Messenger",
+      "telegram": "Share on Telegram",
+      "title": "Share",
+      "twitter": "Share on Twitter",
+      "whatsapp": "Share on WhatsApp"
+    },
     "support": {
       "array": {
         "last_word_connector": ", and ",
@@ -1988,6 +1999,17 @@
         "link": "connosco.",
         "top": "Enquanto profissionais do mercado imobiliário, todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
       }
+    },
+    "share": {
+      "copied": "Link copiado!",
+      "copy": "Copiar Link",
+      "email": "Patilhar por Email",
+      "facebook": "Partilhar no Facebook",
+      "messenger": "Partilhar no Messenger",
+      "telegram": "Partilhar no Telegram",
+      "title": "Partilhar",
+      "twitter": "Partilhar no Twitter",
+      "whatsapp": "Partilhar no WhatsApp"
     },
     "support": {
       "array": {
