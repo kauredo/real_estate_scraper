@@ -32,11 +32,15 @@
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
   <%= f.label :new_format, class: 'w-1/4' %>
-  <%= f.check_box :new_format %>
+  <div class="w-full">
+    <%= f.check_box :new_format %>
+  </div>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
   <%= f.label :hidden, class: 'w-1/4' %>
-  <%= f.check_box :hidden %>
+  <div class="w-full">
+    <%= f.check_box :hidden %>
+  </div>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
   <%= f.label :video_link, class: 'w-1/4' %>

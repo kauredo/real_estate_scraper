@@ -32,6 +32,10 @@ class BlogPost < ApplicationRecord
       'https://sofiagalvaogroup.com/images/banner.webp'
     end
   end
+
+  def sanitized_text
+    text.gsub('background: white;', '')
+  end
 end
 
 # == Schema Information
@@ -45,6 +49,7 @@ end
 #  slug             :string
 #  text             :text
 #  title            :string
+#  video_link       :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

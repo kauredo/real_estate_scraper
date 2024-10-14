@@ -3,6 +3,7 @@
 module Backoffice
   class BlogPostsController < BackofficeController
     before_action :find_blog_post, except: %i[index new create]
+    after_action :update_video_link, only: %i[create update]
 
     def index
       @blog_posts = BlogPost.all
@@ -16,7 +17,7 @@ module Backoffice
     end
 
     def new
-      @blog_post = BlogPost.create
+      @blog_post = BlogPost.create(hidden: true)
       flash[:notice] = 'Post criado'
 
       redirect_to edit_backoffice_blog_post_path(@blog_post)
@@ -75,6 +76,14 @@ module Backoffice
       end
     end
 
+    def update_video_link
+      return if @blog_post.video_link.blank?
+
+      @blog_post.video_link.sub!('watch?v=', 'embed/')
+      @blog_post.video_link.sub!('youtu.be/', 'youtube.com/embed/')
+      @blog_post.save
+    end
+
     def find_blog_post
       @blog_post = BlogPost.friendly.find(params[:id])
     end
@@ -85,6 +94,7 @@ module Backoffice
                                         :hidden,
                                         :meta_title,
                                         :meta_description,
+                                        :video_link,
                                         blog_photos: %i[
                                           id
                                           blog_post_id

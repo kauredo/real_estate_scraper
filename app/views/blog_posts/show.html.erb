@@ -9,10 +9,19 @@
 
 <div id="blog-show" class="relative">
   <header
-    class="!bg-center !bg-no-repeat !bg-cover min-h-[320px]"
-    style="background: url(<%= @blog_post.main_photo %>)"
+    class="!bg-center !bg-no-repeat !bg-cover min-h-[320px] relative"
+    style="background: url('<%= @blog_post.main_photo %>')"
   >
-
+    <% if @blog_post.video_link.present? %>
+      <iframe
+        class="relative top-0 right-0 p-0 w-full min-h-[320px]"
+        src="<%= @blog_post.video_link %>"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    <% end %>
   </header>
   <div class="tinymce pt-8 px-8 mx-auto container">
     <div class="w-full tablet:w-2/3 mb-4">
@@ -21,6 +30,8 @@
     </div>
     <%= react_component 'shared--ShareIcons', { title: meta_title } %>
 
-    <%= sanitize @blog_post.text %>
+    <div>
+      <%= sanitize @blog_post.sanitized_text %>
+    </div>
   </div>
 </div>
