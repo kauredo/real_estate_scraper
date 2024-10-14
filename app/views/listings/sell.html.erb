@@ -7,6 +7,7 @@
 <% content_for(:extra_meta) do %>
   <script type="text/javascript" src="https://www.casafari.com/valuation-widget/widget.js"></script>
   <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>vender" />
+  <link rel="alternate" hreflang="<%= I18n.locale == :pt ? 'en' : 'pt' %>" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? 'en/' : '' %>vender" />
   <meta name="turbo-visit-control" content="reload">
 <% end %>
 

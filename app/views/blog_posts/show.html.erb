@@ -4,6 +4,7 @@
 <% content_for(:extra_meta) do %>
   <% slug = @blog_post.slug || @blog_post.slug_pt %>
   <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>blog/<%= slug %>" />
+  <link rel="alternate" hreflang="<%= I18n.locale == :pt ? 'en' : 'pt' %>" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? 'en/' : '' %>blog/<%= slug %>" />
 <% end %>
 
 <div id="blog-show" class="relative">
