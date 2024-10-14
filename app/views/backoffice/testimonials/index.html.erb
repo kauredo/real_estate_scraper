@@ -1,6 +1,6 @@
 <div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
   <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
-    <div class="mt-6">
+    <div class="mb-6">
       <%= link_to 'Novo Testemunho', new_backoffice_testimonial_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
     </div>
     <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl"><%= I18n.t('navbar.testimonies') %></h2>
@@ -10,7 +10,7 @@
         <div>
           <q class="block text-gray-700 w-full text-sm font-bold">
             <%= testimonial.text%>
-          </q> - <span><%= testimonial.name  %></span>
+          </q> - <span class="font-bold"><%= testimonial.name  %></span>
         </div>
         <div class="flex items-center gap-2">
           <%= link_to 'Editar', edit_backoffice_testimonial_path(testimonial), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
