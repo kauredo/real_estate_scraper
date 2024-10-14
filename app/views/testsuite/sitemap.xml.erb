@@ -21,24 +21,10 @@
     <lastmod>2023-04-12</lastmod>
   </url>
 
-  <!-- Sobre Nós -->
-  <url>
-    <loc>https://sofiagalvaogroup.com/sobre</loc>
-    <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/sobre'/>
-    <lastmod>2023-04-12</lastmod>
-  </url>
-
   <!-- Serviços -->
   <url>
     <loc>https://sofiagalvaogroup.com/servicos</loc>
     <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/servicos'/>
-    <lastmod>2023-04-12</lastmod>
-  </url>
-
-  <!-- Casa 360 -->
-  <url>
-    <loc>https://sofiagalvaogroup.com/casa_360</loc>
-    <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/casa_360'/>
     <lastmod>2023-04-12</lastmod>
   </url>
 
@@ -60,7 +46,7 @@
     <url>
       <loc>https://sofiagalvaogroup.com/comprar/<%= listing.slug_pt %></loc>
       <% if listing.slug_en.blank? %>
-        <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/comprar/<%= listing.id %>'/>
+        <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/comprar/<%= listing.slug_pt %>'/>
       <% else %>
         <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/comprar/<%= listing.slug_en %>'/>
       <% end %>
@@ -79,7 +65,7 @@
     <url>
       <loc>https://sofiagalvaogroup.com/blog/<%= blog_post.slug_pt %></loc>
       <% if blog_post.slug_en.blank? %>
-        <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/blog/<%= blog_post.id %>'/>
+        <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/blog/<%= blog_post.slug_pt %>'/>
       <% else %>
         <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/blog/<%= blog_post.slug_en %>'/>
       <% end %>
@@ -94,15 +80,15 @@
     <lastmod><%= @listing_complexes[0].updated_at.strftime('%Y-%m-%d') %></lastmod>
   </url>
 
-  <% @listing_complexes.each do |listing_complexe| %>
+  <% @listing_complexes.each do |listing_complex| %>
     <url>
-      <loc>https://sofiagalvaogroup.com/empreendimentos/<%= listing_complexe.slug_pt %></loc>
-      <% if listing_complexe.slug_en.blank? %>
-        <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/empreendimentos/<%= listing_complexe.id %>'/>
+      <loc>https://sofiagalvaogroup.com/empreendimentos/<%= listing_complex.slug_pt %></loc>
+      <% if listing_complex.slug_en.blank? %>
+        <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/empreendimentos/<%= listing_complex.slug_pt %>'/>
       <% else %>
-        <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/empreendimentos/<%= listing_complexe.slug_en %>'/>
+        <xhtml:link rel='alternate' hreflang='en' href='https://sofiagalvaogroup.com/en/empreendimentos/<%= listing_complex.slug_en %>'/>
       <% end %>
-      <lastmod><%= listing_complexe.updated_at.strftime('%Y-%m-%d') %></lastmod>
+      <lastmod><%= listing_complex.updated_at.strftime('%Y-%m-%d') %></lastmod>
     </url>
   <% end %>
 </urlset>
