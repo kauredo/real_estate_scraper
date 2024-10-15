@@ -142,3 +142,7 @@ export const numberToCurrency = (number, currency = "EUR") => {
 export const gsubMeterSquare = string => {
   return string.replace("m2", "m²");
 };
+
+export const isDarkModeActive = () => {
+  return document.getElementById("sgg")?.classList.contains("dark") ?? false;
+};

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { sanitizeURL } from "../utils/Functions";
+import { isDarkModeActive, sanitizeURL } from "../utils/Functions";
 import Toggle from "../base/Toggle";
 import { i18n } from "../../languages/languages";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,9 +7,7 @@ import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export default function DarkModeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState(
-    document.getElementById("sgg")?.classList.contains("dark") ?? false
-  );
+  const [isDarkMode, setIsDarkMode] = useState(isDarkModeActive());
 
   const toggleDarkMode = () => {
     const url = sanitizeURL(window.Routes.toggle_dark_mode_path);
@@ -39,7 +37,7 @@ export default function DarkModeToggle() {
         <FontAwesomeIcon icon={faMoon as IconProp} />,
         <FontAwesomeIcon icon={faSun as IconProp} />,
       ]}
-      toggled={isDarkMode}
+      toggled={!isDarkMode}
       onClick={toggleDarkMode}
     />
   );
