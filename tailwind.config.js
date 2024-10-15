@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: "selector",
   content: [
     "./app/views/**/*.html.erb",
     "./app/helpers/**/*.rb",

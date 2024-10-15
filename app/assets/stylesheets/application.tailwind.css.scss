@@ -333,3 +333,56 @@ strong {
   font-size: 8px;
   line-height: 20px;
 }
+
+.toggler {
+  label {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+  }
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .icon {
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+  }
+
+  .toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.3s;
+    cursor: pointer;
+    background: #2c3e50;
+    border-radius: 20px;
+  }
+
+  .toggle:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+
+  input:checked + .toggle {
+    background-color: #d3af79;
+  }
+
+  input:checked + .toggle:before {
+    transform: translateX(15px);
+  }
+}

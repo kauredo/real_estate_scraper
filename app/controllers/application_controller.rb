@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_resource
 
+  def dark_mode?
+    session[:dark_mode] == true
+  end
+
+  def toggle_dark_mode
+    session[:dark_mode] = !session[:dark_mode]
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def set_locale

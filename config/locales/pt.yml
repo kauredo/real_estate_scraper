@@ -14,6 +14,8 @@ pt:
     backoffice: Backoffice
     faq: FAQ
     other_language: English
+    dark_mode: Modo Escuro
+    light_mode: Modo Claro
 
   footer:
     about: sobre nós

@@ -4,6 +4,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   match '(*any)', to: redirect(subdomain: ''), via: :all, constraints: { subdomain: 'www' }
+  post '/toggle_dark_mode', to: 'application#toggle_dark_mode'
 
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     devise_scope :admin do

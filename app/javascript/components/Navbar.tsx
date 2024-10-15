@@ -4,6 +4,7 @@ import { i18n } from "../languages/languages";
 import { changeLocale, sanitizeURL } from "./utils/Functions";
 import { NavbarItemProps } from "./utils/Interfaces";
 import Socials from "./shared/Socials";
+import DarkModeToggle from "./shared/DarkModeToggle";
 const NavbarItem = lazy(() => import("./shared/NavbarItem"));
 const DropdownLink = lazy(() => import("./shared/DropdownLink"));
 
@@ -123,6 +124,10 @@ export default function Navbar(props: Props) {
     title: "",
     items: [
       {
+        title: "",
+        children: <DarkModeToggle />,
+      },
+      {
         title: i18n.t("navbar.other_language"),
         url: changeLocale(),
         turbo: "false",
@@ -136,9 +141,6 @@ export default function Navbar(props: Props) {
         ),
       },
     ],
-    // url: changeLocale(),
-    // turbo: "false",
-    // hover: `${i18n.t("navbar.change_language")}`,
     img: (
       <img
         loading="lazy"
