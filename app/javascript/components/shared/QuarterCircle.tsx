@@ -41,7 +41,7 @@ export default function QuarterCircle(props: Props) {
   return (
     <div
       ref={doorRef}
-      className={`quarter`}
+      className="quarter dark:opacity-80"
       style={{
         backgroundImage: "url(/images/sofia.jpg)",
       }}

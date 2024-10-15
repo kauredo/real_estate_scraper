@@ -107,11 +107,12 @@ export function waitForElm(selector) {
 
 export const navbarItemClass = (path, isMobile, children: string[] = []) => {
   const base =
-    "whitespace-nowrap hover:bg-beige hover:text-white px-3 py-2 rounded-md font-medium mx-1 lowercase ";
+    "whitespace-nowrap hover:bg-beige-default dark:hover:bg-beige-dark hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase ";
   const mobile = "block text-base relative z-3 ";
   const desktop = " ";
-  const inactive = "text-gray-800 ";
-  const active = "bg-beige text-white ";
+  const inactive = "text-dark dark:text-light";
+  const active =
+    "bg-beige-default dark:bg-beige-dark text-white dark:text-dark ";
 
   if (path === window.location.pathname && isMobile) {
     return base + active + mobile;

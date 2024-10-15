@@ -15,7 +15,7 @@ class BlogPostsControllerTest < ActionDispatch::IntegrationTest
     assert_template 'blog_posts/index'
     assert_select 'h1', I18n.t('blog_posts.header')
 
-    assert_select 'div.bg-white.shadow-md.border.border-gray-200.rounded-lg.max-w-sm.w-96.mb-5'
+    assert_select 'div.bg-white.dark:bg-dark.shadow-md.border.border-gray-200.rounded-lg.max-w-sm.w-96.mb-5'
   end
 
   test 'should get show' do

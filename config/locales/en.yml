@@ -109,8 +109,8 @@ en:
     meta_description:
       The best developments in Portugal to buy with Sofia Galvão Group.
     subheader:
-      Why to buy at <span class="underline decoration-beige">the Planning
-      Stage?</span>
+      Why to buy at <span class="underline decoration-beige-default
+      dark:decoration-beige-dark">the Planning Stage?</span>
     list:
       own:
         title: You'll be the first owner of your new home
@@ -462,14 +462,14 @@ en:
         a company that exceeds all expectations. With this philosophy in
         practice, we are transforming the real estate landscape.
       middle:
-        Today, around the world more than <span class="font-bold
-        text-black">165,000 consultants</span> and more than <span
-        class="font-bold text-black">1,000 Market Centers</span> are KW
-        affiliates.
+        Today, around the world more than <span class="font-bold text-dark
+        dark:text-light">165,000 consultants</span> and more than <span
+        class="font-bold text-dark dark:text-light">1,000 Market Centers</span>
+        are KW affiliates.
       bottom:
-        KW has a total of <span class="font-bold text-black">23
-        representations</span> and more than <span class="font-bold
-        text-black">2.000 consultants and associates</span> in Portugal.
+        KW has a total of <span class="font-bold text-dark dark:text-light">23
+        representations</span> and more than <span class="font-bold text-dark
+        dark:text-light">2,000 consultants and associates</span> in Portugal.
     beliefs:
       title: Beliefs
       local:

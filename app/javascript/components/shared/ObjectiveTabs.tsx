@@ -27,10 +27,12 @@ export default function ObjectiveTabs(props: Props) {
           "px-4 pt-2 pb-1",
           "rounded-t-md",
           "transition-colors duration-200 ease-in-out",
-          isActive ? "bg-beige text-white" : "bg-gray-200 hover:bg-gray-300",
           isActive
-            ? "border-b-2 border-beige"
-            : "border-b-2 border-transparent",
+            ? "bg-beige-default dark:bg-beige-dark text-white dark:text-dark"
+            : "bg-gray-200 hover:bg-gray-300 dark:bg-dark dark:hover:bg-gray-700 text-gray-800 dark:text-light",
+          isActive
+            ? "border-b-2 border-beige-default dark:border-beige-dark"
+            : "border-b-2 border-transparent dark:border-gray-700 dark:border",
         ].join(" ");
 
         return (

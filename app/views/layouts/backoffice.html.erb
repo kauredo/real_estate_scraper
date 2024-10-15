@@ -16,10 +16,12 @@
     <%= favicon_link_tag '/favicons/favicon.ico' %>
     <%= yield :extra_meta %>
   </head>
-  <body>
-    <%= render 'shared/flashes' %>
-    <%= react_component 'Navbar', { admin: current_admin.present?, backoffice: true } %>
-    <%= react_component 'shared--AdminBtns', { admin: current_admin.present?, resource: @resource } %>
-    <%= yield %>
+  <body id="sgg" class="<%= controller.dark_mode? ? 'dark' : '' %>">
+    <main class="flex flex-col min-h-screen bg-white dark:bg-dark text-black dark:text-light">
+      <%= render 'shared/flashes' %>
+      <%= react_component 'Navbar', { admin: current_admin.present?, backoffice: true } %>
+      <%= react_component 'shared--AdminBtns', { admin: current_admin.present?, resource: @resource } %>
+      <%= yield %>
+    </main>
   </body>
 </html>

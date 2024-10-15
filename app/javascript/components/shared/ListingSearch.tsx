@@ -121,7 +121,7 @@ export default function PriceSlider(props: Props) {
             <select
               name="q[kind_eq]"
               id="q_kind_eq"
-              className="w-full p-2 rounded-md border border-gray-300 bg-[white] h-[42px]"
+              className="w-full p-2 rounded-md border border-gray-300 bg-white dark:bg-light dark:text-black h-[42px]"
               value={kind}
               onChange={e => setKind(Number(e.target.value))}
             >
@@ -153,7 +153,7 @@ export default function PriceSlider(props: Props) {
                   name={`q[${key}_eq]`}
                   value={statsFilters?.[`${key}_eq`] || ""}
                   onChange={handleStatChange}
-                  className="w-full p-2 rounded-md border border-gray-300 bg-[white] h-[42px]"
+                  className="w-full p-2 rounded-md border border-gray-300 bg-white dark:bg-light dark:text-black h-[42px]"
                 >
                   <option value="">{i18n.t("listing.search.any")}</option>
                   {[...Array(11).keys()].map(num => (
@@ -172,7 +172,7 @@ export default function PriceSlider(props: Props) {
             <select
               name="q[status_eq]"
               id="q_status_eq"
-              className="w-full p-2 rounded-md border border-gray-300 bg-[white] h-[42px]"
+              className="w-full p-2 rounded-md border border-gray-300 bg-white dark:bg-light dark:text-black h-[42px]"
               value={status}
               onChange={e => setStatus(e.target.value)}
             >
@@ -225,13 +225,13 @@ export default function PriceSlider(props: Props) {
         <div className="flex items-center flex-wrap">
           <button
             type="submit"
-            className="bg-beige text-white font-bold py-2 px-4 rounded w-full md:w-[23%]"
+            className="bg-beige-default dark:bg-beige-dark text-white dark:text-dark font-bold py-2 px-4 rounded w-full md:w-[23%]"
           >
             {i18n.t("listing.search.submit")}
           </button>
           <a
             href={sanitizeURL(window.Routes.buy_path)}
-            className="text-beige font-bold underline sm:ml-2 mt-2 sm:mt-0 w-full md:w-[23%]"
+            className="text-beige-default dark:text-beige-dark font-bold underline sm:ml-2 mt-2 sm:mt-0 w-full md:w-[23%]"
           >
             {i18n.t("listing.reset_filters")}
           </a>

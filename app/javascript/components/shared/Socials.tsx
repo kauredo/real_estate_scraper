@@ -19,8 +19,8 @@ export default function Socials(props: Props) {
       : "mx-6 mb-8 mt-4 md:mt-0 flex-col"
   }`;
 
-  const iconClasses = `flex items-center text-gray-600 ${
-    small ? "hover:text-beige" : "mb-4"
+  const iconClasses = `flex items-center text-gray-600 dark:text-light ${
+    small ? "hover:text-beige-default dark:hover:text-beige-dark" : "mb-4"
   }`;
 
   return (

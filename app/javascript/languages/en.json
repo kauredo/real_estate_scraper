@@ -360,7 +360,7 @@
         "price": "Price",
         "type": "Type"
       },
-      "subheader": "Why to buy at <span class=\"underline decoration-beige\">the Planning Stage?</span>",
+      "subheader": "Why to buy at <span class=\"underline decoration-beige-default dark:decoration-beige-dark\">the Planning Stage?</span>",
       "subtitle": {
         "description": "Discover our real estate development projects, which offer unique investment opportunities. With buy-at-the-planning-stage options, you can personalise your property and invest in properties with a high potential for capital appreciation. Our team provides detailed information on each development, including location, payment plans and return potential.",
         "title": "Investment Opportunities"
@@ -670,8 +670,8 @@
         "title": "Beliefs"
       },
       "first_paragraph": {
-        "bottom": "KW has a total of <span class=\"font-bold text-black\">23 representations</span> and more than <span class=\"font-bold text-black\">2.000 consultants and associates</span> in Portugal.",
-        "middle": "Today, around the world more than <span class=\"font-bold text-black\">165,000 consultants</span> and more than <span class=\"font-bold text-black\">1,000 Market Centers</span> are KW affiliates.",
+        "bottom": "KW has a total of <span class=\"font-bold text-dark dark:text-light\">23 representations</span> and more than <span class=\"font-bold text-dark dark:text-light\">2,000 consultants and associates</span> in Portugal.",
+        "middle": "Today, around the world more than <span class=\"font-bold text-dark dark:text-light\">165,000 consultants</span> and more than <span class=\"font-bold text-dark dark:text-light\">1,000 Market Centers</span> are KW affiliates.",
         "top": "KW operates on the principle that if you focus all your resources on building your consultants' businesses, they will, in return, help build a company that exceeds all expectations. With this philosophy in practice, we are transforming the real estate landscape."
       },
       "header": "KW Portugal",

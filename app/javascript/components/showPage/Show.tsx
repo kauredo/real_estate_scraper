@@ -41,7 +41,7 @@ export default function Show(props: Props) {
     <>
       {listing.video_link && isOpen && (
         <section
-          className="modal bg-beige fixed top-0 bottom-0 w-full h-full"
+          className="modal bg-beige-default dark:bg-beige-dark fixed top-0 bottom-0 w-full h-full"
           style={{ zIndex: 100 }}
         >
           <div
@@ -63,12 +63,12 @@ export default function Show(props: Props) {
           </div>
         </section>
       )}
-      <div className="relative container mx-auto overflow-hidden sm:overflow-visible">
-        <div className="pb-6 bg-white text-center">
+      <div className="relative container mx-auto overflow-hidden sm:overflow-visible text-black dark:text-light">
+        <div className="pb-6 bg-white dark:bg-dark text-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
             <h1
               id="main-title"
-              className="relative block mt-2 text-2xl text-black sm:text-4xl px-4"
+              className="relative block mt-2 text-2xl text-dark dark:text-light sm:text-4xl px-4"
             >
               {listing.status == "agreed" && (
                 <span>{i18n.t("listing.status.agreed")} - </span>
@@ -89,12 +89,12 @@ export default function Show(props: Props) {
         </div>
         <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 pb-8 mx-2 whitespace-pre-line">
           <div className="col-span-2">
-            <div className="p-4 w-full bg-white m-2 tablet:mx-0">
+            <div className="p-4 w-full bg-white dark:bg-dark m-2 tablet:mx-0">
               {listing.video_link && (
                 <div className="mb-2">
                   <button
                     onClick={() => setOpen(true)}
-                    className="cursor-pointer bg-beige text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    className="cursor-pointer bg-beige-default dark:bg-beige-dark text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   >
                     {i18n.t("listing.watch_video")}
                   </button>
@@ -107,7 +107,7 @@ export default function Show(props: Props) {
                     onClick={() =>
                       window.open(listing.virtual_tour_url, "_blank")
                     }
-                    className="cursor-pointer bg-beige text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    className="cursor-pointer bg-beige-default dark:bg-beige-dark text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   >
                     {i18n.t("listing.open_tour")}
                   </button>
@@ -141,13 +141,13 @@ export default function Show(props: Props) {
                 })}
               </div>
             </div>
-            <div className="p-4 w-full bg-white m-2 tablet:mx-0">
+            <div className="p-4 w-full bg-white dark:bg-dark m-2 tablet:mx-0">
               <div className="tablet:mr-2">
                 <ReadMore length={1000}>{listing.description}</ReadMore>
               </div>
             </div>
             {listing?.features?.length > 0 && (
-              <div className="p-4 w-full bg-white m-2 tablet:mx-0 h-fit">
+              <div className="p-4 w-full bg-white dark:bg-dark m-2 tablet:mx-0 h-fit">
                 <h2 className="standard mb-2 text-2xl font-bold">
                   {i18n.t("listing.characteristics")}
                 </h2>

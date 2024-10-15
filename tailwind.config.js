@@ -1,5 +1,5 @@
 module.exports = {
-  darkMode: "selector",
+  darkMode: "class",
   content: [
     "./app/views/**/*.html.erb",
     "./app/helpers/**/*.rb",
@@ -15,11 +15,16 @@ module.exports = {
     },
     extend: {
       colors: {
-        beige: "#d3af79",
+        beige: {
+          default: "#d3af79",
+          dark: "#775727",
+        },
         chocolate: "#141301",
         grey: "#dbdbdb",
         indigo: "#083D77",
         white: "#F9F9F9",
+        dark: "#1B1E1F",
+        light: "#D6D2CD",
       },
       screens: {
         tablet: "900px",

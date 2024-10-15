@@ -1,7 +1,7 @@
-import React, { lazy, Suspense, useRef, useState } from "react";
+import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { i18n } from "../languages/languages";
-import { changeLocale, sanitizeURL } from "./utils/Functions";
+import { changeLocale, isDarkModeActive, sanitizeURL } from "./utils/Functions";
 import { NavbarItemProps } from "./utils/Interfaces";
 import Socials from "./shared/Socials";
 import DarkModeToggle from "./shared/DarkModeToggle";
@@ -166,7 +166,7 @@ export default function Navbar(props: Props) {
   const ctaBtn = sanitizeURL(window.Routes.sell_path) !==
     window.location.pathname && (
     <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
-      <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
+      <div className="whitespace-nowrap border-beige-default dark:border-beige-dark border-2 text-beige-default dark:text-beige-dark text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-dark hover:text-white dark:hover:text-dark mr-4">
         <p>{i18n.t("home.cta.long")}</p>
       </div>
     </a>
@@ -174,7 +174,7 @@ export default function Navbar(props: Props) {
 
   return (
     <div>
-      <nav className="bg-white container mx-auto">
+      <nav className="bg-white dark:bg-dark container mx-auto">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div>
             <div className="flex items-center justify-between min-h-[4rem]">
@@ -186,8 +186,13 @@ export default function Navbar(props: Props) {
                   >
                     <img
                       loading="lazy"
-                      className="w-[8rem] relative z-10"
-                      src="/logos/main_color.webp"
+                      className="w-[6rem] relative z-10"
+                      id="nav-logo"
+                      src={
+                        isDarkModeActive()
+                          ? "/logos/main_white.webp"
+                          : "/logos/main.webp"
+                      }
                       alt="Sofia Galvão Group Logo"
                     />
                   </a>
@@ -261,7 +266,7 @@ export default function Navbar(props: Props) {
                 <button
                   onClick={() => setIsOpen(!isOpen)}
                   type="button"
-                  className="bg-white-900 inline-flex items-center justify-center p-2 rounded-md text-gray-800"
+                  className="bg-white dark:bg-dark inline-flex items-center justify-center p-2 rounded-md text-dark dark:text-light"
                   aria-controls="mobile-menu"
                   aria-expanded="false"
                 >

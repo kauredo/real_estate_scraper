@@ -73,7 +73,7 @@ export default function Testimonials(props: Props) {
           {testimonials.map(testimonial => (
             <div
               key={`${testimonial.name}--testimonial`}
-              className="p-6 text-left flex flex-col max-w-[400px] mx-auto"
+              className="p-6 text-left flex flex-col max-w-[400px] mx-auto text-dark dark:text-light"
             >
               <q>{testimonial.text}</q>
               <p className="font-bold text-right">- {testimonial.name}</p>

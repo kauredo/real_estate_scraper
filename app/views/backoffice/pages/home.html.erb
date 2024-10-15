@@ -1,16 +1,16 @@
-<div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
+<div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap gap-1 justify-between">
   <%# Variáveis %>
-  <div class="w-full sm:w-1/2 shadow-md rounded px-8 py-4 mt-4">
-    <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Variáveis</h2>
-    <p class="text-gray-500 pt-3 max-w-none">Nota: copiar ícones do site <a class="text-beige underline" href="https://fontawesome.com/v5/search?m=free" target="_blank">fontawesome.com/v5</a>, por exemplo: "fas fa-home"</p>
+  <div class="w-full sm:w-[49%] shadow-md rounded px-8 py-4 mt-4 dark:border-beige-dark dark:border-2">
+    <h2 class="text-2xl font-bold leading-7 text-dark dark:text-light  text-center sm:text-3xl">Variáveis</h2>
+    <p class="text-gray-500 dark:text-light pt-3 max-w-none">Nota: copiar ícones do site <a class="text-beige-default dark:text-beige-dark underline" href="https://fontawesome.com/v5/search?m=free" target="_blank">fontawesome.com/v5</a>, por exemplo: "fas fa-home"</p>
     <% @variables.each do |var| %>
       <%= form_for(var, url: backoffice_variable_path(var), html: { method: :put, class: 'my-6' }) do |f| %>
         <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
-          <%= f.text_field :name, class: 'shadow appearance-none border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-          <%= f.text_field :value, class: 'shadow appearance-none border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-          <%= f.text_field :icon, class: 'shadow appearance-none border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+          <%= f.text_field :name, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+          <%= f.text_field :value, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+          <%= f.text_field :icon, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
           <div class="flex items-center gap-2">
-            <%= f.submit 'Atualizar', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+            <%= f.submit 'Atualizar', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
             <%= link_to '🗑️', [:backoffice, var], method: :delete, data: { "turbo-method": :delete }, class: 'bg-red-500 hover:bg-red-700 p-2 rounded font-bold', onclick: "return confirm('Are you sure you want to delete this item?');" %>
           </div>
         </div>
@@ -18,27 +18,27 @@
     <% end %>
     <%= form_for(Variable.new, url: backoffice_variables_path, html: { class: 'my-6' }, data: { turbo: false }) do |f| %>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
-        <%= f.text_field :name, placeholder: 'variável', class: 'shadow appearance-none border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-        <%= f.text_field :value, placeholder: 'valor', class: 'shadow appearance-none border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-        <%= f.text_field :icon, placeholder: 'ícone', class: 'shadow appearance-none border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-        <%= f.submit 'Criar', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :name, placeholder: 'variável', class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :value, placeholder: 'valor', class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :icon, placeholder: 'ícone', class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Criar', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
   </div>
   <%# Colleagues %>
-  <div class="w-full sm:w-1/2 shadow-md rounded px-8 py-4 mt-4">
-    <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Links de Imóveis</h2>
-    <p class="text-gray-500 pt-3 max-w-none">Nota: este campo pode ser usado para adicionar imóveis de colegas, ou para ir buscar a informação mais recente de qualquer imóvel já na plataforma (tanto em Português como em Inglês).</p>
+  <div class="w-full sm:w-[49%] shadow-md rounded px-8 py-4 mt-4 dark:border-beige-dark dark:border-2">
+    <h2 class="text-2xl font-bold leading-7 text-dark dark:text-light  text-center sm:text-3xl">Links de Imóveis</h2>
+    <p class="text-gray-500 dark:text-light pt-3 max-w-none">Nota: este campo pode ser usado para adicionar imóveis de colegas, ou para ir buscar a informação mais recente de qualquer imóvel já na plataforma (tanto em Português como em Inglês).</p>
     <%= form_for(Listing.new, url: backoffice_listings_path, html: { class: 'my-6' }) do |f| %>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
-        <%= f.text_field :url, placeholder: 'url', class: 'shadow appearance-none border rounded w-full sm:w-2/3 py-2 px-3 ml-6 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-        <%= f.submit 'Procurar', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :url, placeholder: 'url', class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-2/3 py-2 px-3 ml-6 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Procurar', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
   </div>
   <%# Newsletter Subs %>
-  <div class="w-full sm:w-1/2 shadow-md rounded px-8 py-4 mt-4">
-    <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Subscrições à Newsletter</h2>
+  <div class="w-full sm:w-[49%] shadow-md rounded px-8 py-4 mt-4 dark:border-beige-dark dark:border-2">
+    <h2 class="text-2xl font-bold leading-7 text-dark dark:text-light  text-center sm:text-3xl">Subscrições à Newsletter</h2>
     <div class="my-6 field mb-4 flex flex-col flex-wrap sm:flex-row items-center gap-4">
       <ul class="list-disc" style="list-style-position: inside;">
         <% @subs.each do |sub| %>

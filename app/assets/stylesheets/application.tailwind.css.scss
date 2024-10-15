@@ -112,6 +112,10 @@ strong {
   animation: door 800ms ease-in-out 2 alternate;
 }
 
+.dark .quarter.moving::after {
+  background-color: #1b1e1f;
+}
+
 .center {
   display: flex;
   align-items: center;
@@ -170,6 +174,13 @@ strong {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.dark {
+  #banner > span > h1::before,
+  #main-title::before {
+    border-color: #d6d2cd;
+  }
 }
 
 .modal {

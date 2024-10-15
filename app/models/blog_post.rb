@@ -34,7 +34,7 @@ class BlogPost < ApplicationRecord
   end
 
   def sanitized_text
-    text.gsub('background: white;', '')
+    text.gsub('background: white;', '').gsub('color', '')
   end
 end
 

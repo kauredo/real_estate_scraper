@@ -109,7 +109,8 @@ pt:
       Os melhores empreendimentos em Portugal para comprar com Sofia Galvão
       Group.
     subheader:
-      Porquê Comprar <span class="underline decoration-beige">em Planta?</span>
+      Porquê Comprar <span class="underline decoration-beige-default
+      dark:decoration-beige-dark">em Planta?</span>
     list:
       own:
         title: Vai ser o primeiro dono da sua nova casa
