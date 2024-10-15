@@ -24,7 +24,7 @@ export default function AdminBtns(props: Props) {
   );
 
   const adminBtns = admin && (
-    <div className="container mx-auto flex gap-2 items-center">
+    <div className="container mx-auto flex gap-2 items-center px-4">
       <p>Admin:</p>
       {resourceBtn}
     </div>
