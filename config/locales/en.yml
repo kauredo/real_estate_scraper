@@ -14,6 +14,8 @@ en:
     backoffice: Backoffice
     faq: FAQ
     other_language: Português
+    dark_mode: Dark Mode
+    light_mode: Light Mode
 
   footer:
     about: about us

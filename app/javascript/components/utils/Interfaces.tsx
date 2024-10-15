@@ -94,6 +94,7 @@ export interface NavbarItemProps {
   hover?: string;
   img?: any;
   items?: NavbarItemProps[];
+  children?: any;
 }
 
 export interface StatsFilter {
