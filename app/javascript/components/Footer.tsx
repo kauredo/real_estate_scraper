@@ -29,7 +29,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-beige p-4 sm:p-12 mt-12">
+    <footer className="bg-beige-default dark:bg-beige-dark p-4 sm:p-12 mt-12">
       <div className="container mx-auto">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a
@@ -43,11 +43,11 @@ export default function Footer() {
               alt="Sofia Galvão Group Alternative Logo"
             />
           </a>
-          <ul className="flex flex-wrap items-center text-sm text-gray-500">
+          <ul className="flex flex-wrap items-center text-sm text-gray-500 dark:text-light">
             <li>
               <a
                 href={sanitizeURL(window.Routes.about_path)}
-                className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6 "
+                className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6 "
               >
                 {i18n.t("footer.about")}
               </a>
@@ -55,7 +55,7 @@ export default function Footer() {
             <li>
               <a
                 href={sanitizeURL(window.Routes.privacy_path)}
-                className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6"
+                className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6"
               >
                 {i18n.t("footer.privacy")}
               </a>
@@ -63,7 +63,7 @@ export default function Footer() {
             <li>
               <a
                 href={sanitizeURL(window.Routes.terms_and_conditions_path)}
-                className="mr-4 hover:underline text-white hover:text-gray-100 md:mr-6 "
+                className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6 "
               >
                 {i18n.t("footer.terms")}
               </a>
@@ -71,24 +71,24 @@ export default function Footer() {
             <li>
               <a
                 href={sanitizeURL(window.Routes.contact_path)}
-                className="hover:underline text-white hover:text-gray-100"
+                className="hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100"
               >
                 {i18n.t("footer.contacts")}
               </a>
             </li>
           </ul>
         </div>
-        <hr className="my-6 border-white sm:mx-auto lg:my-8" />
+        <hr className="my-6 border-white dark:border-light sm:mx-auto lg:my-8" />
         <div className="sm:flex justify-between tablet:justify-start items-center ">
           <div className="tablet:pr-4">
-            <p className="text-sm text-white">
+            <p className="text-sm text-white dark:text-light">
               © {new Date().getFullYear()} Sofia Galvão Group. All Rights
               Reserved.
             </p>
-            <p className="text-sm text-white">
+            <p className="text-sm text-white dark:text-light">
               KW Lead Santos - Av Dom Carlos I, 124J - Santos, Lisboa
             </p>
-            <p className="text-sm text-white">
+            <p className="text-sm text-white dark:text-light">
               Agent Centric Mediação Imobiliária, Lda - AMI 12518
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function Footer() {
                 <a
                   key={`${item.title}--desktop`}
                   href={item.url}
-                  className="text-white hover:text-gray-100"
+                  className="text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100"
                 >
                   <FontAwesomeIcon icon={item.icon as IconProp} />
                 </a>

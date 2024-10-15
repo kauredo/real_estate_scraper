@@ -15,7 +15,7 @@ export default function Pagination(props: Props) {
     return (
       <div className="flex items-center justify-center py-4 md:py-10 sm:px-6 px-4 container mx-auto">
         <div className="w-full flex items-center justify-between border-t border-gray-200">
-          <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
+          <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-dark cursor-pointer">
             {pagy.prev && (
               <>
                 <a href={pagy.prev_url}>
@@ -60,10 +60,11 @@ export default function Pagination(props: Props) {
           <div className="sm:flex hidden">
             {pagy.series?.map(page => {
               let classes =
-                "text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-beige border-t border-transparent hover:border-beige pt-3 mr-4 px-2";
+                "text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-dark border-t border-transparent hover:border-beige-default dark:hover:border-beige-dark pt-3 mr-4 px-2";
               classes =
                 currentPage === page
-                  ? classes + " !text-beige !border-beige"
+                  ? classes +
+                    " !text-beige-default dark:!text-beige-dark !border-beige-default dark:!border-beige-dark"
                   : classes;
               let href =
                 currentPage === page
@@ -86,7 +87,7 @@ export default function Pagination(props: Props) {
               );
             })}
           </div>
-          <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
+          <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-dark cursor-pointer">
             {pagy.next && pagy.next_url && (
               <>
                 <a href={pagy.next_url}>

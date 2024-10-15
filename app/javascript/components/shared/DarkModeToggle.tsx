@@ -24,6 +24,17 @@ export default function DarkModeToggle() {
       .then(response => {
         if (response.ok) {
           document.getElementById("sgg")?.classList.toggle("dark");
+
+          const navImg = document
+            .getElementById("nav-logo")
+            ?.getAttribute("src");
+          if (navImg) {
+            const newImg = navImg.includes("white")
+              ? navImg.replace("main_white", "main")
+              : navImg.replace("main", "main_white");
+            document.getElementById("nav-logo")?.setAttribute("src", newImg);
+          }
+
           setIsDarkMode(!isDarkMode);
         }
       })

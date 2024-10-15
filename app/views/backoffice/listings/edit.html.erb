@@ -1,61 +1,61 @@
-<div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
+<div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap mb-6">
   <%# Variáveis %>
-  <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
-    <h2 class="text-2xl font-bold leading-7 text-black text-center sm:text-3xl">Editar Imóvel <%= @listing.title %></h2>
-    <p class="text-gray-500 pt-3 max-w-none">Nota: os textos podem ser mudados nas diferentes liguagens, basta mudar para a linguagem desejada</p>
+  <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 dark:border-beige-dark dark:border-2">
+    <h2 class="text-2xl font-bold leading-7 text-dark dark:text-light  text-center sm:text-3xl">Editar Imóvel <%= @listing.title %></h2>
+    <p class="text-gray-500 dark:text-light pt-3 max-w-none">Nota: os textos podem ser mudados nas diferentes liguagens, basta mudar para a linguagem desejada</p>
     <%= form_for([:backoffice, @listing], html: { method: :put, class: 'my-6' }) do |f| %>
       <div class="flex sm:items-center gap-2 mb-4 flex-wrap">
-        <%= f.submit 'Atualizar Imóvel', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-        <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_path(@listing), data: { "turbo-method": :post }, class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-        <%= link_to 'Ver Imóvel', listing_path(@listing), class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Atualizar Imóvel', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_path(@listing), data: { "turbo-method": :post }, class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= link_to 'Ver Imóvel', listing_path(@listing), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :title, class: 'sm:w-1/4 font-bold' %>
-        <%= f.text_field :title, class: 'shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :title, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :url, class: 'sm:w-1/4 font-bold' %>
-        <%= f.text_field :url, disabled: true, class: 'input-disabled shadow appearance-none bg-grey border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :url, disabled: true, class: 'input-disabled shadow appearance-none bg-gray-600 border dark:border-gray-600 rounded w-full py-2 px-3 text-gray-700 dark:text-light leading-tight focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :virtual_tour_url, class: 'sm:w-1/4 font-bold' %>
-        <%= f.text_field :virtual_tour_url, class: 'input-disabled shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :virtual_tour_url, class: 'input-disabled shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :order, class: 'sm:w-1/4 font-bold' %>
-        <%= f.text_field :order, class: 'shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :order, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :kind, class: 'sm:w-1/4 font-bold' %>
-        <%= f.select :kind, options_for_select(Listing.kinds.map { |key, _value| [I18n.t("listing.kind.#{key}"), key] }, @listing.kind), { prompt: 'Selecionar tipo de imóvel' }, { class: 'shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
+        <%= f.select :kind, options_for_select(Listing.kinds.map { |key, _value| [I18n.t("listing.kind.#{key}"), key] }, @listing.kind), { prompt: 'Selecionar tipo de imóvel' }, { class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :objective, class: 'sm:w-1/4 font-bold' %>
-        <%= f.select :objective, options_for_select(Listing.objectives.map { |key, _value| [I18n.t("listing.objective.#{key}"), key] }, @listing.objective), { prompt: 'Selecionar objetivo do imóvel' }, { class: 'shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
+        <%= f.select :objective, options_for_select(Listing.objectives.map { |key, _value| [I18n.t("listing.objective.#{key}"), key] }, @listing.objective), { prompt: 'Selecionar objetivo do imóvel' }, { class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :address, class: 'sm:w-1/4 font-bold' %>
-        <%= f.text_field :address, class: 'shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :address, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :price, class: 'sm:w-1/4 font-bold' %>
-        <%= f.text_field :price, class: 'shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :price, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :video_link, class: 'sm:w-1/4 font-bold' %>
-        <%= f.text_field :video_link, class: 'shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.text_field :video_link, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :status, class: 'sm:w-1/4 font-bold' %>
-        <%= f.select :status, options_for_select(Listing.statuses.map { |key, _value| [I18n.t("listing.status.#{key}"), key] }, @listing.status), { prompt: 'Selecionar status do imóvel' }, { class: 'shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
+        <%= f.select :status, options_for_select(Listing.statuses.map { |key, _value| [I18n.t("listing.status.#{key}"), key] }, @listing.status), { prompt: 'Selecionar status do imóvel' }, { class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :Empreendimento, class: 'sm:w-1/4 font-bold' %>
-        <%= f.collection_select :listing_complex_id, ListingComplex.all, :id, :name, { include_blank: 'Associar a Empreendimento?' }, { class: 'shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
+        <%= f.collection_select :listing_complex_id, ListingComplex.all, :id, :name, { include_blank: 'Associar a Empreendimento?' }, { class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' } %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :description, class: 'sm:w-1/4 font-bold' %>
-        <%= f.text_area :description, rows: 30, class: 'shadow appearance-none bg-[white] border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+        <%= f.text_area :description, rows: 30, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="photos my-4">
         <h3 class="text-xl font-bold mb-2">Photos</h3>
@@ -66,9 +66,9 @@
         </div>
       </div>
       <div class="flex sm:items-center gap-2 flex-wrap">
-        <%= f.submit 'Atualizar Imóvel', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-        <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_path(@listing), data: { "turbo-method": :post }, class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-        <%= link_to 'Ver Imóvel', listing_path(@listing), class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Atualizar Imóvel', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_path(@listing), data: { "turbo-method": :post }, class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= link_to 'Ver Imóvel', listing_path(@listing), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
   </div>

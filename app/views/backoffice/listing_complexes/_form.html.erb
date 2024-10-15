@@ -1,4 +1,4 @@
-<div class="bg-blue-100 p-4 rounded mb-4">
+<div class="bg-blue-100 dark:bg-beige-dark p-4 rounded mb-4">
   <p><strong>Nota:</strong></p>
   <hr class="my-2">
   <p class="max-w-none">O campo <strong>New format</strong> altera a visualização do empreendimento.</p>
@@ -21,14 +21,14 @@
   </p>
 </div>
 <div class="flex sm:items-center gap-2 mb-2 flex-wrap">
-  <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% if @listing_complex.persisted? %>
-    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% end %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
   <%= f.label :name, class: 'w-1/4 font-bold' %>
-  <%= f.text_field :name, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  <%= f.text_field :name, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
   <%= f.label :new_format, class: 'w-1/4 font-bold' %>
@@ -44,23 +44,23 @@
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
   <%= f.label :video_link, class: 'w-1/4 font-bold' %>
-  <%= f.text_field :video_link, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  <%= f.text_field :video_link, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
   <%= f.label :order, class: 'w-1/4 font-bold' %>
-  <%= f.text_field :order, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  <%= f.text_field :order, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
   <%= f.label :description, class: 'w-1/4 font-bold' %>
-  <%= f.text_area :description, rows: 20, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  <%= f.text_area :description, rows: 20, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
   <%= f.label :subtext, class: 'w-1/4 font-bold' %>
-  <%= f.text_area :subtext, rows: 20, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  <%= f.text_area :subtext, rows: 20, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
   <%= f.label :final_text, class: 'w-1/4 font-bold' %>
-  <%= f.text_area :final_text, rows: 20, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  <%= f.text_area :final_text, rows: 20, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
 </div>
 <div class="field mb-4 flex flex-col sm:items-center gap-2 sm:gap-4">
   <%= f.label :photos, class: 'w-1/4 font-bold' %>
@@ -83,7 +83,7 @@
             </div>
             <div>
               <%= f.label :order_on_page %><br>
-              <%= f.number_field :order, value: photo.order, class: 'shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+              <%= f.number_field :order, value: photo.order, class: 'shadow appearance-none bg-white dark:bg-light border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
             </div>
           <% end %>
         </div>
@@ -96,7 +96,7 @@
   <div class="mb-4">
     <div class="flex flex-col sm:items-center gap-2 sm:gap-4 md:gap-6">
       <%= f.collection_check_boxes :listing_ids, Listing.all, :id, :title, {}, { multiple: true, class: 'hidden' } do |listing| %>
-        <div class="flex space-between sm:items-center h-[200px]">
+        <div class="flex space-between sm:items-center">
           <span class="w-1/4">
             <%= listing.check_box %>
           </span>
@@ -107,8 +107,8 @@
   </div>
 </div>
 <div class="flex sm:items-center gap-2">
-  <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% if @listing_complex.persisted? %>
-    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% end %>
 </div>

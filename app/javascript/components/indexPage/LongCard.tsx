@@ -110,8 +110,8 @@ export default function LongCard(props: Props) {
         <div
           className={
             small
-              ? "relative m-0 shadow-lg flex flex-row bg-white "
-              : "relative m-0 shadow-lg flex flex-col md:flex-row bg-white "
+              ? "h-48 relative m-0 shadow-lg flex flex-row bg-white dark:bg-dark dark:border-beige-dark dark:border-2"
+              : "h-80 relative m-0 shadow-lg flex flex-col md:flex-row bg-white dark:bg-dark dark:border-beige-dark dark:border-2"
           }
         >
           <div
@@ -122,14 +122,14 @@ export default function LongCard(props: Props) {
             }
           >
             {checked && (
-              <div className="absolute z-20 uppercase top-0 bottom-0 left-0 right-0 bg-green-500 font-bold text-white text-4xl opacity-50 flex items-center justify-center">
+              <div className="absolute z-20 uppercase top-0 bottom-0 left-0 right-0 bg-green-500 font-bold text-white dark:text-dark text-4xl opacity-50 flex items-center justify-center">
                 ✓
               </div>
             )}
             <Overlay status={listing.status} show />
-            <div className="w-full md:w-128 h-full block mx-auto object-cover relative">
+            <div className="w-full md:w-128 h-full block mx-auto relative">
               {backoffice && (
-                <div className="absolute top-0 left-0 w-20 p-2 bg-black text-white font-bold text-center z-10">
+                <div className="absolute top-0 left-0 w-20 p-2 bg-black text-white dark:text-dark font-bold text-center z-10">
                   {listing.order || "N/A"}
                 </div>
               )}

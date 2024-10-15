@@ -9,7 +9,7 @@ interface Props {
 
 export default function Overlay(props: Props) {
   const { status, padding, show } = props;
-  const color = status === "sold" ? "black" : "beige";
+  const color = status === "sold" ? "black" : "beige-default";
 
   if (
     status === "standard" ||
@@ -33,7 +33,7 @@ export default function Overlay(props: Props) {
   return (
     <div
       style={{ zIndex: 1 }}
-      className={`absolute uppercase top-0 bottom-0 left-0 right-0 bg-${color} font-bold text-white text-4xl opacity-50 flex items-center justify-center ${
+      className={`absolute uppercase top-0 bottom-0 left-0 right-0 bg-${color} font-bold text-white dark:text-dark text-4xl opacity-50 flex items-center justify-center ${
         padding ? "pt-12" : ""
       }}`}
     >

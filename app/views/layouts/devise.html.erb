@@ -16,13 +16,15 @@
     <link rel="manifest" href="/favicons/site.webmanifest">
     <%= favicon_link_tag '/favicons/favicon.ico' %>
   </head>
-  <body>
-    <%= render 'shared/flashes' %>
-    <%= react_component 'Navbar' %>
-    <div class="flex justify-center items-center container mx-auto w-full pt-20">
-      <div class="w-full max-w-xs">
-        <%= yield %>
+  <body id="sgg" class="<%= controller.dark_mode? ? 'dark' : '' %>">
+    <main class="flex flex-col min-h-screen bg-white dark:bg-dark text-black dark:text-light">
+      <%= render 'shared/flashes' %>
+      <%= react_component 'Navbar' %>
+      <div class="flex justify-center items-center container mx-auto w-full pt-20">
+        <div class="w-full max-w-xs">
+          <%= yield %>
+        </div>
       </div>
-    </div>
+    </main>
   </body>
 </html>

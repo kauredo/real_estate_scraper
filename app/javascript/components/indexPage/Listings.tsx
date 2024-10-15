@@ -17,12 +17,12 @@ export default function Listings(props: Props) {
       <div id="listings">
         <div className="container mx-auto">
           <div className="flex flex-col justify-center items-center pt-4">
-            <p className="text-xl text-gray-500 text-center">
+            <p className="text-xl text-gray-500 dark:text-light text-center">
               {i18n.t("listing.no_listings")}
             </p>
             <a
               href={sanitizeURL(window.Routes.buy_path)}
-              className="text-beige text-xl font-bold underline ml-2"
+              className="text-beige-default dark:text-beige-dark text-xl font-bold underline ml-2"
             >
               {i18n.t("listing.reset_filters")}
             </a>
