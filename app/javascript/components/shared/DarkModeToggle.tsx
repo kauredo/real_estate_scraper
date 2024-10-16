@@ -22,17 +22,19 @@ export default function DarkModeToggle() {
       },
     })
       .then(response => {
-        if (response.ok) {
+        if (response.redirected) {
           document.getElementById("sgg")?.classList.toggle("dark");
-
           const navImg = document
             .getElementById("nav-logo")
             ?.getAttribute("src");
           if (navImg) {
+            const imgs = document.querySelectorAll(`img[src="${navImg}"]`);
             const newImg = navImg.includes("white")
               ? navImg.replace("main_white", "main")
               : navImg.replace("main", "main_white");
-            document.getElementById("nav-logo")?.setAttribute("src", newImg);
+            // search elements by src attribute as navImg
+            // is a relative path and may change
+            imgs.forEach(img => img.setAttribute("src", newImg));
           }
 
           setIsDarkMode(!isDarkMode);

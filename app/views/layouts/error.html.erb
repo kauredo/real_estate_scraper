@@ -15,8 +15,8 @@
     <%= favicon_link_tag '/favicons/favicon.ico' %>
   </head>
 
-  <body>
-    <main class="flex flex-col min-h-screen">
+  <body id="sgg" class="<%= dark_mode? ? 'dark' : '' %>">
+    <main class="flex flex-col min-h-screen bg-white dark:bg-dark text-black dark:text-light">
       <%= render 'shared/flashes' %>
       <%= react_component 'Navbar' %>
       <%= yield %>
