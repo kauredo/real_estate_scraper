@@ -107,11 +107,12 @@ export function waitForElm(selector) {
 
 export const navbarItemClass = (path, isMobile, children: string[] = []) => {
   const base =
-    "whitespace-nowrap hover:bg-beige hover:text-white px-3 py-2 rounded-md font-medium mx-1 lowercase block w-max ";
+    "whitespace-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase ";
   const mobile = "block text-base relative z-3 ";
-  const desktop = "text-sm ";
-  const inactive = "text-gray-800 ";
-  const active = "bg-beige text-white ";
+  const desktop = " ";
+  const inactive = "text-dark dark:text-light";
+  const active =
+    "bg-beige-default dark:bg-beige-medium text-white dark:text-dark ";
 
   if (path === window.location.pathname && isMobile) {
     return base + active + mobile;
@@ -129,4 +130,20 @@ export const navbarItemClass = (path, isMobile, children: string[] = []) => {
     return base + inactive + mobile;
   }
   return base + inactive + desktop;
+};
+
+export const numberToCurrency = (number, currency = "EUR") => {
+  return new Intl.NumberFormat(i18n.locale, {
+    style: "currency",
+    currency: currency,
+    maximumFractionDigits: 0,
+  }).format(number);
+};
+
+export const gsubMeterSquare = string => {
+  return string.replace("m2", "m²");
+};
+
+export const isDarkModeActive = () => {
+  return document.getElementById("sgg")?.classList.contains("dark") ?? false;
 };

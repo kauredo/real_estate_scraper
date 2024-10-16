@@ -41,9 +41,9 @@ export default function QuarterCircle(props: Props) {
   return (
     <div
       ref={doorRef}
-      className={`quarter`}
+      className="quarter dark:opacity-80"
       style={{
-        backgroundImage: "url(/images/banner.webp)",
+        backgroundImage: "url(/images/sofia.jpg)",
       }}
       onMouseEnter={() => {
         doorRef.current?.classList.add("moving");

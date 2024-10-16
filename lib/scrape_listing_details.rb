@@ -4,7 +4,7 @@ require 'task_helper'
 
 class ScrapeListingDetails
   def self.scrape_details(browser, imovel_url, force = false)
-    website_avaliable = navigate_and_check_website(browser, imovel_url, delete: true)
+    website_avaliable = navigate_and_check_website(browser, imovel_url)
     return unless website_avaliable
 
     toggle_language(browser, 'Português')
@@ -25,13 +25,13 @@ class ScrapeListingDetails
   end
 
   def self.check_website_availability(browser, url, delete)
-    sleep 5 # wait for the page to load fully
+    sleep ENV['SLEEP_TIME']&.to_i || 5 # wait for the page to load fully
     unless browser.text.downcase.include? 'imóveis'
       log 'KW website down'
       return false
     end
 
-    return true if browser.text.include? 'Sofia Galvão'
+    return true if browser.text.include? 'Contacte-me'
 
     log 'listing unavailable on KW website, it will be destroyed'
     destroy_listing_if_exists(url) if delete
@@ -61,7 +61,7 @@ class ScrapeListingDetails
     url = browser.url
     log "Gathering data for listing \"#{title}\""
 
-    listing = find_or_create_listing(imovel_url, title, url)
+    listing = find_or_initialize_listing(imovel_url, title, url)
     if !force && (listing.persisted? && Listing.includes(:translations).where(url:, translations: { locale: 'pt', title: }))
       log "Listing \"#{listing.title}\" already exists"
       return listing
@@ -75,8 +75,13 @@ class ScrapeListingDetails
     listing.url = browser.url
     listing.status = 1
 
+    listing.populate_type_and_objective
+
     price = extract_price(browser)
-    listing.price = price if price
+    if price
+      price = price.gsub(/\D/, '')
+      listing.price = price
+    end
 
     stats = extract_stats(browser)
     listing.stats = stats if stats
@@ -163,7 +168,7 @@ class ScrapeListingDetails
   def self.extract_description(browser)
     count = 0
     begin
-      browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.text
+      browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.div(class: 'texts')&.wait_until(timeout: 10, &:present?)&.text
     rescue StandardError => _e
       count += 1
       retry if count < 3
@@ -196,9 +201,9 @@ class ScrapeListingDetails
     listing
   end
 
-  def self.find_or_create_listing(imovel_url, title, url)
-    old_url_exists = Listing.exists?(url: imovel_url)
-    new_url_exists = Listing.exists?(url:)
+  def self.find_or_initialize_listing(imovel_url, title, url)
+    old_url_exists = Listing.unscoped.exists?(url: imovel_url)
+    new_url_exists = Listing.unscoped.exists?(url:)
     name_exists = Listing.includes(:translations).where(translations: { locale: 'pt', title: }).exists?
 
     listing = if old_url_exists && name_exists
@@ -206,13 +211,14 @@ class ScrapeListingDetails
               elsif new_url_exists && name_exists
                 Listing.includes(:translations).find_by(url:, translations: { locale: 'pt', title: })
               elsif old_url_exists
-                Listing.find_by(url: imovel_url)
+                Listing.unscoped.find_by(url: imovel_url)
               elsif new_url_exists
-                Listing.find_by(url:)
+                Listing.unscoped.find_by(url:)
               else
                 Listing.find_or_initialize_by(title:)
               end
 
+    listing.recover if listing.deleted_at.present?
     return listing if listing.present?
 
     Listing.find_or_initialize_by(title:) if listing.nil?

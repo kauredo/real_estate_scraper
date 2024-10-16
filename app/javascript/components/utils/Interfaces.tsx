@@ -45,7 +45,7 @@ export interface Listing {
   };
   address: string;
   features: string[];
-  price: string;
+  price: number;
   title: string;
   url: string;
   description: string;
@@ -54,25 +54,29 @@ export interface Listing {
   status: string;
   slug: string;
   video_link: string;
+  virtual_tour_url: string;
+  objective: string;
+  kind: string;
   order?: number;
+  deleted_at?: string;
 }
 
 export interface Pagy {
   count: number;
-  firstUrl: string;
+  first_url: string;
   from: number;
   in: number;
   items: number;
   last: number;
-  lastUrl: string;
+  last_url: string;
   next: number;
-  nextUrl: string;
+  next_url: string;
   page: number;
-  pageUrl: string;
+  page_url: string;
   pages: number;
   prev: null;
-  prevUrl: string;
-  scaffoldUrl: string;
+  prev_url: string;
+  scaffold_url: string;
   series: string[];
   to: number;
 }
@@ -90,4 +94,14 @@ export interface NavbarItemProps {
   hover?: string;
   img?: any;
   items?: NavbarItemProps[];
+  children?: any;
+}
+
+export interface StatsFilter {
+  Quartos: string;
+  Casas_de_Banho: string;
+  Area_do_terreno: string;
+  Area_util: string;
+  Area_bruta_CP: string;
+  Ano_de_construção: string;
 }

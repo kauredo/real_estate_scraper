@@ -51,8 +51,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # Other gems here
+gem 'acts_as_paranoid'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'data_migrate'
 gem 'devise'
 gem 'friendly_id'
 gem 'friendly_id-mobility'
@@ -62,10 +64,12 @@ gem 'js-routes'
 gem 'jwt'
 gem 'listen', '~> 3.7', '>= 3.7.1'
 gem 'mobility', '~> 1.2.9'
+gem 'mobility-ransack', '~> 1.2.2'
+gem 'money-rails', '~> 1.12'
 gem 'pagy', '~> 5.10'
-gem 'paranoia'
 gem 'rails-controller-testing'
 gem 'rails-i18n'
+gem 'ransack'
 gem 'react-rails'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
@@ -76,6 +80,8 @@ gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'tinymce-rails'
 gem 'watir'
+
+gem 'execjs'
 
 # Tests / Scrape
 gem 'selenium-webdriver'
@@ -89,6 +95,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'dockerfile-rails', '>= 1.2'
   gem 'erb_lint', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]

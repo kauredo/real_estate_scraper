@@ -9,16 +9,16 @@ interface Props {
 
 export default function Pagination(props: Props) {
   const { pagy } = props;
-  const currentPage = getUrlParameter("page");
+  const currentPage = getUrlParameter("page") || "1";
 
   if (pagy.pages > 1) {
     return (
-      <div className="flex items-center justify-center py-4 md:py-10 lg:px-0 sm:px-6 px-4">
-        <div className="lg:w-3/5 w-full  flex items-center justify-between border-t border-gray-200">
-          <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
+      <div className="flex items-center justify-center py-4 md:py-10 sm:px-6 px-4 container mx-auto">
+        <div className="w-full flex items-center justify-between border-t border-gray-200 dark:border-beige-medium">
+          <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
             {pagy.prev && (
               <>
-                <a href={pagy.prevUrl}>
+                <a href={pagy.prev_url}>
                   <svg
                     width="14"
                     height="8"
@@ -49,7 +49,7 @@ export default function Pagination(props: Props) {
                     />
                   </svg>
                 </a>
-                <a href={pagy.prevUrl}>
+                <a href={pagy.prev_url}>
                   <p className="text-sm ml-3 font-medium leading-none ">
                     {i18n.t("pagination.previous")}
                   </p>
@@ -60,27 +60,42 @@ export default function Pagination(props: Props) {
           <div className="sm:flex hidden">
             {pagy.series?.map(page => {
               let classes =
-                "text-sm font-medium leading-none cursor-pointer text-gray-600 hover:text-beige border-t border-transparent hover:border-beige pt-3 mr-4 px-2";
+                "text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium border-t border-transparent hover:border-beige-default dark:hover:border-beige-medium pt-3 mr-4 px-2";
               classes =
                 currentPage === page
-                  ? classes + " !text-beige !border-beige"
+                  ? classes +
+                    " !text-beige-default dark:!text-beige-medium !border-beige-default dark:!border-beige-medium"
                   : classes;
+              let href =
+                currentPage === page
+                  ? "#"
+                  : `${pagy.scaffold_url.replace(
+                      "__pagy_page__",
+                      page.toString()
+                    )}`;
+              if (page === "gap") {
+                return (
+                  <p key={`gap-${page}`} className="pt-3 mr-4">
+                    ...
+                  </p>
+                );
+              }
               return (
-                <a key={`page-${page}`} href={`/comprar?page=${page}`}>
+                <a key={`page-${page}`} href={href}>
                   <p className={classes}>{page}</p>
                 </a>
               );
             })}
           </div>
-          <div className="w-20 flex items-center pt-3 text-gray-600 hover:text-beige cursor-pointer">
-            {pagy.next && (
+          <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
+            {pagy.next && pagy.next_url && (
               <>
-                <a href={pagy.nextUrl}>
+                <a href={pagy.next_url}>
                   <p className="text-sm font-medium leading-none mr-3">
                     {i18n.t("pagination.next")}
                   </p>
                 </a>
-                <a href={pagy.nextUrl}>
+                <a href={pagy.next_url}>
                   <svg
                     width="14"
                     height="8"
@@ -119,5 +134,7 @@ export default function Pagination(props: Props) {
     );
   }
 
-  return <></>;
+  return (
+    <div className="mx-auto border-t border-gray-200 dark:border-beige-medium mb-4 mt-8 w-[90%] md:w-3/5"></div>
+  );
 }

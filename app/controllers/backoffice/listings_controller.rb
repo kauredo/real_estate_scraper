@@ -2,16 +2,23 @@
 
 module Backoffice
   class ListingsController < BackofficeController
-    before_action :find_listing, except: %i[index create update_all]
+    before_action :find_listing, except: %i[index create update_all recover]
     after_action :update_video_link, only: %i[create update]
     include Pagy::Backend
 
     def index
       @listings = if params[:order] == 'recent'
                     Listing.all.reorder(created_at: :desc)
+                  elsif params[:order] == 'deleted'
+                    Listing.with_deleted_ordered.where(id: Listing.ids_with_title)
+                  elsif params[:order] == 'deleted_only'
+                    Listing.only_deleted.where(id: Listing.ids_with_title)
                   else
                     Listing.all
                   end
+
+      pagy, @listings = pagy(@listings)
+      @pagy = pagy_metadata(pagy)
     end
 
     def create
@@ -50,8 +57,25 @@ module Backoffice
     end
 
     def destroy
-      @listing.destroy
-      redirect_to backoffice_listings_path
+      if @listing.destroy
+        flash[:notice] = I18n.t('listing.destroy.notice')
+      else
+        flash[:error] = I18n.t('listing.destroy.error')
+      end
+
+      head :no_content
+    end
+
+    def recover
+      listing = Listing.unscoped.find(params[:id])
+      if listing.recover
+        ScrapeUrlJob.perform_async(listing.url, true)
+        flash[:notice] = I18n.t('listing.recover.notice')
+      else
+        flash[:error] = I18n.t('listing.recover.error')
+      end
+
+      head :no_content
     end
 
     def update_details
@@ -63,7 +87,7 @@ module Backoffice
     private
 
     def find_listing
-      @listing = Listing.friendly.find(params[:id])
+      @listing = Listing.unscoped.friendly.find(params[:id])
     end
 
     def update_video_link
@@ -77,7 +101,8 @@ module Backoffice
 
     def listing_params
       params.require(:listing).permit(:address, :price, :title, :order, :url, :description, :status, :status_changed_at,
-                                      :listing_complex_id, :video_link, features: [], photos: [], stats: {})
+                                      :listing_complex_id, :video_link, :kind, :objective, :virtual_tour_url,
+                                      features: [], photos: [], stats: {})
     end
   end
 end

@@ -1,0 +1,78 @@
+<% meta_title = I18n.t('faq.header') %>
+<% meta_description = I18n.t('faq.meta_description') %>
+
+<% content_for(:meta_title) { meta_title } %>
+<% content_for(:meta_description) { meta_description } %>
+<% content_for(:extra_meta) do %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>faq" />
+  <link rel="alternate" hreflang="<%= I18n.locale == :pt ? 'en' : 'pt' %>" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? 'en/' : '' %>faq" />
+<% end %>
+
+<%= react_component 'shared--Banner', { height: '20vh', blurred: true, text: meta_title } %>
+<section class="container mx-auto pt-6 px-8">
+  <div class="pt-6 bg-white dark:bg-dark text-center md:hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
+      <h1 id="main-title" class="relative block md:hidden pt-2 text-3xl text-dark dark:text-light  sm:text-4xl px-4"><%= meta_title %></h1>
+    </div>
+  </div>
+  <div class="py-8 md:pb-0 md:pt-4 bg-white dark:bg-dark">
+    <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
+      <h2 class="block pt-2 text-2xl text-dark dark:text-light  sm:text-4xl mx-auto"><%= I18n.t('faq.subheader') %></h2>
+      <p class="pt-4 text-xl text-gray-500 dark:text-light max-w-max"><%= I18n.t('faq.description') %></p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
+
+    <% I18n.t('faq.sections').each_with_index do |section, idx_1| %>
+      <div class="mb-3" id="<%= idx_1 %>">
+        <% section = section.last %>
+        <h3 class="pt-10 pb-3 text-2xl text-dark dark:text-light  sm:text-3xl"><%= section[:title] %></h3>
+        <% section[:questions].each_with_index do |question, idx_2| %>
+          <% @idx ||= 0 %>
+          <div class="transition-all duration-200 bg-white dark:bg-dark border border-gray-200 shadow-lg cursor-pointer hover:bg-gray-50">
+            <button type="button" id="question<%= @idx %>" data-state="closed" class="flex items-center justify-between w-full px-4 py-5 sm:p-6 text-black dark:text-light">
+              <span class="flex text-lg text-left font-semibold text-dark dark:text-light"><%= question.last[:title] %></span>
+              <svg id="arrow<%= @idx %>" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="w-6 h-6 text-gray-400">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="answer<%= @idx %>" style="display:none" class="p-8 sm:p-6 border-beige-default dark:border-beige-medium text-black dark:text-light">
+              <%= question.last[:answer] %>
+            </div>
+          </div>
+          <% @idx += 1 %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <h3 class="pt-10 pb-3 text-2xl text-dark dark:text-light  sm:text-3xl"><%= I18n.t('faq.reason.title') %></h3>
+    <ul class="list-disc list-inside">
+      <% I18n.t('faq.reason.answers').each do |answer| %>
+        <li class="text-lg text-dark dark:text-light"><strong><%= answer.last[:title] %>:</strong> <%= answer.last[:description] %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <script>
+    // JavaScript to toggle the answers and rotate the arrows
+    document.addEventListener('turbo:load', function() {
+        document.querySelectorAll('[id^="question"]').forEach(function(button, index) {
+            button.addEventListener('click', function() {
+                var answer = document.getElementById('answer' + (index));
+                var arrow = document.getElementById('arrow' + (index));
+
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    answer.style.borderTop = '2px solid rgb(211 175 121)';
+                    arrow.style.transform = 'rotate(-180deg)';
+                } else {
+                    answer.style.display = 'none';
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+    });
+  </script>
+</section>

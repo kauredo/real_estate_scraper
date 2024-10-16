@@ -2,10 +2,73 @@
   "pt": {
     "about": {
       "header": "Sobre Nós",
+      "history_and_values": {
+        "content": {
+          "first_paragraph": "Fundado por Sofia Galvão, o Sofia Galvão Group nasceu da paixão por oferecer soluções imobiliárias de qualidade. Com uma vasta experiência no setor, a nossa equipa está comprometida em fornecer um serviço de consultoria personalizado e transparente. Acreditamos que cada transação imobiliária é uma oportunidade de construir relacionamentos duradouros e ajudar nossos clientes a alcançar seus objetivos.",
+          "second_paragraph": "Desde 2022 que fazemos parte do Top 20 dos consultores mais produtivos em todo o País, da KW Portugal e estamos no top 3 na KW Lead Santos, integrando, por isso o Associate Leadership Council (ALC), um órgão coletivo que apoia a estratégia de negócio a nível local.",
+          "third_paragraph": "Fazemos parte do 3º market center mais bem-sucedido a nível nacional. Aqui ajudamos clientes a terem a casa com que sonham, ajudamos proprietários a encontrar a melhor solução de negócio e ajudamos consultores a terem a carreira que procuram!"
+        },
+        "title": "A Nossa História e os Nossos Valores"
+      },
+      "kw_luxury": {
+        "content": "Como parte de uma rede exclusiva de agentes de luxo da KW internacional, o Sofia Galvão Group é especializado na promoção e venda de propriedades de alto padrão. Oferecemos um serviço de excelência, com foco nas necessidades dos clientes mais exigentes. A nossa experiência e rede mundial permitem-nos oferecer uma abordagem personalizada e um atendimento de alto nível, garantindo que cada propriedade de luxo receba o destaque que merece.",
+        "subtitle": "Especialistas em Imóveis de Luxo",
+        "title": "Somos Agent KW Luxury"
+      },
+      "kw_partnership": {
+        "international_network": {
+          "content": "O Sofia Galvão Group faz parte da KW, uma rede global de consultores imobiliários, presente em 5 continentes e mais de 50 regiões. Como líder mundial em mediação imobiliária, a KW oferece acesso a uma rede extensa e recursos incomparáveis.",
+          "title": "Rede Internacional"
+        },
+        "national_network": {
+          "content": "Em Portugal, a KW conta com 23 representações e mais de 2.800 consultores e associados, proporcionando uma cobertura abrangente e um serviço de alta qualidade em todo o país. Esta vasta rede permite-nos oferecer aos nossos clientes uma experiência de compra e venda superior.",
+          "title": "Rede Nacional"
+        },
+        "principles": {
+          "list": [
+            {
+              "WIN-WIN": "Ou não se faz."
+            },
+            {
+              "INTEGRIDADE": "Fazer o que está certo."
+            },
+            {
+              "CLIENTES": "Sempre em primeiro lugar."
+            },
+            {
+              "COMPROMISSO": "Em tudo."
+            },
+            {
+              "COMUNICAÇÃO": "Procure primeiro entender."
+            },
+            {
+              "CRIATIVIDADE": "Ideias antes dos resultados."
+            },
+            {
+              "TRABALHO EM EQUIPA": "Juntos alcançamos mais."
+            },
+            {
+              "TER CONFIANÇA": "Começa com honestidade."
+            },
+            {
+              "EQUIDADE": "Oportunidades para todos."
+            },
+            {
+              "SUCESSO": "Resultados através das pessoas."
+            }
+          ],
+          "title": "Princípios KW"
+        },
+        "title": "Parceria com Keller Williams"
+      },
       "meta_description": "Sofia Galvão Group, uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
       "mission": {
         "sub1": "Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!",
         "title": "Missão"
+      },
+      "mission_and_vision": {
+        "content": "A nossa missão é ser a escolha número um para serviços imobiliários de alta qualidade em todo o país. Trabalhamos com dedicação para garantir que cada cliente receba um serviço personalizado, focado nas suas necessidades únicas. A nossa visão é estabelecer um padrão de excelência no mercado imobiliário, oferecendo soluções inovadoras e uma experiência de cliente incomparável.",
+        "title": "Missão e Visão"
       },
       "profile": {
         "description": "Sou marketer de formação e criadora de valor por paixão. Trabalhei durante anos com marcas e produtos, no propósito de melhor servir o Cliente e de lhe oferecer não só o que ele necessitava, mas também o que melhor respondia às suas aspirações. Foquei-me nas pessoas e na realização do seu potencial máximo, sou Master em Programação Neuro linguística e acredito na conquista da capacitação para a concretização de objectivos e realização de propósitos de vida. Dediquei-me ao sector imobiliário e exerço na compra e venda de casas a descoberta do activo único: da casa, do cliente, da transação, do serviço. Encontrei na KW a estrutura certa para desenvolver a consultoria imobiliária do Sofia Galvão Group com exigência, rigor, profissionalismo e confiança. Tenho o “know how” do mercado e proporciono aos meus Clientes os melhores negócios, os que os fazem mais Felizes!",
@@ -13,6 +76,10 @@
       },
       "results": {
         "title": "Resultados"
+      },
+      "team": {
+        "content": "A nossa equipa é composta por profissionais altamente qualificados e experientes, especializados em diversos segmentos do mercado. Trabalhamos com uma rede de parceiros confiáveis para fornecer um serviço completo, incluindo apoio jurídico e consultoria financeira. O nosso objetivo é garantir que cada cliente se sinta apoiado e confiante durante todo o processo de compra ou venda.",
+        "title": "Equipa"
       },
       "testimonies": {
         "title": "Testemunhos"
@@ -24,7 +91,7 @@
       },
       "who": {
         "sub1": "Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
-        "sub2": "Focados na profissionalização do sector praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
+        "sub2": "Focados na profissionalização do setor praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
         "title": "Quem somos?"
       }
     },
@@ -43,7 +110,8 @@
       "empty": "Novos posts em breve...",
       "header": "Blog Posts",
       "meta_description": "Conheça mais sobre imobiliário e as melhores dicas dos locais onde morar em Lisboa com Sofia Galvão Group.",
-      "resource": "Post"
+      "resource": "Post",
+      "subheader": "O nosso blog é uma fonte de conhecimento para compradores e vendedores. Incluímos artigos sobre as melhores práticas no mercado imobiliário, tendências de mercado e conselhos para quem quer comprar ou vender um imóvel. Mantenha-se informado e tome decisões seguras e acertadas com o nosso conteúdo."
     },
     "buy": {
       "header": "Comprar",
@@ -329,7 +397,7 @@
           "title": "Investimento Faseado"
         },
         "own": {
-          "description": "Na compra em planta tem a garantia que o imóvel está pronto a estrear e tem a certeza que você será o primeiro proprietário.",
+          "description": "Na compra em planta tem a garantia de que o imóvel está pronto a estrear e a certeza que será o primeiro proprietário.",
           "title": "Vai ser o primeiro dono da sua nova casa"
         },
         "perspective": {
@@ -341,7 +409,7 @@
           "title": "Garantia de construção"
         },
         "yours": {
-          "description": "A aquisição em planta confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua futura casa vá de encontro às suas necessidades e gostos.",
+          "description": "A aquisição em planta confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua futura casa vá ao encontro das suas necessidades e gostos.",
           "title": "Imóvel à sua medida"
         }
       },
@@ -356,7 +424,11 @@
         "price": "Preço",
         "type": "Natureza"
       },
-      "subheader": "Porquê Comprar <span class=\"underline decoration-beige\">em Planta?</span>"
+      "subheader": "Porquê Comprar <span class=\"underline decoration-beige-default dark:decoration-beige-medium\">em Planta?</span>",
+      "subtitle": {
+        "description": "Conheça os nossos projetos de empreendimentos imobiliários, que oferecem oportunidades únicas de investimento. Com opções de compra em planta, pode personalizar o seu imóvel e investir em propriedades com alto potencial de valorização. A nossa equipa fornece informações detalhadas sobre cada empreendimento, incluindo localização, planos de pagamento e potencial de retorno.",
+        "title": "Oportunidades de Investimento"
+      }
     },
     "errors": {
       "404": {
@@ -418,6 +490,139 @@
         }
       }
     },
+    "faq": {
+      "description": "Respondemos às perguntas mais frequentes sobre o processo de compra e venda de imóveis, incluindo dúvidas sobre financiamento, documentação necessária e etapas do processo. Fornecemos orientação clara e prática para ajudar a esclarecer todas as dúvidas e garantir uma experiência informada e segura.",
+      "header": "FAQ (Perguntas Frequentes)",
+      "meta_description": "Perguntas frequentes sobre imobiliário e os serviços de Sofia Galvão Group.",
+      "reason": {
+        "answers": {
+          "fifth": {
+            "description": "Utilizamos estratégias de marketing que maximizam a exposição do seu imóvel, garantindo que chega aos compradores ou inquilinos certos.",
+            "title": "Marketing Eficaz"
+          },
+          "first": {
+            "description": "Anos de atuação no mercado imobiliário, com dezenas de negócios fechados com sucesso.",
+            "title": "Experiência"
+          },
+          "fourth": {
+            "description": "Garantimos que todas as questões legais são tratadas de forma segura e precisa.",
+            "title": "Suporte Jurídico"
+          },
+          "second": {
+            "description": "Acompanhamos cada etapa do processo, garantindo que tudo é feito de forma correta e eficiente.",
+            "title": "Serviço Completo"
+          },
+          "third": {
+            "description": "Os nossos clientes confiam na nossa capacidade de fechar negócios rapidamente, ao melhor preço e da forma correta para todas as partes.",
+            "title": "Resultados Comprovados"
+          }
+        },
+        "title": "Por que razão devo escolher o Sofia Galvão Group?"
+      },
+      "sections": {
+        "first": {
+          "questions": {
+            "fifth": {
+              "answer": "Sim. Além de impostos, como o IMT e o Imposto de Selo, há a considerar os custos da escritura e registo predial. A nossa comissão é competitiva e transparente, e cobre todos os serviços de promoção, acompanhamento e gestão do processo de venda.",
+              "title": "Existem custos associados à venda?"
+            },
+            "first": {
+              "answer": "Vender um imóvel é um processo que exige conhecimento do mercado, estratégias de promoção e atenção a detalhes jurídicos e burocráticos. O Sofia Galvão Group oferece um serviço completo, desde a avaliação precisa do valor do imóvel até à negociação final, assegurando que o cliente obtém o melhor preço e uma venda rápida e tranquila. Com uma vasta experiência e uma rede de contactos sólida, maximizamos as suas oportunidades de sucesso.",
+              "title": "Porquê contratar o Sofia Galvão Group para vender a minha casa?"
+            },
+            "fourth": {
+              "answer": "Combinamos marketing digital, plataformas imobiliárias de referência, home staging, fotografia profissional e visitas virtuais. Estas técnicas maximizam a exposição do seu imóvel aos compradores certos, resultando em mais interesse e, geralmente, em vendas mais rápidas.",
+              "title": "Como é que o Sofia Galvão Group promove o meu imóvel?"
+            },
+            "second": {
+              "answer": "O primeiro passo é assegurar que toda a documentação do imóvel está em ordem. Isso inclui documentos como a caderneta predial, a certidão permanente e o certificado energético. O Sofia Galvão Group ajuda-o a garantir que tudo está correto e prepara uma avaliação detalhada para definir o preço de venda adequado.",
+              "title": "Quais são os primeiros passos para vender a minha casa?"
+            },
+            "third": {
+              "answer": "O tempo necessário para vender uma casa depende de vários fatores, como o estado do mercado e o preço do imóvel. No entanto, com uma abordagem personalizada e estratégias de marketing avançadas, muitos imóveis são vendidos num espaço de tempo inferior à média do mercado.",
+              "title": "Quanto tempo demora o processo de venda?"
+            }
+          },
+          "title": "Vender um imóvel"
+        },
+        "fourth": {
+          "questions": {
+            "fifth": {
+              "answer": "Sim. A nossa equipa está consigo em todas as etapas, desde a angariação ou procura de imóveis, na negociação de propostas e até à assinatura da escritura ou contrato de arrendamento. Garantimos, desta forma, acompanhamento total desde o primeiro ao último minuto!",
+              "title": "O consultor imobiliário acompanha-me até ao final do processo?"
+            },
+            "first": {
+              "answer": "A exclusividade significa que o Sofia Galvão Group será a única empresa responsável pela promoção do seu imóvel, mas não operamos em exclusivo para fazer a venda. Para encontrar as melhores soluções para os nossos clientes fazemos parcerias com todas as agências imobiliárias com AMI válido e que possam ter um cliente interessado no seu imóvel. Assim, garantimos que o seu imóvel possa ser comprado por qualquer cliente que procure casa diretamente ou que esteja a ser representado por um consultor imobiliário. Contudo, o exclusivo na promoção permite-nos dedicar mais recursos e atenção ao seu imóvel, garantindo um serviço mais eficiente e um acompanhamento personalizado até ao final do processo.",
+              "title": "O que é a exclusividade na mediação imobiliária?"
+            },
+            "fourth": {
+              "answer": "Os tempos variam de acordo com o tipo de transação e as condições do mercado. No entanto, com a abordagem personalizada do Sofia Galvão Group, muitos dos nossos clientes conseguem fechar negócios em prazos inferiores à média do mercado.",
+              "title": "Quanto tempo demora todo o processo de venda, compra ou arrendamento?"
+            },
+            "second": {
+              "answer": "Sim! A nossa equipa está capacitada para gerir processos simultâneos de venda e compra, garantindo que a transição entre propriedades seja suave e sem complicações. Facilitamos ambos os processos, oferecendo soluções integradas.",
+              "title": "Posso vender e comprar ao mesmo tempo?"
+            },
+            "third": {
+              "answer": "Home staging é a preparação do imóvel para torná-lo mais atrativo para potenciais compradores ou inquilinos. Envolve a organização, a decoração e pequenos pormenores que permitem que o seu imóvel se destaque nas fotos e nas visitas. Com home staging, o seu imóvel destaca-se no mercado, aumenta a atratividade e, geralmente, é vendido ou arrendado mais rapidamente.",
+              "title": "O que é o home staging e por que é importante?"
+            }
+          },
+          "title": "Perguntas Frequentes"
+        },
+        "second": {
+          "questions": {
+            "fifth": {
+              "answer": "Sim! Temos parcerias com vários bancos e podemos ajudá-lo a encontrar as melhores condições de financiamento para a sua compra.",
+              "title": "Posso obter ajuda com financiamento bancário?"
+            },
+            "first": {
+              "answer": "Comprar uma casa é uma das decisões financeiras mais importantes, e o Sofia Galvão Group assegura que fará a escolha certa. Temos acesso a uma vasta rede de propriedades, incluindo imóveis exclusivos que não estão publicitados nos portais imobiliários. Oferecemos suporte em todas as etapas, desde a pesquisa até à negociação final e à assinatura da escritura.",
+              "title": "Porquê escolher o Sofia Galvão Group para comprar uma casa?"
+            },
+            "fourth": {
+              "answer": "Além do preço do imóvel, há a considerar custos como o IMT (Imposto Municipal sobre Transmissões Onerosas de Imóveis), Imposto de Selo, escritura e registo. O Sofia Galvão Group ajuda a calcular todos estes valores, de forma a garantir que tem conhecimento de todos os valores envolvidos.",
+              "title": "Quais são os custos envolvidos na compra de uma casa?"
+            },
+            "second": {
+              "answer": "O primeiro passo é identificar as suas necessidades e definir o budget. Com base nisso, a nossa equipa ajudará a encontrar as propriedades mais adequadas. Uma vez escolhida a casa, orientamos no processo de verificação da documentação e na preparação da proposta.",
+              "title": "Qual é o primeiro passo para comprar uma casa?"
+            },
+            "third": {
+              "answer": "Fazemos uma avaliação detalhada do mercado, comparando imóveis semelhantes na mesma área. Também analisamos as condições do imóvel para garantir que o valor pedido reflete a realidade do mercado.",
+              "title": "Como saber se o preço de um imóvel é justo?"
+            }
+          },
+          "title": "Comprar um imóvel"
+        },
+        "third": {
+          "questions": {
+            "fifth": {
+              "answer": "Para o inquilino, os custos incluem, normalmente, o pagamento de dois meses de renda e um mês de caução.",
+              "title": "Quais são os custos associados ao arrendamento?"
+            },
+            "first": {
+              "answer": "Seja inquilino ou senhorio, o Sofia Galvão Group facilita o processo de arrendamento, tornando-o mais seguro e eficiente. Para senhorios, promovemos o imóvel de forma eficaz, ajudando a encontrar o inquilino certo. Para inquilinos, garantimos que o processo de arrendamento é simples e que o imóvel está em conformidade com todas as obrigações legais.",
+              "title": "Porquê escolher o Sofia Galvão Group para arrendar uma casa ou encontrar inquilinos?"
+            },
+            "fourth": {
+              "answer": "Nem sempre é necessário, mas em alguns casos o senhorio pode exigir um fiador como garantia adicional. Este requisito varia de contrato para contrato.",
+              "title": "Preciso de um fiador para arrendar uma casa?"
+            },
+            "second": {
+              "answer": "No caso dos inquilinos, são necessários documentos como o comprovativo de rendimentos, o documento de identificação e, em alguns casos, um fiador. No caso dos senhorios, é importante garantir que o imóvel tem a documentação em dia, incluindo o certificado energético e o seguro obrigatório.",
+              "title": "Que documentos são necessários para arrendar um imóvel?"
+            },
+            "third": {
+              "answer": "O valor da renda é definido com base numa avaliação de mercado, considerando a localização do imóvel e comparando-o com outros arrendamentos semelhantes na área. Com base nesta avaliação, ajudamo-lo a definir um valor justo e competitivo.",
+              "title": "Como é definido o valor da renda?"
+            }
+          },
+          "title": "Arrendar um imóvel"
+        }
+      },
+      "subheader": "Guia para Compradores e Vendedores:"
+    },
     "flash": {
       "contact": {
         "thanks": "Obrigado pela sua mensagem. Entraremos em contacto em breve"
@@ -447,6 +652,7 @@
     },
     "home": {
       "cta": {
+        "contact": "Fale connosco",
         "long": "Avalie a sua casa",
         "short": "Avalie casa"
       },
@@ -470,22 +676,6 @@
         "bottom": "lares felizes!",
         "top": "Juntos criamos"
       }
-    },
-    "house_360": {
-      "header": "Casa 360",
-      "list": {
-        "architecture": "Arquitectura",
-        "cleaning": "Limpezas de Obras e Mudanças",
-        "construction": "Construção Civil",
-        "design": "Design e Decoração de Interiores",
-        "energy": "Certificação Energética",
-        "gardening": "Jardinagem",
-        "remodel": "Pequenas obras e remodelações",
-        "transport": "Mudanças e Transportes"
-      },
-      "meta_description": "O serviço especial 360 coloca à sua disposição soluções à medida para cada uma das necessidades relaCvas ao universo imobiliário.",
-      "sub1": "O serviço especial 360 coloca à sua disposição soluções à medida para cada uma das necessidades relativas ao universo imobiliário.",
-      "sub2": "Com a garantia de qualidade das parcerias que estabelecemos, recomendamos empresas que são uma referência nas suas áreas e “Juntos Criamos Lares Felizes!”"
     },
     "i18n": {
       "plural": {
@@ -554,14 +744,87 @@
       "subheader": "Uma empresa feita de consultores para consultores!"
     },
     "listing": {
+      "advanced_search": "Pesquisa Avançada",
       "characteristics": "Características do Imóvel",
       "create": {
         "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
         "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
       },
+      "destroy": {
+        "error": "Erro: não foi possível eliminar o imóvel",
+        "notice": "Imóvel eliminado com sucesso"
+      },
       "details": "Detalhes do Imóvel",
+      "kind": {
+        "apartment": "Apartamento",
+        "garage": "Garagem",
+        "house": "Moradia",
+        "land": "Terreno",
+        "office": "Escritório",
+        "other": "Outro",
+        "parking": "Estacionamento",
+        "storage": "Arrecadação",
+        "store": "Loja",
+        "title": "Tipo de Imóvel"
+      },
+      "no_listings": "Não foram encontrados imóveis com os critérios selecionados",
+      "objective": {
+        "other": "Outro",
+        "rent": "Arrendamento",
+        "sale": "Venda",
+        "title": "Venda / Arrendamento"
+      },
+      "open_tour": "Abrir Tour Virtual 🏠",
       "price": "Preço",
+      "recover": {
+        "error": "Erro: não foi possível recuperar o imóvel",
+        "notice": "Imóvel recuperado com sucesso, aguarde um pouco para atualizar os dados."
+      },
+      "reset_filters": "Limpar Filtros",
       "resource": "Imóvel",
+      "search": {
+        "address": "Morada",
+        "address_placeholder": "Lisboa, Porto, Algarve, etc.",
+        "any": "Qualquer",
+        "name": "Morada, Localidade, Tipologia, etc.",
+        "name_placeholder": "Apartamento T3, Moradia, Terreno, etc.",
+        "price": "Preço",
+        "status": {
+          "agreed": "Reservados",
+          "all": "Todos",
+          "closed": "Encerrados",
+          "recent": "Novos",
+          "rented": "Arrendados",
+          "sold": "Vendidos",
+          "standard": "Listados",
+          "title": "Estado"
+        },
+        "submit": "Pesquisar",
+        "title": "Pesquisar Imóveis"
+      },
+      "stats": {
+        "ano de construção": "Ano de Construção",
+        "casa de banho social": "Casa de Banho Social",
+        "casas de banho": "WCs",
+        "city tax": "Taxa de Cidade",
+        "common area ownership (coop)": "Área Comum de Propriedade (Coop)",
+        "cozinhas": "Cozinhas",
+        "dining rooms": "Salas de Jantar",
+        "estacionamentos": "Estacionamentos",
+        "furnished": "Mobilado",
+        "garagens": "Garagens",
+        "kitchens": "Cozinhas",
+        "land tax": "Taxa de Terreno",
+        "piso": "Piso",
+        "pisos": "Pisos",
+        "quartos": "Quartos",
+        "salas": "Salas",
+        "salas de refeição": "Salas de Refeição",
+        "support staff accommodations": "Apoio a Empregados",
+        "área bruta (cp)": "Área Bruta (CP)",
+        "área do terreno": "Área do Terreno",
+        "área útil": "Área Útil"
+      },
       "status": {
         "agreed": "Reservado",
         "closed": "Encerrado",
@@ -572,7 +835,7 @@
       },
       "text": {
         "less": " mostrar menos",
-        "more": "...ler mais"
+        "more": "... ler mais"
       },
       "update": {
         "notice": "Imóvel editado com sucesso"
@@ -583,19 +846,22 @@
       "update_details": {
         "notice": "O imóvel será atualizado dentro de minutos, espera antes de tentar novamente"
       },
-      "watch_video": "Assistir Vídeo"
+      "watch_video": "Assistir Vídeo 📹"
     },
     "navbar": {
       "about": "Sobre Nós",
       "backoffice": "Backoffice",
       "blog_posts": "Blog",
       "buy": "Comprar",
+      "change_language": "Change site to English",
       "contacts": "Contactos",
+      "dark_mode": "Modo Escuro",
       "enterprises": "Empreendimentos",
-      "house_360": "Casa 360",
-      "language": "Change site to English",
+      "faq": "FAQ",
+      "light_mode": "Modo Claro",
       "listings": "Imóveis",
       "more": "Saber mais",
+      "other_language": "English",
       "sell": "Vender",
       "services": "Serviços",
       "testimonies": "Testemunhos"
@@ -691,15 +957,15 @@
         "agencies": "Partilha da venda com todas as agências do mercado.",
         "eval": "Avaliação certificada do imóvel.",
         "feedback": "Feedback detalhado e regular.",
-        "flyer": "Acções de proximidade: Flyers; brochuras; newsletters.",
+        "flyer": "Ações de proximidade: Flyers; brochuras; newsletters.",
         "kw": "Acesso exclusivo a toda a rede Nacional KW.",
-        "market": "Estudo do Mercado - elaboração de analises comparativas de Mercado e relatórios de caracterização da zona a considerar.",
+        "market": "Estudo do Mercado - elaboração de análises comparativas de Mercado e relatórios de caracterização da zona a considerar.",
         "media": "Produção Multimédia: Reportagem fotográfica+vídeo.",
         "open": "Realização de Open House.",
         "portal": "Divulgação nos mais relevantes portais imobiliários nacionais e internacionais.",
         "promo": "Utilização de placas de promoção.",
         "socials": "Divulgação Social Media.",
-        "warranty": "Garantia de implementação de processos e procedimentos regulados pelo sector."
+        "warranty": "Garantia de implementação de processos e procedimentos regulados pelo setor."
       },
       "meta_description": "Vender propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group.",
       "paragraph": {
@@ -710,23 +976,103 @@
       "subheader": "Saiba quanto vale a sua casa"
     },
     "services": {
+      "for_buyers": {
+        "list": {
+          "legal_financial_support": {
+            "description": "Recomendamos serviços de consultoria sobre opções de financiamento e assistência jurídica, garantindo que todas as questões legais e burocráticas sejam tratadas com competência. A nossa rede de parceiros de confiança está à disposição para proporcionar segurança em todas as transações.",
+            "title": "Assistência Jurídica e Financeira"
+          },
+          "market_analysis": {
+            "description": "Realizamos análises de mercado detalhadas para garantir que os nossos clientes façam compras informadas e a preços justos. Somos especialistas em negociações e trabalhamos para garantir que obtenha as melhores condições possíveis",
+            "title": "Análise de Mercado e Negociação"
+          },
+          "personalized_consulting": {
+            "description": "Entendemos que cada comprador é único. Por isso, oferecemos uma consultoria personalizada, adaptada aos seus objetivos específicos. Se está à procura da sua primeira casa, uma segunda residência ou um investimento, fornecemos o suporte necessário para tomar decisões informadas. Desde a escolha da localização até a negociação do preço, estamos ao seu lado em todas as etapas",
+            "title": "Consultoria Personalizada"
+          },
+          "post_purchase_support": {
+            "description": "O nosso serviço não termina com a compra. Oferecemos suporte contínuo após a transação, ajudando com a mudança, configuração do imóvel e quaisquer outras necessidades que possam surgir. Estamos aqui para garantir que a sua transição para o novo lar seja suave e sem complicações.",
+            "title": "Acompanhamento Pós-Compra"
+          },
+          "property_variety": {
+            "description": "Explore uma vasta gama de opções, desde apartamentos urbanos a moradias de luxo, passando por propriedades comerciais e oportunidades de investimento e encontre o imóvel que corresponde às suas necessidades e preferências. A nossa equipa ajuda a identificar oportunidades e a concretizar o melhor negócio.",
+            "title": "Variedade de Imóveis"
+          },
+          "virtual_tours_visits": {
+            "description": "Oferecemos tours virtuais detalhados e organizamos visitas presenciais para que possa explorar as propriedades de forma detalhada. A nossa equipa está sempre disponível para responder a quaisquer questões e fornecer informações adicionais.",
+            "title": "Tours Virtuais e Visitas"
+          }
+        },
+        "subtitle": "Apoio Personalizado na Compra de Imóveis",
+        "title": "Para Compradores"
+      },
+      "for_sellers": {
+        "list": {
+          "accurate_evaluation": {
+            "description": "Realizamos avaliações detalhadas e desenvolvemos uma estratégia de venda personalizada, ajustada às características únicas de cada imóvel. Utilizamos uma abordagem baseada em dados de mercado e análises comparativas para garantir que o valor do seu imóvel é maximizado e possa atrair compradores.",
+            "title": "Avaliação Precisa e Estratégia de Venda"
+          },
+          "full_service": {
+            "description": "Vender um imóvel pode ser um processo complexo, mas no Sofia Galvão Group, simplificamos cada etapa. Oferecemos um serviço de venda completo, desde a avaliação, estratégia de marketing, formalização da venda até à realização da escritura, garantindo que o seu imóvel seja vendido da forma mais simples, rápida e ao melhor preço.",
+            "title": "Acompanhamento Completo"
+          },
+          "home_staging": {
+            "description": "Oferecemos serviços de home staging para preparar o seu imóvel para o mercado. Isto inclui aconselhamento sobre decoração, organização e apresentação para maximizar o apelo visual do imóvel. A preparação adequada pode fazer uma diferença significativa na percepção do comprador e no preço final de venda.",
+            "title": "Home Staging e Preparação"
+          },
+          "marketing": {
+            "description": "Para promover os imóveis dos nossos clientes, utilizamos uma estratégia de marketing abrangente que inclui reportagem multimédia profissional, tours virtuais, campanhas digitais em diversas plataformas, divulgação nas redes Sociais e marketing de proximidade (flyers; newsletter; placa). Contamos com uma vasta rede de contactos a nível nacional e Internacional bem como presença nos principais portais do setor imobiliário a nível mundial. Esta abordagem visa aumentar a visibilidade dos imóveis e atrair compradores qualificados, garantindo uma venda rápida e eficiente.",
+            "title": "Marketing Imobiliário Eficaz"
+          },
+          "negotiation_legal_support": {
+            "description": "Com uma equipa experiente em negociações, garantimos que cada transação seja realizada nas melhores condições. Além disso, recomendamos suporte jurídico completo para assegurar que todos os aspectos legais sejam tratados com a devida diligência.",
+            "title": "Negociação e Suporte Jurídico"
+          },
+          "post_sale_support": {
+            "description": "O nosso serviço não termina com a venda. Oferecemos suporte contínuo após a transação, ajudando a esclarecer todas as dúvidas ou questões que possam surgir. Estamos aqui para garantir que a venda da sua casa seja suave e sem complicações.",
+            "title": "Acompanhamento Pós-Venda"
+          },
+          "visits_qualification": {
+            "description": "Dispomos de uma vasta rede de contactos nacionais e internacionais para assegurar que os potenciais compradores conheçam a sua casa. Organizamos as visitas de forma a não prejudicarem a sua rotina e realizamos um serviço de qualificação rigorosa de interessados de forma a assegurar que reúnem todas as condições para lhe proporcionar o melhor negócio na venda do seu imóvel.",
+            "title": "Visitas e Qualificação de Clientes"
+          }
+        },
+        "subtitle": "Serviço Completo de Venda",
+        "title": "Para Vendedores"
+      },
       "header": "Serviços",
       "list": {
         "house_lens": {
-          "description": "Comprar ou vender uma casa é na maior parte das vezes investir grande parte, se não a totalidade, do património individual ou familiar. Esse investimento requer uma análise cuidada, ponderada e opções seguras que lhe darão a confiança de um investimento com retorno. <br> <br> Em cada negócio que levamos a cabo olhamos para si, o nosso Cliente, também numa perspetiva de investidor e asseguramos que a rentabilidade da venda ou da compra faz parte do critério de sucesso da transação.",
-          "title": "Investimento imobiliário"
+          "description": "Realizamos avaliações profissionais e detalhadas para determinar o valor justo de mercado do seu imóvel. Utilizamos uma abordagem baseada em dados, incluindo a análise de comparativos de mercado e tendências atuais. Este serviço é essencial para proprietários que desejam vender ou arrendar seus imóveis, bem como para compradores que procuram garantir que estão a fazer um investimento acertado.",
+          "title": "Avaliação de Imóveis"
         },
         "house_trees": {
-          "description": "Com acesso a plataformas e ferramentas exclusivas para profissionais asseguramos o conhecimento necessário do mercado para identificar as suas melhores opções e perseguir as melhores soluções. <br> <br> Oferecemos-lhe um serviço informado, personalizado, alicerçado numa negociação experiente e competitiva.",
-          "title": "Gestão e Consultoria Imobiliária"
+          "description": "No Sofia Galvão Group, oferecemos uma gama completa de serviços de consultoria imobiliária, incluindo a compra, venda e arrendamento de imóveis. O nosso serviço começa com uma análise detalhada do mercado, seguida de uma estratégia personalizada para cada cliente. A nossa equipa é especializada em identificar oportunidades no mercado e em negociar as melhores condições, garantindo que os clientes obtenham o máximo valor em cada transação.",
+          "title": "Consultoria Imobiliária"
         }
       },
       "meta_description": "Enquanto profissionais do mercado imobiliário conheça aqui os serviços da equipa Sofia Galvão Group.",
+      "tailor_house": {
+        "description": "Oferecemos soluções personalizadas para todas as suas necessidades imobiliárias, garantindo um serviço premium e de alta qualidade. Desde certificação energética, arquitetura, construção, remodelações, até limpeza profissional, mudanças seguras, jardinagem, e design de interiores, proporcionamos um atendimento completo e integrado. Trabalhamos com parceiros de confiança para assegurar que cada detalhe seja tratado com cuidado e excelência proporcionando uma experiência imobiliária sem igual.",
+        "subtitle": "Soluções Personalizadas para Todas as Necessidades Imobiliárias",
+        "title": "Tailor House | Casa 360º"
+      },
       "text": {
-        "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais entre em contacto",
+        "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais, entre em contacto",
         "link": "connosco.",
-        "top": "Enquanto profissionais do mercado imobiliário todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
+        "top": "Enquanto profissionais do mercado imobiliário, todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
       }
+    },
+    "share": {
+      "copied": "Link copiado!",
+      "copy": "Copiar Link",
+      "email": "Patilhar por Email",
+      "facebook": "Partilhar no Facebook",
+      "messenger": "Partilhar no Messenger",
+      "telegram": "Partilhar no Telegram",
+      "title": "Partilhar",
+      "twitter": "Partilhar no Twitter",
+      "whatsapp": "Partilhar no WhatsApp"
     },
     "support": {
       "array": {

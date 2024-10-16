@@ -8,13 +8,13 @@ interface Props {
 
 function Banner(props: Props) {
   const { height, blurred, text } = props;
-  let classes = "hidden md:block w-full h-full bg-center bg-cover ";
+  let classes = "hidden md:block w-full h-full bg-center bg-cover";
   blurred && (classes = classes + "opacity-20");
 
   return (
     <header
       id="banner"
-      className="relative hidden md:block w-full h-[50vh]"
+      className="relative hidden md:block w-full h-[50vh] text-black dark:text-light"
       style={{
         height: `${height && height}`,
         maxHeight: `${height && "30vh"}`,

@@ -114,5 +114,8 @@ Mobility.configure do
     # this plugin can create conflicts with other gems.
     #
     # attribute_methods
+
+    # Other plugins:
+    ransack
   end
 end

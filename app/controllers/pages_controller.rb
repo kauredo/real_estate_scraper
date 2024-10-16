@@ -24,11 +24,7 @@ class PagesController < ApplicationController
 
   def services; end
 
-  def house_360; end
-
   def contact; end
-
-  def kw; end
 
   def privacy; end
 
@@ -40,6 +36,8 @@ class PagesController < ApplicationController
     flash[:notice] = I18n.t('flash.contact.thanks')
     redirect_back(fallback_location: contact_path)
   end
+
+  def faq; end
 
   private
 

@@ -1,10 +1,10 @@
-import Carousel from "nuka-carousel";
 import React, { useEffect } from "react";
 import { i18n } from "../../languages/languages";
 import ContactForm from "../contactPage/ContactForm";
 import Cards from "../homePage/Cards";
 import { sanitizeURLWithParams } from "../utils/Functions";
 import { ListingComplex } from "../utils/Interfaces";
+import ShareIcons from "../shared/ShareIcons";
 
 interface Props {
   complex: ListingComplex;
@@ -23,7 +23,6 @@ export default function NewShow(props: Props) {
 
   const header = () => {
     if (complex?.photos?.length > 0) {
-      // if (complex.photos.length === 1) {
       return (
         <div className="mx-auto w-auto">
           <img
@@ -33,34 +32,6 @@ export default function NewShow(props: Props) {
           />
         </div>
       );
-      // } else {
-      return (
-        <div className="mx-auto w-auto">
-          <Carousel
-            heightMode="max"
-            slidesToShow={1}
-            defaultControlsConfig={{
-              nextButtonText: "➤",
-              prevButtonStyle: { transform: "rotate(180deg)" },
-              prevButtonText: "➤",
-              pagingDotsContainerClassName: "!top-0",
-              pagingDotsClassName: "mx-1 hidden tablet:block",
-            }}
-          >
-            {complex.photos?.map(photo => {
-              return (
-                <img
-                  loading="lazy"
-                  key={photo.image.url}
-                  style={{ maxHeight: "70vh", objectFit: "contain" }}
-                  src={photo.image.url}
-                />
-              );
-            })}
-          </Carousel>
-        </div>
-      );
-      // }
     }
   };
 
@@ -80,13 +51,13 @@ export default function NewShow(props: Props) {
   };
 
   return (
-    <div className="relative container mx-auto">
-      <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige text-white px-4 py-2">
+    <div className="relative container mx-auto text-black dark:text-light">
+      <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige-default dark:bg-beige-medium text-white dark:text-dark px-4 py-2">
         <h1 className="standard">{complex.name}</h1>
       </div>
       <section className="tablet:grid overflow-hidden tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2">
         <div className="col-span-2">
-          <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
+          <div className=" p-4 description w-full bg-white dark:bg-dark m-2 tablet:mx-0">
             <div className="tablet:mr-2 whitespace-pre-line">
               {removePricesFromText(complex.description)}
             </div>
@@ -97,37 +68,40 @@ export default function NewShow(props: Props) {
           <ContactForm complex={complex} />
         </div>
       </section>
+      <div className="mt-10">
+        <ShareIcons title={complex.name} />
+      </div>
       <div>
-        <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
+        <div className=" p-4 description w-full bg-white dark:bg-dark m-2 tablet:mx-0">
           <div className="tablet:mr-2 whitespace-pre-line">
             {removePricesFromText(complex.subtext)}
           </div>
         </div>
         <div className="flex flex-col tablet:flex-row gap-4">
           {complex.listings.length > 0 && (
-            <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white m-2 tablet:mx-0 h-fit">
+            <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white dark:bg-dark m-2 tablet:mx-0 h-fit">
               <table className="text-sm w-full border-collapse border border-slate-500">
                 <thead>
-                  <tr className="bg-beige text-white">
-                    <th className="border border-white border-l-slate-700 p-2">
+                  <tr className="bg-beige-default dark:bg-beige-medium text-white dark:text-dark">
+                    <th className="border border-white dark:border-dark border-l-slate-700 p-2">
                       {i18n.t("enterprises.show.type")}
                     </th>
-                    <th className="border border-white p-2">
+                    <th className="border border-white dark:border-dark p-2">
                       {i18n.t("enterprises.show.bedrooms")}
                     </th>
-                    <th className="border border-white p-2">
+                    <th className="border border-white dark:border-dark p-2">
                       {i18n.t("enterprises.show.built")}
                     </th>
-                    <th className="border border-white p-2">
+                    <th className="border border-white dark:border-dark p-2">
                       {i18n.t("enterprises.show.living")}
                     </th>
-                    <th className="border border-white p-2">
+                    <th className="border border-white dark:border-dark p-2">
                       {i18n.t("enterprises.show.parking")}
                     </th>
-                    <th className="border border-white p-2">
+                    <th className="border border-white dark:border-dark p-2">
                       {i18n.t("enterprises.show.price")}
                     </th>
-                    <th className="border border-white  border-r-slate-700"></th>
+                    <th className="border border-white dark:border-dark  border-r-slate-700"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -141,10 +115,10 @@ export default function NewShow(props: Props) {
                       >
                         <td className=" p-2 relative">
                           {["agreed"].includes(listing.status) && (
-                            <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige font-bold text-white opacity-50 flex items-center justify-center"></span>
+                            <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige-default dark:bg-beige-medium font-bold text-white dark:text-dark opacity-50 flex items-center justify-center"></span>
                           )}
                           {["sold"].includes(listing.status) && (
-                            <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white opacity-50 flex items-center justify-center"></span>
+                            <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white dark:text-dark opacity-50 flex items-center justify-center"></span>
                           )}
                           {listing.stats["Piso"] || "-"}
                         </td>
@@ -177,7 +151,7 @@ export default function NewShow(props: Props) {
                                 listing.slug
                               )}
                               target="_blank"
-                              className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige text-beige hover:text-white py-1 px-2 border border-beige hover:border-transparent rounded"
+                              className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige-default dark:hover:bg-beige-medium text-beige-default dark:text-beige-medium hover:text-white dark:hover:text-dark py-1 px-2 border border-beige-default dark:border-beige-medium hover:border-transparent rounded"
                             >
                               {i18n.t("enterprises.show.more")}
                             </a>
@@ -193,14 +167,14 @@ export default function NewShow(props: Props) {
             </div>
           )}
           {complex.listing_prices && complex.listing_prices[1].length > 0 && (
-            <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white m-2 tablet:mx-0 h-fit">
+            <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white dark:bg-dark m-2 tablet:mx-0 h-fit">
               <table className="text-sm w-full border-collapse border border-slate-500">
                 <thead>
-                  <tr className="bg-beige text-white">
-                    <th className="border border-white p-2">
+                  <tr className="bg-beige-default dark:bg-beige-medium text-white dark:text-dark">
+                    <th className="border border-white dark:border-dark p-2">
                       {i18n.t("enterprises.show.bedrooms")}
                     </th>
-                    <th className="border border-white p-2">
+                    <th className="border border-white dark:border-dark p-2">
                       {i18n.t("enterprises.show.price")}
                     </th>
                   </tr>
@@ -232,7 +206,7 @@ export default function NewShow(props: Props) {
             }`}
           >
             {video()}
-            <div className=" p-4 description w-full bg-white m-2 tablet:mx-0">
+            <div className=" p-4 description w-full bg-white dark:bg-dark m-2 tablet:mx-0">
               <div className="tablet:mr-2 whitespace-pre-line">
                 {removePricesFromText(complex.final_text)}
               </div>

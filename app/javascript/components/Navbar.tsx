@@ -1,52 +1,43 @@
-import React, { lazy, Suspense, useRef, useState } from "react";
+import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { i18n } from "../languages/languages";
-import { changeLocale, sanitizeURL } from "./utils/Functions";
+import { changeLocale, isDarkModeActive, sanitizeURL } from "./utils/Functions";
 import { NavbarItemProps } from "./utils/Interfaces";
+import Socials from "./shared/Socials";
+import DarkModeToggle from "./shared/DarkModeToggle";
 const NavbarItem = lazy(() => import("./shared/NavbarItem"));
 const DropdownLink = lazy(() => import("./shared/DropdownLink"));
-
-interface Resource {
-  path: string;
-  name: string;
-}
 
 interface Props {
   backoffice?: boolean;
   admin?: boolean;
-  resource?: Resource;
 }
 
 export default function Navbar(props: Props) {
-  const { backoffice, admin, resource } = props;
+  const { backoffice, admin } = props;
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const moreDropdown: NavbarItemProps = {
-    title: `${i18n.t("navbar.more")}`,
-    items: [
-      {
-        title: `${i18n.t("navbar.about")}`,
-        turbo: "true",
-        url: sanitizeURL(window.Routes.about_path),
-      },
-      {
-        title: `${i18n.t("navbar.services")}`,
-        turbo: "true",
-        url: sanitizeURL(window.Routes.services_path),
-      },
-      {
-        title: `${i18n.t("navbar.house_360")}`,
-        turbo: "true",
-        url: sanitizeURL(window.Routes.house_360_path),
-      },
-      {
-        title: `${i18n.t("navbar.contacts")}`,
-        turbo: "true",
-        url: sanitizeURL(window.Routes.contact_path),
-      },
-    ],
-  };
+  // const moreDropdown: NavbarItemProps = {
+  //   title: `${i18n.t("navbar.more")}`,
+  //   items: [
+  //     {
+  //       title: `${i18n.t("navbar.about")}`,
+  //       turbo: "true",
+  //       url: sanitizeURL(window.Routes.about_path),
+  //     },
+  //     {
+  //       title: `${i18n.t("navbar.services")}`,
+  //       turbo: "true",
+  //       url: sanitizeURL(window.Routes.services_path),
+  //     },
+  //     {
+  //       title: `${i18n.t("navbar.contacts")}`,
+  //       turbo: "true",
+  //       url: sanitizeURL(window.Routes.contact_path),
+  //     },
+  //   ],
+  // };
 
   const items: NavbarItemProps[] = [
     {
@@ -69,23 +60,35 @@ export default function Navbar(props: Props) {
       turbo: "true",
       url: sanitizeURL(window.Routes.blog_path),
     },
+    // moreDropdown,
     {
-      title: "Partnership with ",
-      img: (
-        <img
-          loading="lazy"
-          className="h-5 inline-block mb-[6px]"
-          src="/images/kw_logo.webp"
-          alt="KW Logo"
-        />
-      ),
+      title: `${i18n.t("navbar.about")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.kw_path),
+      url: sanitizeURL(window.Routes.about_path),
     },
-    moreDropdown,
+    {
+      title: `${i18n.t("navbar.services")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.services_path),
+    },
+    {
+      title: `${i18n.t("navbar.contacts")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.contact_path),
+    },
+    {
+      title: `${i18n.t("navbar.faq")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.faq_path),
+    },
   ];
 
   const backofficeItems: NavbarItemProps[] = [
+    {
+      title: `${i18n.t("navbar.backoffice")}`,
+      url: sanitizeURL(window.Routes.backoffice_path),
+      turbo: "true",
+    },
     {
       title: `${i18n.t("navbar.listings")}`,
       turbo: "true",
@@ -110,7 +113,8 @@ export default function Navbar(props: Props) {
 
   const middleItems = backoffice ? backofficeItems : items;
 
-  const img = i18n.locale === "pt" ? "uk" : "pt";
+  const otherImg = i18n.locale === "pt" ? "uk" : "pt";
+  const img = i18n.locale === "pt" ? "pt" : "uk";
 
   const rightItems: NavbarItemProps[] = [];
 
@@ -118,13 +122,29 @@ export default function Navbar(props: Props) {
 
   rightItems.push({
     title: "",
-    url: changeLocale(),
-    turbo: "false",
-    hover: `${i18n.t("navbar.language")}`,
+    items: [
+      {
+        title: "",
+        children: <DarkModeToggle />,
+      },
+      {
+        title: i18n.t("navbar.other_language"),
+        url: changeLocale(),
+        turbo: "false",
+        img: (
+          <img
+            loading="lazy"
+            className="h-5 inline-block mb-[2px] pl-1"
+            src={`https://hatscripts.github.io/circle-flags/flags/${otherImg}.svg`}
+            style={{ maxWidth: "none" }}
+          />
+        ),
+      },
+    ],
     img: (
       <img
         loading="lazy"
-        className="h-5 inline-block mb-[6px]"
+        className="h-5 inline-block mb-[3px] pl-1"
         src={`https://hatscripts.github.io/circle-flags/flags/${img}.svg`}
         style={{ maxWidth: "none" }}
       />
@@ -134,166 +154,164 @@ export default function Navbar(props: Props) {
   mobileItems.push(...rightItems);
 
   admin &&
-    rightItems.unshift({
+    !backoffice &&
+    rightItems[0] &&
+    rightItems[0].items &&
+    rightItems[0].items.unshift({
       title: "Backoffice",
       url: sanitizeURL(window.Routes.backoffice_path),
       turbo: "true",
     });
 
-  admin &&
-    mobileItems.unshift({
-      title: "Backoffice",
-      url: sanitizeURL(window.Routes.backoffice_path),
-      turbo: "true",
-    });
-
-  const showBtnOnNavbar = sanitizeURL(window.Routes.sell_path) !==
+  const ctaBtn = sanitizeURL(window.Routes.sell_path) !==
     window.location.pathname && (
     <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
-      <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
+      <div className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark mr-4">
         <p>{i18n.t("home.cta.long")}</p>
       </div>
     </a>
   );
 
-  // const backofficeBtn = admin &&
-  //   !window.location.pathname.includes("backoffice") && (
-  //     <a href={sanitizeURL(window.Routes.backoffice_path)} data-turbo={false}>
-  //       <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-  //         <p>{i18n.t("navbar.backoffice")}</p>
-  //       </div>
-  //     </a>
-  //   );
-
-  const resourceBtn = admin && resource && (
-    <a href={resource.path} data-turbo={false}>
-      <div className="ml-2 whitespace-nowrap bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-        <p>Editar {resource.name} no Backoffice</p>
-      </div>
-    </a>
-  );
-
-  const adminBtns = admin && (
-    <div className="z-10 absolute top-24 left-0 flex">
-      {/* {backofficeBtn} */}
-      {resourceBtn}
-    </div>
-  );
-
   return (
     <div>
-      <nav className="bg-white container mx-auto">
+      <nav className="bg-white dark:bg-dark container mx-auto">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between min-h-[4rem]">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 relative">
-                <a
-                  data-turbo="true"
-                  href={sanitizeURL(window.Routes.root_path)}
+          <div>
+            <div className="flex items-center justify-between min-h-[4rem]">
+              <div className="flex items-center">
+                <div className="flex-shrink-0 relative">
+                  <a
+                    data-turbo="true"
+                    href={sanitizeURL(window.Routes.root_path)}
+                  >
+                    <img
+                      loading="lazy"
+                      className="w-[6rem] relative z-10"
+                      id="nav-logo"
+                      src={
+                        isDarkModeActive()
+                          ? "/logos/main_white.webp"
+                          : "/logos/main.webp"
+                      }
+                      alt="Sofia Galvão Group Logo"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <div className="hidden tablet:block">
+                  <div className="ml-4 flex items-baseline flex-wrap justify-center">
+                    {middleItems?.map(item => {
+                      if (item.items?.length && item.items.length > 0) {
+                        return (
+                          <Suspense
+                            key={`${item.title}_middle`}
+                            fallback={<div>Loading...</div>}
+                          >
+                            <DropdownLink
+                              title={item.title}
+                              items={item.items}
+                              img={item.img}
+                            />
+                          </Suspense>
+                        );
+                      } else {
+                        return (
+                          <Suspense
+                            fallback={<div>Loading...</div>}
+                            key={`${item.title}_middle`}
+                          >
+                            <NavbarItem item={item} />
+                          </Suspense>
+                        );
+                      }
+                    })}
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <div className="hidden tablet:block">
+                  <div className="ml-4 flex items-baseline">
+                    {!backoffice && <Socials small />}
+                    {rightItems?.map(item => {
+                      if (item.items?.length && item.items.length > 0) {
+                        return (
+                          <Suspense
+                            key={`${item.title}_right`}
+                            fallback={<div>Loading...</div>}
+                          >
+                            <DropdownLink
+                              title={item.title}
+                              items={item.items}
+                              img={item.img}
+                            />
+                          </Suspense>
+                        );
+                      } else {
+                        return (
+                          <Suspense
+                            fallback={<div>Loading...</div>}
+                            key={`${item.title}_right`}
+                          >
+                            <NavbarItem item={item} />
+                          </Suspense>
+                        );
+                      }
+                    })}
+                  </div>
+                </div>
+              </div>
+              <div className="-mr-2 flex justify-end tablet:hidden relative">
+                {ctaBtn}
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  type="button"
+                  className="bg-white dark:bg-dark inline-flex items-center justify-center p-2 rounded-md text-dark dark:text-light"
+                  aria-controls="mobile-menu"
+                  aria-expanded="false"
                 >
-                  <img
-                    loading="lazy"
-                    className="w-[8rem] relative z-10"
-                    src="/logos/main_color.webp"
-                    alt="Sofia Galvão Group Logo"
-                  />
-                </a>
-                {adminBtns}
+                  <span className="sr-only">Open main menu</span>
+                  {!isOpen ? (
+                    <svg
+                      className="block h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M4 6h16M4 12h16M4 18h16"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="block h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  )}
+                </button>
               </div>
             </div>
-            <div className="flex items-center">
-              <div className="hidden tablet:block">
-                <div className="ml-10 flex items-baseline flex-wrap justify-center">
-                  {middleItems?.map(item => {
-                    if (item.items?.length && item.items.length > 0) {
-                      return (
-                        <Suspense
-                          key={`${item.title}_middle`}
-                          fallback={<div>Loading...</div>}
-                        >
-                          <DropdownLink title={item.title} items={item.items} />
-                        </Suspense>
-                      );
-                    } else {
-                      return (
-                        <Suspense
-                          fallback={<div>Loading...</div>}
-                          key={`${item.title}_middle`}
-                        >
-                          <NavbarItem item={item} />
-                        </Suspense>
-                      );
-                    }
-                  })}
-                </div>
+            {!backoffice && (
+              <div className="tablet:hidden">
+                <Socials small />
               </div>
-            </div>
-            <div className="flex items-center">
-              <div className="hidden tablet:block">
-                <div className="ml-10 flex items-baseline">
-                  {showBtnOnNavbar}
-                  {rightItems?.map(item => {
-                    return (
-                      <Suspense
-                        fallback={<div>Loading...</div>}
-                        key={`${item.title}_right`}
-                      >
-                        <NavbarItem item={item} />
-                      </Suspense>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-            <div className="-mr-2 flex tablet:hidden">
-              <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
-                <div className="whitespace-nowrap border-beige border-2 text-beige text-base px-4 py-2 rounded hover:bg-beige hover:text-white mr-4">
-                  <p>{i18n.t("home.cta.short")}</p>
-                </div>
-              </a>
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                type="button"
-                className="bg-white-900 inline-flex items-center justify-center p-2 rounded-md text-gray-800"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-              >
-                <span className="sr-only">Open main menu</span>
-                {!isOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
-              </button>
-            </div>
+            )}
           </div>
         </div>
 

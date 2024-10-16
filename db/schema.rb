@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_004116) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_14_224905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,7 +57,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_004116) do
     t.text "meta_title"
     t.text "meta_description"
     t.string "slug"
+    t.string "video_link"
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
+  end
+
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -109,6 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_004116) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "slug"
+    t.datetime "deleted_at"
     t.index ["listing_id", "locale"], name: "index_listing_translations_on_listing_id_and_locale", unique: true
     t.index ["locale"], name: "index_listing_translations_on_locale"
   end
@@ -117,7 +122,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_004116) do
     t.json "stats"
     t.string "address"
     t.string "features", default: [], array: true
-    t.string "price"
     t.string "title"
     t.string "url"
     t.text "description"
@@ -132,6 +136,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_004116) do
     t.integer "status"
     t.string "video_link"
     t.string "slug"
+    t.integer "price_cents", default: 0, null: false
+    t.integer "kind", default: 0, null: false
+    t.integer "objective", default: 0, null: false
+    t.string "virtual_tour_url"
     t.index ["deleted_at"], name: "index_listings_on_deleted_at"
     t.index ["listing_complex_id"], name: "index_listings_on_listing_complex_id"
     t.index ["slug"], name: "index_listings_on_slug", unique: true

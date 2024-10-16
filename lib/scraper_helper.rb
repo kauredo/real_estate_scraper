@@ -37,7 +37,7 @@ module ScraperHelper
   end
 
   def self.check_if_invalid?(browser)
-    sleep 5 # wait for the page to load fully
+    sleep ENV['SLEEP_TIME']&.to_i || 5 # wait for the page to load fully
     valid = browser.text.downcase.include? 'imóveis'
     if valid
       false

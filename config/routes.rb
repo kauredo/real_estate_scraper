@@ -4,6 +4,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   match '(*any)', to: redirect(subdomain: ''), via: :all, constraints: { subdomain: 'www' }
+  post '/toggle_dark_mode', to: 'application#toggle_dark_mode'
 
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     devise_scope :admin do
@@ -18,13 +19,12 @@ Rails.application.routes.draw do
 
     # Defines the root path route ("/")
     root 'pages#home'
-    get '/sobre', to: 'pages#about', as: :about
     get '/servicos', to: 'pages#services', as: :services
-    get '/casa_360', to: 'pages#house_360', as: :house_360
-    get '/kw', to: 'pages#kw', as: :kw
+    get '/kw', to: 'pages#about', as: :about
     get '/privacidade', to: 'pages#privacy', as: :privacy
     get '/termos_e_condicoes', to: 'pages#terms_and_conditions', as: :terms_and_conditions
     get '/contactos', to: 'pages#contact', as: :contact
+    get '/faq', to: 'pages#faq', as: :faq
     post '/novo_contacto', to: 'pages#new_contact', as: :new_contact
     get '/empreendimentos', to: 'listing_complexes#index', as: :latest
     get '/empreendimentos/:id', to: 'listing_complexes#show', as: :listing_complex
@@ -42,6 +42,10 @@ Rails.application.routes.draw do
       end
     end
 
+    # redirect from /about to /kw
+    get '/about', to: redirect('/kw')
+    get '/sobre', to: redirect('/kw')
+
     namespace :backoffice do
       get '/', to: 'pages#home'
       resources :variables, only: %i[create update destroy]
@@ -49,6 +53,7 @@ Rails.application.routes.draw do
       resources :listings, only: %i[index create edit update destroy] do
         member do
           post '/update_details', to: 'listings#update_details'
+          post '/recover', to: 'listings#recover'
         end
         collection do
           post '/update_all', to: 'listings#update_all'
