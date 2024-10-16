@@ -23,12 +23,12 @@ export default function Results(props: Props) {
       id="results"
       className="container mx-auto flex flex-col justify-between items-center min-h-[30vh] md:py-8 text-dark dark:text-light"
     >
-      <div className="text-center w-full container mx-auto text-2xl flex flex-col sm:flex-row justify-center items-center flex-wrap pb-0 sm:pb-6 p-6 pt-6 sm:pt-2">
+      <div className="text-center w-full container mx-auto text-2xl flex flex-col sm:flex-row justify-center items-center flex-wrap pb-0 sm:pb-6 p-6 pt-6 sm:pt-2 gap-2">
         {variables?.map(variable => {
           return (
             <div
               key={variable.name}
-              className="variable w-fit flex flex-col justify-center items-center p-4 md:py-0"
+              className="variable w-62 flex flex-col justify-center items-center p-4 md:py-0"
             >
               <i
                 className={`text-8xl min-h-1/4 m-2 text-beige-default dark:text-beige-dark ${variable.icon}`}
@@ -36,7 +36,7 @@ export default function Results(props: Props) {
               ></i>
               {variable === volume ? (
                 <>
-                  <h2 className="">
+                  <h2 className="w-56">
                     <CountUp
                       end={parseInt(variable.value)}
                       redraw={true}
