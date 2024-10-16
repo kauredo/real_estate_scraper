@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_172515) do
     t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "jti", null: false
+    t.string "jti", default: -> { "gen_random_uuid()" }, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["jti"], name: "index_admins_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
@@ -60,6 +60,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_172515) do
     t.text "meta_description"
     t.string "slug"
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
+  end
+
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
