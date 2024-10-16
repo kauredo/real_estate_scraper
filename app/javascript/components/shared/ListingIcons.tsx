@@ -12,7 +12,7 @@ import { gsubMeterSquare } from "../utils/Functions";
 export default function ListingIcons({ listing }) {
   return (
     <>
-      <div className="flex justify-between items-center mt-4 text-dark dark:text-beige-default">
+      <div className="flex flex-1 justify-between items-end mt-4 text-dark dark:text-beige-default">
         <div className="flex gap-2">
           {listing.stats && listing.stats["Quartos"] && (
             <div className="flex">

@@ -33,7 +33,7 @@ export default function Listings(props: Props) {
   }
 
   return (
-    <div className="container mx-auto" id="listings">
+    <div className="container mx-auto flex flex-wrap" id="listings">
       {listings?.map(listing => {
         return (
           <LongCard
