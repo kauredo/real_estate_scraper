@@ -2,20 +2,18 @@
 
 ### Complex stuff
 
-- add videos to blog post (like enterprises)
-
 ### Research
 
 - instagram embed somewhere
 
 ### UI
 
-- home page is too empty at first sight
 - after advanced search/end of comprar page - have text and link to services and contact.
 
 ## DONE
 
 - Change action "avalie a sua casa" to white on gold
+- add videos to blog post (like enterprises)
 - On services and about us, change action to "fale connosco" and point to contacts page
 - add border to listings with status "NEW"
 - merge services and house360 into one page - have "for buyer" and "for seller" sections in the page (see docs)
