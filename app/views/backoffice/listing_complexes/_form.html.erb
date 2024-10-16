@@ -97,7 +97,7 @@
     <div class="flex flex-col sm:items-center gap-2 sm:gap-4 md:gap-6">
       <%= f.collection_check_boxes :listing_ids, Listing.all, :id, :title, {}, { multiple: true, class: 'hidden' } do |listing| %>
         <div class="flex space-between sm:items-center">
-          <span class="w-1/4">
+          <span class="w-fit">
             <%= listing.check_box %>
           </span>
           <%= react_component 'indexPage--LongCard', { listing: listing.object, small: true } %>

@@ -10,7 +10,6 @@ class Listing
 
     def destroy
       update(deleted_at: Time.zone.now)
-      binding.pry
       true
     end
 
