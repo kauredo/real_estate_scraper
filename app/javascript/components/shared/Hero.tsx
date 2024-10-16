@@ -44,7 +44,7 @@ function Hero(props: Props) {
         <div className="flex justify-center">
           <a href={sanitizeURL(window.Routes.buy_path)}>
             <div className="px-5 lowercase">
-              <p className="text-dark dark:text-light">
+              <p className="text-dark dark:text-light hover:text-beige-default dark:hover:text-beige-medium">
                 {i18n.t("navbar.buy")}
               </p>
             </div>
@@ -54,13 +54,13 @@ function Hero(props: Props) {
             data-turbolinks={false}
           >
             <div className="px-5 lowercase">
-              <p className="text-dark dark:text-light">
+              <p className="text-dark dark:text-light hover:text-beige-default dark:hover:text-beige-medium">
                 {i18n.t("navbar.sell")}
               </p>
             </div>
           </a>
           <a href="#cards">
-            <div className="px-5 text-dark dark:text-light">
+            <div className="px-5 text-dark dark:text-light hover:text-beige-default dark:hover:text-beige-medium">
               <i className="fas fa-arrow-down"></i>
             </div>
           </a>

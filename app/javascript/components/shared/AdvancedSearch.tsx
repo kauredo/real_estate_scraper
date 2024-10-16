@@ -62,7 +62,7 @@ export default function AdvancedSearch(props: Props) {
                 e.currentTarget.form?.submit();
               }
             }}
-            className="w-full p-2 rounded-md border border-gray-300 bg-white dark:bg-light dark:text-black"
+            className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black"
           />
         </div>
         {/* New stats fields */}
@@ -77,7 +77,7 @@ export default function AdvancedSearch(props: Props) {
                 name={`q[${key}_eq]`}
                 value={statsFilters?.[`${key}_eq`] || ""}
                 onChange={handleStatChange}
-                className="w-full p-2 rounded-md border border-gray-300 bg-white dark:bg-light dark:text-black h-[42px]"
+                className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px]"
               >
                 <option value="">{i18n.t("listing.search.any")}</option>
                 {[...Array(11).keys()].map(num => (

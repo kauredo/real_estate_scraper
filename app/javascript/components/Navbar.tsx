@@ -166,7 +166,7 @@ export default function Navbar(props: Props) {
   const ctaBtn = sanitizeURL(window.Routes.sell_path) !==
     window.location.pathname && (
     <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
-      <div className="whitespace-nowrap border-beige-default dark:border-beige-dark border-2 text-beige-default dark:text-beige-dark text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-dark hover:text-white dark:hover:text-dark mr-4">
+      <div className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark mr-4">
         <p>{i18n.t("home.cta.long")}</p>
       </div>
     </a>
