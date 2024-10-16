@@ -60,7 +60,7 @@ export default function Show(props: Props) {
     <>
       {listing.video_link && isOpen && (
         <section
-          className="modal bg-beige-default dark:bg-beige-dark fixed top-0 bottom-0 w-full h-full"
+          className="modal bg-beige-default dark:bg-beige-medium fixed top-0 bottom-0 w-full h-full"
           style={{ zIndex: 100 }}
         >
           <div
@@ -115,7 +115,7 @@ export default function Show(props: Props) {
                 <div className="mb-2">
                   <button
                     onClick={() => setOpen(true)}
-                    className="cursor-pointer bg-beige-default dark:bg-beige-dark text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    className="cursor-pointer bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   >
                     {i18n.t("listing.watch_video")}
                   </button>
@@ -128,7 +128,7 @@ export default function Show(props: Props) {
                     onClick={() =>
                       window.open(listing.virtual_tour_url, "_blank")
                     }
-                    className="cursor-pointer bg-beige-default dark:bg-beige-dark text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    className="cursor-pointer bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   >
                     {i18n.t("listing.open_tour")}
                   </button>

@@ -20,7 +20,7 @@ export default function Socials(props: Props) {
   }`;
 
   const iconClasses = `flex items-center text-gray-600 dark:text-light ${
-    small ? "hover:text-beige-default dark:hover:text-beige-dark" : "mb-4"
+    small ? "hover:text-beige-default dark:hover:text-beige-medium" : "mb-4"
   }`;
 
   return (

@@ -31,7 +31,7 @@ export default function Results(props: Props) {
               className="variable w-62 flex flex-col justify-center items-center p-4 md:py-0"
             >
               <i
-                className={`text-8xl min-h-1/4 m-2 text-beige-default dark:text-beige-dark ${variable.icon}`}
+                className={`text-8xl min-h-1/4 m-2 text-beige-default dark:text-beige-medium ${variable.icon}`}
                 aria-hidden="true"
               ></i>
               {variable === volume ? (

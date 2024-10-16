@@ -1,8 +1,8 @@
 <div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap gap-1 justify-between">
   <%# Variáveis %>
-  <div class="w-full sm:w-[49%] shadow-md rounded px-8 py-4 mt-4 dark:border-beige-dark dark:border-2">
+  <div class="w-full sm:w-[49%] shadow-md rounded px-8 py-4 mt-4 dark:border-beige-medium dark:border-2">
     <h2 class="text-2xl font-bold leading-7 text-dark dark:text-light  text-center sm:text-3xl">Variáveis</h2>
-    <p class="text-gray-500 dark:text-light pt-3 max-w-none">Nota: copiar ícones do site <a class="text-beige-default dark:text-beige-dark underline" href="https://fontawesome.com/v5/search?m=free" target="_blank">fontawesome.com/v5</a>, por exemplo: "fas fa-home"</p>
+    <p class="text-gray-500 dark:text-light pt-3 max-w-none">Nota: copiar ícones do site <a class="text-beige-default dark:text-beige-medium underline" href="https://fontawesome.com/v5/search?m=free" target="_blank">fontawesome.com/v5</a>, por exemplo: "fas fa-home"</p>
     <% @variables.each do |var| %>
       <%= form_for(var, url: backoffice_variable_path(var), html: { method: :put, class: 'my-6' }) do |f| %>
         <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
@@ -26,7 +26,7 @@
     <% end %>
   </div>
   <%# Colleagues %>
-  <div class="w-full sm:w-[49%] shadow-md rounded px-8 py-4 mt-4 dark:border-beige-dark dark:border-2">
+  <div class="w-full sm:w-[49%] shadow-md rounded px-8 py-4 mt-4 dark:border-beige-medium dark:border-2">
     <h2 class="text-2xl font-bold leading-7 text-dark dark:text-light  text-center sm:text-3xl">Links de Imóveis</h2>
     <p class="text-gray-500 dark:text-light pt-3 max-w-none">Nota: este campo pode ser usado para adicionar imóveis de colegas, ou para ir buscar a informação mais recente de qualquer imóvel já na plataforma (tanto em Português como em Inglês).</p>
     <%= form_for(Listing.new, url: backoffice_listings_path, html: { class: 'my-6' }) do |f| %>
@@ -37,7 +37,7 @@
     <% end %>
   </div>
   <%# Newsletter Subs %>
-  <div class="w-full sm:w-[49%] shadow-md rounded px-8 py-4 mt-4 dark:border-beige-dark dark:border-2">
+  <div class="w-full sm:w-[49%] shadow-md rounded px-8 py-4 mt-4 dark:border-beige-medium dark:border-2">
     <h2 class="text-2xl font-bold leading-7 text-dark dark:text-light  text-center sm:text-3xl">Subscrições à Newsletter</h2>
     <div class="my-6 field mb-4 flex flex-col flex-wrap sm:flex-row items-center gap-4">
       <ul class="list-disc" style="list-style-position: inside;">

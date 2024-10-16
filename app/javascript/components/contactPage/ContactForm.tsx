@@ -46,7 +46,7 @@ export default function ContactForm(props: Props) {
           ? i18n.t("contacts.form.titles.visit")
           : i18n.t("contacts.form.titles.main")}
 
-        <span className="flex items-center font-medium tracking-wide text-beige-default dark:text-beige-dark text-xs mt-1 ml-1">
+        <span className="flex items-center font-medium tracking-wide text-beige-default dark:text-beige-medium text-xs mt-1 ml-1">
           {i18n.t("contacts.form.consent")}
         </span>
         {error && (
@@ -68,7 +68,7 @@ export default function ContactForm(props: Props) {
             name="contact[name]"
             onChange={e => setName(e.target.value)}
             className={
-              "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-dark " +
+              "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
             }
           />
@@ -80,7 +80,7 @@ export default function ContactForm(props: Props) {
             name="contact[email]"
             onChange={e => setEmail(e.target.value)}
             className={
-              "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-dark " +
+              "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
             }
           />
@@ -92,7 +92,7 @@ export default function ContactForm(props: Props) {
             name="contact[phone]"
             onChange={e => setPhone(e.target.value)}
             className={
-              "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-dark " +
+              "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
             }
           />
@@ -104,7 +104,7 @@ export default function ContactForm(props: Props) {
             name="contact[message]"
             onChange={e => setMessage(e.target.value)}
             className={
-              "w-full py-3 px-[14px] bg-white dark:bg-light border resize-none outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-dark " +
+              "w-full py-3 px-[14px] bg-white dark:bg-light border resize-none outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
             }
           ></textarea>
@@ -119,7 +119,7 @@ export default function ContactForm(props: Props) {
           <button
             type="submit"
             className={
-              "w-full font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-dark border dark:border-0 p-3 transition hover:bg-opacity-90 " +
+              "w-full font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-medium border dark:border-0 p-3 transition hover:bg-opacity-90 " +
               (listing || complex ? "" : "rounded")
             }
           >

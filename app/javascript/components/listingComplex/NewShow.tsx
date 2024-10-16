@@ -52,7 +52,7 @@ export default function NewShow(props: Props) {
 
   return (
     <div className="relative container mx-auto text-black dark:text-light">
-      <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige-default dark:bg-beige-dark text-white dark:text-dark px-4 py-2">
+      <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige-default dark:bg-beige-medium text-white dark:text-dark px-4 py-2">
         <h1 className="standard">{complex.name}</h1>
       </div>
       <section className="tablet:grid overflow-hidden tablet:grid-cols-3 tablet:grid-rows-1 gap-2 py-8 mx-2">
@@ -82,7 +82,7 @@ export default function NewShow(props: Props) {
             <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white dark:bg-dark m-2 tablet:mx-0 h-fit">
               <table className="text-sm w-full border-collapse border border-slate-500">
                 <thead>
-                  <tr className="bg-beige-default dark:bg-beige-dark text-white dark:text-dark">
+                  <tr className="bg-beige-default dark:bg-beige-medium text-white dark:text-dark">
                     <th className="border border-white dark:border-dark border-l-slate-700 p-2">
                       {i18n.t("enterprises.show.type")}
                     </th>
@@ -115,7 +115,7 @@ export default function NewShow(props: Props) {
                       >
                         <td className=" p-2 relative">
                           {["agreed"].includes(listing.status) && (
-                            <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige-default dark:bg-beige-dark font-bold text-white dark:text-dark opacity-50 flex items-center justify-center"></span>
+                            <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige-default dark:bg-beige-medium font-bold text-white dark:text-dark opacity-50 flex items-center justify-center"></span>
                           )}
                           {["sold"].includes(listing.status) && (
                             <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white dark:text-dark opacity-50 flex items-center justify-center"></span>
@@ -151,7 +151,7 @@ export default function NewShow(props: Props) {
                                 listing.slug
                               )}
                               target="_blank"
-                              className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige-default dark:hover:bg-beige-dark text-beige-default dark:text-beige-dark hover:text-white dark:hover:text-dark py-1 px-2 border border-beige-default dark:border-beige-dark hover:border-transparent rounded"
+                              className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige-default dark:hover:bg-beige-medium text-beige-default dark:text-beige-medium hover:text-white dark:hover:text-dark py-1 px-2 border border-beige-default dark:border-beige-medium hover:border-transparent rounded"
                             >
                               {i18n.t("enterprises.show.more")}
                             </a>
@@ -170,7 +170,7 @@ export default function NewShow(props: Props) {
             <div className="overflow-x-scroll tablet:overflow-auto p-4 description w-full tablet:w-1/2 bg-white dark:bg-dark m-2 tablet:mx-0 h-fit">
               <table className="text-sm w-full border-collapse border border-slate-500">
                 <thead>
-                  <tr className="bg-beige-default dark:bg-beige-dark text-white dark:text-dark">
+                  <tr className="bg-beige-default dark:bg-beige-medium text-white dark:text-dark">
                     <th className="border border-white dark:border-dark p-2">
                       {i18n.t("enterprises.show.bedrooms")}
                     </th>

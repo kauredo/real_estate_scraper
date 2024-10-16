@@ -14,8 +14,8 @@ export default function Pagination(props: Props) {
   if (pagy.pages > 1) {
     return (
       <div className="flex items-center justify-center py-4 md:py-10 sm:px-6 px-4 container mx-auto">
-        <div className="w-full flex items-center justify-between border-t border-gray-200 dark:border-beige-dark">
-          <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-dark cursor-pointer">
+        <div className="w-full flex items-center justify-between border-t border-gray-200 dark:border-beige-medium">
+          <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
             {pagy.prev && (
               <>
                 <a href={pagy.prev_url}>
@@ -60,11 +60,11 @@ export default function Pagination(props: Props) {
           <div className="sm:flex hidden">
             {pagy.series?.map(page => {
               let classes =
-                "text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-dark border-t border-transparent hover:border-beige-default dark:hover:border-beige-dark pt-3 mr-4 px-2";
+                "text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium border-t border-transparent hover:border-beige-default dark:hover:border-beige-medium pt-3 mr-4 px-2";
               classes =
                 currentPage === page
                   ? classes +
-                    " !text-beige-default dark:!text-beige-dark !border-beige-default dark:!border-beige-dark"
+                    " !text-beige-default dark:!text-beige-medium !border-beige-default dark:!border-beige-medium"
                   : classes;
               let href =
                 currentPage === page
@@ -87,7 +87,7 @@ export default function Pagination(props: Props) {
               );
             })}
           </div>
-          <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-dark cursor-pointer">
+          <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
             {pagy.next && pagy.next_url && (
               <>
                 <a href={pagy.next_url}>
@@ -135,6 +135,6 @@ export default function Pagination(props: Props) {
   }
 
   return (
-    <div className="mx-auto border-t border-gray-200 dark:border-beige-dark mb-4 mt-8 w-[90%] md:w-3/5"></div>
+    <div className="mx-auto border-t border-gray-200 dark:border-beige-medium mb-4 mt-8 w-[90%] md:w-3/5"></div>
   );
 }

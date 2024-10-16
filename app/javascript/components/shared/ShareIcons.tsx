@@ -35,7 +35,7 @@ export default function ShareIcons(props: Props) {
     <div className="mx-auto mb-4 font-bold flex items-center gap-2 h-5 w-fit text-xl">
       <h5 className="uppercase">{i18n.t("share.title")}: </h5>
       <div
-        className="hover:text-beige-default dark:hover:text-beige-dark"
+        className="hover:text-beige-default dark:hover:text-beige-medium"
         title={i18n.t("share.whatsapp")}
       >
         <WhatsappShareButton url={shareUrl} title={title} separator=":: ">
@@ -43,7 +43,7 @@ export default function ShareIcons(props: Props) {
         </WhatsappShareButton>
       </div>
       <div
-        className="hover:text-beige-default dark:hover:text-beige-dark"
+        className="hover:text-beige-default dark:hover:text-beige-medium"
         title={i18n.t("share.messenger")}
       >
         <FacebookMessengerShareButton url={shareUrl} appId="521270401588372">
@@ -51,7 +51,7 @@ export default function ShareIcons(props: Props) {
         </FacebookMessengerShareButton>
       </div>
       <div
-        className="hover:text-beige-default dark:hover:text-beige-dark"
+        className="hover:text-beige-default dark:hover:text-beige-medium"
         title={i18n.t("share.telegram")}
       >
         <TelegramShareButton url={shareUrl} title={title}>
@@ -59,7 +59,7 @@ export default function ShareIcons(props: Props) {
         </TelegramShareButton>
       </div>
       <div
-        className="hover:text-beige-default dark:hover:text-beige-dark"
+        className="hover:text-beige-default dark:hover:text-beige-medium"
         title={i18n.t("share.facebook")}
       >
         <FacebookShareButton url={shareUrl}>
@@ -67,7 +67,7 @@ export default function ShareIcons(props: Props) {
         </FacebookShareButton>
       </div>
       <div
-        className="hover:text-beige-default dark:hover:text-beige-dark"
+        className="hover:text-beige-default dark:hover:text-beige-medium"
         title={i18n.t("share.twitter")}
       >
         <TwitterShareButton url={shareUrl} title={title}>
@@ -75,14 +75,14 @@ export default function ShareIcons(props: Props) {
         </TwitterShareButton>
       </div>
       <div
-        className="hover:text-beige-default dark:hover:text-beige-dark"
+        className="hover:text-beige-default dark:hover:text-beige-medium"
         title={i18n.t("share.email")}
       >
         <EmailShareButton url={shareUrl} subject={title}>
           <FontAwesomeIcon icon={faEnvelope as IconProp} />
         </EmailShareButton>
       </div>
-      <div className="hover:text-beige-default dark:hover:text-beige-dark">
+      <div className="hover:text-beige-default dark:hover:text-beige-medium">
         <button onClick={handleCopy} title={i18n.t("share.copy")}>
           <FontAwesomeIcon icon={faLink as IconProp} />
         </button>

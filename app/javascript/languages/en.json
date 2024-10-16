@@ -360,7 +360,7 @@
         "price": "Price",
         "type": "Type"
       },
-      "subheader": "Why to buy at <span class=\"underline decoration-beige-default dark:decoration-beige-dark\">the Planning Stage?</span>",
+      "subheader": "Why to buy at <span class=\"underline decoration-beige-default dark:decoration-beige-medium\">the Planning Stage?</span>",
       "subtitle": {
         "description": "Discover our real estate development projects, which offer unique investment opportunities. With buy-at-the-planning-stage options, you can personalise your property and invest in properties with a high potential for capital appreciation. Our team provides detailed information on each development, including location, payment plans and return potential.",
         "title": "Investment Opportunities"
