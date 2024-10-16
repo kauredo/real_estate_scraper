@@ -14,7 +14,7 @@ export default function Pagination(props: Props) {
   if (pagy.pages > 1) {
     return (
       <div className="flex items-center justify-center py-4 md:py-10 sm:px-6 px-4 container mx-auto">
-        <div className="w-full flex items-center justify-between border-t border-gray-200">
+        <div className="w-full flex items-center justify-between border-t border-gray-200 dark:border-beige-dark">
           <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-dark cursor-pointer">
             {pagy.prev && (
               <>
@@ -135,6 +135,6 @@ export default function Pagination(props: Props) {
   }
 
   return (
-    <div className="mx-auto border-t border-gray-200 mb-4 mt-8 w-[90%] md:w-3/5"></div>
+    <div className="mx-auto border-t border-gray-200 dark:border-beige-dark mb-4 mt-8 w-[90%] md:w-3/5"></div>
   );
 }

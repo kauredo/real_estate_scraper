@@ -17,6 +17,7 @@ module.exports = {
       colors: {
         beige: {
           default: "#d3af79",
+          medium: "#b08e5e",
           dark: "#775727",
         },
         chocolate: "#141301",

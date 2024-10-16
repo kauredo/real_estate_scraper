@@ -60,9 +60,9 @@ export default function Cards(props: Props) {
                 <button
                   key={`${location}-tab`}
                   onClick={() => setSelectedLocation(location)}
-                  className={`whitespace-nowrap py-4 px-6 block hover:text-beige-default dark:hover:text-beige-dark hover:border-beige-default dark:hover:border-beige-dark focus:outline-none border-b-2 font-medium ${
+                  className={`whitespace-nowrap py-4 px-6 block hover:text-beige-default dark:hover:text-beige-medium hover:border-beige-default dark:hover:border-beige-medium focus:outline-none border-b-2 font-medium ${
                     selectedLocation === location
-                      ? "border-beige-default dark:border-beige-dark text-beige-default dark:text-beige-dark"
+                      ? "border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium"
                       : "border-grey text-grey dark:text-light"
                   }`}
                 >
