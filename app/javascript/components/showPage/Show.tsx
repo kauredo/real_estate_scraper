@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Listing } from "../utils/Interfaces";
 import ContactForm from "../contactPage/ContactForm";
 import { i18n } from "../../languages/languages";
@@ -15,6 +15,7 @@ interface Props {
 export default function Show(props: Props) {
   const listing = props.listing;
   const [isOpen, setOpen] = useState(false);
+  const sliderRef = useRef<typeof Slider>(null);
 
   const settings = {
     autoplay: false,
@@ -36,6 +37,24 @@ export default function Show(props: Props) {
       src={photo}
     />
   ));
+
+  useEffect(() => {
+    const handleKeyDown = event => {
+      if (sliderRef.current) {
+        if (event.key === "ArrowLeft") {
+          sliderRef.current.slickPrev();
+        } else if (event.key === "ArrowRight") {
+          sliderRef.current.slickNext();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <>
@@ -82,7 +101,9 @@ export default function Show(props: Props) {
         </div>
         <div className="relative">
           <Overlay status={listing.status} />
-          <Slider {...settings}>{photos}</Slider>
+          <Slider {...settings} ref={sliderRef}>
+            {photos}
+          </Slider>
         </div>
         <div className="mt-20">
           <ShareIcons title={listing.title} />
