@@ -225,13 +225,13 @@ export default function PriceSlider(props: Props) {
         <div className="flex items-center flex-wrap">
           <button
             type="submit"
-            className="bg-beige-default dark:bg-beige-dark text-white dark:text-dark font-bold py-2 px-4 rounded w-full md:w-[23%]"
+            className="bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded w-full md:w-[23%]"
           >
             {i18n.t("listing.search.submit")}
           </button>
           <a
             href={sanitizeURL(window.Routes.buy_path)}
-            className="text-beige-default dark:text-beige-dark font-bold underline sm:ml-2 mt-2 sm:mt-0 w-full md:w-[23%]"
+            className="text-beige-default dark:text-beige-medium font-bold underline sm:ml-2 mt-2 sm:mt-0 w-full md:w-[23%]"
           >
             {i18n.t("listing.reset_filters")}
           </a>

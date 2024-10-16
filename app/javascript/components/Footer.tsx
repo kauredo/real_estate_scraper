@@ -29,7 +29,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-beige-default dark:bg-beige-dark p-4 sm:p-12 mt-12">
+    <footer className="bg-beige-default dark:bg-beige-medium p-4 sm:p-12 mt-12">
       <div className="container mx-auto">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a

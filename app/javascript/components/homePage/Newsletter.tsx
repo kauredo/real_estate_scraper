@@ -35,7 +35,7 @@ export default function Newsletter() {
         </h2>
         <p className="mb-8 leading-relaxed mx-2 tablet:mr-4 text-dark dark:text-light">
           {i18n.t("home.newsletter.subtitle")}
-          <span className="flex items-center font-medium tracking-wide text-beige-default dark:text-beige-dark text-xs">
+          <span className="flex items-center font-medium tracking-wide text-beige-default dark:text-beige-medium text-xs">
             {i18n.t("home.newsletter.terms")}
           </span>
         </p>
@@ -47,7 +47,7 @@ export default function Newsletter() {
         >
           <div className="w-full">
             <input
-              className="border-l-4 border-beige-default dark:border-beige-dark bg-white dark:bg-light focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
+              className="border-l-4 border-beige-default dark:border-beige-medium bg-white dark:bg-light focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
               placeholder={i18n.t("home.newsletter.form.fields.name")}
               name="newsletter[name]"
               type="text"
@@ -55,7 +55,7 @@ export default function Newsletter() {
               onChange={e => setName(e.target.value)}
             />
             <input
-              className="border-l-4 border-beige-default dark:border-beige-dark bg-white dark:bg-light focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
+              className="border-l-4 border-beige-default dark:border-beige-medium bg-white dark:bg-light focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
               placeholder={i18n.t("home.newsletter.form.fields.email")}
               name="newsletter[email]"
               type="text"
@@ -63,7 +63,7 @@ export default function Newsletter() {
               onChange={e => setEmail(e.target.value)}
             />
             <input
-              className="w-4/5 inline-flex text-white dark:text-dark py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-beige-default dark:bg-beige-dark cursor-pointer"
+              className="w-4/5 inline-flex text-white dark:text-dark py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-beige-default dark:bg-beige-medium cursor-pointer"
               required
               type="submit"
               value={i18n.t("home.newsletter.form.fields.subscribe")}

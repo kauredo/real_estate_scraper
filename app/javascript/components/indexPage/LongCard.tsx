@@ -125,8 +125,8 @@ export default function LongCard(props: Props) {
         <div
           className={
             small
-              ? "h-48 relative m-0 shadow-lg flex flex-row bg-white dark:bg-dark dark:border-beige-dark dark:border-2"
-              : "md:h-80 relative m-0 shadow-lg flex flex-col sm:flex-row bg-white dark:bg-dark dark:border-beige-dark dark:border-2"
+              ? "h-48 relative m-0 shadow-lg flex flex-row bg-white dark:bg-dark dark:border-beige-medium dark:border-2"
+              : "md:h-80 relative m-0 shadow-lg flex flex-col sm:flex-row bg-white dark:bg-dark dark:border-beige-medium dark:border-2"
           }
         >
           <div

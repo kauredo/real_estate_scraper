@@ -24,7 +24,7 @@ export const ReadMore = (props: Props) => {
         {isReadMore ? text.slice(0, length) : text}
         <span
           onClick={toggleReadMore}
-          className="cursor-pointer text-beige-default dark:text-beige-dark font-bold hover:underline"
+          className="cursor-pointer text-beige-default dark:text-beige-medium font-bold hover:underline"
         >
           {isReadMore
             ? i18n.t("listing.text.more")

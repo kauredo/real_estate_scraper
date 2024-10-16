@@ -36,7 +36,7 @@ export default function AdvancedSearch(props: Props) {
     <div className="flex flex-col">
       <button
         onClick={toggleAdvancedSearch}
-        className="text-beige-default dark:text-beige-dark text-lg font-bold underline text-left mb-2"
+        className="text-beige-default dark:text-beige-medium text-lg font-bold underline text-left mb-2"
       >
         {i18n.t("listing.advanced_search")} {showAdvancedSearch ? "▲" : "▼"}
       </button>

@@ -424,7 +424,7 @@
         "price": "Preço",
         "type": "Natureza"
       },
-      "subheader": "Porquê Comprar <span class=\"underline decoration-beige-default dark:decoration-beige-dark\">em Planta?</span>",
+      "subheader": "Porquê Comprar <span class=\"underline decoration-beige-default dark:decoration-beige-medium\">em Planta?</span>",
       "subtitle": {
         "description": "Conheça os nossos projetos de empreendimentos imobiliários, que oferecem oportunidades únicas de investimento. Com opções de compra em planta, pode personalizar o seu imóvel e investir em propriedades com alto potencial de valorização. A nossa equipa fornece informações detalhadas sobre cada empreendimento, incluindo localização, planos de pagamento e potencial de retorno.",
         "title": "Oportunidades de Investimento"

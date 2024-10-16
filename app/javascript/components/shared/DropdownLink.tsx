@@ -56,7 +56,7 @@ const DropdownLink = (props: DropdownProps) => {
         href="#"
         ref={dropdownLinkRef}
         onClick={handleLinkClick}
-        className={`${className} flex flex-nowrap hover:bg-beige-default dark:hover:bg-beige-dark hover:text-white dark:hover:text-dark p-2 rounded-md font-medium`}
+        className={`${className} flex flex-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark p-2 rounded-md font-medium`}
       >
         {title}
         {img}
