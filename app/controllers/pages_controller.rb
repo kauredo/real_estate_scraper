@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       listingCount: listings.count,
       variables: Variable.all
     }
-    @photos = Listing.random_photos(listings, 3)
+    @photos = Listing.random_photos(listings.available, 3)
     @testimonials = Testimonial.all
   end
 

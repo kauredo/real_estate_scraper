@@ -43,6 +43,8 @@ class Listing < ApplicationRecord
                          all.group_by(&:city).to_h
                        }
 
+  scope :available, -> { where.not(status: :sold) }
+
   def self.with_deleted_ordered(additional_order = {})
     scope = unscoped
             .joins(Arel.sql("LEFT JOIN listing_translations ON listing_translations.listing_id = listings.id AND listing_translations.locale = '#{I18n.locale}'"))
