@@ -50,8 +50,8 @@ class ScrapeListingDetails
       language_list.a(text: target_language).click
 
       # go back on the page to refresh the page with the new language
-      browser.back
       browser.refresh
+      sleep ENV['SLEEP_TIME']&.to_i || 5
       retry_count += 1
     end
   end
