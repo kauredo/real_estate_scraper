@@ -192,7 +192,7 @@ class ScrapeListingDetails
   def self.save_listing(listing)
     # ActiveRecord::Base.connection_pool.release_connection
     # ActiveRecord::Base.connection_pool.with_connection do
-    if listing.save
+    if listing.save(validate: false)
       log "Finished listing \"#{listing.title}\""
     else
       log "ERROR: Listing at \"#{listing.url}\" has errors"
