@@ -11,7 +11,7 @@ class ScrapeAll
     scraper_service = RealEstateScraperService.new
     scraper_service.scrape_all
     scraper_service.destroy
-    RescrapeJob.perform_async
+    # RescrapeJob.perform_async
     FixDuplicatesJob.perform_async
     ScrapeListingDetails.log 'ScrapeAll DONE'
   end

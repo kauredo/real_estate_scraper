@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class RealEstateScraperService
+  attr_reader :browser
+
   def initialize(headless: true)
-    @browser = setup_browser(headless:)
+    @browser = ScraperHelper.setup_browser(headless:)
     @url = Constants::RealEstateScraper::BASE_URL
   end
 
@@ -61,40 +63,13 @@ class RealEstateScraperService
   end
 
   def destroy
-    @browser.close
+    @browser.quit
   end
 
   private
 
   def log(message)
     ScrapeListingDetails.log(message)
-  end
-
-  def setup_browser(headless: true)
-    args = ['--disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800', '--no-sandbox', '--incognito']
-    args << '--headless' if headless
-
-    options = Selenium::WebDriver::Chrome::Options.new(args:)
-
-    if Rails.env.production? || Rails.env.staging?
-      binary_path = '/opt/chrome-linux64/chrome'
-      options.binary = binary_path
-    end
-
-    max_attempts = 3
-    attempts = 0
-    begin
-      browser = Watir::Browser.new(:chrome, options:)
-    rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError => e
-      log "Attempt #{attempts + 1} failed: #{e.message}"
-      attempts += 1
-      raise e unless attempts < max_attempts
-
-      sleep 2
-      retry
-    end
-
-    browser
   end
 
   def scrape_total
