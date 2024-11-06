@@ -11,7 +11,7 @@ class ScrapeListingDetailsTest < ActiveSupport::TestCase
     options = Selenium::WebDriver::Chrome::Options.new(args:)
     @browser = Watir::Browser.new(:chrome, options:)
 
-    @imovel_url = "file://#{Rails.root.join('test', 'fixtures', 'files', 'kw_listing.html')}"
+    @imovel_url = "file://#{Rails.root.join('test/fixtures/files/kw_listing.html')}"
     @listing = Listing.create(url: @imovel_url)
   end
 

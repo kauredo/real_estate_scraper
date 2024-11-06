@@ -71,13 +71,30 @@ class RealEstateScraperService
   end
 
   def setup_browser(headless: true)
-    args = ['disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800']
-    args << 'headless' if headless
-    binary_path = '/opt/chrome-linux64/chrome'
+    args = ['--disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800', '--no-sandbox', '--incognito']
+    args << '--headless' if headless
 
     options = Selenium::WebDriver::Chrome::Options.new(args:)
-    options.binary = binary_path
-    Watir::Browser.new(:chrome, options:)
+
+    if Rails.env.production? || Rails.env.staging?
+      binary_path = '/opt/chrome-linux64/chrome'
+      options.binary = binary_path
+    end
+
+    max_attempts = 3
+    attempts = 0
+    begin
+      browser = Watir::Browser.new(:chrome, options:)
+    rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError => e
+      log "Attempt #{attempts + 1} failed: #{e.message}"
+      attempts += 1
+      raise e unless attempts < max_attempts
+
+      sleep 2
+      retry
+    end
+
+    browser
   end
 
   def scrape_total
