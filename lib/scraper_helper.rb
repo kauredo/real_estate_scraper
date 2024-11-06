@@ -24,7 +24,12 @@ module ScraperHelper
     rescue Selenium::WebDriver::Error::UnknownError, Selenium::WebDriver::Error::TimeoutError, Selenium::WebDriver::Error::NoSuchElementError => e
       ScrapeListingDetails.log "An error occurred during ScrapeHelper.scrape_one: #{e.message}"
       retry_count += 1
-      browser.refresh
+
+      # check if browser is still valid, otherwise recreate it
+      unless browser.exists?
+        browser.quit
+        browser = ScraperHelper.setup_browser
+      end
 
       # Check if we should retry
       if retry_count < max_retries
@@ -45,5 +50,32 @@ module ScraperHelper
       ScrapeListingDetails.log 'KW website down'
       true
     end
+  end
+
+  def self.setup_browser(headless: true)
+    args = ['--disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800', '--no-sandbox', '--incognito']
+    args << '--headless' if headless
+
+    options = Selenium::WebDriver::Chrome::Options.new(args:)
+
+    if Rails.env.production? || Rails.env.staging?
+      binary_path = '/opt/chrome-linux64/chrome'
+      options.binary = binary_path
+    end
+
+    max_attempts = 3
+    attempts = 0
+    begin
+      browser = Watir::Browser.new(:chrome, options:)
+    rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError => e
+      log "Attempt #{attempts + 1} failed: #{e.message}"
+      attempts += 1
+      raise e unless attempts < max_attempts
+
+      sleep 2
+      retry
+    end
+
+    browser
   end
 end
