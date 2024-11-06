@@ -14,6 +14,8 @@ module ScraperHelper
         updated_listing = ScrapeListingDetails.scrape_details(browser, url, force) unless updated_listing.is_a?(Listing)
       end
 
+      updated_listing.save(validate: false) if updated_listing.is_a?(Listing) && updated_listing.valid?
+
       I18n.with_locale(:en) do
         if updated_listing.is_a?(Listing) && updated_listing.reload.deleted_at.nil?
           ScrapeListingDetails.scrape_language_details(browser, updated_listing, 'English')
