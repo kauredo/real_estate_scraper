@@ -95,6 +95,7 @@ export interface NavbarItemProps {
   img?: any;
   items?: NavbarItemProps[];
   children?: any;
+  method?: string;
 }
 
 export interface StatsFilter {

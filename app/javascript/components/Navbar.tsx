@@ -153,15 +153,22 @@ export default function Navbar(props: Props) {
 
   mobileItems.push(...rightItems);
 
-  admin &&
-    !backoffice &&
-    rightItems[0] &&
-    rightItems[0].items &&
-    rightItems[0].items.unshift({
-      title: "Backoffice",
-      url: sanitizeURL(window.Routes.backoffice_path),
-      turbo: "true",
+  if (admin && rightItems[0] && rightItems[0].items) {
+    if (!backoffice) {
+      rightItems[0].items.unshift({
+        title: "Backoffice",
+        url: sanitizeURL(window.Routes.backoffice_path),
+        turbo: "true",
+      });
+    }
+
+    rightItems[0].items.push({
+      title: "Log out",
+      url: sanitizeURL(window.Routes.destroy_admin_session_path),
+      method: "delete",
+      turbo: "false",
     });
+  }
 
   const ctaBtn = sanitizeURL(window.Routes.sell_path) !==
     window.location.pathname && (
