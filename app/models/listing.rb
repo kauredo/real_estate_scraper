@@ -35,7 +35,7 @@ class Listing < ApplicationRecord
   scope :default_order, -> { order(order: :asc, status: :asc, created_at: :desc) }
   scope :with_locale_translations,
         lambda {
-          joins(Arel.sql("LEFT JOIN listing_translations ON listing_translations.listing_id = listings.id AND listing_translations.locale = '#{I18n.locale}'"))
+          includes(:translations).joins(Arel.sql("LEFT JOIN listing_translations ON listing_translations.listing_id = listings.id AND listing_translations.locale = '#{I18n.locale}'"))
         }
 
   scope :with_order_over, ->(new_order) { where.not(order: nil).where(order: new_order..) }
@@ -109,7 +109,7 @@ class Listing < ApplicationRecord
   end
 
   def self.ids_with_title
-    unscoped.map(&:as_json).select { |l| l['title'].present? }.pluck('id')
+    unscoped.includes([:translations]).map(&:as_json).select { |l| l['title'].present? }.pluck('id')
   end
 
   def city

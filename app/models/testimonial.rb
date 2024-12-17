@@ -9,7 +9,7 @@ class Testimonial < ApplicationRecord
   validates :name, uniqueness: { scope: :text }, presence: { message: 'não pode estar vazio' }
   validates :text, presence: { message: 'não pode estar vazio' }
 
-  default_scope { includes(:translation) }
+  default_scope { includes(:translations) }
 end
 
 # == Schema Information

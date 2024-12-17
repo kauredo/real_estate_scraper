@@ -7,7 +7,7 @@ module Backoffice
     after_action :update_photos, only: %i[create update]
 
     def index
-      @listing_complexes = ListingComplex.all.as_json(include: %i[listings photos], methods: :main_photo)
+      @listing_complexes = ListingComplex.includes(:listings, :photos).as_json(include: %i[listings photos], methods: :main_photo)
     end
 
     def new
