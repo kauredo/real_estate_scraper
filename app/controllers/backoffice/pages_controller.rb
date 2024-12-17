@@ -4,7 +4,7 @@ module Backoffice
   class PagesController < BackofficeController
     def home
       @variables = Variable.all
-      @subs = NewsletterSubscription.joins(:user).where(user: { confirmed_email: true })
+      @subs = NewsletterSubscription.includes(:user).where(user: { confirmed_email: true })
     end
   end
 end

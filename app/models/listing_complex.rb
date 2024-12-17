@@ -15,7 +15,7 @@ class ListingComplex < ApplicationRecord
   after_save :update_orders
 
   scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
-  default_scope { includes(:translation).order(order: :asc) }
+  default_scope { includes(:translations).order(order: :asc) }
 
   def main_photo
     photos.find_by(main: true) || photos.first

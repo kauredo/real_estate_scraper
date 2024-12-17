@@ -4,14 +4,14 @@ class PagesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:new_contact]
 
   def home
-    listings = Listing.all
+    listings = Listing.all.includes([:translations])
     @listings = listings.by_geography
     @results = {
       listingCount: listings.count,
-      variables: Variable.all
+      variables: Variable.includes([:translations]).all
     }
     @photos = Listing.random_photos(listings.available, 3)
-    @testimonials = Testimonial.all
+    @testimonials = Testimonial.includes([:translations]).all
   end
 
   def about
