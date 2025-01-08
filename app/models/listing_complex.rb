@@ -44,6 +44,12 @@ class ListingComplex < ApplicationRecord
       complex.update(order: complex.order + 1) if complex != self && ListingComplex.where(order: complex.order).count > 1
     end
   end
+
+  private
+
+  def should_generate_new_friendly_id?
+    slug.blank? || name_changed?
+  end
 end
 
 # == Schema Information

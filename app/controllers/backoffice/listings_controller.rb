@@ -44,10 +44,9 @@ module Backoffice
                                          end
       end
 
-      @listing.slug = nil
       @listing.update(new_params)
       flash[:notice] = I18n.t('listing.update.notice')
-      redirect_to edit_backoffice_listing_path(@listing)
+      redirect_to edit_backoffice_listing_path(@listing.reload)
     end
 
     def update_all
