@@ -3,7 +3,7 @@
 require 'sidekiq-scheduler'
 
 class ScrapeAll
-  include Sidekiq::Worker
+  include Sidekiq::Job
   queue_as :default
 
   def perform

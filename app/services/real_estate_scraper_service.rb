@@ -19,9 +19,9 @@ class RealEstateScraperService
   end
 
   def scrape_english_listings
-    listings = Listing::Translation.where(locale: 'en')
+    listings = Listing::Translation.includes([:listing]).where(locale: 'en')
     ids = listings.select do |t|
-      Listing::Translation.where(locale: 'pt', title: t.title).present?
+      Listing::Translation.includes([:listing]).where(locale: 'pt', title: t.title).present?
     end.pluck(:listing_id)
 
     listings = Listing.all.select do |l|
