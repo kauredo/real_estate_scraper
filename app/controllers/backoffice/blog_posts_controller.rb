@@ -35,7 +35,6 @@ module Backoffice
     end
 
     def update
-      @blog_post.slug = nil
       @blog_post.update(blog_post_params)
 
       create_blog_photos if params[:blog_photos] && params[:blog_photos][:image]&.any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }

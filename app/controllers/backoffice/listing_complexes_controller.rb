@@ -33,8 +33,6 @@ module Backoffice
     def edit; end
 
     def update
-      @listing_complex.slug = nil
-
       if @listing_complex.update(listing_complex_params)
         if params[:photos] && params[:photos]['image']&.any?(&:present?)
           params[:photos]['image'].each do |a|
