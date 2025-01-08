@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ScrapeUrlJob
-  include Sidekiq::Worker
+  include Sidekiq::Job
   queue_as :priority
 
   def perform(url, force = false) # rubocop:disable Style/OptionalBooleanParameter

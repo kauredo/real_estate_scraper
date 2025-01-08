@@ -3,7 +3,7 @@
 require 'sidekiq-scheduler'
 
 class FixDuplicatesJob
-  include Sidekiq::Worker
+  include Sidekiq::Job
   require 'rake'
   queue_as :default
 
