@@ -844,6 +844,7 @@ pt:
       parking: Estacionamento
       store: Loja
       storage: Arrecadação
+      warehouse: Armazém
       other: Outro
     objective:
       title: Venda / Arrendamento

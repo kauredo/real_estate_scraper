@@ -615,7 +615,8 @@
         "parking": "Parking",
         "storage": "Storage",
         "store": "Store",
-        "title": "Property Type"
+        "title": "Property Type",
+        "warehouse": "Warehouse"
       },
       "no_listings": "No listings available with the selected criteria",
       "objective": {
@@ -1706,7 +1707,8 @@
         "parking": "Estacionamento",
         "storage": "Arrecadação",
         "store": "Loja",
-        "title": "Tipo de Imóvel"
+        "title": "Tipo de Imóvel",
+        "warehouse": "Armazém"
       },
       "no_listings": "Não foram encontrados imóveis com os critérios selecionados",
       "objective": {

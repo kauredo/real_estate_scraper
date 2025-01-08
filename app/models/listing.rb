@@ -27,7 +27,7 @@ class Listing < ApplicationRecord
 
   enum :status, { recent: 0, standard: 1, agreed: 2, sold: 3, rented: 4, closed: 5 }
   enum :objective, { other: 0, sale: 1, rent: 2 }, prefix: true
-  enum :kind, { other: 0, apartment: 1, house: 2, land: 3, office: 4, garage: 5, parking: 6, store: 7, storage: 8 }, prefix: true
+  enum :kind, { other: 0, apartment: 1, house: 2, land: 3, office: 4, garage: 5, parking: 6, store: 7, storage: 8, warehouse: 9 }, prefix: true
   belongs_to :listing_complex, optional: true
   has_one :translation, class_name: 'Listing::Translation', dependent: :destroy
 
@@ -144,6 +144,7 @@ class Listing < ApplicationRecord
                 when 'parqueamento' then 6
                 when 'loja' then 7
                 when 'arrecadação' then 8
+                when 'armazém' then 9
                 else 0
                 end
   end
