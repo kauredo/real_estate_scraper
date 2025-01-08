@@ -44,9 +44,13 @@ module Backoffice
                                          end
       end
 
-      @listing.update(new_params)
-      flash[:notice] = I18n.t('listing.update.notice')
-      redirect_to edit_backoffice_listing_path(@listing)
+      if @listing.update(new_params)
+        flash[:notice] = I18n.t('listing.update.notice')
+        redirect_to edit_backoffice_listing_path(@listing)
+      else
+        flash[:error] = @listing.errors.full_messages.join(', ')
+        render :edit
+      end
     end
 
     def update_all
