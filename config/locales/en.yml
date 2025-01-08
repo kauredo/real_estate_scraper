@@ -827,6 +827,7 @@ en:
       parking: Parking
       store: Store
       storage: Storage
+      warehouse: Warehouse
       other: Other
     objective:
       title: Sale / Rent
