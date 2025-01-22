@@ -48,7 +48,7 @@ primary_region = "mad"
   protocol = "tcp"
 
   [[services.script_checks]]
-    command = "ruby sidekiq_health_check.rb"
+    command = "bundle exec ruby sidekiq_health_check.rb"
     interval = "30s"       # Run every 30 seconds
     timeout = "5s"         # Fail if it takes more than 5 seconds
     grace_period = "5s"    # Allow 5 seconds before marking as unhealthy
