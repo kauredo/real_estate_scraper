@@ -2,7 +2,7 @@
 
 require 'sidekiq/api'
 
-# Configuration thresholds
+# Configuration thresholds kinda at random
 MAX_QUEUE_SIZE = 100  # Max jobs in the queue
 MAX_RETRY_SIZE = 10   # Max jobs in the retry queue
 
