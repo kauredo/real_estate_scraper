@@ -37,6 +37,7 @@ end
 #  confirmed              :boolean          default(FALSE)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  jti                    :string           not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -46,5 +47,6 @@ end
 # Indexes
 #
 #  index_admins_on_email                 (email) UNIQUE
+#  index_admins_on_jti                   (jti) UNIQUE
 #  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
 #
