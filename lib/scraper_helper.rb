@@ -24,7 +24,7 @@ module ScraperHelper
         end
       end
     rescue Selenium::WebDriver::Error::UnknownError, Selenium::WebDriver::Error::TimeoutError, Selenium::WebDriver::Error::NoSuchElementError => e
-      ScrapeListingDetails.log "An error occurred during ScrapeHelper.scrape_one: #{e.message}"
+      ScrapeListingDetails.log "[ScraperHelper] An error occurred during ScrapeHelper.scrape_one: #{e.message}"
       retry_count += 1
 
       # check if browser is still valid, otherwise recreate it
@@ -37,7 +37,7 @@ module ScraperHelper
       if retry_count < max_retries
         retry
       else
-        ScrapeListingDetails.log "Failed to scrape after #{max_retries} attempts."
+        ScrapeListingDetails.log "[ScraperHelper] Failed to scrape after #{max_retries} attempts."
         raise e
       end
     end
@@ -49,7 +49,7 @@ module ScraperHelper
     if valid
       false
     else
-      ScrapeListingDetails.log 'KW website down'
+      ScrapeListingDetails.log '[ScraperHelper] KW website down'
       true
     end
   end
@@ -70,7 +70,7 @@ module ScraperHelper
     begin
       browser = Watir::Browser.new(:chrome, options:)
     rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError => e
-      log "Attempt #{attempts + 1} failed: #{e.message}"
+      ScrapeListingDetails.log "[ScraperHelper] Attempt #{attempts + 1} failed: #{e.message}"
       attempts += 1
       raise e unless attempts < max_attempts
 

@@ -11,7 +11,7 @@ class TaskHelper
     end
   rescue StandardError => e
     ScrapeListingDetails.log '~~~~~~~~~~~~~'
-    ScrapeListingDetails.log "Error: #{e}"
+    ScrapeListingDetails.log "[TaskHelper] Error: #{e}"
     ScrapeListingDetails.log '~~~~~~~~~~~~~'
     Sentry.capture_exception(e)
     unless tries >= max_tries
