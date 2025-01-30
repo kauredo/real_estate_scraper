@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'sidekiq/web'
-
 Rails.application.routes.draw do
   match '(*any)', to: redirect(subdomain: ''), via: :all, constraints: { subdomain: 'www' }
   post '/toggle_dark_mode', to: 'application#toggle_dark_mode'
@@ -70,7 +68,7 @@ Rails.application.routes.draw do
   end
 
   authenticate :admin, ->(a) { a.confirmed? } do
-    mount Sidekiq::Web => '/sidekiq'
+    mount GoodJob::Engine => '/good_job'
   end
 
   get '/sitemap', to: 'testsuite#sitemap'

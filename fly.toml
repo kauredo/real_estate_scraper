@@ -11,7 +11,7 @@ primary_region = "mad"
 
 [processes]
   web = "bundle exec puma -C config/puma.rb"
-  worker = "bundle exec sidekiq -C config/sidekiq.yml"
+  worker = "bundle exec good_job start --max_threads=3"
 
 [deploy]
   release_command = './bin/rails db:prepare:with_data'
@@ -47,12 +47,11 @@ primary_region = "mad"
   processes = ["worker"]
   protocol = "tcp"
 
-  [[services.script_checks]]
-    command = "bundle exec ruby sidekiq_health_check.rb"
-    interval = "30s"       # Run every 30 seconds
-    timeout = "5s"         # Fail if it takes more than 5 seconds
-    grace_period = "5s"    # Allow 5 seconds before marking as unhealthy
-    restart_limit = 0      # Prevent automatic restarts
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
 
 [[statics]]
   guest_path = "/rails/public"

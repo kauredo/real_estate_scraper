@@ -1,2 +1,0 @@
-ScrapeAll:
-  cron: "10 3 * * *" # At 03:10 every day

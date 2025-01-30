@@ -24,7 +24,7 @@ module Backoffice
     def create
       if listing_params[:url].present? && listing_params[:url].starts_with?('https://www.kwportugal.pt/')
         listing = Listing.find_or_create_by(url: listing_params[:url])
-        ScrapeUrlJob.perform_async(listing.url, true)
+        ScrapeUrlJob.perform_later(listing.url, true)
         flash[:notice] = I18n.t('listing.create.notice')
       else
         flash[:error] = I18n.t('listing.create.error')
@@ -54,7 +54,7 @@ module Backoffice
     end
 
     def update_all
-      ScrapeAll.perform_async
+      ScrapeAll.perform_later
       flash[:notice] = I18n.t('listing.update_all.notice')
       redirect_to backoffice_listings_path(order: params[:order])
     end
@@ -72,7 +72,7 @@ module Backoffice
     def recover
       listing = Listing.unscoped.find(params[:id])
       if listing.recover
-        ScrapeUrlJob.perform_async(listing.url, true)
+        ScrapeUrlJob.perform_later(listing.url, true)
         flash[:notice] = I18n.t('listing.recover.notice')
       else
         flash[:error] = I18n.t('listing.recover.error')
@@ -82,7 +82,7 @@ module Backoffice
     end
 
     def update_details
-      ScrapeUrlJob.perform_async(@listing.url, true)
+      ScrapeUrlJob.perform_later(@listing.url, true)
       flash[:notice] = I18n.t('listing.update_details.notice')
       redirect_to edit_backoffice_listing_path(@listing)
     end

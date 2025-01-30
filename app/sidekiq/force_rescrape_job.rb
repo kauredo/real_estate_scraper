@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-class ForceRescrapeJob
-  include Sidekiq::Job
-  queue_as :default
+class ForceRescrapeJob < ApplicationJob
+  
 
   def perform
     ScrapeListingDetails.log 'ForceRescrapeJob is being performed'

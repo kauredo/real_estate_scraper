@@ -1,2 +1,0 @@
-ScrapeAll:
-  cron: "40 23 * * 2" # At 23:40 on Tuesday

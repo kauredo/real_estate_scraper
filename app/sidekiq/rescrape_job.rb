@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-require 'sidekiq-scheduler'
 
-class RescrapeJob
-  include Sidekiq::Job
-  queue_as :default
+
+class RescrapeJob < ApplicationJob
+  
 
   def perform
     ScrapeListingDetails.log 'RescrapeJob is being performed'

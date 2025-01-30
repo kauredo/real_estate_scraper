@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-require 'sidekiq-scheduler'
-
-class FixDuplicatesJob
-  include Sidekiq::Job
+class FixDuplicatesJob < ApplicationJob
   require 'rake'
-  queue_as :default
 
   def perform
     ScrapeListingDetails.log 'FixDuplicatesJob is being performed'

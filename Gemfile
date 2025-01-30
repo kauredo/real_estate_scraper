@@ -58,6 +58,7 @@ gem 'data_migrate'
 gem 'devise'
 gem 'friendly_id'
 gem 'friendly_id-mobility'
+gem 'good_job'
 gem 'humanize'
 gem 'i18n-js'
 gem 'js-routes'
@@ -75,9 +76,6 @@ gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'sentry-rails'
 gem 'sentry-ruby'
-gem 'sentry-sidekiq'
-gem 'sidekiq'
-gem 'sidekiq-scheduler'
 gem 'tinymce-rails'
 gem 'watir'
 

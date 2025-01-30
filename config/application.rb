@@ -14,7 +14,7 @@ module SofiaGalvao
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.react.camelize_props = false
-    config.active_job.queue_adapter = :sidekiq
+    config.active_job.queue_adapter = :good_job
     config.autoload_paths << Rails.root.join('lib')
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.i18n.available_locales = %i[pt en]

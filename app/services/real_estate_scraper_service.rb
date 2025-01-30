@@ -49,7 +49,7 @@ class RealEstateScraperService
 
     Listing.all.each do |listing|
       log "Rescrape - Queuing ScrapeUrlJob for #{listing.url}"
-      ScrapeUrlJob.perform_async(listing.url, force)
+      ScrapeUrlJob.perform_later(listing.url, force)
     end
   end
 
@@ -90,7 +90,7 @@ class RealEstateScraperService
     res.each do |imovel|
       url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.compact.first}"
       log "Queuing ScrapeUrlJob for #{url}"
-      ScrapeUrlJob.perform_async(url, false)
+      ScrapeUrlJob.perform_later(url, false)
     end
   end
 
