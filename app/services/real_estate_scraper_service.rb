@@ -69,7 +69,7 @@ class RealEstateScraperService
   private
 
   def log(message)
-    ScrapeListingDetails.log(message)
+    ScrapeListingDetails.log("[RealEstateScraperService] #{message}")
   end
 
   def scrape_total
@@ -87,10 +87,12 @@ class RealEstateScraperService
     js_doc = @browser.div(class: 'properties').wait_until(timeout: 10, &:present?)
     imoveis = Nokogiri::HTML(js_doc.inner_html)
     res = imoveis.css('.property-tile2')
-    res.each do |imovel|
+    res.each_with_index do |imovel, index|
       url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.compact.first}"
       log "Queuing ScrapeUrlJob for #{url}"
-      ScrapeUrlJob.perform_later(url, false)
+
+      wait_time = (index + page) * 2.minutes
+      ScrapeUrlJob.set(wait: wait_time).perform_later(url, false)
     end
   end
 
