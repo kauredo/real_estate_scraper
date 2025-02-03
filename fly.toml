@@ -49,6 +49,10 @@ primary_region = "mad"
   processes = ["worker"]
   protocol = "tcp"
 
+  [[services.ports]]
+    handlers = []
+    port = 4000
+
 [[statics]]
   guest_path = "/rails/public"
   url_prefix = "/"
