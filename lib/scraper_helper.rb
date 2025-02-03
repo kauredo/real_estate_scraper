@@ -55,8 +55,8 @@ module ScraperHelper
   end
 
   def self.setup_browser(headless: true)
-    args = ['--disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800', '--no-sandbox', '--incognito']
-    args << '--headless' if headless
+    args = ['--disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800', '--no-sandbox', '--incognito', '--disable-gpu']
+    args << '--headless=new' if headless
 
     options = Selenium::WebDriver::Chrome::Options.new(args:)
 
@@ -74,7 +74,7 @@ module ScraperHelper
       attempts += 1
       raise e unless attempts < max_attempts
 
-      sleep 2
+      sleep(2**attempts)
       retry
     end
 
