@@ -853,6 +853,16 @@ en:
         rented: Rented
         closed: Closed
 
+  listing_complex:
+    create:
+      notice:
+        Development added, wait a little and it will appear on the platform
+      error: "Error: the link must start with 'https://www.kwportugal.pt/'"
+    update_details:
+      notice:
+        Development will be updated shortly, please wait and check in a few
+        minutes
+
   tasks:
     scrape:
       unavailable: is no longer available on our website

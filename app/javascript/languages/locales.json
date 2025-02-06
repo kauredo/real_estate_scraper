@@ -1061,6 +1061,15 @@
       },
       "watch_video": "Watch Video 📹"
     },
+    "listing_complex": {
+      "create": {
+        "error": "Error: the link must start with 'https://www.kwportugal.pt/'",
+        "notice": "Development added, wait a little and it will appear on the platform"
+      },
+      "update_details": {
+        "notice": "Development will be updated shortly, please wait and check in a few minutes"
+      }
+    },
     "navbar": {
       "about": "About Us",
       "backoffice": "Backoffice",
@@ -2152,6 +2161,15 @@
         "notice": "O imóvel será atualizado dentro de minutos, espera antes de tentar novamente"
       },
       "watch_video": "Assistir Vídeo 📹"
+    },
+    "listing_complex": {
+      "create": {
+        "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
+        "notice": "Complexo adicionado, aguarde um pouco e já vai aparecer na plataforma"
+      },
+      "update_details": {
+        "notice": "O complexo será atualizado dentro de minutos, espera antes de tentar novamente"
+      }
     },
     "navbar": {
       "about": "Sobre Nós",

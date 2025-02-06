@@ -54,12 +54,44 @@ class RealEstateScraperService
   end
 
   def scrape_one(url, listing, force: false)
-    listing = Listing.find_by(url:) if listing.nil?
+    listing ||= Listing.unscoped.where(url:).order(:updated_at).last
 
     @browser.goto(@url)
     return if ScraperHelper.check_if_invalid?(@browser)
 
     ScraperHelper.scrape_one(@browser, url, listing, force:)
+  end
+
+  def scrape_complex(url, listing_complex)
+    listing_complex ||= ListingComplex.find_by(url:)
+
+    @browser.goto(url)
+    return if ScraperHelper.check_if_invalid?(@browser)
+
+    name = @browser.h1.wait_until(timeout: 10, &:present?).text
+    listing_complex.update(name:)
+    scrape_photos_for_complex(listing_complex)
+
+    listings = @browser.table(class: 'properties_table').wait_until(timeout: 10, &:present?).trs
+    listings.each_with_index do |listing_element, index|
+      relative_url = listing_element.attribute_value('data-href')
+      next if relative_url.nil?
+
+      full_url = "https://www.kwportugal.pt#{relative_url}"
+      listing = Listing.find_or_initialize_by(url: full_url)
+      listing.listing_complex = listing_complex
+      listing.title = "Imóvel #{index} - #{name}" if listing.title.blank?
+      if listing.persisted?
+        listing.save
+      else
+        listing.save(validate: false)
+      end
+
+      log "Queuing ScrapeUrlJob for #{full_url}"
+      wait_time = index * 2.minutes
+      ScrapeUrlJob.set(wait: wait_time).perform_later(listing.url, false)
+      # ScrapeUrlJob.perform_later(listing.url, false)
+    end
   end
 
   def destroy
@@ -123,6 +155,33 @@ class RealEstateScraperService
       listings.each do |listing|
         log "Started listing #{listing.id}"
         ScrapeListingDetails.scrape_language_details(@browser, listing, language)
+      end
+    end
+  end
+
+  def scrape_photos_for_complex(listing_complex)
+    photo_elements = @browser.div(class: 'gallery').imgs
+
+    photo_elements.each_with_index do |img_element, index|
+      photo_url = img_element.attribute_value('src')
+      next if photo_url.blank?
+
+      # Use find_or_initialize_by if you want to avoid duplicates
+      photo = listing_complex.photos.find_or_initialize_by(original_url: photo_url)
+      photo.remote_image_url = photo_url # This is how you set the image URL for CarrierWave
+      photo.main = (index.zero?)
+
+      # You can also set an order field if your Photo model uses it.
+      photo.order = index + 1
+
+      if photo.new_record? || photo.changed?
+        if photo.save
+          log "Saved photo ##{index + 1} for listing_complex #{listing_complex.name}"
+        else
+          log "Failed to save photo for #{photo_url}: #{photo.errors.full_messages.join(', ')}"
+        end
+      else
+        log "Photo for #{photo_url} already exists, skipping."
       end
     end
   end

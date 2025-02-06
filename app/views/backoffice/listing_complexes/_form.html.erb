@@ -22,9 +22,16 @@
 </div>
 <div class="flex sm:items-center gap-2 mb-2 flex-wrap">
   <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% if @listing_complex.url.present? %>
+    <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_complex_path(@listing_complex), data: { "turbo-method": :post }, class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% end %>
   <% if @listing_complex.persisted? %>
     <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% end %>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+  <%= f.label :url, class: 'sm:w-1/4 font-bold' %>
+  <%= f.text_field :url, class: 'shadow appearance-none bg-gray-200 dark:bg-beige-medium border dark:border-gray-600 rounded w-full py-2 px-3 text-gray-700 dark:text-light leading-tight focus:outline-none focus:shadow-outline' %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
   <%= f.label :name, class: 'w-1/4 font-bold' %>
@@ -95,12 +102,14 @@
   <%= f.label :listings, class: 'w-1/4 font-bold' %>
   <div class="mb-4">
     <div class="flex flex-col sm:items-center gap-2 sm:gap-4 md:gap-6">
-      <%= f.collection_check_boxes :listing_ids, Listing.all, :id, :title, {}, { multiple: true, class: 'hidden' } do |listing| %>
-        <div class="flex space-between sm:items-center">
-          <span class="w-fit">
+      <% selected_listings = Listing.where(id: f.object.listing_ids) %>
+      <% unselected_listings = Listing.where.not(id: f.object.listing_ids) %>
+      <%= f.collection_check_boxes :listing_ids, selected_listings + unselected_listings, :id, :title, {}, { multiple: true, class: 'hidden' } do |listing| %>
+        <div class="flex sm:items-center">
+          <%= react_component 'indexPage--LongCard', { listing: listing.object, small: true } %>
+          <span class="w-fit d-none">
             <%= listing.check_box %>
           </span>
-          <%= react_component 'indexPage--LongCard', { listing: listing.object, small: true } %>
         </div>
       <% end %>
     </div>

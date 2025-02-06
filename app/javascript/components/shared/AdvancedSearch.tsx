@@ -32,6 +32,11 @@ export default function AdvancedSearch(props: Props) {
     setShowAdvancedSearch(!showAdvancedSearch);
   };
 
+  const acceptedStatsFilters = Object.values(i18n.t("listing.stats"));
+  const acceptedKeys = statsKeys.filter(key =>
+    acceptedStatsFilters.includes(key)
+  );
+
   return (
     <div className="flex flex-col">
       <button
@@ -66,7 +71,7 @@ export default function AdvancedSearch(props: Props) {
           />
         </div>
         {/* New stats fields */}
-        {statsKeys.map(key => {
+        {acceptedKeys.map(key => {
           return (
             <div key={key} className="w-full md:w-[calc((23%/2)-0.75rem)]">
               <label htmlFor={`q_${key}`} className="block mb-1">

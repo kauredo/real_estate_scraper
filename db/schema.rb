@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_01_30_174859) do
+ActiveRecord::Schema[7.0].define(version: 2025_02_06_112935) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -192,6 +192,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_30_174859) do
     t.boolean "new_format", default: false
     t.boolean "hidden", default: false
     t.string "slug"
+    t.string "url"
     t.index ["slug"], name: "index_listing_complexes_on_slug", unique: true
   end
 
@@ -275,7 +276,9 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_30_174859) do
     t.bigint "listing_complex_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "original_url"
     t.index ["listing_complex_id"], name: "index_photos_on_listing_complex_id"
+    t.index ["original_url"], name: "index_photos_on_original_url", unique: true, where: "(original_url IS NOT NULL)"
   end
 
   create_table "testimonial_translations", force: :cascade do |t|

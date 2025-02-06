@@ -870,6 +870,16 @@ pt:
         rented: Arrendados
         closed: Encerrados
 
+  listing_complex:
+    create:
+      notice:
+        Complexo adicionado, aguarde um pouco e já vai aparecer na plataforma
+      error: "Erro: o link tem que começar por 'https://www.kwportugal.pt/'"
+    update_details:
+      notice:
+        O complexo será atualizado dentro de minutos, espera antes de tentar
+        novamente
+
   tasks:
     scrape:
       unavailable: já não se encontra disponível no website

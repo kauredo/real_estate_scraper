@@ -35,7 +35,7 @@ export interface ListingComplex {
   main_photo: Photo;
   photos: Photo[];
   slug: string;
-  listing_prices?: [string, string[]];
+  listing_prices?: [string, [string[]]];
 }
 
 export interface Listing {

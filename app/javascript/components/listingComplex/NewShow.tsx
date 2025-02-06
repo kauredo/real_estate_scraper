@@ -14,8 +14,11 @@ export default function NewShow(props: Props) {
   const { complex } = props;
 
   const removePricesFromText = text => {
-    if (text && complex.listing_prices && complex.listing_prices[0]) {
-      return text.split(complex.listing_prices[0])[0];
+    if (text && complex.listing_prices && complex.listing_prices[1]) {
+      return text
+        .split("\r\n")
+        .filter(line => !line.includes("€"))
+        .join("\r\n");
     }
 
     return text;
@@ -183,7 +186,7 @@ export default function NewShow(props: Props) {
                   {complex.listing_prices[1]?.map(prices => {
                     return (
                       <tr
-                        key={prices}
+                        key={prices[0]}
                         className={
                           "text-center border border-slate-700 relative"
                         }
