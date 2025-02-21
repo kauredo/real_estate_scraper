@@ -1158,6 +1158,15 @@
       },
       "watch_video": "Watch Video 📹"
     },
+    "listing_complex": {
+      "create": {
+        "error": "Error: the link must start with 'https://www.kwportugal.pt/'",
+        "notice": "Development added, wait a little and it will appear on the platform"
+      },
+      "update_details": {
+        "notice": "Development will be updated shortly, please wait and check in a few minutes"
+      }
+    },
     "navbar": {
       "about": "About Us",
       "backoffice": "Backoffice",

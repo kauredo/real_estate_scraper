@@ -7,6 +7,7 @@ class Photo < ApplicationRecord
   after_save :update_main
   after_create :update_main
   validates :main, inclusion: [true, false]
+  validates :original_url, uniqueness: true, allow_nil: true
 
   default_scope { sort_order }
   scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
@@ -46,6 +47,7 @@ end
 #  image              :text
 #  main               :boolean          default(FALSE)
 #  order              :integer
+#  original_url       :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  listing_complex_id :bigint
@@ -53,4 +55,5 @@ end
 # Indexes
 #
 #  index_photos_on_listing_complex_id  (listing_complex_id)
+#  index_photos_on_original_url        (original_url) UNIQUE WHERE (original_url IS NOT NULL)
 #

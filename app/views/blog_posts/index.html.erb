@@ -6,6 +6,7 @@
 <% content_for(:extra_meta) do %>
   <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>blog" />
   <link rel="alternate" hreflang="<%= I18n.locale == :pt ? 'en' : 'pt' %>" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? 'en/' : '' %>blog" />
+  <link rel="alternate" hreflang="x-default" href="https://sofiagalvaogroup.com/blog" />
 <% end %>
 
 <div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">

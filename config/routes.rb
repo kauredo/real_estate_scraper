@@ -50,17 +50,24 @@ Rails.application.routes.draw do
       resources :blog_posts
       resources :listings, only: %i[index create edit update destroy] do
         member do
-          post '/update_details', to: 'listings#update_details'
-          post '/recover', to: 'listings#recover'
+          post :update_details
+          post :recover
         end
         collection do
-          post '/update_all', to: 'listings#update_all'
+          post :update_all
         end
       end
       resources :listing_complexes do
-        patch 'photos'
-        delete 'delete_photo'
+        member do
+          post :update_details
+          patch :photos
+          delete :delete_photo
+        end
+        collection do
+          post :fetch
+        end
       end
+
       resources :testimonials
     end
 

@@ -2,7 +2,7 @@
 
 module Backoffice
   class ListingComplexesController < BackofficeController
-    before_action :find_listing_complex, except: %i[index new create photos]
+    before_action :find_listing_complex, except: %i[index new create photos fetch]
     after_action :update_video_link, only: %i[create update]
     after_action :update_photos, only: %i[create update]
 
@@ -28,6 +28,24 @@ module Backoffice
         flash.now[:error] = @listing_complex.errors.full_messages.join('. ')
         render :new
       end
+    end
+
+    def fetch
+      if listing_complex_params[:url].present? && listing_complex_params[:url].starts_with?('https://www.kwportugal.pt/')
+        listing_complex = ListingComplex.find_or_create_by(url: listing_complex_params[:url])
+        unless listing_complex.valid?
+          listing_complex.name = 'Nome Temporário'
+          listing_complex.description = 'Descrição Temporária'
+          listing_complex.hidden = true
+          listing_complex.save
+        end
+
+        ScrapeComplexJob.perform_later(listing_complex.url)
+        flash[:notice] = I18n.t('listing_complex.create.notice')
+      else
+        flash[:error] = I18n.t('listing_complex.create.error')
+      end
+      redirect_to(backoffice_path)
     end
 
     def edit; end
@@ -64,6 +82,12 @@ module Backoffice
     def destroy
       @listing_complex.destroy
       redirect_to backoffice_listing_complexes_path
+    end
+
+    def update_details
+      ScrapeComplexJob.perform_later(@listing_complex.url)
+      flash[:notice] = I18n.t('listing_complex.update_details.notice')
+      redirect_to edit_backoffice_listing_complex_path(@listing_complex)
     end
 
     private
@@ -105,6 +129,7 @@ module Backoffice
                                               :hidden,
                                               :subtext,
                                               :final_text,
+                                              :url,
                                               listing_ids: [],
                                               photos: %i[
                                                 id

@@ -8,15 +8,19 @@ class Listing
 
     default_scope { unscope(where: :deleted_at) }
 
-    def destroy
-      update(deleted_at: Time.zone.now)
-      true
-    end
+    # def destroy
+    #   if deleted_at.nil?
+    #     update(deleted_at: Time.zone.now)
+    #     true
+    #   else
+    #     destroy_fully!
+    #   end
+    # end
 
-    def recover
-      update(deleted_at: nil)
-      true
-    end
+    # def recover
+    #   update(deleted_at: nil)
+    #   true
+    # end
   end
 end
 

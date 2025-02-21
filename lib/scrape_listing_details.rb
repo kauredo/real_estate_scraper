@@ -62,7 +62,8 @@ class ScrapeListingDetails
     log "Gathering data for listing \"#{title}\""
 
     listing = find_or_initialize_listing(imovel_url, title, url)
-    if !force && (listing.persisted? && Listing.includes(:translations).where(url:, translations: { locale: 'pt', title: }))
+
+    if !force && listing.persisted? && listing.translations.any? { |t| t.locale == 'pt' && t.title == title }
       log "Listing \"#{listing.title}\" already exists"
       return listing
     end
@@ -202,26 +203,18 @@ class ScrapeListingDetails
   end
 
   def self.find_or_initialize_listing(imovel_url, title, url)
-    old_url_exists = Listing.unscoped.exists?(url: imovel_url)
-    new_url_exists = Listing.unscoped.exists?(url:)
-    name_exists = Listing.includes(:translations).where(translations: { locale: 'pt', title: }).exists?
+    # Fetch listings that match either old URL or new URL
+    listings = Listing.unscoped
+                      .includes(:translations)
+                      .where('url = :imovel_url OR url = :url', imovel_url:, url:)
 
-    listing = if old_url_exists && name_exists
-                Listing.includes(:translations).find_by(url: imovel_url, translations: { locale: 'pt', title: })
-              elsif new_url_exists && name_exists
-                Listing.includes(:translations).find_by(url:, translations: { locale: 'pt', title: })
-              elsif old_url_exists
-                Listing.unscoped.find_by(url: imovel_url)
-              elsif new_url_exists
-                Listing.unscoped.find_by(url:)
-              else
-                Listing.find_or_initialize_by(title:)
-              end
+    # Filter by title if it exists
+    matching_listing = listings.find do |listing|
+      listing.translations.any? { |t| t.locale == 'pt' && t.title == title }
+    end
 
-    listing.recover if listing.deleted_at.present?
-    return listing if listing.present?
-
-    Listing.find_or_initialize_by(title:) if listing.nil?
+    # Return the first match or find/initialize by title as fallback
+    matching_listing || Listing.find_or_initialize_by(title:)
   end
 
   def self.destroy_listing_if_exists(url)

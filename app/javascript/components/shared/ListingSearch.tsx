@@ -22,7 +22,7 @@ interface Props {
   objectives: { objective: string; index: number }[];
 }
 
-export default function PriceSlider(props: Props) {
+export default function ListingSearch(props: Props) {
   const { params, listingMaxPrice, statsKeys, kinds, objectives } = props;
   const [title, setTitle] = useState(params?.title_cont || "");
   const [address, setAddress] = useState(params?.address_cont || "");

@@ -849,6 +849,15 @@
       },
       "watch_video": "Assistir Vídeo 📹"
     },
+    "listing_complex": {
+      "create": {
+        "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
+        "notice": "Complexo adicionado, aguarde um pouco e já vai aparecer na plataforma"
+      },
+      "update_details": {
+        "notice": "O complexo será atualizado dentro de minutos, espera antes de tentar novamente"
+      }
+    },
     "navbar": {
       "about": "Sobre Nós",
       "backoffice": "Backoffice",
