@@ -2,12 +2,17 @@ import React from "react";
 import { i18n } from "../../languages/languages";
 import { sanitizeURLWithParams } from "../utils/Functions";
 import { ClubStory } from "../utils/Interfaces";
+import ClubStoryCard from "./ClubStoryCard";
 
 interface Props {
   club_stories: ClubStory[];
+  isBackoffice?: boolean;
 }
 
-export default function ClubStories({ club_stories }: Props) {
+export default function ClubStories({
+  club_stories,
+  isBackoffice = false,
+}: Props) {
   return (
     <div className="container mx-auto px-4">
       {/* Intro Section */}
@@ -32,54 +37,9 @@ export default function ClubStories({ club_stories }: Props) {
         </p>
         <div className="flex flex-wrap gap-4">
           {club_stories.length > 0 ? (
-            club_stories.map(story => {
-              console.log(story);
-              console.log(window.Routes.club_story_path(story.id));
-              return (
-                <div
-                  key={story.id}
-                  className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg max-w-sm w-96 mb-5"
-                >
-                  {/* <a
-                    href={sanitizeURLWithParams(
-                      window.Routes.club_story_path, story.slug
-                    )}
-                  >
-                    <img
-                      loading="lazy"
-                      className="w-full rounded-t-lg aspect-video object-cover"
-                      src={story.main_photo}
-                      alt={story.title}
-                    />
-                  </a> */}
-                  <div className="p-5">
-                    <a
-                      href={sanitizeURLWithParams(
-                        window.Routes.club_story_path,
-                        story.slug
-                      )}
-                    >
-                      <h5 className="text-gray-900 dark:text-light font-bold text-2xl tracking-tight mb-2">
-                        {story.title}
-                      </h5>
-                    </a>
-                    <p className="font-normal text-gray-700 dark:text-light mb-3 whitespace-pre-line">
-                      {story.sample_text}
-                    </p>
-                    <a
-                      href={sanitizeURLWithParams(
-                        window.Routes.club_story_path,
-                        story.slug
-                      )}
-                      className="bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                      data-turbo="false"
-                    >
-                      {i18n.t("general.read_more")}
-                    </a>
-                  </div>
-                </div>
-              );
-            })
+            club_stories.map(story => (
+              <ClubStoryCard key={story.id} story={story} isBackoffice />
+            ))
           ) : (
             <div className="w-full text-center p-8 text-xl">
               <h2>{i18n.t("club.stories.empty")}</h2>

@@ -982,6 +982,7 @@ pt:
     common:
       create: Criar
       update: Atualizar
+      edit: Editar
       view: Ver
       delete: 🗑️
       delete_confirm: Tem certeza que deseja apagar este item?
@@ -992,6 +993,7 @@ pt:
       photos: Fotos
       main_photo: Foto principal?
       delete_photo_confirm: Tem certeza que deseja apagar esta foto?
+      confirm_delete: Tem certeza que deseja apagar este item?
     blog_posts:
       view_post: Ver Post
     club_stories:

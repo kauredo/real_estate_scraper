@@ -3,7 +3,7 @@
 class ClubStoriesController < ApplicationController
   def index
     club_stories = ClubStory.visible
-    @club_stories = club_stories.as_json(methods: :sample_text)
+    @club_stories = club_stories.as_json(methods: %i[sample_text main_photo])
   end
 
   def show

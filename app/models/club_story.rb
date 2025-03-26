@@ -8,7 +8,7 @@ class ClubStory < ApplicationRecord
   friendly_id :title, use: %i[mobility history]
   has_many :club_story_photos, dependent: :destroy
 
-  default_scope { includes(:translations).order(created_at: :desc) }
+  default_scope { includes(:translations, :club_story_photos).order(created_at: :desc) }
   scope :visible, -> { where.not(hidden: true) }
 
   def sample_text

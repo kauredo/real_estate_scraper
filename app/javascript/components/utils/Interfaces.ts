@@ -112,7 +112,7 @@ export interface ClubStory {
   title: string;
   text: string;
   slug: string;
-  main_photo: string;
+  main_photo?: string;
   sample_text: string;
   meta_title?: string;
   meta_description?: string;

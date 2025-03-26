@@ -2,6 +2,7 @@ import React from "react";
 import { i18n } from "../../languages/languages";
 import { sanitizeURL, sanitizeURLWithParams } from "../utils/Functions";
 import { ClubStory } from "../utils/Interfaces";
+import ClubStoryCard from "./ClubStoryCard";
 
 interface Props {
   recent_stories: ClubStory[];
@@ -67,36 +68,7 @@ export default function ClubPage({ recent_stories }: Props) {
         <div id="recent-stories" className="flex flex-wrap gap-4">
           {recent_stories && recent_stories.length > 0 ? (
             recent_stories.map(story => (
-              <div
-                key={story.id}
-                className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg min-w-[300px] max-w-sm w-full mb-5"
-              >
-                <div className="p-5">
-                  <a
-                    href={sanitizeURLWithParams(
-                      window.Routes.club_story_path,
-                      story.slug
-                    )}
-                  >
-                    <h5 className="text-gray-900 dark:text-light font-bold text-xl tracking-tight mb-2">
-                      {story.title}
-                    </h5>
-                  </a>
-                  <p className="font-normal text-gray-700 dark:text-light mb-3 whitespace-pre-line">
-                    {story.sample_text}
-                  </p>
-                  <a
-                    href={sanitizeURLWithParams(
-                      window.Routes.club_story_path,
-                      story.slug
-                    )}
-                    className="bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    data-turbo="false"
-                  >
-                    {i18n.t("general.read_more")}
-                  </a>
-                </div>
-              </div>
+              <ClubStoryCard key={story.id} story={story} />
             ))
           ) : (
             <div className="w-full text-center p-8 text-lg font-light">

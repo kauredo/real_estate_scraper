@@ -6,10 +6,12 @@ module Backoffice
     after_action :update_video_link, only: %i[create update]
 
     def index
-      @club_stories = ClubStory.all
+      club_stories = ClubStory.all
+      @club_stories = club_stories.as_json(methods: %i[sample_text main_photo])
     end
 
     def show
+      @club_story = @club_story.as_json(include: %i[club_story_photos], methods: %i[sample_text main_photo])
       @resource = {
         path: edit_backoffice_club_story_path(@club_story),
         name: I18n.t('club_stories.resource')

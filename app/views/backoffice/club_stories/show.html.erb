@@ -1,12 +1,1 @@
-<div id="club-story-show" class="relative">
-  <div class="tinymce pt-8 px-8 mx-auto container">
-    <div class="w-full tablet:w-2/3 mb-4">
-      <h1><%= @club_story.title %></h1>
-      <p><%= @club_story.created_at.strftime('%d/%m/%Y') %></p>
-    </div>
-
-    <div>
-      <%= sanitize @club_story.text %>
-    </div>
-  </div>
-</div>
+<%= react_component 'club--ClubStory', { club_story: @club_story } %>

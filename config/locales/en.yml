@@ -960,6 +960,7 @@ en:
     common:
       create: Create
       update: Update
+      edit: Edit
       view: View
       delete: 🗑️
       delete_confirm: Are you sure you want to delete this item?
@@ -970,6 +971,7 @@ en:
       photos: Photos
       main_photo: Main photo?
       delete_photo_confirm: Are you sure you want to delete this photo?
+      confirm_delete: Are you sure you want to delete this item?
     blog_posts:
       view_post: View Post
     club_stories:

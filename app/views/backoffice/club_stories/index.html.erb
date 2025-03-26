@@ -6,10 +6,6 @@
     <h1 class="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">Histórias do Clube</h1>
     <p class="text-center text-gray-600 max-w-none">Total <%= @club_stories.count %> histórias</p>
     <br>
-    <div class="flex flex-wrap gap-4">
-      <% @club_stories.each do |club_story| %>
-        <%= render 'club_story', club_story: %>
-      <% end %>
-    </div>
+    <%= react_component 'club--ClubStories', { club_stories: @club_stories, isBackoffice: true } %>
   </div>
 </div>
