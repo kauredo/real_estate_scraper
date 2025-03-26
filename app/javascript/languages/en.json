@@ -144,22 +144,33 @@
         "description": "We offer a network of specialized partners for all your property needs, from interior design to moving services.",
         "header": "Home Tailor Partners",
         "introduction": "Complete Solutions for Your Home",
-        "meta_description": "Customized services for your home with our selected partners."
+        "meta_description": "Customized services for your home with our selected partners.",
+        "title": "Home Tailor Services"
       },
       "home_tailor_description": "Specialized services to transform and maintain your home, with trusted partners.",
       "meta_description": "Discover Club SGG by Sofia Galvão Group - where real estate excellence meets exclusive benefits.",
+      "recent_stories": {
+        "description": "Discover our latest member stories and experiences",
+        "title": "Recent Stories"
+      },
       "rules": {
         "content": "<p>Club SGG is an exclusive program designed to provide additional benefits to our clients...</p> <p>Check here all participation rules and conditions.</p>\n",
         "header": "Rules",
         "introduction": "Club SGG Regulations",
-        "meta_description": "Rules and guidelines for Club SGG."
+        "meta_description": "Rules and guidelines for Club SGG.",
+        "title": "Club SGG Rules"
       },
       "rules_description": "Learn about Club SGG terms and conditions.",
+      "sections": {
+        "benefits": "Member Benefits",
+        "partners": "Our Partners"
+      },
       "social_partners": {
         "description": "We work with organizations that share our vision of social responsibility and community commitment.",
         "header": "Social Partners",
         "introduction": "Meet Our Partners",
-        "meta_description": "Discover our social partners and how together we make a difference."
+        "meta_description": "Discover our social partners and how together we make a difference.",
+        "social_feed": "Social Media Feed"
       },
       "social_partners_description": "Partners who share our social vision and contribute to a positive impact in the community.",
       "stories": {

@@ -3,22 +3,37 @@ import { i18n } from "../../languages/languages";
 
 export default function SocialPartners() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8 text-dark dark:text-light">
-        {i18n.t("club.social_partners.header")}
-      </h1>
+    <div className="container mx-auto px-4">
+      {/* Hero Section */}
+      <section className="max-w-4xl mx-auto mb-12">
+        <h1 className="text-3xl font-bold text-center mb-4 text-dark dark:text-light">
+          {i18n.t("club.social_partners.header")}
+        </h1>
+        <p className="text-center text-gray-600 dark:text-gray-300 text-lg">
+          {i18n.t("club.social_partners.introduction")}
+        </p>
+      </section>
 
-      <div className="prose dark:prose-invert max-w-none">
-        <div className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4">
-            {i18n.t("club.social_partners.introduction")}
-          </h2>
-          <p>{i18n.t("club.social_partners.description")}</p>
+      {/* Social Media Carousel Section */}
+      <section className="mb-12 bg-white dark:bg-dark shadow-lg rounded-lg p-6">
+        <h2 className="text-2xl font-bold mb-4 text-dark dark:text-light">
+          {i18n.t("club.social_partners.social_feed")}
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div id="tiktok-embed" className="min-h-[600px]">
+            {/* TikTok embed */}
+          </div>
+          <div id="instagram-embed" className="min-h-[600px]">
+            {/* Instagram embed */}
+          </div>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {/* Partner cards will be mapped here when data is available */}
-        </div>
+      {/* Content Sections */}
+      <div className="grid md:grid-cols-2 gap-8">
+        <section className="bg-white dark:bg-dark shadow-lg rounded-lg p-6">
+          {/* Additional content sections */}
+        </section>
       </div>
     </div>
   );

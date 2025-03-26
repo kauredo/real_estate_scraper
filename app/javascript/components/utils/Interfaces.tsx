@@ -116,4 +116,6 @@ export interface ClubStory {
   sample_text: string;
   meta_title?: string;
   meta_description?: string;
+  created_at: string;
+  updated_at: string;
 }

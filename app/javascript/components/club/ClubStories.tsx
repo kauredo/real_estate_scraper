@@ -9,15 +9,27 @@ interface Props {
 
 export default function ClubStories({ club_stories }: Props) {
   return (
-    <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
-      <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
-        <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
-          {i18n.t("club.stories.header")}
+    <div className="container mx-auto px-4">
+      {/* Intro Section */}
+      <section className="max-w-4xl mx-auto mb-12">
+        <h1 className="text-3xl font-bold text-center mb-4 text-dark dark:text-light">
+          {i18n.t("club.stories.title")}
         </h1>
-        <p className="mx-auto text-gray-500 dark:text-light text-lg mt-2">
+        <div className="prose prose-lg dark:prose-invert max-w-none text-center">
+          <p className="text-gray-600 dark:text-gray-300">
+            {i18n.t("club.stories.intro")}
+          </p>
+        </div>
+      </section>
+
+      {/* Stories Grid */}
+      <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 relative">
+        <h2 className="text-2xl font-bold text-center mb-4 text-dark dark:text-light">
+          {i18n.t("club.stories.header")}
+        </h2>
+        <p className="text-center text-gray-600 dark:text-gray-300 text-lg mb-8">
           {i18n.t("club.stories.subheader")}
         </p>
-        <br />
         <div className="flex flex-wrap gap-4">
           {club_stories.length > 0 ? (
             club_stories.map(story => {

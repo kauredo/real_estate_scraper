@@ -912,6 +912,7 @@ en:
       description:
         We work with organizations that share our vision of social
         responsibility and community commitment.
+      social_feed: Social Media Feed
     home_tailor:
       header: Home Tailor Partners
       meta_description:
@@ -920,6 +921,7 @@ en:
       description:
         We offer a network of specialized partners for all your property needs,
         from interior design to moving services.
+      title: Home Tailor Services
     rules:
       header: Rules
       meta_description: Rules and guidelines for Club SGG.
@@ -928,6 +930,7 @@ en:
         <p>Club SGG is an exclusive program designed to provide additional
         benefits to our clients...</p> <p>Check here all participation rules and
         conditions.</p>
+      title: Club SGG Rules
     stories:
       header: Stories
       meta_description:
@@ -943,6 +946,12 @@ en:
       partners.
     rules_description: Learn about Club SGG terms and conditions.
     stories_description: Inspiring stories and success cases from our members.
+    sections:
+      benefits: Member Benefits
+      partners: Our Partners
+    recent_stories:
+      title: Recent Stories
+      description: Discover our latest member stories and experiences
 
   club_stories:
     resource: Story

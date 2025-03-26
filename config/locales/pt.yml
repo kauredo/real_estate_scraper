@@ -921,14 +921,13 @@ pt:
     meta_description:
       Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária
       encontra benefícios exclusivos.
-    social_partners:
-      header: Parceiros Sociais
-      meta_description:
-        Descubra os nossos parceiros sociais e como juntos fazemos a diferença.
-      introduction: Conheça os Nossos Parceiros
+    sections:
+      benefits: Benefícios para Membros
+      partners: Nossos Parceiros
+    recent_stories:
+      title: Histórias Recentes
       description:
-        Trabalhamos com organizações que partilham a nossa visão de
-        responsabilidade social e compromisso com a comunidade.
+        Descubra as histórias e experiências mais recentes dos nossos membros
     home_tailor:
       header: Parceiros Home Tailor
       meta_description:
@@ -936,33 +935,45 @@ pt:
         selecionados.
       introduction: Soluções Completas para o Seu Lar
       description:
-        Oferecemos uma rede de parceiros especializados para todas as
-        necessidades do seu imóvel, desde design de interiores até serviços de
-        mudança.
+        Trabalhamos com parceiros especializados para transformar a sua casa no
+        lar dos seus sonhos.
+      title: "Serviços Home Tailor"
+    social_partners:
+      header: Parceiros Sociais
+      meta_description:
+        Descubra os nossos parceiros sociais e como juntos fazemos a diferença.
+      introduction: Conheça os Nossos Parceiros
+      description:
+        Colaboramos com organizações que partilham a nossa visão de
+        responsabilidade social.
+      social_feed: "Feed Social"
     rules:
       header: Regulamento
-      meta_description: Regulamento e diretrizes do Clube SGG.
+      meta_description: Regras e diretrizes para membros do Clube SGG.
       introduction: Regulamento do Clube SGG
       content: >
         <p>O Clube SGG é um programa exclusivo que visa proporcionar benefícios
         adicionais aos nossos clientes...</p> <p>Consulte aqui todas as regras e
         condições de participação.</p>
+      title: "Regulamento Clube SGG"
     stories:
-      header: Histórias
+      title: Histórias do Clube
+      header: Histórias dos Membros
+      intro: Descubra experiências únicas da nossa comunidade
       meta_description:
         Histórias inspiradoras e casos de sucesso dos membros do Clube SGG.
       subheader:
-        Descubra experiências únicas e histórias de sucesso dos nossos membros.
+        Leia sobre experiências e histórias de sucesso dos nossos membros.
       empty: Novas histórias em breve...
-    social_partners_description:
-      Parceiros que compartilham nossa visão social e contribuem para um impacto
-      positivo na comunidade.
-    home_tailor_description:
-      Serviços especializados para transformar e manter o seu lar, com parceiros
-      de confiança.
-    rules_description: Conheça os termos e condições do Clube SGG.
     stories_description:
-      Histórias inspiradoras e casos de sucesso dos nossos membros.
+      "Histórias de sucesso e experiências inspiradoras dos nossos membros"
+    home_tailor_description:
+      "Serviços especializados para transformar e manter sua casa com parceiros
+      de confiança"
+    social_partners_description:
+      "Parceiros que compartilham nossa visão e contribuem para um impacto
+      positivo na comunidade"
+    rules_description: "Conheça os termos e condições de membro do Clube SGG"
 
   club_stories:
     resource: História

@@ -3,22 +3,29 @@ import { i18n } from "../../languages/languages";
 
 export default function HomeTailorPartners() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8 text-dark dark:text-light">
-        {i18n.t("club.home_tailor.header")}
+    <div className="container mx-auto px-4">
+      <section className="max-w-4xl mx-auto mb-12">
+        <h1 className="text-3xl font-bold text-center mb-4 text-dark dark:text-light">
+          {i18n.t("club.home_tailor.header")}
+        </h1>
+        <p className="text-center text-gray-600 dark:text-gray-300 text-lg">
+          {i18n.t("club.home_tailor.introduction")}
+        </p>
+      </section>
+
+      <h1 className="text-3xl font-bold text-center mb-8 text-dark dark:text-light">
+        {i18n.t("club.home_tailor.title")}
       </h1>
 
-      <div className="prose dark:prose-invert max-w-none">
-        <div className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4">
-            {i18n.t("club.home_tailor.introduction")}
-          </h2>
-          <p>{i18n.t("club.home_tailor.description")}</p>
-        </div>
+      {/* Main Content Sections */}
+      <div className="space-y-8">
+        <section className="bg-white dark:bg-dark shadow-lg rounded-lg p-6">
+          {/* Content section 1 */}
+        </section>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {/* Partner services will be mapped here when data is available */}
-        </div>
+        <section className="bg-white dark:bg-dark shadow-lg rounded-lg p-6">
+          {/* Content section 2 */}
+        </section>
       </div>
     </div>
   );

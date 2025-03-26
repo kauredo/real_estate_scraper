@@ -9,19 +9,25 @@ interface Props {
 
 export default function ClubStoryShow({ club_story }: Props) {
   return (
-    <div className="container mx-auto flex flex-col px-4">
-      <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
-        <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mb-4">
-          {club_story.title}
-        </h1>
-        <div
-          className="prose prose-lg dark:prose-invert max-w-none"
-          dangerouslySetInnerHTML={{ __html: club_story.text }}
-        />
-        <div className="mt-10">
-          <ShareIcons title={club_story.title} />
+    <div className="container mx-auto px-4">
+      <article className="max-w-4xl mx-auto">
+        <header className="mb-8">
+          <h1 className="text-3xl font-bold text-center mb-4 text-dark dark:text-light">
+            {club_story.title}
+          </h1>
+          <div className="text-center text-gray-600 dark:text-gray-400">
+            {new Date(club_story.created_at).toLocaleDateString()}
+          </div>
+        </header>
+
+        <div className="prose prose-lg dark:prose-invert max-w-none mb-8">
+          <div dangerouslySetInnerHTML={{ __html: club_story.text }} />
         </div>
-      </div>
+
+        <footer className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <ShareIcons title={club_story.title} />
+        </footer>
+      </article>
     </div>
   );
 }
