@@ -49,6 +49,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :club_story_photos, only: %i[create destroy]
+
     # redirect from /about to /kw
     get '/about', to: redirect('/kw')
     get '/sobre', to: redirect('/kw')

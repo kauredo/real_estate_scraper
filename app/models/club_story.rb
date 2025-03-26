@@ -6,6 +6,7 @@ class ClubStory < ApplicationRecord
 
   translates :title, :text, :slug
   friendly_id :title, use: %i[mobility history]
+  has_many :club_story_photos, dependent: :destroy
 
   default_scope { includes(:translations).order(created_at: :desc) }
   scope :visible, -> { where.not(hidden: true) }
@@ -18,6 +19,22 @@ class ClubStory < ApplicationRecord
                     .gsub("\r\n\r\n\r\n\r\n", "\r\n\r\n")
                     .gsub("\r\n\r\n\r\n", "\r\n\r\n")
                     .first(100).concat('...')
+  end
+
+  def main_photo
+    if club_story_photos.present? && club_story_photos.select(&:main).present?
+      club_story_photos.detect(&:main).image.url
+    elsif club_story_photos.present?
+      club_story_photos.first.image.url
+    elsif text&.include?('src=') && text&.include?('<img')
+      Nokogiri::HTML.parse(text).xpath('//img[@src]').first.attributes['src'].value
+    else
+      'https://sofiagalvaogroup.com/images/banner.webp'
+    end
+  end
+
+  def sanitized_text
+    text.gsub('background: white;', '').gsub('color', '')
   end
 
   private
@@ -38,6 +55,7 @@ end
 #  slug             :string
 #  text             :text
 #  title            :string
+#  video_link       :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

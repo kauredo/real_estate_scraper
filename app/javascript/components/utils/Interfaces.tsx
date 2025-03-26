@@ -118,4 +118,14 @@ export interface ClubStory {
   meta_description?: string;
   created_at: string;
   updated_at: string;
+  video_link?: string;
+  club_story_photos?: ClubStoryPhoto[];
+}
+
+export interface ClubStoryPhoto {
+  id: number;
+  image: {
+    url: string;
+  };
+  main: boolean;
 }

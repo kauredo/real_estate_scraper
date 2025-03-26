@@ -28,6 +28,36 @@
   <%= tinymce %>
 </div>
 
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+  <%= f.label :video_link, class: 'w-1/4 font-bold' %>
+  <%= f.text_field :video_link, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+</div>
+
+<div class="field mb-4">
+  <div class="font-bold mb-2"><%= t('backoffice.common.photos') %></div>
+  <%= file_field_tag 'club_story_photos[image][]', multiple: true, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+</div>
+
+<% if @club_story.club_story_photos.present? %>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-4">
+    <% @club_story.club_story_photos.each do |photo| %>
+      <div class="relative">
+        <%= image_tag photo.image.url, class: 'w-full h-48 object-cover rounded' %>
+        <div class="absolute top-2 right-2 flex gap-2">
+          <div class="bg-white rounded p-2">
+            <%= check_box_tag "club_story_photos[#{photo.id}][main]", '1', photo.main %>
+            <%= label_tag "club_story_photos[#{photo.id}][main]", t('backoffice.common.main_photo') %>
+          </div>
+          <%= link_to t('backoffice.common.delete'), club_story_photo_path(photo), 
+              method: :delete,
+              class: 'bg-red-500 text-white rounded p-2',
+              data: { "turbo-method": :delete, confirm: t('backoffice.common.delete_confirm') } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 <hr>
 
 <p class="text-xl font-bold py-2"><%= t('backoffice.common.seo_section') %></p>

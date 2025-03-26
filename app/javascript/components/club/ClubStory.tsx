@@ -2,6 +2,7 @@ import React from "react";
 import { i18n } from "../../languages/languages";
 import { ClubStory } from "../utils/Interfaces";
 import ShareIcons from "../shared/ShareIcons";
+import PhotoGallery from "../shared/PhotoGallery";
 
 interface Props {
   club_story: ClubStory;
@@ -19,6 +20,24 @@ export default function ClubStoryShow({ club_story }: Props) {
             {new Date(club_story.created_at).toLocaleDateString()}
           </div>
         </header>
+
+        {club_story.video_link && (
+          <div className="aspect-w-16 aspect-h-9 mb-8">
+            <iframe
+              src={club_story.video_link}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        )}
+
+        {club_story.club_story_photos &&
+          club_story.club_story_photos.length > 0 && (
+            <PhotoGallery
+              photos={club_story.club_story_photos.map(p => p.image.url)}
+            />
+          )}
 
         <div className="prose prose-lg dark:prose-invert max-w-none mb-8">
           <div dangerouslySetInnerHTML={{ __html: club_story.text }} />

@@ -12,5 +12,9 @@ class ClubStoriesController < ApplicationController
       path: edit_backoffice_club_story_path(@club_story),
       name: I18n.t('club_stories.resource')
     }
+
+    @club_story_json = @club_story.as_json(
+      include: { club_story_photos: { methods: [:image] } }
+    )
   end
 end
