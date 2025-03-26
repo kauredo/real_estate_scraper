@@ -16,6 +16,11 @@ pt:
     other_language: English
     dark_mode: Modo Escuro
     light_mode: Modo Claro
+    club: Clube SGG
+    club_social_partners: Parceiros Sociais
+    club_home_tailor: Parceiros Home Tailor
+    club_rules: Regulamento
+    club_stories: Histórias
 
   footer:
     about: sobre nós
@@ -910,3 +915,51 @@ pt:
     messenger: Partilhar no Messenger
     copy: Copiar Link
     copied: Link copiado!
+
+  club:
+    header: Clube SGG
+    meta_description:
+      Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária
+      encontra benefícios exclusivos.
+    social_partners:
+      header: Parceiros Sociais
+      meta_description:
+        Descubra os nossos parceiros sociais e como juntos fazemos a diferença.
+      introduction: Conheça os Nossos Parceiros
+      description:
+        Trabalhamos com organizações que partilham a nossa visão de
+        responsabilidade social e compromisso com a comunidade.
+    home_tailor:
+      header: Parceiros Home Tailor
+      meta_description:
+        Serviços personalizados para o seu lar com os nossos parceiros
+        selecionados.
+      introduction: Soluções Completas para o Seu Lar
+      description:
+        Oferecemos uma rede de parceiros especializados para todas as
+        necessidades do seu imóvel, desde design de interiores até serviços de
+        mudança.
+    rules:
+      header: Regulamento
+      meta_description: Regulamento e diretrizes do Clube SGG.
+      introduction: Regulamento do Clube SGG
+      content: >
+        <p>O Clube SGG é um programa exclusivo que visa proporcionar benefícios
+        adicionais aos nossos clientes...</p> <p>Consulte aqui todas as regras e
+        condições de participação.</p>
+    stories:
+      header: Histórias
+      meta_description:
+        Histórias inspiradoras e casos de sucesso dos membros do Clube SGG.
+      subheader:
+        Descubra experiências únicas e histórias de sucesso dos nossos membros.
+      empty: Novas histórias em breve...
+    social_partners_description:
+      Parceiros que compartilham nossa visão social e contribuem para um impacto
+      positivo na comunidade.
+    home_tailor_description:
+      Serviços especializados para transformar e manter o seu lar, com parceiros
+      de confiança.
+    rules_description: Conheça os termos e condições do Clube SGG.
+    stories_description:
+      Histórias inspiradoras e casos de sucesso dos nossos membros.

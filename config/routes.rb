@@ -81,7 +81,7 @@ Rails.application.routes.draw do
       resources :testimonials
     end
 
-    resources :errors, only: 'show' if [Rails.env.development? || Rails.env.test?]
+    resources :errors, only: 'show' if Rails.env.development? || Rails.env.test?
   end
 
   authenticate :admin, ->(a) { a.confirmed? } do

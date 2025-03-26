@@ -106,3 +106,14 @@ export interface StatsFilter {
   Area_bruta_CP: string;
   Ano_de_construção: string;
 }
+
+export interface ClubStory {
+  id: number;
+  title: string;
+  text: string;
+  slug: string;
+  main_photo: string;
+  sample_text: string;
+  meta_title?: string;
+  meta_description?: string;
+}

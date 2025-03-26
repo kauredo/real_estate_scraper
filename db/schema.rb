@@ -70,6 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_26_170624) do
     t.text "meta_title"
     t.text "meta_description"
     t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_club_stories_on_slug", unique: true
   end
 

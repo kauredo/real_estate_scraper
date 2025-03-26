@@ -56,11 +56,15 @@ export default function Navbar(props: Props) {
       url: sanitizeURL(window.Routes.latest_path),
     },
     {
+      title: `${i18n.t("navbar.club")}`,
+      url: sanitizeURL(window.Routes.club_path),
+      turbo: "true",
+    },
+    {
       title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.blog_path),
     },
-    // moreDropdown,
     {
       title: `${i18n.t("navbar.about")}`,
       turbo: "true",

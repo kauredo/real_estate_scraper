@@ -117,6 +117,38 @@
       "header": "Comprar",
       "meta_description": "Comprar propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group."
     },
+    "club": {
+      "header": "Clube SGG",
+      "home_tailor": {
+        "description": "Oferecemos uma rede de parceiros especializados para todas as necessidades do seu imóvel, desde design de interiores até serviços de mudança.",
+        "header": "Parceiros Home Tailor",
+        "introduction": "Soluções Completas para o Seu Lar",
+        "meta_description": "Serviços personalizados para o seu lar com os nossos parceiros selecionados."
+      },
+      "home_tailor_description": "Serviços especializados para transformar e manter o seu lar, com parceiros de confiança.",
+      "meta_description": "Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
+      "rules": {
+        "content": "<p>O Clube SGG é um programa exclusivo que visa proporcionar benefícios adicionais aos nossos clientes...</p> <p>Consulte aqui todas as regras e condições de participação.</p>\n",
+        "header": "Regulamento",
+        "introduction": "Regulamento do Clube SGG",
+        "meta_description": "Regulamento e diretrizes do Clube SGG."
+      },
+      "rules_description": "Conheça os termos e condições do Clube SGG.",
+      "social_partners": {
+        "description": "Trabalhamos com organizações que partilham a nossa visão de responsabilidade social e compromisso com a comunidade.",
+        "header": "Parceiros Sociais",
+        "introduction": "Conheça os Nossos Parceiros",
+        "meta_description": "Descubra os nossos parceiros sociais e como juntos fazemos a diferença."
+      },
+      "social_partners_description": "Parceiros que compartilham nossa visão social e contribuem para um impacto positivo na comunidade.",
+      "stories": {
+        "empty": "Novas histórias em breve...",
+        "header": "Histórias",
+        "meta_description": "Histórias inspiradoras e casos de sucesso dos membros do Clube SGG.",
+        "subheader": "Descubra experiências únicas e histórias de sucesso dos nossos membros."
+      },
+      "stories_description": "Histórias inspiradoras e casos de sucesso dos nossos membros."
+    },
     "contacts": {
       "contact_us": "Contacte-nos",
       "cta": "ENTRE EM CONTACTO CONNOSCO",
@@ -864,6 +896,11 @@
       "blog_posts": "Blog",
       "buy": "Comprar",
       "change_language": "Change site to English",
+      "club": "Clube SGG",
+      "club_home_tailor": "Parceiros Home Tailor",
+      "club_rules": "Regulamento",
+      "club_social_partners": "Parceiros Sociais",
+      "club_stories": "Histórias",
       "contacts": "Contactos",
       "dark_mode": "Modo Escuro",
       "enterprises": "Empreendimentos",

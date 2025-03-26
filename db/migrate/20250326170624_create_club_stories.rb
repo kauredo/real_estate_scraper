@@ -7,6 +7,7 @@ class CreateClubStories < ActiveRecord::Migration[7.0]
       t.text :meta_title
       t.text :meta_description
       t.string :slug
+      t.timestamps
     end
     add_index :club_stories, :slug, unique: true
   end
