@@ -35,23 +35,23 @@ export default function ClubPage({ recent_stories }: Props) {
   return (
     <div className="container mx-auto px-4">
       <div className="flex flex-col items-center justify-center py-12">
-        <h1 className="text-3xl font-bold text-center mb-8 text-dark dark:text-light">
+        <h1 className="text-3xl font-bold text-center mb-12 text-dark dark:text-light">
           {i18n.t("club.header")}
         </h1>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl">
           {sections.map(section => (
             <a
               key={section.path}
               href={sanitizeURL(section.path)}
-              className="transform hover:scale-105 transition-transform duration-200"
+              className="block h-full transform transition-all duration-300 hover:scale-102 hover:shadow-xl"
               data-turbo="true"
             >
-              <div className="bg-white dark:bg-dark shadow-lg rounded-lg p-6">
+              <div className="bg-white dark:bg-dark shadow-lg rounded-lg p-8 h-full flex flex-col justify-between">
                 <h2 className="text-xl font-semibold mb-4 text-dark dark:text-light">
                   {section.title}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   {section.description}
                 </p>
               </div>
@@ -61,17 +61,20 @@ export default function ClubPage({ recent_stories }: Props) {
       </div>
 
       {/* Recent Stories Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4 text-dark dark:text-light">
+      <section className="mb-16">
+        <h2 className="text-2xl font-bold mb-6 text-dark dark:text-light">
           {i18n.t("club.recent_stories.title")}
         </h2>
-        <div id="recent-stories" className="flex flex-wrap gap-4">
+        <div
+          id="recent-stories"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {recent_stories && recent_stories.length > 0 ? (
             recent_stories.map(story => (
               <ClubStoryCard key={story.id} story={story} />
             ))
           ) : (
-            <div className="w-full text-center p-8 text-lg font-light">
+            <div className="col-span-full text-center p-8 text-lg font-light bg-white dark:bg-dark rounded-lg shadow-lg">
               <h3>{i18n.t("club.stories.empty")}</h3>
             </div>
           )}
@@ -79,27 +82,26 @@ export default function ClubPage({ recent_stories }: Props) {
       </section>
 
       {/* External Form Section */}
-      <section className="mb-12">
+      <section className="mb-16">
         <div
           id="external-form"
-          className="bg-white dark:bg-dark shadow-lg rounded-lg p-6 min-h-[400px]"
+          className="bg-white dark:bg-dark shadow-lg rounded-lg p-8 min-h-[400px]"
         >
           {/* External form will be embedded here */}
         </div>
       </section>
 
       {/* Content Sections */}
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* These sections will be populated with content from the CMS */}
-        <section className="bg-white dark:bg-dark shadow-lg rounded-lg p-6">
-          <h2 className="text-xl font-bold mb-4 text-dark dark:text-light">
+      <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <section className="bg-white dark:bg-dark shadow-lg rounded-lg p-8 h-full">
+          <h2 className="text-xl font-bold mb-6 text-dark dark:text-light">
             {i18n.t("club.sections.benefits")}
           </h2>
           {/* Content */}
         </section>
 
-        <section className="bg-white dark:bg-dark shadow-lg rounded-lg p-6">
-          <h2 className="text-xl font-bold mb-4 text-dark dark:text-light">
+        <section className="bg-white dark:bg-dark shadow-lg rounded-lg p-8 h-full">
+          <h2 className="text-xl font-bold mb-6 text-dark dark:text-light">
             {i18n.t("club.sections.partners")}
           </h2>
           {/* Content */}
