@@ -95,6 +95,27 @@
         "title": "Who are we?"
       }
     },
+    "backoffice": {
+      "blog_posts": {
+        "view_post": "View Post"
+      },
+      "club_stories": {
+        "view_story": "View Story"
+      },
+      "common": {
+        "create": "Create",
+        "delete": "🗑️",
+        "delete_confirm": "Are you sure you want to delete this item?",
+        "delete_photo_confirm": "Are you sure you want to delete this photo?",
+        "main_photo": "Main photo?",
+        "photos": "Photos",
+        "seo_description_hint": "This is the description that will appear on search engines 👇",
+        "seo_section": "SEO",
+        "seo_title_hint": "This is the title that will appear on search engines 👇",
+        "update": "Update",
+        "view": "View"
+      }
+    },
     "blog_posts": {
       "empty": "New posts coming soon...",
       "header": "Blog Posts",
@@ -137,6 +158,9 @@
         "subheader": "Discover unique experiences and success stories from our members."
       },
       "stories_description": "Inspiring stories and success cases from our members."
+    },
+    "club_stories": {
+      "resource": "Story"
     },
     "contacts": {
       "contact_us": "Contact us",
@@ -548,6 +572,9 @@
       "contacts": "contacts",
       "privacy": "privacy policy",
       "terms": "terms and conditions"
+    },
+    "general": {
+      "read_more": "Read more"
     },
     "good_job": {
       "actions": {
@@ -1516,6 +1543,27 @@
         "title": "Quem somos?"
       }
     },
+    "backoffice": {
+      "blog_posts": {
+        "view_post": "Ver Post"
+      },
+      "club_stories": {
+        "view_story": "Ver História"
+      },
+      "common": {
+        "create": "Criar",
+        "delete": "🗑️",
+        "delete_confirm": "Tem certeza que deseja apagar este item?",
+        "delete_photo_confirm": "Tem certeza que deseja apagar esta foto?",
+        "main_photo": "Foto principal?",
+        "photos": "Fotos",
+        "seo_description_hint": "Esta é a descrição que aparecerá nos motores de busca 👇",
+        "seo_section": "SEO",
+        "seo_title_hint": "Este é o título que aparecerá nos motores de busca 👇",
+        "update": "Atualizar",
+        "view": "Ver"
+      }
+    },
     "blog_posts": {
       "empty": "Novos posts em breve...",
       "header": "Blog Posts",
@@ -1558,6 +1606,9 @@
         "subheader": "Descubra experiências únicas e histórias de sucesso dos nossos membros."
       },
       "stories_description": "Histórias inspiradoras e casos de sucesso dos nossos membros."
+    },
+    "club_stories": {
+      "resource": "História"
     },
     "contacts": {
       "contact_us": "Contacte-nos",
@@ -2021,6 +2072,9 @@
       "contacts": "contactos",
       "privacy": "política de privacidade",
       "terms": "termos e condições"
+    },
+    "general": {
+      "read_more": "Ler mais"
     },
     "helpers": {
       "select": {

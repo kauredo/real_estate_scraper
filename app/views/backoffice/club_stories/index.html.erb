@@ -1,0 +1,15 @@
+<div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
+  <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+    <div class="mb-6">
+      <%= link_to 'Nova História', new_backoffice_club_story_path, class: 'bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
+    </div>
+    <h1 class="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">Histórias do Clube</h1>
+    <p class="text-center text-gray-600 max-w-none">Total <%= @club_stories.count %> histórias</p>
+    <br>
+    <div class="flex flex-wrap gap-4">
+      <% @club_stories.each do |club_story| %>
+        <%= render 'club_story', club_story: %>
+      <% end %>
+    </div>
+  </div>
+</div>

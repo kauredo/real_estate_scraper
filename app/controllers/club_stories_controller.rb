@@ -2,7 +2,8 @@
 
 class ClubStoriesController < ApplicationController
   def index
-    @club_stories = ClubStory.visible
+    club_stories = ClubStory.visible
+    @club_stories = club_stories.as_json(methods: :sample_text)
   end
 
   def show

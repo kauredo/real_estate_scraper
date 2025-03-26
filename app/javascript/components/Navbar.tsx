@@ -113,6 +113,11 @@ export default function Navbar(props: Props) {
       turbo: "true",
       url: sanitizeURL(window.Routes.backoffice_blog_posts_path),
     },
+    {
+      title: `${i18n.t("navbar.club_stories")}`,
+      turbo: "true",
+      url: sanitizeURL(window.Routes.backoffice_club_stories_path),
+    },
   ];
 
   const middleItems = backoffice ? backofficeItems : items;

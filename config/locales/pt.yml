@@ -963,3 +963,28 @@ pt:
     rules_description: Conheça os termos e condições do Clube SGG.
     stories_description:
       Histórias inspiradoras e casos de sucesso dos nossos membros.
+
+  club_stories:
+    resource: História
+
+  backoffice:
+    common:
+      create: Criar
+      update: Atualizar
+      view: Ver
+      delete: 🗑️
+      delete_confirm: Tem certeza que deseja apagar este item?
+      seo_section: SEO
+      seo_title_hint: Este é o título que aparecerá nos motores de busca 👇
+      seo_description_hint:
+        Esta é a descrição que aparecerá nos motores de busca 👇
+      photos: Fotos
+      main_photo: Foto principal?
+      delete_photo_confirm: Tem certeza que deseja apagar esta foto?
+    blog_posts:
+      view_post: Ver Post
+    club_stories:
+      view_story: Ver História
+
+  general:
+    read_more: Ler mais

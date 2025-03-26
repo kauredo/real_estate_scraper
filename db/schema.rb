@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_03_26_170624) do
+ActiveRecord::Schema[7.0].define(version: 2025_03_26_170625) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,18 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_26_170624) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_club_stories_on_slug", unique: true
+  end
+
+  create_table "club_story_translations", force: :cascade do |t|
+    t.text "title"
+    t.text "text"
+    t.text "slug"
+    t.string "locale", null: false
+    t.bigint "club_story_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_story_id", "locale"], name: "index_club_story_translations_on_club_story_id_and_locale", unique: true
+    t.index ["locale"], name: "index_club_story_translations_on_locale"
   end
 
   create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
@@ -340,6 +352,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_26_170624) do
   end
 
   add_foreign_key "blog_post_translations", "blog_posts"
+  add_foreign_key "club_story_translations", "club_stories"
   add_foreign_key "listing_complex_translations", "listing_complexes"
   add_foreign_key "listing_translations", "listings"
   add_foreign_key "newsletter_subscriptions", "users"

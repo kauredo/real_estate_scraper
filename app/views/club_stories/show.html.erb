@@ -1,0 +1,9 @@
+<% content_for(:meta_title) { @club_story.meta_title || @club_story.title } %>
+<% content_for(:meta_description) { @club_story.meta_description } %>
+<% content_for(:extra_meta) do %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>clube-sgg/historias/<%= @club_story.slug %>" />
+  <link rel="alternate" hreflang="<%= I18n.locale == :pt ? 'en' : 'pt' %>" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? 'en/' : '' %>clube-sgg/historias/<%= @club_story.slug %>" />
+  <link rel="alternate" hreflang="x-default" href="https://sofiagalvaogroup.com/clube-sgg/historias/<%= @club_story.slug %>" />
+<% end %>
+
+<%= react_component 'club--ClubStory', { club_story: @club_story } %>

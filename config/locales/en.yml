@@ -943,3 +943,28 @@ en:
       partners.
     rules_description: Learn about Club SGG terms and conditions.
     stories_description: Inspiring stories and success cases from our members.
+
+  club_stories:
+    resource: Story
+
+  backoffice:
+    common:
+      create: Create
+      update: Update
+      view: View
+      delete: 🗑️
+      delete_confirm: Are you sure you want to delete this item?
+      seo_section: SEO
+      seo_title_hint: This is the title that will appear on search engines 👇
+      seo_description_hint:
+        This is the description that will appear on search engines 👇
+      photos: Photos
+      main_photo: Main photo?
+      delete_photo_confirm: Are you sure you want to delete this photo?
+    blog_posts:
+      view_post: View Post
+    club_stories:
+      view_story: View Story
+
+  general:
+    read_more: Read more

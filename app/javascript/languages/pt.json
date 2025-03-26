@@ -106,6 +106,27 @@
         }
       }
     },
+    "backoffice": {
+      "blog_posts": {
+        "view_post": "Ver Post"
+      },
+      "club_stories": {
+        "view_story": "Ver História"
+      },
+      "common": {
+        "create": "Criar",
+        "delete": "🗑️",
+        "delete_confirm": "Tem certeza que deseja apagar este item?",
+        "delete_photo_confirm": "Tem certeza que deseja apagar esta foto?",
+        "main_photo": "Foto principal?",
+        "photos": "Fotos",
+        "seo_description_hint": "Esta é a descrição que aparecerá nos motores de busca 👇",
+        "seo_section": "SEO",
+        "seo_title_hint": "Este é o título que aparecerá nos motores de busca 👇",
+        "update": "Atualizar",
+        "view": "Ver"
+      }
+    },
     "blog_posts": {
       "empty": "Novos posts em breve...",
       "header": "Blog Posts",
@@ -148,6 +169,9 @@
         "subheader": "Descubra experiências únicas e histórias de sucesso dos nossos membros."
       },
       "stories_description": "Histórias inspiradoras e casos de sucesso dos nossos membros."
+    },
+    "club_stories": {
+      "resource": "História"
     },
     "contacts": {
       "contact_us": "Contacte-nos",
@@ -671,6 +695,9 @@
       "contacts": "contactos",
       "privacy": "política de privacidade",
       "terms": "termos e condições"
+    },
+    "general": {
+      "read_more": "Ler mais"
     },
     "helpers": {
       "select": {
