@@ -32,6 +32,15 @@ Rails.application.routes.draw do
     get '/blog/:id', to: 'blog_posts#show', as: :blog_post
     get '/vender', to: 'listings#sell', as: :sell
     post '/tinymce_assets' => 'blog_photos#create'
+
+    # Club SGG routes
+    get '/clube-sgg', to: 'club#index', as: :club
+    get '/clube-sgg/parceiros-sociais', to: 'club#social_partners', as: :club_social_partners
+    get '/clube-sgg/parceiros-home-tailor', to: 'club#home_tailor_partners', as: :club_home_tailor_partners
+    get '/clube-sgg/regulamento', to: 'club#rules', as: :club_rules
+    get '/clube-sgg/historias', to: 'club_stories#index', as: :club_stories
+    get '/clube-sgg/historias/:id', to: 'club_stories#show', as: :club_story
+
     resources :blog_photos, only: %i[create destroy]
     resources :photos, only: [:destroy]
     resources :newsletter_subscriptions, only: %i[create destroy] do
@@ -48,6 +57,7 @@ Rails.application.routes.draw do
       get '/', to: 'pages#home'
       resources :variables, only: %i[create update destroy]
       resources :blog_posts
+      resources :club_stories
       resources :listings, only: %i[index create edit update destroy] do
         member do
           post :update_details

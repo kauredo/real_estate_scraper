@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_02_06_112935) do
+ActiveRecord::Schema[7.0].define(version: 2025_03_26_170624) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,16 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_06_112935) do
     t.string "slug"
     t.string "video_link"
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
+  end
+
+  create_table "club_stories", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.boolean "hidden"
+    t.text "meta_title"
+    t.text "meta_description"
+    t.string "slug"
+    t.index ["slug"], name: "index_club_stories_on_slug", unique: true
   end
 
   create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
