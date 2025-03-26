@@ -4,4 +4,4 @@
 <% content_for(:meta_title) { meta_title } %>
 <% content_for(:meta_description) { meta_description } %>
 
-<%= react_component 'club--ClubPage' %>
+<%= react_component 'club--ClubPage', { recent_stories: @recent_stories } %>
