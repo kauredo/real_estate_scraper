@@ -179,7 +179,8 @@
         "empty": "New stories coming soon...",
         "header": "Stories",
         "meta_description": "Inspiring stories and success cases from Club SGG members.",
-        "subheader": "Discover unique experiences and success stories from our members."
+        "subheader": "Discover unique experiences and success stories from our members.",
+        "title": "Stories"
       },
       "stories_description": "Inspiring stories and success cases from our members."
     },

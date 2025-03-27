@@ -5,16 +5,20 @@ require 'faker'
 ENV['USE_LOCAL_STORAGE'] = 'true'
 ENV['DISABLE_CLOUDINARY'] = 'true'
 
-puts 'Cleaning up temp storage...'
+puts "\n=== Starting seed process ==="
+start_time = Time.current
+puts "#{Time.current} - Cleaning up temp storage..."
 FileUtils.rm_rf(Rails.root.join('tmp', 'storage'))
 FileUtils.mkdir_p(Rails.root.join('tmp', 'storage'))
 # add .keep file to prevent git from deleting the folder
 FileUtils.touch(Rails.root.join('tmp', 'storage', '.keep'))
 
-puts 'Cleaning up database...'
+puts "\n#{Time.current} - Cleaning up database..."
 [Variable, Testimonial, ClubStory, ClubStoryPhoto, BlogPost, BlogPhoto, ListingComplex, Listing, Photo, User, NewsletterSubscription].each do |model|
+  print "  • Cleaning #{model.name}... "
+  count = model.count
   model.destroy_all
-  puts "Cleaned #{model.name}"
+  puts "#{count} records removed"
 end
 
 # Download images locally instead of using remote_image_url
@@ -36,30 +40,54 @@ rescue => e
   nil
 end
 
-# Create Listing Complexes with translations and photos
-puts 'Creating listing complexes...'
+# Helper method to create content with locales
+def with_locales
+  Faker::Config.locale = 'pt'
+  pt_content = yield(:pt)
+
+  Faker::Config.locale = 'en'
+  en_content = yield(:en)
+
+  { pt: pt_content, en: en_content }
+end
+
+puts "\n#{Time.current} - Creating listing complexes..."
 8.times do |i|
+  print "  • Complex #{i + 1}/8: "
+  content = with_locales do |_locale|
+    {
+      name: Faker::Address.community,
+      description: Faker::Lorem.paragraphs(number: 2).join("\n\n"),
+      subtext: Faker::Lorem.paragraph,
+      final_text: Faker::Lorem.paragraph
+    }
+  end
+
+  print "Creating base record... "
   complex = ListingComplex.create!(
-    name: Faker::Address.community,
-    description: Faker::Lorem.paragraphs(number: 2).join("\n\n"),
+    name: content[:pt][:name],
+    description: content[:pt][:description],
+    subtext: content[:pt][:subtext],
+    final_text: content[:pt][:final_text],
     video_link: "https://www.youtube.com/embed/#{Faker::Alphanumeric.alpha(number: 11)}",
     order: i + 1,
-    subtext: Faker::Lorem.paragraph,
-    final_text: Faker::Lorem.paragraph,
     new_format: [true, false].sample,
     hidden: [true, false].sample,
     url: Faker::Internet.url
   )
+  print "✓ "
 
+  print "Adding English translation... "
   I18n.with_locale(:en) do
-    complex.name = Faker::Address.community
-    complex.description = Faker::Lorem.paragraphs(number: 2).join("\n\n")
-    complex.subtext = Faker::Lorem.paragraph
-    complex.final_text = Faker::Lorem.paragraph
+    complex.name = content[:en][:name]
+    complex.description = content[:en][:description]
+    complex.subtext = content[:en][:subtext]
+    complex.final_text = content[:en][:final_text]
     complex.save!
   end
+  print "✓ "
 
-  # Add photos to complex
+  print "Adding photos: "
   5.times do |j|
     Photo.create!(
       listing_complex: complex,
@@ -67,10 +95,21 @@ puts 'Creating listing complexes...'
       main: j.zero?,
       order: j + 1
     )
+    print "📸 "
   end
+  puts "✓"
 
-  # Create Listings for each complex
-  rand(3..8).times do |j|
+  print "    Creating listings: "
+  listings_count = rand(3..8)
+  listings_count.times do |j|
+    content = with_locales do |_locale|
+      {
+        title: Faker::Lorem.sentence,
+        description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
+        features: Faker::Lorem.words(number: rand(3..8))
+      }
+    end
+
     listing = Listing.new(
       listing_complex: complex,
       stats: {
@@ -80,10 +119,10 @@ puts 'Creating listing complexes...'
         area: rand(50..500)
       },
       address: Faker::Address.full_address,
-      features: Faker::Lorem.words(number: rand(3..8)),
-      title: Faker::Lorem.sentence,
+      features: content[:pt][:features],
+      title: content[:pt][:title],
       url: Faker::Internet.url,
-      description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
+      description: content[:pt][:description],
       photos: Array.new(rand(5..10)) { "https://picsum.photos/800/600?random=#{Faker::Number.number(digits: 6)}" },
       order: j + 1,
       status: Listing.statuses.keys.sample,
@@ -95,94 +134,118 @@ puts 'Creating listing complexes...'
     )
 
     I18n.with_locale(:en) do
-      listing.title = Faker::Lorem.sentence
-      listing.description = Faker::Lorem.paragraphs(number: 3).join("\n\n")
-      listing.features = Faker::Lorem.words(number: rand(3..8))
+      listing.title = content[:en][:title]
+      listing.description = content[:en][:description]
+      listing.features = content[:en][:features]
       listing.save!(validate: false)
     end
+    print "🏠 "
   end
+  puts "✓ (#{listings_count} created)"
 end
 
-# Create Variables with translations
-puts 'Creating variables...'
-10.times do
+puts "\n#{Time.current} - Creating variables..."
+10.times do |i|
+  print "  • Variable #{i + 1}/10: "
+  content = with_locales do |_locale|
+    {
+      name: Faker::Company.buzzword,
+      value: [Faker::Number.number(digits: 6), Faker::Company.bs].sample
+    }
+  end
+
   variable = Variable.create!(
-    name: Faker::Company.buzzword,
-    value: [Faker::Number.number(digits: 6), Faker::Company.bs].sample,
+    name: content[:pt][:name],
+    value: content[:pt][:value],
     icon: ['fas fa-medal', 'fas fa-trophy', 'fas fa-star', 'fas fa-award', 'fas fa-certificate'].sample
   )
-
-  I18n.available_locales.each do |locale|
-    next if locale == :pt
-    I18n.with_locale(locale) do
-      variable.name = Faker::Company.buzzword
-      variable.value = [Faker::Number.number(digits: 6), Faker::Company.bs].sample
-      variable.save!
-    end
-  end
-end
-
-# Create Testimonials with translations
-puts 'Creating testimonials...'
-20.times do
-  testimonial = Testimonial.create!(
-    name: Faker::Name.name,
-    text: Faker::Lorem.paragraph(sentence_count: 3)
-  )
+  print "Created "
 
   I18n.with_locale(:en) do
-    testimonial.text = Faker::Lorem.paragraph(sentence_count: 3)
-    testimonial.save!
+    variable.name = content[:en][:name]
+    variable.value = content[:en][:value]
+    variable.save!
   end
+  puts "✓"
 end
 
-# Create Club Stories with translations and photos
-puts 'Creating club stories...'
-15.times do
+puts "\n#{Time.current} - Creating testimonials..."
+20.times do |i|
+  print "  • Testimonial #{i + 1}/20: "
+  content = with_locales do |_locale|
+    { text: Faker::Lorem.paragraph(sentence_count: 3) }
+  end
+
+  testimonial = Testimonial.create!(
+    name: Faker::Name.name,
+    text: content[:pt][:text]
+  )
+  print "Created "
+
+  I18n.with_locale(:en) do
+    testimonial.text = content[:en][:text]
+    testimonial.save!
+  end
+  puts "✓"
+end
+
+puts "\n#{Time.current} - Creating club stories..."
+15.times do |i|
+  puts "\n  • Story #{i + 1}/15:"
+  content = with_locales do |_locale|
+    {
+      title: Faker::Company.catch_phrase,
+      text: "<p>#{Faker::Lorem.paragraphs(number: 3).join('</p><p>')}</p>"
+    }
+  end
+
+  print "    Base record... "
   story = ClubStory.create!(
-    title: Faker::Company.catch_phrase,
-    text: "<p>#{Faker::Lorem.paragraphs(number: 3).join('</p><p>')}</p>",
+    title: content[:pt][:title],
+    text: content[:pt][:text],
     hidden: [true, false].sample,
     meta_title: Faker::Marketing.buzzwords,
     meta_description: Faker::Company.catch_phrase,
     video_link: "https://www.youtube.com/embed/#{Faker::Alphanumeric.alpha(number: 11)}"
   )
+  puts "✓"
 
+  print "    English translation... "
   I18n.with_locale(:en) do
-    story.title = Faker::Company.catch_phrase
-    story.text = "<p>#{Faker::Lorem.paragraphs(number: 3).join('</p><p>')}</p>"
+    story.title = content[:en][:title]
+    story.text = content[:en][:text]
     story.save!
   end
+  puts "✓"
 
-  # Add photos to story
-  puts "  Adding photos to story #{story.id}..."
-  3.times do |i|
-    image = download_image("story_#{story.id}_#{i}", i)
+  print "    Photos: "
+  3.times do |j|
+    image = download_image("story_#{story.id}_#{i}", j)
     if image
       ClubStoryPhoto.create!(
         club_story: story,
         image: image,
-        main: i.zero?
+        main: j.zero?
       )
-      puts "."
+      print "📸 "
     else
-      puts "x"
+      print "❌ "
     end
   end
-  puts " done!"
+  puts "✓"
 end
 
-# Create Admin user
-puts 'Creating admin user...'
+puts "\n#{Time.current} - Creating admin user..."
 Admin.create!(
   email: 'admin@example.com',
   password: 'password123',
   confirmed: true
-)
+) unless Admin.find_by(email: 'admin@example.com').present?
+puts "  • Admin created with email: admin@example.com"
 
-# Create regular users with newsletter subscriptions
-puts 'Creating users and newsletter subscriptions...'
-20.times do
+puts "\n#{Time.current} - Creating users and newsletter subscriptions..."
+20.times do |i|
+  print "  • User #{i + 1}/20: "
   user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -190,11 +253,27 @@ puts 'Creating users and newsletter subscriptions...'
     phone: Faker::PhoneNumber.cell_phone,
     confirmed_email: [true, false].sample
   )
+  print "Created "
 
-  # 70% chance of having newsletter subscription
   if rand < 0.7
     NewsletterSubscription.create!(user: user)
+    print "with newsletter "
+  else
+    print "without newsletter "
   end
+  puts "✓"
 end
 
-puts 'Seed completed successfully! 🎉'
+puts "\n=== Seed completed successfully! 🎉 ==="
+puts "#{Time.current} - Summary:"
+puts "  • #{ListingComplex.count} listing complexes"
+puts "  • #{Listing.count} listings"
+puts "  • #{Variable.count} variables"
+puts "  • #{Testimonial.count} testimonials"
+puts "  • #{ClubStory.count} club stories"
+puts "  • #{User.count} users"
+puts "  • #{NewsletterSubscription.count} newsletter subscriptions"
+puts "  • #{Photo.count} photos"
+puts "  • #{ClubStoryPhoto.count} club story photos"
+puts "\nTotal time: #{(Time.current - start_time).round(2)} seconds"
+puts "=== End of seed process ===\n"

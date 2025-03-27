@@ -15,9 +15,11 @@ export default function ClubStories({
   return (
     <div className="container mx-auto px-4">
       <div className="flex flex-col items-center justify-center py-12">
-        <h1 className="text-3xl font-bold text-center mb-12 text-dark dark:text-light">
-          {i18n.t("club.stories.title")}
-        </h1>
+        {!isBackoffice && (
+          <h1 className="text-3xl font-bold text-center mb-12 text-dark dark:text-light">
+            {i18n.t("club.stories.title")}
+          </h1>
+        )}
 
         <div className="w-full max-w-7xl">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
