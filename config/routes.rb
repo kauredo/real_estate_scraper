@@ -59,6 +59,9 @@ Rails.application.routes.draw do
       resources :variables, only: %i[create update destroy]
       resources :blog_posts
       resources :club_stories
+      resources :partners do
+        resources :social_media_posts, only: %i[create destroy]
+      end
       resources :listings, only: %i[index create edit update destroy] do
         member do
           post :update_details
