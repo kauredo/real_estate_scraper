@@ -956,6 +956,203 @@ pt:
         adicionais aos nossos clientes...</p> <p>Consulte aqui todas as regras e
         condições de participação.</p>
       title: "Regulamento Clube SGG"
+      transparency: Transparência e compromisso são a base da nossa missão.
+      intro: >
+        O regulamento do Clube SGG estabelece as regras claras de funcionamento,
+         definindo os direitos e deveres dos membros, os critérios para o apoio
+        às  famílias e os princípios que garantem uma gestão transparente e
+        responsável  dos fundos obtidos.
+      clarity:
+        Acreditamos que só com clareza conseguimos gerar um impacto real e
+        duradouro.
+      read_below:
+        Conheça abaixo o regulamento completo que orienta toda a nossa
+        atividade.
+      sections:
+        general:
+          title: 1. Disposições Gerais
+          mission: >
+            O Clube SGG tem como missão **transformar as condições de habitação
+            de  quem mais precisa**, mobilizando recursos e pessoas para criar
+            lares dignos.
+          definition: >
+            Este regulamento define as regras de funcionamento do clube, os
+            direitos  e deveres dos membros e os critérios de apoio às pessoas
+            beneficiárias.
+          values: >
+            O clube atua com base nos valores de **dignidade, solidariedade,
+            criação  de valor e partilha**.
+        members:
+          title: 2. Membros do Clube
+          who_can:
+            title: 2.1. Quem pode ser membro
+            intro: "Podem tornar-se membros do Clube SGG:"
+            list:
+              first:
+                Pessoas individuais que queiram apoiar a causa através de
+                referência de negócios imobiliários de compra e venda;
+              second:
+                Empresas e profissionais do setor imobiliário, construção e
+                serviços para o lar que queiram contribuir ou estabelecer
+                parcerias;
+              third:
+                Qualquer pessoa que se identifique com os valores do clube e
+                queira ajudar na sua missão.
+          rights:
+            title: 2.2. Direitos dos Membros
+            intro: "Os membros do Clube SGG têm direito a:"
+            list:
+              first: Participar nas iniciativas promovidas pelo clube;
+              second: Acompanhar os projetos apoiados e os impactos gerados;
+              third:
+                Propor novas ações e iniciativas alinhadas com a missão do
+                clube;
+              fourth:
+                Receber informação regular sobre as atividades e evolução do
+                clube.
+          duties:
+            title: 2.3. Deveres dos Membros
+            intro: "Os membros do Clube SGG comprometem-se a:"
+            list:
+              first: Respeitar os valores e princípios do clube;
+              second:
+                Contribuir ativamente dentro das suas possibilidades, seja
+                através de referências ou voluntariado;
+              third:
+                Agir com transparência e ética em todas as interações
+                relacionadas com o clube.
+          members_or_ambassadors:
+            title: 2.4. Distinção entre Membros e Embaixadores
+            members:
+              title: Membros
+              description: >
+                São pessoas selecionadas para fazer parte do Clube SGG, mas cuja
+                participação ainda não está plenamente activa. São pessoas que
+                estão em fase de pré adesão e assim que identificarem ou
+                referenciarem alguma possibilidade  do concretização de negócio
+                imobiliário tornar-se-ão embaixadores.
+            ambassadors:
+              title: Embaixadores
+              description: >
+                Os embaixadores distinguem-se pelo seu envolvimento ativo,
+                compromisso regular e pela sua iniciativa em contribuir para o
+                crescimento do clube, principalmente através da referenciação
+                ativa e contínua de negócios imobiliários e referenciação de
+                situações que necessitam de intervenção do clube. São membros
+                que procuram constantemente apresentar e desenvolver novas
+                ideias e ações, assumindo maior responsabilidade na
+                concretização dos objetivos do clube.
+              additional: "Responsabilidades adicionais dos Embaixadores:"
+              list:
+                first: Participação regular nos eventos e iniciativas do clube;
+                second:
+                  Proposta ativa de novas iniciativas e ideias que impulsionem o
+                  impacto do clube;
+                third:
+                  Apoio direto aos responsáveis do clube na promoção da sua
+                  missão e valores.
+              choice:
+                subtitle: "Escolha dos Embaixadores:"
+                description: >
+                  Os embaixadores são escolhidos diretamente pelos responsáveis
+                  do Clube SGG, com base no seu envolvimento e contributo ativo.
+              loss_of_status:
+                subtitle: "Perda do Estatuto:"
+                description: >
+                  Um embaixador poderá voltar a ser membro caso se afaste
+                  significativamente do núcleo central de envolvimento do clube,
+                  mediante decisão dos responsáveis.
+        financial_model:
+          title: 3. Modelo de Apoio e Financiamento
+          sources:
+            title: 3.1. Fontes de Financiamento
+            intro: "O Clube SGG financia as suas ações através de:"
+            list:
+              first:
+                "Referências imobiliárias: Quando um membro do clube indica
+                alguém que queira comprar ou vender casa, uma parte da comissão
+                da transação reverte para o apoio à habitação de pessoas
+                carenciadas."
+              second:
+                "Parcerias com empresas do setor da construção e serviços para o
+                lar, onde uma percentagem dos serviços prestados será canalizada
+                para projetos de reabilitação habitacional."
+          application:
+            title: 3.2. Aplicação dos Fundos
+            intro: "Os fundos do Clube SGG são aplicados em:"
+            list:
+              first:
+                Remodelações e reparações habitacionais para pessoas
+                carenciadas;
+              second:
+                Aquisição de mobília e equipamentos essenciais para melhorar as
+                condições de vida das pessoas apoiadas;
+              third:
+                Apoio a aquecimento e conforto térmico em habitações
+                vulneráveis;
+              fourth:
+                Desenvolvimento de novas iniciativas e parcerias que aumentem o
+                impacto do clube.
+        criteria:
+          title: 4. Critérios de Apoio às Famílias
+          families:
+            4.1. O apoio do Clube SGG destina-se a famílias carenciadas, idosos
+            e pessoas em situação de sem-abrigo que necessitem de melhorias
+            habitacionais.
+          submited_by:
+            title: "4.2. As candidaturas ao apoio podem ser submetidas por:"
+            list:
+              first: As próprias famílias;
+              second:
+                Organizações sociais ou entidades parceiras que identifiquem
+                casos de necessidade.
+          criteria:
+            title:
+              "4.3. A atribuição do apoio será analisada com base nos seguintes
+              critérios:"
+            list:
+              first: Condições atuais de habitação e urgência do apoio;
+              second: Condições atuais de habitação e urgência do apoio;
+              third:
+                Impacto que a intervenção pode gerar na qualidade de vida da
+                família.
+          decisions:
+            4.4. As decisões de apoio serão tomadas por um grupo de membros do
+            clube, garantindo transparência e equidade na seleção dos
+            beneficiários.
+        events:
+          title: 5. Eventos e Iniciativas do Clube
+          description: "5.1. O Clube SGG promove regularmente eventos para:"
+          list:
+            first: Angariação de referenciações e mobilização de recursos;
+            second: Sensibilização para a problemática da habitação digna;
+            third: Celebração dos projetos concluídos e partilha de testemunhos.
+          incentives:
+            5.2. Todos os embaixadores são incentivados a participar nos eventos
+            e a contribuir para o crescimento do impacto do clube.
+        transparency:
+          title: 6. Transparência e Prestação de Contas
+          description:
+            6.1. O Clube SGG compromete-se a manter total transparência na
+            gestão dos fundos e nas ações realizadas.
+          reports:
+            description:
+              "6.2. Será publicada periodicamente uma prestação de contas com:"
+            list:
+              first:
+                Valores angariados através de referências imobiliárias e
+                parcerias;
+              second: Projetos financiados e impacto gerado;
+              third: Relatórios de evolução e planeamento futuro.
+        final:
+          title: 7. Disposições Finais
+          first:
+            7.1. O presente regulamento pode ser ajustado conforme necessário,
+            mediante aprovação dos responsáveis do clube.
+          second:
+            7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus
+            valores e missão, garantindo sempre que o impacto na comunidade é
+            positivo e significativo.
     stories:
       title: Histórias do Clube
       header: Histórias dos Membros

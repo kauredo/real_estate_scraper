@@ -931,6 +931,191 @@ en:
         benefits to our clients...</p> <p>Check here all participation rules and
         conditions.</p>
       title: Club SGG Rules
+      transparency:
+        Transparency and commitment are the foundation of our mission.
+      intro: >
+        Club SGG's rules establish clear operating guidelines, defining members'
+         rights and duties, criteria for family support, and principles that
+        ensure  transparent and responsible management of obtained funds.
+      clarity:
+        We believe that only with clarity can we generate real and lasting
+        impact.
+      read_below:
+        Read below the complete regulations that guide all our activity.
+      sections:
+        general:
+          title: 1. General Provisions
+          mission: >
+            Club SGG's mission is to **transform housing conditions for those
+            most in need**,  mobilizing resources and people to create dignified
+            homes.
+          definition: >
+            These regulations define the club's operating rules, members' rights
+            and  duties, and support criteria for beneficiaries.
+          values: >
+            The club operates based on the values of **dignity, solidarity,
+            value  creation, and sharing**.
+        members:
+          title: 2. Club Members
+          who_can: 2.1. Who can be a member
+          intro: "The following can become members of Club SGG:"
+          list:
+            first:
+              Individuals who want to support the cause through real estate
+              business referrals;
+            second:
+              Companies and professionals from real estate, construction and
+              home services sectors who want to contribute or establish
+              partnerships;
+            third:
+              Anyone who identifies with the club's values and wants to help in
+              its mission.
+          rights:
+            title: 2.2. Member Rights
+            intro: "Club SGG members have the right to:"
+            list:
+              first: Participate in club initiatives;
+              second: Monitor supported projects and generated impacts;
+              third:
+                Propose new actions and initiatives aligned with the club's
+                mission;
+              fourth:
+                Receive regular information about club activities and evolution.
+          duties:
+            title: 2.3. Member Duties
+            intro: "Club SGG members commit to:"
+            list:
+              first: Respect the club's values and principles;
+              second:
+                Actively contribute within their possibilities, either through
+                referrals or volunteering;
+              third:
+                Act with transparency and ethics in all club-related
+                interactions.
+          members_or_ambassadors:
+            title: 2.4. Distinction between Members and Ambassadors
+            members:
+              title: Members
+              description: >
+                These are individuals selected to be part of Club SGG, but whose
+                participation is not yet fully active. They are in a
+                pre-membership phase and will become ambassadors once they
+                identify or refer any potential real estate business
+                opportunity.
+            ambassadors:
+              title: Ambassadors
+              description: >
+                Ambassadors distinguish themselves through their active
+                involvement, regular commitment, and initiative in contributing
+                to the club's growth, mainly through active and continuous
+                referral of real estate business and identification of
+                situations requiring club intervention. They are members who
+                constantly seek to present and develop new ideas and actions,
+                taking greater responsibility in achieving club objectives.
+              additional: "Additional Ambassador Responsibilities:"
+              list:
+                first: Regular participation in club events and initiatives;
+                second:
+                  Active proposal of new initiatives and ideas that drive the
+                  club's impact;
+                third:
+                  Direct support to club leaders in promoting its mission and
+                  values.
+              choice:
+                subtitle: "Ambassador Selection:"
+                description: >
+                  Ambassadors are chosen directly by Club SGG leaders based on
+                  their involvement and active contribution.
+              loss_of_status:
+                subtitle: "Loss of Status:"
+                description: >
+                  An ambassador may return to member status if they
+                  significantly distance themselves from the club's core
+                  involvement, as decided by the leaders.
+        financial_model:
+          title: 3. Support and Funding Model
+          sources:
+            title: 3.1. Funding Sources
+            intro: "Club SGG funds its actions through:"
+            list:
+              first:
+                "Real estate referrals: When a club member refers someone
+                looking to buy or sell a property, part of the transaction
+                commission goes towards supporting housing for people in need."
+              second:
+                "Partnerships with construction and home service companies,
+                where a percentage of services provided will be channeled to
+                housing rehabilitation projects."
+          application:
+            title: 3.2. Fund Application
+            intro: "Club SGG funds are applied to:"
+            list:
+              first: Housing renovations and repairs for people in need;
+              second:
+                Acquisition of essential furniture and equipment to improve
+                beneficiaries' living conditions;
+              third:
+                Support for heating and thermal comfort in vulnerable homes;
+              fourth:
+                Development of new initiatives and partnerships that increase
+                the club's impact.
+        criteria:
+          title: 4. Family Support Criteria
+          families:
+            4.1. Club SGG support is intended for families in need, elderly
+            people, and homeless individuals requiring housing improvements.
+          submited_by:
+            title: "4.2. Support applications can be submitted by:"
+            list:
+              first: The families themselves;
+              second:
+                Social organizations or partner entities that identify cases of
+                need.
+          criteria:
+            title:
+              "4.3. Support allocation will be analyzed based on the following
+              criteria:"
+            list:
+              first: Current housing conditions and urgency of support;
+              second: Family's socioeconomic situation and available resources;
+              third:
+                Potential impact the intervention can have on the family's
+                quality of life.
+          decisions:
+            4.4. Support decisions will be made by a group of club members,
+            ensuring transparency and equity in beneficiary selection.
+        events:
+          title: 5. Club Events and Initiatives
+          description: "5.1. Club SGG regularly promotes events for:"
+          list:
+            first: Gathering referrals and mobilizing resources;
+            second: Raising awareness about dignified housing issues;
+            third: Celebrating completed projects and sharing testimonials.
+          incentives:
+            5.2. All ambassadors are encouraged to participate in events and
+            contribute to growing the club's impact.
+        transparency:
+          title: 6. Transparency and Accountability
+          description:
+            6.1. Club SGG commits to maintaining total transparency in fund
+            management and actions taken.
+          reports:
+            description:
+              "6.2. Regular accountability reports will be published including:"
+            list:
+              first:
+                Funds raised through real estate referrals and partnerships;
+              second: Funded projects and generated impact;
+              third: Progress reports and future planning.
+        final:
+          title: 7. Final Provisions
+          first:
+            7.1. These regulations may be adjusted as needed, subject to
+            approval by club leaders.
+          second:
+            7.2. All Club SGG actions must align with its values and mission,
+            always ensuring that the impact on the community is positive and
+            significant.
     stories:
       title: Stories
       header: Stories
