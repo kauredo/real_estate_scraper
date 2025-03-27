@@ -39,7 +39,7 @@ export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
         </p>
         <a
           href={storyUrl}
-          className="bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           data-turbo="false"
         >
           {i18n.t("general.read_more")}
@@ -51,7 +51,7 @@ export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
                 window.Routes.edit_backoffice_club_story_path,
                 story.slug
               )}
-              className="ml-2 bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="ml-2 bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               data-turbo="false"
             >
               {i18n.t("backoffice.common.edit")}
@@ -61,13 +61,13 @@ export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
                 window.Routes.backoffice_club_story_path,
                 story.slug
               )}
-              className="ml-2 bg-red-500 hover:bg-red-700 p-2 rounded font-bold"
+              className="ml-2 bg-red-500 hover:bg-red-700 text-white dark:text-dark p-2 rounded font-bold"
               data-turbo-method="delete"
               onClick={() =>
                 confirm(i18n.t("backoffice.common.confirm_delete"))
               }
             >
-              🗑️
+              <i className="fas fa-trash-alt"></i>
             </a>
           </>
         )}

@@ -10,8 +10,10 @@
           <%= f.text_field :value, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
           <%= f.text_field :icon, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
           <div class="flex items-center gap-2">
-            <%= f.submit 'Atualizar', class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-            <%= link_to '🗑️', [:backoffice, var], method: :delete, data: { "turbo-method": :delete }, class: 'bg-red-500 hover:bg-red-700 p-2 rounded font-bold', onclick: "return confirm('Are you sure you want to delete this item?');" %>
+            <%= f.submit 'Atualizar', class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+            <%= link_to [:backoffice, var], method: :delete, data: { "turbo-method": :delete }, class: 'bg-red-500 hover:bg-red-700 text-white dark:text-dark p-2 rounded font-bold', onclick: "return confirm('Are you sure you want to delete this item?');" do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
           </div>
         </div>
       <% end %>
@@ -21,7 +23,7 @@
         <%= f.text_field :name, placeholder: 'variável', class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
         <%= f.text_field :value, placeholder: 'valor', class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
         <%= f.text_field :icon, placeholder: 'ícone', class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-        <%= f.submit 'Criar', class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Criar', class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
   </div>
@@ -32,7 +34,7 @@
     <%= form_for(Listing.new, url: backoffice_listings_path, html: { class: 'my-6' }, data: { turbo: false }) do |f| %>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
         <%= f.text_field :url, placeholder: 'url', class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-2/3 py-2 px-3 ml-6 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-        <%= f.submit 'Procurar', class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Procurar', class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
   </div>
@@ -57,7 +59,7 @@
     <%= form_for(ListingComplex.new, url: fetch_backoffice_listing_complexes_path, html: { class: 'my-6' }, data: { turbo: false }) do |f| %>
       <div class="field mb-4 flex flex-col sm:flex-row items-center gap-4">
         <%= f.text_field :url, placeholder: 'url', class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full sm:w-2/3 py-2 px-3 ml-6 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-        <%= f.submit 'Procurar', class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Procurar', class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
   </div>
@@ -65,7 +67,7 @@
   <div class="w-full sm:w-[49%] shadow-md rounded px-8 py-4 mt-4 dark:border-beige-medium dark:border-2">
     <h2 class="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">Parceiros Sociais</h2>
     <div class="my-6">
-      <%= link_to 'Gerir Parceiros', backoffice_partners_path, class: 'bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+      <%= link_to 'Gerir Parceiros', backoffice_partners_path, class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
     </div>
   </div>
 </div>

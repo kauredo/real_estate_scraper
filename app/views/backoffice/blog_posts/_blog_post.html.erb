@@ -7,8 +7,10 @@
       <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2"><%= blog_post.title %></h5>
     <% end %>
     <p class="font-normal text-gray-700 mb-3 whitespace-pre-line"><%= blog_post.sample_text %></p>
-    <%= link_to 'Ler Mais', backoffice_blog_post_path(blog_post), class: 'bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
-    <%= link_to 'Editar', edit_backoffice_blog_post_path(blog_post), class: 'bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
-    <%= link_to '🗑️', [:backoffice, blog_post], method: :delete, data: { "turbo-method": :delete }, class: 'bg-red-500 hover:bg-red-700 p-2 rounded font-bold', onclick: "return confirm('Are you sure you want to delete this item?');" %>
+    <%= link_to 'Ler Mais', backoffice_blog_post_path(blog_post), class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
+    <%= link_to 'Editar', edit_backoffice_blog_post_path(blog_post), class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
+    <%= link_to [:backoffice, blog_post], method: :delete, data: { "turbo-method": :delete }, class: 'bg-red-500 hover:bg-red-700 text-white dark:text-dark p-2 rounded font-bold', onclick: "return confirm('Are you sure you want to delete this item?');" do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
   </div>
 </div>

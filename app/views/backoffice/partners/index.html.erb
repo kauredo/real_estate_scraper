@@ -1,7 +1,7 @@
 <div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
   <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative dark:border-beige-medium dark:border-2">
     <div class="mb-6">
-      <%= link_to backoffice_partners_path, class: 'bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
+      <%= link_to backoffice_partners_path, class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
         Novo Parceiro Social
       <% end %>
     </div>
@@ -16,13 +16,13 @@
           <div class="flex justify-between items-center mb-4">
             <h3 class="text-xl font-bold text-dark dark:text-light"><%= partner.name %></h3>
             <div class="space-x-2">
-              <%= link_to edit_backoffice_partner_path(partner), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
+              <%= link_to edit_backoffice_partner_path(partner), class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
                 <%= I18n.t("backoffice.common.edit") %>
               <% end %>
               <%= link_to backoffice_partner_path(partner), 
                   class: 'bg-red-500 hover:bg-red-700 text-white dark:text-dark py-2 px-4 rounded',
                   data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-                <%= I18n.t("backoffice.common.delete") %>
+                <i class="fas fa-trash-alt"></i>
               <% end %>
             </div>
           </div>
