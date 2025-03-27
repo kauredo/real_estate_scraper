@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_03_26_170629) do
+ActiveRecord::Schema[7.0].define(version: 2025_03_26_170632) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -303,6 +303,12 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_26_170629) do
     t.index ["user_id"], name: "index_newsletter_subscriptions_on_user_id"
   end
 
+  create_table "partners", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "photos", force: :cascade do |t|
     t.text "image"
     t.boolean "main", default: false
@@ -313,6 +319,14 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_26_170629) do
     t.string "original_url"
     t.index ["listing_complex_id"], name: "index_photos_on_listing_complex_id"
     t.index ["original_url"], name: "index_photos_on_original_url", unique: true, where: "(original_url IS NOT NULL)"
+  end
+
+  create_table "social_media_posts", force: :cascade do |t|
+    t.string "url", null: false
+    t.bigint "partner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["partner_id"], name: "index_social_media_posts_on_partner_id"
   end
 
   create_table "testimonial_translations", force: :cascade do |t|
@@ -366,6 +380,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_26_170629) do
   add_foreign_key "listing_complex_translations", "listing_complexes"
   add_foreign_key "listing_translations", "listings"
   add_foreign_key "newsletter_subscriptions", "users"
+  add_foreign_key "social_media_posts", "partners"
   add_foreign_key "testimonial_translations", "testimonials"
   add_foreign_key "variable_translations", "variables"
 end

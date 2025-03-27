@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { i18n } from "../../languages/languages";
+import { Partner } from "../utils/Interfaces";
 
-export default function SocialPartners() {
+interface Props {
+  partners: Partner[];
+}
+
+export default function SocialPartners({ partners }: Props) {
+  useEffect(() => {
+    // Load Instagram embed
+    const instagramScript = document.createElement("script");
+    instagramScript.src = "https://www.instagram.com/embed.js";
+    instagramScript.async = true;
+    document.body.appendChild(instagramScript);
+
+    // Load TikTok embed
+    const tiktokScript = document.createElement("script");
+    tiktokScript.src = "https://www.tiktok.com/embed.js";
+    tiktokScript.async = true;
+    document.body.appendChild(tiktokScript);
+
+    return () => {
+      // Cleanup scripts on unmount
+      document.body.removeChild(instagramScript);
+      document.body.removeChild(tiktokScript);
+    };
+  }, []);
+
   return (
     <div className="container mx-auto px-4">
       <div className="flex flex-col items-center justify-center py-12">
@@ -77,14 +102,26 @@ export default function SocialPartners() {
             {i18n.t("club.social_partners.impact.description")}
           </p>
 
-          {/* Placeholder for video carousel */}
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="aspect-video bg-gray-100 dark:bg-gray-800 rounded-lg">
-              {/* Add Instagram embed */}
-            </div>
-            <div className="aspect-video bg-gray-100 dark:bg-gray-800 rounded-lg">
-              {/* Add TikTok embed */}
-            </div>
+          {/* Replace placeholder divs with actual embeds */}
+          <div className="">
+            {partners.map(partner => (
+              <div
+                key={partner.id}
+                className="bg-white dark:bg-dark shadow-lg rounded-lg p-8"
+              >
+                <h3 className="text-xl font-bold mb-4 text-dark dark:text-light">
+                  {partner.name}
+                </h3>
+                <div className="aspect-embed bg-gray-100 dark:bg-gray-800 rounded-lg mb-8">
+                  {partner.social_media_posts.map(post => (
+                    <div
+                      key={post.id}
+                      dangerouslySetInnerHTML={{ __html: post.embed_html }}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
 
           <p className="text-center text-gray-600 dark:text-gray-300 italic">

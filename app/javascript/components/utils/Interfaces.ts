@@ -129,3 +129,19 @@ export interface ClubStoryPhoto {
   };
   main: boolean;
 }
+
+export interface Partner {
+  id: number;
+  name: string;
+  social_media_posts: SocialMediaPost[];
+  created_at: string;
+  updated_at: string;
+}
+
+export interface SocialMediaPost {
+  id: number;
+  url: string;
+  embed_html: string;
+  created_at: string;
+  updated_at: string;
+}
