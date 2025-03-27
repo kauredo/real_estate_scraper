@@ -1259,7 +1259,6 @@ en:
       update: Update
       edit: Edit
       view: View
-      delete: 🗑️
       delete_confirm: Are you sure you want to delete this item?
       seo_section: SEO
       seo_title_hint: This is the title that will appear on search engines 👇

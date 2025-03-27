@@ -1263,7 +1263,6 @@ pt:
       update: Atualizar
       edit: Editar
       view: Ver
-      delete: 🗑️
       delete_confirm: Tem certeza que deseja apagar este item?
       seo_section: SEO
       seo_title_hint: Este é o título que aparecerá nos motores de busca 👇
