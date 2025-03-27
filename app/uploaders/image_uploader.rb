@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class ImageUploader < CarrierWave::Uploader::Base
+class ImageUploader < BaseUploader
   include Cloudinary::CarrierWave
 end

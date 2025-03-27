@@ -1,164 +1,200 @@
 # frozen_string_literal: true
 
-puts 'Cleaning up existing variables...'
-Variable.destroy_all
+require 'faker'
 
-puts 'Creating new variables...'
-variables = [
-  {
-    name: 'Top 25',
-    value: 'Nacional',
-    icon: 'fas fa-medal'
-  },
-  {
-    name: 'Prémio',
-    value: 'Prata',
-    icon: 'fas fa-trophy'
-  },
-  {
-    name: 'Volume de Negócios',
-    value: 7_001_825,
-    icon: 'fas fa-hand-holding-usd'
-  }
-]
+ENV['USE_LOCAL_STORAGE'] = 'true'
+ENV['DISABLE_CLOUDINARY'] = 'true'
 
-variables.each do |var|
-  Variable.create(var)
+puts 'Cleaning up temp storage...'
+FileUtils.rm_rf(Rails.root.join('tmp', 'storage'))
+FileUtils.mkdir_p(Rails.root.join('tmp', 'storage'))
+# add .keep file to prevent git from deleting the folder
+FileUtils.touch(Rails.root.join('tmp', 'storage', '.keep'))
+
+puts 'Cleaning up database...'
+[Variable, Testimonial, ClubStory, ClubStoryPhoto, BlogPost, BlogPhoto, ListingComplex, Listing, Photo, User, NewsletterSubscription].each do |model|
+  model.destroy_all
+  puts "Cleaned #{model.name}"
 end
-puts 'Variables created successfully!'
 
-puts 'Cleaning up existing testimonials...'
-Testimonial.destroy_all
+# Download images locally instead of using remote_image_url
+def download_image(file_name, index)
+  file_path = Rails.root.join('tmp', 'storage', "#{file_name}.jpg")
+  FileUtils.mkdir_p(File.dirname(file_path))
 
-testimonials = [
-  { name: 'Nir',
-    text: 'Sofia found me my home, she is a professional and made the experience so pleasant and safe. I will trust her with all of my future real estate projects!' },
-  { name: 'Patrícia Figueiredo',
-    text: 'Com o conhecimento de anos espelhado na confiança com que fala do assunto. Nem hesitei...A Sofia fez um trabalho formidável na divulgação do meu imóvel e em 3 tempos chegou ao cliente ideal, eu sózinha levaria muito mais tempo. Recomendo vivamente os seus serviços!' }
-]
-
-puts 'Creating new testimonials...'
-testimonials.each do |testimonial|
-  Testimonial.create(testimonial)
-end
-puts 'Testimonials created successfully!'
-
-puts 'Cleaning up existing club stories and photos...'
-ClubStory.destroy_all
-ClubStoryPhoto.destroy_all
-
-club_stories = [
-  {
-    title: {
-      pt: 'Parceria exclusiva com a Home Tailor',
-      en: 'Exclusive Partnership with Home Tailor'
-    },
-    text: {
-      pt: '<p>A Sofia Galvão Group tem o prazer de anunciar uma parceria exclusiva com a Home Tailor, líder em design de interiores e mobiliário personalizado. Esta colaboração permite aos nossos clientes acesso a serviços premium de decoração e mobiliário com condições especiais.</p><p>A Home Tailor é conhecida pela sua abordagem única ao design de interiores, criando espaços que refletem a personalidade e estilo de vida de cada cliente.</p>',
-      en: '<p>Sofia Galvão Group is pleased to announce an exclusive partnership with Home Tailor, a leader in interior design and custom furniture. This collaboration provides our clients with access to premium decoration and furniture services with special conditions.</p><p>Home Tailor is known for its unique approach to interior design, creating spaces that reflect each client\'s personality and lifestyle.</p>'
-    },
-    hidden: false,
-    meta_title: 'Parceria Home Tailor | Sofia Galvão Group',
-    meta_description: 'Descubra os benefícios exclusivos da nossa parceria com a Home Tailor, oferecendo serviços premium de design de interiores aos nossos clientes.',
-    video_link: 'https://www.youtube.com/embed/example1'
-  },
-  {
-    title: {
-      pt: 'Promovendo o Bem-Estar Animal',
-      en: 'Promoting Animal Welfare'
-    },
-    text: {
-      pt: '<p>A Sofia Galvão Group tem orgulho em apoiar a União Zoófila, contribuindo para o bem-estar animal em Portugal. Nossa parceria social reflete nosso compromisso com a responsabilidade social e amor pelos animais.</p><p>Saiba como você pode se juntar a nós nesta causa importante.</p>',
-      en: '<p>Sofia Galvão Group is proud to support União Zoófila, contributing to animal welfare in Portugal. Our social partnership reflects our commitment to social responsibility and love for animals.</p><p>Find out how you can join us in this important cause.</p>'
-    },
-    hidden: false,
-    meta_title: 'Apoio à União Zoófila | Sofia Galvão Group',
-    meta_description: 'Conheça nossa parceria com a União Zoófila e como estamos ajudando a promover o bem-estar animal em Portugal.',
-    video_link: 'https://www.youtube.com/embed/example2'
-  },
-  {
-    title: {
-      pt: 'Workshop de Investimento Imobiliário',
-      en: 'Real Estate Investment Workshop'
-    },
-    text: {
-      pt: '<p>No último sábado, a Sofia Galvão Group realizou um workshop exclusivo sobre investimento imobiliário em Lisboa. O evento contou com a presença de especialistas do mercado e investidores experientes, que compartilharam insights valiosos sobre as tendências do mercado e estratégias de investimento.</p><p>Os participantes tiveram a oportunidade de aprender sobre análise de mercado, financiamento imobiliário e gestão de propriedades.</p>',
-      en: '<p>Last Saturday, Sofia Galvão Group held an exclusive real estate investment workshop in Lisbon. The event featured market experts and experienced investors who shared valuable insights on market trends and investment strategies.</p><p>Participants had the opportunity to learn about market analysis, real estate financing, and property management.</p>'
-    },
-    hidden: false,
-    meta_title: 'Workshop de Investimento Imobiliário | Sofia Galvão Group',
-    meta_description: 'Confira os destaques do nosso workshop exclusivo sobre investimento imobiliário em Lisboa.',
-    video_link: 'https://www.youtube.com/embed/example3'
-  },
-  {
-    title: {
-      pt: 'Inauguração do Novo Escritório',
-      en: 'New Office Opening'
-    },
-    text: {
-      pt: '<p>É com grande satisfação que anunciamos a inauguração do nosso novo escritório no coração de Lisboa. Este espaço foi cuidadosamente projetado para oferecer um ambiente acolhedor e profissional, onde podemos receber nossos clientes com o conforto e a atenção que merecem.</p><p>O novo escritório reflete nossa evolução e compromisso com a excelência no atendimento.</p>',
-      en: '<p>We are delighted to announce the opening of our new office in the heart of Lisbon. This space has been carefully designed to offer a welcoming and professional environment where we can receive our clients with the comfort and attention they deserve.</p><p>The new office reflects our evolution and commitment to excellence in service.</p>'
-    },
-    hidden: false,
-    meta_title: 'Novo Escritório em Lisboa | Sofia Galvão Group',
-    meta_description: 'Conheça nosso novo escritório no centro de Lisboa, projetado para melhor atender nossos clientes.',
-    video_link: 'https://www.youtube.com/embed/example4'
-  },
-  {
-    title: {
-      pt: 'Sustentabilidade no Mercado Imobiliário',
-      en: 'Sustainability in Real Estate'
-    },
-    text: {
-      pt: '<p>A Sofia Galvão Group está comprometida com a promoção da sustentabilidade no mercado imobiliário. Neste artigo, exploramos as principais tendências em construção sustentável e como elas estão transformando o setor.</p><p>Descubra como os imóveis eco-friendly estão se tornando cada vez mais valorizados e por que investir em propriedades sustentáveis é uma decisão inteligente para o futuro.</p>',
-      en: '<p>Sofia Galvão Group is committed to promoting sustainability in the real estate market. In this article, we explore the main trends in sustainable construction and how they are transforming the sector.</p><p>Discover how eco-friendly properties are becoming increasingly valued and why investing in sustainable properties is a smart decision for the future.</p>'
-    },
-    hidden: false,
-    meta_title: 'Sustentabilidade no Mercado Imobiliário | Sofia Galvão Group',
-    meta_description: 'Explore as tendências de sustentabilidade no mercado imobiliário e seu impacto no valor das propriedades.',
-    video_link: 'https://www.youtube.com/embed/example5'
-  }
-]
-
-puts 'Creating club stories and their photos...'
-club_stories.each do |story_data|
-  print "Creating story: #{story_data[:title]}..."
-  story = ClubStory.new(story_data)
-  # change the locale to the desired language
-  I18n.with_locale(:pt) do
-    story.title = story_data[:title][:pt]
-    story.text = story_data[:text][:pt]
+  unless File.exist?(file_path)
+    random = Faker::Number.number(digits: 6) + index
+    # Added -L flag to follow redirects
+    command = "curl -L -s -f -o #{file_path} 'https://picsum.photos/800/600?random=#{random}'"
+    success = system(command)
+    raise "Failed to download image #{index}" unless success && File.size?(file_path).to_i > 0
   end
+
+  File.open(file_path)
+rescue => e
+  puts "\nError downloading image #{index}: #{e.message}"
+  nil
+end
+
+# Create Listing Complexes with translations and photos
+puts 'Creating listing complexes...'
+8.times do |i|
+  complex = ListingComplex.create!(
+    name: Faker::Address.community,
+    description: Faker::Lorem.paragraphs(number: 2).join("\n\n"),
+    video_link: "https://www.youtube.com/embed/#{Faker::Alphanumeric.alpha(number: 11)}",
+    order: i + 1,
+    subtext: Faker::Lorem.paragraph,
+    final_text: Faker::Lorem.paragraph,
+    new_format: [true, false].sample,
+    hidden: [true, false].sample,
+    url: Faker::Internet.url
+  )
+
   I18n.with_locale(:en) do
-    story.title = story_data[:title][:en]
-    story.text = story_data[:text][:en]
+    complex.name = Faker::Address.community
+    complex.description = Faker::Lorem.paragraphs(number: 2).join("\n\n")
+    complex.subtext = Faker::Lorem.paragraph
+    complex.final_text = Faker::Lorem.paragraph
+    complex.save!
   end
-  story.save!
-  puts ' Done!'
 
-  print "  Adding photos to story..."
-  4.times do |i|
-    ClubStoryPhoto.create!(
-      club_story: story,
-      remote_image_url: "https://picsum.photos/800/600?random=#{story.id}#{i}",
-      main: i.zero? # First photo will be main
+  # Add photos to complex
+  5.times do |j|
+    Photo.create!(
+      listing_complex: complex,
+      image: download_image("#{complex.id}#{j}", j),
+      main: j.zero?,
+      order: j + 1
     )
   end
-  puts ' Done!'
-end
-puts 'All club stories and photos created successfully!'
 
-puts 'Checking admin user...'
-if Admin.count.zero?
-  print 'Creating admin user...'
-  Admin.create(
-    email: 'vaskafig@gmail.com',
-    password: 'password',
-    confirmed: true
+  # Create Listings for each complex
+  rand(3..8).times do |j|
+    listing = Listing.new(
+      listing_complex: complex,
+      stats: {
+        bedrooms: rand(1..6),
+        bathrooms: rand(1..4),
+        parking: rand(0..3),
+        area: rand(50..500)
+      },
+      address: Faker::Address.full_address,
+      features: Faker::Lorem.words(number: rand(3..8)),
+      title: Faker::Lorem.sentence,
+      url: Faker::Internet.url,
+      description: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
+      photos: Array.new(rand(5..10)) { "https://picsum.photos/800/600?random=#{Faker::Number.number(digits: 6)}" },
+      order: j + 1,
+      status: Listing.statuses.keys.sample,
+      video_link: "https://www.youtube.com/embed/#{Faker::Alphanumeric.alpha(number: 11)}",
+      price_cents: rand(100_000..5_000_000) * 100,
+      kind: Listing.kinds.keys.sample,
+      objective: Listing.objectives.keys.sample,
+      virtual_tour_url: Faker::Internet.url
+    )
+
+    I18n.with_locale(:en) do
+      listing.title = Faker::Lorem.sentence
+      listing.description = Faker::Lorem.paragraphs(number: 3).join("\n\n")
+      listing.features = Faker::Lorem.words(number: rand(3..8))
+      listing.save!(validate: false)
+    end
+  end
+end
+
+# Create Variables with translations
+puts 'Creating variables...'
+10.times do
+  variable = Variable.create!(
+    name: Faker::Company.buzzword,
+    value: [Faker::Number.number(digits: 6), Faker::Company.bs].sample,
+    icon: ['fas fa-medal', 'fas fa-trophy', 'fas fa-star', 'fas fa-award', 'fas fa-certificate'].sample
   )
-  puts ' Done!'
-else
-  puts 'Admin user already exists.'
+
+  I18n.available_locales.each do |locale|
+    next if locale == :pt
+    I18n.with_locale(locale) do
+      variable.name = Faker::Company.buzzword
+      variable.value = [Faker::Number.number(digits: 6), Faker::Company.bs].sample
+      variable.save!
+    end
+  end
+end
+
+# Create Testimonials with translations
+puts 'Creating testimonials...'
+20.times do
+  testimonial = Testimonial.create!(
+    name: Faker::Name.name,
+    text: Faker::Lorem.paragraph(sentence_count: 3)
+  )
+
+  I18n.with_locale(:en) do
+    testimonial.text = Faker::Lorem.paragraph(sentence_count: 3)
+    testimonial.save!
+  end
+end
+
+# Create Club Stories with translations and photos
+puts 'Creating club stories...'
+15.times do
+  story = ClubStory.create!(
+    title: Faker::Company.catch_phrase,
+    text: "<p>#{Faker::Lorem.paragraphs(number: 3).join('</p><p>')}</p>",
+    hidden: [true, false].sample,
+    meta_title: Faker::Marketing.buzzwords,
+    meta_description: Faker::Company.catch_phrase,
+    video_link: "https://www.youtube.com/embed/#{Faker::Alphanumeric.alpha(number: 11)}"
+  )
+
+  I18n.with_locale(:en) do
+    story.title = Faker::Company.catch_phrase
+    story.text = "<p>#{Faker::Lorem.paragraphs(number: 3).join('</p><p>')}</p>"
+    story.save!
+  end
+
+  # Add photos to story
+  puts "  Adding photos to story #{story.id}..."
+  3.times do |i|
+    image = download_image("story_#{story.id}_#{i}", i)
+    if image
+      ClubStoryPhoto.create!(
+        club_story: story,
+        image: image,
+        main: i.zero?
+      )
+      puts "."
+    else
+      puts "x"
+    end
+  end
+  puts " done!"
+end
+
+# Create Admin user
+puts 'Creating admin user...'
+Admin.create!(
+  email: 'admin@example.com',
+  password: 'password123',
+  confirmed: true
+)
+
+# Create regular users with newsletter subscriptions
+puts 'Creating users and newsletter subscriptions...'
+20.times do
+  user = User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    phone: Faker::PhoneNumber.cell_phone,
+    confirmed_email: [true, false].sample
+  )
+
+  # 70% chance of having newsletter subscription
+  if rand < 0.7
+    NewsletterSubscription.create!(user: user)
+  end
 end
 
 puts 'Seed completed successfully! 🎉'

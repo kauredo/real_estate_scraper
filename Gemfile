@@ -97,6 +97,8 @@ group :development do
   gem 'annotate'
   gem 'dockerfile-rails', '>= 1.2'
   gem 'erb_lint', require: false
+  gem 'fabrication'
+  gem 'faker'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 end

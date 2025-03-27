@@ -155,6 +155,9 @@ GEM
     et-orbi (1.2.11)
       tzinfo
     execjs (2.8.1)
+    fabrication (2.31.0)
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.12.0)
       faraday-net_http (>= 2.0, < 3.4)
       json
@@ -443,6 +446,8 @@ DEPENDENCIES
   dotenv-rails
   erb_lint
   execjs
+  fabrication
+  faker
   friendly_id
   friendly_id-mobility
   good_job
