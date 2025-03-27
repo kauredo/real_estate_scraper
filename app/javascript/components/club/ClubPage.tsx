@@ -16,11 +16,6 @@ export default function ClubPage({ recent_stories }: Props) {
       description: i18n.t("club.social_partners_description"),
     },
     {
-      path: window.Routes.club_home_tailor_partners_path,
-      title: i18n.t("navbar.club_home_tailor"),
-      description: i18n.t("club.home_tailor_description"),
-    },
-    {
       path: window.Routes.club_rules_path,
       title: i18n.t("navbar.club_rules"),
       description: i18n.t("club.rules_description"),

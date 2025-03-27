@@ -18,7 +18,6 @@ pt:
     light_mode: Modo Claro
     club: Clube SGG
     club_social_partners: Parceiros Sociais
-    club_home_tailor: Parceiros Home Tailor
     club_rules: Regulamento
     club_stories: Histórias
 
@@ -928,16 +927,6 @@ pt:
       title: Histórias Recentes
       description:
         Descubra as histórias e experiências mais recentes dos nossos membros
-    home_tailor:
-      header: Parceiros Home Tailor
-      meta_description:
-        Serviços personalizados para o seu lar com os nossos parceiros
-        selecionados.
-      introduction: Soluções Completas para o Seu Lar
-      description:
-        Trabalhamos com parceiros especializados para transformar a sua casa no
-        lar dos seus sonhos.
-      title: "Serviços Home Tailor"
     social_partners:
       header: Parceiros Sociais
       meta_description:
@@ -1177,9 +1166,6 @@ pt:
         Clube SGG fez toda a diferença.
     stories_description:
       "Histórias de sucesso e experiências inspiradoras dos nossos membros"
-    home_tailor_description:
-      "Serviços especializados para transformar e manter sua casa com parceiros
-      de confiança"
     social_partners_description:
       "Parceiros que compartilham nossa visão e contribuem para um impacto
       positivo na comunidade"

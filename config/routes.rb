@@ -36,7 +36,6 @@ Rails.application.routes.draw do
     # Club SGG routes
     get '/clube-sgg', to: 'club#index', as: :club
     get '/clube-sgg/parceiros-sociais', to: 'club#social_partners', as: :club_social_partners
-    get '/clube-sgg/parceiros-home-tailor', to: 'club#home_tailor_partners', as: :club_home_tailor_partners
     get '/clube-sgg/regulamento', to: 'club#rules', as: :club_rules
     get '/clube-sgg/historias', to: 'club_stories#index', as: :club_stories
     get '/clube-sgg/historias/:id', to: 'club_stories#show', as: :club_story

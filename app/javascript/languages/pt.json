@@ -142,14 +142,6 @@
     },
     "club": {
       "header": "Clube SGG",
-      "home_tailor": {
-        "description": "Trabalhamos com parceiros especializados para transformar a sua casa no lar dos seus sonhos.",
-        "header": "Parceiros Home Tailor",
-        "introduction": "Soluções Completas para o Seu Lar",
-        "meta_description": "Serviços personalizados para o seu lar com os nossos parceiros selecionados.",
-        "title": "Serviços Home Tailor"
-      },
-      "home_tailor_description": "Serviços especializados para transformar e manter sua casa com parceiros de confiança",
       "meta_description": "Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
       "recent_stories": {
         "description": "Descubra as histórias e experiências mais recentes dos nossos membros",
@@ -1978,7 +1970,6 @@
       "buy": "Comprar",
       "change_language": "Change site to English",
       "club": "Clube SGG",
-      "club_home_tailor": "Parceiros Home Tailor",
       "club_rules": "Regulamento",
       "club_social_partners": "Parceiros Sociais",
       "club_stories": "Histórias",

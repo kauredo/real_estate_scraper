@@ -131,14 +131,6 @@
     },
     "club": {
       "header": "Club SGG",
-      "home_tailor": {
-        "description": "We offer a network of specialized partners for all your property needs, from interior design to moving services.",
-        "header": "Home Tailor Partners",
-        "introduction": "Complete Solutions for Your Home",
-        "meta_description": "Customized services for your home with our selected partners.",
-        "title": "Home Tailor Services"
-      },
-      "home_tailor_description": "Specialized services to transform and maintain your home, with trusted partners.",
       "meta_description": "Discover Club SGG by Sofia Galvão Group - where real estate excellence meets exclusive benefits.",
       "recent_stories": {
         "description": "Discover our latest member stories and experiences",
@@ -78440,7 +78432,6 @@
       "buy": "Buy",
       "change_language": "Mudar site para Português",
       "club": "Club SGG",
-      "club_home_tailor": "Home Tailor Partners",
       "club_rules": "Rules",
       "club_social_partners": "Social Partners",
       "club_stories": "Stories",
@@ -78884,14 +78875,6 @@
     },
     "club": {
       "header": "Clube SGG",
-      "home_tailor": {
-        "description": "Trabalhamos com parceiros especializados para transformar a sua casa no lar dos seus sonhos.",
-        "header": "Parceiros Home Tailor",
-        "introduction": "Soluções Completas para o Seu Lar",
-        "meta_description": "Serviços personalizados para o seu lar com os nossos parceiros selecionados.",
-        "title": "Serviços Home Tailor"
-      },
-      "home_tailor_description": "Serviços especializados para transformar e manter sua casa com parceiros de confiança",
       "meta_description": "Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
       "recent_stories": {
         "description": "Descubra as histórias e experiências mais recentes dos nossos membros",
@@ -80660,7 +80643,6 @@
       "buy": "Comprar",
       "change_language": "Change site to English",
       "club": "Clube SGG",
-      "club_home_tailor": "Parceiros Home Tailor",
       "club_rules": "Regulamento",
       "club_social_partners": "Parceiros Sociais",
       "club_stories": "Histórias",

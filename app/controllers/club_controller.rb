@@ -7,7 +7,5 @@ class ClubController < ApplicationController
 
   def social_partners; end
 
-  def home_tailor_partners; end
-
   def rules; end
 end

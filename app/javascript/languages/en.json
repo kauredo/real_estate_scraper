@@ -142,14 +142,6 @@
     },
     "club": {
       "header": "Club SGG",
-      "home_tailor": {
-        "description": "We offer a network of specialized partners for all your property needs, from interior design to moving services.",
-        "header": "Home Tailor Partners",
-        "introduction": "Complete Solutions for Your Home",
-        "meta_description": "Customized services for your home with our selected partners.",
-        "title": "Home Tailor Services"
-      },
-      "home_tailor_description": "Specialized services to transform and maintain your home, with trusted partners.",
       "meta_description": "Discover Club SGG by Sofia Galvão Group - where real estate excellence meets exclusive benefits.",
       "recent_stories": {
         "description": "Discover our latest member stories and experiences",
@@ -78537,7 +78529,6 @@
       "buy": "Buy",
       "change_language": "Mudar site para Português",
       "club": "Club SGG",
-      "club_home_tailor": "Home Tailor Partners",
       "club_rules": "Rules",
       "club_social_partners": "Social Partners",
       "club_stories": "Stories",
