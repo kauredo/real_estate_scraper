@@ -235,6 +235,52 @@ puts "\n#{Time.current} - Creating club stories..."
   puts "✓"
 end
 
+puts "\n#{Time.current} - Creating blog posts..."
+12.times do |i|
+  puts "\n  • Blog Post #{i + 1}/12:"
+  content = with_locales do |_locale|
+    {
+      title: Faker::Company.catch_phrase,
+      text: "<p>#{Faker::Lorem.paragraphs(number: 4).join('</p><p>')}</p>"
+    }
+  end
+
+  print "    Base record... "
+  blog_post = BlogPost.create!(
+    title: content[:pt][:title],
+    text: content[:pt][:text],
+    hidden: [true, false].sample,
+    meta_title: Faker::Marketing.buzzwords,
+    meta_description: Faker::Company.catch_phrase,
+    video_link: "https://www.youtube.com/embed/#{Faker::Alphanumeric.alpha(number: 11)}"
+  )
+  puts "✓"
+
+  print "    English translation... "
+  I18n.with_locale(:en) do
+    blog_post.title = content[:en][:title]
+    blog_post.text = content[:en][:text]
+    blog_post.save!
+  end
+  puts "✓"
+
+  print "    Photos: "
+  4.times do |j|
+    image = download_image("blog_#{blog_post.id}_#{i}", j)
+    if image
+      BlogPhoto.create!(
+        blog_post: blog_post,
+        image: image,
+        main: j.zero?
+      )
+      print "📸 "
+    else
+      print "❌ "
+    end
+  end
+  puts "✓"
+end
+
 puts "\n#{Time.current} - Creating admin user..."
 Admin.create!(
   email: 'admin@example.com',
@@ -271,9 +317,11 @@ puts "  • #{Listing.count} listings"
 puts "  • #{Variable.count} variables"
 puts "  • #{Testimonial.count} testimonials"
 puts "  • #{ClubStory.count} club stories"
+puts "  • #{BlogPost.count} blog posts"
 puts "  • #{User.count} users"
 puts "  • #{NewsletterSubscription.count} newsletter subscriptions"
 puts "  • #{Photo.count} photos"
 puts "  • #{ClubStoryPhoto.count} club story photos"
+puts "  • #{BlogPhoto.count} blog photos"
 puts "\nTotal time: #{(Time.current - start_time).round(2)} seconds"
 puts "=== End of seed process ===\n"
