@@ -173,8 +173,8 @@
               },
               "title": "4.3. A atribuição do apoio será analisada com base nos seguintes critérios:"
             },
-            "decisions": "4.4. As decisões de apoio serão tomadas por um grupo de membros do clube, garantindo transparência e equidade na seleção dos beneficiários.",
-            "families": "4.1. O apoio do Clube SGG destina-se a famílias carenciadas, idosos e pessoas em situação de sem-abrigo que necessitem de melhorias habitacionais.",
+            "decisions_html": "4.4. As decisões de apoio serão tomadas por um grupo de membros do clube, garantindo <strong>transparência e equidade</strong> na seleção dos beneficiários.",
+            "families_html": "4.1. O apoio do Clube SGG destina-se a <strong>famílias carenciadas, idosos e pessoas em situação de sem-abrigo</strong> que necessitem de melhorias habitacionais.",
             "submited_by": {
               "list": {
                 "first": "As próprias famílias;",
@@ -196,25 +196,25 @@
           },
           "final": {
             "first": "7.1. O presente regulamento pode ser ajustado conforme necessário, mediante aprovação dos responsáveis do clube.",
-            "second": "7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus valores e missão, garantindo sempre que o impacto na comunidade é positivo e significativo.",
+            "second_html": "7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus valores e missão, garantindo sempre que o impacto na comunidade é <strong>positivo e significativo.</strong>",
             "title": "7. Disposições Finais"
           },
           "financial_model": {
             "application": {
               "intro": "Os fundos do Clube SGG são aplicados em:",
-              "list": {
-                "first": "Remodelações e reparações habitacionais para pessoas carenciadas;",
-                "fourth": "Desenvolvimento de novas iniciativas e parcerias que aumentem o impacto do clube.",
-                "second": "Aquisição de mobília e equipamentos essenciais para melhorar as condições de vida das pessoas apoiadas;",
-                "third": "Apoio a aquecimento e conforto térmico em habitações vulneráveis;"
+              "list_html": {
+                "first": "<strong>Remodelações e reparações habitacionais</strong> para pessoas carenciadas;",
+                "fourth": "<strong>Desenvolvimento de novas iniciativas e parcerias</strong> que aumentem o impacto do clube.",
+                "second": "<strong>Aquisição de mobília e equipamentos essenciais</strong> para melhorar as condições de vida das pessoas apoiadas;",
+                "third": "<strong>Apoio a aquecimento e conforto térmico</strong> em habitações vulneráveis;"
               },
               "title": "3.2. Aplicação dos Fundos"
             },
             "sources": {
               "intro": "O Clube SGG financia as suas ações através de:",
-              "list": {
-                "first": "Referências imobiliárias: Quando um membro do clube indica alguém que queira comprar ou vender casa, uma parte da comissão da transação reverte para o apoio à habitação de pessoas carenciadas.",
-                "second": "Parcerias com empresas do setor da construção e serviços para o lar, onde uma percentagem dos serviços prestados será canalizada para projetos de reabilitação habitacional."
+              "list_html": {
+                "first": "<strong>Referências imobiliárias:</strong> Quando um membro do clube indica alguém que queira comprar ou vender casa, uma parte da comissão da transação reverte para o apoio à habitação de pessoas carenciadas.",
+                "second": "<strong>Parcerias com empresas do setor da construção e serviços para o lar</strong>, onde uma percentagem dos serviços prestados será canalizada para projetos de reabilitação habitacional."
               },
               "title": "3.1. Fontes de Financiamento"
             },
@@ -222,9 +222,9 @@
           },
           "general": {
             "definition": "Este regulamento define as regras de funcionamento do clube, os direitos  e deveres dos membros e os critérios de apoio às pessoas beneficiárias.\n",
-            "mission": "O Clube SGG tem como missão **transformar as condições de habitação de  quem mais precisa**, mobilizando recursos e pessoas para criar lares dignos.\n",
+            "mission_html": "O Clube SGG tem como missão <strong>transformar as condições de habitação de quem mais precisa</strong>, mobilizando recursos e pessoas para criar lares dignos.\n",
             "title": "1. Disposições Gerais",
-            "values": "O clube atua com base nos valores de **dignidade, solidariedade, criação  de valor e partilha**.\n"
+            "values_html": "O clube atua com base nos valores de <strong>dignidade, solidariedade,  criação de valor e partilha</strong>.\n"
           },
           "members": {
             "duties": {
@@ -283,7 +283,7 @@
             }
           },
           "transparency": {
-            "description": "6.1. O Clube SGG compromete-se a manter total transparência na gestão dos fundos e nas ações realizadas.",
+            "description_html": "6.1. O Clube SGG compromete-se a manter <strong>total transparência na gestão dos fundos e nas ações realizadas.</strong>",
             "reports": {
               "description": "6.2. Será publicada periodicamente uma prestação de contas com:",
               "list": {

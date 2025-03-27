@@ -71,7 +71,7 @@
         "title": "Mission and Vision"
       },
       "profile": {
-        "description": "I'm a marketer by training and a value creator by passion. I've worked with brands and products for years, with the aim of better serving Customers and offering them not only what they needed, but also what best fulfilled their aspirations. I focused on people and the accomplishment of their full potentials, I have a Master's degree in Neuro Linguistic Programming and I believe in empowering people to achieve their goals and fulfil their life purposes. I have dedicated myself to the real estate sector and in buying and selling houses I apply my skills to discovering the unique asset: the house, the client, the transaction and the service. At KW I found the right structure at to develop the Sofia Galvão Group's real estate consultancy with high standards, responsibility, professionalism and confidence. I have the market know-how and I provide my Clients with the best deals, the ones that make them the Happiest!",
+        "description": "I'm a marketer by training and a value creator by passion. I've worked with brands and products for years, aiming to better serve customers and offer them not only what they needed but also what best fulfilled their aspirations. I focused on people and their full potential, earning a Master's degree in Neuro-Linguistic Programming. I believe in empowering people to achieve their goals and fulfill their life purposes. I have dedicated myself to the real estate sector, applying my skills to discovering unique assets: the house, the client, the transaction, and the service. At KW, I found the right structure to develop the Sofia Galvão Group's real estate consultancy with high standards, responsibility, professionalism, and confidence. I have the market know-how to provide my clients with the best deals, the ones that make them the happiest!",
         "slogan": "Together we create Happy Homes!"
       },
       "results": {
@@ -157,9 +157,9 @@
       },
       "rules": {
         "clarity": "We believe that only with clarity can we generate real and lasting impact.",
-        "content": "<p>Club SGG is an exclusive program designed to provide additional benefits to our clients...</p> <p>Check here all participation rules and conditions.</p>\n",
+        "content": "<p>Club SGG is an exclusive program designed to provide additional benefits to our clients...</p> <p>Check here for all participation rules and conditions.</p>\n",
         "header": "Rules",
-        "intro": "Club SGG's rules establish clear operating guidelines, defining members'\n rights and duties, criteria for family support, and principles that\nensure  transparent and responsible management of obtained funds.\n",
+        "intro": "Club SGG's rules establish clear operating guidelines, defining members' rights and duties, criteria for family support, and principles that ensure transparent and responsible management of funds.\n",
         "introduction": "Club SGG Regulations",
         "meta_description": "Rules and guidelines for Club SGG.",
         "read_below": "Read below the complete regulations that guide all our activity.",
@@ -167,13 +167,13 @@
           "criteria": {
             "criteria": {
               "list": {
-                "first": "Current housing conditions and urgency of support;",
-                "second": "Family's socioeconomic situation and available resources;",
-                "third": "Potential impact the intervention can have on the family's quality of life."
+                "first": "Current housing conditions and the urgency for support;",
+                "second": "The family's socioeconomic situation and available resources;",
+                "third": "The potential impact the intervention may have on the family's quality of life."
               },
               "title": "4.3. Support allocation will be analyzed based on the following criteria:"
             },
-            "decisions": "4.4. Support decisions will be made by a group of club members, ensuring transparency and equity in beneficiary selection.",
+            "decisions": "4.4. Support decisions shall be made by a committee of club members, ensuring transparency and fairness in beneficiary selection.",
             "families": "4.1. Club SGG support is intended for families in need, elderly people, and homeless individuals requiring housing improvements.",
             "submited_by": {
               "list": {
@@ -185,8 +185,8 @@
             "title": "4. Family Support Criteria"
           },
           "events": {
-            "description": "5.1. Club SGG regularly promotes events for:",
-            "incentives": "5.2. All ambassadors are encouraged to participate in events and contribute to growing the club's impact.",
+            "description": "5.1. Club SGG regularly promotes events for the following purposes:",
+            "incentives": "5.2. All ambassadors are encouraged to participate in events and contribute to increasing the club's impact.",
             "list": {
               "first": "Gathering referrals and mobilizing resources;",
               "second": "Raising awareness about dignified housing issues;",
@@ -195,8 +195,8 @@
             "title": "5. Club Events and Initiatives"
           },
           "final": {
-            "first": "7.1. These regulations may be adjusted as needed, subject to approval by club leaders.",
-            "second": "7.2. All Club SGG actions must align with its values and mission, always ensuring that the impact on the community is positive and significant.",
+            "first": "7.1. These regulations may be amended as necessary, subject to approval by club leaders.",
+            "second": "7.2. All Club SGG actions must align with its values and mission, ensuring that the impact on the community is always positive and significant.",
             "title": "7. Final Provisions"
           },
           "financial_model": {
@@ -221,10 +221,12 @@
             "title": "3. Support and Funding Model"
           },
           "general": {
-            "definition": "These regulations define the club's operating rules, members' rights and  duties, and support criteria for beneficiaries.\n",
-            "mission": "Club SGG's mission is to **transform housing conditions for those most in need**,  mobilizing resources and people to create dignified homes.\n",
+            "definition": "These regulations define the club's operating rules, members' rights and duties, and support criteria for beneficiaries.\n",
+            "mission": "Club SGG's mission is to **transform housing conditions for those most in need**, mobilizing resources and people to create dignified homes.\n",
+            "mission_html": "Club SGG's mission is to <strong>transform housing conditions for those most in need</strong>, mobilizing resources and people to create dignified homes.\n",
             "title": "1. General Provisions",
-            "values": "The club operates based on the values of **dignity, solidarity, value  creation, and sharing**.\n"
+            "values": "The club operates based on the values of **dignity, solidarity, value creation, and sharing**.\n",
+            "values_html": "The club operates based on the values of <strong>dignity, solidarity, value creation, and sharing</strong>.\n"
           },
           "members": {
             "duties": {
@@ -239,7 +241,7 @@
             "intro": "The following can become members of Club SGG:",
             "list": {
               "first": "Individuals who want to support the cause through real estate business referrals;",
-              "second": "Companies and professionals from real estate, construction and home services sectors who want to contribute or establish partnerships;",
+              "second": "Companies and professionals from real estate, construction, and home services sectors who want to contribute or establish partnerships;",
               "third": "Anyone who identifies with the club's values and wants to help in its mission."
             },
             "members_or_ambassadors": {
@@ -281,13 +283,13 @@
             "who_can": "2.1. Who can be a member"
           },
           "transparency": {
-            "description": "6.1. Club SGG commits to maintaining total transparency in fund management and actions taken.",
+            "description": "6.1. Club SGG is committed to ensuring full transparency in fund management and its activities.",
             "reports": {
-              "description": "6.2. Regular accountability reports will be published including:",
+              "description": "6.2. Regular accountability reports will be published, including:",
               "list": {
                 "first": "Funds raised through real estate referrals and partnerships;",
-                "second": "Funded projects and generated impact;",
-                "third": "Progress reports and future planning."
+                "second": "Funded projects and the generated impact;",
+                "third": "Progress reports and future plans."
               }
             },
             "title": "6. Transparency and Accountability"
@@ -550,8 +552,8 @@
           "title": "Expectation on better return on investment"
         },
         "warranty": {
-          "description": "A new property has a construction warrantee, as well as the certainty that there will be no need for improvements in the coming years.",
-          "title": "Construction warrantee"
+          "description": "A new property comes with a construction warranty, ensuring no need for improvements in the coming years.",
+          "title": "Construction warranty"
         },
         "yours": {
           "description": "Buying at the planning stage grants the future owner the chance to make changes to materials and sometimes to the layout, so that their future home matches their needs and preferences.",
@@ -571,7 +573,7 @@
       },
       "subheader": "Why to buy at <span class=\"underline decoration-beige-default dark:decoration-beige-medium\">the Planning Stage?</span>",
       "subtitle": {
-        "description": "Discover our real estate development projects, which offer unique investment opportunities. With buy-at-the-planning-stage options, you can personalise your property and invest in properties with a high potential for capital appreciation. Our team provides detailed information on each development, including location, payment plans and return potential.",
+        "description": "Discover our real estate development projects, offering unique investment opportunities. With buy-at-the-planning-stage options, you can personalize your property and invest in properties with high potential for capital appreciation. Our team provides detailed information on each development, including location, payment plans, and return potential.",
         "title": "Investment Opportunities"
       }
     },
@@ -77837,7 +77839,7 @@
         "first": {
           "questions": {
             "fifth": {
-              "answer": "Yes. In addition to taxes, such as the Property Acquisition Tax (IMT) and the Stamp Duty, there are also the costs of the final deed and the land registry. Our commission is competitive and transparent, and covers all the services involved in promoting, monitoring and managing the sales process.",
+              "answer": "Yes. In addition to taxes, such as the Property Acquisition Tax (IMT) and the Stamp Duty, there are also costs for the final deed and the land registry. Our commission is competitive and transparent, covering all the services involved in promoting, monitoring, and managing the sales process.",
               "title": "Are there any costs associated with selling?"
             },
             "first": {
@@ -77849,7 +77851,7 @@
               "title": "How does Sofia Galvão Group promote my property?"
             },
             "second": {
-              "answer": "The first step is to make sure that all the property's documentation is in order. This includes documents such as the land registry certificate, the permanent certificate and the energy certificate. The Sofia Galvão Group will help you to ensure that everything is correct and will prepare a detailed evaluation aiming to define the appropriate sale price.",
+              "answer": "The first step is to ensure that all the property's documentation is in order. This includes documents such as the land registry certificate, the permanent certificate, and the energy certificate. The Sofia Galvão Group will help you ensure that everything is correct and prepare a detailed evaluation to define the appropriate sale price.",
               "title": "What are the first steps to selling my house?"
             },
             "third": {
@@ -77895,7 +77897,7 @@
               "title": "Why to choose Sofia Galvão Group to buy a house?"
             },
             "fourth": {
-              "answer": "In addition to the price of the property, there are also costs such as the Property Acquisition Tax (IMT), the Stamp Duty, the final deed and the land registry. The Sofia Galvão Group helps you calculate all of these costs, to ensure that you are aware of all the amounts involved.",
+              "answer": "In addition to the price of the property, there are costs such as the Property Acquisition Tax (IMT), the Stamp Duty, the final deed, and the land registry. The Sofia Galvão Group helps you calculate all these costs to ensure you are aware of all the amounts involved.",
               "title": "What are the costs involved in buying a house?"
             },
             "second": {
@@ -78359,8 +78361,8 @@
             "subscribe": "Subscribe"
           }
         },
-        "subtitle": "Subscribe to our newsletter and keep up to date with the latest opportunities, news and market tips.",
-        "terms": "By contacting us you're allowing Sofia Galvão Group to store your data to later inform you about business opportunities, as stated in the Privacy Policy.",
+        "subtitle": "Subscribe to our newsletter and stay updated with the latest opportunities, news, and market tips.",
+        "terms": "By contacting us, you're allowing Sofia Galvão Group to store your data to inform you about business opportunities, as stated in the Privacy Policy.",
         "title": "Get the latest Market news"
       },
       "slogan": {
@@ -78711,7 +78713,7 @@
       "meta_description": "Sell properties in Portugal with real estate consultant Sofia Galvão from Sofia Galvão Group.",
       "paragraph": {
         "bottom": "Our aim is to find you the best Client in the shortest amount of time, and for that purpose we offer:",
-        "middle": "We offer a consultancy service that works in a unique way and tailored to your needs, focusing on the promotion strategy, publicity and the best negotiation.",
+        "middle": "We offer a consultancy service tailored to your needs, focusing on promotion strategy, publicity, and the best negotiation.",
         "top": "We guarantee the best deal for the sale of your home."
       },
       "subheader": "Find out how much your home is worth."

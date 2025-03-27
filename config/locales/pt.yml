@@ -971,17 +971,17 @@ pt:
       sections:
         general:
           title: 1. Disposições Gerais
-          mission: >
-            O Clube SGG tem como missão **transformar as condições de habitação
-            de  quem mais precisa**, mobilizando recursos e pessoas para criar
-            lares dignos.
+          mission_html: >
+            O Clube SGG tem como missão <strong>transformar as condições de
+            habitação de quem mais precisa</strong>, mobilizando recursos e
+            pessoas para criar lares dignos.
           definition: >
             Este regulamento define as regras de funcionamento do clube, os
             direitos  e deveres dos membros e os critérios de apoio às pessoas
             beneficiárias.
-          values: >
-            O clube atua com base nos valores de **dignidade, solidariedade,
-            criação  de valor e partilha**.
+          values_html: >
+            O clube atua com base nos valores de <strong>dignidade,
+            solidariedade,  criação de valor e partilha</strong>.
         members:
           title: 2. Membros do Clube
           who_can:
@@ -1067,38 +1067,39 @@ pt:
           sources:
             title: 3.1. Fontes de Financiamento
             intro: "O Clube SGG financia as suas ações através de:"
-            list:
+            list_html:
               first:
-                "Referências imobiliárias: Quando um membro do clube indica
-                alguém que queira comprar ou vender casa, uma parte da comissão
-                da transação reverte para o apoio à habitação de pessoas
-                carenciadas."
+                "<strong>Referências imobiliárias:</strong> Quando um membro do
+                clube indica alguém que queira comprar ou vender casa, uma parte
+                da comissão da transação reverte para o apoio à habitação de
+                pessoas carenciadas."
               second:
-                "Parcerias com empresas do setor da construção e serviços para o
-                lar, onde uma percentagem dos serviços prestados será canalizada
-                para projetos de reabilitação habitacional."
+                "<strong>Parcerias com empresas do setor da construção e
+                serviços para o lar</strong>, onde uma percentagem dos serviços
+                prestados será canalizada para projetos de reabilitação
+                habitacional."
           application:
             title: 3.2. Aplicação dos Fundos
             intro: "Os fundos do Clube SGG são aplicados em:"
-            list:
+            list_html:
               first:
-                Remodelações e reparações habitacionais para pessoas
-                carenciadas;
+                <strong>Remodelações e reparações habitacionais</strong> para
+                pessoas carenciadas;
               second:
-                Aquisição de mobília e equipamentos essenciais para melhorar as
-                condições de vida das pessoas apoiadas;
+                <strong>Aquisição de mobília e equipamentos essenciais</strong>
+                para melhorar as condições de vida das pessoas apoiadas;
               third:
-                Apoio a aquecimento e conforto térmico em habitações
-                vulneráveis;
+                <strong>Apoio a aquecimento e conforto térmico</strong> em
+                habitações vulneráveis;
               fourth:
-                Desenvolvimento de novas iniciativas e parcerias que aumentem o
-                impacto do clube.
+                <strong>Desenvolvimento de novas iniciativas e
+                parcerias</strong> que aumentem o impacto do clube.
         criteria:
           title: 4. Critérios de Apoio às Famílias
-          families:
-            4.1. O apoio do Clube SGG destina-se a famílias carenciadas, idosos
-            e pessoas em situação de sem-abrigo que necessitem de melhorias
-            habitacionais.
+          families_html:
+            4.1. O apoio do Clube SGG destina-se a <strong>famílias carenciadas,
+            idosos e pessoas em situação de sem-abrigo</strong> que necessitem
+            de melhorias habitacionais.
           submited_by:
             title: "4.2. As candidaturas ao apoio podem ser submetidas por:"
             list:
@@ -1116,10 +1117,10 @@ pt:
               third:
                 Impacto que a intervenção pode gerar na qualidade de vida da
                 família.
-          decisions:
+          decisions_html:
             4.4. As decisões de apoio serão tomadas por um grupo de membros do
-            clube, garantindo transparência e equidade na seleção dos
-            beneficiários.
+            clube, garantindo <strong>transparência e equidade</strong> na
+            seleção dos beneficiários.
         events:
           title: 5. Eventos e Iniciativas do Clube
           description: "5.1. O Clube SGG promove regularmente eventos para:"
@@ -1132,9 +1133,9 @@ pt:
             e a contribuir para o crescimento do impacto do clube.
         transparency:
           title: 6. Transparência e Prestação de Contas
-          description:
-            6.1. O Clube SGG compromete-se a manter total transparência na
-            gestão dos fundos e nas ações realizadas.
+          description_html:
+            6.1. O Clube SGG compromete-se a manter <strong>total transparência
+            na gestão dos fundos e nas ações realizadas.</strong>
           reports:
             description:
               "6.2. Será publicada periodicamente uma prestação de contas com:"
@@ -1149,10 +1150,10 @@ pt:
           first:
             7.1. O presente regulamento pode ser ajustado conforme necessário,
             mediante aprovação dos responsáveis do clube.
-          second:
+          second_html:
             7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus
             valores e missão, garantindo sempre que o impacto na comunidade é
-            positivo e significativo.
+            <strong>positivo e significativo.</strong>
     stories:
       title: Histórias do Clube
       header: Histórias dos Membros

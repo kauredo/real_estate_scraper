@@ -30,15 +30,21 @@ export default function Rules() {
               {i18n.t("club.rules.sections.general.title")}
             </h2>
             <ol className="list-decimal pl-6 mb-12 space-y-4">
-              <li className="text-gray-600 dark:text-gray-300">
-                {i18n.t("club.rules.sections.general.mission")}
-              </li>
+              <li
+                className="text-gray-600 dark:text-gray-300"
+                dangerouslySetInnerHTML={{
+                  __html: i18n.t("club.rules.sections.general.mission_html"),
+                }}
+              ></li>
               <li className="text-gray-600 dark:text-gray-300">
                 {i18n.t("club.rules.sections.general.definition")}
               </li>
-              <li className="text-gray-600 dark:text-gray-300">
-                {i18n.t("club.rules.sections.general.values")}
-              </li>
+              <li
+                className="text-gray-600 dark:text-gray-300"
+                dangerouslySetInnerHTML={{
+                  __html: i18n.t("club.rules.sections.general.values_html"),
+                }}
+              ></li>
             </ol>
 
             {/* 2. Members Section */}
@@ -151,11 +157,15 @@ export default function Rules() {
             </p>
             <ul className="list-disc pl-6 mb-8 space-y-2">
               {["first", "second"].map(item => (
-                <li key={item} className="text-gray-600 dark:text-gray-300">
-                  {i18n.t(
-                    `club.rules.sections.financial_model.sources.list.${item}`
-                  )}
-                </li>
+                <li
+                  key={item}
+                  className="text-gray-600 dark:text-gray-300"
+                  dangerouslySetInnerHTML={{
+                    __html: i18n.t(
+                      `club.rules.sections.financial_model.sources.list_html.${item}`
+                    ),
+                  }}
+                ></li>
               ))}
             </ul>
 
@@ -168,11 +178,15 @@ export default function Rules() {
             </p>
             <ul className="list-disc pl-6 mb-12 space-y-2">
               {["first", "second", "third", "fourth"].map(item => (
-                <li key={item} className="text-gray-600 dark:text-gray-300">
-                  {i18n.t(
-                    `club.rules.sections.financial_model.application.list.${item}`
-                  )}
-                </li>
+                <li
+                  key={item}
+                  className="text-gray-600 dark:text-gray-300"
+                  dangerouslySetInnerHTML={{
+                    __html: i18n.t(
+                      `club.rules.sections.financial_model.application.list_html.${item}`
+                    ),
+                  }}
+                ></li>
               ))}
             </ul>
 
@@ -180,9 +194,12 @@ export default function Rules() {
             <h2 className="text-2xl font-bold mb-6">
               {i18n.t("club.rules.sections.criteria.title")}
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              {i18n.t("club.rules.sections.criteria.families")}
-            </p>
+            <p
+              className="text-gray-600 dark:text-gray-300 mb-4"
+              dangerouslySetInnerHTML={{
+                __html: i18n.t("club.rules.sections.criteria.families_html"),
+              }}
+            ></p>
 
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               {i18n.t("club.rules.sections.criteria.submited_by.title")}
@@ -208,9 +225,12 @@ export default function Rules() {
               ))}
             </ul>
 
-            <p className="text-gray-600 dark:text-gray-300 mb-12">
-              {i18n.t("club.rules.sections.criteria.decisions")}
-            </p>
+            <p
+              className="text-gray-600 dark:text-gray-300 mb-12"
+              dangerouslySetInnerHTML={{
+                __html: i18n.t("club.rules.sections.criteria.decisions_html"),
+              }}
+            ></p>
 
             {/* Events Section */}
             <h2 className="text-2xl font-bold mb-6">
@@ -234,9 +254,12 @@ export default function Rules() {
             <h2 className="text-2xl font-bold mb-6">
               {i18n.t("club.rules.sections.transparency.title")}
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              {i18n.t("club.rules.sections.transparency.description")}
-            </p>
+            <p
+              className="text-gray-600 dark:text-gray-300 mb-4"
+              dangerouslySetInnerHTML={{
+                __html: i18n.t("club.rules.sections.transparency.descripti"),
+              }}
+            ></p>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               {i18n.t("club.rules.sections.transparency.reports.description")}
             </p>
@@ -257,9 +280,12 @@ export default function Rules() {
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               {i18n.t("club.rules.sections.final.first")}
             </p>
-            <p className="text-gray-600 dark:text-gray-300">
-              {i18n.t("club.rules.sections.final.second")}
-            </p>
+            <p
+              className="text-gray-600 dark:text-gray-300"
+              dangerouslySetInnerHTML={{
+                __html: i18n.t("club.rules.sections.final.second_html"),
+              }}
+            ></p>
           </div>
         </section>
       </div>
