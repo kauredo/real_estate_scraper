@@ -42,7 +42,11 @@ export default function ClubStories({
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {club_stories && club_stories.length > 0 ? (
               club_stories.map(story => (
-                <ClubStoryCard key={story.id} story={story} isBackoffice />
+                <ClubStoryCard
+                  key={story.id}
+                  story={story}
+                  isBackoffice={isBackoffice}
+                />
               ))
             ) : (
               <div className="col-span-full text-center p-8 text-lg font-light bg-white dark:bg-dark rounded-lg shadow-lg">
