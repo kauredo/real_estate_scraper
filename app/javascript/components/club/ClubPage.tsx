@@ -37,12 +37,12 @@ export default function ClubPage({ recent_stories }: Props) {
           {i18n.t("club.home.subtitle")}
         </p>
 
-        <div className="flex flex-wrap gap-6 mb-16 w-full max-w-4xl justify-center">
+        <div className="flex flex-wrap gap-2 mb-16 w-full max-w-4xl justify-center">
           {sections.map(section => (
             <a
               key={section.path}
               href={sanitizeURL(section.path)}
-              className="block transform transition-all duration-200 hover:shadow-2xl w-full md:w-1/3 h-38 bg-white dark:bg-dark border dark:border-beige-medium"
+              className="block transform transition-all duration-200 hover:shadow-2xl w-full md:w-[31%] h-38 bg-white dark:bg-dark border dark:border-beige-medium"
               data-turbo="true"
             >
               <div className="rounded-lg p-8 h-full flex flex-col justify-between h-full">

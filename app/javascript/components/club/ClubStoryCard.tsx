@@ -39,7 +39,7 @@ export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
         </p>
         <a
           href={storyUrl}
-          className="bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           data-turbo="false"
         >
           {i18n.t("general.read_more")}
@@ -51,7 +51,7 @@ export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
                 window.Routes.edit_backoffice_club_story_path,
                 story.slug
               )}
-              className="ml-2 bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="ml-2 bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               data-turbo="false"
             >
               {i18n.t("backoffice.common.edit")}

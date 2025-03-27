@@ -4,9 +4,9 @@
 <% end %>
 
 <div class="flex sm:items-center gap-2 mb-2">
-  <%= f.submit (f.object.persisted? ? t('backoffice.common.update') : t('backoffice.common.create')), class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
+  <%= f.submit (f.object.persisted? ? t('backoffice.common.update') : t('backoffice.common.create')), class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
   <% if @blog_post.persisted? %>
-    <%= link_to t('backoffice.blog_posts.view_post'), backoffice_blog_post_path(@blog_post), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    <%= link_to t('backoffice.blog_posts.view_post'), backoffice_blog_post_path(@blog_post), class: 'bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
     <%= link_to t('backoffice.common.delete'), [:backoffice, @blog_post], method: :delete, data: { "turbo-method": :delete }, class: 'bg-red-500 hover:bg-red-700 p-2 rounded font-bold', onclick: "return confirm('#{t('backoffice.common.delete_confirm')}');" %>
   <% end %>
 </div>
@@ -69,9 +69,9 @@
 </div>
 
 <div class="flex sm:items-center gap-2">
-  <%= f.submit (f.object.persisted? ? t('backoffice.common.update') : t('backoffice.common.create')), class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
+  <%= f.submit (f.object.persisted? ? t('backoffice.common.update') : t('backoffice.common.create')), class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
   <% if @blog_post.persisted? %>
-    <%= link_to t('backoffice.blog_posts.view_post'), backoffice_blog_post_path(@blog_post), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    <%= link_to t('backoffice.blog_posts.view_post'), backoffice_blog_post_path(@blog_post), class: 'bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
     <%= link_to t('backoffice.common.delete'), [:backoffice, @blog_post], method: :delete, data: { "turbo-method": :delete }, class: 'bg-red-500 hover:bg-red-700 p-2 rounded font-bold', onclick: "return confirm('#{t('backoffice.common.delete_confirm')}');" %>
   <% end %>
 </div>

@@ -5,9 +5,9 @@
     <p class="text-gray-500 dark:text-light pt-3 max-w-none">Nota: os textos podem ser mudados nas diferentes liguagens, basta mudar para a linguagem desejada</p>
     <%= form_for([:backoffice, @listing], html: { method: :patch, class: 'my-6' }) do |f| %>
       <div class="flex sm:items-center gap-2 mb-4 flex-wrap">
-        <%= f.submit 'Atualizar Imóvel', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-        <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_path(@listing), data: { "turbo-method": :post }, class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-        <%= link_to 'Ver Imóvel', listing_path(@listing), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Atualizar Imóvel', class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_path(@listing), data: { "turbo-method": :post }, class: 'bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= link_to 'Ver Imóvel', listing_path(@listing), class: 'bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
       <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <%= f.label :title, class: 'sm:w-1/4 font-bold' %>
@@ -68,9 +68,9 @@
         </div>
       </div>
       <div class="flex sm:items-center gap-2 flex-wrap">
-        <%= f.submit 'Atualizar Imóvel', class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-        <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_path(@listing), data: { "turbo-method": :post }, class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-        <%= link_to 'Ver Imóvel', listing_path(@listing), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= f.submit 'Atualizar Imóvel', class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_path(@listing), data: { "turbo-method": :post }, class: 'bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= link_to 'Ver Imóvel', listing_path(@listing), class: 'bg-beige-default hover:bg-beige-medium text-dark dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
   </div>
