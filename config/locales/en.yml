@@ -965,11 +965,36 @@ en:
       header: Social Partners
       meta_description:
         Discover our social partners and how together we make a difference.
-      introduction: Meet Our Partners
+      introduction: Social Partners who help us make magic happen
+      subtitle: Together, we create stories that change lives.
       description:
-        We work with organizations that share our vision of social
-        responsibility and community commitment.
-      social_feed: Social Media Feed
+        Club SGG's mission is only possible thanks to the essential
+        collaboration of our social partners, who bring to life the impact we
+        want to achieve.
+      partners_title: "Meet our partners:"
+      lucas:
+        title: Lucas With Strangers
+        description:
+          Recognized for his impactful work, Lucas With Strangers daily
+          transforms the lives of hundreds of people in vulnerable situations,
+          providing them with unique and unforgettable experiences.
+        cta: Learn more about Lucas's work
+      join:
+        title: Be part of this story
+        description:
+          We are always looking for social partners who share our purpose of
+          creating positive impact in the lives that need it most.
+        extra:
+          If you believe your organization can make a difference with us, get in
+          touch and join our network.
+        cta: Get in touch to become a social partner
+      impact:
+        title: Impact in action
+        description:
+          See some real examples of the impact created in partnership with our
+          social partners through short Instagram and TikTok videos.
+        conclusion:
+          Each video is a real story. Each story is a transformed life.
     rules:
       header: Rules
       meta_description: Rules and guidelines for Club SGG.

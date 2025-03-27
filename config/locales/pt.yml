@@ -990,11 +990,35 @@ pt:
       header: Parceiros Sociais
       meta_description:
         Descubra os nossos parceiros sociais e como juntos fazemos a diferença.
-      introduction: Conheça os Nossos Parceiros
+      introduction: Parceiros Sociais que nos ajudam a fazer a magia acontecer
+      subtitle: Juntos, criamos histórias que mudam vidas.
       description:
-        Colaboramos com organizações que partilham a nossa visão de
-        responsabilidade social.
-      social_feed: "Feed Social"
+        A missão do Clube SGG só é possível graças à colaboração essencial dos
+        nossos parceiros sociais, que dão vida ao impacto que queremos alcançar.
+      partners_title: "Conheça os nossos parceiros:"
+      lucas:
+        title: Lucas With Strangers
+        description:
+          Reconhecido pelo seu trabalho impactante, o Lucas With Strangers
+          transforma diariamente a vida de centenas de pessoas em situação
+          vulnerável, proporcionando-lhes experiências únicas e inesquecíveis.
+        cta: Conheça melhor o trabalho do Lucas
+      join:
+        title: Faça parte desta história
+        description:
+          Estamos sempre à procura de parceiros sociais que partilhem o nosso
+          propósito de criar impacto positivo nas vidas que mais precisam.
+        extra:
+          Se acredita que a sua organização pode fazer a diferença connosco,
+          entre em contacto e junte-se à nossa rede.
+        cta: Entre em contacto para se tornar parceiro social
+      impact:
+        title: Impacto em ação
+        description:
+          Veja alguns exemplos reais do impacto criado em parceria com os nossos
+          parceiros sociais através de vídeos curtos do Instagram e TikTok.
+        conclusion:
+          Cada vídeo é uma história real. Cada história é uma vida transformada.
     rules:
       header: Regulamento
       meta_description: Regras e diretrizes para membros do Clube SGG.

@@ -339,11 +339,28 @@
         "partners": "Nossos Parceiros"
       },
       "social_partners": {
-        "description": "Colaboramos com organizações que partilham a nossa visão de responsabilidade social.",
+        "description": "A missão do Clube SGG só é possível graças à colaboração essencial dos nossos parceiros sociais, que dão vida ao impacto que queremos alcançar.",
         "header": "Parceiros Sociais",
-        "introduction": "Conheça os Nossos Parceiros",
+        "impact": {
+          "conclusion": "Cada vídeo é uma história real. Cada história é uma vida transformada.",
+          "description": "Veja alguns exemplos reais do impacto criado em parceria com os nossos parceiros sociais através de vídeos curtos do Instagram e TikTok.",
+          "title": "Impacto em ação"
+        },
+        "introduction": "Parceiros Sociais que nos ajudam a fazer a magia acontecer",
+        "join": {
+          "cta": "Entre em contacto para se tornar parceiro social",
+          "description": "Estamos sempre à procura de parceiros sociais que partilhem o nosso propósito de criar impacto positivo nas vidas que mais precisam.",
+          "extra": "Se acredita que a sua organização pode fazer a diferença connosco, entre em contacto e junte-se à nossa rede.",
+          "title": "Faça parte desta história"
+        },
+        "lucas": {
+          "cta": "Conheça melhor o trabalho do Lucas",
+          "description": "Reconhecido pelo seu trabalho impactante, o Lucas With Strangers transforma diariamente a vida de centenas de pessoas em situação vulnerável, proporcionando-lhes experiências únicas e inesquecíveis.",
+          "title": "Lucas With Strangers"
+        },
         "meta_description": "Descubra os nossos parceiros sociais e como juntos fazemos a diferença.",
-        "social_feed": "Feed Social"
+        "partners_title": "Conheça os nossos parceiros:",
+        "subtitle": "Juntos, criamos histórias que mudam vidas."
       },
       "social_partners_description": "Parceiros que compartilham nossa visão e contribuem para um impacto positivo na comunidade",
       "stories": {
