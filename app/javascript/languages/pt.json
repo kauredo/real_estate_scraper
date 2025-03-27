@@ -177,11 +177,16 @@
       "social_partners_description": "Parceiros que compartilham nossa visão e contribuem para um impacto positivo na comunidade",
       "stories": {
         "empty": "Novas histórias em breve...",
+        "explore_stories": "Explore as nossas histórias",
         "header": "Histórias dos Membros",
+        "impact_description": "Conheça as histórias reais de quem foi impactado diretamente pela missão\n do Clube SGG. Cada história é a prova viva de como o seu apoio pode\nmudar  vidas, proporcionando habitações dignas e transformando sonhos em realidade.\n",
         "intro": "Descubra experiências únicas da nossa comunidade",
         "meta_description": "Histórias inspiradoras e casos de sucesso dos membros do Clube SGG.",
+        "real_people": "Por trás de cada projeto há pessoas reais com histórias inspiradoras",
+        "stories_description": "Descubra abaixo relatos emocionantes e inspiradores, onde o apoio do Clube SGG fez toda a diferença.\n",
         "subheader": "Leia sobre experiências e histórias de sucesso dos nossos membros.",
-        "title": "Histórias do Clube"
+        "title": "Histórias do Clube",
+        "transformed_life": "Cada história é uma vida transformada"
       },
       "stories_description": "Histórias de sucesso e experiências inspiradoras dos nossos membros"
     },

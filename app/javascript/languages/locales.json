@@ -166,10 +166,15 @@
       "social_partners_description": "Partners who share our social vision and contribute to a positive impact in the community.",
       "stories": {
         "empty": "New stories coming soon...",
+        "explore_stories": "Explore our stories",
         "header": "Stories",
+        "impact_description": "Discover the real stories of those who were directly impacted by Club SGG's  mission. Each story is living proof of how your support can change lives,  providing dignified housing and turning dreams into reality.\n",
         "meta_description": "Inspiring stories and success cases from Club SGG members.",
+        "real_people": "Behind each project there are real people with inspiring stories",
+        "stories_description": "Discover below exciting and inspiring stories where Club SGG's support made all the difference.\n",
         "subheader": "Discover unique experiences and success stories from our members.",
-        "title": "Stories"
+        "title": "Stories",
+        "transformed_life": "Each story is a transformed life"
       },
       "stories_description": "Inspiring stories and success cases from our members."
     },
@@ -78772,11 +78777,16 @@
       "social_partners_description": "Parceiros que compartilham nossa visão e contribuem para um impacto positivo na comunidade",
       "stories": {
         "empty": "Novas histórias em breve...",
+        "explore_stories": "Explore as nossas histórias",
         "header": "Histórias dos Membros",
+        "impact_description": "Conheça as histórias reais de quem foi impactado diretamente pela missão\n do Clube SGG. Cada história é a prova viva de como o seu apoio pode\nmudar  vidas, proporcionando habitações dignas e transformando sonhos em realidade.\n",
         "intro": "Descubra experiências únicas da nossa comunidade",
         "meta_description": "Histórias inspiradoras e casos de sucesso dos membros do Clube SGG.",
+        "real_people": "Por trás de cada projeto há pessoas reais com histórias inspiradoras",
+        "stories_description": "Descubra abaixo relatos emocionantes e inspiradores, onde o apoio do Clube SGG fez toda a diferença.\n",
         "subheader": "Leia sobre experiências e histórias de sucesso dos nossos membros.",
-        "title": "Histórias do Clube"
+        "title": "Histórias do Clube",
+        "transformed_life": "Cada história é uma vida transformada"
       },
       "stories_description": "Histórias de sucesso e experiências inspiradoras dos nossos membros"
     },

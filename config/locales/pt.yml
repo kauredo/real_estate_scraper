@@ -965,6 +965,18 @@ pt:
       subheader:
         Leia sobre experiências e histórias de sucesso dos nossos membros.
       empty: Novas histórias em breve...
+      transformed_life: Cada história é uma vida transformada
+      real_people:
+        Por trás de cada projeto há pessoas reais com histórias inspiradoras
+      impact_description: >
+        Conheça as histórias reais de quem foi impactado diretamente pela missão
+         do Clube SGG. Cada história é a prova viva de como o seu apoio pode
+        mudar  vidas, proporcionando habitações dignas e transformando sonhos em
+        realidade.
+      explore_stories: Explore as nossas histórias
+      stories_description: >
+        Descubra abaixo relatos emocionantes e inspiradores, onde o apoio do
+        Clube SGG fez toda a diferença.
     stories_description:
       "Histórias de sucesso e experiências inspiradoras dos nossos membros"
     home_tailor_description:

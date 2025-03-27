@@ -16,9 +16,26 @@ export default function ClubStories({
     <div className="container mx-auto px-4">
       <div className="flex flex-col items-center justify-center py-12">
         {!isBackoffice && (
-          <h1 className="text-3xl font-bold text-center mb-12 text-dark dark:text-light">
-            {i18n.t("club.stories.title")}
-          </h1>
+          <>
+            <h1 className="text-3xl font-bold text-center mb-4 text-dark dark:text-light">
+              {i18n.t("club.stories.transformed_life")}
+            </h1>
+
+            <div className="max-w-3xl text-center mb-16">
+              <p className="text-lg font-bold mb-6 text-dark dark:text-light">
+                {i18n.t("club.stories.real_people")}
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 mb-12">
+                {i18n.t("club.stories.impact_description")}
+              </p>
+              <h3 className="text-xl font-bold mb-4 text-dark dark:text-light">
+                {i18n.t("club.stories.explore_stories")}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {i18n.t("club.stories.stories_description")}
+              </p>
+            </div>
+          </>
         )}
 
         <div className="w-full max-w-7xl">
