@@ -2,7 +2,7 @@
 
 class ClubController < ApplicationController
   def index
-    @recent_stories = ClubStory.visible.limit(3).as_json(methods: %i[sample_text main_photo])
+    @recent_stories = ClubStory.visible.limit(2).as_json(methods: %i[sample_text main_photo])
   end
 
   def social_partners; end

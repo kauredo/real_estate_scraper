@@ -142,6 +142,49 @@
     },
     "club": {
       "header": "Clube SGG",
+      "home": {
+        "contribute": {
+          "cta": "Comece agora a fazer a diferença.",
+          "description": "Ao indicar-nos alguém que pretenda comprar ou vender casa, está a dar início a uma mudança real. Cada negócio concretizado gera um contributo direto para a missão do Clube SGG, ajudando a transformar casas em lares dignos para quem mais precisa.\n",
+          "subtitle": "Uma simples referência sua pode transformar vidas.",
+          "title": "Contribua para a próxima história",
+          "value_description": "Desta forma, cria valor em duas frentes: oferece às pessoas que indica um acompanhamento imobiliário de excelência, enquanto muda a vida de pessoas e famílias que precisam de si e da sua ajuda.\n"
+        },
+        "dignity": {
+          "description": "Todos merecem um lar onde possam viver com dignidade, segurança e conforto. O Clube SGG nasce com a missão de reabilitar vidas através da melhoria das condições de habitação daqueles que mais precisam.\n",
+          "title": "Uma casa digna não deve ser sonho mas sim uma realidade"
+        },
+        "impact": {
+          "title": "História do impacto já gerado"
+        },
+        "join": {
+          "cta": "Enviar WhatsApp",
+          "description": "Conhece alguém que queira comprar ou vender casa? Indique-nos essa pessoa. Com este gesto simples, garante-lhe um serviço imobiliário de excelência, ao mesmo tempo que ajuda a proporcionar uma habitação digna a quem mais precisa.\n",
+          "impact": "Uma referência sua vai mudar vidas.",
+          "mission": "Juntos, vamos transformar casas em lares e reabilitar vidas.",
+          "subtitle": "Torne-se membro do Clube SGG agora mesmo.",
+          "title": "Dê o primeiro passo para melhorar uma vida",
+          "whatsapp": "Envie-nos um WhatsApp para começar a contribuir."
+        },
+        "know_more": {
+          "cta": "Enviar WhatsApp",
+          "help_description": "Referencie outros membros para juntos podermos impactar mais vidas!\n",
+          "help_question": "Conhece quem possa contribuir para a causa?",
+          "help_title": "Ajude-nos a crescer!",
+          "rules": "Conheça aqui o Regulamento do Clube SGG",
+          "whatsapp": "Envie-nos um WhatsApp para referenciar membros para o clube."
+        },
+        "partners": {
+          "conclusion": "São parceiros assim que tornam real a mudança que idealizamos.",
+          "cta": "Conheça o trabalho do Lucas.",
+          "description": "A missão do Clube SGG só é possível graças à colaboração essencial dos nossos parceiros sociais, que dão vida ao impacto que queremos alcançar.\n",
+          "example_html": "Um exemplo claro é o <strong>Lucas With Strangers</strong>, reconhecido por transformar a vida de centenas de pessoas em situações vulneráveis, proporcionando-lhes melhoria nas condições de vida, experiências únicas e inesquecíveis.\n",
+          "subtitle": "Juntos, criamos histórias que mudam vidas.",
+          "title": "Parceiros Sociais que nos ajudam a fazer a magia acontecer"
+        },
+        "subtitle": "Comprar e vender casas, reabilitar vidas",
+        "title": "Clube SGG"
+      },
       "meta_description": "Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
       "recent_stories": {
         "description": "Descubra as histórias e experiências mais recentes dos nossos membros",

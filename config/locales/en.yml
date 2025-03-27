@@ -897,6 +897,66 @@ en:
     copied: Link copied to clipboard!
 
   club:
+    home:
+      title: Club SGG
+      subtitle: Buying and selling homes, rehabilitating lives
+      dignity:
+        title: A dignified home should not be a dream but a reality
+        description: >
+          Everyone deserves a home where they can live with dignity, safety and
+          comfort. Club SGG was born with the mission of rehabilitating lives by
+          improving housing conditions for those who need it most.
+      impact:
+        title: Story of impact generated so far
+      contribute:
+        title: Contribute to the next story
+        subtitle: A simple referral from you can transform lives.
+        description: >
+          By referring someone who wants to buy or sell a house, you are
+          initiating real change. Each completed deal generates a direct
+          contribution to Club SGG's mission, helping transform houses into
+          dignified homes for those who need them most.
+        value_description: >
+          This way, you create value on two fronts: you offer the people you
+          refer excellent real estate support, while changing the lives of
+          people and families who need you and your help.
+        cta: Start making a difference now.
+      partners:
+        title: Social Partners who help us make magic happen
+        subtitle: Together, we create stories that change lives.
+        description: >
+          Club SGG's mission is only possible thanks to the essential
+          collaboration of our social partners, who bring to life the impact we
+          want to achieve.
+        example_html: >
+          A clear example is <strong>Lucas With Strangers</strong>, recognized
+          for transforming the lives of hundreds of people in vulnerable
+          situations, providing them with improved living conditions and unique,
+          unforgettable experiences.
+        conclusion:
+          It's partners like these that make real the change we envision.
+        cta: Get to know Lucas's work.
+      join:
+        title: Take the first step to improve a life
+        subtitle: Become a Club SGG member right now.
+        description: >
+          Do you know someone who wants to buy or sell a house? Refer them to
+          us. With this simple gesture, you guarantee them excellent real estate
+          service while helping provide dignified housing to those who need it
+          most.
+        impact: Your referral will change lives.
+        whatsapp: Send us a WhatsApp to start contributing.
+        cta: Send WhatsApp
+        mission:
+          Together, we'll transform houses into homes and rehabilitate lives.
+      know_more:
+        rules: Check here Club SGG's Rules
+        help_title: Help us grow!
+        help_question: Do you know someone who could contribute to the cause?
+        help_description: >
+          Refer other members so together we can impact more lives!
+        whatsapp: Send us a WhatsApp to refer members to the club.
+        cta: Send WhatsApp
     header: Club SGG
     meta_description:
       Discover Club SGG by Sofia Galvão Group - where real estate excellence
