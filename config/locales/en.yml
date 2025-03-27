@@ -962,19 +962,20 @@ en:
             solidarity, value creation, and sharing</strong>.
         members:
           title: 2. Club Members
-          who_can: 2.1. Who can be a member
-          intro: "The following can become members of Club SGG:"
-          list:
-            first:
-              Individuals who want to support the cause through real estate
-              business referrals;
-            second:
-              Companies and professionals from real estate, construction, and
-              home services sectors who want to contribute or establish
-              partnerships;
-            third:
-              Anyone who identifies with the club's values and wants to help in
-              its mission.
+          who_can:
+            title: 2.1. Who can be a member
+            intro: "The following can become members of Club SGG:"
+            list:
+              first:
+                Individuals who want to support the cause through real estate
+                business referrals;
+              second:
+                Companies and professionals from real estate, construction, and
+                home services sectors who want to contribute or establish
+                partnerships;
+              third:
+                Anyone who identifies with the club's values and wants to help
+                in its mission.
           rights:
             title: 2.2. Member Rights
             intro: "Club SGG members have the right to:"
@@ -1042,33 +1043,41 @@ en:
           sources:
             title: 3.1. Funding Sources
             intro: "Club SGG funds its actions through:"
-            list:
+            list_html:
               first:
-                "Real estate referrals: When a club member refers someone
-                looking to buy or sell a property, part of the transaction
-                commission goes towards supporting housing for people in need."
+                "<strong>Real estate referrals:</strong> When a club member
+                refers someone looking to buy or sell a property, part of the
+                transaction commission goes towards supporting housing for
+                people in need."
               second:
-                "Partnerships with construction and home service companies,
-                where a percentage of services provided will be channeled to
-                housing rehabilitation projects."
+                "<strong>Partnerships with construction and home service
+                companies</strong>, where a percentage of services provided will
+                be channeled to housing rehabilitation projects."
           application:
             title: 3.2. Fund Application
             intro: "Club SGG funds are applied to:"
-            list:
-              first: Housing renovations and repairs for people in need;
+            list_html:
+              first:
+                <strong>Housing renovations and repairs</strong> for people in
+                need;
               second:
-                Acquisition of essential furniture and equipment to improve
-                beneficiaries' living conditions;
+                <strong>Acquisition of essential furniture and
+                equipment</strong> to improve beneficiaries' living conditions;
               third:
-                Support for heating and thermal comfort in vulnerable homes;
+                <strong>Support for heating and thermal comfort</strong> in
+                vulnerable homes;
               fourth:
-                Development of new initiatives and partnerships that increase
-                the club's impact.
+                <strong>Development of new initiatives and partnerships</strong>
+                that increase the club's impact.
         criteria:
           title: 4. Family Support Criteria
           families:
             4.1. Club SGG support is intended for families in need, elderly
             people, and homeless individuals requiring housing improvements.
+          families_html:
+            4.1. Club SGG support is intended for <strong>families in need,
+            elderly people, and homeless individuals</strong> requiring housing
+            improvements.
           submited_by:
             title: "4.2. Support applications can be submitted by:"
             list:
@@ -1090,6 +1099,10 @@ en:
           decisions:
             4.4. Support decisions shall be made by a committee of club members,
             ensuring transparency and fairness in beneficiary selection.
+          decisions_html:
+            4.4. Support decisions shall be made by a committee of club members,
+            ensuring <strong>transparency and fairness</strong> in beneficiary
+            selection.
         events:
           title: "5. Club Events and Initiatives"
           description:
@@ -1106,6 +1119,9 @@ en:
           description:
             "6.1. Club SGG is committed to ensuring full transparency in fund
             management and its activities."
+          description_html:
+            6.1. Club SGG is committed to ensuring <strong>full transparency in
+            fund management and its activities.</strong>
           reports:
             description:
               "6.2. Regular accountability reports will be published, including:"
@@ -1123,6 +1139,10 @@ en:
             "7.2. All Club SGG actions must align with its values and mission,
             ensuring that the impact on the community is always positive and
             significant."
+          second_html:
+            7.2. All Club SGG actions must align with its values and mission,
+            ensuring that the impact on the community is always <strong>positive
+            and significant.</strong>
     stories:
       title: Stories
       header: Stories

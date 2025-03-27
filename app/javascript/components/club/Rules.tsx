@@ -257,7 +257,9 @@ export default function Rules() {
             <p
               className="text-gray-600 dark:text-gray-300 mb-4"
               dangerouslySetInnerHTML={{
-                __html: i18n.t("club.rules.sections.transparency.descripti"),
+                __html: i18n.t(
+                  "club.rules.sections.transparency.description_html"
+                ),
               }}
             ></p>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
