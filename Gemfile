@@ -52,8 +52,8 @@ gem 'bootsnap', require: false
 
 # Other gems here
 gem 'acts_as_paranoid'
-gem 'carrierwave'
-gem 'cloudinary'
+gem 'carrierwave', '~> 3.0'
+gem 'cloudinary', '~> 1.28'
 gem 'data_migrate'
 gem 'devise'
 gem 'friendly_id'
