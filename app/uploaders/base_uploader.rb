@@ -3,7 +3,7 @@
 class BaseUploader < CarrierWave::Uploader::Base
   if !Rails.env.test? && !ENV['USE_LOCAL_STORAGE']
     include Cloudinary::CarrierWave
-    storage :cloudinary
+    # storage :cloudinary
   else
     storage :file
   end
