@@ -694,6 +694,7 @@
         },
         "odd": "must be odd",
         "other_than": "must be other than %{count}",
+        "password_too_long": "is too long",
         "present": "must be blank",
         "processing_error": "Failed to manipulate, maybe it is not an image?",
         "required": "must exist",
@@ -78610,6 +78611,7 @@
         "format": {
           "delimiter": ",",
           "format": "%u%n",
+          "negative_format": "-%u%n",
           "precision": 2,
           "separator": ".",
           "significant": false,
@@ -78655,7 +78657,8 @@
             "kb": "KB",
             "mb": "MB",
             "pb": "PB",
-            "tb": "TB"
+            "tb": "TB",
+            "zb": "ZB"
           }
         }
       },

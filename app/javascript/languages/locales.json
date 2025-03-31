@@ -78511,6 +78511,7 @@
         "format": {
           "delimiter": ",",
           "format": "%u%n",
+          "negative_format": "-%u%n",
           "precision": 2,
           "separator": ".",
           "significant": false,
@@ -78556,7 +78557,8 @@
             "kb": "KB",
             "mb": "MB",
             "pb": "PB",
-            "tb": "TB"
+            "tb": "TB",
+            "zb": "ZB"
           }
         }
       },
