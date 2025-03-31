@@ -1,0 +1,5 @@
+require 'carrierwave/orm/activerecord'
+require 'carrierwave/storage/file'
+require 'carrierwave/storage/fog'
+require 'cloudinary'
+require 'carrierwave/storage/cloudinary'
