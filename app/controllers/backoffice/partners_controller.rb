@@ -3,7 +3,7 @@ module Backoffice
     before_action :set_partner, only: %i[edit update destroy]
 
     def index
-      @partners = Partner.all.includes(:social_media_posts)
+      @partners = Partner.all
     end
 
     def new
@@ -23,7 +23,9 @@ module Backoffice
 
     def update
       if @partner.update(partner_params)
-        redirect_to backoffice_partners_path, notice: 'Partner was successfully updated.'
+        @partner.social_media_posts.create(url: social_media_post_params[:url]) if social_media_post_params.present?
+
+        redirect_to edit_backoffice_partner_path(@partner), notice: 'Partner was successfully updated.'
       else
         render :edit
       end
@@ -42,6 +44,10 @@ module Backoffice
 
     def partner_params
       params.require(:partner).permit(:name)
+    end
+
+    def social_media_post_params
+      params.require(:social_media_post).permit(:url)
     end
   end
 end

@@ -10,27 +10,23 @@
     </h2>
     <p class="text-center text-gray-600 max-w-none">Total <%= @partners.count %> parceiros</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <% @partners.each do |partner| %>
-        <div class="bg-white dark:bg-dark shadow-md rounded-lg p-6">
-          <div class="flex justify-between items-center mb-4">
-            <h3 class="text-xl font-bold text-dark dark:text-light"><%= partner.name %></h3>
-            <div class="space-x-2">
-              <%= link_to edit_backoffice_partner_path(partner), class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
-                <%= I18n.t("backoffice.common.edit") %>
-              <% end %>
-              <%= link_to backoffice_partner_path(partner), 
-                  class: 'bg-red-500 hover:bg-red-700 text-white dark:text-dark py-2 px-4 rounded',
-                  data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-            </div>
+        <div class="bg-white dark:bg-dark rounded-lg p-4 flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-semibold text-dark dark:text-light"><%= partner.name %></h3>
+            <span class="text-sm text-gray-600 dark:text-gray-300"><%= partner.social_media_posts.count %> links</span>
           </div>
-          <div class="space-y-2">
-            <% partner.social_media_posts.each do |post| %>
-              <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded">
-                <p class="text-sm text-gray-600 dark:text-gray-300"><%= post.url %></p>
-              </div>
+
+          <div class="flex gap-2">
+            <%= link_to edit_backoffice_partner_path(partner), 
+                class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark p-2 rounded' do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to backoffice_partner_path(partner),
+                class: 'bg-red-500 hover:bg-red-700 text-white dark:text-dark p-2 rounded',
+                data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+              <i class="fas fa-trash-alt"></i>
             <% end %>
           </div>
         </div>

@@ -3,18 +3,20 @@ module Backoffice
     before_action :set_partner
 
     def create
-      @post = @partner.social_media_posts.build(post_params)
-      if @post.save
-        redirect_to edit_backoffice_partner_path(@partner), notice: 'Post was successfully added.'
+      @social_media_post = @partner.social_media_posts.build(social_media_post_params)
+
+      if @social_media_post.save
+        redirect_to edit_backoffice_partner_path(@partner), notice: 'Social media post was successfully added.'
       else
-        redirect_to edit_backoffice_partner_path(@partner), alert: 'Failed to add post.'
+        flash[:alert] = @social_media_post.errors.full_messages.join(', ')
+        redirect_to edit_backoffice_partner_path(@partner)
       end
     end
 
     def destroy
-      @post = @partner.social_media_posts.find(params[:id])
-      @post.destroy
-      redirect_to edit_backoffice_partner_path(@partner), notice: 'Post was successfully removed.'
+      @social_media_post = @partner.social_media_posts.find(params[:id])
+      @social_media_post.destroy
+      redirect_to edit_backoffice_partner_path(@partner), notice: 'Social media post was successfully deleted.'
     end
 
     private
@@ -23,7 +25,7 @@ module Backoffice
       @partner = Partner.find(params[:partner_id])
     end
 
-    def post_params
+    def social_media_post_params
       params.require(:social_media_post).permit(:url)
     end
   end
