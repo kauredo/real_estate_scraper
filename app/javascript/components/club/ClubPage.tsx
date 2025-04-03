@@ -58,20 +58,17 @@ export default function ClubPage({ recent_stories }: Props) {
               </div>
 
               {/* Recent Stories Section */}
-              <section className="mb-16">
-                <div
-                  id="recent-stories"
-                  className="flex flex-wrap gap-6 justify-center"
-                >
-                  {recent_stories && recent_stories.length === 0 ? (
-                    recent_stories.map(story => (
-                      <ClubStoryCard key={story.id} story={story} />
-                    ))
-                  ) : (
-                    <></>
-                  )}
-                </div>
-              </section>
+              {recent_stories && recent_stories.length > 0 && (
+                <section className="w-full mb-16">
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+                    {recent_stories.map(story => (
+                      <div className="w-full" key={story.id}>
+                        <ClubStoryCard story={story} />
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               <div
                 id="contribute"

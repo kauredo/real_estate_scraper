@@ -14,10 +14,10 @@ export default function ClubStoryShow({ club_story }: Props) {
   return (
     <>
       <SubNavbar items={clubSections} />
-      <div className="container mx-auto px-4">
-        <article className="max-w-4xl mx-auto">
-          <header className="mb-8">
-            <h1 className="text-3xl font-bold text-center mb-4 text-dark dark:text-light">
+      <div className="container mx-auto px-4 py-12">
+        <article className="max-w-4xl mx-auto bg-white/50 dark:bg-dark/50 rounded-lg shadow-lg overflow-hidden">
+          <header className="p-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-center mb-4 text-dark dark:text-light">
               {club_story.title}
             </h1>
             <div className="text-center text-gray-600 dark:text-gray-400">
@@ -38,16 +38,18 @@ export default function ClubStoryShow({ club_story }: Props) {
 
           {club_story.club_story_photos &&
             club_story.club_story_photos.length > 0 && (
-              <PhotoGallery
-                photos={club_story.club_story_photos.map(p => p.image.url)}
-              />
+              <div className="px-8">
+                <PhotoGallery
+                  photos={club_story.club_story_photos.map(p => p.image.url)}
+                />
+              </div>
             )}
 
-          <div className="prose prose-lg dark:prose-invert max-w-none mb-8">
+          <div className="prose prose-lg dark:prose-invert max-w-none p-8">
             <div dangerouslySetInnerHTML={{ __html: club_story.text }} />
           </div>
 
-          <footer className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <footer className="px-8 py-6 border-t border-gray-200 dark:border-gray-700">
             <ShareIcons title={club_story.title} />
           </footer>
         </article>
