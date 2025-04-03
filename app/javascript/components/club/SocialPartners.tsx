@@ -106,7 +106,7 @@ export default function SocialPartners({ partners }: Props) {
               {i18n.t("club.social_partners.impact.description")}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-8" id="socials">
               {partners.map(partner => (
                 <div
                   key={partner.id}
@@ -115,13 +115,22 @@ export default function SocialPartners({ partners }: Props) {
                   <h3 className="text-xl font-bold mb-4 text-dark dark:text-light">
                     {partner.name}
                   </h3>
-                  <div className="aspect-square bg-gray-100 dark:bg-gray-800 rounded-lg mb-4">
-                    {partner.social_media_posts.map(post => (
-                      <div
-                        key={post.id}
-                        dangerouslySetInnerHTML={{ __html: post.embed_html }}
-                      />
-                    ))}
+                  <div className="h-full overflow-x-auto overflow-y-hidden pb-4">
+                    <div className="flex flex-nowrap gap-4 h-full">
+                      {partner.social_media_posts.map(post => (
+                        <div
+                          key={post.id}
+                          className="flex-none min-w-[325px] w-[325px] h-full py-4"
+                        >
+                          <div
+                            className="w-full h-full"
+                            dangerouslySetInnerHTML={{
+                              __html: post.embed_html,
+                            }}
+                          />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
