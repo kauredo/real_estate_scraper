@@ -11,20 +11,20 @@ export default function Rules() {
         <p className="text-lg font-bold mb-6 text-dark dark:text-light text-center">
           {i18n.t("club.rules.transparency")}
         </p>
+        <div className=" pb-4">
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
+            {i18n.t("club.rules.intro")}
+          </p>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
+            {i18n.t("club.rules.clarity")}
+          </p>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
+            {i18n.t("club.rules.read_below")}
+          </p>
+        </div>
 
         <section className="bg-white dark:bg-dark shadow-lg rounded-lg p-8 mb-16 w-full max-w-4xl">
           <div className="prose prose-lg dark:prose-invert max-w-none">
-            {/* Introduction */}
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              {i18n.t("club.rules.intro")}
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              {i18n.t("club.rules.clarity")}
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              {i18n.t("club.rules.read_below")}
-            </p>
-
             {/* 1. General Provisions */}
             <h2 className="text-2xl font-bold mb-6">
               {i18n.t("club.rules.sections.general.title")}
@@ -152,22 +152,14 @@ export default function Rules() {
             <h3 className="text-xl font-bold mb-4">
               {i18n.t("club.rules.sections.financial_model.sources.title")}
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              {i18n.t("club.rules.sections.financial_model.sources.intro")}
-            </p>
-            <ul className="list-disc pl-6 mb-8 space-y-2">
-              {["first", "second"].map(item => (
-                <li
-                  key={item}
-                  className="text-gray-600 dark:text-gray-300"
-                  dangerouslySetInnerHTML={{
-                    __html: i18n.t(
-                      `club.rules.sections.financial_model.sources.list_html.${item}`
-                    ),
-                  }}
-                ></li>
-              ))}
-            </ul>
+            <p
+              className="text-gray-600 dark:text-gray-300 mb-4"
+              dangerouslySetInnerHTML={{
+                __html: i18n.t(
+                  "club.rules.sections.financial_model.sources.description_html"
+                ),
+              }}
+            ></p>
 
             {/* Application of Funds */}
             <h3 className="text-xl font-bold mb-4">

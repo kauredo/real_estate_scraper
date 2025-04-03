@@ -245,11 +245,8 @@
               "title": "3.2. Aplicação dos Fundos"
             },
             "sources": {
+              "description_html": "O Clube SGG financia as suas ações através de <strong>Referências imobiliárias</strong> - Quando um membro do clube indica alguém que queira comprar ou vender casa, uma parte da comissão da transação reverte para o apoio à habitação de pessoas carenciadas.",
               "intro": "O Clube SGG financia as suas ações através de:",
-              "list_html": {
-                "first": "<strong>Referências imobiliárias:</strong> Quando um membro do clube indica alguém que queira comprar ou vender casa, uma parte da comissão da transação reverte para o apoio à habitação de pessoas carenciadas.",
-                "second": "<strong>Parcerias com empresas do setor da construção e serviços para o lar</strong>, onde uma percentagem dos serviços prestados será canalizada para projetos de reabilitação habitacional."
-              },
               "title": "3.1. Fontes de Financiamento"
             },
             "title": "3. Modelo de Apoio e Financiamento"

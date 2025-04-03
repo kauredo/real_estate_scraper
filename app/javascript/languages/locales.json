@@ -237,11 +237,7 @@
               "title": "3.2. Fund Application"
             },
             "sources": {
-              "intro": "Club SGG funds its actions through:",
-              "list_html": {
-                "first": "<strong>Real estate referrals:</strong> When a club member refers someone looking to buy or sell a property, part of the transaction commission goes towards supporting housing for people in need.",
-                "second": "<strong>Partnerships with construction and home service companies</strong>, where a percentage of services provided will be channeled to housing rehabilitation projects."
-              },
+              "description_html": "Club SGG is financed through <strong>Real Estate Referrals</strong> - When a member of the club refers someone who wants to buy or sell a house, a part of the commission from the transaction reverts to support housing for people in need.",
               "title": "3.1. Funding Sources"
             },
             "title": "3. Support and Funding Model"
@@ -79039,11 +79035,8 @@
               "title": "3.2. Aplicação dos Fundos"
             },
             "sources": {
+              "description_html": "O Clube SGG financia as suas ações através de <strong>Referências imobiliárias</strong> - Quando um membro do clube indica alguém que queira comprar ou vender casa, uma parte da comissão da transação reverte para o apoio à habitação de pessoas carenciadas.",
               "intro": "O Clube SGG financia as suas ações através de:",
-              "list_html": {
-                "first": "<strong>Referências imobiliárias:</strong> Quando um membro do clube indica alguém que queira comprar ou vender casa, uma parte da comissão da transação reverte para o apoio à habitação de pessoas carenciadas.",
-                "second": "<strong>Parcerias com empresas do setor da construção e serviços para o lar</strong>, onde uma percentagem dos serviços prestados será canalizada para projetos de reabilitação habitacional."
-              },
               "title": "3.1. Fontes de Financiamento"
             },
             "title": "3. Modelo de Apoio e Financiamento"
