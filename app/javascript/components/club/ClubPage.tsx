@@ -60,21 +60,33 @@ export default function ClubPage({ recent_stories }: Props) {
               {/* Recent Stories Section */}
               {recent_stories && recent_stories.length > 0 && (
                 <section className="w-full mb-16">
-                  <div
-                    className={`grid grid-cols-1 md:grid-cols-${
-                      recent_stories.length === 1 ? "1" : "2"
-                    } lg:grid-cols-${
-                      recent_stories.length < 3 ? recent_stories.length : "3"
-                    } gap-8 ${
-                      recent_stories.length === 1 ? "max-w-md mx-auto" : ""
-                    }`}
-                  >
-                    {recent_stories.map(story => (
-                      <div className="w-full" key={story.id}>
-                        <ClubStoryCard story={story} />
-                      </div>
-                    ))}
-                  </div>
+                  {recent_stories.length === 1 && (
+                    <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
+                      {recent_stories.map(story => (
+                        <div className="w-full" key={story.id}>
+                          <ClubStoryCard story={story} />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {recent_stories.length === 2 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {recent_stories.map(story => (
+                        <div className="w-full" key={story.id}>
+                          <ClubStoryCard story={story} />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {recent_stories.length >= 3 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {recent_stories.map(story => (
+                        <div className="w-full" key={story.id}>
+                          <ClubStoryCard story={story} />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </section>
               )}
 

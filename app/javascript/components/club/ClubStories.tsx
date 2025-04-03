@@ -41,25 +41,50 @@ export default function ClubStories({
           )}
 
           <div className="w-full max-w-7xl">
-            <div
-              className={`grid grid-cols-1 md:grid-cols-${
-                club_stories.length === 1 ? "1" : "2"
-              } lg:grid-cols-${
-                club_stories.length < 3 ? club_stories.length : "3"
-              } gap-8 ${club_stories.length === 1 ? "max-w-md mx-auto" : ""}`}
-            >
-              {club_stories && club_stories.length > 0 ? (
-                club_stories.map(story => (
-                  <div className="w-full" key={story.id}>
-                    <ClubStoryCard story={story} isBackoffice={isBackoffice} />
+            {club_stories && club_stories.length > 0 ? (
+              <>
+                {club_stories.length === 1 && (
+                  <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
+                    {club_stories.map(story => (
+                      <div className="w-full" key={story.id}>
+                        <ClubStoryCard
+                          story={story}
+                          isBackoffice={isBackoffice}
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))
-              ) : (
-                <div className="col-span-full text-center p-8 text-lg font-light bg-white/50 dark:bg-dark/50 rounded-lg shadow-lg">
-                  <h3>{i18n.t("club.stories.empty")}</h3>
-                </div>
-              )}
-            </div>
+                )}
+                {club_stories.length === 2 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {club_stories.map(story => (
+                      <div className="w-full" key={story.id}>
+                        <ClubStoryCard
+                          story={story}
+                          isBackoffice={isBackoffice}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {club_stories.length >= 3 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {club_stories.map(story => (
+                      <div className="w-full" key={story.id}>
+                        <ClubStoryCard
+                          story={story}
+                          isBackoffice={isBackoffice}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="col-span-full text-center p-8 text-lg font-light bg-white/50 dark:bg-dark/50 rounded-lg shadow-lg">
+                <h3>{i18n.t("club.stories.empty")}</h3>
+              </div>
+            )}
           </div>
         </div>
       </div>
