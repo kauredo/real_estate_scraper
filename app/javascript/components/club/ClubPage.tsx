@@ -124,62 +124,82 @@ export default function ClubPage({ recent_stories }: Props) {
                 </p>
               </div>
 
-              <div id="join">
-                <h2 className="text-2xl font-bold mb-6">
-                  {i18n.t("club.home.join.title")}
-                </h2>
-                <p className="text-xl font-semibold mb-4">
-                  {i18n.t("club.home.join.subtitle")}
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  {i18n.t("club.home.join.description")}
-                </p>
-                <p className="text-xl font-bold mb-4">
-                  {i18n.t("club.home.join.impact")}
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {i18n.t("club.home.join.whatsapp")}
-                </p>
-                <a
-                  href="https://wa.me/351932829084"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-beige-default dark:bg-beige-medium text-dark dark:text-dark px-6 py-3 rounded-lg font-semibold mb-8 hover:shadow-2xl transition-all duration-200"
-                >
-                  {i18n.t("club.home.join.cta")}
-                </a>
-                <p className="text-xl font-bold">
-                  {i18n.t("club.home.join.mission")}
-                </p>
-                <a
-                  href={sanitizeURL(window.Routes.club_rules_path)}
-                  className="text-beige-default dark:text-beige-medium hover:underline block mb-12"
-                >
-                  {i18n.t("club.home.know_more.rules")}
-                </a>
+              {/* Join Section */}
+              <div
+                id="join"
+                className="relative py-12 px-8 overflow-hidden mb-8 bg-white/50 dark:bg-dark/50 rounded-lg"
+              >
+                <div className="relative z-10">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-light">
+                    {i18n.t("club.home.join.title")}
+                  </h2>
+                  <p className="text-xl font-semibold mb-4 text-dark dark:text-light">
+                    {i18n.t("club.home.join.subtitle")}
+                  </p>
+                  <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
+                    {i18n.t("club.home.join.description")}
+                  </p>
+                  <p className="text-xl font-bold mb-4 text-beige-default dark:text-beige-medium">
+                    {i18n.t("club.home.join.impact")}
+                  </p>
+                  <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
+                    {i18n.t("club.home.join.whatsapp")}
+                  </p>
+                  <div className="flex flex-col items-start gap-4">
+                    <a
+                      href="https://wa.me/351932829084"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="whitespace-nowrap mx-auto mb-4 border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
+                    >
+                      {i18n.t("club.home.join.cta")}
+                    </a>
+                    <p className="text-xl font-bold">
+                      {i18n.t("club.home.join.mission")}
+                    </p>
+                    <a
+                      href={sanitizeURL(window.Routes.club_rules_path)}
+                      className="text-xl font-bold mb-12 text-beige-default dark:text-beige-medium underline"
+                    >
+                      {i18n.t("club.home.know_more.rules")}
+                    </a>
+                  </div>
+                </div>
+                <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 opacity-5">
+                  <img
+                    src="/logos/club-icon.webp"
+                    alt=""
+                    className="w-48 h-48 object-contain"
+                  />
+                </div>
               </div>
 
-              <div id="grow" className="">
-                <h3 className="text-2xl font-bold mb-4">
+              <div
+                id="grow"
+                className="px-8 bg-white/25 dark:bg-dark/25 rounded-lg"
+              >
+                <h3 className="text-2xl md:text-3xl font-bold mb-6 text-dark dark:text-light">
                   {i18n.t("club.home.know_more.help_title")}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200 mb-4">
                   {i18n.t("club.home.know_more.help_question")}
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200 mb-4">
                   {i18n.t("club.home.know_more.help_description")}
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
                   {i18n.t("club.home.know_more.whatsapp")}
                 </p>
-                <a
-                  href="https://wa.me/351932829084"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-beige-default dark:bg-beige-medium text-dark dark:text-dark px-6 py-3 rounded-lg font-semibold hover:shadow-2xl transition-all duration-200"
-                >
-                  {i18n.t("club.home.know_more.cta")}
-                </a>
+                <div className="flex justify-center mt-2">
+                  <a
+                    href="https://wa.me/351932829084"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
+                  >
+                    {i18n.t("club.home.know_more.cta")}
+                  </a>
+                </div>
               </div>
             </div>
           </section>
