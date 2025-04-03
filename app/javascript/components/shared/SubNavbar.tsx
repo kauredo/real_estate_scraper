@@ -1,14 +1,9 @@
 import React from "react";
 import { sanitizeURL } from "../utils/Functions";
-
-interface NavItem {
-  routeName: string;
-  title: string;
-  description?: string;
-}
+import { SubNavItem } from "../utils/Interfaces";
 
 interface Props {
-  items: NavItem[];
+  items: SubNavItem[];
 }
 
 export default function SubNavbar({ items }: Props) {

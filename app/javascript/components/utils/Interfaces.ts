@@ -98,6 +98,12 @@ export interface NavbarItemProps {
   method?: string;
 }
 
+export interface SubNavItem {
+  routeName: string;
+  title: string;
+  description?: string;
+}
+
 export interface StatsFilter {
   Quartos: string;
   Casas_de_Banho: string;
