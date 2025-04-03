@@ -16,12 +16,17 @@ export default function ClubPage({ recent_stories }: Props) {
       <SubNavbar items={clubSections} />
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center pt-12">
-          <h1 className="text-3xl font-bold text-center mb-4 text-dark dark:text-light">
-            {i18n.t("club.home.title")}
-          </h1>
-          <p className="text-xl font-bold mb-8 text-dark dark:text-light text-center">
-            {i18n.t("club.home.subtitle")}
-          </p>
+          <div className="flex flex-col items-center mb-16">
+            <img
+              src="/logos/club.webp"
+              alt="Club SGG Logo"
+              className="w-64 mb-4"
+              loading="lazy"
+            />
+            <p className="text-lg font-medium text-dark dark:text-light italic">
+              {i18n.t("club.home.subtitle")}
+            </p>
+          </div>
 
           <section className="w-full max-w-4xl mb-16">
             <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -34,9 +39,6 @@ export default function ClubPage({ recent_stories }: Props) {
 
               {/* Recent Stories Section */}
               <section className="mb-16">
-                <h2 className="text-2xl font-bold mb-6 text-dark dark:text-light">
-                  {i18n.t("club.recent_stories.title")}
-                </h2>
                 <div
                   id="recent-stories"
                   className="flex flex-wrap gap-6 justify-center"
