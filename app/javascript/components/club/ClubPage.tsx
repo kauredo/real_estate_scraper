@@ -63,7 +63,7 @@ export default function ClubPage({ recent_stories }: Props) {
                   <div
                     className={`grid grid-cols-1 md:grid-cols-${
                       recent_stories.length === 1 ? "1" : "2"
-                    } xl:grid-cols-${
+                    } lg:grid-cols-${
                       recent_stories.length < 3 ? recent_stories.length : "3"
                     } gap-8 ${
                       recent_stories.length === 1 ? "max-w-md mx-auto" : ""

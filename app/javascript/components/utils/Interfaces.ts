@@ -110,6 +110,7 @@ export interface StatsFilter {
 export interface ClubStory {
   id: number;
   title: string;
+  small_description: string;
   text: string;
   slug: string;
   main_photo?: string;

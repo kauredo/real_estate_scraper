@@ -140,7 +140,6 @@
       "meta_description": "Comprar propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group."
     },
     "club": {
-      "header": "Clube SGG",
       "home": {
         "contribute": {
           "cta": "Comece agora a fazer a diferença.",
@@ -153,6 +152,7 @@
           "description": "Todos merecem um lar onde possam viver com dignidade, segurança e conforto. O Clube SGG nasce com a missão de reabilitar vidas através da melhoria das condições de habitação daqueles que mais precisam.\n",
           "title": "Uma casa digna não deve ser um sonho mas sim uma realidade"
         },
+        "header": "Clube SGG",
         "impact": {
           "title": "História do impacto já gerado"
         },
@@ -173,6 +173,7 @@
           "rules": "Conheça aqui o Regulamento do Clube SGG",
           "whatsapp": "Envie-nos um WhatsApp para referenciar membros para o clube."
         },
+        "meta_description": "Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
         "partners": {
           "conclusion": "São parceiros assim que tornam real a mudança que idealizamos.",
           "cta": "Conheça o trabalho do Lucas.",
@@ -184,7 +185,6 @@
         "subtitle": "Comprar e vender casas, reabilitar vidas",
         "title": "Clube SGG"
       },
-      "meta_description": "Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
       "recent_stories": {
         "description": "Descubra as histórias e experiências mais recentes dos nossos membros",
         "title": "Histórias Recentes"

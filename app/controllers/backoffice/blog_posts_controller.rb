@@ -89,6 +89,7 @@ module Backoffice
 
     def blog_post_params
       params.require(:blog_post).permit(:title,
+                                        :small_description,
                                         :text,
                                         :hidden,
                                         :meta_title,

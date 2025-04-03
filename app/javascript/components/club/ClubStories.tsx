@@ -44,7 +44,7 @@ export default function ClubStories({
             <div
               className={`grid grid-cols-1 md:grid-cols-${
                 club_stories.length === 1 ? "1" : "2"
-              } xl:grid-cols-${
+              } lg:grid-cols-${
                 club_stories.length < 3 ? club_stories.length : "3"
               } gap-8 ${club_stories.length === 1 ? "max-w-md mx-auto" : ""}`}
             >

@@ -195,6 +195,7 @@ puts "\n#{Time.current} - Creating club stories..."
   content = with_locales do |_locale|
     {
       title: Faker::Company.catch_phrase,
+      small_description: Faker::Lorem.sentence,
       text: "<p>#{Faker::Lorem.paragraphs(number: 3).join('</p><p>')}</p>"
     }
   end
@@ -202,6 +203,7 @@ puts "\n#{Time.current} - Creating club stories..."
   print "    Base record... "
   story = ClubStory.create!(
     title: content[:pt][:title],
+    small_description: content[:pt][:small_description],
     text: content[:pt][:text],
     hidden: [true, false].sample,
     meta_title: Faker::Marketing.buzzwords,
@@ -213,6 +215,7 @@ puts "\n#{Time.current} - Creating club stories..."
   print "    English translation... "
   I18n.with_locale(:en) do
     story.title = content[:en][:title]
+    story.small_description = content[:en][:small_description]
     story.text = content[:en][:text]
     story.save!
   end
@@ -241,6 +244,7 @@ puts "\n#{Time.current} - Creating blog posts..."
   content = with_locales do |_locale|
     {
       title: Faker::Company.catch_phrase,
+      small_description: Faker::Lorem.sentence,
       text: "<p>#{Faker::Lorem.paragraphs(number: 4).join('</p><p>')}</p>"
     }
   end
@@ -248,6 +252,7 @@ puts "\n#{Time.current} - Creating blog posts..."
   print "    Base record... "
   blog_post = BlogPost.create!(
     title: content[:pt][:title],
+    small_description: content[:pt][:small_description],
     text: content[:pt][:text],
     hidden: [true, false].sample,
     meta_title: Faker::Marketing.buzzwords,
@@ -259,6 +264,7 @@ puts "\n#{Time.current} - Creating blog posts..."
   print "    English translation... "
   I18n.with_locale(:en) do
     blog_post.title = content[:en][:title]
+    blog_post.small_description = content[:en][:small_description]
     blog_post.text = content[:en][:text]
     blog_post.save!
   end

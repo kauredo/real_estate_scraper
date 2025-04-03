@@ -918,6 +918,10 @@ pt:
   club:
     home:
       title: Clube SGG
+      header: Clube SGG
+      meta_description:
+        Conheça o Clube SGG do Sofia Galvão Group - onde a excelência
+        imobiliária encontra benefícios exclusivos.
       subtitle: Comprar e vender casas, reabilitar vidas
       dignity:
         title: Uma casa digna não deve ser um sonho mas sim uma realidade
@@ -975,10 +979,6 @@ pt:
           Referencie outros membros para juntos podermos impactar mais vidas!
         whatsapp: Envie-nos um WhatsApp para referenciar membros para o clube.
         cta: Enviar WhatsApp
-    header: Clube SGG
-    meta_description:
-      Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária
-      encontra benefícios exclusivos.
     sections:
       benefits: Benefícios para Membros
       partners: Nossos Parceiros

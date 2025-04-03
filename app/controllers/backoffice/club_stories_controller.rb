@@ -59,7 +59,7 @@ module Backoffice
 
     def club_story_params
       params.require(:club_story).permit(:title, :text, :hidden, :meta_title,
-                                         :meta_description, :video_link,
+                                         :small_description, :meta_description, :video_link,
                                          club_story_photos: %i[id club_story_id image main])
     end
 

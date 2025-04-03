@@ -16,7 +16,7 @@ en:
     other_language: Português
     dark_mode: Dark Mode
     light_mode: Light Mode
-    club: Club SGG
+    club: SGG Club
     club_social_partners: Social Partners
     club_rules: Rules
     club_stories: Stories
@@ -898,14 +898,18 @@ en:
 
   club:
     home:
-      title: Club SGG
+      title: SGG Club
+      header: SGG Club
+      meta_description:
+        Discover SGG Club by Sofia Galvão Group - where real estate excellence
+        meets exclusive benefits.
       subtitle: Buying and selling homes, rehabilitating lives
       dignity:
         title: A dignified home should not be a dream but a reality
         description: >
           Everyone deserves a home where they can live with dignity, safety and
-          comfort. Club SGG was born with the mission of rehabilitating lives by
-          improving housing conditions for those who need it most.
+          comfort. SGG Club was born with the mission of rehabilitating lives by
+          improving the housing conditions of those who need it most.
       impact:
         title: Story of impact generated so far
       contribute:
@@ -914,7 +918,7 @@ en:
         description: >
           By referring someone who wants to buy or sell a house, you are
           initiating real change. Each completed deal generates a direct
-          contribution to Club SGG's mission, helping transform houses into
+          contribution to SGG Club's mission, helping transform houses into
           dignified homes for those who need them most.
         value_description: >
           This way, you create value on two fronts: you offer the people you
@@ -925,7 +929,7 @@ en:
         title: Social Partners who help us make magic happen
         subtitle: Together, we create stories that change lives.
         description: >
-          Club SGG's mission is only possible thanks to the essential
+          SGG Club's mission is only possible thanks to the essential
           collaboration of our social partners, who bring to life the impact we
           want to achieve.
         example_html: >
@@ -937,8 +941,8 @@ en:
           It's partners like these that make real the change we envision.
         cta: Get to know Lucas's work.
       join:
-        title: Take the first step to improve a life
-        subtitle: Become a Club SGG member right now.
+        title: Take the first step towards improving a life
+        subtitle: Become a SGG Club member right now.
         description: >
           Do you know someone who wants to buy or sell a house? Refer them to
           us. With this simple gesture, you guarantee them excellent real estate
@@ -950,17 +954,13 @@ en:
         mission:
           Together, we'll transform houses into homes and rehabilitate lives.
       know_more:
-        rules: Check here Club SGG's Rules
+        rules: Check the SGG Club Regulation here
         help_title: Help us grow!
-        help_question: Do you know someone who could contribute to the cause?
+        help_question: Do you know anyone who could contribute?
         help_description: >
           Refer other members so together we can impact more lives!
         whatsapp: Send us a WhatsApp to refer members to the club.
         cta: Send WhatsApp
-    header: Club SGG
-    meta_description:
-      Discover Club SGG by Sofia Galvão Group - where real estate excellence
-      meets exclusive benefits.
     social_partners:
       header: Social Partners
       meta_description:
@@ -968,7 +968,7 @@ en:
       introduction: Social Partners who help us make magic happen
       subtitle: Together, we create stories that change lives.
       description:
-        Club SGG's mission is only possible thanks to the essential
+        SGG Club's mission is only possible thanks to the essential
         collaboration of our social partners, who bring to life the impact we
         want to achieve.
       partners_title: "Meet our partners:"
@@ -978,60 +978,52 @@ en:
           Recognized for his impactful work, Lucas With Strangers daily
           transforms the lives of hundreds of people in vulnerable situations,
           providing them with unique and unforgettable experiences.
-        cta: Learn more about Lucas's work
+        cta: Find out more about Lucas's work
       join:
         title: Be part of this story
         description:
           We are always looking for social partners who share our purpose of
-          creating positive impact in the lives that need it most.
+          creating a positive impact in the lives that need it most.
         extra:
           If you believe your organization can make a difference with us, get in
-          touch and join our network.
-        cta: Get in touch to become a social partner
+          touch and join our community.
+        cta: Contact us to become a social partner
       impact:
         title: Impact in action
         description:
           See some real examples of the impact created in partnership with our
           social partners through short Instagram and TikTok videos.
-        conclusion:
-          Each video is a real story. Each story is a transformed life.
+        conclusion: Each video is a real story. Each story is a life changed.
     rules:
-      header: Rules
-      meta_description: Rules and guidelines for Club SGG.
-      introduction: Club SGG Regulations
+      header: SGG Club Regulations
+      meta_description: Rules and guidelines for SGG Club.
+      introduction: SGG Club Regulations
       content: >
-        <p>Club SGG is an exclusive program designed to provide additional
+        <p>SGG Club is an exclusive program designed to provide additional
         benefits to our clients...</p> <p>Check here for all participation rules
         and conditions.</p>
-      title: Club SGG Rules
+      title: SGG Club Rules
       transparency:
         Transparency and commitment are the foundation of our mission.
       intro: >
-        Club SGG's rules establish clear operating guidelines, defining members'
-        rights and duties, criteria for family support, and principles that
-        ensure transparent and responsible management of funds.
+        SGG Club's regulation establishes clear operating guidelines, defining
+        members' rights and duties, criteria for supporting families, and
+        principles that ensure transparent and responsible management of the
+        funds obtained.
       clarity:
-        We believe that only with clarity can we generate real and lasting
-        impact.
+        We believe that only with clarity can we create real and lasting impact.
       read_below:
         Read below the complete regulations that guide all our activity.
       sections:
         general:
           title: 1. General Provisions
-          mission: >
-            Club SGG's mission is to **transform housing conditions for those
-            most in need**, mobilizing resources and people to create dignified
-            homes.
           mission_html: >
-            Club SGG's mission is to <strong>transform housing conditions for
+            SGG Club's mission is to <strong>transform housing conditions for
             those most in need</strong>, mobilizing resources and people to
             create dignified homes.
           definition: >
             These regulations define the club's operating rules, members' rights
             and duties, and support criteria for beneficiaries.
-          values: >
-            The club operates based on the values of **dignity, solidarity,
-            value creation, and sharing**.
           values_html: >
             The club operates based on the values of <strong>dignity,
             solidarity, value creation, and sharing</strong>.
@@ -1039,7 +1031,7 @@ en:
           title: 2. Club Members
           who_can:
             title: 2.1. Who can be a member
-            intro: "The following can become members of Club SGG:"
+            intro: "The following can become members of SGG Club:"
             list:
               first:
                 Individuals who want to support the cause through real estate
@@ -1053,7 +1045,7 @@ en:
                 in its mission.
           rights:
             title: 2.2. Member Rights
-            intro: "Club SGG members have the right to:"
+            intro: "SGG Club members have the right to:"
             list:
               first: Participate in club initiatives;
               second: Monitor supported projects and generated impacts;
@@ -1064,7 +1056,7 @@ en:
                 Receive regular information about club activities and evolution.
           duties:
             title: 2.3. Member Duties
-            intro: "Club SGG members commit to:"
+            intro: "SGG Club members commit to:"
             list:
               first: Respect the club's values and principles;
               second:
@@ -1078,7 +1070,7 @@ en:
             members:
               title: Members
               description: >
-                These are individuals selected to be part of Club SGG, but whose
+                These are individuals selected to be part of SGG Club, but whose
                 participation is not yet fully active. They are in a
                 pre-membership phase and will become ambassadors once they
                 identify or refer any potential real estate business
@@ -1105,7 +1097,7 @@ en:
               choice:
                 subtitle: "Ambassador Selection:"
                 description: >
-                  Ambassadors are chosen directly by Club SGG leaders based on
+                  Ambassadors are chosen directly by SGG Club leaders based on
                   their involvement and active contribution.
               loss_of_status:
                 subtitle: "Loss of Status:"
@@ -1118,13 +1110,13 @@ en:
           sources:
             title: 3.1. Funding Sources
             description_html:
-              Club SGG is financed through <strong>Real Estate
+              SGG Club is financed through <strong>Real Estate
               Referrals</strong> - When a member of the club refers someone who
               wants to buy or sell a house, a part of the commission from the
               transaction reverts to support housing for people in need.
           application:
             title: 3.2. Fund Application
-            intro: "Club SGG funds are applied to:"
+            intro: "SGG Club funds are applied to:"
             list_html:
               first:
                 <strong>Housing renovations and repairs</strong> for people in
@@ -1141,10 +1133,10 @@ en:
         criteria:
           title: 4. Family Support Criteria
           families:
-            4.1. Club SGG support is intended for families in need, elderly
+            4.1. SGG Club support is intended for families in need, elderly
             people, and homeless individuals requiring housing improvements.
           families_html:
-            4.1. Club SGG support is intended for <strong>families in need,
+            4.1. SGG Club support is intended for <strong>families in need,
             elderly people, and homeless individuals</strong> requiring housing
             improvements.
           submited_by:
@@ -1175,7 +1167,7 @@ en:
         events:
           title: "5. Club Events and Initiatives"
           description:
-            "5.1. Club SGG regularly promotes events for the following purposes:"
+            "5.1. SGG Club regularly promotes events for the following purposes:"
           list:
             first: "Gathering referrals and mobilizing resources;"
             second: "Raising awareness about dignified housing issues;"
@@ -1186,10 +1178,10 @@ en:
         transparency:
           title: "6. Transparency and Accountability"
           description:
-            "6.1. Club SGG is committed to ensuring full transparency in fund
+            "6.1. SGG Club is committed to ensuring full transparency in fund
             management and its activities."
           description_html:
-            6.1. Club SGG is committed to ensuring <strong>full transparency in
+            6.1. SGG Club is committed to ensuring <strong>full transparency in
             fund management and its activities.</strong>
           reports:
             description:
@@ -1205,18 +1197,18 @@ en:
             "7.1. These regulations may be amended as necessary, subject to
             approval by club leaders."
           second:
-            "7.2. All Club SGG actions must align with its values and mission,
+            "7.2. All SGG Club actions must align with its values and mission,
             ensuring that the impact on the community is always positive and
             significant."
           second_html:
-            7.2. All Club SGG actions must align with its values and mission,
+            7.2. All SGG Club actions must align with its values and mission,
             ensuring that the impact on the community is always <strong>positive
             and significant.</strong>
     stories:
       title: Stories
       header: Stories
       meta_description:
-        Inspiring stories and success cases from Club SGG members.
+        Inspiring stories and success cases from SGG Club members.
       subheader:
         Discover unique experiences and success stories from our members.
       empty: New stories coming soon...
@@ -1230,12 +1222,12 @@ en:
         reality.
       explore_stories: Explore our stories
       stories_description: >
-        Discover below exciting and inspiring stories where Club SGG's support
+        Discover below exciting and inspiring stories where SGG Club's support
         made all the difference.
     social_partners_description:
       Partners who share our social vision and contribute to a positive impact
       in the community.
-    rules_description: Learn about Club SGG terms and conditions.
+    rules_description: Learn about SGG Club terms and conditions.
     stories_description: Inspiring stories and success cases from our members.
     sections:
       benefits: Member Benefits
