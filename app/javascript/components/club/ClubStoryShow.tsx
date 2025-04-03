@@ -8,12 +8,16 @@ import { clubSections } from "../utils/constants/clubSections";
 
 interface Props {
   club_story: ClubStory;
+  isBackoffice?: boolean;
 }
 
-export default function ClubStoryShow({ club_story }: Props) {
+export default function ClubStoryShow({
+  club_story,
+  isBackoffice = false,
+}: Props) {
   return (
     <>
-      <SubNavbar items={clubSections} />
+      {!isBackoffice && <SubNavbar items={clubSections} />}
       <div className="container mx-auto px-4 py-12">
         <article className="max-w-4xl mx-auto bg-white/50 dark:bg-dark/50 rounded-lg shadow-lg overflow-hidden">
           <header className="p-8">
