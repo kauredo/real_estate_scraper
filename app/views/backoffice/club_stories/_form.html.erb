@@ -50,7 +50,7 @@
             <%= check_box_tag "club_story_photos[#{photo.id}][main]", '1', photo.main %>
             <%= label_tag "club_story_photos[#{photo.id}][main]", t('backoffice.common.main_photo') %>
           </div>
-          <%= link_to club_story_photo_path(photo)
+          <%= link_to club_story_photo_path(photo),
             method: :delete,
             class: 'bg-red-500 text-white rounded p-2',
             data: { "turbo-method": :delete, confirm: t('backoffice.common.delete_confirm') } do %>
