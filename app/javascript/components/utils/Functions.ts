@@ -138,3 +138,12 @@ export const gsubMeterSquare = string => {
 export const isDarkModeActive = () => {
   return document.getElementById("sgg")?.classList.contains("dark") ?? false;
 };
+
+export const scrollToSection = (
+  e: React.MouseEvent<HTMLAnchorElement>,
+  id: string
+) => {
+  e.preventDefault();
+  const element = document.getElementById(id);
+  element?.scrollIntoView({ behavior: "smooth" });
+};

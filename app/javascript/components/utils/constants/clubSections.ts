@@ -2,6 +2,11 @@ import { i18n } from "../../../languages/languages";
 
 export const clubSections = [
   {
+    routeName: "club_path",
+    title: i18n.t("navbar.club"),
+    description: i18n.t("club.social_partners_description"),
+  },
+  {
     routeName: "club_social_partners_path",
     title: i18n.t("navbar.club_social_partners"),
     description: i18n.t("club.social_partners_description"),
