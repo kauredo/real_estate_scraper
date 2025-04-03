@@ -1,6 +1,6 @@
 import React from "react";
 import { i18n } from "../../languages/languages";
-import { sanitizeURL } from "../utils/Functions";
+import { isDarkModeActive, sanitizeURL } from "../utils/Functions";
 import { ClubStory } from "../utils/Interfaces";
 import ClubStoryCard from "./ClubStoryCard";
 import SubNavbar from "../shared/SubNavbar";
@@ -18,7 +18,11 @@ export default function ClubPage({ recent_stories }: Props) {
         <div className="flex flex-col items-center justify-center pt-12">
           <div className="flex flex-col items-center mb-16">
             <img
-              src="/logos/club.webp"
+              src={
+                isDarkModeActive()
+                  ? "/logos/club-dark.webp"
+                  : "/logos/club.webp"
+              }
               alt="Club SGG Logo"
               className="w-64 mb-4"
               loading="lazy"
@@ -30,12 +34,14 @@ export default function ClubPage({ recent_stories }: Props) {
 
           <section className="w-full max-w-4xl mb-16">
             <div className="prose prose-lg dark:prose-invert max-w-none">
-              <h2 className="text-2xl font-bold mb-6">
-                {i18n.t("club.home.dignity.title")}
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-12">
-                {i18n.t("club.home.dignity.description")}
-              </p>
+              <div id="dignity">
+                <h2 className="text-2xl font-bold mb-6">
+                  {i18n.t("club.home.dignity.title")}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 mb-12">
+                  {i18n.t("club.home.dignity.description")}
+                </p>
+              </div>
 
               {/* Recent Stories Section */}
               <section className="mb-16">
