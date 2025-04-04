@@ -2,6 +2,7 @@ import React from "react";
 import { i18n } from "../../languages/languages";
 import SubNavbar from "../shared/SubNavbar";
 import { clubSections } from "../utils/constants/clubSections";
+import ClubHeader from "./ClubHeader";
 
 export default function Rules() {
   return (
@@ -9,6 +10,7 @@ export default function Rules() {
       <SubNavbar items={clubSections} />
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center pt-12">
+          <ClubHeader />
           <h1 className="text-3xl font-bold text-center mb-4 text-dark dark:text-light">
             {i18n.t("club.rules.title")}
           </h1>

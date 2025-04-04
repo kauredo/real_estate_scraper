@@ -1,14 +1,11 @@
 import React from "react";
 import { i18n } from "../../languages/languages";
-import {
-  isDarkModeActive,
-  sanitizeURL,
-  scrollToSection,
-} from "../utils/Functions";
+import { sanitizeURL, scrollToSection } from "../utils/Functions";
 import { ClubStory } from "../utils/Interfaces";
 import ClubStoryCard from "./ClubStoryCard";
 import SubNavbar from "../shared/SubNavbar";
 import { clubSections } from "../utils/constants/clubSections";
+import ClubHeader from "./ClubHeader";
 
 interface Props {
   recent_stories: ClubStory[];
@@ -20,21 +17,7 @@ export default function ClubPage({ recent_stories }: Props) {
       <SubNavbar items={clubSections} />
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center pt-12">
-          <div className="flex flex-col items-center mb-16">
-            <img
-              src={
-                isDarkModeActive()
-                  ? "/logos/club-dark.webp"
-                  : "/logos/club.webp"
-              }
-              alt="Club SGG Logo"
-              className="w-64 mb-4"
-              loading="lazy"
-            />
-            <p className="text-lg font-medium text-dark dark:text-light italic">
-              {i18n.t("club.home.subtitle")}
-            </p>
-          </div>
+          <ClubHeader />
 
           <section className="w-full max-w-4xl mb-16">
             <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -198,7 +181,7 @@ export default function ClubPage({ recent_stories }: Props) {
                     >
                       {i18n.t("club.home.join.cta")}
                     </a>
-                    <p className="text-xl font-bold">
+                    <p className="text-xl font-bold mx-auto">
                       {i18n.t("club.home.join.mission")}
                     </p>
                     <a
