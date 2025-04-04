@@ -1,20 +1,7 @@
-<div class="container mx-auto px-4 py-6">
-  <div class="mb-4 border-b border-gray-200">
-    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" role="tablist">
-      <li class="mr-2" role="presentation">
-        <button class="inline-block p-4 border-b-2 border-beige-default bg-beige-default/10 rounded-t-lg" id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="true">
-          Configurações & Newsletter
-        </button>
-      </li>
-      <li class="mr-2" role="presentation">
-        <button class="inline-block p-4 border-b-2 border-transparent hover:border-beige-medium/50 hover:bg-beige-default/5" id="listings-tab" data-tabs-target="#listings" type="button" role="tab" aria-controls="listings" aria-selected="false">
-          Imóveis & Empreendimentos
-        </button>
-      </li>
-    </ul>
-  </div>
-
-  <div id="settings" role="tabpanel" aria-labelledby="settings-tab">
+<div class="container mx-auto px-4 py-6 space-y-16">
+  <!-- System Settings Section -->
+  <section>
+    <h1 class="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">Configurações do Sistema</h1>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <!-- Variables Section -->
       <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
@@ -84,9 +71,11 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div id="listings" class="hidden" role="tabpanel" aria-labelledby="listings-tab">
+  <!-- Listings Management Section -->
+  <section>
+    <h1 class="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">Gestão de Imóveis</h1>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <!-- Listings Section -->
       <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
@@ -114,33 +103,5 @@
         <% end %>
       </div>
     </div>
-  </div>
+  </section>
 </div>
-
-<%= javascript_tag do %>
-  document.addEventListener('DOMContentLoaded', function() {
-  const tabs = document.querySelectorAll('[role="tab"]');
-  const panels = document.querySelectorAll('[role="tabpanel"]');
-
-  tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-  // Deactivate all tabs
-  tabs.forEach(t => {
-  t.classList.remove('border-beige-default', 'bg-beige-default/10');
-  t.classList.add('border-transparent');
-  });
-
-  // Hide all panels
-  panels.forEach(p => p.classList.add('hidden'));
-
-  // Activate clicked tab
-  tab.classList.remove('border-transparent');
-  tab.classList.add('border-beige-default', 'bg-beige-default/10');
-
-  // Show corresponding panel
-  const panelId = tab.getAttribute('aria-controls');
-  document.getElementById(panelId).classList.remove('hidden');
-  });
-  });
-  });
-<% end %>
