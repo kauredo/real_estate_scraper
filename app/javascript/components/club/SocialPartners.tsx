@@ -67,13 +67,13 @@ export default function SocialPartners({ partners }: Props) {
           {/* Header Section */}
           <section className="w-full max-w-4xl">
             <IconDecorationWrapper className="mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-dark dark:text-light">
+              <h1 className="text-4xl md:text-5xl font-bold mb-8 text-dark dark:text-light">
                 {i18n.t("club.social_partners.introduction")}
               </h1>
-              <p className="text-xl font-semibold mb-6 text-dark dark:text-light text-center">
+              <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
                 {i18n.t("club.social_partners.subtitle")}
               </p>
-              <p className="text-center text-gray-600 dark:text-gray-300 text-lg max-w-4xl mb-16">
+              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-8">
                 {i18n.t("club.social_partners.description")}
               </p>
             </IconDecorationWrapper>

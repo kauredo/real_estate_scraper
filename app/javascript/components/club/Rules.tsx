@@ -17,17 +17,17 @@ export default function Rules() {
               <h1 className="text-4xl md:text-5xl font-bold mb-8 text-dark dark:text-light">
                 {i18n.t("club.rules.title")}
               </h1>
-              <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200">
+              <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
                 {i18n.t("club.rules.transparency")}
               </p>
-              <div className="py-4">
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <div className="mt-8">
+                <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-4">
                   {i18n.t("club.rules.intro")}
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-4">
                   {i18n.t("club.rules.clarity")}
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
                   {i18n.t("club.rules.read_below")}
                 </p>
               </div>
