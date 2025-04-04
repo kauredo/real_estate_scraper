@@ -22,10 +22,36 @@ export default function SocialPartners({ partners }: Props) {
     tiktokScript.async = true;
     document.body.appendChild(tiktokScript);
 
+    // Look for span with text "Watch on TikTok" and remove it
+    const removeTikTokText = () => {
+      const tiktokText = document.querySelectorAll("span");
+      tiktokText.forEach(text => {
+        if (text.textContent === "Watch on TikTok") {
+          // remove the parent element
+          const parentElement = text.parentElement;
+          if (parentElement) {
+            parentElement.remove();
+          }
+          // remove the text node
+          text.remove();
+        }
+      });
+    };
+    // Call the function to remove TikTok text
+    removeTikTokText();
+    // Observe DOM changes to remove TikTok text dynamically
+    const observer = new MutationObserver(removeTikTokText);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
     return () => {
       // Cleanup scripts on unmount
       document.body.removeChild(instagramScript);
       document.body.removeChild(tiktokScript);
+      // Cleanup observer on unmount
+      observer.disconnect();
     };
   }, []);
 
@@ -62,12 +88,17 @@ export default function SocialPartners({ partners }: Props) {
 
               {/* Video/Image Gallery Section */}
               <div className="aspect-video bg-gray-100 dark:bg-gray-800 rounded-lg mb-8 overflow-hidden">
-                {/* Content will be dynamically loaded */}
+                {/* This is a gif in images/lucas.gif */}
+                <img
+                  src="/images/lucas.gif"
+                  alt="Lucas with Strangers"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               <a
                 href="#"
-                className="inline-block bg-beige-default dark:bg-beige-medium text-dark px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200"
+                className="whitespace-nowrap mx-auto mb-4 border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
               >
                 {i18n.t("club.social_partners.lucas.cta")}
               </a>
@@ -90,7 +121,7 @@ export default function SocialPartners({ partners }: Props) {
                 href="https://wa.me/351932829084"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-beige-default dark:bg-beige-medium text-dark px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-200"
+                className="whitespace-nowrap mx-auto mb-4 border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
               >
                 {i18n.t("club.social_partners.join.cta")}
               </a>
@@ -117,26 +148,34 @@ export default function SocialPartners({ partners }: Props) {
                   </h3>
                   <div className="h-full overflow-x-auto overflow-y-hidden pb-4">
                     <div className="flex flex-nowrap gap-4 h-full">
-                      {partner.social_media_posts.map(post => (
-                        <div
-                          key={post.id}
-                          className="flex-none min-w-[325px] w-[325px] h-full py-4"
-                        >
+                      {partner.social_media_posts.map(post => {
+                        const isInstagram =
+                          post.embed_html.includes("instagram");
+                        const isTikTok = post.embed_html.includes("tiktok");
+
+                        return (
                           <div
-                            className="w-full h-full"
-                            dangerouslySetInnerHTML={{
-                              __html: post.embed_html,
-                            }}
-                          />
-                        </div>
-                      ))}
+                            key={post.id}
+                            className={`flex-none min-w-[325px] w-[325px] h-full ${
+                              isInstagram ? "py-4" : ""
+                            } `}
+                          >
+                            <div
+                              className="w-full h-full"
+                              dangerouslySetInnerHTML={{
+                                __html: post.embed_html,
+                              }}
+                            />
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <p className="text-center text-gray-600 dark:text-gray-300 italic mt-8">
+            <p className="text-center text-gray-600 dark:text-gray-300 italic mt-8 mx-auto">
               {i18n.t("club.social_partners.impact.conclusion")}
             </p>
           </section>
