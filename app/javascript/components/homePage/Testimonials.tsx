@@ -75,7 +75,11 @@ export default function Testimonials(props: Props) {
               key={`${testimonial.name}--testimonial`}
               className="p-6 text-left flex flex-col max-w-[400px] mx-auto text-dark dark:text-light"
             >
-              <q>{testimonial.text}</q>
+              <p className="whitespace-pre-line">
+                <span className="inline-block mr-1 text-xl">"</span>
+                {testimonial.text}
+                <span className="inline-block ml-1 text-xl">"</span>
+              </p>
               <p className="font-bold text-right">- {testimonial.name}</p>
             </div>
           ))}

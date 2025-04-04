@@ -173,7 +173,13 @@ puts "\n#{Time.current} - Creating testimonials..."
 20.times do |i|
   print "  • Testimonial #{i + 1}/20: "
   content = with_locales do |_locale|
-    { text: Faker::Lorem.paragraph(sentence_count: 3) }
+    text = []
+    paragraphs = rand(1..4)
+    paragraphs.times do
+      text << Faker::Lorem.paragraph(sentence_count: rand(4..12))
+    end
+
+    {text: text.join("\n\n")}
   end
 
   testimonial = Testimonial.create!(
