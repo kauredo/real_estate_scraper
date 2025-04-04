@@ -50,7 +50,10 @@ export default function ClubStoryShow({
             )}
 
           <div className="prose prose-lg dark:prose-invert max-w-none p-8">
-            <div dangerouslySetInnerHTML={{ __html: club_story.text }} />
+            <div
+              className="tinymce"
+              dangerouslySetInnerHTML={{ __html: club_story.text }}
+            />
           </div>
 
           <footer className="px-8 py-6 border-t border-gray-200 dark:border-gray-700">

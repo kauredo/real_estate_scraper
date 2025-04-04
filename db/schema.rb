@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_04_03_231922) do
+ActiveRecord::Schema[7.1].define(version: 2025_04_04_142632) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_03_231922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "slug"
+    t.text "small_description"
     t.index ["blog_post_id", "locale"], name: "index_blog_post_translations_on_blog_post_id_and_locale", unique: true
     t.index ["locale"], name: "index_blog_post_translations_on_locale"
   end
@@ -60,7 +61,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_03_231922) do
     t.text "meta_description"
     t.string "slug"
     t.string "video_link"
-    t.string "small_description"
+    t.text "small_description"
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
   end
 
@@ -74,7 +75,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_03_231922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "video_link"
-    t.string "small_description"
+    t.text "small_description"
     t.index ["slug"], name: "index_club_stories_on_slug", unique: true
   end
 
@@ -95,6 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_03_231922) do
     t.bigint "club_story_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "small_description"
     t.index ["club_story_id", "locale"], name: "index_club_story_translations_on_club_story_id_and_locale", unique: true
     t.index ["locale"], name: "index_club_story_translations_on_locale"
   end

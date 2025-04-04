@@ -67,13 +67,13 @@ export default function SocialPartners({ partners }: Props) {
           <section className="w-full max-w-4xl">
             <div className="prose prose-lg dark:prose-invert max-w-none space-y-16">
               <IconDecorationWrapper className="pb-16">
-                <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-dark dark:text-light">
+                <h1 className="text-4xl md:text-5xl font-bold mb-8 text-dark dark:text-light">
                   {i18n.t("club.social_partners.introduction")}
                 </h1>
-                <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6 text-center">
+                <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
                   {i18n.t("club.social_partners.subtitle")}
                 </p>
-                <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 text-center">
+                <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
                   {i18n.t("club.social_partners.description")}
                 </p>
               </IconDecorationWrapper>

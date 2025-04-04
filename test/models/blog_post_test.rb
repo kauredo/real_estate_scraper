@@ -45,7 +45,7 @@ end
 #  meta_description  :text
 #  meta_title        :text
 #  slug              :string
-#  small_description :string
+#  small_description :text
 #  text              :text
 #  title             :string
 #  video_link        :string

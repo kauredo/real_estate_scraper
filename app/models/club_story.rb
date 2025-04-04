@@ -4,7 +4,7 @@ class ClubStory < ApplicationRecord
   extend Mobility
   extend FriendlyId
 
-  translates :title, :text, :slug
+  translates :title, :text, :slug, :small_description
   friendly_id :title, use: %i[mobility history]
   has_many :club_story_photos, dependent: :destroy
 
@@ -55,7 +55,7 @@ end
 #  meta_description  :text
 #  meta_title        :text
 #  slug              :string
-#  small_description :string
+#  small_description :text
 #  text              :text
 #  title             :string
 #  video_link        :string
