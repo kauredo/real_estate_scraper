@@ -20,33 +20,37 @@ export default function ClubStories({
     <>
       {!isBackoffice && <SubNavbar items={clubSections} />}
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center pt-12">
+        <div className="flex flex-col items-center justify-center pt-12 pb-24">
           {!isBackoffice && (
             <>
               <ClubHeader />
-              <IconDecorationWrapper id="dignity">
-                <div className="flex flex-col mb-16">
-                  <h1 className="text-4xl md:text-5xl font-bold mb-8 text-dark dark:text-light">
-                    {i18n.t("club.stories.transformed_life")}
-                  </h1>
-                  <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
-                    {i18n.t("club.stories.real_people")}
-                  </p>
-                  <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-8">
-                    {i18n.t("club.stories.impact_description")}
-                  </p>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-dark dark:text-light">
-                    {i18n.t("club.stories.explore_stories")}
-                  </h3>
-                  <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-8">
-                    {i18n.t("club.stories.stories_description")}
-                  </p>
+              <section className="w-full max-w-4xl">
+                <div className="prose prose-lg dark:prose-invert max-w-none space-y-16">
+                  <IconDecorationWrapper id="dignity">
+                    <div className="flex flex-col mb-16">
+                      <h1 className="text-4xl md:text-5xl font-bold mb-8 text-dark dark:text-light">
+                        {i18n.t("club.stories.transformed_life")}
+                      </h1>
+                      <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
+                        {i18n.t("club.stories.real_people")}
+                      </p>
+                      <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-8">
+                        {i18n.t("club.stories.impact_description")}
+                      </p>
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-dark dark:text-light">
+                        {i18n.t("club.stories.explore_stories")}
+                      </h3>
+                      <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-8">
+                        {i18n.t("club.stories.stories_description")}
+                      </p>
+                    </div>
+                  </IconDecorationWrapper>
                 </div>
-              </IconDecorationWrapper>
+              </section>
             </>
           )}
 
-          <div className="w-full max-w-7xl">
+          <div className="w-full max-w-7xl mt-16">
             {club_stories && club_stories.length > 0 ? (
               <>
                 {club_stories.length === 1 && (

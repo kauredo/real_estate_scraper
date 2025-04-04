@@ -17,12 +17,12 @@ export default function ClubPage({ recent_stories }: Props) {
     <>
       <SubNavbar items={clubSections} />
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center pt-12">
+        <div className="flex flex-col items-center justify-center pt-12 pb-24">
           <ClubHeader />
 
-          <section className="w-full max-w-4xl mb-16">
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-              <IconDecorationWrapper id="dignity" className="pb-16 mb-8">
+          <section className="w-full max-w-4xl">
+            <div className="prose prose-lg dark:prose-invert max-w-none space-y-16">
+              <IconDecorationWrapper id="dignity" className="pb-16">
                 <h2 className="text-4xl md:text-5xl font-bold mb-8 text-dark dark:text-light">
                   {i18n.t("club.home.dignity.title")}
                 </h2>
@@ -33,7 +33,7 @@ export default function ClubPage({ recent_stories }: Props) {
 
               {/* Recent Stories Section */}
               {recent_stories && recent_stories.length > 0 && (
-                <section className="w-full mb-16">
+                <section className="w-full py-12">
                   {recent_stories.length === 1 && (
                     <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
                       {recent_stories.map(story => (
@@ -66,7 +66,7 @@ export default function ClubPage({ recent_stories }: Props) {
 
               <div
                 id="contribute"
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
                 <div>
                   <h2 className="text-2xl font-bold mb-6">
@@ -100,7 +100,7 @@ export default function ClubPage({ recent_stories }: Props) {
 
               <div
                 id="partners"
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
                 <div className="order-first lg:order-first">
                   <img
@@ -147,7 +147,7 @@ export default function ClubPage({ recent_stories }: Props) {
                 id="join"
                 size="sm"
                 opacity="low"
-                className="py-12 mb-8 bg-white/50 dark:bg-dark/50 rounded-lg"
+                className="py-12 bg-white/50 dark:bg-dark/50 rounded-lg"
               >
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-light">
                   {i18n.t("club.home.join.title")}
@@ -178,7 +178,7 @@ export default function ClubPage({ recent_stories }: Props) {
                   </p>
                   <a
                     href={sanitizeURL(window.Routes.club_rules_path)}
-                    className="mx-auto text-xl font-bold mb-12 text-beige-default dark:text-beige-medium underline"
+                    className="mx-auto text-xl font-bold text-beige-default dark:text-beige-medium underline"
                   >
                     {i18n.t("club.home.know_more.rules")}
                   </a>

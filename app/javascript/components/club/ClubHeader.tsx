@@ -4,16 +4,21 @@ import { isDarkModeActive } from "../utils/Functions";
 
 export default function ClubHeader() {
   return (
-    <div className="flex flex-col items-center mb-16">
-      <img
-        src={isDarkModeActive() ? "/logos/club-dark.webp" : "/logos/club.webp"}
-        alt="Club SGG Logo"
-        className="w-64 mb-4"
-        loading="lazy"
-      />
-      <p className="text-lg font-medium text-dark dark:text-light italic">
-        {i18n.t("club.home.subtitle")}
-      </p>
+    <div className="relative w-full max-w-4xl flex flex-col items-center mb-24">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent dark:via-dark/5 pointer-events-none" />
+      <div className="relative z-10 flex flex-col items-center">
+        <img
+          src={
+            isDarkModeActive() ? "/logos/club-dark.webp" : "/logos/club.webp"
+          }
+          alt="Club SGG Logo"
+          className="w-72 md:w-80 mb-6"
+          loading="lazy"
+        />
+        <p className="text-xl md:text-2xl font-medium text-dark/80 dark:text-light/80 text-center max-w-2xl">
+          {i18n.t("club.home.subtitle")}
+        </p>
+      </div>
     </div>
   );
 }
