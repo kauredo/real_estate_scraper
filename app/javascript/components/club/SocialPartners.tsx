@@ -4,6 +4,7 @@ import { Partner } from "../utils/Interfaces";
 import SubNavbar from "../shared/SubNavbar";
 import { clubSections } from "../utils/constants/clubSections";
 import ClubHeader from "./ClubHeader";
+import IconDecorationWrapper from "../shared/IconDecorationWrapper";
 
 interface Props {
   partners: Partner[];
@@ -65,7 +66,7 @@ export default function SocialPartners({ partners }: Props) {
 
           {/* Header Section */}
           <section className="w-full max-w-4xl">
-            <div className="flex flex-col items-center mb-16 relative">
+            <IconDecorationWrapper className="mb-16">
               <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-dark dark:text-light">
                 {i18n.t("club.social_partners.introduction")}
               </h1>
@@ -75,14 +76,7 @@ export default function SocialPartners({ partners }: Props) {
               <p className="text-center text-gray-600 dark:text-gray-300 text-lg max-w-4xl mb-16">
                 {i18n.t("club.social_partners.description")}
               </p>
-              <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 opacity-10">
-                <img
-                  src="/logos/club-icon.webp"
-                  alt=""
-                  className="w-64 h-64 object-contain"
-                />
-              </div>
-            </div>
+            </IconDecorationWrapper>
           </section>
 
           {/* Lucas With Strangers Section */}
@@ -112,34 +106,29 @@ export default function SocialPartners({ partners }: Props) {
 
           {/* Join Section */}
           <section className="w-full max-w-4xl mb-16">
-            <div className="relative py-12 overflow-hidden bg-white/25 dark:bg-dark/25 rounded-lg">
-              <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-light">
-                  {i18n.t("club.social_partners.join.title")}
-                </h2>
-                <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-4">
-                  {i18n.t("club.social_partners.join.description")}
-                </p>
-                <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-8">
-                  {i18n.t("club.social_partners.join.extra")}
-                </p>
-                <a
-                  href="https://wa.me/351932829084"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
-                >
-                  {i18n.t("club.social_partners.join.cta")}
-                </a>
-              </div>
-              <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 opacity-5">
-                <img
-                  src="/logos/club-icon.webp"
-                  alt=""
-                  className="w-48 h-48 object-contain"
-                />
-              </div>
-            </div>
+            <IconDecorationWrapper
+              size="sm"
+              opacity="low"
+              className="py-12 bg-white/25 dark:bg-dark/25 rounded-lg"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-light">
+                {i18n.t("club.social_partners.join.title")}
+              </h2>
+              <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-4">
+                {i18n.t("club.social_partners.join.description")}
+              </p>
+              <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-8">
+                {i18n.t("club.social_partners.join.extra")}
+              </p>
+              <a
+                href="https://wa.me/351932829084"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
+              >
+                {i18n.t("club.social_partners.join.cta")}
+              </a>
+            </IconDecorationWrapper>
           </section>
 
           {/* Impact Section */}

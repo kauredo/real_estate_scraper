@@ -6,6 +6,7 @@ import ClubStoryCard from "./ClubStoryCard";
 import SubNavbar from "../shared/SubNavbar";
 import { clubSections } from "../utils/constants/clubSections";
 import ClubHeader from "./ClubHeader";
+import IconDecorationWrapper from "../shared/IconDecorationWrapper";
 
 interface Props {
   recent_stories: ClubStory[];
@@ -21,24 +22,14 @@ export default function ClubPage({ recent_stories }: Props) {
 
           <section className="w-full max-w-4xl mb-16">
             <div className="prose prose-lg dark:prose-invert max-w-none">
-              <div id="dignity" className="relative pb-16 overflow-hidden mb-8">
-                <div className="absolute inset-0" />
-                <div className="relative z-10">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 text-dark dark:text-light">
-                    {i18n.t("club.home.dignity.title")}
-                  </h2>
-                  <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200">
-                    {i18n.t("club.home.dignity.description")}
-                  </p>
-                </div>
-                <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 opacity-10">
-                  <img
-                    src="/logos/club-icon.webp"
-                    alt=""
-                    className="w-64 h-64 object-contain"
-                  />
-                </div>
-              </div>
+              <IconDecorationWrapper id="dignity" className="pb-16 mb-8">
+                <h2 className="text-4xl md:text-5xl font-bold mb-8 text-dark dark:text-light">
+                  {i18n.t("club.home.dignity.title")}
+                </h2>
+                <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200">
+                  {i18n.t("club.home.dignity.description")}
+                </p>
+              </IconDecorationWrapper>
 
               {/* Recent Stories Section */}
               {recent_stories && recent_stories.length > 0 && (
@@ -152,54 +143,47 @@ export default function ClubPage({ recent_stories }: Props) {
               </div>
 
               {/* Join Section */}
-              <div
+              <IconDecorationWrapper
                 id="join"
-                className="relative py-12 overflow-hidden mb-8 bg-white/50 dark:bg-dark/50 rounded-lg"
+                size="sm"
+                opacity="low"
+                className="py-12 mb-8 bg-white/50 dark:bg-dark/50 rounded-lg"
               >
-                <div className="relative z-10">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-light">
-                    {i18n.t("club.home.join.title")}
-                  </h2>
-                  <p className="text-xl font-semibold mb-4 text-dark dark:text-light">
-                    {i18n.t("club.home.join.subtitle")}
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-dark dark:text-light">
+                  {i18n.t("club.home.join.title")}
+                </h2>
+                <p className="text-xl font-semibold mb-4 text-dark dark:text-light">
+                  {i18n.t("club.home.join.subtitle")}
+                </p>
+                <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
+                  {i18n.t("club.home.join.description")}
+                </p>
+                <p className="text-xl font-bold mb-4 text-beige-default dark:text-beige-medium">
+                  {i18n.t("club.home.join.impact")}
+                </p>
+                <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
+                  {i18n.t("club.home.join.whatsapp")}
+                </p>
+                <div className="flex flex-col items-start gap-4">
+                  <a
+                    href="https://wa.me/351932829084"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whitespace-nowrap mx-auto mb-4 border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
+                  >
+                    {i18n.t("club.home.join.cta")}
+                  </a>
+                  <p className="text-xl font-bold mx-auto">
+                    {i18n.t("club.home.join.mission")}
                   </p>
-                  <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
-                    {i18n.t("club.home.join.description")}
-                  </p>
-                  <p className="text-xl font-bold mb-4 text-beige-default dark:text-beige-medium">
-                    {i18n.t("club.home.join.impact")}
-                  </p>
-                  <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
-                    {i18n.t("club.home.join.whatsapp")}
-                  </p>
-                  <div className="flex flex-col items-start gap-4">
-                    <a
-                      href="https://wa.me/351932829084"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="whitespace-nowrap mx-auto mb-4 border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
-                    >
-                      {i18n.t("club.home.join.cta")}
-                    </a>
-                    <p className="text-xl font-bold mx-auto">
-                      {i18n.t("club.home.join.mission")}
-                    </p>
-                    <a
-                      href={sanitizeURL(window.Routes.club_rules_path)}
-                      className="mx-auto text-xl font-bold mb-12 text-beige-default dark:text-beige-medium underline"
-                    >
-                      {i18n.t("club.home.know_more.rules")}
-                    </a>
-                  </div>
+                  <a
+                    href={sanitizeURL(window.Routes.club_rules_path)}
+                    className="mx-auto text-xl font-bold mb-12 text-beige-default dark:text-beige-medium underline"
+                  >
+                    {i18n.t("club.home.know_more.rules")}
+                  </a>
                 </div>
-                <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 opacity-5">
-                  <img
-                    src="/logos/club-icon.webp"
-                    alt=""
-                    className="w-48 h-48 object-contain"
-                  />
-                </div>
-              </div>
+              </IconDecorationWrapper>
 
               <div id="grow" className="bg-white/25 dark:bg-dark/25 rounded-lg">
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 text-dark dark:text-light">

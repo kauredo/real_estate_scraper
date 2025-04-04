@@ -3,6 +3,7 @@ import { i18n } from "../../languages/languages";
 import SubNavbar from "../shared/SubNavbar";
 import { clubSections } from "../utils/constants/clubSections";
 import ClubHeader from "./ClubHeader";
+import IconDecorationWrapper from "../shared/IconDecorationWrapper";
 
 export default function Rules() {
   return (
@@ -11,23 +12,27 @@ export default function Rules() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center pt-12">
           <ClubHeader />
-          <h1 className="text-3xl font-bold text-center mb-4 text-dark dark:text-light">
-            {i18n.t("club.rules.title")}
-          </h1>
-          <p className="text-lg font-bold mb-6 text-dark dark:text-light text-center">
-            {i18n.t("club.rules.transparency")}
-          </p>
-          <div className=" pb-4">
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              {i18n.t("club.rules.intro")}
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              {i18n.t("club.rules.clarity")}
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              {i18n.t("club.rules.read_below")}
-            </p>
-          </div>
+          <section className="w-full max-w-4xl">
+            <IconDecorationWrapper className="pb-16 mb-8">
+              <h1 className="text-4xl md:text-5xl font-bold mb-8 text-dark dark:text-light">
+                {i18n.t("club.rules.title")}
+              </h1>
+              <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200">
+                {i18n.t("club.rules.transparency")}
+              </p>
+              <div className="py-4">
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  {i18n.t("club.rules.intro")}
+                </p>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  {i18n.t("club.rules.clarity")}
+                </p>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  {i18n.t("club.rules.read_below")}
+                </p>
+              </div>
+            </IconDecorationWrapper>
+          </section>
 
           <section className="bg-white dark:bg-dark shadow-lg rounded-lg p-8 mb-16 w-full max-w-4xl">
             <div className="prose prose-lg dark:prose-invert max-w-none">

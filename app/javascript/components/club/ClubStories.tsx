@@ -5,6 +5,7 @@ import ClubStoryCard from "./ClubStoryCard";
 import SubNavbar from "../shared/SubNavbar";
 import { clubSections } from "../utils/constants/clubSections";
 import ClubHeader from "./ClubHeader";
+import IconDecorationWrapper from "../shared/IconDecorationWrapper";
 
 interface Props {
   club_stories: ClubStory[];
@@ -23,24 +24,26 @@ export default function ClubStories({
           {!isBackoffice && (
             <>
               <ClubHeader />
-              <div className="flex flex-col items-center mb-16">
-                <h1 className="text-3xl md:text-4xl font-bold text-center mb-4 text-dark dark:text-light">
-                  {i18n.t("club.stories.transformed_life")}
-                </h1>
+              <IconDecorationWrapper id="dignity">
+                <div className="flex flex-col mb-16">
+                  <h1 className="text-4xl md:text-5xl font-bold mb-8 text-dark dark:text-light">
+                    {i18n.t("club.stories.transformed_life")}
+                  </h1>
 
-                <p className="text-xl font-bold mb-6 text-dark dark:text-light text-center">
-                  {i18n.t("club.stories.real_people")}
-                </p>
-                <p className="text-center text-gray-600 dark:text-gray-300 text-lg max-w-3xl mb-12">
-                  {i18n.t("club.stories.impact_description")}
-                </p>
-                <h3 className="text-2xl font-bold mb-4 text-dark dark:text-light">
-                  {i18n.t("club.stories.explore_stories")}
-                </h3>
-                <p className="text-center text-gray-600 dark:text-gray-300 text-lg mb-12">
-                  {i18n.t("club.stories.stories_description")}
-                </p>
-              </div>
+                  <p className="text-xl md:text-2xl mb-6 font-bold leading-relaxed text-gray-700 dark:text-gray-200">
+                    {i18n.t("club.stories.real_people")}
+                  </p>
+                  <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200 mb-12">
+                    {i18n.t("club.stories.impact_description")}
+                  </p>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-relaxed text-gray-700 dark:text-gray-200">
+                    {i18n.t("club.stories.explore_stories")}
+                  </h3>
+                  <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-200 mb-12">
+                    {i18n.t("club.stories.stories_description")}
+                  </p>
+                </div>
+              </IconDecorationWrapper>
             </>
           )}
 
