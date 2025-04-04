@@ -211,7 +211,7 @@ export default function Navbar(props: Props) {
               </div>
               <div className="flex items-center">
                 <div className="hidden tablet:block">
-                  <div className="ml-4 flex items-baseline flex-wrap justify-center">
+                  <div className="ml-4 flex items-baseline flex-wrap justify-center gap-1">
                     {middleItems?.map(item => {
                       if (item.items?.length && item.items.length > 0) {
                         return (

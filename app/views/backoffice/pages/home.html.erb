@@ -24,7 +24,7 @@
         <div class="space-y-6">
           <% @variables.each do |var| %>
             <%= form_for(var, url: backoffice_variable_path(var), html: { method: :put }) do |f| %>
-              <div class="flex flex-wrap items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div class="flex flex-wrap items-center gap-3 p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
                 <%= f.text_field :name, class: 'flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
                 <%= f.text_field :value, class: 'flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
                 <%= f.text_field :icon, class: 'flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
