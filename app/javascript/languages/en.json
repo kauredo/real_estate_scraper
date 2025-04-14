@@ -176,9 +176,14 @@
         "meta_description": "Discover SGG Club by Sofia Galvão Group - where real estate excellence meets exclusive benefits.",
         "partners": {
           "conclusion": "It's partners like these that make real the change we envision.",
+          "conclusion_html": "<strong>Your referral can change a life. Get in touch and be part of this change.</strong>\n",
           "cta": "Get to know Lucas's work.",
           "description": "SGG Club's mission is only possible thanks to the essential collaboration of our social partners, who bring to life the impact we want to achieve.\n",
+          "dynamic": "Not only through the dynamics of real estate referrals that fuel the movement, but also by identifying stories and people who need support the most.\n",
           "example_html": "A clear example is <strong>Lucas With Strangers</strong>, recognized for transforming the lives of hundreds of people in vulnerable situations, providing them with improved living conditions and unique, unforgettable experiences.\n",
+          "second_title": "Do you know someone we can help?",
+          "situations": "We are always looking for real situations where our support can make a difference.",
+          "someone": "If you know someone going through difficulties who could benefit from our help, talk to us.",
           "subtitle": "Together, we create stories that change lives.",
           "title": "Social Partners who help us make magic happen"
         },
@@ -249,6 +254,7 @@
             },
             "sources": {
               "description_html": "SGG Club is financed through <strong>Real Estate Referrals</strong> - When a member of the club refers someone who wants to buy or sell a house, a part of the commission from the transaction reverts to support housing for people in need.",
+              "intro": "SGG Club funds its actions through:",
               "title": "3.1. Funding Sources"
             },
             "title": "3. Support and Funding Model"
@@ -337,31 +343,6 @@
         "benefits": "Member Benefits",
         "partners": "Our Partners"
       },
-      "social_partners": {
-        "description": "SGG Club's mission is only possible thanks to the essential collaboration of our social partners, who bring to life the impact we want to achieve.",
-        "header": "Social Partners",
-        "impact": {
-          "conclusion": "Each video is a real story. Each story is a life changed.",
-          "description": "See some real examples of the impact created in partnership with our social partners through short Instagram and TikTok videos.",
-          "title": "Impact in action"
-        },
-        "introduction": "Social Partners who help us make magic happen",
-        "join": {
-          "cta": "Contact us to become a social partner",
-          "description": "We are always looking for social partners who share our purpose of creating a positive impact in the lives that need it most.",
-          "extra": "If you believe your organization can make a difference with us, get in touch and join our community.",
-          "title": "Be part of this story"
-        },
-        "lucas": {
-          "cta": "Find out more about Lucas's work",
-          "description": "Recognized for his impactful work, Lucas With Strangers daily transforms the lives of hundreds of people in vulnerable situations, providing them with unique and unforgettable experiences.",
-          "title": "Lucas With Strangers"
-        },
-        "meta_description": "Discover our social partners and how together we make a difference.",
-        "partners_title": "Meet our partners:",
-        "subtitle": "Together, we create stories that change lives."
-      },
-      "social_partners_description": "Partners who share our social vision and contribute to a positive impact in the community.",
       "stories": {
         "empty": "New stories coming soon...",
         "explore_stories": "Explore our stories",
@@ -78586,7 +78567,6 @@
       "change_language": "Mudar site para Português",
       "club": "SGG Club",
       "club_rules": "Rules",
-      "club_social_partners": "Social Partners",
       "club_stories": "Stories",
       "contacts": "Contacts",
       "dark_mode": "Dark Mode",

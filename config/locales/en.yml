@@ -17,7 +17,6 @@ en:
     dark_mode: Dark Mode
     light_mode: Light Mode
     club: SGG Club
-    club_social_partners: Social Partners
     club_rules: Rules
     club_stories: Stories
 
@@ -940,6 +939,20 @@ en:
         conclusion:
           It's partners like these that make real the change we envision.
         cta: Get to know Lucas's work.
+        dynamic: >
+          Not only through the dynamics of real estate referrals that fuel the
+          movement, but also by identifying stories and people who need support
+          the most.
+        second_title: Do you know someone we can help?
+        situations:
+          We are always looking for real situations where our support can make a
+          difference.
+        someone:
+          If you know someone going through difficulties who could benefit from
+          our help, talk to us.
+        conclusion_html: >
+          <strong>Your referral can change a life. Get in touch and be part of
+          this change.</strong>
       join:
         title: Take the first step towards improving a life
         subtitle: Become a SGG Club member right now.
@@ -961,39 +974,6 @@ en:
           Refer other members so together we can impact more lives!
         whatsapp: Send us a WhatsApp to refer members to the club.
         cta: Send WhatsApp
-    social_partners:
-      header: Social Partners
-      meta_description:
-        Discover our social partners and how together we make a difference.
-      introduction: Social Partners who help us make magic happen
-      subtitle: Together, we create stories that change lives.
-      description:
-        SGG Club's mission is only possible thanks to the essential
-        collaboration of our social partners, who bring to life the impact we
-        want to achieve.
-      partners_title: "Meet our partners:"
-      lucas:
-        title: Lucas With Strangers
-        description:
-          Recognized for his impactful work, Lucas With Strangers daily
-          transforms the lives of hundreds of people in vulnerable situations,
-          providing them with unique and unforgettable experiences.
-        cta: Find out more about Lucas's work
-      join:
-        title: Be part of this story
-        description:
-          We are always looking for social partners who share our purpose of
-          creating a positive impact in the lives that need it most.
-        extra:
-          If you believe your organization can make a difference with us, get in
-          touch and join our community.
-        cta: Contact us to become a social partner
-      impact:
-        title: Impact in action
-        description:
-          See some real examples of the impact created in partnership with our
-          social partners through short Instagram and TikTok videos.
-        conclusion: Each video is a real story. Each story is a life changed.
     rules:
       header: SGG Club Regulations
       meta_description: Rules and guidelines for SGG Club.
@@ -1114,6 +1094,7 @@ en:
               Referrals</strong> - When a member of the club refers someone who
               wants to buy or sell a house, a part of the commission from the
               transaction reverts to support housing for people in need.
+            intro: "SGG Club funds its actions through:"
           application:
             title: 3.2. Fund Application
             intro: "SGG Club funds are applied to:"
@@ -1224,9 +1205,6 @@ en:
       stories_description: >
         Discover below exciting and inspiring stories where SGG Club's support
         made all the difference.
-    social_partners_description:
-      Partners who share our social vision and contribute to a positive impact
-      in the community.
     rules_description: Learn about SGG Club terms and conditions.
     stories_description: Inspiring stories and success cases from our members.
     sections:

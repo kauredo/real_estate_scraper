@@ -175,12 +175,15 @@
         },
         "meta_description": "Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
         "partners": {
-          "conclusion": "São parceiros assim que tornam real a mudança que idealizamos.",
-          "cta": "Conheça o trabalho do Lucas.",
-          "description": "A missão do Clube SGG só é possível graças à colaboração essencial dos nossos parceiros sociais, que dão vida ao impacto que queremos alcançar.\n",
-          "example_html": "Um exemplo claro é o <strong>Lucas With Strangers</strong>, reconhecido por transformar a vida de centenas de pessoas em situações vulneráveis, proporcionando-lhes melhoria nas condições de vida, experiências únicas e inesquecíveis.\n",
-          "subtitle": "Juntos, criamos histórias que mudam vidas.",
-          "title": "Parceiros Sociais que nos ajudam a fazer a magia acontecer"
+          "conclusion_html": "<strong>A sua indicação pode mudar uma vida. Entre em contacto e faça parte desta mudança.</strong>",
+          "cta": "Enviar WhatsApp",
+          "description": "A missão do Clube SGG só é possível graças à colaboração essencial dos nossos membros e embaixadores, que dão vida ao impacto que queremos alcançar.\n",
+          "dynamic": "Não só pela dinâmica de recomendações no setor imobiliário que alimentam o movimento, mas também pela identificação de histórias e pessoas que mais precisam de apoio.\n",
+          "second_title": "Sabe de alguém que possamos ajudar?",
+          "situations": "Estamos sempre à procura de situações reais onde o nosso apoio possa fazer a diferença.",
+          "someone": "Se conhece alguém que esteja a passar por dificuldades e que possa beneficiar da nossa ajuda, fale connosco.",
+          "subtitle": "Juntos, podemos criar histórias que mudam vidas.",
+          "title": "Ajude-nos a fazer a mudança acontecer"
         },
         "subtitle": "Comprar e vender casas, reabilitar vidas",
         "title": "Clube SGG"
@@ -334,31 +337,6 @@
         "benefits": "Benefícios para Membros",
         "partners": "Nossos Parceiros"
       },
-      "social_partners": {
-        "description": "A missão do Clube SGG só é possível graças à colaboração essencial dos nossos parceiros sociais, que dão vida ao impacto que queremos alcançar.",
-        "header": "Parceiros Sociais",
-        "impact": {
-          "conclusion": "Cada vídeo é uma história real. Cada história é uma vida transformada.",
-          "description": "Veja alguns exemplos reais do impacto criado em parceria com os nossos parceiros sociais através de vídeos curtos do Instagram e TikTok.",
-          "title": "Impacto em ação"
-        },
-        "introduction": "Parceiros Sociais que nos ajudam a fazer a magia acontecer",
-        "join": {
-          "cta": "Entre em contacto para se tornar parceiro social",
-          "description": "Estamos sempre à procura de parceiros sociais que partilhem o nosso propósito de criar impacto positivo nas vidas que mais precisam.",
-          "extra": "Se acredita que a sua organização pode fazer a diferença connosco, entre em contacto e junte-se à nossa rede.",
-          "title": "Faça parte desta história"
-        },
-        "lucas": {
-          "cta": "Conheça melhor o trabalho do Lucas",
-          "description": "Reconhecido pelo seu trabalho impactante, o Lucas With Strangers transforma diariamente a vida de centenas de pessoas em situação vulnerável, proporcionando-lhes experiências únicas e inesquecíveis.",
-          "title": "Lucas With Strangers"
-        },
-        "meta_description": "Descubra os nossos parceiros sociais e como juntos fazemos a diferença.",
-        "partners_title": "Conheça os nossos parceiros:",
-        "subtitle": "Juntos, criamos histórias que mudam vidas."
-      },
-      "social_partners_description": "Parceiros que compartilham nossa visão e contribuem para um impacto positivo na comunidade",
       "stories": {
         "empty": "Novas histórias em breve...",
         "explore_stories": "Explore as nossas histórias",
@@ -2027,7 +2005,6 @@
       "change_language": "Change site to English",
       "club": "Clube SGG",
       "club_rules": "Regulamento",
-      "club_social_partners": "Parceiros Sociais",
       "club_stories": "Histórias",
       "contacts": "Contactos",
       "dark_mode": "Modo Escuro",

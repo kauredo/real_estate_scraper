@@ -121,20 +121,30 @@ export default function ClubPage({ recent_stories }: Props) {
                   <p className="text-gray-600 dark:text-gray-300 mb-6">
                     {i18n.t("club.home.partners.description")}
                   </p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-8">
+                    {i18n.t("club.home.partners.dynamic")}
+                  </p>
+                  <h2 className="text-2xl font-bold mb-6">
+                    {i18n.t("club.home.partners.second_title")}
+                  </h2>
+                  <p className="text-gray-600 dark:text-gray-300 mb-8">
+                    {i18n.t("club.home.partners.situations")}
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-8">
+                    {i18n.t("club.home.partners.someone")}
+                  </p>
                   <p
                     className="text-gray-600 dark:text-gray-300 mb-4"
                     dangerouslySetInnerHTML={{
-                      __html: i18n.t("club.home.partners.example_html"),
+                      __html: i18n.t("club.home.partners.conclusion_html"),
                     }}
                   ></p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-8">
-                    {i18n.t("club.home.partners.conclusion")}
-                  </p>
                   <p className="text-xl font-bold text-beige-default dark:text-beige-medium underline">
                     <a
-                      href={sanitizeURL(
-                        window.Routes.club_social_partners_path
-                      )}
+                      href="https://wa.me/351932829084"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="whitespace-nowrap mx-auto mb-4 border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
                     >
                       {i18n.t("club.home.partners.cta")}
                     </a>

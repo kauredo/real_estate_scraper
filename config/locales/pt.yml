@@ -17,7 +17,6 @@ pt:
     dark_mode: Modo Escuro
     light_mode: Modo Claro
     club: Clube SGG
-    club_social_partners: Parceiros Sociais
     club_rules: Regulamento
     club_stories: Histórias
 
@@ -945,20 +944,27 @@ pt:
           pessoas e famílias que precisam de si e da sua ajuda.
         cta: Comece agora a fazer a diferença.
       partners:
-        title: Parceiros Sociais que nos ajudam a fazer a magia acontecer
-        subtitle: Juntos, criamos histórias que mudam vidas.
+        title: Ajude-nos a fazer a mudança acontecer
+        subtitle: Juntos, podemos criar histórias que mudam vidas.
         description: >
           A missão do Clube SGG só é possível graças à colaboração essencial dos
-          nossos parceiros sociais, que dão vida ao impacto que queremos
+          nossos membros e embaixadores, que dão vida ao impacto que queremos
           alcançar.
-        example_html: >
-          Um exemplo claro é o <strong>Lucas With Strangers</strong>,
-          reconhecido por transformar a vida de centenas de pessoas em situações
-          vulneráveis, proporcionando-lhes melhoria nas condições de vida,
-          experiências únicas e inesquecíveis.
-        conclusion:
-          São parceiros assim que tornam real a mudança que idealizamos.
-        cta: Conheça o trabalho do Lucas.
+        dynamic: >
+          Não só pela dinâmica de recomendações no setor imobiliário que
+          alimentam o movimento, mas também pela identificação de histórias e
+          pessoas que mais precisam de apoio.
+        second_title: Sabe de alguém que possamos ajudar?
+        situations:
+          Estamos sempre à procura de situações reais onde o nosso apoio possa
+          fazer a diferença.
+        someone:
+          Se conhece alguém que esteja a passar por dificuldades e que possa
+          beneficiar da nossa ajuda, fale connosco.
+        conclusion_html:
+          <strong>A sua indicação pode mudar uma vida. Entre em contacto e faça
+          parte desta mudança.</strong>
+        cta: Enviar WhatsApp
       join:
         title: Dê o primeiro passo para melhorar uma vida
         subtitle: Torne-se membro do Clube SGG agora mesmo.
@@ -986,39 +992,6 @@ pt:
       title: Histórias Recentes
       description:
         Descubra as histórias e experiências mais recentes dos nossos membros
-    social_partners:
-      header: Parceiros Sociais
-      meta_description:
-        Descubra os nossos parceiros sociais e como juntos fazemos a diferença.
-      introduction: Parceiros Sociais que nos ajudam a fazer a magia acontecer
-      subtitle: Juntos, criamos histórias que mudam vidas.
-      description:
-        A missão do Clube SGG só é possível graças à colaboração essencial dos
-        nossos parceiros sociais, que dão vida ao impacto que queremos alcançar.
-      partners_title: "Conheça os nossos parceiros:"
-      lucas:
-        title: Lucas With Strangers
-        description:
-          Reconhecido pelo seu trabalho impactante, o Lucas With Strangers
-          transforma diariamente a vida de centenas de pessoas em situação
-          vulnerável, proporcionando-lhes experiências únicas e inesquecíveis.
-        cta: Conheça melhor o trabalho do Lucas
-      join:
-        title: Faça parte desta história
-        description:
-          Estamos sempre à procura de parceiros sociais que partilhem o nosso
-          propósito de criar impacto positivo nas vidas que mais precisam.
-        extra:
-          Se acredita que a sua organização pode fazer a diferença connosco,
-          entre em contacto e junte-se à nossa rede.
-        cta: Entre em contacto para se tornar parceiro social
-      impact:
-        title: Impacto em ação
-        description:
-          Veja alguns exemplos reais do impacto criado em parceria com os nossos
-          parceiros sociais através de vídeos curtos do Instagram e TikTok.
-        conclusion:
-          Cada vídeo é uma história real. Cada história é uma vida transformada.
     rules:
       header: Regulamento
       meta_description: Regras e diretrizes para membros do Clube SGG.
@@ -1243,9 +1216,6 @@ pt:
         Clube SGG fez toda a diferença.
     stories_description:
       "Histórias de sucesso e experiências inspiradoras dos nossos membros"
-    social_partners_description:
-      "Parceiros que compartilham nossa visão e contribuem para um impacto
-      positivo na comunidade"
     rules_description: "Conheça os termos e condições de membro do Clube SGG"
 
   club_stories:

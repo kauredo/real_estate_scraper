@@ -1,7 +1,0 @@
-<% meta_title = I18n.t('club.social_partners.header') %>
-<% meta_description = I18n.t('club.social_partners.meta_description') %>
-
-<% content_for(:meta_title) { meta_title } %>
-<% content_for(:meta_description) { meta_description } %>
-
-<%= react_component 'club--SocialPartners', { partners: @partners } %>
