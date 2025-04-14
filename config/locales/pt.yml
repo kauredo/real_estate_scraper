@@ -1017,9 +1017,10 @@ pt:
         general:
           title: 1. Disposições Gerais
           mission_html: >
-            O Clube SGG tem como missão <strong>transformar as condições de
-            habitação de quem mais precisa</strong>, mobilizando recursos e
-            pessoas para criar lares dignos.
+            O Clube SGG tem como missão <strong>contribuir de forma positiva
+            para melhorar as condições de habitação de quem mais
+            precisa</strong>, mobilizando recursos e pessoas para criar lares
+            dignos.
           definition: >
             Este regulamento define as regras de funcionamento do clube, os
             direitos  e deveres dos membros e os critérios de apoio às pessoas
@@ -1066,6 +1067,9 @@ pt:
               third:
                 Agir com transparência e ética em todas as interações
                 relacionadas com o clube.
+              fourth:
+                Identificar pessoas ou situações que possam ser alvo da
+                intervenção do clube.
           members_or_ambassadors:
             title: 2.4. Distinção entre Membros e Embaixadores
             members:
@@ -1128,8 +1132,8 @@ pt:
                 <strong>Aquisição de mobília e equipamentos essenciais</strong>
                 para melhorar as condições de vida das pessoas apoiadas;
               third:
-                <strong>Apoio a aquecimento e conforto térmico</strong> em
-                habitações vulneráveis;
+                <strong>Contributo para melhorar as condições
+                necessárias</strong> para transformar uma casa num lar;
               fourth:
                 <strong>Desenvolvimento de novas iniciativas e
                 parcerias</strong> que aumentem o impacto do clube.

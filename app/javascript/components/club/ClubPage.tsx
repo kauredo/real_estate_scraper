@@ -139,14 +139,14 @@ export default function ClubPage({ recent_stories }: Props) {
                       __html: i18n.t("club.home.partners.conclusion_html"),
                     }}
                   ></p>
-                  <p className="text-xl font-bold text-beige-default dark:text-beige-medium underline">
+                  <p>
                     <a
                       href="https://wa.me/351932829084"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="whitespace-nowrap mx-auto mb-4 border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
+                      className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
                     >
-                      {i18n.t("club.home.partners.cta")}
+                      {i18n.t("club.home.know_more.cta")}
                     </a>
                   </p>
                 </div>

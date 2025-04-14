@@ -1,46 +1,97 @@
 .tinymce {
   max-width: 1024px;
 }
+
 .tinymce h1 {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+
 .tinymce h2 {
   font-size: 1.5rem;
   line-height: 2rem;
 }
+
 .tinymce h3 {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+
 .tinymce h4 {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+
 .tinymce h5 {
   font-size: 1rem;
   line-height: 1.5rem;
 }
+
 .tinymce h6 {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+
 .tinymce p {
   font-size: 1rem;
   line-height: 1.5rem;
   max-width: 100%;
 }
+
 .tinymce a {
   color: #d3af79;
+  text-decoration: underline;
 }
+
+.tinymce a:hover {
+  color: #b08e5e;
+}
+
 .tinymce ul {
   margin-left: 20px;
   list-style: circle;
 }
+
 .tinymce ol {
   margin-left: 20px;
   list-style: decimal;
 }
+
 .tinymce * {
   max-width: 100%;
+}
+
+.tinymce blockquote {
+  font-style: italic;
+  border-left: 4px solid #d3af79;
+  padding-left: 16px;
+  margin: 16px 0;
+  color: #555;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tinymce blockquote:hover {
+  transform: translateX(10px);
+}
+
+.tinymce code {
+  font-family: monospace;
+  background-color: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #d63384;
+}
+
+.tinymce pre {
+  font-family: monospace;
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 4px;
+  overflow-x: auto;
+  color: #333;
+  line-height: 1.5rem;
+}
+
+.instagram-media {
+  margin: 1px auto !important;
 }

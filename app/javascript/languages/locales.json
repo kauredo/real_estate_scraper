@@ -57,7 +57,7 @@
               "SUCCESS": "Results through people."
             }
           ],
-          "title": "Princípios KW"
+          "title": "KW Principles"
         },
         "title": "Partnership with Keller Williams"
       },
@@ -138,7 +138,7 @@
           "value_description": "This way, you create value on two fronts: you offer the people you refer excellent real estate support, while changing the lives of people and families who need you and your help.\n"
         },
         "dignity": {
-          "description": "Everyone deserves a home where they can live with dignity, safety and comfort. SGG Club was born with the mission of rehabilitating lives by improving the housing conditions of those who need it most.\n",
+          "description": "Everyone deserves a home where they can live with dignity, safety, and comfort. SGG Club was born with the mission of rehabilitating lives by improving the housing conditions of those who need it most.\n",
           "title": "A dignified home should not be a dream but a reality"
         },
         "header": "SGG Club",
@@ -164,17 +164,15 @@
         },
         "meta_description": "Discover SGG Club by Sofia Galvão Group - where real estate excellence meets exclusive benefits.",
         "partners": {
-          "conclusion": "It's partners like these that make real the change we envision.",
           "conclusion_html": "<strong>Your referral can change a life. Get in touch and be part of this change.</strong>\n",
-          "cta": "Get to know Lucas's work.",
-          "description": "SGG Club's mission is only possible thanks to the essential collaboration of our social partners, who bring to life the impact we want to achieve.\n",
+          "cta": "Send WhatsApp",
+          "description": "SGG Club's mission is only possible thanks to the essential collaboration of our members and ambassadors, who bring to life the impact we want to achieve.\n",
           "dynamic": "Not only through the dynamics of real estate referrals that fuel the movement, but also by identifying stories and people who need support the most.\n",
-          "example_html": "A clear example is <strong>Lucas With Strangers</strong>, recognized for transforming the lives of hundreds of people in vulnerable situations, providing them with improved living conditions and unique, unforgettable experiences.\n",
           "second_title": "Do you know someone we can help?",
           "situations": "We are always looking for real situations where our support can make a difference.",
           "someone": "If you know someone going through difficulties who could benefit from our help, talk to us.",
-          "subtitle": "Together, we create stories that change lives.",
-          "title": "Social Partners who help us make magic happen"
+          "subtitle": "Together, we can create stories that change lives.",
+          "title": "Help us make change happen"
         },
         "subtitle": "Buying and selling homes, rehabilitating lives",
         "title": "SGG Club"
@@ -237,7 +235,7 @@
                 "first": "<strong>Housing renovations and repairs</strong> for people in need;",
                 "fourth": "<strong>Development of new initiatives and partnerships</strong> that increase the club's impact.",
                 "second": "<strong>Acquisition of essential furniture and equipment</strong> to improve beneficiaries' living conditions;",
-                "third": "<strong>Support for heating and thermal comfort</strong> in vulnerable homes;"
+                "third": "<strong>Contributions to improve necessary conditions</strong> to transform a house into a home;"
               },
               "title": "3.2. Fund Application"
             },
@@ -259,8 +257,9 @@
               "intro": "SGG Club members commit to:",
               "list": {
                 "first": "Respect the club's values and principles;",
+                "fourth": "Identify people or situations that could benefit from the club's intervention.",
                 "second": "Actively contribute within their possibilities, either through referrals or volunteering;",
-                "third": "Act with transparency and ethics in all club-related interactions."
+                "third": "Act with transparency and ethics in all club-related interactions;"
               },
               "title": "2.3. Member Duties"
             },
@@ -335,7 +334,7 @@
       "stories": {
         "empty": "New stories coming soon...",
         "explore_stories": "Explore our stories",
-        "header": "Stories",
+        "header": "Club Stories",
         "impact_description": "Discover the real stories of those who were directly impacted by Club SGG's  mission. Each story is living proof of how your support can change lives,  providing dignified housing and turning dreams into reality.\n",
         "meta_description": "Inspiring stories and success cases from SGG Club members.",
         "real_people": "Behind each project there are real people with inspiring stories",
@@ -78466,8 +78465,8 @@
       "buy": "Buy",
       "change_language": "Mudar site para Português",
       "club": "SGG Club",
-      "club_rules": "Rules",
-      "club_stories": "Stories",
+      "club_rules": "Club Rules",
+      "club_stories": "Club Stories",
       "contacts": "Contacts",
       "dark_mode": "Dark Mode",
       "enterprises": "Developments",
@@ -79011,7 +79010,7 @@
                 "first": "<strong>Remodelações e reparações habitacionais</strong> para pessoas carenciadas;",
                 "fourth": "<strong>Desenvolvimento de novas iniciativas e parcerias</strong> que aumentem o impacto do clube.",
                 "second": "<strong>Aquisição de mobília e equipamentos essenciais</strong> para melhorar as condições de vida das pessoas apoiadas;",
-                "third": "<strong>Apoio a aquecimento e conforto térmico</strong> em habitações vulneráveis;"
+                "third": "<strong>Contributo para melhorar as condições necessárias</strong> para transformar uma casa num lar;"
               },
               "title": "3.2. Aplicação dos Fundos"
             },
@@ -79024,7 +79023,7 @@
           },
           "general": {
             "definition": "Este regulamento define as regras de funcionamento do clube, os direitos  e deveres dos membros e os critérios de apoio às pessoas beneficiárias.\n",
-            "mission_html": "O Clube SGG tem como missão <strong>transformar as condições de habitação de quem mais precisa</strong>, mobilizando recursos e pessoas para criar lares dignos.\n",
+            "mission_html": "O Clube SGG tem como missão <strong>contribuir de forma positiva para melhorar as condições de habitação de quem mais precisa</strong>, mobilizando recursos e pessoas para criar lares dignos.\n",
             "title": "1. Disposições Gerais",
             "values_html": "O clube atua com base nos valores de <strong>dignidade, solidariedade,  criação de valor e partilha</strong>.\n"
           },
@@ -79033,6 +79032,7 @@
               "intro": "Os membros do Clube SGG comprometem-se a:",
               "list": {
                 "first": "Respeitar os valores e princípios do clube;",
+                "fourth": "Identificar pessoas ou situações que possam ser alvo da intervenção do clube.",
                 "second": "Contribuir ativamente dentro das suas possibilidades, seja através de referências ou voluntariado;",
                 "third": "Agir com transparência e ética em todas as interações relacionadas com o clube."
               },

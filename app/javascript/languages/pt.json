@@ -243,7 +243,7 @@
                 "first": "<strong>Remodelações e reparações habitacionais</strong> para pessoas carenciadas;",
                 "fourth": "<strong>Desenvolvimento de novas iniciativas e parcerias</strong> que aumentem o impacto do clube.",
                 "second": "<strong>Aquisição de mobília e equipamentos essenciais</strong> para melhorar as condições de vida das pessoas apoiadas;",
-                "third": "<strong>Apoio a aquecimento e conforto térmico</strong> em habitações vulneráveis;"
+                "third": "<strong>Contributo para melhorar as condições necessárias</strong> para transformar uma casa num lar;"
               },
               "title": "3.2. Aplicação dos Fundos"
             },
@@ -256,7 +256,7 @@
           },
           "general": {
             "definition": "Este regulamento define as regras de funcionamento do clube, os direitos  e deveres dos membros e os critérios de apoio às pessoas beneficiárias.\n",
-            "mission_html": "O Clube SGG tem como missão <strong>transformar as condições de habitação de quem mais precisa</strong>, mobilizando recursos e pessoas para criar lares dignos.\n",
+            "mission_html": "O Clube SGG tem como missão <strong>contribuir de forma positiva para melhorar as condições de habitação de quem mais precisa</strong>, mobilizando recursos e pessoas para criar lares dignos.\n",
             "title": "1. Disposições Gerais",
             "values_html": "O clube atua com base nos valores de <strong>dignidade, solidariedade,  criação de valor e partilha</strong>.\n"
           },
@@ -265,6 +265,7 @@
               "intro": "Os membros do Clube SGG comprometem-se a:",
               "list": {
                 "first": "Respeitar os valores e princípios do clube;",
+                "fourth": "Identificar pessoas ou situações que possam ser alvo da intervenção do clube.",
                 "second": "Contribuir ativamente dentro das suas possibilidades, seja através de referências ou voluntariado;",
                 "third": "Agir com transparência e ética em todas as interações relacionadas com o clube."
               },

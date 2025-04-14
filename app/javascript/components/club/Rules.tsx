@@ -119,7 +119,7 @@ export default function Rules() {
                         {i18n.t("club.rules.sections.members.duties.intro")}
                       </p>
                       <ul className="list-disc pl-6 mb-8 space-y-2">
-                        {["first", "second", "third"].map(item => (
+                        {["first", "second", "third", "fourth"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"

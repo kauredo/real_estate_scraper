@@ -17,8 +17,8 @@ en:
     dark_mode: Dark Mode
     light_mode: Light Mode
     club: SGG Club
-    club_rules: Rules
-    club_stories: Stories
+    club_rules: Club Rules
+    club_stories: Club Stories
 
   footer:
     about: about us
@@ -261,7 +261,7 @@ en:
           throughout the country. This vast network allows us to offer our
           customers a superior buying and selling experience.
       principles:
-        title: Princípios KW
+        title: KW Principles
         list:
           - WIN-WIN: Or no deal.
           - INTEGRITY: Do the right thing.
@@ -877,7 +877,7 @@ en:
       text_2: Try searching again or use the Go Back button below.
       button: Go Back
     500:
-      title: The server is down!
+      title: Server is down!
       text_1: We're trying our best to fix it.
       text_2: Please try again in a few minutes.
     email:
@@ -906,7 +906,7 @@ en:
       dignity:
         title: A dignified home should not be a dream but a reality
         description: >
-          Everyone deserves a home where they can live with dignity, safety and
+          Everyone deserves a home where they can live with dignity, safety, and
           comfort. SGG Club was born with the mission of rehabilitating lives by
           improving the housing conditions of those who need it most.
       impact:
@@ -925,20 +925,12 @@ en:
           people and families who need you and your help.
         cta: Start making a difference now.
       partners:
-        title: Social Partners who help us make magic happen
-        subtitle: Together, we create stories that change lives.
+        title: Help us make change happen
+        subtitle: Together, we can create stories that change lives.
         description: >
           SGG Club's mission is only possible thanks to the essential
-          collaboration of our social partners, who bring to life the impact we
-          want to achieve.
-        example_html: >
-          A clear example is <strong>Lucas With Strangers</strong>, recognized
-          for transforming the lives of hundreds of people in vulnerable
-          situations, providing them with improved living conditions and unique,
-          unforgettable experiences.
-        conclusion:
-          It's partners like these that make real the change we envision.
-        cta: Get to know Lucas's work.
+          collaboration of our members and ambassadors, who bring to life the
+          impact we want to achieve.
         dynamic: >
           Not only through the dynamics of real estate referrals that fuel the
           movement, but also by identifying stories and people who need support
@@ -953,6 +945,7 @@ en:
         conclusion_html: >
           <strong>Your referral can change a life. Get in touch and be part of
           this change.</strong>
+        cta: Send WhatsApp
       join:
         title: Take the first step towards improving a life
         subtitle: Become a SGG Club member right now.
@@ -1044,7 +1037,10 @@ en:
                 referrals or volunteering;
               third:
                 Act with transparency and ethics in all club-related
-                interactions.
+                interactions;
+              fourth:
+                Identify people or situations that could benefit from the club's
+                intervention.
           members_or_ambassadors:
             title: 2.4. Distinction between Members and Ambassadors
             members:
@@ -1106,8 +1102,8 @@ en:
                 <strong>Acquisition of essential furniture and
                 equipment</strong> to improve beneficiaries' living conditions;
               third:
-                <strong>Support for heating and thermal comfort</strong> in
-                vulnerable homes;
+                <strong>Contributions to improve necessary conditions</strong>
+                to transform a house into a home;
               fourth:
                 <strong>Development of new initiatives and partnerships</strong>
                 that increase the club's impact.
@@ -1187,7 +1183,7 @@ en:
             and significant.</strong>
     stories:
       title: Stories
-      header: Stories
+      header: Club Stories
       meta_description:
         Inspiring stories and success cases from SGG Club members.
       subheader:
