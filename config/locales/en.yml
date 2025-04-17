@@ -752,6 +752,10 @@ en:
     contact:
       thanks:
         Thank you for your message, we will contact you as soon as possible
+    join:
+      thanks:
+        Thank you for your interest in joining SGG Club. We will contact you
+        soon!
 
   pagination:
     previous: Previous
@@ -1209,6 +1213,19 @@ en:
     recent_stories:
       title: Recent Stories
       description: Discover our latest member stories and experiences
+    form:
+      titles:
+        main: "Fill in the form to join SGG Club:"
+      consent: By contacting us you're allowing Sofia Galvão Group to store your data for club membership purposes.
+      error: Please fill in all required fields correctly
+      fields:
+        name: Name
+        email: Email
+        phone: Phone
+        send: Join Club
+    flash:
+      join:
+        thanks: Thank you for your interest in joining SGG Club. We will contact you soon!
 
   club_stories:
     resource: Story

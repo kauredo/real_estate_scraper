@@ -140,6 +140,24 @@
       "meta_description": "Buy properties in Portugal with real estate consultant Sofia Galvão from Sofia Galvão Group."
     },
     "club": {
+      "flash": {
+        "join": {
+          "thanks": "Thank you for your interest in joining SGG Club. We will contact you soon!"
+        }
+      },
+      "form": {
+        "consent": "By contacting us you're allowing Sofia Galvão Group to store your data for club membership purposes.",
+        "error": "Please fill in all required fields correctly",
+        "fields": {
+          "email": "Email",
+          "name": "Name",
+          "phone": "Phone",
+          "send": "Join Club"
+        },
+        "titles": {
+          "main": "Fill in the form to join SGG Club:"
+        }
+      },
       "home": {
         "contribute": {
           "cta": "Start making a difference now.",
@@ -77988,6 +78006,9 @@
       },
       "contact": {
         "thanks": "Thank you for your message, we will contact you as soon as possible"
+      },
+      "join": {
+        "thanks": "Thank you for your interest in joining SGG Club. We will contact you soon!"
       },
       "newsletters": {
         "confirm": "Subscription is now active, thank you for your trust!",

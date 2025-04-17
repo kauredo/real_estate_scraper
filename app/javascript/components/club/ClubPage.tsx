@@ -7,6 +7,7 @@ import SubNavbar from "../shared/SubNavbar";
 import { clubSections } from "../utils/constants/clubSections";
 import ClubHeader from "./ClubHeader";
 import IconDecorationWrapper from "../shared/IconDecorationWrapper";
+import ClubJoinForm from "./ClubJoinForm";
 
 interface Props {
   recent_stories: ClubStory[];
@@ -209,14 +210,7 @@ export default function ClubPage({ recent_stories }: Props) {
                   {i18n.t("club.home.know_more.whatsapp")}
                 </p>
                 <div className="flex justify-center mt-2">
-                  <a
-                    href="https://wa.me/351932829084"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
-                  >
-                    {i18n.t("club.home.know_more.cta")}
-                  </a>
+                  <ClubJoinForm />
                 </div>
               </div>
             </div>

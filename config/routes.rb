@@ -39,6 +39,12 @@ Rails.application.routes.draw do
     get '/clube-sgg/historias', to: 'club_stories#index', as: :club_stories
     get '/clube-sgg/historias/:id', to: 'club_stories#show', as: :club_story
 
+    resources :club, only: [] do
+      collection do
+        post :join
+      end
+    end
+
     resources :blog_photos, only: %i[create destroy]
     resources :photos, only: [:destroy]
     resources :newsletter_subscriptions, only: %i[create destroy] do

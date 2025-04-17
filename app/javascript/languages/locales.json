@@ -129,6 +129,24 @@
       "meta_description": "Buy properties in Portugal with real estate consultant Sofia Galvão from Sofia Galvão Group."
     },
     "club": {
+      "flash": {
+        "join": {
+          "thanks": "Thank you for your interest in joining SGG Club. We will contact you soon!"
+        }
+      },
+      "form": {
+        "consent": "By contacting us you're allowing Sofia Galvão Group to store your data for club membership purposes.",
+        "error": "Please fill in all required fields correctly",
+        "fields": {
+          "email": "Email",
+          "name": "Name",
+          "phone": "Phone",
+          "send": "Join Club"
+        },
+        "titles": {
+          "main": "Fill in the form to join SGG Club:"
+        }
+      },
       "home": {
         "contribute": {
           "cta": "Start making a difference now.",
@@ -77889,6 +77907,9 @@
       "contact": {
         "thanks": "Thank you for your message, we will contact you as soon as possible"
       },
+      "join": {
+        "thanks": "Thank you for your interest in joining SGG Club. We will contact you soon!"
+      },
       "newsletters": {
         "confirm": "Subscription is now active, thank you for your trust!",
         "error": "Error subscribing to the newsletter, please try again",
@@ -78907,6 +78928,24 @@
       "meta_description": "Comprar propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group."
     },
     "club": {
+      "flash": {
+        "join": {
+          "thanks": "Obrigado pelo seu interesse em juntar-se ao Clube SGG. Entraremos em contacto em breve!"
+        }
+      },
+      "form": {
+        "consent": "Ao contactar-nos está a autorizar o Sofia Galvão Group a guardar os seus dados para fins de adesão ao clube.",
+        "error": "Por favor preencha todos os campos obrigatórios corretamente",
+        "fields": {
+          "email": "Email",
+          "name": "Nome",
+          "phone": "Telefone",
+          "send": "Juntar ao Clube"
+        },
+        "titles": {
+          "main": "Preencha o formulário para se juntar ao Clube SGG:"
+        }
+      },
       "home": {
         "contribute": {
           "cta": "Comece agora a fazer a diferença.",

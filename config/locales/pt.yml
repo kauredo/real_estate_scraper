@@ -1221,6 +1221,23 @@ pt:
     stories_description:
       "Histórias de sucesso e experiências inspiradoras dos nossos membros"
     rules_description: "Conheça os termos e condições de membro do Clube SGG"
+    form:
+      titles:
+        main: "Preencha o formulário para se juntar ao Clube SGG:"
+      consent:
+        Ao contactar-nos está a autorizar o Sofia Galvão Group a guardar os seus
+        dados para fins de adesão ao clube.
+      error: Por favor preencha todos os campos obrigatórios corretamente
+      fields:
+        name: Nome
+        email: Email
+        phone: Telefone
+        send: Juntar ao Clube
+    flash:
+      join:
+        thanks:
+          Obrigado pelo seu interesse em juntar-se ao Clube SGG. Entraremos em
+          contacto em breve!
 
   club_stories:
     resource: História
