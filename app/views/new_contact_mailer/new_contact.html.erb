@@ -1,28 +1,27 @@
-<h1>Novo contacto de
-  <%= @name %></h1>
-<p>
-  <strong>Email:</strong>
-  <%= @email %>
-</p>
-<p>
-  <strong>Telefone:</strong>
-  <%= @phone %>
-</p>
-<% if @listing %>
-  <p>
-    <strong>Imóvel:</strong>
-    <%= link_to @listing.title, listing_url(@listing, locale: '') %>
-  </p>
-<% end %>
-<% if @complex %>
-  <p>
-    <strong>Empreendimento:</strong>
-    <%= link_to @complex.name, listing_complex_url(@complex, locale: '') %>
-  </p>
-<% end %>
-<p>
-  <strong>Mensagem:</strong>
-</p>
-<p>
-  <%= simple_format(@message) %>
-</p>
+<div class="email-title">Novo Contacto Recebido</div>
+<div class="email-info">
+  <p><strong>Nome:</strong> <%= @name %></p>
+  <p><strong>Email:</strong> <%= @email %></p>
+  <p><strong>Telefone:</strong> <%= @phone %></p>
+  
+  <% if @listing %>
+    <p>
+      <strong>Imóvel de Interesse:</strong><br>
+      <%= link_to @listing.title, listing_url(@listing, locale: ''), style: 'color: #d3af79; text-decoration: none;' %>
+    </p>
+  <% end %>
+  
+  <% if @complex %>
+    <p>
+      <strong>Empreendimento de Interesse:</strong><br>
+      <%= link_to @complex.name, listing_complex_url(@complex, locale: ''), style: 'color: #d3af79; text-decoration: none;' %>
+    </p>
+  <% end %>
+</div>
+
+<div style="margin-top: 2rem;">
+  <p><strong>Mensagem:</strong></p>
+  <div style="background: #F8F9FA; padding: 1.5rem; border-radius: 8px;">
+    <%= simple_format(@message) %>
+  </div>
+</div>
