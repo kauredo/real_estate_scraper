@@ -1,18 +1,16 @@
 one:
-  id: 2
-  first_name: hugo
-  last_name: figueiredo
-  email: hugo.central.00@gmail.com
-  phone:
-  confirmed_email:
+  first_name: John
+  last_name: Doe
+  email: john.doe@example.com
+  confirmed_email: true
+  phone: "+351912345678"
 
 two:
-  id: 1
-  first_name: Vasco
-  last_name: Figueiredo
-  email: vasco.kf@gmail.com
-  phone:
-  confirmed_email: true
+  first_name: Jane
+  last_name: Smith
+  email: jane.smith@example.com
+  confirmed_email: false
+  phone: "+351923456789"
 
 three:
   id: 3

@@ -29,7 +29,7 @@ class NewContactMailerTest < ActionMailer::TestCase
       email: 'johndoe@example.com',
       phone: '123-456-7890',
       message: 'Hello, I am interested in your listing',
-      listing: '107',
+      listing: listings(:one).slug,
       complex: nil
     }
     mail = NewContactMailer.with(contact:).new_contact
@@ -50,7 +50,7 @@ class NewContactMailerTest < ActionMailer::TestCase
       phone: '123-456-7890',
       message: 'Hello, I am interested in your complex',
       listing: nil,
-      complex: '3'
+      complex: listing_complexes(:one).slug
     }
     mail = NewContactMailer.with(contact:).new_contact
 

@@ -1,10 +1,8 @@
 one:
-  id: 1
-  user_id: 1
+  user: one
 
 two:
-  id: 2
-  user_id: 2
+  user: two
 
 three:
   id: 3
