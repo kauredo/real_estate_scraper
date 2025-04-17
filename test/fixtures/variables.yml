@@ -1,14 +1,18 @@
 one:
-  id: 19
-  name: Negócios 2022
-  value: "15000000"
-  icon: fas fa-hand-holding-usd
+  id: 1
+  name: "Sales 2023"
+  value: "20000000"
+  icon: "fas fa-chart-line"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 two:
-  id: 23
-  name: "Top 7 nacional "
-  value: KW_Acumulado 2022
-  icon: fas fa-medal
+  id: 2
+  name: "Awards 2023"
+  value: "Platinum"
+  icon: "fas fa-trophy"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 three:
   id: 18

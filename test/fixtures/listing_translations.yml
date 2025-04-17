@@ -1,4 +1,4 @@
-one:
+one:  # English translation for listing one
   id: 1
   title: "Luxury T3 in Cascais"
   description: "A luxurious 3-bedroom apartment in the heart of Cascais"
@@ -16,9 +16,27 @@ one:
   slug: luxury-t3-cascais
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
-  deleted_at:
 
-two:
+pt_one:  # Portuguese translation for listing one
+  id: 3
+  title: "T3 de Luxo em Cascais"
+  description: "Um apartamento luxuoso de 3 quartos no coração de Cascais"
+  features:
+    - Garagem
+    - Parqueamento
+    - Terraço
+    - Video Porteiro
+    - Rés do chão
+    - Cozinha Equipada
+    - Ar Condicionado
+    - Elevador
+  locale: pt
+  listing_id: 1
+  slug: t3-de-luxo-em-cascais
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:  # English translation for listing two
   id: 2
   title: "Modern T2 in Lisbon"
   description: "A modern 2-bedroom apartment in Campolide, Lisbon"
@@ -37,7 +55,26 @@ two:
   slug: modern-t2-lisbon
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
-  deleted_at:
+
+pt_two:  # Portuguese translation for listing two
+  id: 4
+  title: "T2 Moderno em Lisboa"
+  description: "Um apartamento moderno T2 em Campolide, Lisboa"
+  features:
+    - Box Dupla
+    - Box Individual
+    - Terraço
+    - Video Porteiro
+    - Rés do chão
+    - Cozinha Equipada
+    - Ar Condicionado
+    - Elevador
+    - Vista cidade
+  locale: pt
+  listing_id: 2
+  slug: t2-moderno-em-lisboa
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 # == Schema Information
 #

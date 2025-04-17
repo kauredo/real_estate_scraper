@@ -1,0 +1,17 @@
+one:
+  id: 1
+  image: "complex_image_1.jpg"
+  main: true
+  order: 1
+  listing_complex_id: 1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  id: 2
+  image: "complex_image_2.jpg"
+  main: false
+  order: 2
+  listing_complex_id: 1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>

@@ -1,0 +1,12 @@
+one:
+  id: 1
+  title: "Club Story Title"
+  text: "Club story content"
+  hidden: false
+  meta_title: "Club Story Meta Title"
+  meta_description: "Club story meta description"
+  small_description: "Brief overview of club story"
+  video_link: "https://youtube.com/example"
+  slug: club-story-title
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>

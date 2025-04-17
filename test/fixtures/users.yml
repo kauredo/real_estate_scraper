@@ -1,16 +1,22 @@
 one:
+  id: 1
   first_name: John
   last_name: Doe
   email: john.doe@example.com
   confirmed_email: true
   phone: "+351912345678"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 two:
+  id: 2
   first_name: Jane
   last_name: Smith
   email: jane.smith@example.com
   confirmed_email: false
   phone: "+351923456789"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 three:
   id: 3

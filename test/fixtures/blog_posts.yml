@@ -1,11 +1,15 @@
 one:
   id: 1
-  title:
-  text:
+  title: "Real Estate Market Trends"
+  text: "Current market analysis..."
   hidden: false
-  meta_title: ""
-  meta_description: ""
-  slug:
+  meta_title: "2023 Market Trends"
+  meta_description: "Analysis of current real estate market trends"
+  small_description: "A comprehensive look at market trends"
+  video_link: "https://youtube.com/example"
+  slug: real-estate-market-trends
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 # == Schema Information
 #
