@@ -1,3 +1,3 @@
 class FeatureGate < ActiveRecord::Base
-  include Flipper::Adapters::ActiveRecord::Models::FlipperGate
+  include Flipper::Model::Gate
 end

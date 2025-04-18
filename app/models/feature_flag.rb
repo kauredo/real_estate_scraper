@@ -1,3 +1,3 @@
 class FeatureFlag < ActiveRecord::Base
-  include Flipper::Adapters::ActiveRecord::Models::FlipperFeature
+  include Flipper::Model::Feature
 end
