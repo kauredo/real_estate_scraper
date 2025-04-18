@@ -5,7 +5,6 @@ module Backoffice
     def home
       @variables = Variable.all
       @subs = NewsletterSubscription.includes(:user).where(user: { confirmed_email: true })
-      @partners = Partner.all
     end
   end
 end

@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <!-- Newsletter & Partners Section -->
+      <!-- Newsletter Section -->
       <div class="space-y-6">
         <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
           <h2 class="text-2xl font-bold mb-4 text-dark dark:text-light">Subscrições Newsletter</h2>
@@ -46,24 +46,6 @@
                 <li class="py-2 px-3 bg-gray-50 dark:bg-gray-800 rounded">
                   <span class="font-medium"><%= sub.user.name %></span>
                   <span class="text-gray-500 dark:text-gray-400"><%= sub.user.email %></span>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-
-        <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
-          <div class="flex justify-between items-center mb-4">
-            <h2 class="text-2xl font-bold text-dark dark:text-light">Parceiros Sociais</h2>
-            <p>
-              <%= link_to 'Gerir Parceiros', backoffice_partners_path, class: 'inline-block bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded' %>
-            </p>
-          </div>
-          <div class="mb-4">
-            <ul class="space-y-2 mb-6">
-              <% @partners.each do |partner| %>
-                <li class="py-2 bg-gray-50 dark:bg-gray-800 rounded">
-                  <span class="font-medium"><%= partner.name %></span>
                 </li>
               <% end %>
             </ul>
