@@ -90,7 +90,7 @@ export default function ClubPage({ recent_stories }: Props) {
                 </div>
                 <div className="order-first lg:order-last">
                   <img
-                    src="/images/banner.webp"
+                    src="/images/together.webp"
                     // src="/images/contribute.webp"
                     alt="Contribute"
                     className="w-full h-[400px] object-cover rounded-lg"
