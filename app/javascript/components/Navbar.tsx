@@ -12,10 +12,11 @@ const DropdownLink = lazy(() => import("./shared/DropdownLink"));
 interface Props {
   backoffice?: boolean;
   admin?: boolean;
+  club_enabled?: boolean;
 }
 
 export default function Navbar(props: Props) {
-  const { backoffice, admin } = props;
+  const { backoffice, admin, club_enabled } = props;
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -56,11 +57,15 @@ export default function Navbar(props: Props) {
       turbo: "true",
       url: sanitizeURL(window.Routes.latest_path),
     },
-    {
-      title: `${i18n.t("navbar.club")}`,
-      url: sanitizeURL(window.Routes.club_path),
-      turbo: "true",
-    },
+    ...(club_enabled
+      ? [
+          {
+            title: `${i18n.t("navbar.club")}`,
+            url: sanitizeURL(window.Routes.club_path),
+            turbo: "true",
+          },
+        ]
+      : []),
     {
       title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
