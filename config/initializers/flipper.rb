@@ -1,9 +1,10 @@
 require 'flipper'
 require 'flipper/adapters/active_record'
 
-Flipper.configure do |config|
-  config.default { Flipper.new(Flipper::Adapters::ActiveRecord.new) }
+Rails.application.config.after_initialize do
+  if ActiveRecord::Base.connection.table_exists?('flipper_features')
+    Flipper.configure do |config|
+      config.default { Flipper.new(Flipper::Adapters::ActiveRecord.new) }
+    end
+  end
 end
-
-# Ensure club_enabled flag exists (will not overwrite if exists)
-Flipper.add(:club_enabled)
