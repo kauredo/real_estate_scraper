@@ -80,6 +80,9 @@ gem 'tinymce-rails'
 gem 'watir'
 
 gem 'execjs'
+gem 'flipper'
+gem 'flipper-active_record'
+gem 'flipper-ui'
 
 # Tests / Scrape
 gem 'selenium-webdriver'

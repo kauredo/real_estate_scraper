@@ -113,6 +113,10 @@ export default function Navbar(props: Props) {
       routeName: "backoffice_club_stories_path",
       title: i18n.t("navbar.club_stories"),
     },
+    {
+      routeName: "backoffice_flipper_path",
+      title: i18n.t("navbar.flipper"),
+    },
   ];
 
   const middleItems = items;

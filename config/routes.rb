@@ -34,14 +34,16 @@ Rails.application.routes.draw do
     post '/tinymce_assets' => 'blog_photos#create'
 
     # Club SGG routes
-    get '/clube-sgg', to: 'club#index', as: :club
-    get '/clube-sgg/regulamento', to: 'club#rules', as: :club_rules
-    get '/clube-sgg/historias', to: 'club_stories#index', as: :club_stories
-    get '/clube-sgg/historias/:id', to: 'club_stories#show', as: :club_story
+    constraints ->(_) { Flipper.enabled?(:club_enabled) } do
+      get '/clube-sgg', to: 'club#index', as: :club
+      get '/clube-sgg/regulamento', to: 'club#rules', as: :club_rules
+      get '/clube-sgg/historias', to: 'club_stories#index', as: :club_stories
+      get '/clube-sgg/historias/:id', to: 'club_stories#show', as: :club_story
 
-    resources :club, only: [] do
-      collection do
-        post :join
+      resources :club, only: [] do
+        collection do
+          post :join
+        end
       end
     end
 
@@ -60,6 +62,7 @@ Rails.application.routes.draw do
     get '/sobre', to: redirect('/kw')
 
     namespace :backoffice do
+      mount Flipper::UI.app(Flipper) => '/features', as: :flipper
       get '/', to: 'pages#home'
       resources :variables, only: %i[create update destroy]
       resources :blog_posts
