@@ -1,4 +1,4 @@
-one:  # English translation for listing one
+one: # English translation for listing one
   id: 1
   title: "Luxury T3 in Cascais"
   description: "A luxurious 3-bedroom apartment in the heart of Cascais"
@@ -12,12 +12,12 @@ one:  # English translation for listing one
     - Air Conditioning
     - Elevator
   locale: en
-  listing_id: 1
+  listing_id: 1 # references listings(:one)
   slug: luxury-t3-cascais
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
 
-pt_one:  # Portuguese translation for listing one
+pt_one: # Portuguese translation for listing one
   id: 3
   title: "T3 de Luxo em Cascais"
   description: "Um apartamento luxuoso de 3 quartos no coração de Cascais"
@@ -31,12 +31,12 @@ pt_one:  # Portuguese translation for listing one
     - Ar Condicionado
     - Elevador
   locale: pt
-  listing_id: 1
+  listing_id: 1 # references listings(:one)
   slug: t3-de-luxo-em-cascais
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
 
-two:  # English translation for listing two
+two: # English translation for listing two
   id: 2
   title: "Modern T2 in Lisbon"
   description: "A modern 2-bedroom apartment in Campolide, Lisbon"
@@ -51,12 +51,12 @@ two:  # English translation for listing two
     - Elevator
     - City View
   locale: en
-  listing_id: 2
+  listing_id: 2 # references listings(:two)
   slug: modern-t2-lisbon
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
 
-pt_two:  # Portuguese translation for listing two
+pt_two: # Portuguese translation for listing two
   id: 4
   title: "T2 Moderno em Lisboa"
   description: "Um apartamento moderno T2 em Campolide, Lisboa"
@@ -71,11 +71,10 @@ pt_two:  # Portuguese translation for listing two
     - Elevador
     - Vista cidade
   locale: pt
-  listing_id: 2
+  listing_id: 2 # references listings(:two)
   slug: t2-moderno-em-lisboa
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
-
 # == Schema Information
 #
 # Table name: listing_translations

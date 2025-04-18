@@ -1,25 +1,14 @@
 one:
-  user: one
+  id: 1
+  user_id: 1 # references users(:one)
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 two:
-  user: two
-
-three:
-  id: 3
-  user_id: 3
-
-four:
-  id: 4
-  user_id: 4
-
-five:
-  id: 7
-  user_id: 7
-
-six:
-  id: 10
-  user_id: 10
-
+  id: 2
+  user_id: 2 # references users(:two)
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 # == Schema Information
 #
 # Table name: newsletter_subscriptions

@@ -6,8 +6,8 @@ class NewClubJoinMailerTest < ActionMailer::TestCase
   test 'new_join_request email' do
     params = {
       name: 'John Doe',
-      email: 'johndoe@example.com',
-      phone: '351932829084'
+      email: 'john.doe@example.com',
+      phone: '+351912345678'
     }
     mail = NewClubJoinMailer.with(params).new_join_request
 
@@ -18,6 +18,6 @@ class NewClubJoinMailerTest < ActionMailer::TestCase
     assert_equal [ENV['GMAIL_EMAIL']], mail.to
     assert_equal 'Nova Inscrição Clube SGG - John Doe', mail.subject
     assert_match 'John Doe', mail.body.encoded
-    assert_match '351932829084', mail.body.encoded
+    assert_match '+351912345678', mail.body.encoded
   end
 end
