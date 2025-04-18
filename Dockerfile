@@ -125,9 +125,10 @@ RUN bundle exec bootsnap precompile app/ lib/
 # Adjust binfiles to set current working directory
 RUN grep -l '#!/usr/bin/env ruby' /rails/bin/* | xargs sed -i '/^#!/aDir.chdir File.expand_path("..", __dir__)'
 
-# Precompiling assets for production without requiring secret RAILS_MASTER_KEY or database
-RUN SECRET_KEY_BASE=DUMMY RAILS_GROUPS=assets ./bin/rails assets:precompile
-
+# Build CSS and JavaScript assets
+RUN yarn build:css && \
+    yarn build:postcss && \
+    yarn build
 
 # Final stage for app image
 FROM base
