@@ -14,7 +14,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 # Skip database connection when precompiling assets
-if ENV['RAILS_GROUPS'] == 'assets'
-  Rails.application.config.middleware.delete(ActiveRecord::Migration::CheckPending)
-  ActiveRecord::Base.establish_connection = proc {}
-end
+Rails.application.config.middleware.delete(ActiveRecord::Migration::CheckPending) if ENV['RAILS_GROUPS'] == 'assets'
