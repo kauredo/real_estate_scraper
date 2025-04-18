@@ -13,72 +13,101 @@
   <% end %>
 </div>
 
-<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-  <%= f.label :title, class: 'w-1/4 font-bold' %>
-  <%= f.text_field :title, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-</div>
-
-<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-  <%= f.label :small_description, class: 'w-1/4 font-bold' %>
-  <%= f.text_area :small_description, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-</div>
-
-<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-  <%= f.label :hidden, class: 'w-1/4 font-bold' %>
-  <div class="w-full">
-    <%= f.check_box :hidden %>
+<div class="mb-8">
+  <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
+    <%= t('backoffice.common.seo_section') %>
+  </h2>
+  <span class="mb-2 block text-sm text-gray-600 dark:text-gray-400">
+    <%= t('backoffice.common.seo_title_hint') %>
+  </span>
+  <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+    <%= f.label :meta_title, class: 'w-1/4 font-bold' %>
+    <%= f.text_field :meta_title, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  </div>
+  <span class="mb-2 block text-sm text-gray-600 dark:text-gray-400">
+    <%= t('backoffice.common.seo_description_hint') %>
+  </span>
+  <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+    <%= f.label :meta_description, class: 'w-1/4 font-bold' %>
+    <%= f.text_area :meta_description, rows: 6, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
 </div>
 
-<div class="field mb-4 flex flex-col sm:items-center gap-1 sm:gap-4">
-  <%= f.text_area :text, class: 'tinymce shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-  <%= tinymce %>
+<div class="mb-8">
+  <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
+    <%= t('backoffice.common.content_section') %>
+  </h2>
+  <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+    <%= f.label :title, class: 'w-1/4 font-bold' %>
+    <%= f.text_field :title, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  </div>
+
+  <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+    <%= f.label :small_description, class: 'w-1/4 font-bold' %>
+    <%= f.text_area :small_description, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  </div>
+
+  <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+    <%= f.label :hidden, class: 'w-1/4 font-bold' %>
+    <div class="w-full">
+      <%= f.check_box :hidden %>
+      <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">
+        <%= t('backoffice.common.hidden_hint') %>
+      </span>
+    </div>
+  </div>
+
+  <div class="field mb-4 flex flex-col sm:items-center gap-1 sm:gap-4">
+    <%= f.text_area :text, class: 'tinymce shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+    <%= tinymce %>
+  </div>
+
+  <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+    <%= f.label :video_link, class: 'w-1/4 font-bold' %>
+    <%= f.text_field :video_link, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  </div>
 </div>
 
-<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-  <%= f.label :video_link, class: 'w-1/4 font-bold' %>
-  <%= f.text_field :video_link, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-</div>
-
-<div class="field mb-4">
-  <div class="font-bold mb-2"><%= t('backoffice.common.photos') %></div>
-  <%= file_field_tag 'club_story_photos[image][]', multiple: true, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-</div>
-
-<% if @club_story.club_story_photos.present? %>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-4">
-    <% @club_story.club_story_photos.each do |photo| %>
-      <div class="relative">
-        <%= image_tag photo.image.url, class: 'w-full h-48 object-cover rounded' %>
-        <div class="absolute top-2 right-2 flex gap-2">
-          <div class="bg-white rounded p-2">
-            <%= check_box_tag "club_story_photos[#{photo.id}][main]", '1', photo.main %>
-            <%= label_tag "club_story_photos[#{photo.id}][main]", t('backoffice.common.main_photo') %>
-          </div>
-          <%= link_to club_story_photo_path(photo),
-            method: :delete,
-            class: 'bg-red-500 text-white rounded p-2',
-            data: { "turbo-method": :delete, confirm: t('backoffice.common.delete_confirm') } do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
-        </div>
+<div class="mb-8">
+  <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
+    <%= t('backoffice.common.media_section') %>
+  </h2>
+  <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+    <%= f.label :club_story_photos, t('backoffice.common.photos'), class: 'w-1/4 font-bold' %>
+    <%= f.fields_for :club_story_photos do |p| %>
+      <div class="field w-full">
+        <%= p.label :image %><br>
+        <%= p.file_field :image, multiple: true, name: 'club_story_photos[image][]', class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
   </div>
-<% end %>
 
-<hr>
-
-<p class="text-xl font-bold py-2"><%= t('backoffice.common.seo_section') %></p>
-<span class="mb-2 sm:mb-1"><%= t('backoffice.common.seo_title_hint') %></span>
-<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-  <%= f.label :meta_title, class: 'w-1/4 font-bold' %>
-  <%= f.text_field :meta_title, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
-</div>
-<span class="mb-2 sm:mb-1"><%= t('backoffice.common.seo_description_hint') %></span>
-<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-  <%= f.label :meta_description, class: 'w-1/4 font-bold' %>
-  <%= f.text_area :meta_description, rows: 6, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  <% if @club_story.club_story_photos.present? %>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-8">
+      <% @club_story.club_story_photos.each do |photo| %>
+        <div class="relative bg-white dark:bg-gray-800 rounded-lg shadow-md p-2">
+          <%= cl_image_tag(photo.image, class: 'w-full h-48 object-cover rounded-lg mb-2') %>
+          <div class="flex items-center justify-between px-2">
+            <div class="flex items-center gap-2">
+              <%= fields_for 'club_story_photos[]', photo do |f| %>
+                <div class="flex items-center gap-2">
+                  <%= f.check_box :main, class: 'form-checkbox h-4 w-4 text-beige-default' %>
+                  <%= f.label :main, t('backoffice.common.main_photo'), class: 'text-sm font-medium' %>
+                </div>
+              <% end %>
+            </div>
+            <%= link_to club_story_photo_path(photo),
+              method: :delete,
+              class: 'text-red-500 hover:text-red-700 transition-colors',
+              data: { "turbo-method": :delete },
+              onclick: "return confirm('#{t('backoffice.common.delete_photo_confirm')}');" do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <div class="flex sm:items-center gap-2">

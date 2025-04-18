@@ -1216,7 +1216,9 @@ en:
     form:
       titles:
         main: "Fill in the form to join SGG Club:"
-      consent: By contacting us you're allowing Sofia Galvão Group to store your data for club membership purposes.
+      consent:
+        By contacting us you're allowing Sofia Galvão Group to store your data
+        for club membership purposes.
       error: Please fill in all required fields correctly
       fields:
         name: Name
@@ -1225,7 +1227,9 @@ en:
         send: Join Club
     flash:
       join:
-        thanks: Thank you for your interest in joining SGG Club. We will contact you soon!
+        thanks:
+          Thank you for your interest in joining SGG Club. We will contact you
+          soon!
 
   club_stories:
     resource: Story
@@ -1245,6 +1249,9 @@ en:
       main_photo: Main photo?
       delete_photo_confirm: Are you sure you want to delete this photo?
       confirm_delete: Are you sure you want to delete this item?
+      hidden_hint:
+        The content will only be visible on the site if this option is NOT
+        checked (only visible in backoffice)
     blog_posts:
       view_post: View Post
     club_stories:

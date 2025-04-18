@@ -1257,6 +1257,9 @@ pt:
       main_photo: Foto principal?
       delete_photo_confirm: Tem certeza que deseja apagar esta foto?
       confirm_delete: Tem certeza que deseja apagar este item?
+      hidden_hint:
+        O conteúdo só será visível no site se esta opção NÃO estiver selecionada
+        (apenas visível no backoffice)
     blog_posts:
       view_post: Ver Post
     club_stories:

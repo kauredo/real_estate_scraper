@@ -38,7 +38,7 @@ module Backoffice
         create_club_story_photos if params[:club_story_photos] && params[:club_story_photos][:image]&.any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
         update_club_story_photos if params[:club_story_photos].present? && params[:club_story_photos][:image].none? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
 
-        flash[:notice] = 'História atualizada'
+        flash[:notice] = 'História atualizada' if flash[:error].nil?
         redirect_to edit_backoffice_club_story_path(@club_story)
       else
         render :edit
