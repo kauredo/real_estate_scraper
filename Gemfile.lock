@@ -136,9 +136,6 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
-    data_migrate (11.0.0)
-      activerecord (>= 6.1)
-      railties (>= 6.1)
     date (3.4.1)
     debug (1.10.0)
       irb (~> 1.10)
@@ -495,7 +492,6 @@ DEPENDENCIES
   carrierwave (~> 3.0)
   cloudinary (~> 1.28)
   cssbundling-rails
-  data_migrate
   debug
   devise
   dockerfile-rails (>= 1.2)
