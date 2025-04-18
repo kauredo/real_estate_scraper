@@ -76,10 +76,10 @@ export default function ClubPage({ recent_stories }: Props) {
                   <p className="text-xl font-semibold mb-4 text-dark dark:text-light">
                     {i18n.t("club.home.contribute.subtitle")}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
                     {i18n.t("club.home.contribute.description")}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-8">
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
                     {i18n.t("club.home.contribute.value_description")}
                   </p>
                   <p className="text-xl font-bold text-beige-default dark:text-beige-medium underline">
@@ -101,41 +101,34 @@ export default function ClubPage({ recent_stories }: Props) {
 
               <div
                 id="partners"
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8"
               >
                 <div className="order-first lg:order-first">
-                  <img
-                    src="/images/banner.webp"
-                    // src="/images/partners.webp"
-                    alt="Partners"
-                    className="w-full h-[400px] object-cover rounded-lg"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
                   <h2 className="text-2xl font-bold mb-6">
                     {i18n.t("club.home.partners.title")}
                   </h2>
                   <p className="text-xl font-semibold mb-4">
                     {i18n.t("club.home.partners.subtitle")}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
                     {i18n.t("club.home.partners.description")}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-8">
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
                     {i18n.t("club.home.partners.dynamic")}
                   </p>
+                </div>
+                <div>
                   <h2 className="text-2xl font-bold mb-6">
                     {i18n.t("club.home.partners.second_title")}
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-8">
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
                     {i18n.t("club.home.partners.situations")}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-8">
+                  <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
                     {i18n.t("club.home.partners.someone")}
                   </p>
                   <p
-                    className="text-gray-600 dark:text-gray-300 mb-4"
+                    className="text-lg text-gray-600 dark:text-gray-300 mb-8"
                     dangerouslySetInnerHTML={{
                       __html: i18n.t("club.home.partners.conclusion_html"),
                     }}
