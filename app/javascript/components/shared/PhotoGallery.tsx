@@ -34,15 +34,48 @@ export default function PhotoGallery({ photos }: Props) {
     );
   };
 
+  const getGridLayout = () => {
+    switch (photos.length) {
+      case 1:
+        return "flex justify-center";
+      case 2:
+        return "grid grid-cols-2";
+      case 3:
+        return "grid grid-cols-3";
+      case 4:
+        return "grid grid-cols-2";
+      default:
+        return "grid grid-cols-3";
+    }
+  };
+
+  const getImageClass = (index: number) => {
+    switch (photos.length) {
+      case 1:
+        return "max-w-3xl w-full h-[500px]";
+      case 2:
+        return "w-full h-[400px]";
+      case 3:
+        return "w-full h-[300px]";
+      case 4:
+        return `w-full ${index < 2 ? "h-[400px]" : "h-[300px]"}`;
+      default:
+        return `w-full ${index < 3 ? "h-[350px]" : "h-[250px]"}`;
+    }
+  };
+
   return (
     <div className="mb-8">
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div className={`gap-4 ${getGridLayout()}`}>
         {photos.map((photo, index) => (
           <img
             key={index}
             src={photo}
             alt=""
-            className="w-full h-64 object-cover cursor-pointer rounded"
+            className={`
+              rounded cursor-pointer object-cover
+              ${getImageClass(index)}
+            `}
             onClick={() => openLightbox(index)}
           />
         ))}

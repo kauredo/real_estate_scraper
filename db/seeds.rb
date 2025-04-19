@@ -88,7 +88,7 @@ puts "\n#{Time.current} - Creating listing complexes..."
   print "✓ "
 
   print "Adding photos: "
-  5.times do |j|
+  rand(3..8).times do |j|
     Photo.create!(
       listing_complex: complex,
       image: download_image("#{complex.id}#{j}", j),
@@ -228,7 +228,7 @@ puts "\n#{Time.current} - Creating club stories..."
   puts "✓"
 
   print "    Photos: "
-  3.times do |j|
+  rand(1..5).times do |j|
     image = download_image("story_#{story.id}_#{i}", j)
     if image
       ClubStoryPhoto.create!(
@@ -277,7 +277,7 @@ puts "\n#{Time.current} - Creating blog posts..."
   puts "✓"
 
   print "    Photos: "
-  4.times do |j|
+  rand(1..6).times do |j|
     image = download_image("blog_#{blog_post.id}_#{i}", j)
     if image
       BlogPhoto.create!(

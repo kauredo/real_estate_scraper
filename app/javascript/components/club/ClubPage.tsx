@@ -35,6 +35,9 @@ export default function ClubPage({ recent_stories }: Props) {
               {/* Recent Stories Section */}
               {recent_stories && recent_stories.length > 0 && (
                 <section className="w-full py-12">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-8 text-dark dark:text-light">
+                    {i18n.t("club.home.impact.subtitle")}
+                  </h2>
                   {recent_stories.length === 1 && (
                     <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
                       {recent_stories.map(story => (
