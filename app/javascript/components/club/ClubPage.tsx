@@ -192,6 +192,7 @@ export default function ClubPage({ recent_stories }: Props) {
                 </div>
               </IconDecorationWrapper>
 
+              {/* Know More Section */}
               <div id="grow" className="bg-white/25 dark:bg-dark/25 rounded-lg">
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 text-dark dark:text-light">
                   {i18n.t("club.home.know_more.help_title")}
@@ -205,9 +206,19 @@ export default function ClubPage({ recent_stories }: Props) {
                 <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
                   {i18n.t("club.home.know_more.whatsapp")}
                 </p>
-                <div className="flex justify-center mt-2">
+                <p>
+                  <a
+                    href="https://wa.me/351932829084"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
+                  >
+                    {i18n.t("club.home.know_more.cta")}
+                  </a>
+                </p>
+                {/* <div className="flex justify-center mt-2">
                   <ClubJoinForm />
-                </div>
+                </div> */}
               </div>
             </div>
           </section>
