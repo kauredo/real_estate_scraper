@@ -1,0 +1,36 @@
+one:
+  id: 1
+  image: "complex_image_1.jpg"
+  main: true
+  order: 1
+  listing_complex_id: 1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  id: 2
+  image: "complex_image_2.jpg"
+  main: false
+  order: 2
+  listing_complex_id: 1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+# == Schema Information
+#
+# Table name: photos
+#
+#  id                 :bigint           not null, primary key
+#  image              :text
+#  main               :boolean          default(FALSE)
+#  order              :integer
+#  original_url       :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  listing_complex_id :bigint
+#
+# Indexes
+#
+#  index_photos_on_listing_complex_id  (listing_complex_id)
+#  index_photos_on_original_url        (original_url) UNIQUE WHERE (original_url IS NOT NULL)
+#

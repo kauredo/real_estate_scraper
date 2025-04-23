@@ -98,6 +98,12 @@ export interface NavbarItemProps {
   method?: string;
 }
 
+export interface SubNavItem {
+  routeName: string;
+  title: string;
+  description?: string;
+}
+
 export interface StatsFilter {
   Quartos: string;
   Casas_de_Banho: string;
@@ -105,4 +111,28 @@ export interface StatsFilter {
   Area_util: string;
   Area_bruta_CP: string;
   Ano_de_construção: string;
+}
+
+export interface ClubStory {
+  id: number;
+  title: string;
+  small_description: string;
+  text: string;
+  slug: string;
+  main_photo?: string;
+  sample_text: string;
+  meta_title?: string;
+  meta_description?: string;
+  created_at: string;
+  updated_at: string;
+  video_link?: string;
+  club_story_photos?: ClubStoryPhoto[];
+}
+
+export interface ClubStoryPhoto {
+  id: number;
+  image: {
+    url: string;
+  };
+  main: boolean;
 }

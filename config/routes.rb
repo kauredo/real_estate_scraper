@@ -32,6 +32,21 @@ Rails.application.routes.draw do
     get '/blog/:id', to: 'blog_posts#show', as: :blog_post
     get '/vender', to: 'listings#sell', as: :sell
     post '/tinymce_assets' => 'blog_photos#create'
+
+    # Club SGG routes
+    constraints ->(_) { Flipper.enabled?(:club_enabled) } do
+      get '/clube-sgg', to: 'club#index', as: :club
+      get '/clube-sgg/regulamento', to: 'club#rules', as: :club_rules
+      get '/clube-sgg/historias', to: 'club_stories#index', as: :club_stories
+      get '/clube-sgg/historias/:id', to: 'club_stories#show', as: :club_story
+
+      resources :club, only: [] do
+        collection do
+          post :join
+        end
+      end
+    end
+
     resources :blog_photos, only: %i[create destroy]
     resources :photos, only: [:destroy]
     resources :newsletter_subscriptions, only: %i[create destroy] do
@@ -40,14 +55,18 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :club_story_photos, only: %i[create destroy]
+
     # redirect from /about to /kw
     get '/about', to: redirect('/kw')
     get '/sobre', to: redirect('/kw')
 
     namespace :backoffice do
+      mount Flipper::UI.app(Flipper) => '/features', as: :flipper
       get '/', to: 'pages#home'
       resources :variables, only: %i[create update destroy]
       resources :blog_posts
+      resources :club_stories
       resources :listings, only: %i[index create edit update destroy] do
         member do
           post :update_details
@@ -71,7 +90,7 @@ Rails.application.routes.draw do
       resources :testimonials
     end
 
-    resources :errors, only: 'show' if [Rails.env.development? || Rails.env.test?]
+    resources :errors, only: 'show' if Rails.env.development? || Rails.env.test?
   end
 
   authenticate :admin, ->(a) { a.confirmed? } do

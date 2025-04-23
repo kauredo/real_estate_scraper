@@ -1,15 +1,30 @@
 <div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
-  <%# Variáveis %>
   <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
     <div class="mb-6">
-      <%= link_to 'Novo Post', new_backoffice_blog_post_path, class: 'bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
+      <%= link_to 'Novo Post', new_backoffice_blog_post_path, class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
     </div>
-    <h1 class="text-2xl font-bold leading-7 text-dark dark:text-light  text-center sm:text-3xl"><%= I18n.t('blog_posts.header') %></h1>
+    <h1 class="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl"><%= I18n.t('blog_posts.header') %></h1>
     <p class="text-center text-gray-600 max-w-none">Total <%= @blog_posts.count %> posts</p>
     <br>
-    <div class="flex flex-wrap gap-4">
-      <% @blog_posts.each do |blog_post| %>
-        <%= render 'blog_post', blog_post: %>
+    <div class="w-full max-w-7xl mx-auto">
+      <% if @blog_posts.present? %>
+        <% if @blog_posts.length == 1 %>
+          <div class="grid grid-cols-1 gap-8 max-w-md mx-auto">
+            <%= render 'blog_post', blog_post: @blog_posts.first %>
+          </div>
+        <% elsif @blog_posts.length == 2 %>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <% @blog_posts.each do |blog_post| %>
+              <%= render 'blog_post', blog_post: %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% @blog_posts.each do |blog_post| %>
+              <%= render 'blog_post', blog_post: %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

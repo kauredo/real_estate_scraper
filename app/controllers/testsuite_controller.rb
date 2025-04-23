@@ -5,5 +5,6 @@ class TestsuiteController < ApplicationController
     @listings = Listing.all
     @blog_posts = BlogPost.visible
     @listing_complexes = ListingComplex.all
+    @club_stories = ClubStory.visible.order(updated_at: :desc)
   end
 end

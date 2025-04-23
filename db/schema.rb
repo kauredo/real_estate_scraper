@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_02_06_112935) do
+ActiveRecord::Schema[7.1].define(version: 2025_04_18_153443) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_06_112935) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "slug"
+    t.text "small_description"
     t.index ["blog_post_id", "locale"], name: "index_blog_post_translations_on_blog_post_id_and_locale", unique: true
     t.index ["locale"], name: "index_blog_post_translations_on_locale"
   end
@@ -60,10 +61,63 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_06_112935) do
     t.text "meta_description"
     t.string "slug"
     t.string "video_link"
+    t.text "small_description"
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
   end
 
+  create_table "club_stories", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.boolean "hidden"
+    t.text "meta_title"
+    t.text "meta_description"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "video_link"
+    t.text "small_description"
+    t.index ["slug"], name: "index_club_stories_on_slug", unique: true
+  end
+
+  create_table "club_story_photos", force: :cascade do |t|
+    t.text "image"
+    t.boolean "main", default: false
+    t.bigint "club_story_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_story_id"], name: "index_club_story_photos_on_club_story_id"
+  end
+
+  create_table "club_story_translations", force: :cascade do |t|
+    t.text "title"
+    t.text "text"
+    t.text "slug"
+    t.string "locale", null: false
+    t.bigint "club_story_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "small_description"
+    t.index ["club_story_id", "locale"], name: "index_club_story_translations_on_club_story_id_and_locale", unique: true
+    t.index ["locale"], name: "index_club_story_translations_on_locale"
+  end
+
   create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
+  create_table "flipper_features", force: :cascade do |t|
+    t.string "key", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_flipper_features_on_key", unique: true
+  end
+
+  create_table "flipper_gates", force: :cascade do |t|
+    t.string "feature_key", null: false
+    t.string "key", null: false
+    t.text "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feature_key", "key", "value"], name: "index_flipper_gates_on_feature_key_and_key_and_value", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -328,6 +382,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_06_112935) do
   end
 
   add_foreign_key "blog_post_translations", "blog_posts"
+  add_foreign_key "club_story_translations", "club_stories"
   add_foreign_key "listing_complex_translations", "listing_complexes"
   add_foreign_key "listing_translations", "listings"
   add_foreign_key "newsletter_subscriptions", "users"

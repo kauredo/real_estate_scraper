@@ -114,22 +114,13 @@ export const navbarItemClass = (path, isMobile, children: string[] = []) => {
   const active =
     "bg-beige-default dark:bg-beige-medium text-white dark:text-dark ";
 
-  if (path === window.location.pathname && isMobile) {
-    return base + active + mobile;
-  }
-  if (path === window.location.pathname) {
-    return base + active + desktop;
-  }
-  if (
-    children.length > 0 &&
-    children.filter(path => path === window.location.pathname).length > 0
-  ) {
-    return base + active + desktop;
-  }
-  if (isMobile) {
-    return base + inactive + mobile;
-  }
-  return base + inactive + desktop;
+  const isCurrentPath = window.location.pathname.includes(path);
+  const hasActiveChild = children.some(childPath =>
+    window.location.pathname.includes(childPath)
+  );
+  const isActive = isCurrentPath || hasActiveChild;
+
+  return base + (isActive ? active : inactive) + (isMobile ? mobile : desktop);
 };
 
 export const numberToCurrency = (number, currency = "EUR") => {
@@ -146,4 +137,13 @@ export const gsubMeterSquare = string => {
 
 export const isDarkModeActive = () => {
   return document.getElementById("sgg")?.classList.contains("dark") ?? false;
+};
+
+export const scrollToSection = (
+  e: React.MouseEvent<HTMLAnchorElement>,
+  id: string
+) => {
+  e.preventDefault();
+  const element = document.getElementById(id);
+  element?.scrollIntoView({ behavior: "smooth" });
 };

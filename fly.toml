@@ -14,7 +14,7 @@ primary_region = "mad"
   worker = "bundle exec good_job start --max_threads=1"
 
 [deploy]
-  release_command = './bin/rails db:prepare:with_data'
+  release_command = './bin/rails db:migrate'
 
 [[services]]
   # Web service - handles HTTP traffic
