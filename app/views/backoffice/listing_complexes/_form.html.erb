@@ -21,12 +21,12 @@
   </p>
 </div>
 <div class="flex sm:items-center gap-2 mb-2 flex-wrap">
-  <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% if @listing_complex.url.present? %>
-    <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_complex_path(@listing_complex), data: { "turbo-method": :post }, class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_complex_path(@listing_complex), data: { "turbo-method": :post }, class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% end %>
   <% if @listing_complex.persisted? %>
-    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% end %>
 </div>
 <div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
@@ -116,8 +116,8 @@
   </div>
 </div>
 <div class="flex sm:items-center gap-2">
-  <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% if @listing_complex.persisted? %>
-    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-blue-300 hover:bg-blue-500 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
   <% end %>
 </div>

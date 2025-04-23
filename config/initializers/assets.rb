@@ -12,3 +12,6 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+# Skip database connection when precompiling assets
+Rails.application.config.middleware.delete(ActiveRecord::Migration::CheckPending) if ENV['RAILS_GROUPS'] == 'assets'

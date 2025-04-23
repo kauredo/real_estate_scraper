@@ -16,6 +16,10 @@ pt:
     other_language: English
     dark_mode: Modo Escuro
     light_mode: Modo Claro
+    club: Clube SGG
+    club_rules: Regulamento
+    club_stories: Histórias
+    flipper: Features
 
   footer:
     about: sobre nós
@@ -910,3 +914,358 @@ pt:
     messenger: Partilhar no Messenger
     copy: Copiar Link
     copied: Link copiado!
+
+  club:
+    home:
+      title: Clube SGG
+      header: Clube SGG
+      meta_description:
+        Conheça o Clube SGG do Sofia Galvão Group - onde a excelência
+        imobiliária encontra benefícios exclusivos.
+      subtitle: Comprar e vender casas, reabilitar vidas
+      dignity:
+        title: Uma casa digna não deve ser um sonho mas sim uma realidade
+        description: >
+          Todos merecem um lar onde possam viver com dignidade, segurança e
+          conforto. O Clube SGG nasce com a missão de reabilitar vidas através
+          da melhoria das condições de habitação daqueles que mais precisam.
+      impact:
+        title: História do impacto já gerado
+        subtitle: Conheça o nosso impacto
+      contribute:
+        title: Contribua para a próxima história
+        subtitle: Uma simples referência sua pode transformar vidas.
+        description: >
+          Ao indicar-nos alguém que pretenda comprar ou vender casa, está a dar
+          início a uma mudança real. Cada negócio concretizado gera um
+          contributo direto para a missão do Clube SGG, ajudando a transformar
+          casas em lares dignos para quem mais precisa.
+        value_description: >
+          Desta forma, cria valor em duas frentes: oferece às pessoas que indica
+          um acompanhamento imobiliário de excelência, enquanto muda a vida de
+          pessoas e famílias que precisam de si e da sua ajuda.
+        cta: Comece agora a fazer a diferença.
+      partners:
+        title: Ajude-nos a fazer a mudança acontecer
+        subtitle: Juntos, podemos criar histórias que mudam vidas.
+        description: >
+          A missão do Clube SGG só é possível graças à colaboração essencial dos
+          nossos membros e embaixadores, que dão vida ao impacto que queremos
+          alcançar.
+        dynamic: >
+          Não só pela dinâmica de recomendações no setor imobiliário que
+          alimentam o movimento, mas também pela identificação de histórias e
+          pessoas que mais precisam de apoio.
+        second_title: Sabe de alguém que possamos ajudar?
+        situations:
+          Estamos sempre à procura de situações reais onde o nosso apoio possa
+          fazer a diferença.
+        someone:
+          Se conhece alguém que esteja a passar por dificuldades e que possa
+          beneficiar da nossa ajuda, fale connosco.
+        conclusion_html:
+          <strong>A sua indicação pode mudar uma vida. Entre em contacto e faça
+          parte desta mudança.</strong>
+        cta: Enviar WhatsApp
+      join:
+        title: Dê o primeiro passo para melhorar uma vida
+        subtitle: Torne-se membro do Clube SGG agora mesmo.
+        description: >
+          Conhece alguém que queira comprar ou vender casa? Indique-nos essa
+          pessoa. Com este gesto simples, garante-lhe um serviço imobiliário de
+          excelência, ao mesmo tempo que ajuda a proporcionar uma habitação
+          digna a quem mais precisa.
+        impact: Uma referência sua vai mudar vidas.
+        whatsapp: Envie-nos um WhatsApp para começar a contribuir.
+        cta: Enviar WhatsApp
+        mission: Juntos, vamos transformar casas em lares e reabilitar vidas.
+      know_more:
+        rules: Conheça aqui o Regulamento do Clube SGG
+        help_title: Ajude-nos a crescer!
+        help_question: Conhece quem possa contribuir para a causa?
+        help_description: >
+          Referencie outros membros para juntos podermos impactar mais vidas!
+        whatsapp: Envie-nos um WhatsApp para referenciar membros para o clube.
+        cta: Enviar WhatsApp
+    sections:
+      benefits: Benefícios para Membros
+      partners: Nossos Parceiros
+    recent_stories:
+      title: Histórias Recentes
+      description:
+        Descubra as histórias e experiências mais recentes dos nossos membros
+    rules:
+      header: Regulamento
+      meta_description: Regras e diretrizes para membros do Clube SGG.
+      introduction: Regulamento do Clube SGG
+      content: >
+        <p>O Clube SGG é um programa exclusivo que visa proporcionar benefícios
+        adicionais aos nossos clientes...</p> <p>Consulte aqui todas as regras e
+        condições de participação.</p>
+      title: "Regulamento Clube SGG"
+      transparency: Transparência e compromisso são a base da nossa missão.
+      intro: >
+        O regulamento do Clube SGG estabelece as regras claras de funcionamento,
+         definindo os direitos e deveres dos membros, os critérios para o apoio
+        às  famílias e os princípios que garantem uma gestão transparente e
+        responsável  dos fundos obtidos.
+      clarity:
+        Acreditamos que só com clareza conseguimos gerar um impacto real e
+        duradouro.
+      read_below:
+        Conheça abaixo o regulamento completo que orienta toda a nossa
+        atividade.
+      sections:
+        general:
+          title: 1. Disposições Gerais
+          mission_html: >
+            O Clube SGG tem como missão <strong>contribuir de forma positiva
+            para melhorar as condições de habitação de quem mais
+            precisa</strong>, mobilizando recursos e pessoas para criar lares
+            dignos.
+          definition: >
+            Este regulamento define as regras de funcionamento do clube, os
+            direitos  e deveres dos membros e os critérios de apoio às pessoas
+            beneficiárias.
+          values_html: >
+            O clube atua com base nos valores de <strong>dignidade,
+            solidariedade,  criação de valor e partilha</strong>.
+        members:
+          title: 2. Membros do Clube
+          who_can:
+            title: 2.1. Quem pode ser membro
+            intro: "Podem tornar-se membros do Clube SGG:"
+            list:
+              first:
+                Pessoas individuais que queiram apoiar a causa através de
+                referência de negócios imobiliários de compra e venda;
+              second:
+                Empresas e profissionais do setor imobiliário, construção e
+                serviços para o lar que queiram contribuir ou estabelecer
+                parcerias;
+              third:
+                Qualquer pessoa que se identifique com os valores do clube e
+                queira ajudar na sua missão.
+          rights:
+            title: 2.2. Direitos dos Membros
+            intro: "Os membros do Clube SGG têm direito a:"
+            list:
+              first: Participar nas iniciativas promovidas pelo clube;
+              second: Acompanhar os projetos apoiados e os impactos gerados;
+              third:
+                Propor novas ações e iniciativas alinhadas com a missão do
+                clube;
+              fourth:
+                Receber informação regular sobre as atividades e evolução do
+                clube.
+          duties:
+            title: 2.3. Deveres dos Membros
+            intro: "Os membros do Clube SGG comprometem-se a:"
+            list:
+              first: Respeitar os valores e princípios do clube;
+              second:
+                Contribuir ativamente dentro das suas possibilidades, seja
+                através de referências ou voluntariado;
+              third:
+                Agir com transparência e ética em todas as interações
+                relacionadas com o clube.
+              fourth:
+                Identificar pessoas ou situações que possam ser alvo da
+                intervenção do clube.
+          members_or_ambassadors:
+            title: 2.4. Distinção entre Membros e Embaixadores
+            members:
+              title: Membros
+              description: >
+                São pessoas selecionadas para fazer parte do Clube SGG, mas cuja
+                participação ainda não está plenamente activa. São pessoas que
+                estão em fase de pré adesão e assim que identificarem ou
+                referenciarem alguma possibilidade  do concretização de negócio
+                imobiliário tornar-se-ão embaixadores.
+            ambassadors:
+              title: Embaixadores
+              description: >
+                Os embaixadores distinguem-se pelo seu envolvimento ativo,
+                compromisso regular e pela sua iniciativa em contribuir para o
+                crescimento do clube, principalmente através da referenciação
+                ativa e contínua de negócios imobiliários e referenciação de
+                situações que necessitam de intervenção do clube. São membros
+                que procuram constantemente apresentar e desenvolver novas
+                ideias e ações, assumindo maior responsabilidade na
+                concretização dos objetivos do clube.
+              additional: "Responsabilidades adicionais dos Embaixadores:"
+              list:
+                first: Participação regular nos eventos e iniciativas do clube;
+                second:
+                  Proposta ativa de novas iniciativas e ideias que impulsionem o
+                  impacto do clube;
+                third:
+                  Apoio direto aos responsáveis do clube na promoção da sua
+                  missão e valores.
+              choice:
+                subtitle: "Escolha dos Embaixadores:"
+                description: >
+                  Os embaixadores são escolhidos diretamente pelos responsáveis
+                  do Clube SGG, com base no seu envolvimento e contributo ativo.
+              loss_of_status:
+                subtitle: "Perda do Estatuto:"
+                description: >
+                  Um embaixador poderá voltar a ser membro caso se afaste
+                  significativamente do núcleo central de envolvimento do clube,
+                  mediante decisão dos responsáveis.
+        financial_model:
+          title: 3. Modelo de Apoio e Financiamento
+          sources:
+            title: 3.1. Fontes de Financiamento
+            intro: "O Clube SGG financia as suas ações através de:"
+            description_html:
+              O Clube SGG financia as suas ações através de <strong>Referências
+              imobiliárias</strong> - Quando um membro do clube indica alguém
+              que queira comprar ou vender casa, uma parte da comissão da
+              transação reverte para o apoio à habitação de pessoas carenciadas.
+          application:
+            title: 3.2. Aplicação dos Fundos
+            intro: "Os fundos do Clube SGG são aplicados em:"
+            list_html:
+              first:
+                <strong>Remodelações e reparações habitacionais</strong> para
+                pessoas carenciadas;
+              second:
+                <strong>Aquisição de mobília e equipamentos essenciais</strong>
+                para melhorar as condições de vida das pessoas apoiadas;
+              third:
+                <strong>Contributo para melhorar as condições
+                necessárias</strong> para transformar uma casa num lar;
+              fourth:
+                <strong>Desenvolvimento de novas iniciativas e
+                parcerias</strong> que aumentem o impacto do clube.
+        criteria:
+          title: 4. Critérios de Apoio às Famílias
+          families_html:
+            4.1. O apoio do Clube SGG destina-se a <strong>famílias carenciadas,
+            idosos e pessoas em situação de sem-abrigo</strong> que necessitem
+            de melhorias habitacionais.
+          submited_by:
+            title: "4.2. As candidaturas ao apoio podem ser submetidas por:"
+            list:
+              first: As próprias famílias;
+              second:
+                Organizações sociais ou entidades parceiras que identifiquem
+                casos de necessidade.
+              third: Membros ou embaixadores do Clube SGG.
+          criteria:
+            title:
+              "4.3. A atribuição do apoio será analisada com base nos seguintes
+              critérios:"
+            list:
+              first: Condições atuais de habitação e urgência do apoio;
+              second:
+                Impacto que a intervenção pode gerar na qualidade de vida da
+                família.
+          decisions_html:
+            4.4. As decisões de apoio serão tomadas por um grupo de membros do
+            clube, garantindo <strong>transparência e equidade</strong> na
+            seleção dos beneficiários.
+        events:
+          title: 5. Eventos e Iniciativas do Clube
+          description: "5.1. O Clube SGG promove regularmente eventos para:"
+          list:
+            first: Angariação de referenciações e mobilização de recursos;
+            second: Sensibilização para a problemática da habitação digna;
+            third: Celebração dos projetos concluídos e partilha de testemunhos.
+          incentives:
+            5.2. Todos os embaixadores são incentivados a participar nos eventos
+            e a contribuir para o crescimento do impacto do clube.
+        transparency:
+          title: 6. Transparência e Prestação de Contas
+          description_html:
+            6.1. O Clube SGG compromete-se a manter <strong>total transparência
+            na gestão dos fundos e nas ações realizadas.</strong>
+          reports:
+            description:
+              "6.2. Será publicada periodicamente uma prestação de contas com:"
+            list:
+              first:
+                Valores angariados através de referências imobiliárias e
+                parcerias;
+              second: Projetos financiados e impacto gerado;
+              third: Relatórios de evolução e planeamento futuro.
+        final:
+          title: 7. Disposições Finais
+          first:
+            7.1. O presente regulamento pode ser ajustado conforme necessário,
+            mediante aprovação dos responsáveis do clube.
+          second_html:
+            7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus
+            valores e missão, garantindo sempre que o impacto na comunidade é
+            <strong>positivo e significativo.</strong>
+    stories:
+      title: Histórias do Clube
+      header: Histórias dos Membros
+      intro: Descubra experiências únicas da nossa comunidade
+      meta_description:
+        Histórias inspiradoras e casos de sucesso dos membros do Clube SGG.
+      subheader:
+        Leia sobre experiências e histórias de sucesso dos nossos membros.
+      empty: Novas histórias em breve...
+      transformed_life: Cada história é uma vida transformada
+      real_people:
+        Por trás de cada projeto há pessoas reais com histórias inspiradoras
+      impact_description: >
+        Conheça as histórias reais de quem foi impactado diretamente pela missão
+         do Clube SGG. Cada história é a prova viva de como o seu apoio pode
+        mudar  vidas, proporcionando habitações dignas e transformando sonhos em
+        realidade.
+      explore_stories: Explore as nossas histórias
+      stories_description: >
+        Descubra abaixo relatos emocionantes e inspiradores, onde o apoio do
+        Clube SGG fez toda a diferença.
+    stories_description:
+      "Histórias de sucesso e experiências inspiradoras dos nossos membros"
+    rules_description: "Conheça os termos e condições de membro do Clube SGG"
+    form:
+      titles:
+        main: "Preencha o formulário para nos referenciar um membro:"
+      consent:
+        Ao contactar-nos está a autorizar o Sofia Galvão Group a guardar os seus
+        dados para fins de adesão ao clube.
+      error: Por favor preencha todos os campos obrigatórios corretamente
+      fields:
+        name: Nome
+        email: Email
+        phone: Telefone
+        send: Juntar ao Clube
+    flash:
+      join:
+        thanks:
+          Obrigado pelo seu interesse em juntar-se ao Clube SGG. Entraremos em
+          contacto em breve!
+
+  club_stories:
+    resource: História
+
+  backoffice:
+    common:
+      create: Criar
+      update: Atualizar
+      edit: Editar
+      view: Ver
+      delete_confirm: Tem certeza que deseja apagar este item?
+      seo_section: SEO
+      seo_title_hint: Este é o título que aparecerá nos motores de busca 👇
+      seo_description_hint:
+        Esta é a descrição que aparecerá nos motores de busca 👇
+      photos: Fotos
+      main_photo: Foto principal?
+      delete_photo_confirm: Tem certeza que deseja apagar esta foto?
+      confirm_delete: Tem certeza que deseja apagar este item?
+      hidden_hint:
+        O conteúdo só será visível no site se esta opção NÃO estiver selecionada
+        (apenas visível no backoffice)
+    blog_posts:
+      view_post: Ver Post
+    club_stories:
+      view_story: Ver História
+
+  general:
+    read_more: Ler mais

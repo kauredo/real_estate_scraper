@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '7.0.4'
+gem 'rails'
 
 # Dotenv
 gem 'dotenv-rails'
@@ -18,7 +18,7 @@ gem 'sprockets-rails'
 gem 'pg', '~> 1.4'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '~> 5.6'
+gem 'puma'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem 'jsbundling-rails'
@@ -52,9 +52,8 @@ gem 'bootsnap', require: false
 
 # Other gems here
 gem 'acts_as_paranoid'
-gem 'carrierwave'
-gem 'cloudinary'
-gem 'data_migrate'
+gem 'carrierwave', '~> 3.0'
+gem 'cloudinary', '~> 1.28'
 gem 'devise'
 gem 'friendly_id'
 gem 'friendly_id-mobility'
@@ -80,6 +79,9 @@ gem 'tinymce-rails'
 gem 'watir'
 
 gem 'execjs'
+gem 'flipper'
+gem 'flipper-active_record'
+gem 'flipper-ui'
 
 # Tests / Scrape
 gem 'selenium-webdriver'
@@ -97,6 +99,8 @@ group :development do
   gem 'annotate'
   gem 'dockerfile-rails', '>= 1.2'
   gem 'erb_lint', require: false
+  gem 'fabrication'
+  gem 'faker'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 end

@@ -182,7 +182,7 @@ export default function LongCard(props: Props) {
                 className="inline-block px-5 py-2 my-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800"
                 onClick={handleRemoveItem}
               >
-                Apagar Imóvel 🗑️
+                Apagar Imóvel <i className="fas fa-trash-alt"></i>
               </span>
             )}
             {backoffice && listing.deleted_at && (

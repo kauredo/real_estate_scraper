@@ -16,6 +16,10 @@ en:
     other_language: Português
     dark_mode: Dark Mode
     light_mode: Light Mode
+    club: SGG Club
+    club_rules: Regulation
+    club_stories: SGG Club Stories
+    flipper: Features
 
   footer:
     about: about us
@@ -35,12 +39,12 @@ en:
     newsletter:
       title: Get the latest Market news
       subtitle:
-        Subscribe to our newsletter and keep up to date with the latest
-        opportunities, news and market tips.
+        Subscribe to our newsletter and stay updated with the latest
+        opportunities, news, and market tips.
       terms:
-        By contacting us you're allowing Sofia Galvão Group to store your data
-        to later inform you about business opportunities, as stated in the
-        Privacy Policy.
+        By contacting us, you're allowing Sofia Galvão Group to store your data
+        to inform you about business opportunities, as stated in the Privacy
+        Policy.
       form:
         fields:
           name: Name
@@ -65,9 +69,8 @@ en:
     paragraph:
       top: We guarantee the best deal for the sale of your home.
       middle:
-        We offer a consultancy service that works in a unique way and tailored
-        to your needs, focusing on the promotion strategy, publicity and the
-        best negotiation.
+        We offer a consultancy service tailored to your needs, focusing on
+        promotion strategy, publicity, and the best negotiation.
       bottom:
         "Our aim is to find you the best Client in the shortest amount of time,
         and for that purpose we offer:"
@@ -100,11 +103,11 @@ en:
     subtitle:
       title: Investment Opportunities
       description:
-        Discover our real estate development projects, which offer unique
+        Discover our real estate development projects, offering unique
         investment opportunities. With buy-at-the-planning-stage options, you
-        can personalise your property and invest in properties with a high
+        can personalize your property and invest in properties with high
         potential for capital appreciation. Our team provides detailed
-        information on each development, including location, payment plans and
+        information on each development, including location, payment plans, and
         return potential.
     meta_description:
       The best developments in Portugal to buy with Sofia Galvão Group.
@@ -124,10 +127,10 @@ en:
           The possibility of making payments available according to the stages
           of development and construction.
       warranty:
-        title: Construction warrantee
+        title: Construction warranty
         description:
-          A new property has a construction warrantee, as well as the certainty
-          that there will be no need for improvements in the coming years.
+          A new property comes with a construction warranty, ensuring no need
+          for improvements in the coming years.
       perspective:
         title: Expectation on better return on investment
         description:
@@ -159,19 +162,18 @@ en:
       slogan: Together we create Happy Homes!
       description:
         "I'm a marketer by training and a value creator by passion. I've worked
-        with brands and products for years, with the aim of better serving
-        Customers and offering them not only what they needed, but also what
-        best fulfilled their aspirations. I focused on people and the
-        accomplishment of their full potentials, I have a Master's degree in
-        Neuro Linguistic Programming and I believe in empowering people to
-        achieve their goals and fulfil their life purposes. I have dedicated
-        myself to the real estate sector and in buying and selling houses I
-        apply my skills to discovering the unique asset: the house, the client,
-        the transaction and the service. At KW I found the right structure at to
-        develop the Sofia Galvão Group's real estate consultancy with high
-        standards, responsibility, professionalism and confidence. I have the
-        market know-how and I provide my Clients with the best deals, the ones
-        that make them the Happiest!"
+        with brands and products for years, aiming to better serve customers and
+        offer them not only what they needed but also what best fulfilled their
+        aspirations. I focused on people and their full potential, earning a
+        Master's degree in Neuro-Linguistic Programming. I believe in empowering
+        people to achieve their goals and fulfill their life purposes. I have
+        dedicated myself to the real estate sector, applying my skills to
+        discovering unique assets: the house, the client, the transaction, and
+        the service. At KW, I found the right structure to develop the Sofia
+        Galvão Group's real estate consultancy with high standards,
+        responsibility, professionalism, and confidence. I have the market
+        know-how to provide my clients with the best deals, the ones that make
+        them the happiest!"
     who:
       title: Who are we?
       sub1:
@@ -260,7 +262,7 @@ en:
           throughout the country. This vast network allows us to offer our
           customers a superior buying and selling experience.
       principles:
-        title: Princípios KW
+        title: KW Principles
         list:
           - WIN-WIN: Or no deal.
           - INTEGRITY: Do the right thing.
@@ -535,12 +537,12 @@ en:
           second:
             title: What are the first steps to selling my house?
             answer:
-              The first step is to make sure that all the property's
-              documentation is in order. This includes documents such as the
-              land registry certificate, the permanent certificate and the
-              energy certificate. The Sofia Galvão Group will help you to ensure
-              that everything is correct and will prepare a detailed evaluation
-              aiming to define the appropriate sale price.
+              The first step is to ensure that all the property's documentation
+              is in order. This includes documents such as the land registry
+              certificate, the permanent certificate, and the energy
+              certificate. The Sofia Galvão Group will help you ensure that
+              everything is correct and prepare a detailed evaluation to define
+              the appropriate sale price.
           third:
             title: How long does the selling process take?
             answer:
@@ -559,10 +561,10 @@ en:
             title: Are there any costs associated with selling?
             answer:
               Yes. In addition to taxes, such as the Property Acquisition Tax
-              (IMT) and the Stamp Duty, there are also the costs of the final
-              deed and the land registry. Our commission is competitive and
-              transparent, and covers all the services involved in promoting,
-              monitoring and managing the sales process.
+              (IMT) and the Stamp Duty, there are also costs for the final deed
+              and the land registry. Our commission is competitive and
+              transparent, covering all the services involved in promoting,
+              monitoring, and managing the sales process.
       second:
         title: Buying a property
         questions:
@@ -593,11 +595,11 @@ en:
           fourth:
             title: What are the costs involved in buying a house?
             answer:
-              In addition to the price of the property, there are also costs
-              such as the Property Acquisition Tax (IMT), the Stamp Duty, the
-              final deed and the land registry. The Sofia Galvão Group helps you
-              calculate all of these costs, to ensure that you are aware of all
-              the amounts involved.
+              In addition to the price of the property, there are costs such as
+              the Property Acquisition Tax (IMT), the Stamp Duty, the final
+              deed, and the land registry. The Sofia Galvão Group helps you
+              calculate all these costs to ensure you are aware of all the
+              amounts involved.
           fifth:
             title: Can I get help with bank finance?
             answer:
@@ -751,6 +753,10 @@ en:
     contact:
       thanks:
         Thank you for your message, we will contact you as soon as possible
+    join:
+      thanks:
+        Thank you for your interest in joining SGG Club. We will contact you
+        soon!
 
   pagination:
     previous: Previous
@@ -876,7 +882,7 @@ en:
       text_2: Try searching again or use the Go Back button below.
       button: Go Back
     500:
-      title: The server is down!
+      title: Server is down!
       text_1: We're trying our best to fix it.
       text_2: Please try again in a few minutes.
     email:
@@ -893,3 +899,359 @@ en:
     messenger: Share on Messenger
     copy: Copy Link
     copied: Link copied to clipboard!
+
+  club:
+    home:
+      title: SGG Club
+      header: SGG Club
+      meta_description:
+        Discover SGG Club by Sofia Galvão Group - where real estate excellence
+        meets exclusive benefits.
+      subtitle: Buy and sell houses, rebuild lives
+      dignity:
+        title: A decent home shouldn’t be a dream - it should be reality
+        description: >
+          Everyone deserves a place to live with dignity, safety, and comfort.
+          The SGG Club was created with the mission of rebuilding lives by
+          improving the housing conditions of those who need it most.
+      impact:
+        title: Story of impact generated so far
+        subtitle: See our impact
+      contribute:
+        title: Contribute to the next story
+        subtitle: A simple referral from you can change lives.
+        description: >
+          By referring someone who wants to buy or sell a home, you’re
+          kickstarting real change. Every closed deal generates a direct
+          contribution to the mission of SGG Club, helping transform houses into
+          dignified homes for those in need.
+        value_description: >
+          This way, you create value on two fronts: you offer the people you
+          refer top-quality real estate support, while also changing the lives
+          of families who need your help.
+        cta: Start making a difference now.
+      partners:
+        title: Help us make change happen
+        subtitle: Together, we can create stories that change lives.
+        description: >
+          Clube SGG’s mission is only possible thanks to the essential
+          collaboration of our members and ambassadors, who bring life to the
+          impact we want to achieve.
+        dynamic: >
+          Not just through referrals in real estate, but also by identifying
+          people and stories in urgent need of support.
+        second_title: Do you know someone we could help?
+        situations:
+          We’re always looking for real-life situations where our support can
+          make a difference.
+        someone:
+          If you know someone going through hardship who could benefit from our
+          help, reach out to us.
+        conclusion_html: >
+          <strong>Your referral could change a life. Get in touch and be part of
+          this change.</strong>
+        cta: Send WhatsApp
+      join:
+        title: Take the first step to change a life
+        subtitle: Become a member of Clube SGG today
+        description: >
+          Know someone looking to buy or sell a home? Refer them to us. With
+          this simple gesture, you’re ensuring they get top-notch real estate
+          service, while also helping provide a dignified home to someone who
+          really needs it.
+        impact: Your referral can change lives.
+        whatsapp: Send us a WhatsApp to start contributing.
+        cta: Send WhatsApp
+        mission: Together, we will turn houses into homes and rebuild lives
+      know_more:
+        rules: Read the SGG Club Regulation here
+        help_title: Help us to grow!
+        help_question: Do you know someone who could contribute to the cause?
+        help_description: >
+          Refer other members so we can make an even bigger impact together!
+        whatsapp: Send us a WhatsApp to refer members to the club.
+        cta: Send WhatsApp
+    rules:
+      header: SGG Club Regulations
+      meta_description: Rules and guidelines for SGG Club.
+      introduction: SGG Club Regulations
+      content: >
+        <p>SGG Club is an exclusive program designed to provide additional
+        benefits to our clients...</p> <p>Check here for all participation rules
+        and conditions.</p>
+      title: SGG Club Regulations
+      transparency:
+        Transparency and commitment are the foundation of our mission.
+      intro: >
+        The SGG Club’s regulations establish clear rules for how we operate,
+        defining the rights and responsibilities of members, the criteria for
+        supporting families, and the principles that ensure a transparent and
+        accountable use of funds.
+      clarity:
+        We believe that only with clarity can we create real, lasting impact.
+      read_below:
+        Below you’ll find the full regulation that guides all our activity.
+      sections:
+        general:
+          title: 1. General Provisions
+          mission_html: >
+            The mission of Clube SGG is to <strong>positively contribute to
+            improving housing conditions for those most in need</strong>, by
+            mobilising resources and people to create dignified homes.
+          definition: >
+            These regulations define the club’s operating rules, the rights and
+            duties of members, and the criteria for supporting beneficiaries.
+          values_html: >
+            The club operates based on the values of <strong>dignity,
+            solidarity, value creation, and sharing</strong>.
+        members:
+          title: 2. Club Members
+          who_can:
+            title: 2.1. Who can be a member
+            intro: "Anyone can become a member of Clube SGG:"
+            list:
+              first:
+                Individuals who want to support the cause by referring real
+                estate purchase or sale deals;
+              second:
+                Companies and professionals in the real estate, construction or
+                home services sectors who wish to contribute or partner;
+              third:
+                Anyone who identifies with the club’s values and wants to
+                support its mission.
+          rights:
+            title: 2.2. Members' Rights
+            intro: "Clube SGG members have the right to:"
+            list:
+              first: Take part in initiatives promoted by the club;
+              second: Follow the supported projects and the impact generated;
+              third:
+                Propose new actions and initiatives aligned with the club’s
+                mission;
+              fourth:
+                Receive regular updates about the club’s activities and
+                development.
+          duties:
+            title: 2.3. Members' Duties
+            intro: "Clube SGG members commit to:"
+            list:
+              first: Respect the club's values and principles;
+              second:
+                Contribute actively within their means, whether through
+                referrals or volunteering;
+              third:
+                Act with transparency and ethics in all interactions related to
+                the club;
+              fourth:
+                Identify people or situations that may benefit from the club’s
+                support.
+          members_or_ambassadors:
+            title: 2.4. Distinction between Members and Ambassadors
+            members:
+              title: Members
+              description: >
+                Members are individuals selected to be part of Clube SGG, but
+                whose participation is not yet fully active. They are in a
+                pre-membership phase and, once they identify or refer a viable
+                real estate opportunity, they will become ambassadors.
+            ambassadors:
+              title: Ambassadors
+              description: >
+                Ambassadors are characterised by their active involvement,
+                regular commitment, and initiative in helping grow the club -
+                mainly through the continuous referral of real estate deals and
+                identification of situations that may require the club’s
+                intervention. They are members who consistently propose and
+                develop new ideas and actions, taking greater responsibility in
+                achieving the club’s mission.
+              additional: "Additional responsibilities of Ambassadors:"
+              list:
+                first: Regular participation in meetings and initiatives;
+                second:
+                  Proposing new ideas and actions to enhance the club’s impact;
+                third:
+                  Supporting the club’s leaders in promoting its mission and
+                  values.
+              choice:
+                subtitle: "Choosing Ambassadors:"
+                description: >
+                  Ambassadors are chosen directly by those in charge of the SGG
+                  Club, based on their involvement and active contribution.
+              loss_of_status:
+                subtitle: "Loss of Status:"
+                description: >
+                  An ambassador may be reinstated if he or she moves
+                  significantly away from the core of the club's involvement,
+                  subject to a decision by those responsible.
+        financial_model:
+          title: 3. Support and Funding Model
+          sources:
+            title: 3.1. Sources of funding
+            description_html:
+              Clube SGG funds its actions through real estate referrals – When a
+              member refers someone looking to buy or sell a home, part of the
+              transaction commission goes toward housing support for people in
+              need.
+            intro: "SGG Club funds its actions through:"
+          application:
+            title: 3.2. Use of Funds
+            intro: "Funds from Clube SGG are used for:"
+            list_html:
+              first:
+                <strong>Home renovations and repairs</strong> for people in
+                need;
+              second:
+                <strong>Purchase of furniture and essential equipment</strong>
+                to improve living conditions;
+              third:
+                <strong>Support to improve necessary conditions</strong> to turn
+                a house into a home;
+              fourth:
+                <strong>Development of new initiatives and partnerships</strong>
+                to expand the club’s impact.
+        criteria:
+          title: 4. Criteria for Supporting Families
+          families:
+            4.1. Clube SGG support is intended for vulnerable families, elderly
+            people, and individuals experiencing homelessness who need housing
+            improvements.
+          families_html:
+            4.1. Clube SGG support is intended for <strong>vulnerable families,
+            elderly people, and individuals experiencing homelessness
+            who</strong> need housing improvements.
+          submited_by:
+            title: "4.2. Applications for support can be submitted by:"
+            list:
+              first: The families and individuals themselves;
+              second:
+                Social organisations or partner entities that identify cases of
+                need.
+              third: Members and ambassadors of Clube SGG.
+          criteria:
+            title:
+              "4.3. Support will be granted based on the following criteria:"
+            list:
+              first: "Current housing conditions and urgency of the situation;"
+              second:
+                "The impact the intervention could have on the family's quality
+                of life."
+          decisions:
+            4.4. Support decisions are made by a group of club members, ensuring
+            transparency and fairness in the selection of beneficiaries.
+          decisions_html:
+            4.4. Support decisions are made by a group of club members, ensuring
+            <strong>transparency and fairness</strong> in the selection of
+            beneficiaries.
+        events:
+          title: "5. Club Events and Initiatives"
+          description: "5.1. Clube SGG regularly promotes events aimed at:"
+          list:
+            first: "Generating referrals and mobilising resources;"
+            second: "Raising awareness about the issue of dignified housing;"
+            third: "Celebrating completed projects and sharing testimonies."
+          incentives:
+            5.2. All ambassadors are encouraged to participate in events and
+            contribute to expanding the club’s impact.
+        transparency:
+          title: "6. Transparency and Accountability"
+          description:
+            "6.1. Clube SGG commits to maintaining full transparency in the
+            management of funds and in all actions carried out."
+          description_html:
+            6.1. Clube SGG commits to maintaining <strong>full transparency in
+            the management of funds and in all actions carried out.</strong>
+          reports:
+            description:
+              "6.2. An accountability report will be published regularly,
+              including:"
+            list:
+              first:
+                "Amounts raised through real estate referrals and partnerships;"
+              second: "Funded projects and the impact generated;"
+              third: "Progress reports and future planning."
+        final:
+          title: "7. Final Provisions"
+          first:
+            "7.1. These regulations may be adjusted as needed, with the approval
+            of the club’s leadership."
+          second:
+            "7.2. All actions by Clube SGG must align with its values and
+            mission, always ensuring that the impact on the community is
+            positive and meaningful."
+          second_html:
+            7.2. All actions by Clube SGG must align with its values and
+            mission, always ensuring that the impact on the community is always
+            <strong>positive and meaningful.</strong>
+    stories:
+      title: Stories
+      header: Club Stories
+      meta_description:
+        Inspiring stories and success cases from SGG Club members.
+      subheader:
+        Discover unique experiences and success stories from our members.
+      empty: New stories coming soon...
+      transformed_life: Every Story Is a Life Transformed
+      real_people:
+        Behind every project, there are real people with inspiring stories
+      impact_description: >
+        Discover real stories from those directly impacted by the mission of
+        Clube SGG. Each story is living proof of how your support can change
+        lives — by providing dignified housing and turning dreams into reality.
+      explore_stories: Explore Our Stories
+      stories_description: >
+        Discover below emotional and inspiring stories where the support of
+        Clube SGG made all the difference.
+    rules_description: Learn about SGG Club terms and conditions.
+    stories_description: Inspiring stories and success cases from our members.
+    sections:
+      benefits: Member Benefits
+      partners: Our Partners
+    recent_stories:
+      title: Recent Stories
+      description: Discover our latest member stories and experiences
+    form:
+      titles:
+        main: "Fill in the form to refer a member:"
+      consent:
+        By contacting us you're allowing Sofia Galvão Group to store your data
+        for club membership purposes.
+      error: Please fill in all required fields correctly
+      fields:
+        name: Name
+        email: Email
+        phone: Phone
+        send: Join Club
+    flash:
+      join:
+        thanks:
+          Thank you for your interest in joining SGG Club. We will contact you
+          soon!
+
+  club_stories:
+    resource: Story
+
+  backoffice:
+    common:
+      create: Create
+      update: Update
+      edit: Edit
+      view: View
+      delete_confirm: Are you sure you want to delete this item?
+      seo_section: SEO
+      seo_title_hint: This is the title that will appear on search engines 👇
+      seo_description_hint:
+        This is the description that will appear on search engines 👇
+      photos: Photos
+      main_photo: Main photo?
+      delete_photo_confirm: Are you sure you want to delete this photo?
+      confirm_delete: Are you sure you want to delete this item?
+      hidden_hint:
+        The content will only be visible on the site if this option is NOT
+        checked (only visible in backoffice)
+    blog_posts:
+      view_post: View Post
+    club_stories:
+      view_story: View Story
+
+  general:
+    read_more: Read more

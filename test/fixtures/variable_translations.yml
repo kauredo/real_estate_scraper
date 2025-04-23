@@ -1,53 +1,35 @@
-one:
-  id: 5
-  name: Negócios 2022
-  value: "15000000"
+one:  # English translation for variable one
+  id: 1
+  name: "Sales 2023"
+  value: "20000000"
+  locale: en
+  variable_id: 1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+pt_one:  # Portuguese translation for variable one
+  id: 2
+  name: "Vendas 2023"
+  value: "20000000"
   locale: pt
-  variable_id: 19
-  :created_at: 2023-04-07 10:48:26 UTC
-  :updated_at: 2023-04-07 10:48:26 UTC
+  variable_id: 1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
-two:
-  id: 7
-  name: "Top 7 nacional "
-  value: KW_Acumulado 2022
-  locale: pt
-  variable_id: 23
-  :created_at: 2023-04-07 10:48:26 UTC
-  :updated_at: 2023-04-07 10:48:26 UTC
-
-three:
-  id: 6
-  name: Business 2022
-  value: "15000000"
-  locale: en
-  variable_id: 19
-  :created_at: 2023-04-07 10:48:26 UTC
-  :updated_at: 2023-04-07 10:48:26 UTC
-
-four:
-  id: 8
-  name: "Top 7 nacional "
-  value: KW_Accumulated 2022
-  locale: en
-  variable_id: 23
-  :created_at: 2023-04-07 10:48:26 UTC
-  :updated_at: 2023-04-07 10:48:26 UTC
-
-five:
-  id: 4
-  name: Award kw 2022
-  value: Dupla Platina
-  locale: en
-  variable_id: 18
-  :created_at: 2023-04-07 10:48:26 UTC
-  :updated_at: 2023-04-07 10:48:26 UTC
-
-six:
+two:  # English translation for variable two
   id: 3
-  name: Prémio kw 2022
-  value: Dupla Platina
+  name: "Awards 2023"
+  value: "Platinum"
+  locale: en
+  variable_id: 2
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+pt_two:  # Portuguese translation for variable two
+  id: 4
+  name: "Prémios 2023"
+  value: "Platina"
   locale: pt
-  variable_id: 18
-  :created_at: 2023-04-07 10:48:26 UTC
-  :updated_at: 2023-04-07 10:48:26 UTC
+  variable_id: 2
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>

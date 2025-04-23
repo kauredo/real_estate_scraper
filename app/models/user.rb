@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EmailValidator < ActiveModel::EachValidator
-  EMAIL_REGEX = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   def validate_each(record, attribute, value)
     return if value&.match(EMAIL_REGEX)

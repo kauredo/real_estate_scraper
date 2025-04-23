@@ -1,19 +1,16 @@
 one:
   id: 1
-  name: Nir
-  text:
-    Sofia found me my home, she is a professional and made the experience so
-    pleasant and safe. I will trust her with all of my future real estate
-    projects!
+  name: "John Smith"
+  text: "Great experience working with the team"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 two:
   id: 2
-  name: Patrícia Figueiredo
-  text:
-    Com o conhecimento de anos espelhado na confiança com que fala do assunto.
-    Nem hesitei...A Sofia fez um trabalho formidável na divulgação do meu imóvel
-    e em 3 tempos chegou ao cliente ideal, eu sózinha levaria muito mais tempo.
-    Recomendo vivamente os seus serviços!
+  name: "Maria Silva"
+  text: "Professional service and excellent results"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 three:
   id: 3

@@ -2,19 +2,21 @@ import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { i18n } from "../languages/languages";
 import { changeLocale, isDarkModeActive, sanitizeURL } from "./utils/Functions";
-import { NavbarItemProps } from "./utils/Interfaces";
+import { NavbarItemProps, SubNavItem } from "./utils/Interfaces";
 import Socials from "./shared/Socials";
 import DarkModeToggle from "./shared/DarkModeToggle";
+import SubNavbar from "./shared/SubNavbar";
 const NavbarItem = lazy(() => import("./shared/NavbarItem"));
 const DropdownLink = lazy(() => import("./shared/DropdownLink"));
 
 interface Props {
   backoffice?: boolean;
   admin?: boolean;
+  club_enabled?: boolean;
 }
 
 export default function Navbar(props: Props) {
-  const { backoffice, admin } = props;
+  const { backoffice, admin, club_enabled } = props;
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -55,12 +57,20 @@ export default function Navbar(props: Props) {
       turbo: "true",
       url: sanitizeURL(window.Routes.latest_path),
     },
+    ...(club_enabled
+      ? [
+          {
+            title: `${i18n.t("navbar.club")}`,
+            url: sanitizeURL(window.Routes.club_path),
+            turbo: "true",
+          },
+        ]
+      : []),
     {
       title: `${i18n.t("navbar.blog_posts")}`,
       turbo: "true",
       url: sanitizeURL(window.Routes.blog_path),
     },
-    // moreDropdown,
     {
       title: `${i18n.t("navbar.about")}`,
       turbo: "true",
@@ -83,35 +93,38 @@ export default function Navbar(props: Props) {
     },
   ];
 
-  const backofficeItems: NavbarItemProps[] = [
+  const backofficeNavItems: SubNavItem[] = [
     {
-      title: `${i18n.t("navbar.backoffice")}`,
-      url: sanitizeURL(window.Routes.backoffice_path),
-      turbo: "true",
+      routeName: "backoffice_path",
+      title: i18n.t("navbar.backoffice"),
     },
     {
-      title: `${i18n.t("navbar.listings")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.backoffice_listings_path),
+      routeName: "backoffice_listings_path",
+      title: i18n.t("navbar.listings"),
     },
     {
-      title: `${i18n.t("navbar.enterprises")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.backoffice_listing_complexes_path),
+      routeName: "backoffice_listing_complexes_path",
+      title: i18n.t("navbar.enterprises"),
     },
     {
-      title: `${i18n.t("navbar.testimonies")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.backoffice_testimonials_path),
+      routeName: "backoffice_testimonials_path",
+      title: i18n.t("navbar.testimonies"),
     },
     {
-      title: `${i18n.t("navbar.blog_posts")}`,
-      turbo: "true",
-      url: sanitizeURL(window.Routes.backoffice_blog_posts_path),
+      routeName: "backoffice_blog_posts_path",
+      title: i18n.t("navbar.blog_posts"),
+    },
+    {
+      routeName: "backoffice_club_stories_path",
+      title: i18n.t("navbar.club_stories"),
+    },
+    {
+      routeName: "backoffice_flipper_path",
+      title: i18n.t("navbar.flipper"),
     },
   ];
 
-  const middleItems = backoffice ? backofficeItems : items;
+  const middleItems = items;
 
   const otherImg = i18n.locale === "pt" ? "uk" : "pt";
   const img = i18n.locale === "pt" ? "pt" : "uk";
@@ -207,7 +220,7 @@ export default function Navbar(props: Props) {
               </div>
               <div className="flex items-center">
                 <div className="hidden tablet:block">
-                  <div className="ml-4 flex items-baseline flex-wrap justify-center">
+                  <div className="ml-4 flex items-baseline flex-wrap justify-center gap-1">
                     {middleItems?.map(item => {
                       if (item.items?.length && item.items.length > 0) {
                         return (
@@ -360,6 +373,7 @@ export default function Navbar(props: Props) {
           </div>
         </Transition>
       </nav>
+      {backoffice && <SubNavbar items={backofficeNavItems} />}
     </div>
   );
 }
