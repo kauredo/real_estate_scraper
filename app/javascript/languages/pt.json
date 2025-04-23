@@ -225,8 +225,7 @@
             "criteria": {
               "list": {
                 "first": "Condições atuais de habitação e urgência do apoio;",
-                "second": "Condições atuais de habitação e urgência do apoio;",
-                "third": "Impacto que a intervenção pode gerar na qualidade de vida da família."
+                "second": "Impacto que a intervenção pode gerar na qualidade de vida da família."
               },
               "title": "4.3. A atribuição do apoio será analisada com base nos seguintes critérios:"
             },
@@ -235,7 +234,8 @@
             "submited_by": {
               "list": {
                 "first": "As próprias famílias;",
-                "second": "Organizações sociais ou entidades parceiras que identifiquem casos de necessidade."
+                "second": "Organizações sociais ou entidades parceiras que identifiquem casos de necessidade.",
+                "third": "Membros ou embaixadores do Clube SGG."
               },
               "title": "4.2. As candidaturas ao apoio podem ser submetidas por:"
             },

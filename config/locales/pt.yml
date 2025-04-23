@@ -1152,14 +1152,14 @@ pt:
               second:
                 Organizações sociais ou entidades parceiras que identifiquem
                 casos de necessidade.
+              third: Membros ou embaixadores do Clube SGG.
           criteria:
             title:
               "4.3. A atribuição do apoio será analisada com base nos seguintes
               critérios:"
             list:
               first: Condições atuais de habitação e urgência do apoio;
-              second: Condições atuais de habitação e urgência do apoio;
-              third:
+              second:
                 Impacto que a intervenção pode gerar na qualidade de vida da
                 família.
           decisions_html:

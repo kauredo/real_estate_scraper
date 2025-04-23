@@ -179,6 +179,26 @@ export default function Rules() {
                           </li>
                         ))}
                       </ul>
+                      <h5 className="text-lg font-semibold mb-2">
+                        {i18n.t(
+                          "club.rules.sections.members.members_or_ambassadors.ambassadors.choice.subtitle"
+                        )}
+                      </h5>
+                      <p className="text-gray-600 dark:text-gray-300 mb-6">
+                        {i18n.t(
+                          "club.rules.sections.members.members_or_ambassadors.ambassadors.choice.description"
+                        )}
+                      </p>
+                      <h5 className="text-lg font-semibold mb-2">
+                        {i18n.t(
+                          "club.rules.sections.members.members_or_ambassadors.ambassadors.loss_of_status.subtitle"
+                        )}
+                      </h5>
+                      <p className="text-gray-600 dark:text-gray-300 mb-12">
+                        {i18n.t(
+                          "club.rules.sections.members.members_or_ambassadors.ambassadors.loss_of_status.description"
+                        )}
+                      </p>
 
                       {/* Financial Model Section */}
                       <h2 className="text-2xl font-bold mb-6">
@@ -243,7 +263,7 @@ export default function Rules() {
                         )}
                       </p>
                       <ul className="list-disc pl-6 mb-8 space-y-2">
-                        {["first", "second"].map(item => (
+                        {["first", "second", "third"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
@@ -259,7 +279,7 @@ export default function Rules() {
                         {i18n.t("club.rules.sections.criteria.criteria.title")}
                       </p>
                       <ul className="list-disc pl-6 mb-8 space-y-2">
-                        {["first", "second", "third"].map(item => (
+                        {["first", "second"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
