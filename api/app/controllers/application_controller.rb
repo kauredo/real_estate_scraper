@@ -1,23 +1,19 @@
 # frozen_string_literal: true
 
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
+  include ActionController::Cookies
+
   before_action :set_locale
-  before_action :set_resource
 
   def toggle_dark_mode
     session[:dark_mode] = !session[:dark_mode]
-    redirect_back(fallback_location: root_path)
+    render json: { dark_mode: session[:dark_mode] }
   end
 
   private
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
-    session[:locale] = I18n.locale
-  end
-
-  def set_resource
-    @resource = nil
   end
 
   def default_url_options
