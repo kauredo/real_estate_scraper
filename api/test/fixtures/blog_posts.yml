@@ -1,0 +1,33 @@
+one:
+  id: 1
+  title: "Real Estate Market Trends"
+  text: "Current market analysis..."
+  hidden: false
+  meta_title: "2023 Market Trends"
+  meta_description: "Analysis of current real estate market trends"
+  small_description: "A comprehensive look at market trends"
+  video_link: "https://youtube.com/example"
+  slug: real-estate-market-trends
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+# == Schema Information
+#
+# Table name: blog_posts
+#
+#  id                :bigint           not null, primary key
+#  hidden            :boolean          default(TRUE)
+#  meta_description  :text
+#  meta_title        :text
+#  slug              :string
+#  small_description :text
+#  text              :text
+#  title             :string
+#  video_link        :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+# Indexes
+#
+#  index_blog_posts_on_slug  (slug) UNIQUE
+#

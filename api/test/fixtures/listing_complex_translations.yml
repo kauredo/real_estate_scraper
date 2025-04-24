@@ -1,0 +1,47 @@
+one:
+  id: 1
+  name: "Jardins de Lisboa"
+  description: "Modern development in Lisbon"
+  subtext: "Beautiful gardens and modern architecture"
+  final_text: "Premium finishes and quality materials"
+  locale: en
+  listing_complex_id: 1 # references listing_complexes(:one)
+  slug: jardins-de-lisboa
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+pt_one:
+  id: 2
+  name: "Jardins de Lisboa"
+  description: "Empreendimento moderno em Lisboa"
+  subtext: "Belos jardins e arquitectura moderna"
+  final_text: "Acabamentos premium e materiais de qualidade"
+  locale: pt
+  listing_complex_id: 1 # references listing_complexes(:one)
+  slug: jardins-de-lisboa
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  id: 3
+  name: "Ocean View Apartments"
+  description: "Luxury apartments with ocean views"
+  subtext: "Stunning views and modern amenities"
+  final_text: "Exclusive living spaces with premium features"
+  locale: en
+  listing_complex_id: 2 # references listing_complexes(:two)
+  slug: ocean-view-apartments
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+pt_two:
+  id: 4
+  name: "Ocean View Apartments"
+  description: "Apartamentos de luxo com vista para o mar"
+  subtext: "Vistas deslumbrantes e comodidades modernas"
+  final_text: "Espaços exclusivos com características premium"
+  locale: pt
+  listing_complex_id: 2 # references listing_complexes(:two)
+  slug: ocean-view-apartments
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>

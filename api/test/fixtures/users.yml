@@ -1,0 +1,65 @@
+one:
+  id: 1
+  first_name: John
+  last_name: Doe
+  email: john.doe@example.com
+  confirmed_email: true
+  phone: "+351912345678"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  id: 2
+  first_name: Jane
+  last_name: Smith
+  email: jane.smith@example.com
+  confirmed_email: false
+  phone: "+351923456789"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+three:
+  id: 3
+  first_name: sofia
+  last_name: galvão
+  email: sgalvaopt@gmail.com
+  phone:
+  confirmed_email:
+
+four:
+  id: 4
+  first_name: João
+  last_name: Maria Costa
+  email: joaocosta296@gmail.com
+  phone:
+  confirmed_email:
+
+five:
+  id: 7
+  first_name: Andreia
+  last_name: Teste
+  email: andreialopesc6@gmail.com
+  phone:
+  confirmed_email: true
+
+six:
+  id: 10
+  first_name: Vasco
+  last_name: Teste 2
+  email: vaskafig@gmail.com
+  phone:
+  confirmed_email:
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  confirmed_email :boolean
+#  email           :string
+#  first_name      :string
+#  last_name       :string
+#  phone           :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#

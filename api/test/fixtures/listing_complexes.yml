@@ -1,0 +1,50 @@
+one:
+  id: 1
+  name: "Jardins de Lisboa"
+  description: "Modern development in Lisbon"
+  video_link: https://www.youtube.com/embed/VnCno6gHt4I
+  order: 1
+  subtext: "Beautiful gardens and modern architecture"
+  final_text: "Premium finishes and quality materials"
+  new_format: false
+  hidden: false
+  slug: jardins-de-lisboa
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  id: 2
+  name: "Santa Quitéria"
+  description: "Luxury development in central Lisbon"
+  video_link: ""
+  order: 2
+  subtext: "Prime location near Jardim da Estrela"
+  final_text: "High-end finishes throughout"
+  new_format: false
+  hidden: false
+  slug: santa-quiteria
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+# == Schema Information
+#
+# Table name: listing_complexes
+#
+#  id          :bigint           not null, primary key
+#  description :text
+#  final_text  :text
+#  hidden      :boolean          default(FALSE)
+#  name        :string
+#  new_format  :boolean          default(FALSE)
+#  order       :integer
+#  slug        :string
+#  subtext     :text
+#  url         :string
+#  video_link  :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+# Indexes
+#
+#  index_listing_complexes_on_slug  (slug) UNIQUE
+#

@@ -1,24 +1,31 @@
-# README
+# Real Estate Scraper
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Monorepo containing the Real Estate Scraper application.
 
-Things you may want to cover:
+## Structure
 
-* Ruby version
+- `/api` - Rails API backend
+- `/frontend` - Vite React frontend
 
-* System dependencies
+## Development
 
-* Configuration
+1. Install dependencies:
 
-* Database creation
+```bash
+# API
+cd api && bundle install
 
-* Database initialization
+# Frontend
+cd frontend && npm install
 
-* How to run the test suite
+# Root (for running both services)
+npm install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+2. Start development servers:
 
-* Deployment instructions
+```bash
+npm run dev
+```
 
-* ...
+This will start both the API (port 3000) and frontend (port 5173) in parallel.

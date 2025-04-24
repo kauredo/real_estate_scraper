@@ -1,4 +1,0 @@
-js: yarn build --watch
-css: yarn build:css --watch
-postcss: yarn build:postcss --watch
-worker: bundle exec good_job start

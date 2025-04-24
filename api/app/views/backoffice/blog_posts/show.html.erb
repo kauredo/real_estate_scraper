@@ -1,0 +1,27 @@
+<div id="blog-show" class="relative">
+  <header
+    class="!bg-center !bg-no-repeat !bg-cover min-h-[320px] relative"
+    style="background: url('<%= @blog_post.main_photo %>')"
+  >
+    <% if @blog_post.video_link.present? %>
+      <iframe
+        class="relative top-0 right-0 p-0 w-full min-h-[320px]"
+        src="<%= @blog_post.video_link %>"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    <% end %>
+  </header>
+  <div class="tinymce pt-8 px-8 mx-auto container">
+    <div class="w-full tablet:w-2/3 mb-4">
+      <h1><%= @blog_post.title %></h1>
+      <p><%= @blog_post.created_at.strftime('%d/%m/%Y') %></p>
+    </div>
+
+    <div>
+      <%= sanitize @blog_post.sanitized_text %>
+    </div>
+  </div>
+</div>

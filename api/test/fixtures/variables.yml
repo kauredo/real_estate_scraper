@@ -1,0 +1,33 @@
+one:
+  id: 1
+  name: "Sales 2023"
+  value: "20000000"
+  icon: "fas fa-chart-line"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  id: 2
+  name: "Awards 2023"
+  value: "Platinum"
+  icon: "fas fa-trophy"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+three:
+  id: 18
+  name: Prémio kw 2021
+  value: Prata
+  icon: fas fa-trophy
+
+# == Schema Information
+#
+# Table name: variables
+#
+#  id         :bigint           not null, primary key
+#  icon       :string
+#  name       :string
+#  value      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#

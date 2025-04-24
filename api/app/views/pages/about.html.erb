@@ -1,0 +1,82 @@
+<% meta_title = I18n.t('about.header') %>
+<% meta_description = I18n.t('about.meta_description') %>
+
+
+<% content_for(:meta_title) { meta_title } %>
+<% content_for(:meta_description) { meta_description } %>
+<% content_for(:extra_meta) do %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>kw" />
+  <link rel="alternate" hreflang="<%= I18n.locale == :pt ? 'en' : 'pt' %>" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? 'en/' : '' %>kw" />
+  <link rel="alternate" hreflang="x-default" href="https://sofiagalvaogroup.com/kw" />
+<% end %>
+
+<%= react_component 'shared--Banner', { height: '20vh', blurred: true, text: meta_title } %>
+<section class="container mx-auto mt-6 mb-12 px-8">
+  <div class="pt-6 bg-white dark:bg-dark text-center md:hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
+      <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-dark dark:text-light  sm:text-4xl px-4"><%= meta_title %></h1>
+    </div>
+  </div>
+
+  <%= react_component 'homePage--Profile' %>
+
+  <div class="py-8 md:pb-0 md:pt-4 bg-white dark:bg-dark">
+    <div class="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
+      <div class="mt-8">
+        <h3 class="text-2xl text-black dark:text-light"><%= t('about.history_and_values.title') %></h3>
+        <p class="mt-4 text-lg text-gray-500 dark:text-light"><%= t('about.history_and_values.content.first_paragraph') %></p>
+        <p class="mt-4 text-lg text-gray-500 dark:text-light"><%= t('about.history_and_values.content.second_paragraph') %></p>
+        <p class="mt-4 text-lg text-gray-500 dark:text-light"><%= t('about.history_and_values.content.third_paragraph') %></p>
+
+        <h3 class="mt-8 text-2xl text-black dark:text-light"><%= t('about.mission_and_vision.title') %></h3>
+        <p class="mt-4 text-lg text-gray-500 dark:text-light"><%= t('about.mission_and_vision.content') %></p>
+
+        <h3 class="mt-8 text-2xl text-black dark:text-light"><%= t('about.team.title') %></h3>
+        <p class="mt-4 text-lg text-gray-500 dark:text-light"><%= t('about.team.content') %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-8 md:pb-0 mt-8 bg-white dark:bg-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="block mt-2 text-2xl text-dark dark:text-light  sm:text-4xl text-center"><%= t('about.kw_luxury.title') %></h2>
+      <h3 class="mt-8 text-2xl text-black dark:text-light"><%= t('about.kw_luxury.subtitle') %></h3>
+      <p class="mt-4 text-lg text-gray-500 dark:text-light"><%= t('about.kw_luxury.content') %></p>
+    </div>
+  </div>
+
+  <div class="py-8 md:pb-0 mt-8 bg-white dark:bg-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="block mt-2 text-2xl text-dark dark:text-light  sm:text-4xl text-center"><%= t('about.kw_partnership.title') %></h2>
+
+      <div class="mt-8">
+        <h3 class="text-2xl text-black dark:text-light"><%= t('about.kw_partnership.international_network.title') %></h3>
+        <p class="mt-4 text-lg text-gray-500 dark:text-light"><%= t('about.kw_partnership.international_network.content') %></p>
+
+        <h3 class="mt-8 text-2xl text-black dark:text-light"><%= t('about.kw_partnership.national_network.title') %></h3>
+        <p class="mt-4 text-lg text-gray-500 dark:text-light"><%= t('about.kw_partnership.national_network.content') %></p>
+
+        <h3 class="mt-8 text-2xl text-black dark:text-light"><%= t('about.kw_partnership.principles.title') %></h3>
+        <ul class="list-disc pl-8 mt-4 text-black dark:text-light">
+          <% I18n.t('about.kw_partnership.principles.list').each do |principle| %>
+            <% principle = principle.to_a.first %>
+            <li><%= principle.first %>: <%= principle.last %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <%= react_component 'homePage--Results', { results: @results, testimonials: @testimonials }  %>
+  <script>
+    function resizeFrame() {
+      const frame = document.getElementById("iframe");
+      if (!frame) return;
+
+      frame.style.height = frame.scrollWidth / 16 * 9 + 'px';
+    }
+
+    resizeFrame();
+    window.addEventListener('resize', resizeFrame)
+  </script>
+</section>

@@ -1,0 +1,31 @@
+one:
+  id: 1
+  image: "blog_image_1.jpg"
+  main: true
+  blog_post_id: 1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  id: 2
+  image: "blog_image_2.jpg"
+  main: false
+  blog_post_id: 1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+# == Schema Information
+#
+# Table name: blog_photos
+#
+#  id           :bigint           not null, primary key
+#  image        :text
+#  main         :boolean          default(FALSE)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  blog_post_id :bigint
+#
+# Indexes
+#
+#  index_blog_photos_on_blog_post_id  (blog_post_id)
+#
