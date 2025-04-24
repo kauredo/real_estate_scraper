@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { isDarkModeActive } from "../utils/Functions";
+import { isDarkModeActive } from "../../utils/functions";
 
 export default function ClubHeader() {
   const { t, i18n } = useTranslation();

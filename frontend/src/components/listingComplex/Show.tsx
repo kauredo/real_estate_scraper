@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import ContactForm from "../contactPage/ContactForm";
-import { sanitizeURLWithParams } from "../utils/Functions";
-import { Listing, ListingComplex } from "../utils/Interfaces";
+import { sanitizeURLWithParams } from "../../utils/functions";
+import { Listing, ListingComplex } from "../../utils/interfaces";
 import ShareIcons from "../shared/ShareIcons";
+import Routes from "../../utils/routes";
 
 interface Props {
   complex: ListingComplex;
@@ -113,7 +114,7 @@ export default function Show(props: Props) {
                       <td className=" p-2">
                         <a
                           href={sanitizeURLWithParams(
-                            window.Routes.listing_path,
+                            Routes.listing_path,
                             listing.slug
                           )}
                           target="_blank"

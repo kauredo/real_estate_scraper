@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { waitForElm } from "../utils/Functions";
-import { Testimonial } from "../utils/Interfaces";
+import { waitForElm } from "../../utils/functions";
+import { Testimonial } from "../../utils/interfaces";
 import Slider from "react-slick";
 // import MagicSliderDots from "react-magic-slider-dots";
 

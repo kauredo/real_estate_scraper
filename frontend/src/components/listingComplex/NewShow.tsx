@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import ContactForm from "../contactPage/ContactForm";
 import Cards from "../homePage/Cards";
-import { sanitizeURLWithParams } from "../utils/Functions";
-import { ListingComplex } from "../utils/Interfaces";
+import { sanitizeURLWithParams } from "../../utils/functions";
+import { ListingComplex } from "../../utils/interfaces";
 import ShareIcons from "../shared/ShareIcons";
+import Routes from "../../utils/routes";
 
 interface Props {
   complex: ListingComplex;
@@ -151,7 +152,7 @@ export default function NewShow(props: Props) {
                           listing.status === "recent" ? (
                             <a
                               href={sanitizeURLWithParams(
-                                window.Routes.listing_path,
+                                Routes.listing_path,
                                 listing.slug
                               )}
                               target="_blank"

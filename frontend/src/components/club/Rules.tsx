@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import SubNavbar from "../shared/SubNavbar";
-import { clubSections } from "../utils/constants/clubSections";
+import { clubSections } from "../../utils/constants/clubSections";
 import ClubHeader from "./ClubHeader";
 import IconDecorationWrapper from "../shared/IconDecorationWrapper";
 

@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { isDarkModeActive, sanitizeURL } from "../utils/Functions";
+import { isDarkModeActive, sanitizeURL } from "../../utils/functions";
 import Toggle from "../base/Toggle";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import Routes from "../../utils/routes";
 
 export default function DarkModeToggle() {
   const { t, i18n } = useTranslation();
   const [isDarkMode, setIsDarkMode] = useState(isDarkModeActive());
 
   const toggleDarkMode = () => {
-    const url = sanitizeURL(window.Routes.toggle_dark_mode_path);
+    const url = sanitizeURL(Routes.toggle_dark_mode_path);
     fetch(url, {
       method: "POST",
       headers: {

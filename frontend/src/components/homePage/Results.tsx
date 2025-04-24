@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
-import { ResultNumbers, Testimonial } from "../utils/Interfaces";
+import { ResultNumbers, Testimonial } from "../../utils/interfaces";
 import Testimonials from "./Testimonials";
 
 interface Props {

@@ -5,11 +5,12 @@ import {
   changeLocale,
   isDarkModeActive,
   sanitizeURL,
-} from "../utils/Functions";
-import { NavbarItemProps, SubNavItem } from "../utils/Interfaces";
+} from "../../utils/functions";
+import { NavbarItemProps, SubNavItem } from "../../utils/interfaces";
 import Socials from "../shared/Socials";
 import DarkModeToggle from "../shared/DarkModeToggle";
 import SubNavbar from "../shared/SubNavbar";
+import Routes from "../../utils/routes";
 const NavbarItem = lazy(() => import("../shared/NavbarItem"));
 const DropdownLink = lazy(() => import("../shared/DropdownLink"));
 
@@ -31,17 +32,17 @@ export default function Navbar(props: Props) {
   //     {
   //       title: `${t("navbar.about")}`,
   //       turbo: "true",
-  //       url: sanitizeURL(window.Routes.about_path),
+  //       url: sanitizeURL(Routes.about_path),
   //     },
   //     {
   //       title: `${t("navbar.services")}`,
   //       turbo: "true",
-  //       url: sanitizeURL(window.Routes.services_path),
+  //       url: sanitizeURL(Routes.services_path),
   //     },
   //     {
   //       title: `${t("navbar.contacts")}`,
   //       turbo: "true",
-  //       url: sanitizeURL(window.Routes.contact_path),
+  //       url: sanitizeURL(Routes.contact_path),
   //     },
   //   ],
   // };
@@ -50,23 +51,23 @@ export default function Navbar(props: Props) {
     {
       title: `${t("navbar.buy")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.buy_path),
+      url: sanitizeURL(Routes.buy_path),
     },
     {
       title: `${t("navbar.sell")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.sell_path),
+      url: sanitizeURL(Routes.sell_path),
     },
     {
       title: `${t("navbar.enterprises")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.latest_path),
+      url: sanitizeURL(Routes.latest_path),
     },
     ...(club_enabled
       ? [
           {
             title: `${t("navbar.club")}`,
-            url: sanitizeURL(window.Routes.club_path),
+            url: sanitizeURL(Routes.club_path),
             turbo: "true",
           },
         ]
@@ -74,27 +75,27 @@ export default function Navbar(props: Props) {
     {
       title: `${t("navbar.blog_posts")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.blog_path),
+      url: sanitizeURL(Routes.blog_path),
     },
     {
       title: `${t("navbar.about")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.about_path),
+      url: sanitizeURL(Routes.about_path),
     },
     {
       title: `${t("navbar.services")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.services_path),
+      url: sanitizeURL(Routes.services_path),
     },
     {
       title: `${t("navbar.contacts")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.contact_path),
+      url: sanitizeURL(Routes.contact_path),
     },
     {
       title: `${t("navbar.faq")}`,
       turbo: "true",
-      url: sanitizeURL(window.Routes.faq_path),
+      url: sanitizeURL(Routes.faq_path),
     },
   ];
 
@@ -175,22 +176,21 @@ export default function Navbar(props: Props) {
     if (!backoffice) {
       rightItems[0].items.unshift({
         title: "Backoffice",
-        url: sanitizeURL(window.Routes.backoffice_path),
+        url: sanitizeURL(Routes.backoffice_path),
         turbo: "true",
       });
     }
 
     rightItems[0].items.push({
       title: "Log out",
-      url: sanitizeURL(window.Routes.destroy_admin_session_path),
+      url: sanitizeURL(Routes.destroy_admin_session_path),
       method: "delete",
       turbo: "false",
     });
   }
 
-  const ctaBtn = sanitizeURL(window.Routes.sell_path) !==
-    window.location.pathname && (
-    <a href={sanitizeURL(window.Routes.sell_path)} data-turbo={false}>
+  const ctaBtn = sanitizeURL(Routes.sell_path) !== window.location.pathname && (
+    <a href={sanitizeURL(Routes.sell_path)} data-turbo={false}>
       <div className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark mr-4">
         <p>{t("home.cta.long")}</p>
       </div>
@@ -205,10 +205,7 @@ export default function Navbar(props: Props) {
             <div className="flex items-center justify-between min-h-[4rem]">
               <div className="flex items-center">
                 <div className="flex-shrink-0 relative">
-                  <a
-                    data-turbo="true"
-                    href={sanitizeURL(window.Routes.root_path)}
-                  >
+                  <a data-turbo="true" href={sanitizeURL(Routes.root_path)}>
                     <img
                       loading="lazy"
                       className="w-[6rem] relative z-10"

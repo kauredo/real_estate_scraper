@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { navbarItemClass } from "../utils/Functions";
-import { NavbarItemProps } from "../utils/Interfaces";
+import { navbarItemClass } from "../../utils/functions";
+import { NavbarItemProps } from "../../utils/interfaces";
 
 interface Props {
   item: NavbarItemProps;

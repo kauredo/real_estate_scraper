@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { numberToCurrency, sanitizeURL } from "../utils/Functions";
+import { numberToCurrency, sanitizeURL } from "../../utils/functions";
 import { useTranslation } from "react-i18next";
 import Slider from "rc-slider";
 import AdvancedSearch from "./AdvancedSearch";
-import { StatsFilter } from "../utils/Interfaces";
+import { StatsFilter } from "../../utils/interfaces";
 import ObjectiveTabs from "./ObjectiveTabs";
+import Routes from "../../utils/routes";
 
 interface Props {
   params: {
@@ -102,10 +103,7 @@ export default function ListingSearch(props: Props) {
   return (
     <div className="container mx-auto sm:px-6 px-4">
       <h2 className="text-xl mb-4 mt-8 md:mt-2">{t("listing.search.title")}</h2>
-      <form
-        action={sanitizeURL(window.Routes.buy_path)}
-        onSubmit={handleSubmit}
-      >
+      <form action={sanitizeURL(Routes.buy_path)} onSubmit={handleSubmit}>
         <ObjectiveTabs
           objective={objective}
           objectives={objectives}
@@ -221,7 +219,7 @@ export default function ListingSearch(props: Props) {
             {t("listing.search.submit")}
           </button>
           <a
-            href={sanitizeURL(window.Routes.buy_path)}
+            href={sanitizeURL(Routes.buy_path)}
             className="text-beige-default dark:text-beige-medium font-bold underline sm:ml-2 mt-2 sm:mt-0 w-full md:w-[23%]"
           >
             {t("listing.reset_filters")}

@@ -1,7 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { sanitizeURLWithParams } from "../utils/Functions";
-import { ClubStory } from "../utils/Interfaces";
+import { sanitizeURLWithParams } from "../../utils/functions";
+import { ClubStory } from "../../utils/interfaces";
+import Routes from "../../utils/routes";
 
 interface Props {
   story: ClubStory;
@@ -11,9 +12,7 @@ interface Props {
 export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
   const { t, i18n } = useTranslation();
   const storyUrl = sanitizeURLWithParams(
-    isBackoffice
-      ? window.Routes.backoffice_club_story_path
-      : window.Routes.club_story_path,
+    isBackoffice ? Routes.backoffice_club_story_path : Routes.club_story_path,
     story.slug
   );
 
@@ -50,7 +49,7 @@ export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
             <>
               <a
                 href={sanitizeURLWithParams(
-                  window.Routes.edit_backoffice_club_story_path,
+                  Routes.edit_backoffice_club_story_path,
                   story.slug
                 )}
                 className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -60,7 +59,7 @@ export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
               </a>
               <a
                 href={sanitizeURLWithParams(
-                  window.Routes.backoffice_club_story_path,
+                  Routes.backoffice_club_story_path,
                   story.slug
                 )}
                 className="bg-red-500 hover:bg-red-700 text-white dark:text-dark p-2 rounded font-bold"

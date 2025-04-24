@@ -7,7 +7,7 @@ import {
   faA,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { gsubMeterSquare } from "../utils/Functions";
+import { gsubMeterSquare } from "../../utils/functions";
 
 export default function ListingIcons({ listing }) {
   return (

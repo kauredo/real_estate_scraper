@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { getUrlParameter } from "../utils/Functions";
-import { Pagy } from "../utils/Interfaces";
+import { getUrlParameter } from "../../utils/functions";
+import { Pagy } from "../../utils/interfaces";
 
 interface Props {
   pagy: Pagy;

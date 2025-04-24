@@ -45,22 +45,26 @@ export function toCapitalize(string) {
 }
 
 export const sanitizeURL = url => {
-  if (i18n.locale === "pt") {
-    return url();
+  const { t, i18n } = useTranslation();
+
+  if (i18n.language === "pt") {
+    return url;
   } else {
-    return url({ locale: i18n.locale });
+    return url({ locale: i18n.language });
   }
 };
 
 export const sanitizeURLWithParams = (url, params) => {
+  const { t, i18n } = useTranslation();
+
   if (params === undefined || params === null) {
     return "#";
   }
 
-  if (i18n.locale === "pt") {
+  if (i18n.language === "pt") {
     return url(params);
   } else {
-    return url(params, { locale: i18n.locale });
+    return url(params, { locale: i18n.language });
   }
 };
 
@@ -124,7 +128,9 @@ export const navbarItemClass = (path, isMobile, children: string[] = []) => {
 };
 
 export const numberToCurrency = (number, currency = "EUR") => {
-  return new Intl.NumberFormat(i18n.locale, {
+  const { t, i18n } = useTranslation();
+
+  return new Intl.NumberFormat(i18n.language, {
     style: "currency",
     currency: currency,
     maximumFractionDigits: 0,

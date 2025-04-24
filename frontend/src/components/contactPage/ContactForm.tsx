@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Listing, ListingComplex } from "../utils/Interfaces";
+import { Listing, ListingComplex } from "../../utils/interfaces";
+import Routes from "../../utils/routes";
 
 interface Props {
   listing?: Listing;
@@ -59,7 +60,7 @@ export default function ContactForm(props: Props) {
       <form
         ref={form}
         onSubmit={e => validateUser(e)}
-        action={window.Routes.new_contact_path()}
+        action={Routes.new_contact_path()}
         method="post"
       >
         <div className="mb-6">

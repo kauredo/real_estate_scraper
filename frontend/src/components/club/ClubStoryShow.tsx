@@ -1,10 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ClubStory } from "../utils/Interfaces";
+import { ClubStory } from "../../utils/interfaces";
 import ShareIcons from "../shared/ShareIcons";
 import PhotoGallery from "../shared/PhotoGallery";
 import SubNavbar from "../shared/SubNavbar";
-import { clubSections } from "../utils/constants/clubSections";
+import { clubSections } from "../../utils/constants/clubSections";
 
 interface Props {
   club_story: ClubStory;

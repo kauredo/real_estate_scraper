@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Listing } from "../utils/Interfaces";
+import { Listing } from "../../utils/interfaces";
 import ContactForm from "../contactPage/ContactForm";
 import { useTranslation } from "react-i18next";
 import { ReadMore } from "../shared/ReadMore";

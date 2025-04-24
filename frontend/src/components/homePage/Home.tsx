@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useLayoutEffect, useState } from "react";
-import { Listing, ResultNumbers, Testimonial } from "../utils/Interfaces";
+import { Listing, ResultNumbers, Testimonial } from "../../utils/interfaces";
 const Newsletter = lazy(() => import("./Newsletter"));
 const Cards = lazy(() => import("./Cards"));
 const Results = lazy(() => import("./Results"));

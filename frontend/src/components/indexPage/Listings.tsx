@@ -1,8 +1,9 @@
 import React from "react";
-import { Listing } from "../utils/Interfaces";
+import { Listing } from "../../utils/interfaces";
 import LongCard from "./LongCard";
 import { useTranslation } from "react-i18next";
-import { sanitizeURL } from "../utils/Functions";
+import { sanitizeURL } from "../../utils/functions";
+import Routes from "../../utils/routes";
 
 interface Props {
   listings: Listing[];
@@ -22,7 +23,7 @@ export default function Listings(props: Props) {
               {t("listing.no_listings")}
             </p>
             <a
-              href={sanitizeURL(window.Routes.buy_path)}
+              href={sanitizeURL(Routes.buy_path)}
               className="text-beige-default dark:text-beige-medium text-xl font-bold underline ml-2"
             >
               {t("listing.reset_filters")}
