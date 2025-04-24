@@ -1,0 +1,17 @@
+<% content_for(:meta_title) { @listing_complex.name } %>
+<% content_for(:meta_image) { @listing_complex.main_photo || @listing_complex.listings.first&.photos&.first } %>
+<% content_for(:meta_description) { @listing_complex&.description&.squish } %>
+<% content_for(:extra_meta) do %>
+  <% slug = @listing_complex.slug || @listing_complex.slug_pt %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>empreendimentos/<%= slug %>" />
+  <link rel="alternate" hreflang="<%= I18n.locale == :pt ? 'en' : 'pt' %>" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? 'en/' : '' %>empreendimentos/<%= slug %>" />
+  <link rel="alternate" hreflang="x-default" href="https://sofiagalvaogroup.com/empreendimentos/<%= slug %>" />
+<% end %>
+
+<div id="show" class="relative">
+  <% if @listing_complex.new_format %>
+    <%= react_component 'listingComplex--NewShow', { complex: @listing_complex_json }  %>
+  <% else %>
+    <%= react_component 'listingComplex--Show', { complex: @listing_complex_json }  %>
+  <% end %>
+</div>

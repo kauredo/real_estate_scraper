@@ -1,3 +1,0 @@
-js: yarn build --watch
-css: yarn build:css --watch
-postcss: yarn build:postcss --watch

@@ -46,8 +46,32 @@ latest.dump
 /app/javascript/routes.d.ts
 .env
 *.DS_Store
-/coverage
-.fly-pg-secrets
-client
+.env
+node_modules
+tmp
 
-public/storage
+# API
+/api/log/*
+/api/tmp/*
+!/api/log/.keep
+!/api/tmp/.keep
+/api/storage/*
+/api/public/assets
+/api/.bundle
+/api/coverage
+/api/app/assets/builds/*
+/api/node_modules
+/api/public/uploads/tmp
+/api/public/storage
+/api/config/master.key
+/api/latest.dump
+/api/.fly-pg-secrets
+
+# Frontend
+/frontend/node_modules
+/frontend/dist
+/frontend/coverage
+/frontend/.env.local
+/frontend/.env.*.local
+
+client

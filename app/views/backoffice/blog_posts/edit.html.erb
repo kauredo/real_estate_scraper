@@ -1,8 +1,0 @@
-<div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
-  <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
-    <h2 class="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">Editar Post: <%= @blog_post.title %></h2>
-    <%= form_for([:backoffice, @blog_post], html: { method: :put, class: 'my-6' }) do |f| %>
-      <%= render 'form', f: %>
-    <% end %>
-  </div>
-</div>
