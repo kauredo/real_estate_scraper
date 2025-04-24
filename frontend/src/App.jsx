@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import Header from "./components/layout/Header";
+import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import HomePage from "./pages/HomePage";
 // import ListingsPage from "./pages/ListingsPage";
@@ -43,7 +43,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-white dark:bg-dark text-black dark:text-light">
-        <Header />
+        <Navbar />
         <div className="flex-auto">
           <Routes>
             {/* Portuguese Routes */}

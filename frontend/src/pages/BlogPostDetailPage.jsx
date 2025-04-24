@@ -1,0 +1,103 @@
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { getBlogPost } from "../services/api";
+import ShareIcons from "../components/shared/ShareIcons";
+
+const BlogPostDetailPage = () => {
+  const { slug } = useParams();
+  const { i18n } = useTranslation();
+  const [blogPost, setBlogPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogPost = async () => {
+      try {
+        setLoading(true);
+        const response = await getBlogPost(slug);
+        setBlogPost(response.data);
+      } catch (error) {
+        console.error("Error fetching blog post:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogPost();
+  }, [slug]);
+
+  // Set meta tags (title, description)
+  useEffect(() => {
+    if (blogPost) {
+      document.title = blogPost.meta_title || blogPost.title;
+
+      // Update meta description
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (!metaDescription) {
+        metaDescription = document.createElement("meta");
+        metaDescription.name = "description";
+        document.head.appendChild(metaDescription);
+      }
+      metaDescription.content = blogPost.meta_description;
+
+      // Update meta image
+      let metaImage = document.querySelector('meta[property="og:image"]');
+      if (!metaImage) {
+        metaImage = document.createElement("meta");
+        metaImage.setAttribute("property", "og:image");
+        document.head.appendChild(metaImage);
+      }
+      metaImage.content = blogPost.main_photo;
+    }
+  }, [blogPost]);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto p-8 flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-beige-default"></div>
+      </div>
+    );
+  }
+
+  if (!blogPost) {
+    return (
+      <div className="container mx-auto p-8 text-center">
+        <h1 className="text-2xl">Blog post not found</h1>
+      </div>
+    );
+  }
+
+  return (
+    <div id="blog-show" className="relative">
+      <header
+        className="!bg-center !bg-no-repeat !bg-cover min-h-[320px] relative"
+        style={{ background: `url('${blogPost.main_photo}')` }}
+      >
+        {blogPost.video_link && (
+          <iframe
+            className="relative top-0 right-0 p-0 w-full min-h-[320px]"
+            src={blogPost.video_link}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        )}
+      </header>
+      <div className="tinymce pt-8 px-8 mx-auto container">
+        <div className="w-full tablet:w-2/3 mb-4">
+          <h1>{blogPost.title}</h1>
+          <p>{new Date(blogPost.created_at).toLocaleDateString()}</p>
+        </div>
+        <ShareIcons title={blogPost.meta_title || blogPost.title} />
+
+        <div
+          className="blog-content"
+          dangerouslySetInnerHTML={{ __html: blogPost.sanitized_text }}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default BlogPostDetailPage;

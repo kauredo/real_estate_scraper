@@ -1,0 +1,92 @@
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
+import { getBlogPosts } from "../services/api";
+import BlogCard from "../components/blog/BlogCard";
+import Banner from "../components/shared/Banner";
+
+const BlogPostsPage = () => {
+  const { t, i18n } = useTranslation();
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        setLoading(true);
+        const response = await getBlogPosts();
+        setBlogPosts(response.data);
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogPosts();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto p-8 flex justify-center items-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-beige-default"></div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <Banner height="20vh" blurred={true} text={t("blog_posts.header")} />
+
+      <div className="pt-6 bg-white dark:bg-dark text-center md:hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
+          <h1
+            id="main-title"
+            className="relative block md:hidden mt-2 text-3xl text-dark dark:text-light sm:text-4xl px-4"
+          >
+            {t("blog_posts.header")}
+          </h1>
+        </div>
+      </div>
+
+      <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
+        <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+          <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
+            {t("blog_posts.header")}
+          </h1>
+          <p className="mx-auto text-gray-500 dark:text-light text-lg mt-2">
+            {t("blog_posts.subheader")}
+          </p>
+          <br />
+
+          <div className="w-full max-w-7xl mx-auto">
+            {blogPosts.length === 0 ? (
+              <div className="w-full text-center p-8 text-xl">
+                <h2>{t("blog_posts.empty")}</h2>
+              </div>
+            ) : blogPosts.length === 1 ? (
+              <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
+                <BlogCard blogPost={blogPosts[0]} />
+              </div>
+            ) : blogPosts.length === 2 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {blogPosts.map(blogPost => (
+                  <BlogCard key={blogPost.id} blogPost={blogPost} />
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {blogPosts.map(blogPost => (
+                  <BlogCard key={blogPost.id} blogPost={blogPost} />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default BlogPostsPage;

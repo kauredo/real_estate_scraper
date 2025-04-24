@@ -6,12 +6,17 @@
 
 # Ignore bundler config.
 /.bundle
+api/.bundle
 
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+api/log/*
+api/tmp/*
+api/!/log/.keep
+api/!/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -44,7 +49,5 @@ latest.dump
 /coverage
 .fly-pg-secrets
 client
-api
-frontend
 
 public/storage
