@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { sanitizeURL } from "../utils/Functions";
+import { sanitizeURL } from "../../utils/functions";
+import Routes from "../../utils/routes";
 
 export default function Newsletter() {
   const { t, i18n } = useTranslation();
@@ -43,7 +44,7 @@ export default function Newsletter() {
         <form
           ref={form}
           onSubmit={e => validateUser(e)}
-          action={sanitizeURL(window.Routes.newsletter_subscriptions_path)}
+          action={sanitizeURL(Routes.newsletter_subscriptions_path)}
           method="post"
         >
           <div className="w-full">

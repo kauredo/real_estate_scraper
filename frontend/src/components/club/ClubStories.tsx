@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ClubStory } from "../utils/Interfaces";
+import { ClubStory } from "../../utils/interfaces";
 import ClubStoryCard from "./ClubStoryCard";
 import SubNavbar from "../shared/SubNavbar";
-import { clubSections } from "../utils/constants/clubSections";
+import { clubSections } from "../../utils/constants/clubSections";
 import ClubHeader from "./ClubHeader";
 import IconDecorationWrapper from "../shared/IconDecorationWrapper";
 

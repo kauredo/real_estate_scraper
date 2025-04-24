@@ -1,6 +1,7 @@
 import React from "react";
-import { ListingComplex } from "../utils/Interfaces";
-import { sanitizeURLWithParams, truncateText } from "../utils/Functions";
+import { ListingComplex } from "../../utils/interfaces";
+import { sanitizeURLWithParams, truncateText } from "../../utils/functions";
+import Routes from "../../utils/routes";
 
 interface Props {
   listing_complex: ListingComplex;
@@ -15,11 +16,11 @@ export default function ComplexCard(props: Props) {
         href={
           backoffice
             ? sanitizeURLWithParams(
-                window.Routes.edit_backoffice_listing_complex_path,
+                Routes.edit_backoffice_listing_complex_path,
                 listing_complex.slug
               )
             : sanitizeURLWithParams(
-                window.Routes.listing_complex_path,
+                Routes.listing_complex_path,
                 listing_complex.slug
               )
         }

@@ -5,8 +5,9 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { useTranslation } from "react-i18next";
-import { sanitizeURL } from "../utils/Functions";
+import { sanitizeURL } from "../../utils/functions";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import Routes from "../../utils/routes";
 
 export default function Footer() {
   const { t, i18n } = useTranslation();
@@ -47,7 +48,7 @@ export default function Footer() {
           <ul className="flex flex-wrap items-center text-sm text-gray-500 dark:text-light">
             <li>
               <a
-                href={sanitizeURL(window.Routes.about_path)}
+                href={sanitizeURL(Routes.about_path)}
                 className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6 "
               >
                 {t("footer.about")}
@@ -55,7 +56,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={sanitizeURL(window.Routes.privacy_path)}
+                href={sanitizeURL(Routes.privacy_path)}
                 className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6"
               >
                 {t("footer.privacy")}
@@ -63,7 +64,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={sanitizeURL(window.Routes.terms_and_conditions_path)}
+                href={sanitizeURL(Routes.terms_and_conditions_path)}
                 className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6 "
               >
                 {t("footer.terms")}
@@ -71,7 +72,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={sanitizeURL(window.Routes.contact_path)}
+                href={sanitizeURL(Routes.contact_path)}
                 className="hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100"
               >
                 {t("footer.contacts")}

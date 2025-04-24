@@ -1,2218 +1,2216 @@
 {
-  "pt": {
-    "about": {
-      "header": "Sobre Nós",
-      "history_and_values": {
-        "content": {
-          "first_paragraph": "Fundado por Sofia Galvão, o Sofia Galvão Group nasceu da paixão por oferecer soluções imobiliárias de qualidade. Com uma vasta experiência no setor, a nossa equipa está comprometida em fornecer um serviço de consultoria personalizado e transparente. Acreditamos que cada transação imobiliária é uma oportunidade de construir relacionamentos duradouros e ajudar nossos clientes a alcançar seus objetivos.",
-          "second_paragraph": "Desde 2022 que fazemos parte do Top 20 dos consultores mais produtivos em todo o País, da KW Portugal e estamos no top 3 na KW Lead Santos, integrando, por isso o Associate Leadership Council (ALC), um órgão coletivo que apoia a estratégia de negócio a nível local.",
-          "third_paragraph": "Fazemos parte do 3º market center mais bem-sucedido a nível nacional. Aqui ajudamos clientes a terem a casa com que sonham, ajudamos proprietários a encontrar a melhor solução de negócio e ajudamos consultores a terem a carreira que procuram!"
-        },
-        "title": "A Nossa História e os Nossos Valores"
+  "about": {
+    "header": "Sobre Nós",
+    "history_and_values": {
+      "content": {
+        "first_paragraph": "Fundado por Sofia Galvão, o Sofia Galvão Group nasceu da paixão por oferecer soluções imobiliárias de qualidade. Com uma vasta experiência no setor, a nossa equipa está comprometida em fornecer um serviço de consultoria personalizado e transparente. Acreditamos que cada transação imobiliária é uma oportunidade de construir relacionamentos duradouros e ajudar nossos clientes a alcançar seus objetivos.",
+        "second_paragraph": "Desde 2022 que fazemos parte do Top 20 dos consultores mais produtivos em todo o País, da KW Portugal e estamos no top 3 na KW Lead Santos, integrando, por isso o Associate Leadership Council (ALC), um órgão coletivo que apoia a estratégia de negócio a nível local.",
+        "third_paragraph": "Fazemos parte do 3º market center mais bem-sucedido a nível nacional. Aqui ajudamos clientes a terem a casa com que sonham, ajudamos proprietários a encontrar a melhor solução de negócio e ajudamos consultores a terem a carreira que procuram!"
       },
-      "kw_luxury": {
-        "content": "Como parte de uma rede exclusiva de agentes de luxo da KW internacional, o Sofia Galvão Group é especializado na promoção e venda de propriedades de alto padrão. Oferecemos um serviço de excelência, com foco nas necessidades dos clientes mais exigentes. A nossa experiência e rede mundial permitem-nos oferecer uma abordagem personalizada e um atendimento de alto nível, garantindo que cada propriedade de luxo receba o destaque que merece.",
-        "subtitle": "Especialistas em Imóveis de Luxo",
-        "title": "Somos Agent KW Luxury"
-      },
-      "kw_partnership": {
-        "international_network": {
-          "content": "O Sofia Galvão Group faz parte da KW, uma rede global de consultores imobiliários, presente em 5 continentes e mais de 50 regiões. Como líder mundial em mediação imobiliária, a KW oferece acesso a uma rede extensa e recursos incomparáveis.",
-          "title": "Rede Internacional"
-        },
-        "national_network": {
-          "content": "Em Portugal, a KW conta com 23 representações e mais de 2.800 consultores e associados, proporcionando uma cobertura abrangente e um serviço de alta qualidade em todo o país. Esta vasta rede permite-nos oferecer aos nossos clientes uma experiência de compra e venda superior.",
-          "title": "Rede Nacional"
-        },
-        "principles": {
-          "list": [
-            {
-              "WIN-WIN": "Ou não se faz."
-            },
-            {
-              "INTEGRIDADE": "Fazer o que está certo."
-            },
-            {
-              "CLIENTES": "Sempre em primeiro lugar."
-            },
-            {
-              "COMPROMISSO": "Em tudo."
-            },
-            {
-              "COMUNICAÇÃO": "Procure primeiro entender."
-            },
-            {
-              "CRIATIVIDADE": "Ideias antes dos resultados."
-            },
-            {
-              "TRABALHO EM EQUIPA": "Juntos alcançamos mais."
-            },
-            {
-              "TER CONFIANÇA": "Começa com honestidade."
-            },
-            {
-              "EQUIDADE": "Oportunidades para todos."
-            },
-            {
-              "SUCESSO": "Resultados através das pessoas."
-            }
-          ],
-          "title": "Princípios KW"
-        },
-        "title": "Parceria com Keller Williams"
-      },
-      "meta_description": "Sofia Galvão Group, uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
-      "mission": {
-        "sub1": "Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!",
-        "title": "Missão"
-      },
-      "mission_and_vision": {
-        "content": "A nossa missão é ser a escolha número um para serviços imobiliários de alta qualidade em todo o país. Trabalhamos com dedicação para garantir que cada cliente receba um serviço personalizado, focado nas suas necessidades únicas. A nossa visão é estabelecer um padrão de excelência no mercado imobiliário, oferecendo soluções inovadoras e uma experiência de cliente incomparável.",
-        "title": "Missão e Visão"
-      },
-      "profile": {
-        "description": "Sou marketer de formação e criadora de valor por paixão. Trabalhei durante anos com marcas e produtos, no propósito de melhor servir o Cliente e de lhe oferecer não só o que ele necessitava, mas também o que melhor respondia às suas aspirações. Foquei-me nas pessoas e na realização do seu potencial máximo, sou Master em Programação Neuro linguística e acredito na conquista da capacitação para a concretização de objectivos e realização de propósitos de vida. Dediquei-me ao sector imobiliário e exerço na compra e venda de casas a descoberta do activo único: da casa, do cliente, da transação, do serviço. Encontrei na KW a estrutura certa para desenvolver a consultoria imobiliária do Sofia Galvão Group com exigência, rigor, profissionalismo e confiança. Tenho o “know how” do mercado e proporciono aos meus Clientes os melhores negócios, os que os fazem mais Felizes!",
-        "slogan": "Juntos criamos Lares Felizes!"
-      },
-      "results": {
-        "title": "Resultados"
-      },
-      "team": {
-        "content": "A nossa equipa é composta por profissionais altamente qualificados e experientes, especializados em diversos segmentos do mercado. Trabalhamos com uma rede de parceiros confiáveis para fornecer um serviço completo, incluindo apoio jurídico e consultoria financeira. O nosso objetivo é garantir que cada cliente se sinta apoiado e confiante durante todo o processo de compra ou venda.",
-        "title": "Equipa"
-      },
-      "testimonies": {
-        "title": "Testemunhos"
-      },
-      "vision": {
-        "sub1": "Ser a equipa preferida pelos clientes que querem comprar ou vender imobiliário nas zonas de Lisboa e do Porto, graças ao nosso profissionalismo, à nossa capacidade de gerar bons negócios e aos valores que professamos no dia a dia.",
-        "sub2": "Juntos criamos Lares Felizes!",
-        "title": "Visão"
-      },
-      "who": {
-        "sub1": "Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
-        "sub2": "Focados na profissionalização do setor praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
-        "title": "Quem somos?"
-      }
+      "title": "A Nossa História e os Nossos Valores"
     },
-    "activerecord": {
-      "errors": {
-        "messages": {
-          "record_invalid": "A validação falhou: %{errors}",
-          "restrict_dependent_destroy": {
-            "has_many": "Não pode ser eliminado por existirem dependências de %{record}",
-            "has_one": "Não pode ser eliminado por existir uma dependência de %{record}"
+    "kw_luxury": {
+      "content": "Como parte de uma rede exclusiva de agentes de luxo da KW internacional, o Sofia Galvão Group é especializado na promoção e venda de propriedades de alto padrão. Oferecemos um serviço de excelência, com foco nas necessidades dos clientes mais exigentes. A nossa experiência e rede mundial permitem-nos oferecer uma abordagem personalizada e um atendimento de alto nível, garantindo que cada propriedade de luxo receba o destaque que merece.",
+      "subtitle": "Especialistas em Imóveis de Luxo",
+      "title": "Somos Agent KW Luxury"
+    },
+    "kw_partnership": {
+      "international_network": {
+        "content": "O Sofia Galvão Group faz parte da KW, uma rede global de consultores imobiliários, presente em 5 continentes e mais de 50 regiões. Como líder mundial em mediação imobiliária, a KW oferece acesso a uma rede extensa e recursos incomparáveis.",
+        "title": "Rede Internacional"
+      },
+      "national_network": {
+        "content": "Em Portugal, a KW conta com 23 representações e mais de 2.800 consultores e associados, proporcionando uma cobertura abrangente e um serviço de alta qualidade em todo o país. Esta vasta rede permite-nos oferecer aos nossos clientes uma experiência de compra e venda superior.",
+        "title": "Rede Nacional"
+      },
+      "principles": {
+        "list": [
+          {
+            "WIN-WIN": "Ou não se faz."
+          },
+          {
+            "INTEGRIDADE": "Fazer o que está certo."
+          },
+          {
+            "CLIENTES": "Sempre em primeiro lugar."
+          },
+          {
+            "COMPROMISSO": "Em tudo."
+          },
+          {
+            "COMUNICAÇÃO": "Procure primeiro entender."
+          },
+          {
+            "CRIATIVIDADE": "Ideias antes dos resultados."
+          },
+          {
+            "TRABALHO EM EQUIPA": "Juntos alcançamos mais."
+          },
+          {
+            "TER CONFIANÇA": "Começa com honestidade."
+          },
+          {
+            "EQUIDADE": "Oportunidades para todos."
+          },
+          {
+            "SUCESSO": "Resultados através das pessoas."
           }
+        ],
+        "title": "Princípios KW"
+      },
+      "title": "Parceria com Keller Williams"
+    },
+    "meta_description": "Sofia Galvão Group, uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
+    "mission": {
+      "sub1": "Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!",
+      "title": "Missão"
+    },
+    "mission_and_vision": {
+      "content": "A nossa missão é ser a escolha número um para serviços imobiliários de alta qualidade em todo o país. Trabalhamos com dedicação para garantir que cada cliente receba um serviço personalizado, focado nas suas necessidades únicas. A nossa visão é estabelecer um padrão de excelência no mercado imobiliário, oferecendo soluções inovadoras e uma experiência de cliente incomparável.",
+      "title": "Missão e Visão"
+    },
+    "profile": {
+      "description": "Sou marketer de formação e criadora de valor por paixão. Trabalhei durante anos com marcas e produtos, no propósito de melhor servir o Cliente e de lhe oferecer não só o que ele necessitava, mas também o que melhor respondia às suas aspirações. Foquei-me nas pessoas e na realização do seu potencial máximo, sou Master em Programação Neuro linguística e acredito na conquista da capacitação para a concretização de objectivos e realização de propósitos de vida. Dediquei-me ao sector imobiliário e exerço na compra e venda de casas a descoberta do activo único: da casa, do cliente, da transação, do serviço. Encontrei na KW a estrutura certa para desenvolver a consultoria imobiliária do Sofia Galvão Group com exigência, rigor, profissionalismo e confiança. Tenho o “know how” do mercado e proporciono aos meus Clientes os melhores negócios, os que os fazem mais Felizes!",
+      "slogan": "Juntos criamos Lares Felizes!"
+    },
+    "results": {
+      "title": "Resultados"
+    },
+    "team": {
+      "content": "A nossa equipa é composta por profissionais altamente qualificados e experientes, especializados em diversos segmentos do mercado. Trabalhamos com uma rede de parceiros confiáveis para fornecer um serviço completo, incluindo apoio jurídico e consultoria financeira. O nosso objetivo é garantir que cada cliente se sinta apoiado e confiante durante todo o processo de compra ou venda.",
+      "title": "Equipa"
+    },
+    "testimonies": {
+      "title": "Testemunhos"
+    },
+    "vision": {
+      "sub1": "Ser a equipa preferida pelos clientes que querem comprar ou vender imobiliário nas zonas de Lisboa e do Porto, graças ao nosso profissionalismo, à nossa capacidade de gerar bons negócios e aos valores que professamos no dia a dia.",
+      "sub2": "Juntos criamos Lares Felizes!",
+      "title": "Visão"
+    },
+    "who": {
+      "sub1": "Uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
+      "sub2": "Focados na profissionalização do setor praticamos consultoria imobiliária com credibilidade, excelência e relevância.",
+      "title": "Quem somos?"
+    }
+  },
+  "activerecord": {
+    "errors": {
+      "messages": {
+        "record_invalid": "A validação falhou: %{errors}",
+        "restrict_dependent_destroy": {
+          "has_many": "Não pode ser eliminado por existirem dependências de %{record}",
+          "has_one": "Não pode ser eliminado por existir uma dependência de %{record}"
         }
       }
-    },
-    "backoffice": {
-      "blog_posts": {
-        "view_post": "Ver Post"
-      },
-      "club_stories": {
-        "view_story": "Ver História"
-      },
-      "common": {
-        "confirm_delete": "Tem certeza que deseja apagar este item?",
-        "create": "Criar",
-        "delete_confirm": "Tem certeza que deseja apagar este item?",
-        "delete_photo_confirm": "Tem certeza que deseja apagar esta foto?",
-        "edit": "Editar",
-        "hidden_hint": "O conteúdo só será visível no site se esta opção NÃO estiver selecionada (apenas visível no backoffice)",
-        "main_photo": "Foto principal?",
-        "photos": "Fotos",
-        "seo_description_hint": "Esta é a descrição que aparecerá nos motores de busca 👇",
-        "seo_section": "SEO",
-        "seo_title_hint": "Este é o título que aparecerá nos motores de busca 👇",
-        "update": "Atualizar",
-        "view": "Ver"
-      }
-    },
+    }
+  },
+  "backoffice": {
     "blog_posts": {
-      "empty": "Novos posts em breve...",
-      "header": "Blog Posts",
-      "meta_description": "Conheça mais sobre imobiliário e as melhores dicas dos locais onde morar em Lisboa com Sofia Galvão Group.",
-      "resource": "Post",
-      "subheader": "O nosso blog é uma fonte de conhecimento para compradores e vendedores. Incluímos artigos sobre as melhores práticas no mercado imobiliário, tendências de mercado e conselhos para quem quer comprar ou vender um imóvel. Mantenha-se informado e tome decisões seguras e acertadas com o nosso conteúdo."
-    },
-    "buy": {
-      "header": "Comprar",
-      "meta_description": "Comprar propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group."
-    },
-    "club": {
-      "flash": {
-        "join": {
-          "thanks": "Obrigado pelo seu interesse em juntar-se ao Clube SGG. Entraremos em contacto em breve!"
-        }
-      },
-      "form": {
-        "consent": "Ao contactar-nos está a autorizar o Sofia Galvão Group a guardar os seus dados para fins de adesão ao clube.",
-        "error": "Por favor preencha todos os campos obrigatórios corretamente",
-        "fields": {
-          "email": "Email",
-          "name": "Nome",
-          "phone": "Telefone",
-          "send": "Juntar ao Clube"
-        },
-        "titles": {
-          "main": "Preencha o formulário para nos referenciar um membro:"
-        }
-      },
-      "home": {
-        "contribute": {
-          "cta": "Comece agora a fazer a diferença.",
-          "description": "Ao indicar-nos alguém que pretenda comprar ou vender casa, está a dar início a uma mudança real. Cada negócio concretizado gera um contributo direto para a missão do Clube SGG, ajudando a transformar casas em lares dignos para quem mais precisa.\n",
-          "subtitle": "Uma simples referência sua pode transformar vidas.",
-          "title": "Contribua para a próxima história",
-          "value_description": "Desta forma, cria valor em duas frentes: oferece às pessoas que indica um acompanhamento imobiliário de excelência, enquanto muda a vida de pessoas e famílias que precisam de si e da sua ajuda.\n"
-        },
-        "dignity": {
-          "description": "Todos merecem um lar onde possam viver com dignidade, segurança e conforto. O Clube SGG nasce com a missão de reabilitar vidas através da melhoria das condições de habitação daqueles que mais precisam.\n",
-          "title": "Uma casa digna não deve ser um sonho mas sim uma realidade"
-        },
-        "header": "Clube SGG",
-        "impact": {
-          "subtitle": "Conheça o nosso impacto",
-          "title": "História do impacto já gerado"
-        },
-        "join": {
-          "cta": "Enviar WhatsApp",
-          "description": "Conhece alguém que queira comprar ou vender casa? Indique-nos essa pessoa. Com este gesto simples, garante-lhe um serviço imobiliário de excelência, ao mesmo tempo que ajuda a proporcionar uma habitação digna a quem mais precisa.\n",
-          "impact": "Uma referência sua vai mudar vidas.",
-          "mission": "Juntos, vamos transformar casas em lares e reabilitar vidas.",
-          "subtitle": "Torne-se membro do Clube SGG agora mesmo.",
-          "title": "Dê o primeiro passo para melhorar uma vida",
-          "whatsapp": "Envie-nos um WhatsApp para começar a contribuir."
-        },
-        "know_more": {
-          "cta": "Enviar WhatsApp",
-          "help_description": "Referencie outros membros para juntos podermos impactar mais vidas!\n",
-          "help_question": "Conhece quem possa contribuir para a causa?",
-          "help_title": "Ajude-nos a crescer!",
-          "rules": "Conheça aqui o Regulamento do Clube SGG",
-          "whatsapp": "Envie-nos um WhatsApp para referenciar membros para o clube."
-        },
-        "meta_description": "Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
-        "partners": {
-          "conclusion_html": "<strong>A sua indicação pode mudar uma vida. Entre em contacto e faça parte desta mudança.</strong>",
-          "cta": "Enviar WhatsApp",
-          "description": "A missão do Clube SGG só é possível graças à colaboração essencial dos nossos membros e embaixadores, que dão vida ao impacto que queremos alcançar.\n",
-          "dynamic": "Não só pela dinâmica de recomendações no setor imobiliário que alimentam o movimento, mas também pela identificação de histórias e pessoas que mais precisam de apoio.\n",
-          "second_title": "Sabe de alguém que possamos ajudar?",
-          "situations": "Estamos sempre à procura de situações reais onde o nosso apoio possa fazer a diferença.",
-          "someone": "Se conhece alguém que esteja a passar por dificuldades e que possa beneficiar da nossa ajuda, fale connosco.",
-          "subtitle": "Juntos, podemos criar histórias que mudam vidas.",
-          "title": "Ajude-nos a fazer a mudança acontecer"
-        },
-        "subtitle": "Comprar e vender casas, reabilitar vidas",
-        "title": "Clube SGG"
-      },
-      "recent_stories": {
-        "description": "Descubra as histórias e experiências mais recentes dos nossos membros",
-        "title": "Histórias Recentes"
-      },
-      "rules": {
-        "clarity": "Acreditamos que só com clareza conseguimos gerar um impacto real e duradouro.",
-        "content": "<p>O Clube SGG é um programa exclusivo que visa proporcionar benefícios adicionais aos nossos clientes...</p> <p>Consulte aqui todas as regras e condições de participação.</p>\n",
-        "header": "Regulamento",
-        "intro": "O regulamento do Clube SGG estabelece as regras claras de funcionamento,\n definindo os direitos e deveres dos membros, os critérios para o apoio\nàs  famílias e os princípios que garantem uma gestão transparente e responsável  dos fundos obtidos.\n",
-        "introduction": "Regulamento do Clube SGG",
-        "meta_description": "Regras e diretrizes para membros do Clube SGG.",
-        "read_below": "Conheça abaixo o regulamento completo que orienta toda a nossa atividade.",
-        "sections": {
-          "criteria": {
-            "criteria": {
-              "list": {
-                "first": "Condições atuais de habitação e urgência do apoio;",
-                "second": "Impacto que a intervenção pode gerar na qualidade de vida da família."
-              },
-              "title": "4.3. A atribuição do apoio será analisada com base nos seguintes critérios:"
-            },
-            "decisions_html": "4.4. As decisões de apoio serão tomadas por um grupo de membros do clube, garantindo <strong>transparência e equidade</strong> na seleção dos beneficiários.",
-            "families_html": "4.1. O apoio do Clube SGG destina-se a <strong>famílias carenciadas, idosos e pessoas em situação de sem-abrigo</strong> que necessitem de melhorias habitacionais.",
-            "submited_by": {
-              "list": {
-                "first": "As próprias famílias;",
-                "second": "Organizações sociais ou entidades parceiras que identifiquem casos de necessidade.",
-                "third": "Membros ou embaixadores do Clube SGG."
-              },
-              "title": "4.2. As candidaturas ao apoio podem ser submetidas por:"
-            },
-            "title": "4. Critérios de Apoio às Famílias"
-          },
-          "events": {
-            "description": "5.1. O Clube SGG promove regularmente eventos para:",
-            "incentives": "5.2. Todos os embaixadores são incentivados a participar nos eventos e a contribuir para o crescimento do impacto do clube.",
-            "list": {
-              "first": "Angariação de referenciações e mobilização de recursos;",
-              "second": "Sensibilização para a problemática da habitação digna;",
-              "third": "Celebração dos projetos concluídos e partilha de testemunhos."
-            },
-            "title": "5. Eventos e Iniciativas do Clube"
-          },
-          "final": {
-            "first": "7.1. O presente regulamento pode ser ajustado conforme necessário, mediante aprovação dos responsáveis do clube.",
-            "second_html": "7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus valores e missão, garantindo sempre que o impacto na comunidade é <strong>positivo e significativo.</strong>",
-            "title": "7. Disposições Finais"
-          },
-          "financial_model": {
-            "application": {
-              "intro": "Os fundos do Clube SGG são aplicados em:",
-              "list_html": {
-                "first": "<strong>Remodelações e reparações habitacionais</strong> para pessoas carenciadas;",
-                "fourth": "<strong>Desenvolvimento de novas iniciativas e parcerias</strong> que aumentem o impacto do clube.",
-                "second": "<strong>Aquisição de mobília e equipamentos essenciais</strong> para melhorar as condições de vida das pessoas apoiadas;",
-                "third": "<strong>Contributo para melhorar as condições necessárias</strong> para transformar uma casa num lar;"
-              },
-              "title": "3.2. Aplicação dos Fundos"
-            },
-            "sources": {
-              "description_html": "O Clube SGG financia as suas ações através de <strong>Referências imobiliárias</strong> - Quando um membro do clube indica alguém que queira comprar ou vender casa, uma parte da comissão da transação reverte para o apoio à habitação de pessoas carenciadas.",
-              "intro": "O Clube SGG financia as suas ações através de:",
-              "title": "3.1. Fontes de Financiamento"
-            },
-            "title": "3. Modelo de Apoio e Financiamento"
-          },
-          "general": {
-            "definition": "Este regulamento define as regras de funcionamento do clube, os direitos  e deveres dos membros e os critérios de apoio às pessoas beneficiárias.\n",
-            "mission_html": "O Clube SGG tem como missão <strong>contribuir de forma positiva para melhorar as condições de habitação de quem mais precisa</strong>, mobilizando recursos e pessoas para criar lares dignos.\n",
-            "title": "1. Disposições Gerais",
-            "values_html": "O clube atua com base nos valores de <strong>dignidade, solidariedade,  criação de valor e partilha</strong>.\n"
-          },
-          "members": {
-            "duties": {
-              "intro": "Os membros do Clube SGG comprometem-se a:",
-              "list": {
-                "first": "Respeitar os valores e princípios do clube;",
-                "fourth": "Identificar pessoas ou situações que possam ser alvo da intervenção do clube.",
-                "second": "Contribuir ativamente dentro das suas possibilidades, seja através de referências ou voluntariado;",
-                "third": "Agir com transparência e ética em todas as interações relacionadas com o clube."
-              },
-              "title": "2.3. Deveres dos Membros"
-            },
-            "members_or_ambassadors": {
-              "ambassadors": {
-                "additional": "Responsabilidades adicionais dos Embaixadores:",
-                "choice": {
-                  "description": "Os embaixadores são escolhidos diretamente pelos responsáveis do Clube SGG, com base no seu envolvimento e contributo ativo.\n",
-                  "subtitle": "Escolha dos Embaixadores:"
-                },
-                "description": "Os embaixadores distinguem-se pelo seu envolvimento ativo, compromisso regular e pela sua iniciativa em contribuir para o crescimento do clube, principalmente através da referenciação ativa e contínua de negócios imobiliários e referenciação de situações que necessitam de intervenção do clube. São membros que procuram constantemente apresentar e desenvolver novas ideias e ações, assumindo maior responsabilidade na concretização dos objetivos do clube.\n",
-                "list": {
-                  "first": "Participação regular nos eventos e iniciativas do clube;",
-                  "second": "Proposta ativa de novas iniciativas e ideias que impulsionem o impacto do clube;",
-                  "third": "Apoio direto aos responsáveis do clube na promoção da sua missão e valores."
-                },
-                "loss_of_status": {
-                  "description": "Um embaixador poderá voltar a ser membro caso se afaste significativamente do núcleo central de envolvimento do clube, mediante decisão dos responsáveis.\n",
-                  "subtitle": "Perda do Estatuto:"
-                },
-                "title": "Embaixadores"
-              },
-              "members": {
-                "description": "São pessoas selecionadas para fazer parte do Clube SGG, mas cuja participação ainda não está plenamente activa. São pessoas que estão em fase de pré adesão e assim que identificarem ou referenciarem alguma possibilidade  do concretização de negócio imobiliário tornar-se-ão embaixadores.\n",
-                "title": "Membros"
-              },
-              "title": "2.4. Distinção entre Membros e Embaixadores"
-            },
-            "rights": {
-              "intro": "Os membros do Clube SGG têm direito a:",
-              "list": {
-                "first": "Participar nas iniciativas promovidas pelo clube;",
-                "fourth": "Receber informação regular sobre as atividades e evolução do clube.",
-                "second": "Acompanhar os projetos apoiados e os impactos gerados;",
-                "third": "Propor novas ações e iniciativas alinhadas com a missão do clube;"
-              },
-              "title": "2.2. Direitos dos Membros"
-            },
-            "title": "2. Membros do Clube",
-            "who_can": {
-              "intro": "Podem tornar-se membros do Clube SGG:",
-              "list": {
-                "first": "Pessoas individuais que queiram apoiar a causa através de referência de negócios imobiliários de compra e venda;",
-                "second": "Empresas e profissionais do setor imobiliário, construção e serviços para o lar que queiram contribuir ou estabelecer parcerias;",
-                "third": "Qualquer pessoa que se identifique com os valores do clube e queira ajudar na sua missão."
-              },
-              "title": "2.1. Quem pode ser membro"
-            }
-          },
-          "transparency": {
-            "description_html": "6.1. O Clube SGG compromete-se a manter <strong>total transparência na gestão dos fundos e nas ações realizadas.</strong>",
-            "reports": {
-              "description": "6.2. Será publicada periodicamente uma prestação de contas com:",
-              "list": {
-                "first": "Valores angariados através de referências imobiliárias e parcerias;",
-                "second": "Projetos financiados e impacto gerado;",
-                "third": "Relatórios de evolução e planeamento futuro."
-              }
-            },
-            "title": "6. Transparência e Prestação de Contas"
-          }
-        },
-        "title": "Regulamento Clube SGG",
-        "transparency": "Transparência e compromisso são a base da nossa missão."
-      },
-      "rules_description": "Conheça os termos e condições de membro do Clube SGG",
-      "sections": {
-        "benefits": "Benefícios para Membros",
-        "partners": "Nossos Parceiros"
-      },
-      "stories": {
-        "empty": "Novas histórias em breve...",
-        "explore_stories": "Explore as nossas histórias",
-        "header": "Histórias dos Membros",
-        "impact_description": "Conheça as histórias reais de quem foi impactado diretamente pela missão\n do Clube SGG. Cada história é a prova viva de como o seu apoio pode\nmudar  vidas, proporcionando habitações dignas e transformando sonhos em realidade.\n",
-        "intro": "Descubra experiências únicas da nossa comunidade",
-        "meta_description": "Histórias inspiradoras e casos de sucesso dos membros do Clube SGG.",
-        "real_people": "Por trás de cada projeto há pessoas reais com histórias inspiradoras",
-        "stories_description": "Descubra abaixo relatos emocionantes e inspiradores, onde o apoio do Clube SGG fez toda a diferença.\n",
-        "subheader": "Leia sobre experiências e histórias de sucesso dos nossos membros.",
-        "title": "Histórias do Clube",
-        "transformed_life": "Cada história é uma vida transformada"
-      },
-      "stories_description": "Histórias de sucesso e experiências inspiradoras dos nossos membros"
+      "view_post": "Ver Post"
     },
     "club_stories": {
-      "resource": "História"
+      "view_story": "Ver História"
     },
-    "contacts": {
-      "contact_us": "Contacte-nos",
-      "cta": "ENTRE EM CONTACTO CONNOSCO",
-      "form": {
-        "consent": "Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os seus dados para o informar sobre oportunidades de negócio, de acordo com a Política de Privacidade.",
-        "error": "Por favor insira valores válidos",
-        "fields": {
-          "email": "Email",
-          "message": "Mensagem",
-          "name": "Nome",
-          "phone": "Telefone",
-          "send": "Enviar"
-        },
-        "titles": {
-          "main": "Preencha o formulário e entraremos em contacto consigo:",
-          "visit": "Precisa de mais informação? Quer agendar uma visita? Entre em contacto connosco!"
-        }
-      },
-      "header": "Contactos",
-      "meta_description": "Entre em contacto com Sofia Galvão Group."
-    },
-    "date": {
-      "abbr_day_names": ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"],
-      "abbr_month_names": [
-        null,
-        "jan",
-        "fev",
-        "mar",
-        "abr",
-        "mai",
-        "jun",
-        "jul",
-        "ago",
-        "set",
-        "out",
-        "nov",
-        "dez"
-      ],
-      "day_names": [
-        "domingo",
-        "segunda-feira",
-        "terça-feira",
-        "quarta-feira",
-        "quinta-feira",
-        "sexta-feira",
-        "sábado"
-      ],
-      "formats": {
-        "default": "%d/%m/%Y",
-        "long": "%d de %B de %Y",
-        "short": "%d de %B"
-      },
-      "month_names": [
-        null,
-        "janeiro",
-        "fevereiro",
-        "março",
-        "abril",
-        "maio",
-        "junho",
-        "julho",
-        "agosto",
-        "setembro",
-        "outubro",
-        "novembro",
-        "dezembro"
-      ],
-      "order": ["day", "month", "year"]
-    },
-    "datetime": {
-      "distance_in_words": {
-        "about_x_hours": {
-          "one": "aproximadamente 1 hora",
-          "other": "aproximadamente %{count} horas"
-        },
-        "about_x_months": {
-          "one": "aproximadamente 1 mês",
-          "other": "aproximadamente %{count} meses"
-        },
-        "about_x_years": {
-          "one": "aproximadamente 1 ano",
-          "other": "aproximadamente %{count} anos"
-        },
-        "almost_x_years": {
-          "one": "quase 1 ano",
-          "other": "quase %{count} anos"
-        },
-        "half_a_minute": "meio minuto",
-        "less_than_x_minutes": {
-          "one": "menos de um minuto",
-          "other": "menos de %{count} minutos"
-        },
-        "less_than_x_seconds": {
-          "one": "menos de 1 segundo",
-          "other": "menos de %{count} segundos"
-        },
-        "over_x_years": {
-          "one": "mais de 1 ano",
-          "other": "mais de %{count} anos"
-        },
-        "x_days": {
-          "one": "1 dia",
-          "other": "%{count} dias"
-        },
-        "x_minutes": {
-          "one": "1 minuto",
-          "other": "%{count} minutos"
-        },
-        "x_months": {
-          "one": "1 mês",
-          "other": "%{count} meses"
-        },
-        "x_seconds": {
-          "one": "1 segundo",
-          "other": "%{count} segundos"
-        },
-        "x_years": {
-          "one": "1 ano",
-          "other": "%{count} anos"
-        }
-      },
-      "prompts": {
-        "day": "Dia",
-        "hour": "Hora",
-        "minute": "Minuto",
-        "month": "Mês",
-        "second": "Segundo",
-        "year": "Ano"
-      }
-    },
-    "devise": {
-      "confirmations": {
-        "confirmed": "A sua conta foi confirmada com sucesso.",
-        "new": {
-          "resend_confirmation_instructions": "Reenviar instruções de confirmação"
-        },
-        "send_instructions": "Dentro de alguns minutos irá receber um email com instruções para confirmar a sua conta.",
-        "send_paranoid_instructions": "Se o seu email existir na nossa base de dados, irá receber dentro de alguns minutos um email com instruções para confirmar a sua conta."
-      },
-      "failure": {
-        "already_authenticated": "Já se encontra autenticado.",
-        "inactive": "A sua conta ainda não foi ativada.",
-        "invalid": "%{authentication_keys} ou palavra-passe inválidos.",
-        "last_attempt": "Tem mais uma tentativa antes da sua conta ser bloqueada.",
-        "locked": "A sua conta está bloqueada.",
-        "not_found_in_database": "%{authentication_keys} ou palavra-passe inválidos.",
-        "timeout": "A sua sessão expirou, por favor autentique-se novamente para continuar.",
-        "unauthenticated": "Antes de continuar tem de se autenticar ou efetuar um registo.",
-        "unconfirmed": "Tem de confirmar a sua conta antes de continuar."
-      },
-      "mailer": {
-        "confirmation_instructions": {
-          "action": "Confirmar a minha conta",
-          "greeting": "Bem-vindo %{recipient}!",
-          "instruction": "Pode confirmar a sua conta através do link:",
-          "subject": "Instruções de confirmação"
-        },
-        "email_changed": {
-          "greeting": "Olá %{recipient}!",
-          "message": "Estamos a entrar em contacto para notificar que o seu endereço de email foi alterado para %{email}.",
-          "message_unconfirmed": null,
-          "subject": "Endereço de email alterado"
-        },
-        "password_change": {
-          "greeting": "Olá %{recipient}!",
-          "message": "Estamos a entrar em contacto para notificar que a sua palavra-passe foi alterada.",
-          "subject": "Palavra-passe alterada"
-        },
-        "reset_password_instructions": {
-          "action": "Repor a minha palavra-passe",
-          "greeting": "Olá %{recipient}!",
-          "instruction": "Foi efetuado um pedido para repor a sua palavra-passe. Para prosseguir clique no link abaixo.",
-          "instruction_2": "Se não fez este pedido, por favor ignore este e-mail.",
-          "instruction_3": "A sua palavra-passe só será alterada quando aceder ao link abaixo para a alterar.",
-          "subject": "Instruções de recuperação de palavra-passe"
-        },
-        "unlock_instructions": {
-          "action": "Desbloquear a minha conta",
-          "greeting": "Olá %{recipient}!",
-          "instruction": "Clique no seguinte link para desbloquear a sua conta:",
-          "message": "A sua conta foi bloqueada devido a um número excessivo de tentativas de acesso inválidas.",
-          "subject": "Instruções de desbloqueio"
-        }
-      },
-      "omniauth_callbacks": {
-        "failure": "Não foi possível autenticar a sua conta por %{kind} porque \"%{reason}\".",
-        "success": "A sua conta foi autenticada por %{kind} com sucesso."
-      },
-      "passwords": {
-        "edit": {
-          "change_my_password": "Alterar a minha palavra-passe",
-          "change_your_password": "Altere a sua palavra-passe",
-          "confirm_new_password": "Confirme a nova palavra-passe",
-          "new_password": "Nova palavra-passe"
-        },
-        "new": {
-          "forgot_your_password": "Esqueceu a sua palavra-passe?",
-          "send_me_reset_password_instructions": "Enviar-me instruções para repor a palavra-passe"
-        },
-        "no_token": "Não pode aceder a esta página sem vir do email de recuperação da palavra-passe. Se vem de um email para recuperar a palavra-passe, por favor certifique-se que usou o URL completo que foi enviado.",
-        "send_instructions": "Dentro de alguns minutos irá receber um email com instruções de reinicialização da palavra-passe.",
-        "send_paranoid_instructions": "Se o seu e-mail existir na nossa base de dados, irá receber dentro de alguns minutos um e-mail com instruções para recuperar a sua palavra-passe.",
-        "updated": "A sua palavra-passe foi alterada com sucesso. Agora está autenticado.",
-        "updated_not_active": "A sua password foi alterada com sucesso."
-      },
-      "registrations": {
-        "destroyed": "A sua conta foi cancelada com sucesso.",
-        "edit": {
-          "are_you_sure": "Tem a certeza?",
-          "cancel_my_account": "Cancelar a minha conta",
-          "currently_waiting_confirmation_for_email": "A aguardar a confirmação de: %{email}",
-          "leave_blank_if_you_don_t_want_to_change_it": "deixe em branco caso não queira alterar",
-          "title": "Editar %{resource}",
-          "unhappy": "Descontente?",
-          "update": "Atualizar",
-          "we_need_your_current_password_to_confirm_your_changes": "precisamos da sua palavra-passe atual para confirmar as alterações"
-        },
-        "new": {
-          "sign_up": "Criar Conta"
-        },
-        "signed_up": "Bemvindo! A autenticação foi efetuada com sucesso.",
-        "signed_up_but_inactive": "Registou-se com sucesso. No entanto, não podemos iniciar a sua sessão porque ainda não confirmou a sua conta.",
-        "signed_up_but_locked": "Registou-se com sucesso. No entanto, não podemos iniciar a sua sessão porque a sua conta encontra-se bloqueada.",
-        "signed_up_but_unconfirmed": "Foi enviado um email com um link para confirmar o seu email. Por favor abra o link para ativar a sua conta.",
-        "update_needs_confirmation": "A sua conta foi atualizada com sucesso, mas precisamos de confirmar o seu email. Por favor veja o seu email e clique no link para finalizar a confirmação do seu email.",
-        "updated": "A sua conta foi atualizada com sucesso.",
-        "updated_but_not_signed_in": null
-      },
-      "sessions": {
-        "already_signed_out": "Sessão terminada com sucesso.",
-        "new": {
-          "sign_in": "Entrar"
-        },
-        "signed_in": "Autenticação efetuada com sucesso.",
-        "signed_out": "Saiu da sessão com sucesso."
-      },
-      "shared": {
-        "links": {
-          "back": "Voltar",
-          "didn_t_receive_confirmation_instructions": "Não recebeu instruções de confirmação?",
-          "didn_t_receive_unlock_instructions": "Não recebeu instruções de desbloqueio?",
-          "forgot_your_password": "Esqueceu a palavra-passe?",
-          "sign_in": "Login",
-          "sign_in_with_provider": "Entrar com %{provider}",
-          "sign_up": "Criar conta"
-        },
-        "minimum_password_length": {
-          "one": "(mínimo de %{count} carácter)",
-          "other": "(mínimo de %{count} caracteres)"
-        }
-      },
-      "unlocks": {
-        "new": {
-          "resend_unlock_instructions": "Reenviar instruções de desbloqueio"
-        },
-        "send_instructions": "Dentro de alguns minutos irá receber um email com as instruções para desbloquear a sua conta.",
-        "send_paranoid_instructions": "Se a sua conta existir, irá receber dentro de alguns minutos um email com instruções para a desbloquear.",
-        "unlocked": "A sua conta foi desbloqueada com sucesso. Por favor autentique-se para continuar."
-      }
-    },
-    "enterprises": {
-      "header": "Empreendimentos",
-      "list": {
-        "invest": {
-          "description": "Possibilidade de disponibilizar o pagamento consoante as fases de evolução da obra e da construção.",
-          "title": "Investimento Faseado"
-        },
-        "own": {
-          "description": "Na compra em planta tem a garantia de que o imóvel está pronto a estrear e a certeza que será o primeiro proprietário.",
-          "title": "Vai ser o primeiro dono da sua nova casa"
-        },
-        "perspective": {
-          "description": "Ao adquirir uma casa em planta o investimento que é feito é, por norma, inferior ao investimento que seria necessário fazer caso ela já estivesse pronta. Isto significa que a sua casa, a partir do momento que está pronta, já potencia o seu investimento.",
-          "title": "Perspectiva de melhor retorno de investimento"
-        },
-        "warranty": {
-          "description": "Um imóvel novo tem garantia de construção, além da certeza de não haver necessidade de melhoramentos nos próximos anos.",
-          "title": "Garantia de construção"
-        },
-        "yours": {
-          "description": "A aquisição em planta confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua futura casa vá ao encontro das suas necessidades e gostos.",
-          "title": "Imóvel à sua medida"
-        }
-      },
-      "meta_description": "Os melhores empreendimentos em Portugal para comprar com Sofia Galvão Group.",
-      "resource": "Empreendimento",
-      "show": {
-        "bedrooms": "Tipologia",
-        "built": "Área Bruta",
-        "living": "Área Útil",
-        "more": "Ver mais",
-        "parking": "Estacionamento",
-        "price": "Preço",
-        "type": "Natureza"
-      },
-      "subheader": "Porquê Comprar <span class=\"underline decoration-beige-default dark:decoration-beige-medium\">em Planta?</span>",
-      "subtitle": {
-        "description": "Conheça os nossos projetos de empreendimentos imobiliários, que oferecem oportunidades únicas de investimento. Com opções de compra em planta, pode personalizar o seu imóvel e investir em propriedades com alto potencial de valorização. A nossa equipa fornece informações detalhadas sobre cada empreendimento, incluindo localização, planos de pagamento e potencial de retorno.",
-        "title": "Oportunidades de Investimento"
-      }
-    },
-    "errors": {
-      "404": {
-        "button": "Voltar",
-        "text_1": "A página que procura não se encontra disponível.",
-        "text_2": "Tente procurar de novo ou voltar atrás no botão abaixo.",
-        "title": "Está perdido?"
-      },
-      "500": {
-        "text_1": "Estamos a fazer o nosso melhor para o resolver.",
-        "text_2": "Por favor tente novamente dentro de momentos.",
-        "title": "O servidor está em baixo!"
-      },
-      "email": {
-        "invalid": "não é um email válido"
-      },
-      "format": "%{attribute} %{message}",
-      "messages": {
-        "accepted": "tem de ser aceite",
-        "already_confirmed": "já foi confirmado, por favor tente efetuar a autenticação",
-        "blank": "não pode estar em branco",
-        "confirmation": "não coincide com a confirmação",
-        "confirmation_period_expired": "necessitava de confirmação até %{period}, por favor faça um novo pedido",
-        "empty": "não pode estar vazio",
-        "equal_to": "tem de ser igual a %{count}",
-        "even": "tem de ser par",
-        "exclusion": "é reservado",
-        "expired": "expirou, por favor solicite um novo",
-        "greater_than": "tem de ser maior que %{count}",
-        "greater_than_or_equal_to": "tem de ser maior ou igual a %{count}",
-        "inclusion": "não está incluído na lista",
-        "invalid": "é inválido",
-        "less_than": "tem de ser menor que %{count}",
-        "less_than_or_equal_to": "tem de ser menor ou igual a %{count}",
-        "model_invalid": "A validação falhou: %{errors}",
-        "not_a_number": "não é um número",
-        "not_an_integer": "tem de ser um inteiro",
-        "not_found": "não foi encontrado",
-        "not_locked": "não foi bloqueado",
-        "not_saved": {
-          "one": "%{count} erro impediu %{resource} de ser gravado:",
-          "other": "%{count} erros impediram %{resource} de ser gravado:"
-        },
-        "odd": "tem de ser ímpar",
-        "other_than": "tem de ser diferente de %{count}",
-        "present": "não pode estar em branco",
-        "required": "é obrigatório",
-        "taken": "não está disponível",
-        "too_long": "é demasiado grande (o máximo é de %{count} caracteres)",
-        "too_short": "é demasiado pequeno (o mínimo é de %{count} caracteres)",
-        "wrong_length": "comprimento errado (deve ter %{count} caracteres)"
-      },
-      "presence": "não pode estar vazio",
-      "template": {
-        "body": "Por favor, verifique os seguintes campos:",
-        "header": {
-          "one": "1 erro impediu guardar este %{model}",
-          "other": "%{count} erros impediram guardar este %{model}"
-        }
-      }
-    },
-    "faker": {
-      "address": {
-        "building_number": ["#####", "####", "###"],
-        "city": ["#{city_name}"],
-        "city_name": [
-          "Abrantes",
-          "Agualva-Cacém",
-          "Águeda",
-          "Albergaria-a-Velha",
-          "Albufeira",
-          "Alcácer do Sal",
-          "Alcobaça",
-          "Alfena",
-          "Almada",
-          "Almeirim",
-          "Alverca do Ribatejo",
-          "Amadora",
-          "Amarante",
-          "Amora",
-          "Anadia",
-          "Angra do Heroísmo",
-          "Aveiro",
-          "Barcelos",
-          "Barreiro",
-          "Beja",
-          "Borba",
-          "Braga",
-          "Bragança",
-          "Caldas da Rainha",
-          "Câmara de Lobos",
-          "Caniço",
-          "Cantanhede",
-          "Cartaxo",
-          "Castelo Branco",
-          "Chaves",
-          "Coimbra",
-          "Costa da Caparica",
-          "Covilhã",
-          "Elvas",
-          "Entroncamento",
-          "Ermesinde",
-          "Esmoriz",
-          "Espinho",
-          "Esposende",
-          "Estarreja",
-          "Estremoz",
-          "Évora",
-          "Fafe",
-          "Faro",
-          "Fátima",
-          "Felgueiras",
-          "Figueira da Foz",
-          "Fiães",
-          "Freamunde",
-          "Funchal",
-          "Fundão",
-          "Gafanha da Nazaré",
-          "Gandra",
-          "Gondomar",
-          "Gouveia",
-          "Guarda",
-          "Guimarães",
-          "Horta",
-          "Ílhavo",
-          "Lagoa",
-          "Lagoa",
-          "Lagos",
-          "Lamego",
-          "Leiria",
-          "Lisboa",
-          "Lixa",
-          "Loulé",
-          "Loures",
-          "Lourosa",
-          "Macedo de Cavaleiros",
-          "Machico",
-          "Maia",
-          "Mangualde",
-          "Marco de Canaveses",
-          "Marinha Grande",
-          "Matosinhos",
-          "Mealhada",
-          "Mêda",
-          "Miranda do Douro / Miranda de l Douro",
-          "Mirandela",
-          "Montemor-o-Novo",
-          "Montijo",
-          "Moura",
-          "Odivelas",
-          "Olhão da Restauração",
-          "Oliveira de Azeméis",
-          "Oliveira do Bairro",
-          "Oliveira do Hospital",
-          "Ourém",
-          "Ovar",
-          "Paços de Ferreira",
-          "Paredes",
-          "Penafiel",
-          "Peniche",
-          "Peso da Régua",
-          "Pinhel",
-          "Pombal",
-          "Ponta Delgada",
-          "Ponte de Sor",
-          "Portalegre",
-          "Portimão",
-          "Porto",
-          "Póvoa de Santa Iria",
-          "Póvoa de Varzim",
-          "Praia da Vitória",
-          "Quarteira",
-          "Queluz",
-          "Rebordosa",
-          "Reguengos de Monsaraz",
-          "Ribeira Grande",
-          "Rio Maior",
-          "Rio Tinto",
-          "Sabugal",
-          "Sacavém",
-          "Samora Correia",
-          "Santa Comba Dão",
-          "Santa Cruz",
-          "Santa Maria da Feira",
-          "Santana",
-          "Santarém",
-          "Santiago do Cacém",
-          "Santo Tirso",
-          "São João da Madeira",
-          "São Mamede de Infesta",
-          "São Pedro do Sul",
-          "Lordelo",
-          "Seia",
-          "Seixal",
-          "Senhora da Hora",
-          "Serpa",
-          "Setúbal",
-          "Silves",
-          "Sines",
-          "Tarouca",
-          "Tavira",
-          "Tomar",
-          "Tondela",
-          "Torres Novas",
-          "Torres Vedras",
-          "Trancoso",
-          "Trofa",
-          "Valbom",
-          "Vale de Cambra",
-          "Valença",
-          "Valongo",
-          "Valpaços",
-          "Vendas Novas",
-          "Viana do Castelo",
-          "Vila Baleira",
-          "Vila do Conde",
-          "Vila Franca de Xira",
-          "Vila Nova de Famalicão",
-          "Vila Nova de Foz Côa",
-          "Vila Nova de Gaia",
-          "Vila Nova de Santo André",
-          "Vila Real",
-          "Vila Real de Santo António",
-          "Viseu",
-          "Vizela"
-        ],
-        "city_prefix": [],
-        "city_suffix": [],
-        "country": [
-          "Afeganistão",
-          "Albânia",
-          "Algéria",
-          "Samoa",
-          "Andorra",
-          "Angola",
-          "Anguilla",
-          "Antigua and Barbada",
-          "Argentina",
-          "Armênia",
-          "Aruba",
-          "Austrália",
-          "Áustria",
-          "Alzerbajão",
-          "Bahamas",
-          "Barém",
-          "Bangladesh",
-          "Barbado",
-          "Belgrado",
-          "Bélgica",
-          "Belize",
-          "Benin",
-          "Bermuda",
-          "Bhutan",
-          "Bolívia",
-          "Bôsnia",
-          "Botuasuna",
-          "Bouvetoia",
-          "Brasil",
-          "Arquipélago de Chagos",
-          "Ilhas Virgens",
-          "Brunei",
-          "Bulgária",
-          "Burkina Faso",
-          "Burundi",
-          "Cambójia",
-          "Camarões",
-          "Canadá",
-          "Cabo Verde",
-          "Ilhas Caiman",
-          "República da África Central",
-          "Chad",
-          "Chile",
-          "China",
-          "Ilhas Natal",
-          "Ilhas Cocos",
-          "Colômbia",
-          "Comoros",
-          "Congo",
-          "Ilhas Cook",
-          "Costa Rica",
-          "Costa do Marfim",
-          "Croácia",
-          "Cuba",
-          "Cyprus",
-          "República Tcheca",
-          "Dinamarca",
-          "Djibouti",
-          "Dominica",
-          "República Dominicana",
-          "Equador",
-          "Egito",
-          "El Salvador",
-          "Guiné Equatorial",
-          "Eritrea",
-          "Estônia",
-          "Etiópia",
-          "Ilhas Faroe",
-          "Malvinas",
-          "Fiji",
-          "Finlândia",
-          "França",
-          "Guiné Francesa",
-          "Polinésia Francesa",
-          "Gabão",
-          "Gâmbia",
-          "Georgia",
-          "Alemanha",
-          "Gana",
-          "Gibraltar",
-          "Grécia",
-          "Groelândia",
-          "Granada",
-          "Guadalupe",
-          "Guano",
-          "Guatemala",
-          "Guernsey",
-          "Guiné",
-          "Guiné-Bissau",
-          "Guiana",
-          "Haiti",
-          "Heard Island and McDonald Islands",
-          "Vaticano",
-          "Honduras",
-          "Hong Kong",
-          "Hungria",
-          "Iceland",
-          "Índia",
-          "Indonésia",
-          "Irã",
-          "Iraque",
-          "Irlanda",
-          "Ilha de Man",
-          "Israel",
-          "Itália",
-          "Jamaica",
-          "Japão",
-          "Jersey",
-          "Jordânia",
-          "Cazaquistão",
-          "Quênia",
-          "Kiribati",
-          "Coreia do Norte",
-          "Coreia do Sul",
-          "Kuwait",
-          "Kyrgyz Republic",
-          "República Democrática de Lao People",
-          "Latvia",
-          "Líbano",
-          "Lesotho",
-          "Libéria",
-          "Libyan Arab Jamahiriya",
-          "Liechtenstein",
-          "Lituânia",
-          "Luxemburgo",
-          "Macao",
-          "Macedônia",
-          "Madagascar",
-          "Malawi",
-          "Malásia",
-          "Maldives",
-          "Mali",
-          "Malta",
-          "Ilhas Marshall",
-          "Martinica",
-          "Mauritânia",
-          "Mauritius",
-          "Mayotte",
-          "México",
-          "Micronésia",
-          "Moldova",
-          "Mônaco",
-          "Mongólia",
-          "Montenegro",
-          "Montserrat",
-          "Marrocos",
-          "Moçambique",
-          "Myanmar",
-          "Namibia",
-          "Nauru",
-          "Nepal",
-          "Antilhas Holandesas",
-          "Holanda",
-          "Nova Caledonia",
-          "Nova Zelândia",
-          "Nicarágua",
-          "Nigéria",
-          "Niue",
-          "Ilha Norfolk",
-          "Northern Mariana Islands",
-          "Noruega",
-          "Oman",
-          "Paquistão",
-          "Palau",
-          "Território da Palestina",
-          "Panamá",
-          "Nova Guiné Papua",
-          "Paraguai",
-          "Peru",
-          "Filipinas",
-          "Polônia",
-          "Portugal",
-          "Puerto Rico",
-          "Qatar",
-          "Romênia",
-          "Rússia",
-          "Ruanda",
-          "São Bartolomeu",
-          "Santa Helena",
-          "Santa Lúcia",
-          "Saint Martin",
-          "Saint Pierre and Miquelon",
-          "Saint Vincent and the Grenadines",
-          "Samoa",
-          "San Marino",
-          "Sao Tomé e Príncipe",
-          "Arábia Saudita",
-          "Senegal",
-          "Sérvia",
-          "Seychelles",
-          "Serra Leoa",
-          "Singapura",
-          "Eslováquia",
-          "Eslovênia",
-          "Ilhas Salomão",
-          "Somália",
-          "África do Sul",
-          "South Georgia and the South Sandwich Islands",
-          "Spanha",
-          "Sri Lanka",
-          "Sudão",
-          "Suriname",
-          "Svalbard & Jan Mayen Islands",
-          "Swaziland",
-          "Suécia",
-          "Suíça",
-          "Síria",
-          "Taiwan",
-          "Tajiquistão",
-          "Tanzânia",
-          "Tailândia",
-          "Timor-Leste",
-          "Togo",
-          "Tokelau",
-          "Tonga",
-          "Trinidá e Tobago",
-          "Tunísia",
-          "Turquia",
-          "Turcomenistão",
-          "Turks and Caicos Islands",
-          "Tuvalu",
-          "Uganda",
-          "Ucrânia",
-          "Emirados Árabes Unidos",
-          "Reino Unido",
-          "Estados Unidos da América",
-          "Estados Unidos das Ilhas Virgens",
-          "Uruguai",
-          "Uzbequistão",
-          "Vanuatu",
-          "Venezuela",
-          "Vietnã",
-          "Wallis and Futuna",
-          "Sahara",
-          "Yemen",
-          "Zâmbia",
-          "Zimbábue"
-        ],
-        "default_country": ["Portugal"],
-        "default_country_code": ["PT"],
-        "postcode": ["####"],
-        "secondary_address": [
-          "Apto. ###",
-          "Sobrado ##",
-          "Casa #",
-          "Lote ##",
-          "Quadra ##"
-        ],
-        "state": [
-          "Lisboa",
-          "Leiria",
-          "Santarém",
-          "Setúbal",
-          "Beja",
-          "Faro",
-          "Évora",
-          "Portalegre",
-          "Castelo Branco",
-          "Guarda",
-          "Coimbra",
-          "Aveiro",
-          "Viseu",
-          "Bragança",
-          "Vila Real",
-          "Porto",
-          "Braga",
-          "Viana do Castelo"
-        ],
-        "street_suffix": [
-          "Rua",
-          "Avenida",
-          "Travessa",
-          "Ponté",
-          "Alameda",
-          "Marginal",
-          "Viela",
-          "Rodovia"
-        ]
-      },
-      "company": {
-        "name": [
-          "#{Name.last_name} #{suffix}",
-          "#{Name.last_name}-#{Name.last_name}",
-          "#{Name.last_name}, #{Name.last_name} e #{Name.last_name}"
-        ],
-        "suffix": ["S.A.", "LTDA", "e Associados", "Comércio", "EIRELI"]
-      },
-      "internet": {
-        "domain_suffix": ["pt", "com", "biz", "info", "net", "org"]
-      },
-      "lorem": {
-        "words": [
-          "alias",
-          "consequatur",
-          "aut",
-          "perferendis",
-          "sit",
-          "voluptatem",
-          "accusantium",
-          "doloremque",
-          "aperiam",
-          "eaque",
-          "ipsa",
-          "quae",
-          "ab",
-          "illo",
-          "inventore",
-          "veritatis",
-          "et",
-          "quasi",
-          "architecto",
-          "beatae",
-          "vitae",
-          "dicta",
-          "sunt",
-          "explicabo",
-          "aspernatur",
-          "aut",
-          "odit",
-          "aut",
-          "fugit",
-          "sed",
-          "quia",
-          "consequuntur",
-          "magni",
-          "dolores",
-          "eos",
-          "qui",
-          "ratione",
-          "voluptatem",
-          "sequi",
-          "nesciunt",
-          "neque",
-          "dolorem",
-          "ipsum",
-          "quia",
-          "dolor",
-          "sit",
-          "amet",
-          "consectetur",
-          "adipisci",
-          "velit",
-          "sed",
-          "quia",
-          "non",
-          "numquam",
-          "eius",
-          "modi",
-          "tempora",
-          "incidunt",
-          "ut",
-          "labore",
-          "et",
-          "dolore",
-          "magnam",
-          "aliquam",
-          "quaerat",
-          "voluptatem",
-          "ut",
-          "enim",
-          "ad",
-          "minima",
-          "veniam",
-          "quis",
-          "nostrum",
-          "exercitationem",
-          "ullam",
-          "corporis",
-          "nemo",
-          "enim",
-          "ipsam",
-          "voluptatem",
-          "quia",
-          "voluptas",
-          "sit",
-          "suscipit",
-          "laboriosam",
-          "nisi",
-          "ut",
-          "aliquid",
-          "ex",
-          "ea",
-          "commodi",
-          "consequatur",
-          "quis",
-          "autem",
-          "vel",
-          "eum",
-          "iure",
-          "reprehenderit",
-          "qui",
-          "in",
-          "ea",
-          "voluptate",
-          "velit",
-          "esse",
-          "quam",
-          "nihil",
-          "molestiae",
-          "et",
-          "iusto",
-          "odio",
-          "dignissimos",
-          "ducimus",
-          "qui",
-          "blanditiis",
-          "praesentium",
-          "laudantium",
-          "totam",
-          "rem",
-          "voluptatum",
-          "deleniti",
-          "atque",
-          "corrupti",
-          "quos",
-          "dolores",
-          "et",
-          "quas",
-          "molestias",
-          "excepturi",
-          "sint",
-          "occaecati",
-          "cupiditate",
-          "non",
-          "provident",
-          "sed",
-          "ut",
-          "perspiciatis",
-          "unde",
-          "omnis",
-          "iste",
-          "natus",
-          "error",
-          "similique",
-          "sunt",
-          "in",
-          "culpa",
-          "qui",
-          "officia",
-          "deserunt",
-          "mollitia",
-          "animi",
-          "id",
-          "est",
-          "laborum",
-          "et",
-          "dolorum",
-          "fuga",
-          "et",
-          "harum",
-          "quidem",
-          "rerum",
-          "facilis",
-          "est",
-          "et",
-          "expedita",
-          "distinctio",
-          "nam",
-          "libero",
-          "tempore",
-          "cum",
-          "soluta",
-          "nobis",
-          "est",
-          "eligendi",
-          "optio",
-          "cumque",
-          "nihil",
-          "impedit",
-          "quo",
-          "porro",
-          "quisquam",
-          "est",
-          "qui",
-          "minus",
-          "id",
-          "quod",
-          "maxime",
-          "placeat",
-          "facere",
-          "possimus",
-          "omnis",
-          "voluptas",
-          "assumenda",
-          "est",
-          "omnis",
-          "dolor",
-          "repellendus",
-          "temporibus",
-          "autem",
-          "quibusdam",
-          "et",
-          "aut",
-          "consequatur",
-          "vel",
-          "illum",
-          "qui",
-          "dolorem",
-          "eum",
-          "fugiat",
-          "quo",
-          "voluptas",
-          "nulla",
-          "pariatur",
-          "at",
-          "vero",
-          "eos",
-          "et",
-          "accusamus",
-          "officiis",
-          "debitis",
-          "aut",
-          "rerum",
-          "necessitatibus",
-          "saepe",
-          "eveniet",
-          "ut",
-          "et",
-          "voluptates",
-          "repudiandae",
-          "sint",
-          "et",
-          "molestiae",
-          "non",
-          "recusandae",
-          "itaque",
-          "earum",
-          "rerum",
-          "hic",
-          "tenetur",
-          "a",
-          "sapiente",
-          "delectus",
-          "ut",
-          "aut",
-          "reiciendis",
-          "voluptatibus",
-          "maiores",
-          "doloribus",
-          "asperiores",
-          "repellat"
-        ]
-      },
-      "name": {
-        "first_name": [
-          "Águeda",
-          "Amélia",
-          "Ângela",
-          "Alessandro",
-          "Alessandra",
-          "Alexandre",
-          "Aline",
-          "Antônio",
-          "Breno",
-          "Bruna",
-          "Carlos",
-          "Carla",
-          "Célia",
-          "Cecília",
-          "César",
-          "Danilo",
-          "Dalila",
-          "Deneval",
-          "Eduardo",
-          "Eduarda",
-          "Esther",
-          "Elísio",
-          "Fábio",
-          "Fabrício",
-          "Fabrícia",
-          "Félix",
-          "Felícia",
-          "Feliciano",
-          "Frederico",
-          "Fabiano",
-          "Gustavo",
-          "Guilherme",
-          "Gúbio",
-          "Heitor",
-          "Hélio",
-          "Hugo",
-          "Isabel",
-          "Isabela",
-          "Ígor",
-          "João",
-          "Joana",
-          "Júlio César",
-          "Júlio",
-          "Júlia",
-          "Janaína",
-          "Karla",
-          "Kléber",
-          "Lucas",
-          "Lorena",
-          "Lorraine",
-          "Larissa",
-          "Ladislau",
-          "Marcos",
-          "Meire",
-          "Marcelo",
-          "Marcela",
-          "Margarida",
-          "Mércia",
-          "Márcia",
-          "Marli",
-          "Morgana",
-          "Maria",
-          "Norberto",
-          "Natália",
-          "Nataniel",
-          "Núbia",
-          "Ofélia",
-          "Paulo",
-          "Paula",
-          "Pablo",
-          "Pedro",
-          "Raul",
-          "Rafael",
-          "Rafaela",
-          "Ricardo",
-          "Roberto",
-          "Roberta",
-          "Sílvia",
-          "Sílvia",
-          "Silas",
-          "Simão",
-          "Suélen",
-          "Sara",
-          "Salvador",
-          "Sirineu",
-          "Talita",
-          "Tertuliano",
-          "Vicente",
-          "Víctor",
-          "Vitória",
-          "Yango",
-          "Yago",
-          "Yuri",
-          "Washington",
-          "Warley"
-        ],
-        "last_name": [
-          "Araújo",
-          "D'cruze",
-          "Estéves",
-          "Silva",
-          "Souza",
-          "Carvalho",
-          "Santos",
-          "Reis",
-          "Xavier",
-          "Franco",
-          "Braga",
-          "Macedo",
-          "Batista",
-          "Barros",
-          "Moraes",
-          "Costa",
-          "Pereira",
-          "Carvalho",
-          "Melo",
-          "Lemos",
-          "Saraiva",
-          "Nogueira",
-          "Oliveira",
-          "Martins",
-          "Moreira",
-          "Albuquerque"
-        ],
-        "name_with_middle": [
-          "#{prefix} #{first_name} #{last_name} #{last_name}",
-          "#{first_name} #{last_name} #{last_name} #{suffix}",
-          "#{first_name} #{last_name} #{last_name}",
-          "#{first_name} #{last_name} #{last_name}",
-          "#{first_name} #{last_name} #{last_name}",
-          "#{first_name} #{last_name} #{last_name}"
-        ],
-        "prefix": ["Sr.", "Sra.", "Srta.", "Dr.", "Eng."],
-        "suffix": ["Jr.", "Neto", "Filho"]
-      },
-      "phone_number": {
-        "country_code": ["351"],
-        "formats": ["(##) ###-####", "(##) ###-####", "884 ###-###"]
-      }
-    },
-    "faq": {
-      "description": "Respondemos às perguntas mais frequentes sobre o processo de compra e venda de imóveis, incluindo dúvidas sobre financiamento, documentação necessária e etapas do processo. Fornecemos orientação clara e prática para ajudar a esclarecer todas as dúvidas e garantir uma experiência informada e segura.",
-      "header": "FAQ (Perguntas Frequentes)",
-      "meta_description": "Perguntas frequentes sobre imobiliário e os serviços de Sofia Galvão Group.",
-      "reason": {
-        "answers": {
-          "fifth": {
-            "description": "Utilizamos estratégias de marketing que maximizam a exposição do seu imóvel, garantindo que chega aos compradores ou inquilinos certos.",
-            "title": "Marketing Eficaz"
-          },
-          "first": {
-            "description": "Anos de atuação no mercado imobiliário, com dezenas de negócios fechados com sucesso.",
-            "title": "Experiência"
-          },
-          "fourth": {
-            "description": "Garantimos que todas as questões legais são tratadas de forma segura e precisa.",
-            "title": "Suporte Jurídico"
-          },
-          "second": {
-            "description": "Acompanhamos cada etapa do processo, garantindo que tudo é feito de forma correta e eficiente.",
-            "title": "Serviço Completo"
-          },
-          "third": {
-            "description": "Os nossos clientes confiam na nossa capacidade de fechar negócios rapidamente, ao melhor preço e da forma correta para todas as partes.",
-            "title": "Resultados Comprovados"
-          }
-        },
-        "title": "Por que razão devo escolher o Sofia Galvão Group?"
-      },
-      "sections": {
-        "first": {
-          "questions": {
-            "fifth": {
-              "answer": "Sim. Além de impostos, como o IMT e o Imposto de Selo, há a considerar os custos da escritura e registo predial. A nossa comissão é competitiva e transparente, e cobre todos os serviços de promoção, acompanhamento e gestão do processo de venda.",
-              "title": "Existem custos associados à venda?"
-            },
-            "first": {
-              "answer": "Vender um imóvel é um processo que exige conhecimento do mercado, estratégias de promoção e atenção a detalhes jurídicos e burocráticos. O Sofia Galvão Group oferece um serviço completo, desde a avaliação precisa do valor do imóvel até à negociação final, assegurando que o cliente obtém o melhor preço e uma venda rápida e tranquila. Com uma vasta experiência e uma rede de contactos sólida, maximizamos as suas oportunidades de sucesso.",
-              "title": "Porquê contratar o Sofia Galvão Group para vender a minha casa?"
-            },
-            "fourth": {
-              "answer": "Combinamos marketing digital, plataformas imobiliárias de referência, home staging, fotografia profissional e visitas virtuais. Estas técnicas maximizam a exposição do seu imóvel aos compradores certos, resultando em mais interesse e, geralmente, em vendas mais rápidas.",
-              "title": "Como é que o Sofia Galvão Group promove o meu imóvel?"
-            },
-            "second": {
-              "answer": "O primeiro passo é assegurar que toda a documentação do imóvel está em ordem. Isso inclui documentos como a caderneta predial, a certidão permanente e o certificado energético. O Sofia Galvão Group ajuda-o a garantir que tudo está correto e prepara uma avaliação detalhada para definir o preço de venda adequado.",
-              "title": "Quais são os primeiros passos para vender a minha casa?"
-            },
-            "third": {
-              "answer": "O tempo necessário para vender uma casa depende de vários fatores, como o estado do mercado e o preço do imóvel. No entanto, com uma abordagem personalizada e estratégias de marketing avançadas, muitos imóveis são vendidos num espaço de tempo inferior à média do mercado.",
-              "title": "Quanto tempo demora o processo de venda?"
-            }
-          },
-          "title": "Vender um imóvel"
-        },
-        "fourth": {
-          "questions": {
-            "fifth": {
-              "answer": "Sim. A nossa equipa está consigo em todas as etapas, desde a angariação ou procura de imóveis, na negociação de propostas e até à assinatura da escritura ou contrato de arrendamento. Garantimos, desta forma, acompanhamento total desde o primeiro ao último minuto!",
-              "title": "O consultor imobiliário acompanha-me até ao final do processo?"
-            },
-            "first": {
-              "answer": "A exclusividade significa que o Sofia Galvão Group será a única empresa responsável pela promoção do seu imóvel, mas não operamos em exclusivo para fazer a venda. Para encontrar as melhores soluções para os nossos clientes fazemos parcerias com todas as agências imobiliárias com AMI válido e que possam ter um cliente interessado no seu imóvel. Assim, garantimos que o seu imóvel possa ser comprado por qualquer cliente que procure casa diretamente ou que esteja a ser representado por um consultor imobiliário. Contudo, o exclusivo na promoção permite-nos dedicar mais recursos e atenção ao seu imóvel, garantindo um serviço mais eficiente e um acompanhamento personalizado até ao final do processo.",
-              "title": "O que é a exclusividade na mediação imobiliária?"
-            },
-            "fourth": {
-              "answer": "Os tempos variam de acordo com o tipo de transação e as condições do mercado. No entanto, com a abordagem personalizada do Sofia Galvão Group, muitos dos nossos clientes conseguem fechar negócios em prazos inferiores à média do mercado.",
-              "title": "Quanto tempo demora todo o processo de venda, compra ou arrendamento?"
-            },
-            "second": {
-              "answer": "Sim! A nossa equipa está capacitada para gerir processos simultâneos de venda e compra, garantindo que a transição entre propriedades seja suave e sem complicações. Facilitamos ambos os processos, oferecendo soluções integradas.",
-              "title": "Posso vender e comprar ao mesmo tempo?"
-            },
-            "third": {
-              "answer": "Home staging é a preparação do imóvel para torná-lo mais atrativo para potenciais compradores ou inquilinos. Envolve a organização, a decoração e pequenos pormenores que permitem que o seu imóvel se destaque nas fotos e nas visitas. Com home staging, o seu imóvel destaca-se no mercado, aumenta a atratividade e, geralmente, é vendido ou arrendado mais rapidamente.",
-              "title": "O que é o home staging e por que é importante?"
-            }
-          },
-          "title": "Perguntas Frequentes"
-        },
-        "second": {
-          "questions": {
-            "fifth": {
-              "answer": "Sim! Temos parcerias com vários bancos e podemos ajudá-lo a encontrar as melhores condições de financiamento para a sua compra.",
-              "title": "Posso obter ajuda com financiamento bancário?"
-            },
-            "first": {
-              "answer": "Comprar uma casa é uma das decisões financeiras mais importantes, e o Sofia Galvão Group assegura que fará a escolha certa. Temos acesso a uma vasta rede de propriedades, incluindo imóveis exclusivos que não estão publicitados nos portais imobiliários. Oferecemos suporte em todas as etapas, desde a pesquisa até à negociação final e à assinatura da escritura.",
-              "title": "Porquê escolher o Sofia Galvão Group para comprar uma casa?"
-            },
-            "fourth": {
-              "answer": "Além do preço do imóvel, há a considerar custos como o IMT (Imposto Municipal sobre Transmissões Onerosas de Imóveis), Imposto de Selo, escritura e registo. O Sofia Galvão Group ajuda a calcular todos estes valores, de forma a garantir que tem conhecimento de todos os valores envolvidos.",
-              "title": "Quais são os custos envolvidos na compra de uma casa?"
-            },
-            "second": {
-              "answer": "O primeiro passo é identificar as suas necessidades e definir o budget. Com base nisso, a nossa equipa ajudará a encontrar as propriedades mais adequadas. Uma vez escolhida a casa, orientamos no processo de verificação da documentação e na preparação da proposta.",
-              "title": "Qual é o primeiro passo para comprar uma casa?"
-            },
-            "third": {
-              "answer": "Fazemos uma avaliação detalhada do mercado, comparando imóveis semelhantes na mesma área. Também analisamos as condições do imóvel para garantir que o valor pedido reflete a realidade do mercado.",
-              "title": "Como saber se o preço de um imóvel é justo?"
-            }
-          },
-          "title": "Comprar um imóvel"
-        },
-        "third": {
-          "questions": {
-            "fifth": {
-              "answer": "Para o inquilino, os custos incluem, normalmente, o pagamento de dois meses de renda e um mês de caução.",
-              "title": "Quais são os custos associados ao arrendamento?"
-            },
-            "first": {
-              "answer": "Seja inquilino ou senhorio, o Sofia Galvão Group facilita o processo de arrendamento, tornando-o mais seguro e eficiente. Para senhorios, promovemos o imóvel de forma eficaz, ajudando a encontrar o inquilino certo. Para inquilinos, garantimos que o processo de arrendamento é simples e que o imóvel está em conformidade com todas as obrigações legais.",
-              "title": "Porquê escolher o Sofia Galvão Group para arrendar uma casa ou encontrar inquilinos?"
-            },
-            "fourth": {
-              "answer": "Nem sempre é necessário, mas em alguns casos o senhorio pode exigir um fiador como garantia adicional. Este requisito varia de contrato para contrato.",
-              "title": "Preciso de um fiador para arrendar uma casa?"
-            },
-            "second": {
-              "answer": "No caso dos inquilinos, são necessários documentos como o comprovativo de rendimentos, o documento de identificação e, em alguns casos, um fiador. No caso dos senhorios, é importante garantir que o imóvel tem a documentação em dia, incluindo o certificado energético e o seguro obrigatório.",
-              "title": "Que documentos são necessários para arrendar um imóvel?"
-            },
-            "third": {
-              "answer": "O valor da renda é definido com base numa avaliação de mercado, considerando a localização do imóvel e comparando-o com outros arrendamentos semelhantes na área. Com base nesta avaliação, ajudamo-lo a definir um valor justo e competitivo.",
-              "title": "Como é definido o valor da renda?"
-            }
-          },
-          "title": "Arrendar um imóvel"
-        }
-      },
-      "subheader": "Guia para Compradores e Vendedores:"
-    },
+    "common": {
+      "confirm_delete": "Tem certeza que deseja apagar este item?",
+      "create": "Criar",
+      "delete_confirm": "Tem certeza que deseja apagar este item?",
+      "delete_photo_confirm": "Tem certeza que deseja apagar esta foto?",
+      "edit": "Editar",
+      "hidden_hint": "O conteúdo só será visível no site se esta opção NÃO estiver selecionada (apenas visível no backoffice)",
+      "main_photo": "Foto principal?",
+      "photos": "Fotos",
+      "seo_description_hint": "Esta é a descrição que aparecerá nos motores de busca 👇",
+      "seo_section": "SEO",
+      "seo_title_hint": "Este é o título que aparecerá nos motores de busca 👇",
+      "update": "Atualizar",
+      "view": "Ver"
+    }
+  },
+  "blog_posts": {
+    "empty": "Novos posts em breve...",
+    "header": "Blog Posts",
+    "meta_description": "Conheça mais sobre imobiliário e as melhores dicas dos locais onde morar em Lisboa com Sofia Galvão Group.",
+    "resource": "Post",
+    "subheader": "O nosso blog é uma fonte de conhecimento para compradores e vendedores. Incluímos artigos sobre as melhores práticas no mercado imobiliário, tendências de mercado e conselhos para quem quer comprar ou vender um imóvel. Mantenha-se informado e tome decisões seguras e acertadas com o nosso conteúdo."
+  },
+  "buy": {
+    "header": "Comprar",
+    "meta_description": "Comprar propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group."
+  },
+  "club": {
     "flash": {
-      "contact": {
-        "thanks": "Obrigado pela sua mensagem. Entraremos em contacto em breve"
-      },
-      "newsletters": {
-        "confirm": "Subscrição à newsletter ativa, obrigado pela confiança",
-        "error": "Não foi possível subscrever à newsletter, por favor tente novamente",
-        "repeat": "Já tem uma subscrição ativa à nossa newsletter. Obrigada pela confiança!",
-        "subscribe": "Por favor confirme a subscrição através do seu email"
+      "join": {
+        "thanks": "Obrigado pelo seu interesse em juntar-se ao Clube SGG. Entraremos em contacto em breve!"
       }
     },
-    "footer": {
-      "about": "sobre nós",
-      "contacts": "contactos",
-      "privacy": "política de privacidade",
-      "terms": "termos e condições"
-    },
-    "general": {
-      "read_more": "Ler mais"
-    },
-    "helpers": {
-      "select": {
-        "prompt": "Por favor seleccione"
+    "form": {
+      "consent": "Ao contactar-nos está a autorizar o Sofia Galvão Group a guardar os seus dados para fins de adesão ao clube.",
+      "error": "Por favor preencha todos os campos obrigatórios corretamente",
+      "fields": {
+        "email": "Email",
+        "name": "Nome",
+        "phone": "Telefone",
+        "send": "Juntar ao Clube"
       },
-      "submit": {
-        "create": "Criar %{model}",
-        "submit": "Gravar %{model}",
-        "update": "Actualizar %{model}"
+      "titles": {
+        "main": "Preencha o formulário para nos referenciar um membro:"
       }
     },
     "home": {
-      "cta": {
-        "contact": "Fale connosco",
-        "long": "Avalie a sua casa",
-        "short": "Avalie casa"
+      "contribute": {
+        "cta": "Comece agora a fazer a diferença.",
+        "description": "Ao indicar-nos alguém que pretenda comprar ou vender casa, está a dar início a uma mudança real. Cada negócio concretizado gera um contributo direto para a missão do Clube SGG, ajudando a transformar casas em lares dignos para quem mais precisa.\n",
+        "subtitle": "Uma simples referência sua pode transformar vidas.",
+        "title": "Contribua para a próxima história",
+        "value_description": "Desta forma, cria valor em duas frentes: oferece às pessoas que indica um acompanhamento imobiliário de excelência, enquanto muda a vida de pessoas e famílias que precisam de si e da sua ajuda.\n"
       },
-      "newsletter": {
-        "form": {
-          "errors": {
-            "email": "Por favor insira um email válido",
-            "name": "Por favor insira um nome válido"
+      "dignity": {
+        "description": "Todos merecem um lar onde possam viver com dignidade, segurança e conforto. O Clube SGG nasce com a missão de reabilitar vidas através da melhoria das condições de habitação daqueles que mais precisam.\n",
+        "title": "Uma casa digna não deve ser um sonho mas sim uma realidade"
+      },
+      "header": "Clube SGG",
+      "impact": {
+        "subtitle": "Conheça o nosso impacto",
+        "title": "História do impacto já gerado"
+      },
+      "join": {
+        "cta": "Enviar WhatsApp",
+        "description": "Conhece alguém que queira comprar ou vender casa? Indique-nos essa pessoa. Com este gesto simples, garante-lhe um serviço imobiliário de excelência, ao mesmo tempo que ajuda a proporcionar uma habitação digna a quem mais precisa.\n",
+        "impact": "Uma referência sua vai mudar vidas.",
+        "mission": "Juntos, vamos transformar casas em lares e reabilitar vidas.",
+        "subtitle": "Torne-se membro do Clube SGG agora mesmo.",
+        "title": "Dê o primeiro passo para melhorar uma vida",
+        "whatsapp": "Envie-nos um WhatsApp para começar a contribuir."
+      },
+      "know_more": {
+        "cta": "Enviar WhatsApp",
+        "help_description": "Referencie outros membros para juntos podermos impactar mais vidas!\n",
+        "help_question": "Conhece quem possa contribuir para a causa?",
+        "help_title": "Ajude-nos a crescer!",
+        "rules": "Conheça aqui o Regulamento do Clube SGG",
+        "whatsapp": "Envie-nos um WhatsApp para referenciar membros para o clube."
+      },
+      "meta_description": "Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
+      "partners": {
+        "conclusion_html": "<strong>A sua indicação pode mudar uma vida. Entre em contacto e faça parte desta mudança.</strong>",
+        "cta": "Enviar WhatsApp",
+        "description": "A missão do Clube SGG só é possível graças à colaboração essencial dos nossos membros e embaixadores, que dão vida ao impacto que queremos alcançar.\n",
+        "dynamic": "Não só pela dinâmica de recomendações no setor imobiliário que alimentam o movimento, mas também pela identificação de histórias e pessoas que mais precisam de apoio.\n",
+        "second_title": "Sabe de alguém que possamos ajudar?",
+        "situations": "Estamos sempre à procura de situações reais onde o nosso apoio possa fazer a diferença.",
+        "someone": "Se conhece alguém que esteja a passar por dificuldades e que possa beneficiar da nossa ajuda, fale connosco.",
+        "subtitle": "Juntos, podemos criar histórias que mudam vidas.",
+        "title": "Ajude-nos a fazer a mudança acontecer"
+      },
+      "subtitle": "Comprar e vender casas, reabilitar vidas",
+      "title": "Clube SGG"
+    },
+    "recent_stories": {
+      "description": "Descubra as histórias e experiências mais recentes dos nossos membros",
+      "title": "Histórias Recentes"
+    },
+    "rules": {
+      "clarity": "Acreditamos que só com clareza conseguimos gerar um impacto real e duradouro.",
+      "content": "<p>O Clube SGG é um programa exclusivo que visa proporcionar benefícios adicionais aos nossos clientes...</p> <p>Consulte aqui todas as regras e condições de participação.</p>\n",
+      "header": "Regulamento",
+      "intro": "O regulamento do Clube SGG estabelece as regras claras de funcionamento,\n definindo os direitos e deveres dos membros, os critérios para o apoio\nàs  famílias e os princípios que garantem uma gestão transparente e responsável  dos fundos obtidos.\n",
+      "introduction": "Regulamento do Clube SGG",
+      "meta_description": "Regras e diretrizes para membros do Clube SGG.",
+      "read_below": "Conheça abaixo o regulamento completo que orienta toda a nossa atividade.",
+      "sections": {
+        "criteria": {
+          "criteria": {
+            "list": {
+              "first": "Condições atuais de habitação e urgência do apoio;",
+              "second": "Impacto que a intervenção pode gerar na qualidade de vida da família."
+            },
+            "title": "4.3. A atribuição do apoio será analisada com base nos seguintes critérios:"
           },
-          "fields": {
-            "email": "Email",
-            "name": "Nome",
-            "subscribe": "Subscrever"
+          "decisions_html": "4.4. As decisões de apoio serão tomadas por um grupo de membros do clube, garantindo <strong>transparência e equidade</strong> na seleção dos beneficiários.",
+          "families_html": "4.1. O apoio do Clube SGG destina-se a <strong>famílias carenciadas, idosos e pessoas em situação de sem-abrigo</strong> que necessitem de melhorias habitacionais.",
+          "submited_by": {
+            "list": {
+              "first": "As próprias famílias;",
+              "second": "Organizações sociais ou entidades parceiras que identifiquem casos de necessidade.",
+              "third": "Membros ou embaixadores do Clube SGG."
+            },
+            "title": "4.2. As candidaturas ao apoio podem ser submetidas por:"
+          },
+          "title": "4. Critérios de Apoio às Famílias"
+        },
+        "events": {
+          "description": "5.1. O Clube SGG promove regularmente eventos para:",
+          "incentives": "5.2. Todos os embaixadores são incentivados a participar nos eventos e a contribuir para o crescimento do impacto do clube.",
+          "list": {
+            "first": "Angariação de referenciações e mobilização de recursos;",
+            "second": "Sensibilização para a problemática da habitação digna;",
+            "third": "Celebração dos projetos concluídos e partilha de testemunhos."
+          },
+          "title": "5. Eventos e Iniciativas do Clube"
+        },
+        "final": {
+          "first": "7.1. O presente regulamento pode ser ajustado conforme necessário, mediante aprovação dos responsáveis do clube.",
+          "second_html": "7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus valores e missão, garantindo sempre que o impacto na comunidade é <strong>positivo e significativo.</strong>",
+          "title": "7. Disposições Finais"
+        },
+        "financial_model": {
+          "application": {
+            "intro": "Os fundos do Clube SGG são aplicados em:",
+            "list_html": {
+              "first": "<strong>Remodelações e reparações habitacionais</strong> para pessoas carenciadas;",
+              "fourth": "<strong>Desenvolvimento de novas iniciativas e parcerias</strong> que aumentem o impacto do clube.",
+              "second": "<strong>Aquisição de mobília e equipamentos essenciais</strong> para melhorar as condições de vida das pessoas apoiadas;",
+              "third": "<strong>Contributo para melhorar as condições necessárias</strong> para transformar uma casa num lar;"
+            },
+            "title": "3.2. Aplicação dos Fundos"
+          },
+          "sources": {
+            "description_html": "O Clube SGG financia as suas ações através de <strong>Referências imobiliárias</strong> - Quando um membro do clube indica alguém que queira comprar ou vender casa, uma parte da comissão da transação reverte para o apoio à habitação de pessoas carenciadas.",
+            "intro": "O Clube SGG financia as suas ações através de:",
+            "title": "3.1. Fontes de Financiamento"
+          },
+          "title": "3. Modelo de Apoio e Financiamento"
+        },
+        "general": {
+          "definition": "Este regulamento define as regras de funcionamento do clube, os direitos  e deveres dos membros e os critérios de apoio às pessoas beneficiárias.\n",
+          "mission_html": "O Clube SGG tem como missão <strong>contribuir de forma positiva para melhorar as condições de habitação de quem mais precisa</strong>, mobilizando recursos e pessoas para criar lares dignos.\n",
+          "title": "1. Disposições Gerais",
+          "values_html": "O clube atua com base nos valores de <strong>dignidade, solidariedade,  criação de valor e partilha</strong>.\n"
+        },
+        "members": {
+          "duties": {
+            "intro": "Os membros do Clube SGG comprometem-se a:",
+            "list": {
+              "first": "Respeitar os valores e princípios do clube;",
+              "fourth": "Identificar pessoas ou situações que possam ser alvo da intervenção do clube.",
+              "second": "Contribuir ativamente dentro das suas possibilidades, seja através de referências ou voluntariado;",
+              "third": "Agir com transparência e ética em todas as interações relacionadas com o clube."
+            },
+            "title": "2.3. Deveres dos Membros"
+          },
+          "members_or_ambassadors": {
+            "ambassadors": {
+              "additional": "Responsabilidades adicionais dos Embaixadores:",
+              "choice": {
+                "description": "Os embaixadores são escolhidos diretamente pelos responsáveis do Clube SGG, com base no seu envolvimento e contributo ativo.\n",
+                "subtitle": "Escolha dos Embaixadores:"
+              },
+              "description": "Os embaixadores distinguem-se pelo seu envolvimento ativo, compromisso regular e pela sua iniciativa em contribuir para o crescimento do clube, principalmente através da referenciação ativa e contínua de negócios imobiliários e referenciação de situações que necessitam de intervenção do clube. São membros que procuram constantemente apresentar e desenvolver novas ideias e ações, assumindo maior responsabilidade na concretização dos objetivos do clube.\n",
+              "list": {
+                "first": "Participação regular nos eventos e iniciativas do clube;",
+                "second": "Proposta ativa de novas iniciativas e ideias que impulsionem o impacto do clube;",
+                "third": "Apoio direto aos responsáveis do clube na promoção da sua missão e valores."
+              },
+              "loss_of_status": {
+                "description": "Um embaixador poderá voltar a ser membro caso se afaste significativamente do núcleo central de envolvimento do clube, mediante decisão dos responsáveis.\n",
+                "subtitle": "Perda do Estatuto:"
+              },
+              "title": "Embaixadores"
+            },
+            "members": {
+              "description": "São pessoas selecionadas para fazer parte do Clube SGG, mas cuja participação ainda não está plenamente activa. São pessoas que estão em fase de pré adesão e assim que identificarem ou referenciarem alguma possibilidade  do concretização de negócio imobiliário tornar-se-ão embaixadores.\n",
+              "title": "Membros"
+            },
+            "title": "2.4. Distinção entre Membros e Embaixadores"
+          },
+          "rights": {
+            "intro": "Os membros do Clube SGG têm direito a:",
+            "list": {
+              "first": "Participar nas iniciativas promovidas pelo clube;",
+              "fourth": "Receber informação regular sobre as atividades e evolução do clube.",
+              "second": "Acompanhar os projetos apoiados e os impactos gerados;",
+              "third": "Propor novas ações e iniciativas alinhadas com a missão do clube;"
+            },
+            "title": "2.2. Direitos dos Membros"
+          },
+          "title": "2. Membros do Clube",
+          "who_can": {
+            "intro": "Podem tornar-se membros do Clube SGG:",
+            "list": {
+              "first": "Pessoas individuais que queiram apoiar a causa através de referência de negócios imobiliários de compra e venda;",
+              "second": "Empresas e profissionais do setor imobiliário, construção e serviços para o lar que queiram contribuir ou estabelecer parcerias;",
+              "third": "Qualquer pessoa que se identifique com os valores do clube e queira ajudar na sua missão."
+            },
+            "title": "2.1. Quem pode ser membro"
           }
         },
-        "subtitle": "Subscreva a nossa newsletter e fique a par das mais recentes oportunidades, noticias e dicas do mercado.",
-        "terms": "Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os seus dados para o informar sobre oportunidades de negócio, de acordo com a Política de Privacidade.",
-        "title": "Receba as novidades do Mercado"
-      },
-      "slogan": {
-        "bottom": "lares felizes!",
-        "top": "Juntos criamos"
-      }
-    },
-    "i18n": {
-      "plural": {
-        "keys": ["one", "other"]
-      },
-      "transliterate": {
-        "rule": {
-          "ª": "a",
-          "º": "o",
-          "À": "A",
-          "Á": "A",
-          "Ã": "A",
-          "Æ": "Ae",
-          "É": "E",
-          "Ê": "E",
-          "Í": "I",
-          "Ó": "O",
-          "Õ": "O",
-          "Ú": "U",
-          "à": "a",
-          "á": "a",
-          "â": "a",
-          "ã": "a",
-          "æ": "ae",
-          "ç": "c",
-          "é": "e",
-          "ê": "e",
-          "í": "i",
-          "ó": "o",
-          "õ": "o",
-          "ú": "u"
+        "transparency": {
+          "description_html": "6.1. O Clube SGG compromete-se a manter <strong>total transparência na gestão dos fundos e nas ações realizadas.</strong>",
+          "reports": {
+            "description": "6.2. Será publicada periodicamente uma prestação de contas com:",
+            "list": {
+              "first": "Valores angariados através de referências imobiliárias e parcerias;",
+              "second": "Projetos financiados e impacto gerado;",
+              "third": "Relatórios de evolução e planeamento futuro."
+            }
+          },
+          "title": "6. Transparência e Prestação de Contas"
         }
+      },
+      "title": "Regulamento Clube SGG",
+      "transparency": "Transparência e compromisso são a base da nossa missão."
+    },
+    "rules_description": "Conheça os termos e condições de membro do Clube SGG",
+    "sections": {
+      "benefits": "Benefícios para Membros",
+      "partners": "Nossos Parceiros"
+    },
+    "stories": {
+      "empty": "Novas histórias em breve...",
+      "explore_stories": "Explore as nossas histórias",
+      "header": "Histórias dos Membros",
+      "impact_description": "Conheça as histórias reais de quem foi impactado diretamente pela missão\n do Clube SGG. Cada história é a prova viva de como o seu apoio pode\nmudar  vidas, proporcionando habitações dignas e transformando sonhos em realidade.\n",
+      "intro": "Descubra experiências únicas da nossa comunidade",
+      "meta_description": "Histórias inspiradoras e casos de sucesso dos membros do Clube SGG.",
+      "real_people": "Por trás de cada projeto há pessoas reais com histórias inspiradoras",
+      "stories_description": "Descubra abaixo relatos emocionantes e inspiradores, onde o apoio do Clube SGG fez toda a diferença.\n",
+      "subheader": "Leia sobre experiências e histórias de sucesso dos nossos membros.",
+      "title": "Histórias do Clube",
+      "transformed_life": "Cada história é uma vida transformada"
+    },
+    "stories_description": "Histórias de sucesso e experiências inspiradoras dos nossos membros"
+  },
+  "club_stories": {
+    "resource": "História"
+  },
+  "contacts": {
+    "contact_us": "Contacte-nos",
+    "cta": "ENTRE EM CONTACTO CONNOSCO",
+    "form": {
+      "consent": "Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os seus dados para o informar sobre oportunidades de negócio, de acordo com a Política de Privacidade.",
+      "error": "Por favor insira valores válidos",
+      "fields": {
+        "email": "Email",
+        "message": "Mensagem",
+        "name": "Nome",
+        "phone": "Telefone",
+        "send": "Enviar"
+      },
+      "titles": {
+        "main": "Preencha o formulário e entraremos em contacto consigo:",
+        "visit": "Precisa de mais informação? Quer agendar uma visita? Entre em contacto connosco!"
       }
     },
-    "kw": {
-      "beliefs": {
-        "local": "Acreditamos que a mediação imobiliária é um negócio local impulsionado pelos consultores imobiliários.",
-        "partners": "Acreditamos que os nossos consultores imobiliários devem ser tratados como parceiros de negócios.",
-        "people": "Acreditamos que faz a diferença estar no negócio com as pessoas certas.",
-        "profit": "Acreditamos que ter lucro é fundamental.",
-        "reputation": "Acreditamos que nenhuma transação pode pôr em causa a nossa reputação.",
-        "title": "Crenças"
-      },
-      "first_paragraph": {
-        "bottom": "A KW conta com um total de <span class=\"font-bold\">23 representações</span> e mais de <span class=\"font-bold\">2.000 consultores e associados</span> em Portugal.",
-        "middle": "Hoje, por todo o mundo mais de <span class=\"font-bold\">165.000 consultores</span> e mais de <span class=\"font-bold\">1.000 Market Centers</span> são filiados KW.",
-        "top": "A KW actua segundo o princípio de que, se focar todos os seus recursos na construção dos negócios dos seus consultores, estes irão, em retorno, ajudar a construir uma empresa acima de todas as expectativas. Com esta filosofia em prática, estamos a transformar o panorama geral da mediação imobiliária."
-      },
-      "header": "KW Portugal",
-      "meta_description": "Sofia Galvão Group em parceria com Kw Portugal.",
-      "more": "Descubra mais sobre a KW Portugal",
-      "perspectives": {
-        "agent": "A Keller Williams pensa como um agente de sucesso, atua como um consultor/formador fornecendo modelos/sistemas, tecnologia, produtos e serviços que potenciam a produtividade e a rentabilidade.",
-        "brand": "Nós apoiamos o agente a desenvolver a sua marca e não o oposto.",
-        "consulting": "Somos uma empresa construída por Consultores, para Consultores.",
-        "growth": "Acreditamos que cresceremos tanto como empresa quanto maior for a nossa capacidade de promover o crescimento das pessoas que connosco trabalham.",
-        "learn": "Na Keller Williams acreditamos na aprendizagem para obter resultados e não em aprender por aprender.",
-        "people": "O que tornará a Keller Williams melhor no longo prazo é a forma como as pessoas pensam.",
-        "tech": "Nós somos uma empresa de Consultoria e Formação impulsionada por Tecnologia que se dedica ao negócio da mediação imobiliária.",
-        "title": "Perspetivas"
-      },
-      "principle": "Princípios - WI4C2TES",
-      "subheader": "Uma empresa feita de consultores para consultores!"
+    "header": "Contactos",
+    "meta_description": "Entre em contacto com Sofia Galvão Group."
+  },
+  "date": {
+    "abbr_day_names": ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"],
+    "abbr_month_names": [
+      null,
+      "jan",
+      "fev",
+      "mar",
+      "abr",
+      "mai",
+      "jun",
+      "jul",
+      "ago",
+      "set",
+      "out",
+      "nov",
+      "dez"
+    ],
+    "day_names": [
+      "domingo",
+      "segunda-feira",
+      "terça-feira",
+      "quarta-feira",
+      "quinta-feira",
+      "sexta-feira",
+      "sábado"
+    ],
+    "formats": {
+      "default": "%d/%m/%Y",
+      "long": "%d de %B de %Y",
+      "short": "%d de %B"
     },
-    "listing": {
-      "advanced_search": "Pesquisa Avançada",
-      "characteristics": "Características do Imóvel",
-      "create": {
-        "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
-        "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
+    "month_names": [
+      null,
+      "janeiro",
+      "fevereiro",
+      "março",
+      "abril",
+      "maio",
+      "junho",
+      "julho",
+      "agosto",
+      "setembro",
+      "outubro",
+      "novembro",
+      "dezembro"
+    ],
+    "order": ["day", "month", "year"]
+  },
+  "datetime": {
+    "distance_in_words": {
+      "about_x_hours": {
+        "one": "aproximadamente 1 hora",
+        "other": "aproximadamente %{count} horas"
       },
-      "destroy": {
-        "error": "Erro: não foi possível eliminar o imóvel",
-        "notice": "Imóvel eliminado com sucesso"
+      "about_x_months": {
+        "one": "aproximadamente 1 mês",
+        "other": "aproximadamente %{count} meses"
       },
-      "details": "Detalhes do Imóvel",
-      "kind": {
-        "apartment": "Apartamento",
-        "garage": "Garagem",
-        "house": "Moradia",
-        "land": "Terreno",
-        "office": "Escritório",
-        "other": "Outro",
-        "parking": "Estacionamento",
-        "storage": "Arrecadação",
-        "store": "Loja",
-        "title": "Tipo de Imóvel",
-        "warehouse": "Armazém"
+      "about_x_years": {
+        "one": "aproximadamente 1 ano",
+        "other": "aproximadamente %{count} anos"
       },
-      "no_listings": "Não foram encontrados imóveis com os critérios selecionados",
-      "objective": {
-        "other": "Outro",
-        "rent": "Arrendamento",
-        "sale": "Venda",
-        "title": "Venda / Arrendamento"
+      "almost_x_years": {
+        "one": "quase 1 ano",
+        "other": "quase %{count} anos"
       },
-      "open_tour": "Abrir Tour Virtual 🏠",
+      "half_a_minute": "meio minuto",
+      "less_than_x_minutes": {
+        "one": "menos de um minuto",
+        "other": "menos de %{count} minutos"
+      },
+      "less_than_x_seconds": {
+        "one": "menos de 1 segundo",
+        "other": "menos de %{count} segundos"
+      },
+      "over_x_years": {
+        "one": "mais de 1 ano",
+        "other": "mais de %{count} anos"
+      },
+      "x_days": {
+        "one": "1 dia",
+        "other": "%{count} dias"
+      },
+      "x_minutes": {
+        "one": "1 minuto",
+        "other": "%{count} minutos"
+      },
+      "x_months": {
+        "one": "1 mês",
+        "other": "%{count} meses"
+      },
+      "x_seconds": {
+        "one": "1 segundo",
+        "other": "%{count} segundos"
+      },
+      "x_years": {
+        "one": "1 ano",
+        "other": "%{count} anos"
+      }
+    },
+    "prompts": {
+      "day": "Dia",
+      "hour": "Hora",
+      "minute": "Minuto",
+      "month": "Mês",
+      "second": "Segundo",
+      "year": "Ano"
+    }
+  },
+  "devise": {
+    "confirmations": {
+      "confirmed": "A sua conta foi confirmada com sucesso.",
+      "new": {
+        "resend_confirmation_instructions": "Reenviar instruções de confirmação"
+      },
+      "send_instructions": "Dentro de alguns minutos irá receber um email com instruções para confirmar a sua conta.",
+      "send_paranoid_instructions": "Se o seu email existir na nossa base de dados, irá receber dentro de alguns minutos um email com instruções para confirmar a sua conta."
+    },
+    "failure": {
+      "already_authenticated": "Já se encontra autenticado.",
+      "inactive": "A sua conta ainda não foi ativada.",
+      "invalid": "%{authentication_keys} ou palavra-passe inválidos.",
+      "last_attempt": "Tem mais uma tentativa antes da sua conta ser bloqueada.",
+      "locked": "A sua conta está bloqueada.",
+      "not_found_in_database": "%{authentication_keys} ou palavra-passe inválidos.",
+      "timeout": "A sua sessão expirou, por favor autentique-se novamente para continuar.",
+      "unauthenticated": "Antes de continuar tem de se autenticar ou efetuar um registo.",
+      "unconfirmed": "Tem de confirmar a sua conta antes de continuar."
+    },
+    "mailer": {
+      "confirmation_instructions": {
+        "action": "Confirmar a minha conta",
+        "greeting": "Bem-vindo %{recipient}!",
+        "instruction": "Pode confirmar a sua conta através do link:",
+        "subject": "Instruções de confirmação"
+      },
+      "email_changed": {
+        "greeting": "Olá %{recipient}!",
+        "message": "Estamos a entrar em contacto para notificar que o seu endereço de email foi alterado para %{email}.",
+        "message_unconfirmed": null,
+        "subject": "Endereço de email alterado"
+      },
+      "password_change": {
+        "greeting": "Olá %{recipient}!",
+        "message": "Estamos a entrar em contacto para notificar que a sua palavra-passe foi alterada.",
+        "subject": "Palavra-passe alterada"
+      },
+      "reset_password_instructions": {
+        "action": "Repor a minha palavra-passe",
+        "greeting": "Olá %{recipient}!",
+        "instruction": "Foi efetuado um pedido para repor a sua palavra-passe. Para prosseguir clique no link abaixo.",
+        "instruction_2": "Se não fez este pedido, por favor ignore este e-mail.",
+        "instruction_3": "A sua palavra-passe só será alterada quando aceder ao link abaixo para a alterar.",
+        "subject": "Instruções de recuperação de palavra-passe"
+      },
+      "unlock_instructions": {
+        "action": "Desbloquear a minha conta",
+        "greeting": "Olá %{recipient}!",
+        "instruction": "Clique no seguinte link para desbloquear a sua conta:",
+        "message": "A sua conta foi bloqueada devido a um número excessivo de tentativas de acesso inválidas.",
+        "subject": "Instruções de desbloqueio"
+      }
+    },
+    "omniauth_callbacks": {
+      "failure": "Não foi possível autenticar a sua conta por %{kind} porque \"%{reason}\".",
+      "success": "A sua conta foi autenticada por %{kind} com sucesso."
+    },
+    "passwords": {
+      "edit": {
+        "change_my_password": "Alterar a minha palavra-passe",
+        "change_your_password": "Altere a sua palavra-passe",
+        "confirm_new_password": "Confirme a nova palavra-passe",
+        "new_password": "Nova palavra-passe"
+      },
+      "new": {
+        "forgot_your_password": "Esqueceu a sua palavra-passe?",
+        "send_me_reset_password_instructions": "Enviar-me instruções para repor a palavra-passe"
+      },
+      "no_token": "Não pode aceder a esta página sem vir do email de recuperação da palavra-passe. Se vem de um email para recuperar a palavra-passe, por favor certifique-se que usou o URL completo que foi enviado.",
+      "send_instructions": "Dentro de alguns minutos irá receber um email com instruções de reinicialização da palavra-passe.",
+      "send_paranoid_instructions": "Se o seu e-mail existir na nossa base de dados, irá receber dentro de alguns minutos um e-mail com instruções para recuperar a sua palavra-passe.",
+      "updated": "A sua palavra-passe foi alterada com sucesso. Agora está autenticado.",
+      "updated_not_active": "A sua password foi alterada com sucesso."
+    },
+    "registrations": {
+      "destroyed": "A sua conta foi cancelada com sucesso.",
+      "edit": {
+        "are_you_sure": "Tem a certeza?",
+        "cancel_my_account": "Cancelar a minha conta",
+        "currently_waiting_confirmation_for_email": "A aguardar a confirmação de: %{email}",
+        "leave_blank_if_you_don_t_want_to_change_it": "deixe em branco caso não queira alterar",
+        "title": "Editar %{resource}",
+        "unhappy": "Descontente?",
+        "update": "Atualizar",
+        "we_need_your_current_password_to_confirm_your_changes": "precisamos da sua palavra-passe atual para confirmar as alterações"
+      },
+      "new": {
+        "sign_up": "Criar Conta"
+      },
+      "signed_up": "Bemvindo! A autenticação foi efetuada com sucesso.",
+      "signed_up_but_inactive": "Registou-se com sucesso. No entanto, não podemos iniciar a sua sessão porque ainda não confirmou a sua conta.",
+      "signed_up_but_locked": "Registou-se com sucesso. No entanto, não podemos iniciar a sua sessão porque a sua conta encontra-se bloqueada.",
+      "signed_up_but_unconfirmed": "Foi enviado um email com um link para confirmar o seu email. Por favor abra o link para ativar a sua conta.",
+      "update_needs_confirmation": "A sua conta foi atualizada com sucesso, mas precisamos de confirmar o seu email. Por favor veja o seu email e clique no link para finalizar a confirmação do seu email.",
+      "updated": "A sua conta foi atualizada com sucesso.",
+      "updated_but_not_signed_in": null
+    },
+    "sessions": {
+      "already_signed_out": "Sessão terminada com sucesso.",
+      "new": {
+        "sign_in": "Entrar"
+      },
+      "signed_in": "Autenticação efetuada com sucesso.",
+      "signed_out": "Saiu da sessão com sucesso."
+    },
+    "shared": {
+      "links": {
+        "back": "Voltar",
+        "didn_t_receive_confirmation_instructions": "Não recebeu instruções de confirmação?",
+        "didn_t_receive_unlock_instructions": "Não recebeu instruções de desbloqueio?",
+        "forgot_your_password": "Esqueceu a palavra-passe?",
+        "sign_in": "Login",
+        "sign_in_with_provider": "Entrar com %{provider}",
+        "sign_up": "Criar conta"
+      },
+      "minimum_password_length": {
+        "one": "(mínimo de %{count} carácter)",
+        "other": "(mínimo de %{count} caracteres)"
+      }
+    },
+    "unlocks": {
+      "new": {
+        "resend_unlock_instructions": "Reenviar instruções de desbloqueio"
+      },
+      "send_instructions": "Dentro de alguns minutos irá receber um email com as instruções para desbloquear a sua conta.",
+      "send_paranoid_instructions": "Se a sua conta existir, irá receber dentro de alguns minutos um email com instruções para a desbloquear.",
+      "unlocked": "A sua conta foi desbloqueada com sucesso. Por favor autentique-se para continuar."
+    }
+  },
+  "enterprises": {
+    "header": "Empreendimentos",
+    "list": {
+      "invest": {
+        "description": "Possibilidade de disponibilizar o pagamento consoante as fases de evolução da obra e da construção.",
+        "title": "Investimento Faseado"
+      },
+      "own": {
+        "description": "Na compra em planta tem a garantia de que o imóvel está pronto a estrear e a certeza que será o primeiro proprietário.",
+        "title": "Vai ser o primeiro dono da sua nova casa"
+      },
+      "perspective": {
+        "description": "Ao adquirir uma casa em planta o investimento que é feito é, por norma, inferior ao investimento que seria necessário fazer caso ela já estivesse pronta. Isto significa que a sua casa, a partir do momento que está pronta, já potencia o seu investimento.",
+        "title": "Perspectiva de melhor retorno de investimento"
+      },
+      "warranty": {
+        "description": "Um imóvel novo tem garantia de construção, além da certeza de não haver necessidade de melhoramentos nos próximos anos.",
+        "title": "Garantia de construção"
+      },
+      "yours": {
+        "description": "A aquisição em planta confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua futura casa vá ao encontro das suas necessidades e gostos.",
+        "title": "Imóvel à sua medida"
+      }
+    },
+    "meta_description": "Os melhores empreendimentos em Portugal para comprar com Sofia Galvão Group.",
+    "resource": "Empreendimento",
+    "show": {
+      "bedrooms": "Tipologia",
+      "built": "Área Bruta",
+      "living": "Área Útil",
+      "more": "Ver mais",
+      "parking": "Estacionamento",
       "price": "Preço",
-      "recover": {
-        "error": "Erro: não foi possível recuperar o imóvel",
-        "notice": "Imóvel recuperado com sucesso, aguarde um pouco para atualizar os dados."
-      },
-      "reset_filters": "Limpar Filtros",
-      "resource": "Imóvel",
-      "search": {
-        "address": "Morada",
-        "address_placeholder": "Lisboa, Porto, Algarve, etc.",
-        "any": "Qualquer",
-        "name": "Morada, Localidade, Tipologia, etc.",
-        "name_placeholder": "Apartamento T3, Moradia, Terreno, etc.",
-        "price": "Preço",
-        "status": {
-          "agreed": "Reservados",
-          "all": "Todos",
-          "closed": "Encerrados",
-          "recent": "Novos",
-          "rented": "Arrendados",
-          "sold": "Vendidos",
-          "standard": "Listados",
-          "title": "Estado"
-        },
-        "submit": "Pesquisar",
-        "title": "Pesquisar Imóveis"
-      },
-      "stats": {
-        "ano de construção": "Ano de Construção",
-        "casa de banho social": "Casa de Banho Social",
-        "casas de banho": "WCs",
-        "city tax": "Taxa de Cidade",
-        "common area ownership (coop)": "Área Comum de Propriedade (Coop)",
-        "cozinhas": "Cozinhas",
-        "dining rooms": "Salas de Jantar",
-        "estacionamentos": "Estacionamentos",
-        "furnished": "Mobilado",
-        "garagens": "Garagens",
-        "kitchens": "Cozinhas",
-        "land tax": "Taxa de Terreno",
-        "piso": "Piso",
-        "pisos": "Pisos",
-        "quartos": "Quartos",
-        "salas": "Salas",
-        "salas de refeição": "Salas de Refeição",
-        "support staff accommodations": "Apoio a Empregados",
-        "área bruta (cp)": "Área Bruta (CP)",
-        "área do terreno": "Área do Terreno",
-        "área útil": "Área Útil"
-      },
-      "status": {
-        "agreed": "Reservado",
-        "closed": "Encerrado",
-        "recent": "Novo",
-        "rented": "Arrendado",
-        "sold": "Vendido",
-        "standard": ""
-      },
-      "text": {
-        "less": " mostrar menos",
-        "more": "... ler mais"
-      },
-      "update": {
-        "notice": "Imóvel editado com sucesso"
-      },
-      "update_all": {
-        "notice": "Todos os imóveis serão atualizado dentro de minutos, espera antes de tentar novamente"
-      },
-      "update_details": {
-        "notice": "O imóvel será atualizado dentro de minutos, espera antes de tentar novamente"
-      },
-      "watch_video": "Assistir Vídeo 📹"
+      "type": "Natureza"
     },
-    "listing_complex": {
-      "create": {
-        "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
-        "notice": "Complexo adicionado, aguarde um pouco e já vai aparecer na plataforma"
+    "subheader": "Porquê Comprar <span class=\"underline decoration-beige-default dark:decoration-beige-medium\">em Planta?</span>",
+    "subtitle": {
+      "description": "Conheça os nossos projetos de empreendimentos imobiliários, que oferecem oportunidades únicas de investimento. Com opções de compra em planta, pode personalizar o seu imóvel e investir em propriedades com alto potencial de valorização. A nossa equipa fornece informações detalhadas sobre cada empreendimento, incluindo localização, planos de pagamento e potencial de retorno.",
+      "title": "Oportunidades de Investimento"
+    }
+  },
+  "errors": {
+    "404": {
+      "button": "Voltar",
+      "text_1": "A página que procura não se encontra disponível.",
+      "text_2": "Tente procurar de novo ou voltar atrás no botão abaixo.",
+      "title": "Está perdido?"
+    },
+    "500": {
+      "text_1": "Estamos a fazer o nosso melhor para o resolver.",
+      "text_2": "Por favor tente novamente dentro de momentos.",
+      "title": "O servidor está em baixo!"
+    },
+    "email": {
+      "invalid": "não é um email válido"
+    },
+    "format": "%{attribute} %{message}",
+    "messages": {
+      "accepted": "tem de ser aceite",
+      "already_confirmed": "já foi confirmado, por favor tente efetuar a autenticação",
+      "blank": "não pode estar em branco",
+      "confirmation": "não coincide com a confirmação",
+      "confirmation_period_expired": "necessitava de confirmação até %{period}, por favor faça um novo pedido",
+      "empty": "não pode estar vazio",
+      "equal_to": "tem de ser igual a %{count}",
+      "even": "tem de ser par",
+      "exclusion": "é reservado",
+      "expired": "expirou, por favor solicite um novo",
+      "greater_than": "tem de ser maior que %{count}",
+      "greater_than_or_equal_to": "tem de ser maior ou igual a %{count}",
+      "inclusion": "não está incluído na lista",
+      "invalid": "é inválido",
+      "less_than": "tem de ser menor que %{count}",
+      "less_than_or_equal_to": "tem de ser menor ou igual a %{count}",
+      "model_invalid": "A validação falhou: %{errors}",
+      "not_a_number": "não é um número",
+      "not_an_integer": "tem de ser um inteiro",
+      "not_found": "não foi encontrado",
+      "not_locked": "não foi bloqueado",
+      "not_saved": {
+        "one": "%{count} erro impediu %{resource} de ser gravado:",
+        "other": "%{count} erros impediram %{resource} de ser gravado:"
       },
-      "update_details": {
-        "notice": "O complexo será atualizado dentro de minutos, espera antes de tentar novamente"
+      "odd": "tem de ser ímpar",
+      "other_than": "tem de ser diferente de %{count}",
+      "present": "não pode estar em branco",
+      "required": "é obrigatório",
+      "taken": "não está disponível",
+      "too_long": "é demasiado grande (o máximo é de %{count} caracteres)",
+      "too_short": "é demasiado pequeno (o mínimo é de %{count} caracteres)",
+      "wrong_length": "comprimento errado (deve ter %{count} caracteres)"
+    },
+    "presence": "não pode estar vazio",
+    "template": {
+      "body": "Por favor, verifique os seguintes campos:",
+      "header": {
+        "one": "1 erro impediu guardar este %{model}",
+        "other": "%{count} erros impediram guardar este %{model}"
+      }
+    }
+  },
+  "faker": {
+    "address": {
+      "building_number": ["#####", "####", "###"],
+      "city": ["#{city_name}"],
+      "city_name": [
+        "Abrantes",
+        "Agualva-Cacém",
+        "Águeda",
+        "Albergaria-a-Velha",
+        "Albufeira",
+        "Alcácer do Sal",
+        "Alcobaça",
+        "Alfena",
+        "Almada",
+        "Almeirim",
+        "Alverca do Ribatejo",
+        "Amadora",
+        "Amarante",
+        "Amora",
+        "Anadia",
+        "Angra do Heroísmo",
+        "Aveiro",
+        "Barcelos",
+        "Barreiro",
+        "Beja",
+        "Borba",
+        "Braga",
+        "Bragança",
+        "Caldas da Rainha",
+        "Câmara de Lobos",
+        "Caniço",
+        "Cantanhede",
+        "Cartaxo",
+        "Castelo Branco",
+        "Chaves",
+        "Coimbra",
+        "Costa da Caparica",
+        "Covilhã",
+        "Elvas",
+        "Entroncamento",
+        "Ermesinde",
+        "Esmoriz",
+        "Espinho",
+        "Esposende",
+        "Estarreja",
+        "Estremoz",
+        "Évora",
+        "Fafe",
+        "Faro",
+        "Fátima",
+        "Felgueiras",
+        "Figueira da Foz",
+        "Fiães",
+        "Freamunde",
+        "Funchal",
+        "Fundão",
+        "Gafanha da Nazaré",
+        "Gandra",
+        "Gondomar",
+        "Gouveia",
+        "Guarda",
+        "Guimarães",
+        "Horta",
+        "Ílhavo",
+        "Lagoa",
+        "Lagoa",
+        "Lagos",
+        "Lamego",
+        "Leiria",
+        "Lisboa",
+        "Lixa",
+        "Loulé",
+        "Loures",
+        "Lourosa",
+        "Macedo de Cavaleiros",
+        "Machico",
+        "Maia",
+        "Mangualde",
+        "Marco de Canaveses",
+        "Marinha Grande",
+        "Matosinhos",
+        "Mealhada",
+        "Mêda",
+        "Miranda do Douro / Miranda de l Douro",
+        "Mirandela",
+        "Montemor-o-Novo",
+        "Montijo",
+        "Moura",
+        "Odivelas",
+        "Olhão da Restauração",
+        "Oliveira de Azeméis",
+        "Oliveira do Bairro",
+        "Oliveira do Hospital",
+        "Ourém",
+        "Ovar",
+        "Paços de Ferreira",
+        "Paredes",
+        "Penafiel",
+        "Peniche",
+        "Peso da Régua",
+        "Pinhel",
+        "Pombal",
+        "Ponta Delgada",
+        "Ponte de Sor",
+        "Portalegre",
+        "Portimão",
+        "Porto",
+        "Póvoa de Santa Iria",
+        "Póvoa de Varzim",
+        "Praia da Vitória",
+        "Quarteira",
+        "Queluz",
+        "Rebordosa",
+        "Reguengos de Monsaraz",
+        "Ribeira Grande",
+        "Rio Maior",
+        "Rio Tinto",
+        "Sabugal",
+        "Sacavém",
+        "Samora Correia",
+        "Santa Comba Dão",
+        "Santa Cruz",
+        "Santa Maria da Feira",
+        "Santana",
+        "Santarém",
+        "Santiago do Cacém",
+        "Santo Tirso",
+        "São João da Madeira",
+        "São Mamede de Infesta",
+        "São Pedro do Sul",
+        "Lordelo",
+        "Seia",
+        "Seixal",
+        "Senhora da Hora",
+        "Serpa",
+        "Setúbal",
+        "Silves",
+        "Sines",
+        "Tarouca",
+        "Tavira",
+        "Tomar",
+        "Tondela",
+        "Torres Novas",
+        "Torres Vedras",
+        "Trancoso",
+        "Trofa",
+        "Valbom",
+        "Vale de Cambra",
+        "Valença",
+        "Valongo",
+        "Valpaços",
+        "Vendas Novas",
+        "Viana do Castelo",
+        "Vila Baleira",
+        "Vila do Conde",
+        "Vila Franca de Xira",
+        "Vila Nova de Famalicão",
+        "Vila Nova de Foz Côa",
+        "Vila Nova de Gaia",
+        "Vila Nova de Santo André",
+        "Vila Real",
+        "Vila Real de Santo António",
+        "Viseu",
+        "Vizela"
+      ],
+      "city_prefix": [],
+      "city_suffix": [],
+      "country": [
+        "Afeganistão",
+        "Albânia",
+        "Algéria",
+        "Samoa",
+        "Andorra",
+        "Angola",
+        "Anguilla",
+        "Antigua and Barbada",
+        "Argentina",
+        "Armênia",
+        "Aruba",
+        "Austrália",
+        "Áustria",
+        "Alzerbajão",
+        "Bahamas",
+        "Barém",
+        "Bangladesh",
+        "Barbado",
+        "Belgrado",
+        "Bélgica",
+        "Belize",
+        "Benin",
+        "Bermuda",
+        "Bhutan",
+        "Bolívia",
+        "Bôsnia",
+        "Botuasuna",
+        "Bouvetoia",
+        "Brasil",
+        "Arquipélago de Chagos",
+        "Ilhas Virgens",
+        "Brunei",
+        "Bulgária",
+        "Burkina Faso",
+        "Burundi",
+        "Cambójia",
+        "Camarões",
+        "Canadá",
+        "Cabo Verde",
+        "Ilhas Caiman",
+        "República da África Central",
+        "Chad",
+        "Chile",
+        "China",
+        "Ilhas Natal",
+        "Ilhas Cocos",
+        "Colômbia",
+        "Comoros",
+        "Congo",
+        "Ilhas Cook",
+        "Costa Rica",
+        "Costa do Marfim",
+        "Croácia",
+        "Cuba",
+        "Cyprus",
+        "República Tcheca",
+        "Dinamarca",
+        "Djibouti",
+        "Dominica",
+        "República Dominicana",
+        "Equador",
+        "Egito",
+        "El Salvador",
+        "Guiné Equatorial",
+        "Eritrea",
+        "Estônia",
+        "Etiópia",
+        "Ilhas Faroe",
+        "Malvinas",
+        "Fiji",
+        "Finlândia",
+        "França",
+        "Guiné Francesa",
+        "Polinésia Francesa",
+        "Gabão",
+        "Gâmbia",
+        "Georgia",
+        "Alemanha",
+        "Gana",
+        "Gibraltar",
+        "Grécia",
+        "Groelândia",
+        "Granada",
+        "Guadalupe",
+        "Guano",
+        "Guatemala",
+        "Guernsey",
+        "Guiné",
+        "Guiné-Bissau",
+        "Guiana",
+        "Haiti",
+        "Heard Island and McDonald Islands",
+        "Vaticano",
+        "Honduras",
+        "Hong Kong",
+        "Hungria",
+        "Iceland",
+        "Índia",
+        "Indonésia",
+        "Irã",
+        "Iraque",
+        "Irlanda",
+        "Ilha de Man",
+        "Israel",
+        "Itália",
+        "Jamaica",
+        "Japão",
+        "Jersey",
+        "Jordânia",
+        "Cazaquistão",
+        "Quênia",
+        "Kiribati",
+        "Coreia do Norte",
+        "Coreia do Sul",
+        "Kuwait",
+        "Kyrgyz Republic",
+        "República Democrática de Lao People",
+        "Latvia",
+        "Líbano",
+        "Lesotho",
+        "Libéria",
+        "Libyan Arab Jamahiriya",
+        "Liechtenstein",
+        "Lituânia",
+        "Luxemburgo",
+        "Macao",
+        "Macedônia",
+        "Madagascar",
+        "Malawi",
+        "Malásia",
+        "Maldives",
+        "Mali",
+        "Malta",
+        "Ilhas Marshall",
+        "Martinica",
+        "Mauritânia",
+        "Mauritius",
+        "Mayotte",
+        "México",
+        "Micronésia",
+        "Moldova",
+        "Mônaco",
+        "Mongólia",
+        "Montenegro",
+        "Montserrat",
+        "Marrocos",
+        "Moçambique",
+        "Myanmar",
+        "Namibia",
+        "Nauru",
+        "Nepal",
+        "Antilhas Holandesas",
+        "Holanda",
+        "Nova Caledonia",
+        "Nova Zelândia",
+        "Nicarágua",
+        "Nigéria",
+        "Niue",
+        "Ilha Norfolk",
+        "Northern Mariana Islands",
+        "Noruega",
+        "Oman",
+        "Paquistão",
+        "Palau",
+        "Território da Palestina",
+        "Panamá",
+        "Nova Guiné Papua",
+        "Paraguai",
+        "Peru",
+        "Filipinas",
+        "Polônia",
+        "Portugal",
+        "Puerto Rico",
+        "Qatar",
+        "Romênia",
+        "Rússia",
+        "Ruanda",
+        "São Bartolomeu",
+        "Santa Helena",
+        "Santa Lúcia",
+        "Saint Martin",
+        "Saint Pierre and Miquelon",
+        "Saint Vincent and the Grenadines",
+        "Samoa",
+        "San Marino",
+        "Sao Tomé e Príncipe",
+        "Arábia Saudita",
+        "Senegal",
+        "Sérvia",
+        "Seychelles",
+        "Serra Leoa",
+        "Singapura",
+        "Eslováquia",
+        "Eslovênia",
+        "Ilhas Salomão",
+        "Somália",
+        "África do Sul",
+        "South Georgia and the South Sandwich Islands",
+        "Spanha",
+        "Sri Lanka",
+        "Sudão",
+        "Suriname",
+        "Svalbard & Jan Mayen Islands",
+        "Swaziland",
+        "Suécia",
+        "Suíça",
+        "Síria",
+        "Taiwan",
+        "Tajiquistão",
+        "Tanzânia",
+        "Tailândia",
+        "Timor-Leste",
+        "Togo",
+        "Tokelau",
+        "Tonga",
+        "Trinidá e Tobago",
+        "Tunísia",
+        "Turquia",
+        "Turcomenistão",
+        "Turks and Caicos Islands",
+        "Tuvalu",
+        "Uganda",
+        "Ucrânia",
+        "Emirados Árabes Unidos",
+        "Reino Unido",
+        "Estados Unidos da América",
+        "Estados Unidos das Ilhas Virgens",
+        "Uruguai",
+        "Uzbequistão",
+        "Vanuatu",
+        "Venezuela",
+        "Vietnã",
+        "Wallis and Futuna",
+        "Sahara",
+        "Yemen",
+        "Zâmbia",
+        "Zimbábue"
+      ],
+      "default_country": ["Portugal"],
+      "default_country_code": ["PT"],
+      "postcode": ["####"],
+      "secondary_address": [
+        "Apto. ###",
+        "Sobrado ##",
+        "Casa #",
+        "Lote ##",
+        "Quadra ##"
+      ],
+      "state": [
+        "Lisboa",
+        "Leiria",
+        "Santarém",
+        "Setúbal",
+        "Beja",
+        "Faro",
+        "Évora",
+        "Portalegre",
+        "Castelo Branco",
+        "Guarda",
+        "Coimbra",
+        "Aveiro",
+        "Viseu",
+        "Bragança",
+        "Vila Real",
+        "Porto",
+        "Braga",
+        "Viana do Castelo"
+      ],
+      "street_suffix": [
+        "Rua",
+        "Avenida",
+        "Travessa",
+        "Ponté",
+        "Alameda",
+        "Marginal",
+        "Viela",
+        "Rodovia"
+      ]
+    },
+    "company": {
+      "name": [
+        "#{Name.last_name} #{suffix}",
+        "#{Name.last_name}-#{Name.last_name}",
+        "#{Name.last_name}, #{Name.last_name} e #{Name.last_name}"
+      ],
+      "suffix": ["S.A.", "LTDA", "e Associados", "Comércio", "EIRELI"]
+    },
+    "internet": {
+      "domain_suffix": ["pt", "com", "biz", "info", "net", "org"]
+    },
+    "lorem": {
+      "words": [
+        "alias",
+        "consequatur",
+        "aut",
+        "perferendis",
+        "sit",
+        "voluptatem",
+        "accusantium",
+        "doloremque",
+        "aperiam",
+        "eaque",
+        "ipsa",
+        "quae",
+        "ab",
+        "illo",
+        "inventore",
+        "veritatis",
+        "et",
+        "quasi",
+        "architecto",
+        "beatae",
+        "vitae",
+        "dicta",
+        "sunt",
+        "explicabo",
+        "aspernatur",
+        "aut",
+        "odit",
+        "aut",
+        "fugit",
+        "sed",
+        "quia",
+        "consequuntur",
+        "magni",
+        "dolores",
+        "eos",
+        "qui",
+        "ratione",
+        "voluptatem",
+        "sequi",
+        "nesciunt",
+        "neque",
+        "dolorem",
+        "ipsum",
+        "quia",
+        "dolor",
+        "sit",
+        "amet",
+        "consectetur",
+        "adipisci",
+        "velit",
+        "sed",
+        "quia",
+        "non",
+        "numquam",
+        "eius",
+        "modi",
+        "tempora",
+        "incidunt",
+        "ut",
+        "labore",
+        "et",
+        "dolore",
+        "magnam",
+        "aliquam",
+        "quaerat",
+        "voluptatem",
+        "ut",
+        "enim",
+        "ad",
+        "minima",
+        "veniam",
+        "quis",
+        "nostrum",
+        "exercitationem",
+        "ullam",
+        "corporis",
+        "nemo",
+        "enim",
+        "ipsam",
+        "voluptatem",
+        "quia",
+        "voluptas",
+        "sit",
+        "suscipit",
+        "laboriosam",
+        "nisi",
+        "ut",
+        "aliquid",
+        "ex",
+        "ea",
+        "commodi",
+        "consequatur",
+        "quis",
+        "autem",
+        "vel",
+        "eum",
+        "iure",
+        "reprehenderit",
+        "qui",
+        "in",
+        "ea",
+        "voluptate",
+        "velit",
+        "esse",
+        "quam",
+        "nihil",
+        "molestiae",
+        "et",
+        "iusto",
+        "odio",
+        "dignissimos",
+        "ducimus",
+        "qui",
+        "blanditiis",
+        "praesentium",
+        "laudantium",
+        "totam",
+        "rem",
+        "voluptatum",
+        "deleniti",
+        "atque",
+        "corrupti",
+        "quos",
+        "dolores",
+        "et",
+        "quas",
+        "molestias",
+        "excepturi",
+        "sint",
+        "occaecati",
+        "cupiditate",
+        "non",
+        "provident",
+        "sed",
+        "ut",
+        "perspiciatis",
+        "unde",
+        "omnis",
+        "iste",
+        "natus",
+        "error",
+        "similique",
+        "sunt",
+        "in",
+        "culpa",
+        "qui",
+        "officia",
+        "deserunt",
+        "mollitia",
+        "animi",
+        "id",
+        "est",
+        "laborum",
+        "et",
+        "dolorum",
+        "fuga",
+        "et",
+        "harum",
+        "quidem",
+        "rerum",
+        "facilis",
+        "est",
+        "et",
+        "expedita",
+        "distinctio",
+        "nam",
+        "libero",
+        "tempore",
+        "cum",
+        "soluta",
+        "nobis",
+        "est",
+        "eligendi",
+        "optio",
+        "cumque",
+        "nihil",
+        "impedit",
+        "quo",
+        "porro",
+        "quisquam",
+        "est",
+        "qui",
+        "minus",
+        "id",
+        "quod",
+        "maxime",
+        "placeat",
+        "facere",
+        "possimus",
+        "omnis",
+        "voluptas",
+        "assumenda",
+        "est",
+        "omnis",
+        "dolor",
+        "repellendus",
+        "temporibus",
+        "autem",
+        "quibusdam",
+        "et",
+        "aut",
+        "consequatur",
+        "vel",
+        "illum",
+        "qui",
+        "dolorem",
+        "eum",
+        "fugiat",
+        "quo",
+        "voluptas",
+        "nulla",
+        "pariatur",
+        "at",
+        "vero",
+        "eos",
+        "et",
+        "accusamus",
+        "officiis",
+        "debitis",
+        "aut",
+        "rerum",
+        "necessitatibus",
+        "saepe",
+        "eveniet",
+        "ut",
+        "et",
+        "voluptates",
+        "repudiandae",
+        "sint",
+        "et",
+        "molestiae",
+        "non",
+        "recusandae",
+        "itaque",
+        "earum",
+        "rerum",
+        "hic",
+        "tenetur",
+        "a",
+        "sapiente",
+        "delectus",
+        "ut",
+        "aut",
+        "reiciendis",
+        "voluptatibus",
+        "maiores",
+        "doloribus",
+        "asperiores",
+        "repellat"
+      ]
+    },
+    "name": {
+      "first_name": [
+        "Águeda",
+        "Amélia",
+        "Ângela",
+        "Alessandro",
+        "Alessandra",
+        "Alexandre",
+        "Aline",
+        "Antônio",
+        "Breno",
+        "Bruna",
+        "Carlos",
+        "Carla",
+        "Célia",
+        "Cecília",
+        "César",
+        "Danilo",
+        "Dalila",
+        "Deneval",
+        "Eduardo",
+        "Eduarda",
+        "Esther",
+        "Elísio",
+        "Fábio",
+        "Fabrício",
+        "Fabrícia",
+        "Félix",
+        "Felícia",
+        "Feliciano",
+        "Frederico",
+        "Fabiano",
+        "Gustavo",
+        "Guilherme",
+        "Gúbio",
+        "Heitor",
+        "Hélio",
+        "Hugo",
+        "Isabel",
+        "Isabela",
+        "Ígor",
+        "João",
+        "Joana",
+        "Júlio César",
+        "Júlio",
+        "Júlia",
+        "Janaína",
+        "Karla",
+        "Kléber",
+        "Lucas",
+        "Lorena",
+        "Lorraine",
+        "Larissa",
+        "Ladislau",
+        "Marcos",
+        "Meire",
+        "Marcelo",
+        "Marcela",
+        "Margarida",
+        "Mércia",
+        "Márcia",
+        "Marli",
+        "Morgana",
+        "Maria",
+        "Norberto",
+        "Natália",
+        "Nataniel",
+        "Núbia",
+        "Ofélia",
+        "Paulo",
+        "Paula",
+        "Pablo",
+        "Pedro",
+        "Raul",
+        "Rafael",
+        "Rafaela",
+        "Ricardo",
+        "Roberto",
+        "Roberta",
+        "Sílvia",
+        "Sílvia",
+        "Silas",
+        "Simão",
+        "Suélen",
+        "Sara",
+        "Salvador",
+        "Sirineu",
+        "Talita",
+        "Tertuliano",
+        "Vicente",
+        "Víctor",
+        "Vitória",
+        "Yango",
+        "Yago",
+        "Yuri",
+        "Washington",
+        "Warley"
+      ],
+      "last_name": [
+        "Araújo",
+        "D'cruze",
+        "Estéves",
+        "Silva",
+        "Souza",
+        "Carvalho",
+        "Santos",
+        "Reis",
+        "Xavier",
+        "Franco",
+        "Braga",
+        "Macedo",
+        "Batista",
+        "Barros",
+        "Moraes",
+        "Costa",
+        "Pereira",
+        "Carvalho",
+        "Melo",
+        "Lemos",
+        "Saraiva",
+        "Nogueira",
+        "Oliveira",
+        "Martins",
+        "Moreira",
+        "Albuquerque"
+      ],
+      "name_with_middle": [
+        "#{prefix} #{first_name} #{last_name} #{last_name}",
+        "#{first_name} #{last_name} #{last_name} #{suffix}",
+        "#{first_name} #{last_name} #{last_name}",
+        "#{first_name} #{last_name} #{last_name}",
+        "#{first_name} #{last_name} #{last_name}",
+        "#{first_name} #{last_name} #{last_name}"
+      ],
+      "prefix": ["Sr.", "Sra.", "Srta.", "Dr.", "Eng."],
+      "suffix": ["Jr.", "Neto", "Filho"]
+    },
+    "phone_number": {
+      "country_code": ["351"],
+      "formats": ["(##) ###-####", "(##) ###-####", "884 ###-###"]
+    }
+  },
+  "faq": {
+    "description": "Respondemos às perguntas mais frequentes sobre o processo de compra e venda de imóveis, incluindo dúvidas sobre financiamento, documentação necessária e etapas do processo. Fornecemos orientação clara e prática para ajudar a esclarecer todas as dúvidas e garantir uma experiência informada e segura.",
+    "header": "FAQ (Perguntas Frequentes)",
+    "meta_description": "Perguntas frequentes sobre imobiliário e os serviços de Sofia Galvão Group.",
+    "reason": {
+      "answers": {
+        "fifth": {
+          "description": "Utilizamos estratégias de marketing que maximizam a exposição do seu imóvel, garantindo que chega aos compradores ou inquilinos certos.",
+          "title": "Marketing Eficaz"
+        },
+        "first": {
+          "description": "Anos de atuação no mercado imobiliário, com dezenas de negócios fechados com sucesso.",
+          "title": "Experiência"
+        },
+        "fourth": {
+          "description": "Garantimos que todas as questões legais são tratadas de forma segura e precisa.",
+          "title": "Suporte Jurídico"
+        },
+        "second": {
+          "description": "Acompanhamos cada etapa do processo, garantindo que tudo é feito de forma correta e eficiente.",
+          "title": "Serviço Completo"
+        },
+        "third": {
+          "description": "Os nossos clientes confiam na nossa capacidade de fechar negócios rapidamente, ao melhor preço e da forma correta para todas as partes.",
+          "title": "Resultados Comprovados"
+        }
+      },
+      "title": "Por que razão devo escolher o Sofia Galvão Group?"
+    },
+    "sections": {
+      "first": {
+        "questions": {
+          "fifth": {
+            "answer": "Sim. Além de impostos, como o IMT e o Imposto de Selo, há a considerar os custos da escritura e registo predial. A nossa comissão é competitiva e transparente, e cobre todos os serviços de promoção, acompanhamento e gestão do processo de venda.",
+            "title": "Existem custos associados à venda?"
+          },
+          "first": {
+            "answer": "Vender um imóvel é um processo que exige conhecimento do mercado, estratégias de promoção e atenção a detalhes jurídicos e burocráticos. O Sofia Galvão Group oferece um serviço completo, desde a avaliação precisa do valor do imóvel até à negociação final, assegurando que o cliente obtém o melhor preço e uma venda rápida e tranquila. Com uma vasta experiência e uma rede de contactos sólida, maximizamos as suas oportunidades de sucesso.",
+            "title": "Porquê contratar o Sofia Galvão Group para vender a minha casa?"
+          },
+          "fourth": {
+            "answer": "Combinamos marketing digital, plataformas imobiliárias de referência, home staging, fotografia profissional e visitas virtuais. Estas técnicas maximizam a exposição do seu imóvel aos compradores certos, resultando em mais interesse e, geralmente, em vendas mais rápidas.",
+            "title": "Como é que o Sofia Galvão Group promove o meu imóvel?"
+          },
+          "second": {
+            "answer": "O primeiro passo é assegurar que toda a documentação do imóvel está em ordem. Isso inclui documentos como a caderneta predial, a certidão permanente e o certificado energético. O Sofia Galvão Group ajuda-o a garantir que tudo está correto e prepara uma avaliação detalhada para definir o preço de venda adequado.",
+            "title": "Quais são os primeiros passos para vender a minha casa?"
+          },
+          "third": {
+            "answer": "O tempo necessário para vender uma casa depende de vários fatores, como o estado do mercado e o preço do imóvel. No entanto, com uma abordagem personalizada e estratégias de marketing avançadas, muitos imóveis são vendidos num espaço de tempo inferior à média do mercado.",
+            "title": "Quanto tempo demora o processo de venda?"
+          }
+        },
+        "title": "Vender um imóvel"
+      },
+      "fourth": {
+        "questions": {
+          "fifth": {
+            "answer": "Sim. A nossa equipa está consigo em todas as etapas, desde a angariação ou procura de imóveis, na negociação de propostas e até à assinatura da escritura ou contrato de arrendamento. Garantimos, desta forma, acompanhamento total desde o primeiro ao último minuto!",
+            "title": "O consultor imobiliário acompanha-me até ao final do processo?"
+          },
+          "first": {
+            "answer": "A exclusividade significa que o Sofia Galvão Group será a única empresa responsável pela promoção do seu imóvel, mas não operamos em exclusivo para fazer a venda. Para encontrar as melhores soluções para os nossos clientes fazemos parcerias com todas as agências imobiliárias com AMI válido e que possam ter um cliente interessado no seu imóvel. Assim, garantimos que o seu imóvel possa ser comprado por qualquer cliente que procure casa diretamente ou que esteja a ser representado por um consultor imobiliário. Contudo, o exclusivo na promoção permite-nos dedicar mais recursos e atenção ao seu imóvel, garantindo um serviço mais eficiente e um acompanhamento personalizado até ao final do processo.",
+            "title": "O que é a exclusividade na mediação imobiliária?"
+          },
+          "fourth": {
+            "answer": "Os tempos variam de acordo com o tipo de transação e as condições do mercado. No entanto, com a abordagem personalizada do Sofia Galvão Group, muitos dos nossos clientes conseguem fechar negócios em prazos inferiores à média do mercado.",
+            "title": "Quanto tempo demora todo o processo de venda, compra ou arrendamento?"
+          },
+          "second": {
+            "answer": "Sim! A nossa equipa está capacitada para gerir processos simultâneos de venda e compra, garantindo que a transição entre propriedades seja suave e sem complicações. Facilitamos ambos os processos, oferecendo soluções integradas.",
+            "title": "Posso vender e comprar ao mesmo tempo?"
+          },
+          "third": {
+            "answer": "Home staging é a preparação do imóvel para torná-lo mais atrativo para potenciais compradores ou inquilinos. Envolve a organização, a decoração e pequenos pormenores que permitem que o seu imóvel se destaque nas fotos e nas visitas. Com home staging, o seu imóvel destaca-se no mercado, aumenta a atratividade e, geralmente, é vendido ou arrendado mais rapidamente.",
+            "title": "O que é o home staging e por que é importante?"
+          }
+        },
+        "title": "Perguntas Frequentes"
+      },
+      "second": {
+        "questions": {
+          "fifth": {
+            "answer": "Sim! Temos parcerias com vários bancos e podemos ajudá-lo a encontrar as melhores condições de financiamento para a sua compra.",
+            "title": "Posso obter ajuda com financiamento bancário?"
+          },
+          "first": {
+            "answer": "Comprar uma casa é uma das decisões financeiras mais importantes, e o Sofia Galvão Group assegura que fará a escolha certa. Temos acesso a uma vasta rede de propriedades, incluindo imóveis exclusivos que não estão publicitados nos portais imobiliários. Oferecemos suporte em todas as etapas, desde a pesquisa até à negociação final e à assinatura da escritura.",
+            "title": "Porquê escolher o Sofia Galvão Group para comprar uma casa?"
+          },
+          "fourth": {
+            "answer": "Além do preço do imóvel, há a considerar custos como o IMT (Imposto Municipal sobre Transmissões Onerosas de Imóveis), Imposto de Selo, escritura e registo. O Sofia Galvão Group ajuda a calcular todos estes valores, de forma a garantir que tem conhecimento de todos os valores envolvidos.",
+            "title": "Quais são os custos envolvidos na compra de uma casa?"
+          },
+          "second": {
+            "answer": "O primeiro passo é identificar as suas necessidades e definir o budget. Com base nisso, a nossa equipa ajudará a encontrar as propriedades mais adequadas. Uma vez escolhida a casa, orientamos no processo de verificação da documentação e na preparação da proposta.",
+            "title": "Qual é o primeiro passo para comprar uma casa?"
+          },
+          "third": {
+            "answer": "Fazemos uma avaliação detalhada do mercado, comparando imóveis semelhantes na mesma área. Também analisamos as condições do imóvel para garantir que o valor pedido reflete a realidade do mercado.",
+            "title": "Como saber se o preço de um imóvel é justo?"
+          }
+        },
+        "title": "Comprar um imóvel"
+      },
+      "third": {
+        "questions": {
+          "fifth": {
+            "answer": "Para o inquilino, os custos incluem, normalmente, o pagamento de dois meses de renda e um mês de caução.",
+            "title": "Quais são os custos associados ao arrendamento?"
+          },
+          "first": {
+            "answer": "Seja inquilino ou senhorio, o Sofia Galvão Group facilita o processo de arrendamento, tornando-o mais seguro e eficiente. Para senhorios, promovemos o imóvel de forma eficaz, ajudando a encontrar o inquilino certo. Para inquilinos, garantimos que o processo de arrendamento é simples e que o imóvel está em conformidade com todas as obrigações legais.",
+            "title": "Porquê escolher o Sofia Galvão Group para arrendar uma casa ou encontrar inquilinos?"
+          },
+          "fourth": {
+            "answer": "Nem sempre é necessário, mas em alguns casos o senhorio pode exigir um fiador como garantia adicional. Este requisito varia de contrato para contrato.",
+            "title": "Preciso de um fiador para arrendar uma casa?"
+          },
+          "second": {
+            "answer": "No caso dos inquilinos, são necessários documentos como o comprovativo de rendimentos, o documento de identificação e, em alguns casos, um fiador. No caso dos senhorios, é importante garantir que o imóvel tem a documentação em dia, incluindo o certificado energético e o seguro obrigatório.",
+            "title": "Que documentos são necessários para arrendar um imóvel?"
+          },
+          "third": {
+            "answer": "O valor da renda é definido com base numa avaliação de mercado, considerando a localização do imóvel e comparando-o com outros arrendamentos semelhantes na área. Com base nesta avaliação, ajudamo-lo a definir um valor justo e competitivo.",
+            "title": "Como é definido o valor da renda?"
+          }
+        },
+        "title": "Arrendar um imóvel"
       }
     },
-    "navbar": {
-      "about": "Sobre Nós",
-      "backoffice": "Backoffice",
-      "blog_posts": "Blog",
-      "buy": "Comprar",
-      "change_language": "Change site to English",
-      "club": "Clube SGG",
-      "club_rules": "Regulamento",
-      "club_stories": "Histórias",
-      "contacts": "Contactos",
-      "dark_mode": "Modo Escuro",
-      "enterprises": "Empreendimentos",
-      "faq": "FAQ",
-      "flipper": "Features",
-      "light_mode": "Modo Claro",
-      "listings": "Imóveis",
-      "more": "Saber mais",
-      "other_language": "English",
-      "sell": "Vender",
-      "services": "Serviços",
-      "testimonies": "Testemunhos"
+    "subheader": "Guia para Compradores e Vendedores:"
+  },
+  "flash": {
+    "contact": {
+      "thanks": "Obrigado pela sua mensagem. Entraremos em contacto em breve"
     },
-    "number": {
-      "currency": {
-        "format": {
-          "delimiter": ".",
-          "format": "%u %n",
-          "precision": 2,
-          "separator": ",",
-          "significant": false,
-          "strip_insignificant_zeros": false,
-          "unit": "€"
+    "newsletters": {
+      "confirm": "Subscrição à newsletter ativa, obrigado pela confiança",
+      "error": "Não foi possível subscrever à newsletter, por favor tente novamente",
+      "repeat": "Já tem uma subscrição ativa à nossa newsletter. Obrigada pela confiança!",
+      "subscribe": "Por favor confirme a subscrição através do seu email"
+    }
+  },
+  "footer": {
+    "about": "sobre nós",
+    "contacts": "contactos",
+    "privacy": "política de privacidade",
+    "terms": "termos e condições"
+  },
+  "general": {
+    "read_more": "Ler mais"
+  },
+  "helpers": {
+    "select": {
+      "prompt": "Por favor seleccione"
+    },
+    "submit": {
+      "create": "Criar %{model}",
+      "submit": "Gravar %{model}",
+      "update": "Actualizar %{model}"
+    }
+  },
+  "home": {
+    "cta": {
+      "contact": "Fale connosco",
+      "long": "Avalie a sua casa",
+      "short": "Avalie casa"
+    },
+    "newsletter": {
+      "form": {
+        "errors": {
+          "email": "Por favor insira um email válido",
+          "name": "Por favor insira um nome válido"
+        },
+        "fields": {
+          "email": "Email",
+          "name": "Nome",
+          "subscribe": "Subscrever"
+        }
+      },
+      "subtitle": "Subscreva a nossa newsletter e fique a par das mais recentes oportunidades, noticias e dicas do mercado.",
+      "terms": "Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os seus dados para o informar sobre oportunidades de negócio, de acordo com a Política de Privacidade.",
+      "title": "Receba as novidades do Mercado"
+    },
+    "slogan": {
+      "bottom": "lares felizes!",
+      "top": "Juntos criamos"
+    }
+  },
+  "i18n": {
+    "plural": {
+      "keys": ["one", "other"]
+    },
+    "transliterate": {
+      "rule": {
+        "ª": "a",
+        "º": "o",
+        "À": "A",
+        "Á": "A",
+        "Ã": "A",
+        "Æ": "Ae",
+        "É": "E",
+        "Ê": "E",
+        "Í": "I",
+        "Ó": "O",
+        "Õ": "O",
+        "Ú": "U",
+        "à": "a",
+        "á": "a",
+        "â": "a",
+        "ã": "a",
+        "æ": "ae",
+        "ç": "c",
+        "é": "e",
+        "ê": "e",
+        "í": "i",
+        "ó": "o",
+        "õ": "o",
+        "ú": "u"
+      }
+    }
+  },
+  "kw": {
+    "beliefs": {
+      "local": "Acreditamos que a mediação imobiliária é um negócio local impulsionado pelos consultores imobiliários.",
+      "partners": "Acreditamos que os nossos consultores imobiliários devem ser tratados como parceiros de negócios.",
+      "people": "Acreditamos que faz a diferença estar no negócio com as pessoas certas.",
+      "profit": "Acreditamos que ter lucro é fundamental.",
+      "reputation": "Acreditamos que nenhuma transação pode pôr em causa a nossa reputação.",
+      "title": "Crenças"
+    },
+    "first_paragraph": {
+      "bottom": "A KW conta com um total de <span class=\"font-bold\">23 representações</span> e mais de <span class=\"font-bold\">2.000 consultores e associados</span> em Portugal.",
+      "middle": "Hoje, por todo o mundo mais de <span class=\"font-bold\">165.000 consultores</span> e mais de <span class=\"font-bold\">1.000 Market Centers</span> são filiados KW.",
+      "top": "A KW actua segundo o princípio de que, se focar todos os seus recursos na construção dos negócios dos seus consultores, estes irão, em retorno, ajudar a construir uma empresa acima de todas as expectativas. Com esta filosofia em prática, estamos a transformar o panorama geral da mediação imobiliária."
+    },
+    "header": "KW Portugal",
+    "meta_description": "Sofia Galvão Group em parceria com Kw Portugal.",
+    "more": "Descubra mais sobre a KW Portugal",
+    "perspectives": {
+      "agent": "A Keller Williams pensa como um agente de sucesso, atua como um consultor/formador fornecendo modelos/sistemas, tecnologia, produtos e serviços que potenciam a produtividade e a rentabilidade.",
+      "brand": "Nós apoiamos o agente a desenvolver a sua marca e não o oposto.",
+      "consulting": "Somos uma empresa construída por Consultores, para Consultores.",
+      "growth": "Acreditamos que cresceremos tanto como empresa quanto maior for a nossa capacidade de promover o crescimento das pessoas que connosco trabalham.",
+      "learn": "Na Keller Williams acreditamos na aprendizagem para obter resultados e não em aprender por aprender.",
+      "people": "O que tornará a Keller Williams melhor no longo prazo é a forma como as pessoas pensam.",
+      "tech": "Nós somos uma empresa de Consultoria e Formação impulsionada por Tecnologia que se dedica ao negócio da mediação imobiliária.",
+      "title": "Perspetivas"
+    },
+    "principle": "Princípios - WI4C2TES",
+    "subheader": "Uma empresa feita de consultores para consultores!"
+  },
+  "listing": {
+    "advanced_search": "Pesquisa Avançada",
+    "characteristics": "Características do Imóvel",
+    "create": {
+      "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
+      "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
+    },
+    "destroy": {
+      "error": "Erro: não foi possível eliminar o imóvel",
+      "notice": "Imóvel eliminado com sucesso"
+    },
+    "details": "Detalhes do Imóvel",
+    "kind": {
+      "apartment": "Apartamento",
+      "garage": "Garagem",
+      "house": "Moradia",
+      "land": "Terreno",
+      "office": "Escritório",
+      "other": "Outro",
+      "parking": "Estacionamento",
+      "storage": "Arrecadação",
+      "store": "Loja",
+      "title": "Tipo de Imóvel",
+      "warehouse": "Armazém"
+    },
+    "no_listings": "Não foram encontrados imóveis com os critérios selecionados",
+    "objective": {
+      "other": "Outro",
+      "rent": "Arrendamento",
+      "sale": "Venda",
+      "title": "Venda / Arrendamento"
+    },
+    "open_tour": "Abrir Tour Virtual 🏠",
+    "price": "Preço",
+    "recover": {
+      "error": "Erro: não foi possível recuperar o imóvel",
+      "notice": "Imóvel recuperado com sucesso, aguarde um pouco para atualizar os dados."
+    },
+    "reset_filters": "Limpar Filtros",
+    "resource": "Imóvel",
+    "search": {
+      "address": "Morada",
+      "address_placeholder": "Lisboa, Porto, Algarve, etc.",
+      "any": "Qualquer",
+      "name": "Morada, Localidade, Tipologia, etc.",
+      "name_placeholder": "Apartamento T3, Moradia, Terreno, etc.",
+      "price": "Preço",
+      "status": {
+        "agreed": "Reservados",
+        "all": "Todos",
+        "closed": "Encerrados",
+        "recent": "Novos",
+        "rented": "Arrendados",
+        "sold": "Vendidos",
+        "standard": "Listados",
+        "title": "Estado"
+      },
+      "submit": "Pesquisar",
+      "title": "Pesquisar Imóveis"
+    },
+    "stats": {
+      "ano de construção": "Ano de Construção",
+      "casa de banho social": "Casa de Banho Social",
+      "casas de banho": "WCs",
+      "city tax": "Taxa de Cidade",
+      "common area ownership (coop)": "Área Comum de Propriedade (Coop)",
+      "cozinhas": "Cozinhas",
+      "dining rooms": "Salas de Jantar",
+      "estacionamentos": "Estacionamentos",
+      "furnished": "Mobilado",
+      "garagens": "Garagens",
+      "kitchens": "Cozinhas",
+      "land tax": "Taxa de Terreno",
+      "piso": "Piso",
+      "pisos": "Pisos",
+      "quartos": "Quartos",
+      "salas": "Salas",
+      "salas de refeição": "Salas de Refeição",
+      "support staff accommodations": "Apoio a Empregados",
+      "área bruta (cp)": "Área Bruta (CP)",
+      "área do terreno": "Área do Terreno",
+      "área útil": "Área Útil"
+    },
+    "status": {
+      "agreed": "Reservado",
+      "closed": "Encerrado",
+      "recent": "Novo",
+      "rented": "Arrendado",
+      "sold": "Vendido",
+      "standard": ""
+    },
+    "text": {
+      "less": " mostrar menos",
+      "more": "... ler mais"
+    },
+    "update": {
+      "notice": "Imóvel editado com sucesso"
+    },
+    "update_all": {
+      "notice": "Todos os imóveis serão atualizado dentro de minutos, espera antes de tentar novamente"
+    },
+    "update_details": {
+      "notice": "O imóvel será atualizado dentro de minutos, espera antes de tentar novamente"
+    },
+    "watch_video": "Assistir Vídeo 📹"
+  },
+  "listing_complex": {
+    "create": {
+      "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
+      "notice": "Complexo adicionado, aguarde um pouco e já vai aparecer na plataforma"
+    },
+    "update_details": {
+      "notice": "O complexo será atualizado dentro de minutos, espera antes de tentar novamente"
+    }
+  },
+  "navbar": {
+    "about": "Sobre Nós",
+    "backoffice": "Backoffice",
+    "blog_posts": "Blog",
+    "buy": "Comprar",
+    "change_language": "Change site to English",
+    "club": "Clube SGG",
+    "club_rules": "Regulamento",
+    "club_stories": "Histórias",
+    "contacts": "Contactos",
+    "dark_mode": "Modo Escuro",
+    "enterprises": "Empreendimentos",
+    "faq": "FAQ",
+    "flipper": "Features",
+    "light_mode": "Modo Claro",
+    "listings": "Imóveis",
+    "more": "Saber mais",
+    "other_language": "English",
+    "sell": "Vender",
+    "services": "Serviços",
+    "testimonies": "Testemunhos"
+  },
+  "number": {
+    "currency": {
+      "format": {
+        "delimiter": ".",
+        "format": "%u %n",
+        "precision": 2,
+        "separator": ",",
+        "significant": false,
+        "strip_insignificant_zeros": false,
+        "unit": "€"
+      }
+    },
+    "format": {
+      "delimiter": ".",
+      "precision": 3,
+      "separator": ",",
+      "significant": false,
+      "strip_insignificant_zeros": false
+    },
+    "human": {
+      "decimal_units": {
+        "format": "%n %u",
+        "units": {
+          "billion": {
+            "one": "mil milhões",
+            "other": "mil milhões"
+          },
+          "million": {
+            "one": "milhão",
+            "other": "milhões"
+          },
+          "quadrillion": {
+            "one": "mil biliões",
+            "other": "mil biliões"
+          },
+          "thousand": "mil",
+          "trillion": {
+            "one": "bilião",
+            "other": "biliões"
+          },
+          "unit": ""
         }
       },
       "format": {
-        "delimiter": ".",
-        "precision": 3,
-        "separator": ",",
-        "significant": false,
-        "strip_insignificant_zeros": false
+        "delimiter": "",
+        "precision": 1,
+        "significant": true,
+        "strip_insignificant_zeros": true
       },
-      "human": {
-        "decimal_units": {
-          "format": "%n %u",
-          "units": {
-            "billion": {
-              "one": "mil milhões",
-              "other": "mil milhões"
-            },
-            "million": {
-              "one": "milhão",
-              "other": "milhões"
-            },
-            "quadrillion": {
-              "one": "mil biliões",
-              "other": "mil biliões"
-            },
-            "thousand": "mil",
-            "trillion": {
-              "one": "bilião",
-              "other": "biliões"
-            },
-            "unit": ""
-          }
-        },
-        "format": {
-          "delimiter": "",
-          "precision": 1,
-          "significant": true,
-          "strip_insignificant_zeros": true
-        },
-        "storage_units": {
-          "format": "%n %u",
-          "units": {
-            "byte": {
-              "one": "Byte",
-              "other": "Bytes"
-            },
-            "eb": "EB",
-            "gb": "GB",
-            "kb": "KB",
-            "mb": "MB",
-            "pb": "PB",
-            "tb": "TB"
-          }
-        }
-      },
-      "percentage": {
-        "format": {
-          "delimiter": "",
-          "format": "%n %"
-        }
-      },
-      "precision": {
-        "format": {
-          "delimiter": ""
+      "storage_units": {
+        "format": "%n %u",
+        "units": {
+          "byte": {
+            "one": "Byte",
+            "other": "Bytes"
+          },
+          "eb": "EB",
+          "gb": "GB",
+          "kb": "KB",
+          "mb": "MB",
+          "pb": "PB",
+          "tb": "TB"
         }
       }
     },
-    "pagination": {
-      "next": "Próxima",
-      "previous": "Anterior"
-    },
-    "privacy": {
-      "header": "Política de Privacidade"
-    },
-    "sell": {
-      "exclusive": "Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um acompanhamento de proximidade ao longo de todo o processo.",
-      "header": "Vender",
-      "list": {
-        "agencies": "Partilha da venda com todas as agências do mercado.",
-        "eval": "Avaliação certificada do imóvel.",
-        "feedback": "Feedback detalhado e regular.",
-        "flyer": "Ações de proximidade: Flyers; brochuras; newsletters.",
-        "kw": "Acesso exclusivo a toda a rede Nacional KW.",
-        "market": "Estudo do Mercado - elaboração de análises comparativas de Mercado e relatórios de caracterização da zona a considerar.",
-        "media": "Produção Multimédia: Reportagem fotográfica+vídeo.",
-        "open": "Realização de Open House.",
-        "portal": "Divulgação nos mais relevantes portais imobiliários nacionais e internacionais.",
-        "promo": "Utilização de placas de promoção.",
-        "socials": "Divulgação Social Media.",
-        "warranty": "Garantia de implementação de processos e procedimentos regulados pelo setor."
-      },
-      "meta_description": "Vender propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group.",
-      "paragraph": {
-        "bottom": "O nosso objectivo é encontrar o melhor Cliente no mais breve tempo possível e para isso disponibilizamos:",
-        "middle": "Oferecemos um serviço de consultoria que trabalha de forma única e à medida do que pretende, com foco na estratégia de promoção, divulgação e na melhor negociação.",
-        "top": "Garantimos o melhor negócio para a venda da sua casa."
-      },
-      "subheader": "Saiba quanto vale a sua casa"
-    },
-    "services": {
-      "for_buyers": {
-        "list": {
-          "legal_financial_support": {
-            "description": "Recomendamos serviços de consultoria sobre opções de financiamento e assistência jurídica, garantindo que todas as questões legais e burocráticas sejam tratadas com competência. A nossa rede de parceiros de confiança está à disposição para proporcionar segurança em todas as transações.",
-            "title": "Assistência Jurídica e Financeira"
-          },
-          "market_analysis": {
-            "description": "Realizamos análises de mercado detalhadas para garantir que os nossos clientes façam compras informadas e a preços justos. Somos especialistas em negociações e trabalhamos para garantir que obtenha as melhores condições possíveis",
-            "title": "Análise de Mercado e Negociação"
-          },
-          "personalized_consulting": {
-            "description": "Entendemos que cada comprador é único. Por isso, oferecemos uma consultoria personalizada, adaptada aos seus objetivos específicos. Se está à procura da sua primeira casa, uma segunda residência ou um investimento, fornecemos o suporte necessário para tomar decisões informadas. Desde a escolha da localização até a negociação do preço, estamos ao seu lado em todas as etapas",
-            "title": "Consultoria Personalizada"
-          },
-          "post_purchase_support": {
-            "description": "O nosso serviço não termina com a compra. Oferecemos suporte contínuo após a transação, ajudando com a mudança, configuração do imóvel e quaisquer outras necessidades que possam surgir. Estamos aqui para garantir que a sua transição para o novo lar seja suave e sem complicações.",
-            "title": "Acompanhamento Pós-Compra"
-          },
-          "property_variety": {
-            "description": "Explore uma vasta gama de opções, desde apartamentos urbanos a moradias de luxo, passando por propriedades comerciais e oportunidades de investimento e encontre o imóvel que corresponde às suas necessidades e preferências. A nossa equipa ajuda a identificar oportunidades e a concretizar o melhor negócio.",
-            "title": "Variedade de Imóveis"
-          },
-          "virtual_tours_visits": {
-            "description": "Oferecemos tours virtuais detalhados e organizamos visitas presenciais para que possa explorar as propriedades de forma detalhada. A nossa equipa está sempre disponível para responder a quaisquer questões e fornecer informações adicionais.",
-            "title": "Tours Virtuais e Visitas"
-          }
-        },
-        "subtitle": "Apoio Personalizado na Compra de Imóveis",
-        "title": "Para Compradores"
-      },
-      "for_sellers": {
-        "list": {
-          "accurate_evaluation": {
-            "description": "Realizamos avaliações detalhadas e desenvolvemos uma estratégia de venda personalizada, ajustada às características únicas de cada imóvel. Utilizamos uma abordagem baseada em dados de mercado e análises comparativas para garantir que o valor do seu imóvel é maximizado e possa atrair compradores.",
-            "title": "Avaliação Precisa e Estratégia de Venda"
-          },
-          "full_service": {
-            "description": "Vender um imóvel pode ser um processo complexo, mas no Sofia Galvão Group, simplificamos cada etapa. Oferecemos um serviço de venda completo, desde a avaliação, estratégia de marketing, formalização da venda até à realização da escritura, garantindo que o seu imóvel seja vendido da forma mais simples, rápida e ao melhor preço.",
-            "title": "Acompanhamento Completo"
-          },
-          "home_staging": {
-            "description": "Oferecemos serviços de home staging para preparar o seu imóvel para o mercado. Isto inclui aconselhamento sobre decoração, organização e apresentação para maximizar o apelo visual do imóvel. A preparação adequada pode fazer uma diferença significativa na percepção do comprador e no preço final de venda.",
-            "title": "Home Staging e Preparação"
-          },
-          "marketing": {
-            "description": "Para promover os imóveis dos nossos clientes, utilizamos uma estratégia de marketing abrangente que inclui reportagem multimédia profissional, tours virtuais, campanhas digitais em diversas plataformas, divulgação nas redes Sociais e marketing de proximidade (flyers; newsletter; placa). Contamos com uma vasta rede de contactos a nível nacional e Internacional bem como presença nos principais portais do setor imobiliário a nível mundial. Esta abordagem visa aumentar a visibilidade dos imóveis e atrair compradores qualificados, garantindo uma venda rápida e eficiente.",
-            "title": "Marketing Imobiliário Eficaz"
-          },
-          "negotiation_legal_support": {
-            "description": "Com uma equipa experiente em negociações, garantimos que cada transação seja realizada nas melhores condições. Além disso, recomendamos suporte jurídico completo para assegurar que todos os aspectos legais sejam tratados com a devida diligência.",
-            "title": "Negociação e Suporte Jurídico"
-          },
-          "post_sale_support": {
-            "description": "O nosso serviço não termina com a venda. Oferecemos suporte contínuo após a transação, ajudando a esclarecer todas as dúvidas ou questões que possam surgir. Estamos aqui para garantir que a venda da sua casa seja suave e sem complicações.",
-            "title": "Acompanhamento Pós-Venda"
-          },
-          "visits_qualification": {
-            "description": "Dispomos de uma vasta rede de contactos nacionais e internacionais para assegurar que os potenciais compradores conheçam a sua casa. Organizamos as visitas de forma a não prejudicarem a sua rotina e realizamos um serviço de qualificação rigorosa de interessados de forma a assegurar que reúnem todas as condições para lhe proporcionar o melhor negócio na venda do seu imóvel.",
-            "title": "Visitas e Qualificação de Clientes"
-          }
-        },
-        "subtitle": "Serviço Completo de Venda",
-        "title": "Para Vendedores"
-      },
-      "header": "Serviços",
-      "list": {
-        "house_lens": {
-          "description": "Realizamos avaliações profissionais e detalhadas para determinar o valor justo de mercado do seu imóvel. Utilizamos uma abordagem baseada em dados, incluindo a análise de comparativos de mercado e tendências atuais. Este serviço é essencial para proprietários que desejam vender ou arrendar seus imóveis, bem como para compradores que procuram garantir que estão a fazer um investimento acertado.",
-          "title": "Avaliação de Imóveis"
-        },
-        "house_trees": {
-          "description": "No Sofia Galvão Group, oferecemos uma gama completa de serviços de consultoria imobiliária, incluindo a compra, venda e arrendamento de imóveis. O nosso serviço começa com uma análise detalhada do mercado, seguida de uma estratégia personalizada para cada cliente. A nossa equipa é especializada em identificar oportunidades no mercado e em negociar as melhores condições, garantindo que os clientes obtenham o máximo valor em cada transação.",
-          "title": "Consultoria Imobiliária"
-        }
-      },
-      "meta_description": "Enquanto profissionais do mercado imobiliário conheça aqui os serviços da equipa Sofia Galvão Group.",
-      "tailor_house": {
-        "description": "Oferecemos soluções personalizadas para todas as suas necessidades imobiliárias, garantindo um serviço premium e de alta qualidade. Desde certificação energética, arquitetura, construção, remodelações, até limpeza profissional, mudanças seguras, jardinagem, e design de interiores, proporcionamos um atendimento completo e integrado. Trabalhamos com parceiros de confiança para assegurar que cada detalhe seja tratado com cuidado e excelência proporcionando uma experiência imobiliária sem igual.",
-        "subtitle": "Soluções Personalizadas para Todas as Necessidades Imobiliárias",
-        "title": "Tailor House | Casa 360º"
-      },
-      "text": {
-        "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais, entre em contacto",
-        "link": "connosco.",
-        "top": "Enquanto profissionais do mercado imobiliário, todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
+    "percentage": {
+      "format": {
+        "delimiter": "",
+        "format": "%n %"
       }
     },
-    "share": {
-      "copied": "Link copiado!",
-      "copy": "Copiar Link",
-      "email": "Patilhar por Email",
-      "facebook": "Partilhar no Facebook",
-      "messenger": "Partilhar no Messenger",
-      "telegram": "Partilhar no Telegram",
-      "title": "Partilhar",
-      "twitter": "Partilhar no Twitter",
-      "whatsapp": "Partilhar no WhatsApp"
-    },
-    "support": {
-      "array": {
-        "last_word_connector": " e ",
-        "two_words_connector": " e ",
-        "words_connector": ", "
+    "precision": {
+      "format": {
+        "delimiter": ""
       }
-    },
-    "tasks": {
-      "scrape": {
-        "awaiting": "Actualizar Resultados",
-        "see_other": "Ver mais Imóveis",
-        "unavailable": "já não se encontra disponível no website"
-      }
-    },
-    "terms": {
-      "header": "Termos e Condições"
-    },
-    "time": {
-      "am": "am",
-      "formats": {
-        "default": "%A, %d de %B de %Y, %H:%Mh",
-        "long": "%A, %d de %B de %Y, %H:%Mh",
-        "short": "%d/%m, %H:%M hs"
-      },
-      "pm": "pm"
     }
+  },
+  "pagination": {
+    "next": "Próxima",
+    "previous": "Anterior"
+  },
+  "privacy": {
+    "header": "Política de Privacidade"
+  },
+  "sell": {
+    "exclusive": "Trabalhamos a sua casa com a exclusividade, dedicação e fazemos um acompanhamento de proximidade ao longo de todo o processo.",
+    "header": "Vender",
+    "list": {
+      "agencies": "Partilha da venda com todas as agências do mercado.",
+      "eval": "Avaliação certificada do imóvel.",
+      "feedback": "Feedback detalhado e regular.",
+      "flyer": "Ações de proximidade: Flyers; brochuras; newsletters.",
+      "kw": "Acesso exclusivo a toda a rede Nacional KW.",
+      "market": "Estudo do Mercado - elaboração de análises comparativas de Mercado e relatórios de caracterização da zona a considerar.",
+      "media": "Produção Multimédia: Reportagem fotográfica+vídeo.",
+      "open": "Realização de Open House.",
+      "portal": "Divulgação nos mais relevantes portais imobiliários nacionais e internacionais.",
+      "promo": "Utilização de placas de promoção.",
+      "socials": "Divulgação Social Media.",
+      "warranty": "Garantia de implementação de processos e procedimentos regulados pelo setor."
+    },
+    "meta_description": "Vender propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group.",
+    "paragraph": {
+      "bottom": "O nosso objectivo é encontrar o melhor Cliente no mais breve tempo possível e para isso disponibilizamos:",
+      "middle": "Oferecemos um serviço de consultoria que trabalha de forma única e à medida do que pretende, com foco na estratégia de promoção, divulgação e na melhor negociação.",
+      "top": "Garantimos o melhor negócio para a venda da sua casa."
+    },
+    "subheader": "Saiba quanto vale a sua casa"
+  },
+  "services": {
+    "for_buyers": {
+      "list": {
+        "legal_financial_support": {
+          "description": "Recomendamos serviços de consultoria sobre opções de financiamento e assistência jurídica, garantindo que todas as questões legais e burocráticas sejam tratadas com competência. A nossa rede de parceiros de confiança está à disposição para proporcionar segurança em todas as transações.",
+          "title": "Assistência Jurídica e Financeira"
+        },
+        "market_analysis": {
+          "description": "Realizamos análises de mercado detalhadas para garantir que os nossos clientes façam compras informadas e a preços justos. Somos especialistas em negociações e trabalhamos para garantir que obtenha as melhores condições possíveis",
+          "title": "Análise de Mercado e Negociação"
+        },
+        "personalized_consulting": {
+          "description": "Entendemos que cada comprador é único. Por isso, oferecemos uma consultoria personalizada, adaptada aos seus objetivos específicos. Se está à procura da sua primeira casa, uma segunda residência ou um investimento, fornecemos o suporte necessário para tomar decisões informadas. Desde a escolha da localização até a negociação do preço, estamos ao seu lado em todas as etapas",
+          "title": "Consultoria Personalizada"
+        },
+        "post_purchase_support": {
+          "description": "O nosso serviço não termina com a compra. Oferecemos suporte contínuo após a transação, ajudando com a mudança, configuração do imóvel e quaisquer outras necessidades que possam surgir. Estamos aqui para garantir que a sua transição para o novo lar seja suave e sem complicações.",
+          "title": "Acompanhamento Pós-Compra"
+        },
+        "property_variety": {
+          "description": "Explore uma vasta gama de opções, desde apartamentos urbanos a moradias de luxo, passando por propriedades comerciais e oportunidades de investimento e encontre o imóvel que corresponde às suas necessidades e preferências. A nossa equipa ajuda a identificar oportunidades e a concretizar o melhor negócio.",
+          "title": "Variedade de Imóveis"
+        },
+        "virtual_tours_visits": {
+          "description": "Oferecemos tours virtuais detalhados e organizamos visitas presenciais para que possa explorar as propriedades de forma detalhada. A nossa equipa está sempre disponível para responder a quaisquer questões e fornecer informações adicionais.",
+          "title": "Tours Virtuais e Visitas"
+        }
+      },
+      "subtitle": "Apoio Personalizado na Compra de Imóveis",
+      "title": "Para Compradores"
+    },
+    "for_sellers": {
+      "list": {
+        "accurate_evaluation": {
+          "description": "Realizamos avaliações detalhadas e desenvolvemos uma estratégia de venda personalizada, ajustada às características únicas de cada imóvel. Utilizamos uma abordagem baseada em dados de mercado e análises comparativas para garantir que o valor do seu imóvel é maximizado e possa atrair compradores.",
+          "title": "Avaliação Precisa e Estratégia de Venda"
+        },
+        "full_service": {
+          "description": "Vender um imóvel pode ser um processo complexo, mas no Sofia Galvão Group, simplificamos cada etapa. Oferecemos um serviço de venda completo, desde a avaliação, estratégia de marketing, formalização da venda até à realização da escritura, garantindo que o seu imóvel seja vendido da forma mais simples, rápida e ao melhor preço.",
+          "title": "Acompanhamento Completo"
+        },
+        "home_staging": {
+          "description": "Oferecemos serviços de home staging para preparar o seu imóvel para o mercado. Isto inclui aconselhamento sobre decoração, organização e apresentação para maximizar o apelo visual do imóvel. A preparação adequada pode fazer uma diferença significativa na percepção do comprador e no preço final de venda.",
+          "title": "Home Staging e Preparação"
+        },
+        "marketing": {
+          "description": "Para promover os imóveis dos nossos clientes, utilizamos uma estratégia de marketing abrangente que inclui reportagem multimédia profissional, tours virtuais, campanhas digitais em diversas plataformas, divulgação nas redes Sociais e marketing de proximidade (flyers; newsletter; placa). Contamos com uma vasta rede de contactos a nível nacional e Internacional bem como presença nos principais portais do setor imobiliário a nível mundial. Esta abordagem visa aumentar a visibilidade dos imóveis e atrair compradores qualificados, garantindo uma venda rápida e eficiente.",
+          "title": "Marketing Imobiliário Eficaz"
+        },
+        "negotiation_legal_support": {
+          "description": "Com uma equipa experiente em negociações, garantimos que cada transação seja realizada nas melhores condições. Além disso, recomendamos suporte jurídico completo para assegurar que todos os aspectos legais sejam tratados com a devida diligência.",
+          "title": "Negociação e Suporte Jurídico"
+        },
+        "post_sale_support": {
+          "description": "O nosso serviço não termina com a venda. Oferecemos suporte contínuo após a transação, ajudando a esclarecer todas as dúvidas ou questões que possam surgir. Estamos aqui para garantir que a venda da sua casa seja suave e sem complicações.",
+          "title": "Acompanhamento Pós-Venda"
+        },
+        "visits_qualification": {
+          "description": "Dispomos de uma vasta rede de contactos nacionais e internacionais para assegurar que os potenciais compradores conheçam a sua casa. Organizamos as visitas de forma a não prejudicarem a sua rotina e realizamos um serviço de qualificação rigorosa de interessados de forma a assegurar que reúnem todas as condições para lhe proporcionar o melhor negócio na venda do seu imóvel.",
+          "title": "Visitas e Qualificação de Clientes"
+        }
+      },
+      "subtitle": "Serviço Completo de Venda",
+      "title": "Para Vendedores"
+    },
+    "header": "Serviços",
+    "list": {
+      "house_lens": {
+        "description": "Realizamos avaliações profissionais e detalhadas para determinar o valor justo de mercado do seu imóvel. Utilizamos uma abordagem baseada em dados, incluindo a análise de comparativos de mercado e tendências atuais. Este serviço é essencial para proprietários que desejam vender ou arrendar seus imóveis, bem como para compradores que procuram garantir que estão a fazer um investimento acertado.",
+        "title": "Avaliação de Imóveis"
+      },
+      "house_trees": {
+        "description": "No Sofia Galvão Group, oferecemos uma gama completa de serviços de consultoria imobiliária, incluindo a compra, venda e arrendamento de imóveis. O nosso serviço começa com uma análise detalhada do mercado, seguida de uma estratégia personalizada para cada cliente. A nossa equipa é especializada em identificar oportunidades no mercado e em negociar as melhores condições, garantindo que os clientes obtenham o máximo valor em cada transação.",
+        "title": "Consultoria Imobiliária"
+      }
+    },
+    "meta_description": "Enquanto profissionais do mercado imobiliário conheça aqui os serviços da equipa Sofia Galvão Group.",
+    "tailor_house": {
+      "description": "Oferecemos soluções personalizadas para todas as suas necessidades imobiliárias, garantindo um serviço premium e de alta qualidade. Desde certificação energética, arquitetura, construção, remodelações, até limpeza profissional, mudanças seguras, jardinagem, e design de interiores, proporcionamos um atendimento completo e integrado. Trabalhamos com parceiros de confiança para assegurar que cada detalhe seja tratado com cuidado e excelência proporcionando uma experiência imobiliária sem igual.",
+      "subtitle": "Soluções Personalizadas para Todas as Necessidades Imobiliárias",
+      "title": "Tailor House | Casa 360º"
+    },
+    "text": {
+      "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais, entre em contacto",
+      "link": "connosco.",
+      "top": "Enquanto profissionais do mercado imobiliário, todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
+    }
+  },
+  "share": {
+    "copied": "Link copiado!",
+    "copy": "Copiar Link",
+    "email": "Patilhar por Email",
+    "facebook": "Partilhar no Facebook",
+    "messenger": "Partilhar no Messenger",
+    "telegram": "Partilhar no Telegram",
+    "title": "Partilhar",
+    "twitter": "Partilhar no Twitter",
+    "whatsapp": "Partilhar no WhatsApp"
+  },
+  "support": {
+    "array": {
+      "last_word_connector": " e ",
+      "two_words_connector": " e ",
+      "words_connector": ", "
+    }
+  },
+  "tasks": {
+    "scrape": {
+      "awaiting": "Actualizar Resultados",
+      "see_other": "Ver mais Imóveis",
+      "unavailable": "já não se encontra disponível no website"
+    }
+  },
+  "terms": {
+    "header": "Termos e Condições"
+  },
+  "time": {
+    "am": "am",
+    "formats": {
+      "default": "%A, %d de %B de %Y, %H:%Mh",
+      "long": "%A, %d de %B de %Y, %H:%Mh",
+      "short": "%d/%m, %H:%M hs"
+    },
+    "pm": "pm"
   }
 }

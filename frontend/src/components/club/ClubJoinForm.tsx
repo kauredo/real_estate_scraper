@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import Routes from "../../utils/routes";
 
 export default function ClubJoinForm() {
   const { t } = useTranslation();
@@ -88,7 +89,7 @@ export default function ClubJoinForm() {
       <form
         ref={form}
         onSubmit={e => validateUser(e)}
-        action={sanitizeURL(window.Routes.join_club_index_path)}
+        action={Routes.join_club_index_path()}
         method="post"
         className="space-y-6"
       >

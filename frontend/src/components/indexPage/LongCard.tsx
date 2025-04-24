@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Listing } from "../utils/Interfaces";
-import { truncateText, sanitizeURLWithParams } from "../utils/Functions";
+import { Listing } from "../../utils/interfaces";
+import { truncateText, sanitizeURLWithParams } from "../../utils/functions";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
+import Routes from "../../utils/routes";
 
 interface Props {
   listing: Listing;
@@ -23,16 +24,13 @@ export default function LongCard(props: Props) {
     const confirmDelete = confirm("De certeza que queres apagar o imóvel?");
     if (!confirmDelete) return;
 
-    fetch(
-      sanitizeURLWithParams(window.Routes.backoffice_listing_path, slugOrId),
-      {
-        method: "DELETE",
-        headers: {
-          "X-CSRF-Token": token,
-          "Content-Type": "application/json",
-        },
-      }
-    ).then(() => {
+    fetch(sanitizeURLWithParams(Routes.backoffice_listing_path, slugOrId), {
+      method: "DELETE",
+      headers: {
+        "X-CSRF-Token": token,
+        "Content-Type": "application/json",
+      },
+    }).then(() => {
       window.location.reload();
     });
   };
@@ -45,10 +43,7 @@ export default function LongCard(props: Props) {
     if (!confirmRecover) return;
 
     fetch(
-      sanitizeURLWithParams(
-        window.Routes.recover_backoffice_listing_path,
-        listing.id
-      ),
+      sanitizeURLWithParams(Routes.recover_backoffice_listing_path, listing.id),
       {
         method: "POST",
         headers: {
@@ -115,10 +110,10 @@ export default function LongCard(props: Props) {
             ? "#"
             : backoffice
             ? sanitizeURLWithParams(
-                window.Routes.edit_backoffice_listing_path,
+                Routes.edit_backoffice_listing_path,
                 slugOrId
               )
-            : sanitizeURLWithParams(window.Routes.listing_path, slugOrId)
+            : sanitizeURLWithParams(Routes.listing_path, slugOrId)
         }
         onClick={e => small && e.preventDefault()}
       >
