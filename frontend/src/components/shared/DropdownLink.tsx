@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { navbarItemClass } from "../../utils/functions";
 import { NavbarItemProps } from "../../utils/interfaces";
 import NavbarItem from "./NavbarItem";
@@ -16,12 +16,12 @@ const DropdownLink = (props: DropdownProps) => {
   const dropdownLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = event => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownMenuRef.current &&
-        !dropdownMenuRef.current.contains(event.target) &&
+        !dropdownMenuRef.current.contains(event.target as Node) &&
         dropdownLinkRef.current &&
-        !dropdownLinkRef.current.contains(event.target)
+        !dropdownLinkRef.current.contains(event.target as Node)
       ) {
         setShowMenu(false);
       }
@@ -34,7 +34,7 @@ const DropdownLink = (props: DropdownProps) => {
     };
   }, []);
 
-  const handleLinkClick = event => {
+  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     setShowMenu(!showMenu);
   };
