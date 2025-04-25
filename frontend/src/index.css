@@ -8,7 +8,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("exter-ultra-bold.ttf") format("truetype");
+  src: url("./assets/fonts/exter-ultra-bold.ttf") format("truetype");
 }
 
 @font-face {
@@ -16,7 +16,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("Apparat-Light.otf") format("truetype");
+  src: url("./assets/fonts/Apparat-Light.otf") format("truetype");
 }
 
 html {
