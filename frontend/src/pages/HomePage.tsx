@@ -1,5 +1,5 @@
-import React, { Suspense, lazy, useEffect, useState } from "react";
-import { Listing, ResultNumbers, Testimonial } from "../utils/Interfaces";
+import React, { useEffect, useState } from "react";
+import { Listing, ResultNumbers, Testimonial } from "../utils/interfaces";
 import { getHomePage } from "../services/api";
 import Hero from "../components/shared/Hero";
 import Cards from "../components/homePage/Cards";
