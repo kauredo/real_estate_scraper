@@ -136,8 +136,7 @@
     "subheader": "Our blog is a source of knowledge for buyers and sellers. We include articles on best practices in the real estate market, market trends and advice for those looking to buy or sell a property. Stay informed and make safe, sound decisions by taking our content into account."
   },
   "buy": {
-    "header": "Buy",
-    "meta_description": "Buy properties in Portugal with real estate consultant Sofia Galvão from Sofia Galvão Group."
+    "header": "Buy"
   },
   "club": {
     "flash": {
@@ -74990,6 +74989,32 @@
   "i18n": {
     "plural": {
       "keys": ["one", "other"]
+    }
+  },
+  "meta": {
+    "home": {
+      "title": "Sofia Galvão Group - Luxury Real Estate",
+      "description": "Discover luxury properties in Portugal with Sofia Galvão Group. Specialized real estate services for discerning clients."
+    },
+    "listings": {
+      "title": "Properties - Sofia Galvão Group",
+      "description": "Explore our exclusive collection of luxury properties in Portugal. Find your dream home with Sofia Galvão Group."
+    },
+    "blog": {
+      "title": "Real Estate Blog - Sofia Galvão Group",
+      "description": "Stay informed with our real estate insights, market trends, and expert advice. Discover valuable information about the Portuguese real estate market."
+    },
+    "about": {
+      "title": "About Us - Sofia Galvão Group",
+      "description": "Learn about Sofia Galvão Group's experience in luxury real estate and our commitment to exceptional service."
+    },
+    "contact": {
+      "title": "Contact Us - Sofia Galvão Group",
+      "description": "Get in touch with Sofia Galvão Group. We're here to help you find your perfect property in Portugal."
+    },
+    "error": {
+      "title": "Page Not Found - Sofia Galvão Group",
+      "description": "The page you are looking for cannot be found. Return to our homepage to continue exploring luxury properties in Portugal."
     }
   },
   "kw": {

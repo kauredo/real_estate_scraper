@@ -5,6 +5,7 @@ import { getListing } from "../services/api";
 import ShowPage from "../components/showPage/Show";
 import { Listing } from "../utils/interfaces";
 import { AxiosError } from "axios";
+import { useMetaTags } from "../hooks/useMetaTags";
 
 const ListingDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -32,37 +33,13 @@ const ListingDetailPage = () => {
     }
   }, [slug]);
 
-  // Set meta tags (title, description, image)
-  useEffect(() => {
-    if (listing) {
-      document.title = listing.title;
-
-      // Update meta description
-      let metaDescription = document.querySelector(
-        'meta[name="description"]'
-      ) as HTMLMetaElement;
-      if (!metaDescription) {
-        metaDescription = document.createElement("meta");
-        metaDescription.setAttribute("name", "description");
-        document.head.appendChild(metaDescription);
-      }
-      metaDescription.setAttribute(
-        "content",
-        listing.description?.trim() || ""
-      );
-
-      // Update meta image
-      let metaImage = document.querySelector(
-        'meta[property="og:image"]'
-      ) as HTMLMetaElement;
-      if (!metaImage) {
-        metaImage = document.createElement("meta");
-        metaImage.setAttribute("property", "og:image");
-        document.head.appendChild(metaImage);
-      }
-      metaImage.setAttribute("content", listing.photos?.[0] || "");
-    }
-  }, [listing]);
+  useMetaTags({
+    title: listing?.title,
+    description: listing?.description?.trim(),
+    image: listing?.photos?.[0],
+    type: "article",
+    url: window.location.href,
+  });
 
   if (loading) {
     return (

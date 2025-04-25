@@ -60,7 +60,6 @@
       },
       "title": "Parceria com Keller Williams"
     },
-    "meta_description": "Sofia Galvão Group, uma equipa dedicada e exigente que motivada pelo melhor serviço ao Cliente cresce e vai mais longe todos os dias.",
     "mission": {
       "sub1": "Estar ao seu lado no mundo imobiliário para que sejam felizes as grandes “mudanças” da sua vida!",
       "title": "Missão"
@@ -131,13 +130,11 @@
   "blog_posts": {
     "empty": "Novos posts em breve...",
     "header": "Blog Posts",
-    "meta_description": "Conheça mais sobre imobiliário e as melhores dicas dos locais onde morar em Lisboa com Sofia Galvão Group.",
     "resource": "Post",
     "subheader": "O nosso blog é uma fonte de conhecimento para compradores e vendedores. Incluímos artigos sobre as melhores práticas no mercado imobiliário, tendências de mercado e conselhos para quem quer comprar ou vender um imóvel. Mantenha-se informado e tome decisões seguras e acertadas com o nosso conteúdo."
   },
   "buy": {
-    "header": "Comprar",
-    "meta_description": "Comprar propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group."
+    "header": "Comprar"
   },
   "club": {
     "flash": {
@@ -192,7 +189,6 @@
         "rules": "Conheça aqui o Regulamento do Clube SGG",
         "whatsapp": "Envie-nos um WhatsApp para referenciar membros para o clube."
       },
-      "meta_description": "Conheça o Clube SGG do Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
       "partners": {
         "conclusion_html": "<strong>A sua indicação pode mudar uma vida. Entre em contacto e faça parte desta mudança.</strong>",
         "cta": "Enviar WhatsApp",
@@ -217,7 +213,6 @@
       "header": "Regulamento",
       "intro": "O regulamento do Clube SGG estabelece as regras claras de funcionamento,\n definindo os direitos e deveres dos membros, os critérios para o apoio\nàs  famílias e os princípios que garantem uma gestão transparente e responsável  dos fundos obtidos.\n",
       "introduction": "Regulamento do Clube SGG",
-      "meta_description": "Regras e diretrizes para membros do Clube SGG.",
       "read_below": "Conheça abaixo o regulamento completo que orienta toda a nossa atividade.",
       "sections": {
         "criteria": {
@@ -363,7 +358,6 @@
       "header": "Histórias dos Membros",
       "impact_description": "Conheça as histórias reais de quem foi impactado diretamente pela missão\n do Clube SGG. Cada história é a prova viva de como o seu apoio pode\nmudar  vidas, proporcionando habitações dignas e transformando sonhos em realidade.\n",
       "intro": "Descubra experiências únicas da nossa comunidade",
-      "meta_description": "Histórias inspiradoras e casos de sucesso dos membros do Clube SGG.",
       "real_people": "Por trás de cada projeto há pessoas reais com histórias inspiradoras",
       "stories_description": "Descubra abaixo relatos emocionantes e inspiradores, onde o apoio do Clube SGG fez toda a diferença.\n",
       "subheader": "Leia sobre experiências e histórias de sucesso dos nossos membros.",
@@ -393,8 +387,7 @@
         "visit": "Precisa de mais informação? Quer agendar uma visita? Entre em contacto connosco!"
       }
     },
-    "header": "Contactos",
-    "meta_description": "Entre em contacto com Sofia Galvão Group."
+    "header": "Contactos"
   },
   "date": {
     "abbr_day_names": ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"],
@@ -659,7 +652,6 @@
         "title": "Imóvel à sua medida"
       }
     },
-    "meta_description": "Os melhores empreendimentos em Portugal para comprar com Sofia Galvão Group.",
     "resource": "Empreendimento",
     "show": {
       "bedrooms": "Tipologia",
@@ -1592,7 +1584,6 @@
   "faq": {
     "description": "Respondemos às perguntas mais frequentes sobre o processo de compra e venda de imóveis, incluindo dúvidas sobre financiamento, documentação necessária e etapas do processo. Fornecemos orientação clara e prática para ajudar a esclarecer todas as dúvidas e garantir uma experiência informada e segura.",
     "header": "FAQ (Perguntas Frequentes)",
-    "meta_description": "Perguntas frequentes sobre imobiliário e os serviços de Sofia Galvão Group.",
     "reason": {
       "answers": {
         "fifth": {
@@ -1827,7 +1818,6 @@
       "top": "A KW actua segundo o princípio de que, se focar todos os seus recursos na construção dos negócios dos seus consultores, estes irão, em retorno, ajudar a construir uma empresa acima de todas as expectativas. Com esta filosofia em prática, estamos a transformar o panorama geral da mediação imobiliária."
     },
     "header": "KW Portugal",
-    "meta_description": "Sofia Galvão Group em parceria com Kw Portugal.",
     "more": "Descubra mais sobre a KW Portugal",
     "perspectives": {
       "agent": "A Keller Williams pensa como um agente de sucesso, atua como um consultor/formador fornecendo modelos/sistemas, tecnologia, produtos e serviços que potenciam a produtividade e a rentabilidade.",
@@ -2080,7 +2070,6 @@
       "socials": "Divulgação Social Media.",
       "warranty": "Garantia de implementação de processos e procedimentos regulados pelo setor."
     },
-    "meta_description": "Vender propriedades em Portugal com consultora imobiliária Sofia Galvão de Sofia Galvão Group.",
     "paragraph": {
       "bottom": "O nosso objectivo é encontrar o melhor Cliente no mais breve tempo possível e para isso disponibilizamos:",
       "middle": "Oferecemos um serviço de consultoria que trabalha de forma única e à medida do que pretende, com foco na estratégia de promoção, divulgação e na melhor negociação.",
@@ -2164,7 +2153,6 @@
         "title": "Consultoria Imobiliária"
       }
     },
-    "meta_description": "Enquanto profissionais do mercado imobiliário conheça aqui os serviços da equipa Sofia Galvão Group.",
     "tailor_house": {
       "description": "Oferecemos soluções personalizadas para todas as suas necessidades imobiliárias, garantindo um serviço premium e de alta qualidade. Desde certificação energética, arquitetura, construção, remodelações, até limpeza profissional, mudanças seguras, jardinagem, e design de interiores, proporcionamos um atendimento completo e integrado. Trabalhamos com parceiros de confiança para assegurar que cada detalhe seja tratado com cuidado e excelência proporcionando uma experiência imobiliária sem igual.",
       "subtitle": "Soluções Personalizadas para Todas as Necessidades Imobiliárias",
@@ -2212,5 +2200,31 @@
       "short": "%d/%m, %H:%M hs"
     },
     "pm": "pm"
+  },
+  "meta": {
+    "home": {
+      "title": "Sofia Galvão Group - Imobiliária de Luxo",
+      "description": "Descubra propriedades de luxo em Portugal com Sofia Galvão Group. Serviços imobiliários especializados para clientes exigentes."
+    },
+    "listings": {
+      "title": "Imóveis - Sofia Galvão Group",
+      "description": "Explore nossa coleção exclusiva de imóveis de luxo em Portugal. Encontre a casa dos seus sonhos com Sofia Galvão Group."
+    },
+    "blog": {
+      "title": "Blog Imobiliário - Sofia Galvão Group",
+      "description": "Mantenha-se informado com nossos insights imobiliários, tendências de mercado e conselhos especializados. Descubra informações valiosas sobre o mercado imobiliário português."
+    },
+    "about": {
+      "title": "Sobre Nós - Sofia Galvão Group",
+      "description": "Conheça a experiência do Sofia Galvão Group no mercado imobiliário de luxo e nosso compromisso com um serviço excepcional."
+    },
+    "contact": {
+      "title": "Contacte-nos - Sofia Galvão Group",
+      "description": "Entre em contacto com Sofia Galvão Group. Estamos aqui para ajudá-lo a encontrar seu imóvel perfeito em Portugal."
+    },
+    "error": {
+      "title": "Página Não Encontrada - Sofia Galvão Group",
+      "description": "A página que procura não pode ser encontrada. Volte à nossa página inicial para continuar explorando imóveis de luxo em Portugal."
+    }
   }
 }

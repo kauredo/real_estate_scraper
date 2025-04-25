@@ -4,12 +4,19 @@ import { useLocation } from "react-router-dom";
 import { getBlogPosts } from "../services/api";
 import BlogCard from "../components/blog/BlogCard";
 import Banner from "../components/shared/Banner";
+import { useMetaTags } from "../hooks/useMetaTags";
 
 const BlogPostsPage = () => {
   const { t, i18n } = useTranslation();
   const [blogPosts, setBlogPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
+
+  useMetaTags({
+    title: t("meta.blog.title"),
+    description: t("meta.blog.description"),
+    url: window.location.href,
+  });
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
