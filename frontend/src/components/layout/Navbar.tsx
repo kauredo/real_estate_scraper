@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
+import React, { lazy, Suspense, useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 import {
@@ -13,16 +13,17 @@ import SubNavbar from "../shared/SubNavbar";
 import Routes from "../../utils/routes";
 const NavbarItem = lazy(() => import("../shared/NavbarItem"));
 const DropdownLink = lazy(() => import("../shared/DropdownLink"));
+import mainWhiteLogo from "../../assets/logos/main_white.webp";
+import mainLogo from "../../assets/logos/main.webp";
 
 interface Props {
   backoffice?: boolean;
   admin?: boolean;
-  club_enabled?: boolean;
 }
 
 export default function Navbar(props: Props) {
   const { t, i18n } = useTranslation();
-  const { backoffice, admin, club_enabled } = props;
+  const { backoffice, admin } = props;
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -61,17 +62,13 @@ export default function Navbar(props: Props) {
     {
       title: `${t("navbar.enterprises")}`,
       turbo: "true",
-      url: sanitizeURL(Routes.latest_path),
+      url: sanitizeURL(Routes.listing_complexes_path),
     },
-    ...(club_enabled
-      ? [
-          {
-            title: `${t("navbar.club")}`,
-            url: sanitizeURL(Routes.club_path),
-            turbo: "true",
-          },
-        ]
-      : []),
+    {
+      title: `${t("navbar.club")}`,
+      url: sanitizeURL(Routes.club_path),
+      turbo: "true",
+    },
     {
       title: `${t("navbar.blog_posts")}`,
       turbo: "true",
@@ -132,8 +129,8 @@ export default function Navbar(props: Props) {
 
   const middleItems = items;
 
-  const otherImg = i18n.locale === "pt" ? "uk" : "pt";
-  const img = i18n.locale === "pt" ? "pt" : "uk";
+  const otherImg = i18n.language === "pt" ? "uk" : "pt";
+  const img = i18n.language === "pt" ? "pt" : "uk";
 
   const rightItems: NavbarItemProps[] = [];
 
@@ -210,11 +207,7 @@ export default function Navbar(props: Props) {
                       loading="lazy"
                       className="w-[6rem] relative z-10"
                       id="nav-logo"
-                      src={
-                        isDarkModeActive()
-                          ? "/logos/main_white.webp"
-                          : "/logos/main.webp"
-                      }
+                      src={isDarkModeActive() ? mainWhiteLogo : mainLogo}
                       alt="Sofia Galvão Group Logo"
                     />
                   </a>

@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import mainWhiteLogo from "../assets/logos/main_white.webp";
+import mainLogo from "../assets/logos/main.webp";
 
 const NotFoundPage = () => {
   return (
@@ -9,13 +11,13 @@ const NotFoundPage = () => {
           <div className="mb-10 lg:mb-20">
             <img
               loading="lazy"
-              src="/logos/main.webp"
+              src={mainLogo}
               alt="SGG logo"
               className="w-48 dark:hidden"
             />
             <img
               loading="lazy"
-              src="/logos/main_white.webp"
+              src={mainWhiteLogo}
               alt="SGG logo"
               className="w-48 hidden dark:block"
             />

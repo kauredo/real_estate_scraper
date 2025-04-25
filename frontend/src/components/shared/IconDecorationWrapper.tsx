@@ -1,4 +1,5 @@
 import React from "react";
+import clubIconLogo from "../../assets/logos/club-icon.webp";
 
 interface Props {
   children: React.ReactNode;
@@ -41,7 +42,7 @@ export default function IconDecorationWrapper({
         className={`absolute ${positionClasses[position]} top-1/2 transform -translate-y-1/2 ${opacityClasses[opacity]}`}
       >
         <img
-          src="/logos/club-icon.webp"
+          src={clubIconLogo}
           alt=""
           className={`${sizeClasses[size]} object-contain`}
         />
