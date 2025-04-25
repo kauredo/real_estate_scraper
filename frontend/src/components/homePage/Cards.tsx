@@ -3,7 +3,7 @@ import Card from "./Card";
 import { toCapitalize, lazyloadImages } from "../../utils/functions";
 import { Photo, Listing } from "../../utils/interfaces";
 import Slider from "react-slick";
-// import MagicSliderDots from "react-magic-slider-dots";
+import CustomDots from "../shared/CustomDots";
 
 interface Props {
   listings: Listing[];
@@ -40,9 +40,9 @@ export default function Cards(props: Props) {
     dotsClass: "slick-dots",
     infinite: false,
     speed: 500,
-    // appendDots: dots => {
-    //   return <MagicSliderDots dots={dots} numDotsToShow={10} dotWidth={30} />;
-    // },
+    appendDots: dots => (
+      <CustomDots dots={dots} numDotsToShow={10} dotWidth={30} />
+    ),
   };
 
   if (locations.length !== listings.length) {
@@ -71,19 +71,18 @@ export default function Cards(props: Props) {
               ))}
             </div>
             <Slider
-              appendDots={dots => (
-                <></>
-                // <MagicSliderDots
-                //   dots={dots}
-                //   numDotsToShow={
-                //     listings[selectedLocation]?.length > 10
-                //       ? 10
-                //       : listings[selectedLocation]?.length
-                //   }
-                //   dotWidth={30}
-                // />
-              )}
               {...settings}
+              appendDots={dots => (
+                <CustomDots
+                  dots={dots}
+                  numDotsToShow={
+                    listings[selectedLocation]?.length > 10
+                      ? 10
+                      : listings[selectedLocation]?.length
+                  }
+                  dotWidth={30}
+                />
+              )}
             >
               {listings[selectedLocation]?.map(listing => (
                 <Card listing={listing} key={listing.slug} />
@@ -104,12 +103,11 @@ export default function Cards(props: Props) {
             <Slider
               {...settings}
               appendDots={dots => (
-                <></>
-                // <MagicSliderDots
-                //   dots={dots}
-                //   numDotsToShow={photos.length > 10 ? 10 : photos.length}
-                //   dotWidth={30}
-                // />
+                <CustomDots
+                  dots={dots}
+                  numDotsToShow={photos.length > 10 ? 10 : photos.length}
+                  dotWidth={30}
+                />
               )}
             >
               {photos?.map(photo => {
@@ -142,12 +140,11 @@ export default function Cards(props: Props) {
             <Slider
               {...settings}
               appendDots={dots => (
-                <></>
-                // <MagicSliderDots
-                //   dots={dots}
-                //   numDotsToShow={listings.length > 10 ? 10 : listings.length}
-                //   dotWidth={30}
-                // />
+                <CustomDots
+                  dots={dots}
+                  numDotsToShow={listings.length > 10 ? 10 : listings.length}
+                  dotWidth={30}
+                />
               )}
             >
               {listings?.map(listing => (
