@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 import {
@@ -10,9 +10,9 @@ import { NavbarItemProps, SubNavItem } from "../../utils/interfaces";
 import Socials from "../shared/Socials";
 import DarkModeToggle from "../shared/DarkModeToggle";
 import SubNavbar from "../shared/SubNavbar";
+import NavbarItem from "../shared/NavbarItem";
+import DropdownLink from "../shared/DropdownLink";
 import Routes from "../../utils/routes";
-const NavbarItem = lazy(() => import("../shared/NavbarItem"));
-const DropdownLink = lazy(() => import("../shared/DropdownLink"));
 import mainWhiteLogo from "../../assets/logos/main_white.webp";
 import mainLogo from "../../assets/logos/main.webp";
 
@@ -219,25 +219,19 @@ export default function Navbar(props: Props) {
                     {middleItems?.map(item => {
                       if (item.items?.length && item.items.length > 0) {
                         return (
-                          <Suspense
+                          <DropdownLink
                             key={`${item.title}_middle`}
-                            fallback={<div>Loading...</div>}
-                          >
-                            <DropdownLink
-                              title={item.title}
-                              items={item.items}
-                              img={item.img}
-                            />
-                          </Suspense>
+                            title={item.title}
+                            items={item.items}
+                            img={item.img}
+                          />
                         );
                       } else {
                         return (
-                          <Suspense
-                            fallback={<div>Loading...</div>}
+                          <NavbarItem
                             key={`${item.title}_middle`}
-                          >
-                            <NavbarItem item={item} />
-                          </Suspense>
+                            item={item}
+                          />
                         );
                       }
                     })}
@@ -251,25 +245,16 @@ export default function Navbar(props: Props) {
                     {rightItems?.map(item => {
                       if (item.items?.length && item.items.length > 0) {
                         return (
-                          <Suspense
+                          <DropdownLink
                             key={`${item.title}_right`}
-                            fallback={<div>Loading...</div>}
-                          >
-                            <DropdownLink
-                              title={item.title}
-                              items={item.items}
-                              img={item.img}
-                            />
-                          </Suspense>
+                            title={item.title}
+                            items={item.items}
+                            img={item.img}
+                          />
                         );
                       } else {
                         return (
-                          <Suspense
-                            fallback={<div>Loading...</div>}
-                            key={`${item.title}_right`}
-                          >
-                            <NavbarItem item={item} />
-                          </Suspense>
+                          <NavbarItem key={`${item.title}_right`} item={item} />
                         );
                       }
                     })}
@@ -345,22 +330,20 @@ export default function Navbar(props: Props) {
                 if (item.items?.length && item.items.length > 0) {
                   return item.items?.map(insideItem => {
                     return (
-                      <Suspense
-                        fallback={<div>Loading...</div>}
+                      <NavbarItem
                         key={`${insideItem.title}_mobile`}
-                      >
-                        <NavbarItem item={insideItem} fullWidth />
-                      </Suspense>
+                        item={insideItem}
+                        fullWidth
+                      />
                     );
                   });
                 } else {
                   return (
-                    <Suspense
-                      fallback={<div>Loading...</div>}
+                    <NavbarItem
                       key={`${item.title}_mobile`}
-                    >
-                      <NavbarItem item={item} fullWidth />
-                    </Suspense>
+                      item={item}
+                      fullWidth
+                    />
                   );
                 }
               })}

@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect, Suspense, lazy } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { navbarItemClass } from "../../utils/functions";
 import { NavbarItemProps } from "../../utils/interfaces";
-const NavbarItem = lazy(() => import("./NavbarItem"));
+import NavbarItem from "./NavbarItem";
 
 export interface DropdownProps {
   title: string;
@@ -82,14 +82,9 @@ const DropdownLink = (props: DropdownProps) => {
       >
         <ul className="py-2">
           {items?.map(item => (
-            <Suspense
-              fallback={<div>Loading...</div>}
-              key={`${item.title}_middle`}
-            >
-              <li className="pr-2">
-                <NavbarItem item={item} leftAlign />
-              </li>
-            </Suspense>
+            <li className="pr-2">
+              <NavbarItem item={item} leftAlign />
+            </li>
           ))}
         </ul>
       </div>
