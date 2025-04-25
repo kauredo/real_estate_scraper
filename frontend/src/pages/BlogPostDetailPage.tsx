@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { getBlogPost } from "../services/api";
 import ShareIcons from "../components/shared/ShareIcons";
+import { useMetaTags } from "../hooks/useMetaTags";
 
 const BlogPostDetailPage = () => {
   const { slug } = useParams();
@@ -26,30 +27,14 @@ const BlogPostDetailPage = () => {
     fetchBlogPost();
   }, [slug]);
 
-  // Set meta tags (title, description)
-  useEffect(() => {
-    if (blogPost) {
-      document.title = blogPost.meta_title || blogPost.title;
-
-      // Update meta description
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (!metaDescription) {
-        metaDescription = document.createElement("meta");
-        metaDescription.name = "description";
-        document.head.appendChild(metaDescription);
-      }
-      metaDescription.content = blogPost.meta_description;
-
-      // Update meta image
-      let metaImage = document.querySelector('meta[property="og:image"]');
-      if (!metaImage) {
-        metaImage = document.createElement("meta");
-        metaImage.setAttribute("property", "og:image");
-        document.head.appendChild(metaImage);
-      }
-      metaImage.content = blogPost.main_photo;
-    }
-  }, [blogPost]);
+  useMetaTags({
+    title: blogPost?.meta_title || blogPost?.title,
+    description:
+      blogPost?.meta_description || blogPost?.description?.substring(0, 160),
+    image: blogPost?.main_photo,
+    type: "article",
+    url: window.location.href,
+  });
 
   if (loading) {
     return (
