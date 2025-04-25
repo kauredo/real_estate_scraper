@@ -53,8 +53,9 @@ api.interceptors.response.use(
 // Auth API functions
 export const login = async (email, password) => {
   try {
-    const response = await api.post(apiRoutes.adminSession, {
-      admin: { email, password },
+    const response = await api.post(apiRoutes.auth, {
+      email,
+      password,
     });
 
     if (response.data.token) {
@@ -69,8 +70,8 @@ export const login = async (email, password) => {
 
 export const logout = async () => {
   try {
-    await api.delete(apiRoutes.adminSession);
     localStorage.removeItem("token");
+    return { success: true };
   } catch (error) {
     localStorage.removeItem("token");
     throw error;
@@ -91,109 +92,150 @@ export const getCurrentUser = () => {
   }
 };
 
-// General API functions
+// API Documentation
+export const getApiDocs = () => api.get(apiRoutes.docs);
+
+// General page API functions
+export const getHomePage = () => api.get(apiRoutes.home);
+export const getAboutPage = () => api.get(apiRoutes.about);
+export const getServicesPage = () => api.get(apiRoutes.services);
+export const getContactPage = () => api.get(apiRoutes.contact_page);
+export const getPrivacyPage = () => api.get(apiRoutes.privacy);
+export const getTermsPage = () => api.get(apiRoutes.terms);
+export const getFaqPage = () => api.get(apiRoutes.faq);
+export const getBuyPage = () => api.get(apiRoutes.buy);
+export const getSellPage = () => api.get(apiRoutes.sell);
 export const toggleDarkMode = () => api.post(apiRoutes.toggleDarkMode);
 
 // Contact API functions
-export const submitContactForm = data => api.post(apiRoutes.newContact, data);
+export const submitContactForm = data => api.post(apiRoutes.contact, data);
 
 // Blog posts API functions
 export const getBlogPosts = params => api.get(apiRoutes.blogPosts, { params });
 export const getBlogPost = slug => api.get(apiRoutes.blogPost(slug));
-export const createBlogPost = data =>
-  api.post(apiRoutes.backoffice.blogPosts, { blog_post: data });
-export const updateBlogPost = (id, data) =>
-  api.put(apiRoutes.backoffice.blogPost(id), { blog_post: data });
-export const deleteBlogPost = id =>
-  api.delete(apiRoutes.backoffice.blogPost(id));
+
+// Admin - Blog posts API functions
+export const adminGetBlogPosts = () => api.get(apiRoutes.admin.blogPosts);
+export const adminGetBlogPost = id => api.get(apiRoutes.admin.blogPost(id));
+export const adminCreateBlogPost = data =>
+  api.post(apiRoutes.admin.blogPosts, { blog_post: data });
+export const adminUpdateBlogPost = (id, data) =>
+  api.put(apiRoutes.admin.blogPost(id), { blog_post: data });
+export const adminDeleteBlogPost = id =>
+  api.delete(apiRoutes.admin.blogPost(id));
 
 // Listings API functions
 export const getListings = params => api.get(apiRoutes.listings, { params });
 export const getListing = slug => api.get(apiRoutes.listing(slug));
-export const createListing = data =>
-  api.post(apiRoutes.backoffice.listings, { listing: data });
-export const updateListing = (id, data) =>
-  api.put(apiRoutes.backoffice.listing(id), { listing: data });
-export const deleteListing = id => api.delete(apiRoutes.backoffice.listing(id));
-export const updateListingDetails = id =>
-  api.post(apiRoutes.backoffice.updateDetailsListing(id));
-export const recoverListing = id =>
-  api.post(apiRoutes.backoffice.recoverListing(id));
-export const updateAllListings = () =>
-  api.post(apiRoutes.backoffice.updateAllListings);
+
+// Admin - Listings API functions
+export const adminGetListings = () => api.get(apiRoutes.admin.listings);
+export const adminGetListing = id => api.get(apiRoutes.admin.listing(id));
+export const adminCreateListing = data =>
+  api.post(apiRoutes.admin.listings, { listing: data });
+export const adminUpdateListing = (id, data) =>
+  api.put(apiRoutes.admin.listing(id), { listing: data });
+export const adminDeleteListing = id => api.delete(apiRoutes.admin.listing(id));
+export const adminUpdateListingDetails = id =>
+  api.post(apiRoutes.admin.updateDetailsListing(id));
+export const adminRecoverListing = id =>
+  api.post(apiRoutes.admin.recoverListing(id));
+export const adminUpdateAllListings = () =>
+  api.post(apiRoutes.admin.updateAllListings);
 
 // Listing complexes API functions
 export const getListingComplexes = params =>
   api.get(apiRoutes.listingComplexes, { params });
 export const getListingComplex = slug =>
   api.get(apiRoutes.listingComplex(slug));
-export const createListingComplex = data =>
-  api.post(apiRoutes.backoffice.listingComplexes, { listing_complex: data });
-export const updateListingComplex = (id, data) =>
-  api.put(apiRoutes.backoffice.listingComplex(id), { listing_complex: data });
-export const deleteListingComplex = id =>
-  api.delete(apiRoutes.backoffice.listingComplex(id));
-export const updateListingComplexDetails = id =>
-  api.post(apiRoutes.backoffice.updateDetailsListingComplex(id));
-export const updateListingComplexPhotos = (id, data) =>
-  api.patch(apiRoutes.backoffice.photosListingComplex(id), data);
-export const deleteListingComplexPhoto = id =>
-  api.delete(apiRoutes.backoffice.deletePhotoListingComplex(id));
-export const fetchListingComplex = data =>
-  api.post(apiRoutes.backoffice.fetchListingComplex, { listing_complex: data });
+
+// Admin - Listing complexes API functions
+export const adminGetListingComplexes = () =>
+  api.get(apiRoutes.admin.listingComplexes);
+export const adminGetListingComplex = id =>
+  api.get(apiRoutes.admin.listingComplex(id));
+export const adminCreateListingComplex = data =>
+  api.post(apiRoutes.admin.listingComplexes, { listing_complex: data });
+export const adminUpdateListingComplex = (id, data) =>
+  api.put(apiRoutes.admin.listingComplex(id), { listing_complex: data });
+export const adminDeleteListingComplex = id =>
+  api.delete(apiRoutes.admin.listingComplex(id));
+export const adminUpdateListingComplexDetails = id =>
+  api.post(apiRoutes.admin.updateDetailsListingComplex(id));
+export const adminUpdateListingComplexPhotos = (id, data) =>
+  api.patch(apiRoutes.admin.photosListingComplex(id), data);
+export const adminDeleteListingComplexPhoto = id =>
+  api.delete(apiRoutes.admin.deletePhotoListingComplex(id));
+export const adminFetchListingComplex = data =>
+  api.post(apiRoutes.admin.fetchListingComplex, { listing_complex: data });
 
 // Club API functions
+export const getClub = () => api.get(apiRoutes.club);
+export const getClubRules = () => api.get(apiRoutes.clubRules);
 export const getClubStories = params =>
   api.get(apiRoutes.clubStories, { params });
 export const getClubStory = slug => api.get(apiRoutes.clubStory(slug));
 export const joinClub = data => api.post(apiRoutes.clubJoin, data);
-export const createClubStory = data =>
-  api.post(apiRoutes.backoffice.clubStories, { club_story: data });
-export const updateClubStory = (id, data) =>
-  api.put(apiRoutes.backoffice.clubStory(id), { club_story: data });
-export const deleteClubStory = id =>
-  api.delete(apiRoutes.backoffice.clubStory(id));
 
-// Photos API functions
-export const uploadTinymceAsset = formData =>
-  api.post(apiRoutes.tinymceAssets, formData);
-export const uploadBlogPhoto = formData =>
-  api.post(apiRoutes.blogPhotos, formData);
-export const deleteBlogPhoto = id => api.delete(apiRoutes.blogPhoto(id));
-export const deletePhoto = id => api.delete(apiRoutes.photo(id));
-export const uploadClubStoryPhoto = formData =>
-  api.post(apiRoutes.clubStoryPhotos, formData);
-export const deleteClubStoryPhoto = id =>
-  api.delete(apiRoutes.clubStoryPhoto(id));
+// Admin - Club stories API functions
+export const adminGetClubStories = () => api.get(apiRoutes.admin.clubStories);
+export const adminGetClubStory = id => api.get(apiRoutes.admin.clubStory(id));
+export const adminCreateClubStory = data =>
+  api.post(apiRoutes.admin.clubStories, { club_story: data });
+export const adminUpdateClubStory = (id, data) =>
+  api.put(apiRoutes.admin.clubStory(id), { club_story: data });
+export const adminDeleteClubStory = id =>
+  api.delete(apiRoutes.admin.clubStory(id));
+
+// Admin - Photos API functions
+export const adminUploadBlogPhoto = (blogPostId, formData) =>
+  api.post(apiRoutes.admin.blogPhotos, {
+    ...formData,
+    blog_post_id: blogPostId,
+  });
+export const adminDeleteBlogPhoto = id =>
+  api.delete(apiRoutes.admin.blogPhoto(id));
+export const adminDeletePhoto = id => api.delete(apiRoutes.admin.photo(id));
+export const adminUploadClubStoryPhoto = (clubStoryId, formData) =>
+  api.post(apiRoutes.admin.clubStoryPhotos, {
+    ...formData,
+    club_story_id: clubStoryId,
+  });
+export const adminDeleteClubStoryPhoto = id =>
+  api.delete(apiRoutes.admin.clubStoryPhoto(id));
 
 // Newsletter API functions
 export const subscribeToNewsletter = data =>
-  api.post(apiRoutes.newsletterSubscriptions, {
-    newsletter_subscription: data,
-  });
+  api.post(apiRoutes.newsletterSubscriptions, { newsletter: data });
 export const unsubscribeFromNewsletter = id =>
   api.delete(apiRoutes.newsletterSubscription(id));
 export const confirmNewsletterSubscription = (id, token) =>
   api.get(apiRoutes.confirmNewsletterSubscription(id, token));
 
-// Variables API functions
-export const getVariables = () => api.get(apiRoutes.backoffice.variables);
-export const createVariable = data =>
-  api.post(apiRoutes.backoffice.variables, { variable: data });
-export const updateVariable = (id, data) =>
-  api.put(apiRoutes.backoffice.variable(id), { variable: data });
-export const deleteVariable = id =>
-  api.delete(apiRoutes.backoffice.variable(id));
-
 // Testimonials API functions
-export const getTestimonials = () => api.get(apiRoutes.backoffice.testimonials);
-export const getTestimonial = id =>
-  api.get(apiRoutes.backoffice.testimonial(id));
-export const createTestimonial = data =>
-  api.post(apiRoutes.backoffice.testimonials, { testimonial: data });
-export const updateTestimonial = (id, data) =>
-  api.put(apiRoutes.backoffice.testimonial(id), { testimonial: data });
-export const deleteTestimonial = id =>
-  api.delete(apiRoutes.backoffice.testimonial(id));
+export const getTestimonials = () => api.get(apiRoutes.testimonials);
+
+// Admin - Testimonials API functions
+export const adminGetTestimonials = () => api.get(apiRoutes.admin.testimonials);
+export const adminGetTestimonial = id =>
+  api.get(apiRoutes.admin.testimonial(id));
+export const adminCreateTestimonial = data =>
+  api.post(apiRoutes.admin.testimonials, { testimonial: data });
+export const adminUpdateTestimonial = (id, data) =>
+  api.put(apiRoutes.admin.testimonial(id), { testimonial: data });
+export const adminDeleteTestimonial = id =>
+  api.delete(apiRoutes.admin.testimonial(id));
+
+// Variables API functions
+export const getVariables = () => api.get(apiRoutes.variables);
+
+// Admin - Variables API functions
+export const adminGetVariables = () => api.get(apiRoutes.admin.variables);
+export const adminCreateVariable = data =>
+  api.post(apiRoutes.admin.variables, { variable: data });
+export const adminUpdateVariable = (id, data) =>
+  api.put(apiRoutes.admin.variable(id), { variable: data });
+export const adminDeleteVariable = id =>
+  api.delete(apiRoutes.admin.variable(id));
 
 export default api;

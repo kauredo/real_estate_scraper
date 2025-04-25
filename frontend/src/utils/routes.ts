@@ -1,5 +1,5 @@
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:3001/api";
+  import.meta.env.VITE_API_URL || "http://localhost:3001/api/v1";
 
 // Helper to handle language prefix
 export const getLocalizedRoute = (route, language = "pt") => {
@@ -9,7 +9,7 @@ export const getLocalizedRoute = (route, language = "pt") => {
   return route;
 };
 
-// Frontend routes
+// Frontend routes (these would be handled by your frontend routing system)
 export const appRoutes = {
   // Main pages
   root: "/",
@@ -110,9 +110,24 @@ export const appRoutes = {
 
 // API routes
 export const apiRoutes = {
-  // Main API endpoints
+  // Authentication
+  auth: `${API_BASE_URL}/auth/login`,
+
+  // Documentation
+  docs: `${API_BASE_URL}/docs`,
+
+  // Pages and general endpoints
+  home: `${API_BASE_URL}/home`,
+  about: `${API_BASE_URL}/about`,
+  services: `${API_BASE_URL}/services`,
+  contact: `${API_BASE_URL}/contact`,
+  contact_page: `${API_BASE_URL}/contact`, // GET endpoint to get contact page data
+  privacy: `${API_BASE_URL}/privacy`,
+  terms: `${API_BASE_URL}/terms_and_conditions`,
+  faq: `${API_BASE_URL}/faq`,
+  buy: `${API_BASE_URL}/buy`,
+  sell: `${API_BASE_URL}/sell`,
   toggleDarkMode: `${API_BASE_URL}/toggle_dark_mode`,
-  newContact: `${API_BASE_URL}/novo_contacto`,
 
   // Listings
   listings: `${API_BASE_URL}/listings`,
@@ -127,19 +142,17 @@ export const apiRoutes = {
   blogPost: slug => `${API_BASE_URL}/blog_posts/${slug}`,
 
   // Club
-  club: `${API_BASE_URL}/clube-sgg`,
+  club: `${API_BASE_URL}/club`,
   clubJoin: `${API_BASE_URL}/club/join`,
+  clubRules: `${API_BASE_URL}/club/rules`,
   clubStories: `${API_BASE_URL}/club_stories`,
   clubStory: slug => `${API_BASE_URL}/club_stories/${slug}`,
 
-  // Photos
-  tinymceAssets: `${API_BASE_URL}/tinymce_assets`,
-  blogPhotos: `${API_BASE_URL}/blog_photos`,
-  blogPhoto: id => `${API_BASE_URL}/blog_photos/${id}`,
-  photos: `${API_BASE_URL}/photos`,
-  photo: id => `${API_BASE_URL}/photos/${id}`,
-  clubStoryPhotos: `${API_BASE_URL}/club_story_photos`,
-  clubStoryPhoto: id => `${API_BASE_URL}/club_story_photos/${id}`,
+  // Testimonials
+  testimonials: `${API_BASE_URL}/testimonials`,
+
+  // Variables
+  variables: `${API_BASE_URL}/variables`,
 
   // Newsletter
   newsletterSubscriptions: `${API_BASE_URL}/newsletter_subscriptions`,
@@ -148,49 +161,50 @@ export const apiRoutes = {
   confirmNewsletterSubscription: (id, token) =>
     `${API_BASE_URL}/newsletter_subscriptions/${id}/confirm?token=${token}`,
 
-  // Authentication
-  adminSession: `${API_BASE_URL}/admins/sign_in`,
-  adminRegistration: `${API_BASE_URL}/admins`,
-
-  // Backoffice
-  backoffice: {
-    root: `${API_BASE_URL}/backoffice`,
-    features: `${API_BASE_URL}/backoffice/features`,
-
-    // Variables
-    variables: `${API_BASE_URL}/backoffice/variables`,
-    variable: id => `${API_BASE_URL}/backoffice/variables/${id}`,
-
+  // Admin API endpoints
+  admin: {
     // Blog posts
-    blogPosts: `${API_BASE_URL}/backoffice/blog_posts`,
-    blogPost: id => `${API_BASE_URL}/backoffice/blog_posts/${id}`,
+    blogPosts: `${API_BASE_URL}/admin/blog_posts`,
+    blogPost: id => `${API_BASE_URL}/admin/blog_posts/${id}`,
 
     // Club stories
-    clubStories: `${API_BASE_URL}/backoffice/club_stories`,
-    clubStory: id => `${API_BASE_URL}/backoffice/club_stories/${id}`,
-
-    // Listings
-    listings: `${API_BASE_URL}/backoffice/listings`,
-    listing: id => `${API_BASE_URL}/backoffice/listings/${id}`,
-    updateDetailsListing: id =>
-      `${API_BASE_URL}/backoffice/listings/${id}/update_details`,
-    recoverListing: id => `${API_BASE_URL}/backoffice/listings/${id}/recover`,
-    updateAllListings: `${API_BASE_URL}/backoffice/listings/update_all`,
+    clubStories: `${API_BASE_URL}/admin/club_stories`,
+    clubStory: id => `${API_BASE_URL}/admin/club_stories/${id}`,
 
     // Listing complexes
-    listingComplexes: `${API_BASE_URL}/backoffice/listing_complexes`,
-    listingComplex: id => `${API_BASE_URL}/backoffice/listing_complexes/${id}`,
+    listingComplexes: `${API_BASE_URL}/admin/listing_complexes`,
+    listingComplex: id => `${API_BASE_URL}/admin/listing_complexes/${id}`,
     updateDetailsListingComplex: id =>
-      `${API_BASE_URL}/backoffice/listing_complexes/${id}/update_details`,
+      `${API_BASE_URL}/admin/listing_complexes/${id}/update_details`,
     photosListingComplex: id =>
-      `${API_BASE_URL}/backoffice/listing_complexes/${id}/photos`,
+      `${API_BASE_URL}/admin/listing_complexes/${id}/photos`,
     deletePhotoListingComplex: id =>
-      `${API_BASE_URL}/backoffice/listing_complexes/${id}/delete_photo`,
-    fetchListingComplex: `${API_BASE_URL}/backoffice/listing_complexes/fetch`,
+      `${API_BASE_URL}/admin/listing_complexes/${id}/delete_photo`,
+    fetchListingComplex: `${API_BASE_URL}/admin/listing_complexes/fetch`,
+
+    // Listings
+    listings: `${API_BASE_URL}/admin/listings`,
+    listing: id => `${API_BASE_URL}/admin/listings/${id}`,
+    updateDetailsListing: id =>
+      `${API_BASE_URL}/admin/listings/${id}/update_details`,
+    recoverListing: id => `${API_BASE_URL}/admin/listings/${id}/recover`,
+    updateAllListings: `${API_BASE_URL}/admin/listings/update_all`,
 
     // Testimonials
-    testimonials: `${API_BASE_URL}/backoffice/testimonials`,
-    testimonial: id => `${API_BASE_URL}/backoffice/testimonials/${id}`,
+    testimonials: `${API_BASE_URL}/admin/testimonials`,
+    testimonial: id => `${API_BASE_URL}/admin/testimonials/${id}`,
+
+    // Variables
+    variables: `${API_BASE_URL}/admin/variables`,
+    variable: id => `${API_BASE_URL}/admin/variables/${id}`,
+
+    // Photos
+    blogPhotos: `${API_BASE_URL}/admin/blog_photos`,
+    blogPhoto: id => `${API_BASE_URL}/admin/blog_photos/${id}`,
+    photos: `${API_BASE_URL}/admin/photos`,
+    photo: id => `${API_BASE_URL}/admin/photos/${id}`,
+    clubStoryPhotos: `${API_BASE_URL}/admin/club_story_photos`,
+    clubStoryPhoto: id => `${API_BASE_URL}/admin/club_story_photos/${id}`,
   },
 };
 
