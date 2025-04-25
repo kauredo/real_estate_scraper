@@ -1,0 +1,44 @@
+{
+  "folders": [
+    // Both parts of the project (client and server) are inside sub-directories. But since the top level might contain
+    // some documentation or build files, we still want it to show up
+    {
+      "name": "real_estate_scraper",
+      "path": "."
+    },
+    // Inside the client directory, we have the client part of the project
+    {
+      "name": "frontend",
+      "path": "frontend"
+    },
+    // Inside the server directory, we have the server part of the project
+    {
+      "name": "rails",
+      "path": "api"
+    }
+  ],
+  "settings": {
+    "ruby.useBundler": true,
+    "ruby.useLanguageServer": true,
+    "ruby.lint": {
+      "rubocop": {
+        "useBundler": true
+      }
+    },
+    "[ruby]": {
+      "editor.defaultFormatter": "Shopify.ruby-lsp",
+      "editor.formatOnSave": true
+    },
+    "files.exclude": {
+      "api": true,
+      "frontend": true,
+      "**/.git": true,
+      "**/.DS_Store": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/*.code-workspace": true
+    }
+  }
+}
