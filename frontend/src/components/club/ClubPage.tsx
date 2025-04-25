@@ -7,8 +7,9 @@ import SubNavbar from "../shared/SubNavbar";
 import { clubSections } from "../../utils/constants/clubSections";
 import ClubHeader from "./ClubHeader";
 import IconDecorationWrapper from "../shared/IconDecorationWrapper";
-import ClubJoinForm from "./ClubJoinForm";
+// import ClubJoinForm from "./ClubJoinForm";
 import Routes from "../../utils/routes";
+import togetherImage from "../../assets/images/together.webp";
 
 interface Props {
   recent_stories: ClubStory[];
@@ -95,8 +96,7 @@ export default function ClubPage({ recent_stories }: Props) {
                 </div>
                 <div className="order-first lg:order-last">
                   <img
-                    src="/images/together.webp"
-                    // src="/images/contribute.webp"
+                    src={togetherImage}
                     alt="Contribute"
                     className="w-full h-[400px] object-cover rounded-lg"
                     loading="lazy"

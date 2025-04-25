@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { sanitizeURL } from "../../utils/functions";
 import Routes from "../../utils/routes";
+import emailImage from "../../assets/images/email.webp";
 
 export default function Newsletter() {
   const { t, i18n } = useTranslation();
@@ -81,7 +82,7 @@ export default function Newsletter() {
       <div
         className="h-[20rem] md:w-1/2 w-5/6 hidden md:block object-cover bg-center bg-no-repeat bg-cover object-center dark:opacity-80"
         style={{
-          backgroundImage: `url(/images/email.webp)`,
+          backgroundImage: `url(${emailImage})`,
         }}
       ></div>
     </section>

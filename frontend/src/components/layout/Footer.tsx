@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { sanitizeURL } from "../../utils/functions";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Routes from "../../utils/routes";
+import mainWhiteLogo from "../../assets/logos/main_white.webp";
 
 export default function Footer() {
   const { t, i18n } = useTranslation();
@@ -40,7 +41,7 @@ export default function Footer() {
           >
             <img
               loading="lazy"
-              src="/logos/main_white.webp"
+              src={mainWhiteLogo}
               className="h-12"
               alt="Sofia Galvão Group Alternative Logo"
             />
