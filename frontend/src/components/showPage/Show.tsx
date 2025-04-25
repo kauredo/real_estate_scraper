@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { ReadMore } from "../shared/ReadMore";
 import Overlay from "../shared/Overlay";
 import Slider from "react-slick";
-// import MagicSliderDots from "react-magic-slider-dots";
+import CustomDots from "../shared/CustomDots";
 import ShareIcons from "../shared/ShareIcons";
 
 interface Props {
@@ -26,9 +26,9 @@ export default function Show(props: Props) {
     dots: true,
     infinite: false,
     speed: 500,
-    appendDots: dots => {
-      // return <MagicSliderDots dots={dots} numDotsToShow={10} dotWidth={30} />;
-    },
+    appendDots: dots => (
+      <CustomDots dots={dots} numDotsToShow={10} dotWidth={30} />
+    ),
   };
 
   const photos = listing.photos?.map(photo => (

@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { waitForElm } from "../../utils/functions";
 import { Testimonial } from "../../utils/interfaces";
 import Slider from "react-slick";
-// import MagicSliderDots from "react-magic-slider-dots";
+import CustomDots from "../shared/CustomDots";
 
 interface Props {
   testimonials: Testimonial[];
@@ -48,6 +48,13 @@ export default function Testimonials(props: Props) {
     dotsClass: "slick-dots",
     infinite: false,
     speed: 500,
+    appendDots: dots => (
+      <CustomDots
+        dots={dots}
+        numDotsToShow={testimonials.length > 10 ? 10 : testimonials.length}
+        dotWidth={30}
+      />
+    ),
   };
 
   return (
@@ -57,21 +64,7 @@ export default function Testimonials(props: Props) {
           {t("about.testimonies.title")}
         </h2>
 
-        <Slider
-          {...settings}
-          appendDots={dots => {
-            return (
-              <></>
-              // <MagicSliderDots
-              //   dots={dots}
-              //   numDotsToShow={
-              //     testimonials.length > 10 ? 10 : testimonials.length
-              //   }
-              //   dotWidth={30}
-              // />
-            );
-          }}
-        >
+        <Slider {...settings}>
           {testimonials.map(testimonial => (
             <div
               key={`${testimonial.name}--testimonial`}
