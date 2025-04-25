@@ -17,7 +17,6 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@headlessui/react": "^2.2.2",
     "@heroicons/react": "^2.2.0",
-    "@tailwindcss/vite": "^4.1.4",
     "axios": "^1.8.4",
     "i18next": "^25.0.1",
     "rc-slider": "^11.1.8",
@@ -40,8 +39,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.4",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.3",
     "vite": "^6.3.1"
   }
 }
