@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useMetaTags } from "../hooks/useMetaTags";
 import mainWhiteLogo from "../assets/logos/main_white.webp";
 import mainLogo from "../assets/logos/main.webp";
@@ -45,7 +46,7 @@ const NotFoundPage = () => {
               to="/"
               className="text-lg font-light outline-none focus:outline-none transform transition-all hover:scale-110 text-beige-default dark:text-beige-medium hover:brightness-50 dark:hover:text-light dark:hover:brightness-100"
             >
-              <i className="mr-2">←</i> Go Back
+              <FontAwesomeIcon icon="arrow-left" className="mr-2" /> Go Back
             </Link>
           </div>
         </div>

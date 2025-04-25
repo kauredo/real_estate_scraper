@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { sanitizeURLWithParams, truncateText } from "../../utils/functions";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";

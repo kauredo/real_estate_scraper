@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { navbarItemClass } from "../../utils/functions";
 import { NavbarItemProps } from "../../utils/interfaces";
 import NavbarItem from "./NavbarItem";
@@ -61,17 +62,17 @@ const DropdownLink = (props: DropdownProps) => {
         {title}
         {img}
         {!showMenu ? (
-          <i
-            className="fa fa-chevron-down mx-2 text-xs text-black dark:text-light"
+          <FontAwesomeIcon
+            icon="chevron-down"
+            className="mx-2 text-xs text-black dark:text-light"
             style={{ transform: "translateY(15%)" }}
-            aria-hidden="true"
-          ></i>
+          />
         ) : (
-          <i
-            className="fa fa-chevron-up mx-2 text-x text-black dark:text-light"
+          <FontAwesomeIcon
+            icon="chevron-up"
+            className="mx-2 text-xs text-black dark:text-light"
             style={{ transform: "translateY(15%)" }}
-            aria-hidden="true"
-          ></i>
+          />
         )}
       </a>
       <div
@@ -81,8 +82,8 @@ const DropdownLink = (props: DropdownProps) => {
         ref={dropdownMenuRef}
       >
         <ul className="py-2">
-          {items?.map(item => (
-            <li className="pr-2">
+          {items?.map((item, idx) => (
+            <li className="pr-2" key={`${item.title}-${idx}`}>
               <NavbarItem item={item} leftAlign />
             </li>
           ))}

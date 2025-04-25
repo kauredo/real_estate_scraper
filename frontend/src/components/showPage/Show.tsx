@@ -1,12 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Listing } from "../../utils/interfaces";
 import ContactForm from "../contactPage/ContactForm";
 import { useTranslation } from "react-i18next";
 import { ReadMore } from "../shared/ReadMore";
 import Overlay from "../shared/Overlay";
-import Slider from "react-slick";
-import CustomDots from "../shared/CustomDots";
 import ShareIcons from "../shared/ShareIcons";
+import Carousel from "../shared/Carousel";
 
 interface Props {
   listing: Listing;
@@ -14,49 +13,17 @@ interface Props {
 
 export default function Show(props: Props) {
   const listing = props.listing;
-  const { t, i18n } = useTranslation();
-
+  const { t } = useTranslation();
   const [isOpen, setOpen] = useState(false);
-  const sliderRef = useRef<typeof Slider>(null);
 
-  const settings = {
-    autoplay: false,
-    slidesToShow: 1,
-    arrows: true,
-    dots: true,
-    infinite: false,
-    speed: 500,
-    appendDots: dots => (
-      <CustomDots dots={dots} numDotsToShow={10} dotWidth={30} />
-    ),
-  };
-
-  const photos = listing.photos?.map(photo => (
+  const photos = listing.photos?.map((photo, index) => (
     <img
-      loading="lazy"
-      className="object-contain max-h-[70vh]"
-      key={photo}
+      loading={index === 0 ? "eager" : "lazy"}
+      className="object-contain w-full max-h-[70vh] mx-auto"
       src={photo}
+      alt={`${listing.title} - ${index + 1}`}
     />
   ));
-
-  useEffect(() => {
-    const handleKeyDown = event => {
-      if (sliderRef.current) {
-        if (event.key === "ArrowLeft") {
-          sliderRef.current.slickPrev();
-        } else if (event.key === "ArrowRight") {
-          sliderRef.current.slickNext();
-        }
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
 
   return (
     <>
@@ -91,23 +58,28 @@ export default function Show(props: Props) {
               id="main-title"
               className="relative block mt-2 text-2xl text-dark dark:text-light sm:text-4xl px-4"
             >
-              {listing.status == "agreed" && (
+              {listing.status === "agreed" && (
                 <span>{t("listing.status.agreed")} - </span>
-              )}{" "}
-              {listing.status == "sold" && (
+              )}
+              {listing.status === "sold" && (
                 <span>{t("listing.status.sold")} - </span>
               )}
               {listing.title}
             </h1>
           </div>
         </div>
-        <div className="relative">
+
+        <div className="relative slider-container">
           <Overlay status={listing.status} />
-          <Slider {...settings} ref={sliderRef}>
-            {photos}
-          </Slider>
+          <Carousel
+            items={photos || []}
+            className="main-slider"
+            showCounter
+            infinite={photos?.length > 1}
+          />
         </div>
-        <div className="mt-20">
+
+        <div className="mt-12">
           <ShareIcons title={listing.title} />
         </div>
         <section className="tablet:grid tablet:grid-cols-3 tablet:grid-rows-1 gap-2 pb-8 mx-2 whitespace-pre-line">
@@ -126,7 +98,6 @@ export default function Show(props: Props) {
               {listing.virtual_tour_url && (
                 <div className="mb-2">
                   <button
-                    // open virtual_tour_url on new tab
                     onClick={() =>
                       window.open(listing.virtual_tour_url, "_blank")
                     }
@@ -138,10 +109,10 @@ export default function Show(props: Props) {
               )}
               <h2 className="standard mb-2 text-2xl font-bold">
                 {t("listing.details")}
-                {listing.status == "agreed" && (
+                {listing.status === "agreed" && (
                   <span> ({t("listing.status.agreed")})</span>
-                )}{" "}
-                {listing.status == "sold" && (
+                )}
+                {listing.status === "sold" && (
                   <span> ({t("listing.status.sold")})</span>
                 )}
               </h2>
@@ -151,7 +122,7 @@ export default function Show(props: Props) {
                   <br />
                   <span>{listing.price} €</span>
                 </div>
-                {Object.keys(listing.stats)?.map((k, v) => {
+                {Object.keys(listing.stats)?.map(k => {
                   return (
                     <div key={k} className="border p-2 w-1/2">
                       <span className="font-bold">
