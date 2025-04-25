@@ -31,22 +31,29 @@ const CustomDots: React.FC<CustomDotsProps> = ({
   return (
     <ul className="custom-dots flex justify-center gap-2 mt-4">
       {getVisibleDots().map((dot, index) => {
-        return React.cloneElement(dot, {
-          key: index,
-          className: `${dot.props.className} custom-dot`,
-          children: <span className="hidden">{dot.props.children}</span>,
-          style: {
-            width: `${dotWidth}px`,
-            height: "4px",
-            backgroundColor: dot.props.className.includes("slick-active")
-              ? "var(--beige-default)"
-              : "var(--grey)",
-            border: "none",
-            cursor: "pointer",
-            transition: "all 0.3s ease",
-            display: "block",
-          },
-        });
+        const isActive = dot.props.className.includes("slick-active");
+        const { className, onClick, children, ...restProps } = dot.props;
+
+        return (
+          <li key={index} {...restProps}>
+            <div
+              onClick={onClick}
+              className={`custom-dot transition-all duration-300 ease-in-out cursor-pointer block ${
+                isActive ? "bg-beige-default" : "bg-gray-200"
+              }`}
+              style={{
+                width: `${dotWidth}px`,
+                height: "4px",
+                border: "none",
+                padding: 0,
+              }}
+              role="button"
+              tabIndex={0}
+            >
+              <span className="sr-only">{children}</span>
+            </div>
+          </li>
+        );
       })}
     </ul>
   );

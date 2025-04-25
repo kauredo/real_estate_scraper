@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ResultNumbers, Testimonial } from "../../utils/interfaces";
 import Testimonials from "./Testimonials";
 
@@ -30,10 +31,11 @@ export default function Results(props: Props) {
               key={variable.name}
               className="variable w-62 flex flex-col justify-center items-center p-4 md:py-0"
             >
-              <i
-                className={`text-8xl min-h-1/4 m-2 text-beige-default dark:text-beige-medium ${variable.icon}`}
+              <FontAwesomeIcon
+                icon={variable.icon.replace("fas fa-", "")} // Convert 'fas fa-users' to just 'users'
+                className="text-8xl min-h-1/4 m-2 text-beige-default dark:text-beige-medium"
                 aria-hidden="true"
-              ></i>
+              />
               {variable === volume ? (
                 <>
                   <h2 className="w-56">

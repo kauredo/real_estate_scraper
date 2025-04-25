@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Listing, ResultNumbers, Testimonial } from "../utils/interfaces";
 import { getHomePage } from "../services/api";
 import { useMetaTags } from "../hooks/useMetaTags";
@@ -12,7 +12,7 @@ export default function Home() {
   const { t } = useTranslation();
 
   // Create state to hold the data
-  const [listings, setListings] = useState<Listing[]>([]);
+  const [listings, setListings] = useState<Record<string, Listing[]>>({});
   const [results, setResults] = useState<ResultNumbers | null>(null);
   const [photos, setPhotos] = useState<string[]>([]);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -36,9 +36,8 @@ export default function Home() {
 
         // Extract data from the response
         if (data.listings_by_geography) {
-          // Flatten the listings by geography into a single array
-          const allListings = Object.values(data.listings_by_geography).flat();
-          setListings(allListings as Listing[]);
+          // Keep the listings grouped by geography
+          setListings(data.listings_by_geography);
         }
 
         if (data.stats) {

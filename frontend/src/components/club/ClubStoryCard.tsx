@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { sanitizeURLWithParams } from "../../utils/functions";
 import { ClubStory } from "../../utils/interfaces";
 import Routes from "../../utils/routes";
@@ -66,7 +67,7 @@ export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
                 data-turbo-method="delete"
                 onClick={() => confirm(t("backoffice.common.confirm_delete"))}
               >
-                <i className="fas fa-trash-alt"></i>
+                <FontAwesomeIcon icon="trash-alt" />
               </a>
             </>
           )}

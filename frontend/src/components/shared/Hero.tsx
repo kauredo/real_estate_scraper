@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { sanitizeURL } from "../../utils/functions";
 import QuarterCircle from "./QuarterCircle";
 import Routes from "../../utils/routes";
@@ -60,7 +61,7 @@ function Hero(props: Props) {
           </a>
           <a href="#cards">
             <div className="px-5 text-dark dark:text-light hover:text-beige-default dark:hover:text-beige-medium">
-              <i className="fas fa-arrow-down"></i>
+              <FontAwesomeIcon icon="arrow-down" />
             </div>
           </a>
         </div>

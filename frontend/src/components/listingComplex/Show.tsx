@@ -1,51 +1,95 @@
-import React, { useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ContactForm from "../contactPage/ContactForm";
 import { sanitizeURLWithParams } from "../../utils/functions";
-import { Listing, ListingComplex } from "../../utils/interfaces";
+import type { ListingComplex } from "../../utils/interfaces";
 import ShareIcons from "../shared/ShareIcons";
 import Routes from "../../utils/routes";
+import Carousel from "../shared/Carousel";
 
 interface Props {
   complex: ListingComplex;
 }
 
 export default function Show(props: Props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { complex } = props;
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
-  const header = () => {
-    if (complex.video_link) {
-      return (
-        <iframe
-          id="iframe"
-          style={{ height: "70vh", aspectRatio: "16/9" }}
-          className="w-full mx-auto"
-          src={`${complex.video_link}?autoplay=1&mute=1`}
-          allow="autoplay"
-          allowFullScreen
-        ></iframe>
-      );
-    } else {
-      return (
-        <img
-          loading="lazy"
-          style={{ maxHeight: "70vh", objectFit: "contain" }}
-          src={complex.listings[0].photos[1]}
-        />
-      );
-    }
-  };
+  // Collect all unique photos from all listings
+  const allPhotos = complex.listings.reduce((photos: string[], listing) => {
+    listing.photos.forEach(photo => {
+      if (!photos.includes(photo)) {
+        photos.push(photo);
+      }
+    });
+    return photos;
+  }, []);
+
+  const photoItems = allPhotos.map((photo, index) => (
+    <img
+      loading={index === 0 ? "eager" : "lazy"}
+      className="object-contain w-full max-h-[70vh] mx-auto"
+      src={photo}
+      alt={`${complex.name} - ${index + 1}`}
+    />
+  ));
 
   return (
     <div className="relative container mx-auto text-black dark:text-light">
-      <div className="mx-auto w-fit">{header()}</div>
+      {complex.video_link && isVideoOpen ? (
+        <section
+          className="modal bg-beige-default dark:bg-beige-medium fixed top-0 bottom-0 w-full h-full"
+          style={{ zIndex: 100 }}
+        >
+          <div
+            className="flex justify-center items-center h-[100vh]"
+            onClick={() => setIsVideoOpen(false)}
+          >
+            <div>
+              <div className="relative">
+                <iframe
+                  loading="lazy"
+                  style={{ width: "90vw", aspectRatio: "16/9" }}
+                  src={`${complex.video_link}?autoplay=1&mute=1`}
+                  title={complex.name}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <div className="relative slider-container">
+          <Carousel
+            items={photoItems}
+            className="main-slider"
+            showCounter
+            infinite={photoItems.length > 1}
+          />
+        </div>
+      )}
+
       <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige-default dark:bg-beige-medium text-white dark:text-dark px-4 py-2">
         <h1 className="standard">{complex.name}</h1>
       </div>
+
+      {complex.video_link && (
+        <div className="text-center mt-4">
+          <button
+            onClick={() => setIsVideoOpen(true)}
+            className="cursor-pointer bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            {t("listing.watch_video")}
+          </button>
+        </div>
+      )}
+
       <div className="mt-10">
         <ShareIcons title={complex.name} />
       </div>
+
       <section className="tablet:grid overflow-hidden tablet:grid-cols-3 tablet:grid-rows-1 gap-2 pb-8 mx-2 whitespace-pre-line">
         <div className="col-span-2">
           <div className=" p-4 description w-full bg-white dark:bg-dark m-2 tablet:mx-0">
