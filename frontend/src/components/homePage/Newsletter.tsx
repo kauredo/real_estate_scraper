@@ -1,25 +1,23 @@
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { sanitizeURL } from "../../utils/functions";
-import Routes from "../../utils/routes";
+import { apiRoutes } from "../../utils/routes";
 import emailImage from "../../assets/images/email.webp";
 
 export default function Newsletter() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState("");
-  const form = useRef(null);
+  const form = useRef<HTMLFormElement>(null);
   const pattern = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i;
 
-  const validateUser = e => {
+  const validateUser = (e: React.FormEvent) => {
     e.preventDefault();
     const valid_email = pattern.test(email);
 
-    if (valid_email && name) {
-      form.current.submit().then(res => {
-        console.log(res);
-      });
+    if (valid_email && name && form.current) {
+      form.current.submit();
     } else if (valid_email) {
       setError(t("home.newsletter.form.errors.name"));
     } else {
@@ -45,7 +43,7 @@ export default function Newsletter() {
         <form
           ref={form}
           onSubmit={e => validateUser(e)}
-          action={sanitizeURL(Routes.newsletter_subscriptions_path)}
+          action={sanitizeURL(apiRoutes.newsletterSubscriptions)}
           method="post"
         >
           <div className="w-full">

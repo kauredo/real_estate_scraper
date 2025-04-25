@@ -1,12 +1,14 @@
 // src/pages/ListingDetailPage.jsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getListing } from "../services/api";
 import ShowPage from "../components/showPage/Show";
+import { Listing } from "../utils/interfaces";
+import { AxiosError } from "axios";
 
 const ListingDetailPage = () => {
-  const { slug } = useParams();
-  const [listing, setListing] = useState(null);
+  const { slug } = useParams<{ slug: string }>();
+  const [listing, setListing] = useState<Listing | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,13 +18,18 @@ const ListingDetailPage = () => {
         const response = await getListing(slug);
         setListing(response.data);
       } catch (error) {
-        console.error("Error fetching listing:", error);
+        console.error(
+          "Error fetching listing:",
+          error instanceof AxiosError ? error.message : "Unknown error"
+        );
       } finally {
         setLoading(false);
       }
     };
 
-    fetchListing();
+    if (slug) {
+      fetchListing();
+    }
   }, [slug]);
 
   // Set meta tags (title, description, image)
@@ -31,22 +38,29 @@ const ListingDetailPage = () => {
       document.title = listing.title;
 
       // Update meta description
-      let metaDescription = document.querySelector('meta[name="description"]');
+      let metaDescription = document.querySelector(
+        'meta[name="description"]'
+      ) as HTMLMetaElement;
       if (!metaDescription) {
         metaDescription = document.createElement("meta");
-        metaDescription.name = "description";
+        metaDescription.setAttribute("name", "description");
         document.head.appendChild(metaDescription);
       }
-      metaDescription.content = listing.description?.trim() || "";
+      metaDescription.setAttribute(
+        "content",
+        listing.description?.trim() || ""
+      );
 
       // Update meta image
-      let metaImage = document.querySelector('meta[property="og:image"]');
+      let metaImage = document.querySelector(
+        'meta[property="og:image"]'
+      ) as HTMLMetaElement;
       if (!metaImage) {
         metaImage = document.createElement("meta");
         metaImage.setAttribute("property", "og:image");
         document.head.appendChild(metaImage);
       }
-      metaImage.content = listing.photos?.[0] || "";
+      metaImage.setAttribute("content", listing.photos?.[0] || "");
     }
   }, [listing]);
 
