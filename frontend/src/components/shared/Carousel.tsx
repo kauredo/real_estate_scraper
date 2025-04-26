@@ -30,7 +30,7 @@ export default function Carousel({
   responsive = true,
   className = "",
   centerMode = false,
-  showCounter = true,
+  showCounter = false,
 }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider>(null);
@@ -73,9 +73,16 @@ export default function Carousel({
     arrows,
     centerMode,
     adaptiveHeight: true,
-    beforeChange: (_current: number, next: number) => setCurrentSlide(next),
+    beforeChange: (oldIndex: number, newIndex: number) => {
+      console.log("Carousel changing from slide", oldIndex, "to", newIndex);
+      setCurrentSlide(newIndex);
+    },
     nextArrow: <CustomArrow icon="chevron-right" />,
     prevArrow: <CustomArrow icon="chevron-left" />,
+    // customPaging: (i: number) => {
+    //   console.log("Rendering custom paging for index", i);
+    //   return <div className="w-full h-full" />;
+    // },
     responsive: responsive
       ? [
           {
@@ -104,13 +111,16 @@ export default function Carousel({
           },
         ]
       : undefined,
-    appendDots: (dots: React.ReactNode[]) => (
-      <CustomDots
-        dots={dots}
-        numDotsToShow={items.length > 10 ? 10 : items.length}
-        dotWidth={30}
-      />
-    ),
+    appendDots: (dots: React.ReactNode[]) => {
+      console.log("Appending dots, total:", dots.length);
+      return (
+        <CustomDots
+          dots={dots}
+          numDotsToShow={items.length > 10 ? 10 : items.length}
+          dotWidth={30}
+        />
+      );
+    },
   };
 
   return (

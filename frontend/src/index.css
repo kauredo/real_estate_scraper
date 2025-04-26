@@ -201,13 +201,23 @@ strong {
 }
 
 /* Custom Dots styles */
-.custom-dots {
+.custom-dots-container {
   position: relative !important;
   bottom: 0 !important;
   width: 100%;
   z-index: 20;
-  padding-top: 1rem;
-  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.custom-dots {
+  display: flex;
+  justify-content: center;
+  -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+.custom-dots::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome, Safari and Opera */
 }
 
 .custom-dots li {
