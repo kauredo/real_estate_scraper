@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
-import VisibilitySensor from "react-visibility-sensor";
+import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconName } from "@fortawesome/fontawesome-svg-core";
 import { ResultNumbers, Testimonial } from "../../utils/interfaces";
 import Testimonials from "./Testimonials";
 
@@ -10,14 +10,18 @@ interface Props {
   testimonials: Testimonial[];
 }
 
-export default function Results(props: Props) {
-  const { results, testimonials } = props;
-  const { variables, listingCount } = results;
+export default function Results({ results, testimonials }: Props) {
+  const { variables } = results;
   const volume = variables.filter(
     vari =>
       vari.name.toLowerCase().includes("negócios") ||
       vari.name.toLowerCase().includes("business")
   )[0];
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <section
@@ -26,31 +30,26 @@ export default function Results(props: Props) {
     >
       <div className="text-center w-full container mx-auto text-2xl flex flex-col sm:flex-row justify-center items-center flex-wrap pb-0 sm:pb-6 p-6 pt-6 sm:pt-2 gap-2">
         {variables?.map(variable => {
+          const iconName = variable.icon.replace("fas fa-", "") as IconName;
           return (
             <div
               key={variable.name}
               className="variable w-62 flex flex-col justify-center items-center p-4 md:py-0"
             >
               <FontAwesomeIcon
-                icon={variable.icon.replace("fas fa-", "")} // Convert 'fas fa-users' to just 'users'
+                icon={["fas", iconName]}
                 className="text-8xl min-h-1/4 m-2 text-beige-default dark:text-beige-medium"
                 aria-hidden="true"
               />
               {variable === volume ? (
                 <>
-                  <h2 className="w-56">
-                    <CountUp
-                      end={parseInt(variable.value)}
-                      redraw={true}
-                      suffix=" €"
-                      separator="."
-                    >
-                      {({ countUpRef, start }) => (
-                        <VisibilitySensor onChange={start} delayedCall>
-                          <span ref={countUpRef} />
-                        </VisibilitySensor>
+                  <h2 className="w-56" ref={ref}>
+                    <div>
+                      {inView && (
+                        <CountUp start={0} end={parseInt(variable.value)} />
                       )}
-                    </CountUp>
+                      {" €"}
+                    </div>
                   </h2>
                   <h3 className="text-sm">{variable.name}</h3>
                 </>
