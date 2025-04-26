@@ -75059,6 +75059,7 @@
       "notice": "Listing removed successfully."
     },
     "details": "Listing Details",
+    "header": "Buy",
     "kind": {
       "apartment": "Apartment",
       "garage": "Garage",
