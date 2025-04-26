@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Slider from "react-slick";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CustomDots from "./CustomDots";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const debounce = (func: Function, wait: number) => {
-  let timeout: NodeJS.Timeout;
+  let timeout: ReturnType<typeof setTimeout>;
   return function executedFunction(...args: any[]) {
     const later = () => {
       clearTimeout(timeout);
