@@ -1844,6 +1844,7 @@
       "notice": "Imóvel eliminado com sucesso"
     },
     "details": "Detalhes do Imóvel",
+    "header": "Comprar",
     "kind": {
       "apartment": "Apartamento",
       "garage": "Garagem",

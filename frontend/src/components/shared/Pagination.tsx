@@ -1,25 +1,33 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
-import { getUrlParameter } from "../../utils/functions";
-import { Pagy } from "../../utils/interfaces";
+import { useSearchParams } from "react-router-dom";
 
-interface Props {
-  pagy: Pagy;
+interface PaginationProps {
+  pagination: {
+    current_page: number;
+    per_page: number;
+    total_count: number;
+    total_pages: number;
+  };
 }
 
-export default function Pagination(props: Props) {
-  const { t, i18n } = useTranslation();
-  const { pagy } = props;
-  const currentPage = getUrlParameter("page") || "1";
+export default function Pagination({ pagination }: PaginationProps) {
+  const { t } = useTranslation();
+  const [searchParams] = useSearchParams();
 
-  if (pagy.pages > 1) {
+  const createPageUrl = (page: number) => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set("page", page.toString());
+    return `?${newParams.toString()}`;
+  };
+
+  if (pagination.total_pages > 1) {
     return (
       <div className="flex items-center justify-center py-4 md:py-10 sm:px-6 px-4 container mx-auto">
         <div className="w-full flex items-center justify-between border-t border-gray-200 dark:border-beige-medium">
           <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
-            {pagy.prev && (
+            {pagination.current_page > 1 && (
               <>
-                <a href={pagy.prev_url}>
+                <a href={createPageUrl(pagination.current_page - 1)}>
                   <svg
                     width="14"
                     height="8"
@@ -50,8 +58,8 @@ export default function Pagination(props: Props) {
                     />
                   </svg>
                 </a>
-                <a href={pagy.prev_url}>
-                  <p className="text-sm ml-3 font-medium leading-none ">
+                <a href={createPageUrl(pagination.current_page - 1)}>
+                  <p className="text-sm ml-3 font-medium leading-none">
                     {t("pagination.previous")}
                   </p>
                 </a>
@@ -59,44 +67,35 @@ export default function Pagination(props: Props) {
             )}
           </div>
           <div className="sm:flex hidden">
-            {pagy.series?.map(page => {
+            {Array.from(
+              { length: pagination.total_pages },
+              (_, i) => i + 1
+            ).map(page => {
+              const isCurrentPage = pagination.current_page === page;
               let classes =
                 "text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium border-t border-transparent hover:border-beige-default dark:hover:border-beige-medium pt-3 mr-4 px-2";
-              classes =
-                currentPage === page
-                  ? classes +
-                    " !text-beige-default dark:!text-beige-medium !border-beige-default dark:!border-beige-medium"
-                  : classes;
-              let href =
-                currentPage === page
-                  ? "#"
-                  : `${pagy.scaffold_url.replace(
-                      "__pagy_page__",
-                      page.toString()
-                    )}`;
-              if (page === "gap") {
-                return (
-                  <p key={`gap-${page}`} className="pt-3 mr-4">
-                    ...
-                  </p>
-                );
+
+              if (isCurrentPage) {
+                classes +=
+                  " !text-beige-default dark:!text-beige-medium !border-beige-default dark:!border-beige-medium";
               }
+
               return (
-                <a key={`page-${page}`} href={href}>
+                <a key={`page-${page}`} href={createPageUrl(page)}>
                   <p className={classes}>{page}</p>
                 </a>
               );
             })}
           </div>
           <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
-            {pagy.next && pagy.next_url && (
+            {pagination.current_page < pagination.total_pages && (
               <>
-                <a href={pagy.next_url}>
+                <a href={createPageUrl(pagination.current_page + 1)}>
                   <p className="text-sm font-medium leading-none mr-3">
                     {t("pagination.next")}
                   </p>
                 </a>
-                <a href={pagy.next_url}>
+                <a href={createPageUrl(pagination.current_page + 1)}>
                   <svg
                     width="14"
                     height="8"

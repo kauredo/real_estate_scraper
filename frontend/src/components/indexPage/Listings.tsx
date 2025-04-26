@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Listings(props: Props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { listings, backoffice } = props;
 
   if (listings.length === 0) {
