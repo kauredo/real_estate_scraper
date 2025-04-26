@@ -252,18 +252,28 @@ strong {
   margin-bottom: 1rem;
 }
 
-/* Dynamic height carousel styles */
-.dynamic-height .slick-track {
-  display: flex !important;
-  align-items: flex-start !important;
+/* Generic dynamic height carousel styles */
+.dynamic-height-carousel .slick-list {
+  transition: height 0.3s ease-in-out;
 }
 
-.dynamic-height .slick-slide {
-  height: auto !important;
+.dynamic-height-carousel .slick-track {
+  display: flex;
+  align-items: flex-start;
 }
 
-.dynamic-height .slick-slide > div {
+.dynamic-height-carousel .slick-slide {
+  height: auto;
+  padding: 0 1rem;
+}
+
+.dynamic-height-carousel .carousel-slide {
   height: 100%;
+}
+
+.dynamic-height-carousel [data-slide-content] {
+  display: block;
+  width: 100%;
 }
 
 /* RC SLIDER STYLES */
