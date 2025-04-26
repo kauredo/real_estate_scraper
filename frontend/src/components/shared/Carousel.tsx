@@ -1,9 +1,21 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CustomDots from "./CustomDots";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+const debounce = (func: Function, wait: number) => {
+  let timeout: NodeJS.Timeout;
+  return function executedFunction(...args: any[]) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
 
 interface CarouselProps {
   items: React.ReactNode[];
@@ -17,7 +29,7 @@ interface CarouselProps {
   className?: string;
   centerMode?: boolean;
   showCounter?: boolean;
-  dynamicHeight?: boolean; // New prop
+  dynamicHeight?: boolean;
 }
 
 export default function Carousel({
@@ -32,37 +44,53 @@ export default function Carousel({
   className = "",
   centerMode = false,
   showCounter = false,
-  dynamicHeight = false, // Default to false for backward compatibility
+  dynamicHeight = false,
 }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (sliderRef.current) {
-        if (event.key === "ArrowLeft") {
-          sliderRef.current.slickPrev();
-        } else if (event.key === "ArrowRight") {
-          sliderRef.current.slickNext();
+  const updateHeight = useCallback(() => {
+    if (!dynamicHeight || !containerRef.current) return;
+
+    const activeSlides = containerRef.current.querySelectorAll(".slick-active");
+    if (activeSlides.length > 0) {
+      let maxHeight = 0;
+      activeSlides.forEach(slide => {
+        const content = slide.querySelector("[data-slide-content]");
+        if (content) {
+          const height = content.getBoundingClientRect().height;
+          maxHeight = Math.max(maxHeight, height);
+        }
+      });
+
+      if (maxHeight > 0) {
+        const slickList = containerRef.current.querySelector(
+          ".slick-list"
+        ) as HTMLElement;
+        if (slickList) {
+          slickList.style.height = `${maxHeight}px`;
         }
       }
-    };
+    }
+  }, [dynamicHeight]);
 
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  // Update height on slide change
+  useEffect(() => {
+    if (dynamicHeight) {
+      const timer = setTimeout(updateHeight, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [currentSlide, dynamicHeight, updateHeight]);
 
-  const CustomArrow = ({ className, style, onClick, icon }: any) => (
-    <div
-      className={className}
-      style={{ ...style, display: "block" }}
-      onPointerDown={onClick}
-      role="button"
-      tabIndex={0}
-    >
-      <FontAwesomeIcon icon={icon} />
-    </div>
-  );
+  // Update height on window resize
+  useEffect(() => {
+    if (dynamicHeight) {
+      const handleResize = debounce(updateHeight, 100);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, [dynamicHeight, updateHeight]);
 
   const settings = {
     dots,
@@ -74,14 +102,15 @@ export default function Carousel({
     autoplaySpeed,
     arrows,
     centerMode,
-    adaptiveHeight: dynamicHeight,
+    adaptiveHeight: false, // We handle height manually
     useCSS: true,
     cssEase: "ease-in-out",
-    beforeChange: (oldIndex: number, newIndex: number) => {
+    beforeChange: (_: number, newIndex: number) => {
       setCurrentSlide(newIndex);
     },
-    nextArrow: <CustomArrow icon="chevron-right" />,
-    prevArrow: <CustomArrow icon="chevron-left" />,
+    afterChange: () => {
+      updateHeight();
+    },
     responsive: responsive
       ? [
           {
@@ -118,14 +147,15 @@ export default function Carousel({
   return (
     <div
       className={`carousel-container ${className} ${
-        dynamicHeight ? "dynamic-height" : ""
+        dynamicHeight ? "dynamic-height-carousel" : ""
       }`}
+      ref={containerRef}
     >
       <div className="slider-container relative">
         <Slider {...settings} ref={sliderRef}>
           {items.map((item, index) => (
-            <div key={index} className="h-full">
-              {item}
+            <div key={index} className="carousel-slide">
+              <div data-slide-content>{item}</div>
             </div>
           ))}
         </Slider>
