@@ -11,18 +11,17 @@ export default function Testimonials(props: Props) {
   const { testimonials } = props;
 
   const testimonialItems = testimonials.map(testimonial => (
-    <div
-      key={`${testimonial.name}--testimonial`}
-      className="p-6 mx-2 text-left flex flex-col bg-white dark:bg-dark-default rounded-lg shadow-md h-full"
-    >
-      <p className="whitespace-pre-line text-dark dark:text-light mb-4">
-        <span className="inline-block mr-1 text-xl">"</span>
-        {testimonial.text}
-        <span className="inline-block ml-1 text-xl">"</span>
-      </p>
-      <p className="font-bold text-right text-dark dark:text-light mt-auto">
-        - {testimonial.name}
-      </p>
+    <div key={`${testimonial.name}--testimonial`}>
+      <div className="mx-2 p-6 text-left bg-white dark:bg-dark-default rounded-lg shadow-md max-w-2xl">
+        <p className="whitespace-pre-line text-dark dark:text-light mb-4">
+          <span className="inline-block mr-1 text-xl">"</span>
+          {testimonial.text}
+          <span className="inline-block ml-1 text-xl">"</span>
+        </p>
+        <p className="font-bold text-right text-dark dark:text-light">
+          - {testimonial.name}
+        </p>
+      </div>
     </div>
   ));
 
@@ -35,13 +34,17 @@ export default function Testimonials(props: Props) {
         {t("about.testimonies.title")}
       </h2>
 
-      <Carousel
-        items={testimonialItems}
-        slidesToShow={2}
-        autoplay
-        showCounter={false}
-        responsive
-      />
+      <div className="transition-all duration-300">
+        <Carousel
+          items={testimonialItems}
+          slidesToShow={2}
+          autoplay={false}
+          showCounter={false}
+          responsive
+          dynamicHeight
+          className="testimonials-carousel"
+        />
+      </div>
     </div>
   );
 }

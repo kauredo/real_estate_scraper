@@ -11,28 +11,20 @@ const CustomDots: React.FC<CustomDotsProps> = ({ dots, dotWidth = 30 }) => {
     dot.props.className.includes("slick-active")
   );
 
-  console.log("CustomDots rendering with", { totalDots, currentSlide });
-
   return (
     <div className="custom-dots-container">
       <ul className="custom-dots flex justify-center gap-2 mt-4 overflow-x-auto px-4 py-2 no-scrollbar">
         {dots.map((dot: any, index) => {
-          console.log("Dot props:", dot.props);
           const isActive = dot.props.className.includes("slick-active");
 
           const handleClick = (e: React.MouseEvent) => {
-            console.log("Dot clicked:", { index, isActive });
             if (
               dot.props &&
               typeof dot.props.children?.props?.onClick === "function"
             ) {
-              console.log("Found onClick in children props");
               dot.props.children.props.onClick(e);
             } else if (dot.props && typeof dot.props.onClick === "function") {
-              console.log("Found onClick in dot props");
               dot.props.onClick(e);
-            } else {
-              console.log("No valid onClick handler found", dot.props);
             }
           };
 
