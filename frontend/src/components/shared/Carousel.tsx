@@ -17,6 +17,7 @@ interface CarouselProps {
   className?: string;
   centerMode?: boolean;
   showCounter?: boolean;
+  dynamicHeight?: boolean; // New prop
 }
 
 export default function Carousel({
@@ -31,6 +32,7 @@ export default function Carousel({
   className = "",
   centerMode = false,
   showCounter = false,
+  dynamicHeight = false, // Default to false for backward compatibility
 }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider>(null);
@@ -72,17 +74,14 @@ export default function Carousel({
     autoplaySpeed,
     arrows,
     centerMode,
-    adaptiveHeight: true,
+    adaptiveHeight: dynamicHeight,
+    useCSS: true,
+    cssEase: "ease-in-out",
     beforeChange: (oldIndex: number, newIndex: number) => {
-      console.log("Carousel changing from slide", oldIndex, "to", newIndex);
       setCurrentSlide(newIndex);
     },
     nextArrow: <CustomArrow icon="chevron-right" />,
     prevArrow: <CustomArrow icon="chevron-left" />,
-    // customPaging: (i: number) => {
-    //   console.log("Rendering custom paging for index", i);
-    //   return <div className="w-full h-full" />;
-    // },
     responsive: responsive
       ? [
           {
@@ -112,23 +111,20 @@ export default function Carousel({
         ]
       : undefined,
     appendDots: (dots: React.ReactNode[]) => {
-      console.log("Appending dots, total:", dots.length);
-      return (
-        <CustomDots
-          dots={dots}
-          numDotsToShow={items.length > 10 ? 10 : items.length}
-          dotWidth={30}
-        />
-      );
+      return <CustomDots dots={dots} dotWidth={15} />;
     },
   };
 
   return (
-    <div className={`carousel-container ${className}`}>
+    <div
+      className={`carousel-container ${className} ${
+        dynamicHeight ? "dynamic-height" : ""
+      }`}
+    >
       <div className="slider-container relative">
         <Slider {...settings} ref={sliderRef}>
           {items.map((item, index) => (
-            <div key={index} className="outline-none">
+            <div key={index} className="h-full">
               {item}
             </div>
           ))}
