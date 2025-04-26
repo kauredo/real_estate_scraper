@@ -1,74 +1,18 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useState } from "react";
 import Card from "./Card";
 import { toCapitalize } from "../../utils/functions";
 import { Photo, Listing } from "../../utils/interfaces";
-import Slider from "react-slick";
-import CustomDots from "../shared/CustomDots";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Carousel from "../shared/Carousel";
 
 interface Props {
   listings: Record<string, Listing[]> | Listing[];
   photos?: Photo[];
 }
 
-type SliderDots = ReactNode;
-
 export default function Cards(props: Props) {
   const { listings, photos } = props;
-  const [slideNumber, setSlideNumber] = useState(1);
   const isGroupedByLocation = !Array.isArray(listings);
   const locations = isGroupedByLocation ? Object.keys(listings) : [];
-
-  useEffect(() => {
-    const handleResize = () => {
-      const windowWidth = Math.floor(window.innerWidth / 412);
-      setSlideNumber(windowWidth > 0 ? windowWidth : 1);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Initial call
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const settings = {
-    autoplay: true,
-    autoplaySpeed: 5000,
-    slidesToShow: slideNumber,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: true,
-    dotsClass: "slick-dots",
-    infinite: false,
-    speed: 500,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: Math.min(3, slideNumber),
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: Math.min(2, slideNumber),
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-    appendDots: (dots: SliderDots) => (
-      <CustomDots dots={dots as any[]} numDotsToShow={10} dotWidth={30} />
-    ),
-  };
 
   // Show photos only if there are no listings but photos exist
   if (
@@ -84,17 +28,8 @@ export default function Cards(props: Props) {
       >
         <div className="w-full relative flex items-center justify-center">
           <div className="w-full h-full mx-auto">
-            <Slider
-              {...settings}
-              appendDots={(dots: SliderDots) => (
-                <CustomDots
-                  dots={dots as any[]}
-                  numDotsToShow={photos.length > 10 ? 10 : photos.length}
-                  dotWidth={30}
-                />
-              )}
-            >
-              {photos.map(photo => (
+            <Carousel
+              items={photos.map(photo => (
                 <img
                   loading="lazy"
                   key={photo.image.url}
@@ -107,7 +42,10 @@ export default function Cards(props: Props) {
                   alt=""
                 />
               ))}
-            </Slider>
+              autoplay
+              autoplaySpeed={5000}
+              infinite={false}
+            />
           </div>
         </div>
       </section>
@@ -141,22 +79,16 @@ export default function Cards(props: Props) {
                 </button>
               ))}
             </div>
-            <Slider
-              {...settings}
-              appendDots={(dots: SliderDots) => (
-                <CustomDots
-                  dots={dots as any[]}
-                  numDotsToShow={
-                    locationListings.length > 10 ? 10 : locationListings.length
-                  }
-                  dotWidth={30}
-                />
-              )}
-            >
-              {locationListings.map(listing => (
+            <Carousel
+              items={locationListings.map(listing => (
                 <Card listing={listing} key={listing.slug} />
               ))}
-            </Slider>
+              autoplay
+              autoplaySpeed={5000}
+              infinite={false}
+              responsive
+              slidesToShow={Math.floor(window.innerWidth / 412)}
+            />
           </div>
         </div>
       </section>
@@ -171,24 +103,16 @@ export default function Cards(props: Props) {
     >
       <div className="w-full relative flex items-center justify-center">
         <div className="w-full h-full mx-auto">
-          <Slider
-            {...settings}
-            appendDots={(dots: SliderDots) => (
-              <CustomDots
-                dots={dots as any[]}
-                numDotsToShow={
-                  (listings as Listing[]).length > 10
-                    ? 10
-                    : (listings as Listing[]).length
-                }
-                dotWidth={30}
-              />
-            )}
-          >
-            {(listings as Listing[]).map(listing => (
+          <Carousel
+            items={(listings as Listing[]).map(listing => (
               <Card listing={listing} key={listing.slug} />
             ))}
-          </Slider>
+            autoplay
+            autoplaySpeed={5000}
+            infinite={false}
+            responsive
+            slidesToShow={Math.floor(window.innerWidth / 412)}
+          />
         </div>
       </div>
     </section>
