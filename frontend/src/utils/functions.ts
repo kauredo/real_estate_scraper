@@ -50,7 +50,7 @@ export const sanitizeURL = url => {
   if (i18n.language === "pt") {
     return url;
   } else {
-    return url({ locale: i18n.language });
+    return `/${i18n.language}${url}`;
   }
 };
 
@@ -62,9 +62,9 @@ export const sanitizeURLWithParams = (url, params) => {
   }
 
   if (i18n.language === "pt") {
-    return url(params);
-  } else {
-    return url(params, { locale: i18n.language });
+    return `/${url}?${params}`;
+  } else if (i18n.language === "en") {
+    return `/${i18n.language}/${url}?${params}`;
   }
 };
 
