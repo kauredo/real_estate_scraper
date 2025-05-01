@@ -57,23 +57,16 @@ const DropdownLink = (props: DropdownProps) => {
         href="#"
         ref={dropdownLinkRef}
         onClick={handleLinkClick}
-        className={`${className} flex flex-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark p-2 rounded-md font-medium`}
+        className={`${className} flex items-center gap-2 hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark p-2 rounded-md font-medium`}
       >
-        {title}
-        {img}
-        {!showMenu ? (
-          <FontAwesomeIcon
-            icon="chevron-down"
-            className="mx-2 text-xs text-black dark:text-light"
-            style={{ transform: "translateY(15%)" }}
-          />
-        ) : (
-          <FontAwesomeIcon
-            icon="chevron-up"
-            className="mx-2 text-xs text-black dark:text-light"
-            style={{ transform: "translateY(15%)" }}
-          />
-        )}
+        <span className="flex items-center gap-2">
+          {title}
+          {img}
+        </span>
+        <FontAwesomeIcon
+          icon={showMenu ? "chevron-up" : "chevron-down"}
+          className="text-xs text-black dark:text-light"
+        />
       </a>
       <div
         className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-dark z-20 ${
