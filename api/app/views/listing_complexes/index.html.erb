@@ -1,0 +1,84 @@
+<% meta_title = I18n.t('enterprises.header') %>
+<% meta_description = I18n.t('enterprises.meta_description') %>
+
+<% content_for(:meta_title) { meta_title } %>
+<% content_for(:meta_description) { meta_description } %>
+<% content_for(:extra_meta) do %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>empreendimentos" />
+  <link rel="alternate" hreflang="<%= I18n.locale == :pt ? 'en' : 'pt' %>" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? 'en/' : '' %>empreendimentos" />
+  <link rel="alternate" hreflang="x-default" href="https://sofiagalvaogroup.com/empreendimentos" />
+<% end %>
+
+<%= react_component 'shared--Banner', { height: '20vh', blurred: true, text: meta_title } %>
+<div class="pt-6 bg-white dark:bg-dark text-center md:hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
+    <h1 id="main-title" class="relative block md:hidden mt-2 text-3xl text-dark dark:text-light  sm:text-4xl px-4"><%= meta_title %></h1>
+  </div>
+</div>
+<div class="pt-6 bg-white dark:bg-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="relative block mt-2 text-2xl text-center text-dark dark:text-light  sm:text-4xl px-4"><%= I18n.t('enterprises.subtitle.title') %></h2>
+    <p class="mt-4 text-xl text-gray-500 dark:text-light mx-auto"><%= I18n.t('enterprises.subtitle.description') %></p>
+  </div>
+</div>
+<%= react_component 'shared--Pagination', { pagy: @pagy } %>
+<%= react_component 'indexPage--Complexes', { listing_complexes: @listing_complexes_json }  %>
+<%= react_component 'shared--Pagination', { pagy: @pagy } %>
+<section class="container mx-auto py-12 px-8">
+  <div class="py-8 md:py-0 bg-white dark:bg-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center">
+        <p class="mt-2 text-3xl text-dark dark:text-light  sm:text-4xl"><%= sanitize I18n.t('enterprises.subheader') %></p>
+      </div>
+      <div class="my-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <div>
+            <dt class="flex items-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
+                <i class="fas fa-trophy" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg font-bold font-medium text-dark dark:text-light  w-3/4"><%= I18n.t('enterprises.list.own.title') %></p>
+            </dt>
+            <p class="text-lg pt-3 font-medium text-dark dark:text-light  w-3/4"><%= I18n.t('enterprises.list.own.description') %></p>
+          </div>
+          <div>
+            <dt class="flex items-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
+                <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg font-bold font-medium text-dark dark:text-light  w-3/4"><%= I18n.t('enterprises.list.invest.title') %></p>
+            </dt>
+            <p class="text-lg pt-3 font-medium text-dark dark:text-light  w-3/4"><%= I18n.t('enterprises.list.invest.description') %></p>
+          </div>
+          <div>
+            <dt class="flex items-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
+                <i class="fas fa-hard-hat" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg font-bold font-medium text-dark dark:text-light  w-3/4"><%= I18n.t('enterprises.list.warranty.title') %></p>
+            </dt>
+            <p class="text-lg pt-3 font-medium text-dark dark:text-light  w-3/4"><%= I18n.t('enterprises.list.warranty.description') %></p>
+          </div>
+          <div>
+            <dt class="flex items-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
+                <i class="fa fa-money" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg font-bold font-medium text-dark dark:text-light  w-3/4"><%= I18n.t('enterprises.list.perspective.title') %></p>
+            </dt>
+            <p class="text-lg pt-3 font-medium text-dark dark:text-light  w-3/4"><%= I18n.t('enterprises.list.perspective.description') %></p>
+          </div>
+          <div>
+            <dt class="flex items-center">
+              <div class="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
+                <i class="fas fa-house-user" aria-hidden="true"></i>
+              </div>
+              <p class="ml-4 text-lg font-bold font-medium text-dark dark:text-light  w-3/4"><%= I18n.t('enterprises.list.yours.title') %></p>
+            </dt>
+            <p class="text-lg pt-3 font-medium text-dark dark:text-light  w-3/4"><%= I18n.t('enterprises.list.yours.description') %></p>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

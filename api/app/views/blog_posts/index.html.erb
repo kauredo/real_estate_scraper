@@ -1,0 +1,45 @@
+<% meta_title = I18n.t('blog_posts.header') %>
+<% meta_description = I18n.t('blog_posts.meta_description') %>
+
+<% content_for(:meta_title) { meta_title } %>
+<% content_for(:meta_description) { meta_description } %>
+<% content_for(:extra_meta) do %>
+  <link rel="canonical" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? '' : "#{I18n.locale}/" %>blog" />
+  <link rel="alternate" hreflang="<%= I18n.locale == :pt ? 'en' : 'pt' %>" href="https://sofiagalvaogroup.com/<%= I18n.locale == :pt ? 'en/' : '' %>blog" />
+  <link rel="alternate" hreflang="x-default" href="https://sofiagalvaogroup.com/blog" />
+<% end %>
+
+<div class="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
+  <div class="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+    <h1 class="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl"><%= I18n.t('blog_posts.header') %></h1>
+    <p class="mx-auto text-gray-500 dark:text-light text-lg mt-2"><%= I18n.t('blog_posts.subheader') %></p>
+    <br>
+    <div class="w-full max-w-7xl mx-auto">
+      <% if @blog_posts.present? %>
+        <% if @blog_posts.length == 1 %>
+          <div class="grid grid-cols-1 gap-8 max-w-md mx-auto">
+            <%= render 'blog_post', blog_post: @blog_posts.first %>
+          </div>
+        <% elsif @blog_posts.length == 2 %>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <% @blog_posts.each do |blog_post| %>
+              <%= render 'blog_post', blog_post: %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% @blog_posts.each do |blog_post| %>
+              <%= render 'blog_post', blog_post: %>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="w-full text-center p-8 text-xl">
+          <h2>
+            <%= I18n.t('blog_posts.empty') %>
+          </h2>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

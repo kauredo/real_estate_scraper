@@ -1,0 +1,89 @@
+<div class="container mx-auto px-4 py-6 space-y-16">
+  <!-- System Settings Section -->
+  <section>
+    <h1 class="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">Configurações do Sistema</h1>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Variables Section -->
+      <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 text-dark dark:text-light">Variáveis do Sistema</h2>
+        <p class="text-gray-500 dark:text-light mb-6">Nota: copiar ícones do site <a class="text-beige-default dark:text-beige-medium underline" href="https://fontawesome.com/v5/search?m=free" target="_blank">fontawesome.com/v5</a></p>
+
+        <div class="space-y-6">
+          <% @variables.each do |var| %>
+            <%= form_for(var, url: backoffice_variable_path(var), html: { method: :put }) do |f| %>
+              <div class="flex flex-wrap items-center gap-3 p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <%= f.text_field :name, class: 'flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
+                <%= f.text_field :value, class: 'flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
+                <%= f.text_field :icon, class: 'flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
+                <div class="flex gap-2">
+                  <%= f.submit 'Atualizar', class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded' %>
+                  <%= link_to [:backoffice, var], method: :delete, data: { "turbo-method": :delete }, class: 'bg-red-500 hover:bg-red-700 text-white dark:text-dark p-2 rounded', onclick: "return confirm('Are you sure you want to delete this item?');" do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+
+          <%= form_for(Variable.new, url: backoffice_variables_path, data: { turbo: false }, html: { class: 'mt-6 pt-6 border-t' }) do |f| %>
+            <div class="flex flex-wrap items-center gap-3">
+              <%= f.text_field :name, placeholder: 'variável', class: 'flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
+              <%= f.text_field :value, placeholder: 'valor', class: 'flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
+              <%= f.text_field :icon, placeholder: 'ícone', class: 'flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
+              <%= f.submit 'Criar', class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Newsletter Section -->
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
+          <h2 class="text-2xl font-bold mb-4 text-dark dark:text-light">Subscrições Newsletter</h2>
+          <div class="max-h-[300px] overflow-y-auto">
+            <ul class="space-y-2">
+              <% @subs.each do |sub| %>
+                <li class="py-2 px-3 bg-gray-50 dark:bg-gray-800 rounded">
+                  <span class="font-medium"><%= sub.user.name %></span>
+                  <span class="text-gray-500 dark:text-gray-400"><%= sub.user.email %></span>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Listings Management Section -->
+  <section>
+    <h1 class="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">Gestão de Imóveis</h1>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Listings Section -->
+      <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 text-dark dark:text-light">Links de Imóveis</h2>
+        <p class="text-gray-500 dark:text-light mb-6">Nota: este campo pode ser usado para adicionar imóveis de colegas, ou para ir buscar a informação mais recente de qualquer imóvel já na plataforma.</p>
+
+        <%= form_for(Listing.new, url: backoffice_listings_path, data: { turbo: false }) do |f| %>
+          <div class="flex flex-wrap items-center gap-3">
+            <%= f.text_field :url, placeholder: 'url', class: 'flex-1 bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
+            <%= f.submit 'Procurar', class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded' %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Complexes Section -->
+      <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 text-dark dark:text-light">Links de Empreendimentos</h2>
+        <p class="text-gray-500 dark:text-light mb-6">Nota: este campo pode ser usado para adicionar Empreendimentos da Sofia ou de colegas.</p>
+
+        <%= form_for(ListingComplex.new, url: fetch_backoffice_listing_complexes_path, data: { turbo: false }) do |f| %>
+          <div class="flex flex-wrap items-center gap-3">
+            <%= f.text_field :url, placeholder: 'url', class: 'flex-1 bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
+            <%= f.submit 'Procurar', class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>

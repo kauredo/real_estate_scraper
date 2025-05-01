@@ -1,0 +1,8 @@
+<div class="email-title">Bem-vindo(a), <%= @user.first_name %>!</div>
+<p style="margin-bottom: 1.5rem;">Obrigado por subscrever à newsletter Sofia Galvão Group. Para começar a receber as nossas atualizações, confirme a sua subscrição:</p>
+<div style="text-align: center; margin: 2rem 0;">
+  <%= link_to 'Confirmar Subscrição', confirm_newsletter_subscription_url(@id, token: @token, locale: ''), class: 'button', target: '_blank', rel: 'noopener' %>
+</div>
+<div class="email-footer">
+  <p>Sofia Galvão Group - Real Estate Excellence</p>
+</div>

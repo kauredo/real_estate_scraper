@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      @font-face {
+        font-family: "Exter";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("exter-ultra-bold.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Apparat";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("Apparat-Light.otf") format("truetype");
+      }
+      body { font-size: 16px; line-height: 1.6; padding: 0; margin: 0; font-family: 'Apparat', sans-serif; color: #2C3E50; }
+      .body { padding: 1rem; width: 100%; background-color: #F8F9FA; }
+      .email-container { 
+        padding: 2.5rem;
+        background-color: #FFFFFF;
+        min-height: 100%;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-radius: 8px;
+      }
+      .button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #d3af79;
+        color: #FFFFFF !important;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+      .button:hover {
+        background-color: #c19b65;
+      }
+      .email-content { padding: 0; color: #2C3E50; }
+      .email-title {
+        font-size: 24px;
+        margin-bottom: 1.5rem;
+        color: #1a1a1a;
+        font-family: 'Exter', serif;
+      }
+      .email-info {
+        background-color: #F8F9FA;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+      .email-info p {
+        margin: 0.75rem 0;
+        line-height: 1.6;
+      }
+      .email-info strong {
+        color: #d3af79;
+        font-weight: 600;
+      }
+      .email-footer {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid #E9ECEF;
+        color: #6c757d;
+        font-size: 0.9em;
+        text-align: center;
+      }
+      img { max-width: 100%; height: auto; display: block; }
+      table { border-collapse: collapse; width: 100%; }
+      td { padding: 0; }
+    </style>
+  </head>
+  <body>
+    <div class="body">
+      <div style="max-width: 600px; margin: 0 auto;" class="email-container">
+        <div class="email-content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
