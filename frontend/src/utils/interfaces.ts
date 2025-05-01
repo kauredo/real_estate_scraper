@@ -94,7 +94,7 @@ export interface NavbarItemProps {
   hover?: string;
   img?: any;
   items?: NavbarItemProps[];
-  children?: any;
+  children?: React.ReactNode;
   method?: string;
 }
 

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { navbarItemClass } from "../../utils/functions";
 import { NavbarItemProps } from "../../utils/interfaces";
+import { useAuth } from "../../context/AuthContext";
 
 interface Props {
   item: NavbarItemProps;
@@ -13,31 +14,19 @@ export default function NavbarItem(props: Props) {
   const { turbo, title, url, hover, img, children, method } = item;
   const className = title.length > 0 ? navbarItemClass(url, false) : "";
   const actualMethod = method ? method : "get";
+  const { logout } = useAuth();
 
-  const handleClick = async event => {
-    event.preventDefault();
-    const tokenElement = document.querySelector('meta[name="csrf-token"]');
-    const token = tokenElement ? (tokenElement as HTMLMetaElement).content : "";
-
-    if (url) {
+  const handleClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (url?.includes("sign_out")) {
       try {
-        const response = await fetch(url, {
-          method: actualMethod.toUpperCase(),
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-Token": token,
-          },
-          body: JSON.stringify({}),
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        window.location.reload();
+        await logout();
+        window.location.href = "/";
       } catch (error) {
-        console.error("Error:", error);
+        console.error("Logout failed:", error);
       }
+    } else {
+      window.location.href = url || "/";
     }
   };
 
