@@ -49,7 +49,7 @@ export default function Footer() {
           <ul className="flex flex-wrap items-center text-sm text-gray-500 dark:text-light">
             <li>
               <a
-                href={sanitizeURL(Routes.about_path)}
+                href={Routes.about_path}
                 className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6 "
               >
                 {t("footer.about")}
@@ -57,7 +57,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={sanitizeURL(Routes.privacy_path)}
+                href={Routes.privacy_path}
                 className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6"
               >
                 {t("footer.privacy")}
@@ -65,7 +65,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={sanitizeURL(Routes.terms_and_conditions_path)}
+                href={Routes.terms_and_conditions_path}
                 className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6 "
               >
                 {t("footer.terms")}
@@ -73,7 +73,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={sanitizeURL(Routes.contact_path)}
+                href={Routes.contact_path}
                 className="hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100"
               >
                 {t("footer.contacts")}

@@ -23,7 +23,7 @@ export default function Listings(props: Props) {
               {t("listing.no_listings")}
             </p>
             <a
-              href={sanitizeURL(Routes.buy_path)}
+              href={Routes.buy_path}
               className="text-beige-default dark:text-beige-medium text-xl font-bold underline ml-2"
             >
               {t("listing.reset_filters")}

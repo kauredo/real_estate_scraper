@@ -43,7 +43,7 @@ export default function Newsletter() {
         <form
           ref={form}
           onSubmit={e => validateUser(e)}
-          action={sanitizeURL(apiRoutes.newsletterSubscriptions)}
+          action={apiRoutes.newsletterSubscriptions}
           method="post"
         >
           <div className="w-full">

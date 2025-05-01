@@ -1,18 +1,16 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import HomePage from "./pages/HomePage";
 import ListingsPage from "./pages/ListingsPage";
 import ListingDetailPage from "./pages/ListingDetailPage";
-// import ListingComplexesPage from "./pages/ListingComplexesPage";
-// import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
 import BlogPostsPage from "./pages/BlogPostsPage";
 import BlogPostDetailPage from "./pages/BlogPostDetailPage";
-// import AboutPage from "./pages/AboutPage";
-// import ContactPage from "./pages/ContactPage";
-// import SellPage from "./pages/SellPage";
+import LoginPage from "./pages/Auth/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 // Scroll to top on route change
@@ -24,6 +22,57 @@ function ScrollToTop() {
   }, [pathname]);
 
   return null;
+}
+
+// Wrapper component to handle navbar props based on auth state and location
+function AppContent() {
+  const { isAuthenticated } = useAuth();
+  const location = useLocation();
+  const isBackoffice =
+    location.pathname.startsWith("/backoffice") ||
+    location.pathname.startsWith("/en/backoffice");
+
+  return (
+    <div className="flex flex-col min-h-screen bg-white dark:bg-dark text-black dark:text-light">
+      <Navbar admin={isAuthenticated} backoffice={isBackoffice} />
+      <div className="flex-auto">
+        <Routes>
+          {/* Auth Routes */}
+          <Route path="/backoffice/login" element={<LoginPage />} />
+
+          {/* Backoffice Protected Routes */}
+          <Route
+            path="/backoffice/*"
+            element={
+              <ProtectedRoute>
+                <Routes>
+                  <Route path="listings" element={<ListingsPage />} />
+                </Routes>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Portuguese Routes */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/comprar" element={<ListingsPage />} />
+          <Route path="/comprar/:slug" element={<ListingDetailPage />} />
+          <Route path="/blog" element={<BlogPostsPage />} />
+          <Route path="/blog/:slug" element={<BlogPostDetailPage />} />
+
+          {/* English Routes */}
+          <Route path="/en" element={<HomePage />} />
+          <Route path="/en/comprar" element={<ListingsPage />} />
+          <Route path="/en/comprar/:slug" element={<ListingDetailPage />} />
+          <Route path="/en/blog" element={<BlogPostsPage />} />
+          <Route path="/en/blog/:slug" element={<BlogPostDetailPage />} />
+
+          {/* 404 Page */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 function App() {
@@ -40,52 +89,12 @@ function App() {
   }, [i18n]);
 
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-white dark:bg-dark text-black dark:text-light">
-        <Navbar />
-        <div className="flex-auto">
-          <Routes>
-            {/* Portuguese Routes */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/comprar" element={<ListingsPage />} />
-            <Route path="/comprar/:slug" element={<ListingDetailPage />} />
-            {/* <Route path="/empreendimentos" element={<ListingComplexesPage />} />
-            <Route
-              path="/empreendimentos/:slug"
-              element={<ListingComplexDetailPage />}
-            /> */}
-            <Route path="/blog" element={<BlogPostsPage />} />
-            <Route path="/blog/:slug" element={<BlogPostDetailPage />} />
-            {/* <Route path="/vender" element={<SellPage />} />
-            <Route path="/kw" element={<AboutPage />} />
-            <Route path="/contactos" element={<ContactPage />} /> */}
-
-            {/* English Routes */}
-            <Route path="/en" element={<HomePage />} />
-            <Route path="/en/comprar" element={<ListingsPage />} />
-            <Route path="/en/comprar/:slug" element={<ListingDetailPage />} />
-            {/* <Route
-              path="/en/empreendimentos"
-              element={<ListingComplexesPage />}
-            />
-            <Route
-              path="/en/empreendimentos/:slug"
-              element={<ListingComplexDetailPage />}
-            /> */}
-            <Route path="/en/blog" element={<BlogPostsPage />} />
-            <Route path="/en/blog/:slug" element={<BlogPostDetailPage />} />
-            {/* <Route path="/en/vender" element={<SellPage />} />
-            <Route path="/en/kw" element={<AboutPage />} />
-            <Route path="/en/contactos" element={<ContactPage />} /> */}
-
-            {/* 404 Page */}
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </div>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <AppContent />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

@@ -186,7 +186,7 @@ export default function ClubPage({ recent_stories }: Props) {
                     {t("club.home.join.mission")}
                   </p>
                   <a
-                    href={sanitizeURL(Routes.club_rules_path)}
+                    href={Routes.club_rules_path}
                     className="mx-auto text-xl font-bold text-beige-default dark:text-beige-medium underline"
                   >
                     {t("club.home.know_more.rules")}

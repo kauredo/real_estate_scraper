@@ -12,7 +12,7 @@ export default function DarkModeToggle() {
   const [isDarkMode, setIsDarkMode] = useState(isDarkModeActive());
 
   const toggleDarkMode = () => {
-    const url = sanitizeURL(Routes.toggle_dark_mode_path);
+    const url = Routes.toggle_dark_mode_path;
     fetch(url, {
       method: "POST",
       headers: {

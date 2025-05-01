@@ -1,16 +1,60 @@
+/// <reference types="vite/client" />
+import i18n from "../i18n";
+
 const API_BASE_URL =
   import.meta.env.VITE_API_URL || "http://localhost:3001/api/v1";
 
 // Helper to handle language prefix
-export const getLocalizedRoute = (route, language = "pt") => {
+export const getLocalizedRoute = (route: string): string => {
+  // Don't add /en prefix to API routes or absolute URLs
+  if (route.startsWith("http") || route.startsWith(API_BASE_URL)) {
+    return route;
+  }
+
+  const language = i18n.language;
   if (language === "en" && !route.startsWith("/en")) {
     return `/en${route}`;
   }
   return route;
 };
 
+// Type for route parameters
+type RouteParam = string | number;
+
+// Type for route functions with proper parameter handling
+type RouteFn = (...params: RouteParam[]) => string;
+
+// Create a wrapper for route functions to automatically localize them
+const createLocalizedRouteFn = (fn: RouteFn): RouteFn => {
+  return (...params: RouteParam[]) => {
+    const route = fn(...params);
+    return getLocalizedRoute(route);
+  };
+};
+
+// Create a proxy to automatically localize all routes
+const createLocalizedRoutes = <T extends Record<string, unknown>>(
+  routes: T
+): T => {
+  return new Proxy(routes, {
+    get: (target: T, prop: string | symbol): unknown => {
+      const value = Reflect.get(target, prop);
+      if (typeof value === "function") {
+        return createLocalizedRouteFn(value as RouteFn);
+      }
+      if (typeof value === "string") {
+        return getLocalizedRoute(value);
+      }
+      if (typeof value === "object" && value !== null) {
+        return createLocalizedRoutes(value as Record<string, unknown>);
+      }
+      return value;
+    },
+  }) as T;
+};
+
 // Frontend routes (these would be handled by your frontend routing system)
-export const appRoutes = {
+const baseAppRoutes = {
   // Main pages
   root: "/",
   services: "/servicos",
@@ -22,22 +66,22 @@ export const appRoutes = {
 
   // Listings
   buy: "/comprar",
-  listing: slug => `/comprar/${slug}`,
+  listing: (slug: string): string => `/comprar/${slug}`,
   sell: "/vender",
 
   // Listing complexes
   listingComplexes: "/empreendimentos",
-  listingComplex: slug => `/empreendimentos/${slug}`,
+  listingComplex: (slug: string): string => `/empreendimentos/${slug}`,
 
   // Blog
   blog: "/blog",
-  blogPost: slug => `/blog/${slug}`,
+  blogPost: (slug: string): string => `/blog/${slug}`,
 
   // Club SGG
   club: "/clube-sgg",
   clubRules: "/clube-sgg/regulamento",
   clubStories: "/clube-sgg/historias",
-  clubStory: slug => `/clube-sgg/historias/${slug}`,
+  clubStory: (slug: string): string => `/clube-sgg/historias/${slug}`,
 
   // Backoffice
   backoffice: {
@@ -47,45 +91,58 @@ export const appRoutes = {
     // Variables
     variables: "/backoffice/variables",
     newVariable: "/backoffice/variables/new",
-    editVariable: id => `/backoffice/variables/${id}/edit`,
+    editVariable: (id: string | number): string =>
+      `/backoffice/variables/${id}/edit`,
 
     // Blog posts
     blogPosts: "/backoffice/blog_posts",
     newBlogPost: "/backoffice/blog_posts/new",
-    editBlogPost: id => `/backoffice/blog_posts/${id}/edit`,
-    showBlogPost: id => `/backoffice/blog_posts/${id}`,
+    editBlogPost: (id: string | number): string =>
+      `/backoffice/blog_posts/${id}/edit`,
+    showBlogPost: (id: string | number): string =>
+      `/backoffice/blog_posts/${id}`,
 
     // Club stories
     clubStories: "/backoffice/club_stories",
     newClubStory: "/backoffice/club_stories/new",
-    editClubStory: id => `/backoffice/club_stories/${id}/edit`,
-    showClubStory: id => `/backoffice/club_stories/${id}`,
+    editClubStory: (id: string | number): string =>
+      `/backoffice/club_stories/${id}/edit`,
+    showClubStory: (id: string | number): string =>
+      `/backoffice/club_stories/${id}`,
 
     // Listings
     listings: "/backoffice/listings",
     newListing: "/backoffice/listings/new",
-    editListing: id => `/backoffice/listings/${id}/edit`,
-    updateDetailsListing: id => `/backoffice/listings/${id}/update_details`,
-    recoverListing: id => `/backoffice/listings/${id}/recover`,
+    editListing: (id: string | number): string =>
+      `/backoffice/listings/${id}/edit`,
+    updateDetailsListing: (id: string | number): string =>
+      `/backoffice/listings/${id}/update_details`,
+    recoverListing: (id: string | number): string =>
+      `/backoffice/listings/${id}/recover`,
     updateAllListings: "/backoffice/listings/update_all",
 
     // Listing complexes
     listingComplexes: "/backoffice/listing_complexes",
     newListingComplex: "/backoffice/listing_complexes/new",
-    editListingComplex: id => `/backoffice/listing_complexes/${id}/edit`,
-    showListingComplex: id => `/backoffice/listing_complexes/${id}`,
-    updateDetailsListingComplex: id =>
+    editListingComplex: (id: string | number): string =>
+      `/backoffice/listing_complexes/${id}/edit`,
+    showListingComplex: (id: string | number): string =>
+      `/backoffice/listing_complexes/${id}`,
+    updateDetailsListingComplex: (id: string | number): string =>
       `/backoffice/listing_complexes/${id}/update_details`,
-    photosListingComplex: id => `/backoffice/listing_complexes/${id}/photos`,
-    deletePhotoListingComplex: id =>
+    photosListingComplex: (id: string | number): string =>
+      `/backoffice/listing_complexes/${id}/photos`,
+    deletePhotoListingComplex: (id: string | number): string =>
       `/backoffice/listing_complexes/${id}/delete_photo`,
     fetchListingComplex: "/backoffice/listing_complexes/fetch",
 
     // Testimonials
     testimonials: "/backoffice/testimonials",
     newTestimonial: "/backoffice/testimonials/new",
-    editTestimonial: id => `/backoffice/testimonials/${id}/edit`,
-    showTestimonial: id => `/backoffice/testimonials/${id}`,
+    editTestimonial: (id: string | number): string =>
+      `/backoffice/testimonials/${id}/edit`,
+    showTestimonial: (id: string | number): string =>
+      `/backoffice/testimonials/${id}`,
   },
 
   // Authentication
@@ -94,8 +151,13 @@ export const appRoutes = {
   adminSignOut: "/admins/sign_out",
   adminEditAccount: "/admins/edit",
 
+  // Auth routes
+  auth: {
+    login: "/backoffice/login",
+  },
+
   // Newsletter
-  confirmNewsletter: (id, token) =>
+  confirmNewsletter: (id: string | number, token: string): string =>
     `/newsletter_subscriptions/${id}/confirm?token=${token}`,
 
   // Misc
@@ -108,8 +170,10 @@ export const appRoutes = {
   sitemap: "/sitemap",
 };
 
+export const appRoutes = createLocalizedRoutes(baseAppRoutes);
+
 // API routes
-export const apiRoutes = {
+const baseApiRoutes = {
   // Authentication
   auth: `${API_BASE_URL}/auth/login`,
 
@@ -131,22 +195,23 @@ export const apiRoutes = {
 
   // Listings
   listings: `${API_BASE_URL}/listings`,
-  listing: slug => `${API_BASE_URL}/listings/${slug}`,
+  listing: (slug: string): string => `${API_BASE_URL}/listings/${slug}`,
 
   // Listing complexes
   listingComplexes: `${API_BASE_URL}/listing_complexes`,
-  listingComplex: slug => `${API_BASE_URL}/listing_complexes/${slug}`,
+  listingComplex: (slug: string): string =>
+    `${API_BASE_URL}/listing_complexes/${slug}`,
 
   // Blog
   blogPosts: `${API_BASE_URL}/blog_posts`,
-  blogPost: slug => `${API_BASE_URL}/blog_posts/${slug}`,
+  blogPost: (slug: string): string => `${API_BASE_URL}/blog_posts/${slug}`,
 
   // Club
   club: `${API_BASE_URL}/club`,
   clubJoin: `${API_BASE_URL}/club/join`,
   clubRules: `${API_BASE_URL}/club/rules`,
   clubStories: `${API_BASE_URL}/club_stories`,
-  clubStory: slug => `${API_BASE_URL}/club_stories/${slug}`,
+  clubStory: (slug: string): string => `${API_BASE_URL}/club_stories/${slug}`,
 
   // Testimonials
   testimonials: `${API_BASE_URL}/testimonials`,
@@ -156,68 +221,72 @@ export const apiRoutes = {
 
   // Newsletter
   newsletterSubscriptions: `${API_BASE_URL}/newsletter_subscriptions`,
-  newsletterSubscription: id =>
+  newsletterSubscription: (id: string | number): string =>
     `${API_BASE_URL}/newsletter_subscriptions/${id}`,
-  confirmNewsletterSubscription: (id, token) =>
+  confirmNewsletterSubscription: (id: string | number, token: string): string =>
     `${API_BASE_URL}/newsletter_subscriptions/${id}/confirm?token=${token}`,
 
   // Admin API endpoints
   admin: {
     // Blog posts
     blogPosts: `${API_BASE_URL}/admin/blog_posts`,
-    blogPost: id => `${API_BASE_URL}/admin/blog_posts/${id}`,
+    blogPost: (id: string | number): string =>
+      `${API_BASE_URL}/admin/blog_posts/${id}`,
 
     // Club stories
     clubStories: `${API_BASE_URL}/admin/club_stories`,
-    clubStory: id => `${API_BASE_URL}/admin/club_stories/${id}`,
+    clubStory: (id: string | number): string =>
+      `${API_BASE_URL}/admin/club_stories/${id}`,
 
     // Listing complexes
     listingComplexes: `${API_BASE_URL}/admin/listing_complexes`,
-    listingComplex: id => `${API_BASE_URL}/admin/listing_complexes/${id}`,
-    updateDetailsListingComplex: id =>
+    listingComplex: (id: string | number): string =>
+      `${API_BASE_URL}/admin/listing_complexes/${id}`,
+    updateDetailsListingComplex: (id: string | number): string =>
       `${API_BASE_URL}/admin/listing_complexes/${id}/update_details`,
-    photosListingComplex: id =>
+    photosListingComplex: (id: string | number): string =>
       `${API_BASE_URL}/admin/listing_complexes/${id}/photos`,
-    deletePhotoListingComplex: id =>
+    deletePhotoListingComplex: (id: string | number): string =>
       `${API_BASE_URL}/admin/listing_complexes/${id}/delete_photo`,
     fetchListingComplex: `${API_BASE_URL}/admin/listing_complexes/fetch`,
 
     // Listings
     listings: `${API_BASE_URL}/admin/listings`,
-    listing: id => `${API_BASE_URL}/admin/listings/${id}`,
-    updateDetailsListing: id =>
+    listing: (id: string | number): string =>
+      `${API_BASE_URL}/admin/listings/${id}`,
+    updateDetailsListing: (id: string | number): string =>
       `${API_BASE_URL}/admin/listings/${id}/update_details`,
-    recoverListing: id => `${API_BASE_URL}/admin/listings/${id}/recover`,
+    recoverListing: (id: string | number): string =>
+      `${API_BASE_URL}/admin/listings/${id}/recover`,
     updateAllListings: `${API_BASE_URL}/admin/listings/update_all`,
 
     // Testimonials
     testimonials: `${API_BASE_URL}/admin/testimonials`,
-    testimonial: id => `${API_BASE_URL}/admin/testimonials/${id}`,
+    testimonial: (id: string | number): string =>
+      `${API_BASE_URL}/admin/testimonials/${id}`,
 
     // Variables
     variables: `${API_BASE_URL}/admin/variables`,
-    variable: id => `${API_BASE_URL}/admin/variables/${id}`,
+    variable: (id: string | number): string =>
+      `${API_BASE_URL}/admin/variables/${id}`,
 
     // Photos
     blogPhotos: `${API_BASE_URL}/admin/blog_photos`,
-    blogPhoto: id => `${API_BASE_URL}/admin/blog_photos/${id}`,
+    blogPhoto: (id: string | number): string =>
+      `${API_BASE_URL}/admin/blog_photos/${id}`,
     photos: `${API_BASE_URL}/admin/photos`,
-    photo: id => `${API_BASE_URL}/admin/photos/${id}`,
+    photo: (id: string | number): string =>
+      `${API_BASE_URL}/admin/photos/${id}`,
     clubStoryPhotos: `${API_BASE_URL}/admin/club_story_photos`,
-    clubStoryPhoto: id => `${API_BASE_URL}/admin/club_story_photos/${id}`,
+    clubStoryPhoto: (id: string | number): string =>
+      `${API_BASE_URL}/admin/club_story_photos/${id}`,
   },
 };
 
-// Helper function to replicate the sanitizeURLWithParams functionality
-export const sanitizeURLWithParams = (routeFn, ...params) => {
-  if (typeof routeFn === "function") {
-    return routeFn(...params);
-  }
-  return routeFn;
-};
+export const apiRoutes = baseApiRoutes; // Don't localize API routes
 
 // For backward compatibility with window.Routes
-export const Routes = {
+export const Routes = createLocalizedRoutes({
   // Main routes
   root_path: appRoutes.root,
   services_path: appRoutes.services,
@@ -302,6 +371,11 @@ export const Routes = {
   destroy_admin_session_path: appRoutes.adminSignOut,
   edit_admin_registration_path: appRoutes.adminEditAccount,
 
+  // Auth routes
+  auth: {
+    login: appRoutes.auth.login,
+  },
+
   // Newsletter
   confirm_newsletter_subscription_path: appRoutes.confirmNewsletter,
 
@@ -313,6 +387,6 @@ export const Routes = {
 
   // Sitemap
   sitemap_path: appRoutes.sitemap,
-};
+});
 
 export default Routes;
