@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
       # Authentication
       post '/auth/login', to: 'auth#login'
+      post '/toggle_dark_mode', to: 'base#toggle_dark_mode'
 
       # Admin API endpoints
       namespace :admin do

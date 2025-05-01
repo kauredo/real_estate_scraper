@@ -1,21 +1,14 @@
 # frozen_string_literal: true
 
 module Api
-  class BaseController < ActionController::API
+  class BaseController < ApplicationController
     include ActionController::MimeResponds
-    include ActionController::Cookies
     include ApiErrorHandler
     include ApiPagination
 
     before_action :set_locale
 
-    private
-
-    def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
-    end
-
-    attr_reader :current_admin
+    protected
 
     def authenticate_admin!
       header = request.headers['Authorization']
@@ -28,6 +21,14 @@ module Api
       rescue JWT::DecodeError, ActiveRecord::RecordNotFound
         render json: { error: 'Invalid token' }, status: :unauthorized
       end
+    end
+
+    private
+
+    attr_reader :current_admin
+
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
     end
 
     def default_url_options

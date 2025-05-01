@@ -3,13 +3,6 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
 
-  before_action :set_locale
-
-  def toggle_dark_mode
-    session[:dark_mode] = !session[:dark_mode]
-    render json: { dark_mode: session[:dark_mode] }
-  end
-
   private
 
   def set_locale
