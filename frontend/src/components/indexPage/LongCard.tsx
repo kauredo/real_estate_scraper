@@ -5,6 +5,7 @@ import { truncateText, sanitizeURLWithParams } from "../../utils/functions";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
 import Routes from "../../utils/routes";
+import { adminDeleteListing } from "../../services/api";
 
 interface Props {
   listing: Listing;
@@ -25,7 +26,7 @@ export default function LongCard(props: Props) {
     const confirmDelete = confirm("De certeza que queres apagar o imóvel?");
     if (!confirmDelete) return;
 
-    fetch(sanitizeURLWithParams(Routes.backoffice_listing_path, slugOrId), {
+    fetch(adminDeleteListing(slugOrId), {
       method: "DELETE",
       headers: {
         "X-CSRF-Token": token,
@@ -114,7 +115,7 @@ export default function LongCard(props: Props) {
                 Routes.edit_backoffice_listing_path,
                 slugOrId
               )
-            : sanitizeURLWithParams(Routes.listing_path, slugOrId)
+            : Routes.listing_path(slugOrId)
         }
         onClick={e => small && e.preventDefault()}
       >

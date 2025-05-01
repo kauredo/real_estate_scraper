@@ -74,8 +74,9 @@ export default function Show(props: Props) {
           <Carousel
             items={photos || []}
             className="main-slider"
-            showCounter
-            infinite={photos?.length > 1}
+            autoplay
+            showCounter={false}
+            infinite={false}
           />
         </div>
 

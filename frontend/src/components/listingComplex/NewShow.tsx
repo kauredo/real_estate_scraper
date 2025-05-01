@@ -15,7 +15,7 @@ export default function NewShow(props: Props) {
   const { t, i18n } = useTranslation();
   const { complex } = props;
 
-  const removePricesFromText = text => {
+  const removePricesFromText = (text: string) => {
     if (text && complex.listing_prices && complex.listing_prices[1]) {
       return text
         .split("\r\n")
