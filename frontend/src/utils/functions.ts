@@ -141,9 +141,10 @@ export const gsubMeterSquare = string => {
   return string.replace("m2", "m²");
 };
 
-export const isDarkModeActive = () => {
-  return document.getElementById("sgg")?.classList.contains("dark") ?? false;
-};
+export function isDarkModeActive(): boolean {
+  const darkMode = localStorage.getItem("darkMode");
+  return darkMode === "true";
+}
 
 export const scrollToSection = (
   e: React.MouseEvent<HTMLAnchorElement>,

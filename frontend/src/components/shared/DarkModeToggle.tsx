@@ -1,48 +1,49 @@
-import React, { useState } from "react";
-import { isDarkModeActive, sanitizeURL } from "../../utils/functions";
+import { useState, useEffect } from "react";
+import { isDarkModeActive } from "../../utils/functions";
 import Toggle from "../base/Toggle";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import Routes from "../../utils/routes";
 
 export default function DarkModeToggle() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [isDarkMode, setIsDarkMode] = useState(isDarkModeActive());
 
+  useEffect(() => {
+    // Apply dark mode on initial load
+    if (isDarkMode) {
+      document.getElementById("root")?.classList.add("dark");
+    } else {
+      document.getElementById("root")?.classList.remove("dark");
+    }
+  }, []);
+
   const toggleDarkMode = () => {
-    const url = Routes.toggle_dark_mode_path;
-    fetch(url, {
+    const newDarkMode = !isDarkMode;
+    localStorage.setItem("darkMode", String(newDarkMode));
+
+    // Update UI
+    document.getElementById("root")?.classList.toggle("dark");
+    const navImg = document.getElementById("nav-logo")?.getAttribute("src");
+    if (navImg) {
+      const imgs = document.querySelectorAll(`img[src="${navImg}"]`);
+      const newImg = navImg.includes("white")
+        ? navImg.replace("main_white", "main")
+        : navImg.replace("main", "main_white");
+      imgs.forEach(img => img.setAttribute("src", newImg));
+    }
+
+    setIsDarkMode(newDarkMode);
+
+    // Sync with backend
+    fetch(`${import.meta.env.VITE_API_URL}/toggle_dark_mode`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":
-          document
-            .querySelector('meta[name="csrf-token"]')
-            ?.getAttribute("content") ?? "",
       },
-    })
-      .then(response => {
-        if (response.redirected) {
-          document.getElementById("sgg")?.classList.toggle("dark");
-          const navImg = document
-            .getElementById("nav-logo")
-            ?.getAttribute("src");
-          if (navImg) {
-            const imgs = document.querySelectorAll(`img[src="${navImg}"]`);
-            const newImg = navImg.includes("white")
-              ? navImg.replace("main_white", "main")
-              : navImg.replace("main", "main_white");
-            // search elements by src attribute as navImg
-            // is a relative path and may change
-            imgs.forEach(img => img.setAttribute("src", newImg));
-          }
-
-          setIsDarkMode(!isDarkMode);
-        }
-      })
-      .catch(error => console.error("Error:", error));
+    }).catch(error => console.error("Error syncing dark mode:", error));
   };
 
   return (
