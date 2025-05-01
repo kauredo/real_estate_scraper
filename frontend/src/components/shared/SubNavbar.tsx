@@ -20,7 +20,7 @@ export default function SubNavbar({ items }: Props) {
         {/* Scrollable container */}
         <div className="flex items-center justify-start md:justify-center space-x-8 overflow-x-auto scrollbar-hide py-2">
           {items.map(item => {
-            const itemPath = sanitizeURL(Routes[item.routeName]);
+            const itemPath = Routes[item.routeName];
             const isActive = currentPath === itemPath;
 
             return (

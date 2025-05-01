@@ -4,7 +4,7 @@ module Api
   module V1
     class AuthController < Api::V1::BaseController
       def login
-        admin = Admin.find_by(email: params[:email])
+        admin = ::Admin.find_by(email: params[:email])
 
         if admin&.valid_password?(params[:password])
           token = JsonWebToken.encode(admin_id: admin.id)

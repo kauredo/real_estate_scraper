@@ -103,7 +103,7 @@ export default function ListingSearch(props: Props) {
   return (
     <div className="container mx-auto sm:px-6 px-4">
       <h2 className="text-xl mb-4 mt-8 md:mt-2">{t("listing.search.title")}</h2>
-      <form action={sanitizeURL(Routes.buy_path)} onSubmit={handleSubmit}>
+      <form action={Routes.buy_path} onSubmit={handleSubmit}>
         <ObjectiveTabs
           objective={objective}
           objectives={objectives}
@@ -219,7 +219,7 @@ export default function ListingSearch(props: Props) {
             {t("listing.search.submit")}
           </button>
           <a
-            href={sanitizeURL(Routes.buy_path)}
+            href={Routes.buy_path}
             className="text-beige-default dark:text-beige-medium font-bold underline sm:ml-2 mt-2 sm:mt-0 w-full md:w-[23%]"
           >
             {t("listing.reset_filters")}

@@ -1,11 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
-import {
-  changeLocale,
-  isDarkModeActive,
-  sanitizeURL,
-} from "../../utils/functions";
+import { changeLocale, isDarkModeActive } from "../../utils/functions";
 import { NavbarItemProps, SubNavItem } from "../../utils/interfaces";
 import Socials from "../shared/Socials";
 import DarkModeToggle from "../shared/DarkModeToggle";
@@ -33,17 +29,17 @@ export default function Navbar(props: Props) {
   //     {
   //       title: `${t("navbar.about")}`,
   //       turbo: "true",
-  //       url: sanitizeURL(Routes.about_path),
+  //       url: Routes.about_path,
   //     },
   //     {
   //       title: `${t("navbar.services")}`,
   //       turbo: "true",
-  //       url: sanitizeURL(Routes.services_path),
+  //       url: Routes.services_path,
   //     },
   //     {
   //       title: `${t("navbar.contacts")}`,
   //       turbo: "true",
-  //       url: sanitizeURL(Routes.contact_path),
+  //       url: Routes.contact_path,
   //     },
   //   ],
   // };
@@ -52,47 +48,47 @@ export default function Navbar(props: Props) {
     {
       title: `${t("navbar.buy")}`,
       turbo: "true",
-      url: sanitizeURL(Routes.buy_path),
+      url: Routes.buy_path,
     },
     {
       title: `${t("navbar.sell")}`,
       turbo: "true",
-      url: sanitizeURL(Routes.sell_path),
+      url: Routes.sell_path,
     },
     {
       title: `${t("navbar.enterprises")}`,
       turbo: "true",
-      url: sanitizeURL(Routes.listing_complexes_path),
+      url: Routes.listing_complexes_path,
     },
     {
       title: `${t("navbar.club")}`,
-      url: sanitizeURL(Routes.club_path),
+      url: Routes.club_path,
       turbo: "true",
     },
     {
       title: `${t("navbar.blog_posts")}`,
       turbo: "true",
-      url: sanitizeURL(Routes.blog_path),
+      url: Routes.blog_path,
     },
     {
       title: `${t("navbar.about")}`,
       turbo: "true",
-      url: sanitizeURL(Routes.about_path),
+      url: Routes.about_path,
     },
     {
       title: `${t("navbar.services")}`,
       turbo: "true",
-      url: sanitizeURL(Routes.services_path),
+      url: Routes.services_path,
     },
     {
       title: `${t("navbar.contacts")}`,
       turbo: "true",
-      url: sanitizeURL(Routes.contact_path),
+      url: Routes.contact_path,
     },
     {
       title: `${t("navbar.faq")}`,
       turbo: "true",
-      url: sanitizeURL(Routes.faq_path),
+      url: Routes.faq_path,
     },
   ];
 
@@ -120,10 +116,6 @@ export default function Navbar(props: Props) {
     {
       routeName: "backoffice_club_stories_path",
       title: t("navbar.club_stories"),
-    },
-    {
-      routeName: "backoffice_flipper_path",
-      title: t("navbar.flipper"),
     },
   ];
 
@@ -173,21 +165,21 @@ export default function Navbar(props: Props) {
     if (!backoffice) {
       rightItems[0].items.unshift({
         title: "Backoffice",
-        url: sanitizeURL(Routes.backoffice_path),
+        url: Routes.backoffice_path,
         turbo: "true",
       });
     }
 
     rightItems[0].items.push({
       title: "Log out",
-      url: sanitizeURL(Routes.destroy_admin_session_path),
+      url: Routes.destroy_admin_session_path,
       method: "delete",
       turbo: "false",
     });
   }
 
-  const ctaBtn = sanitizeURL(Routes.sell_path) !== window.location.pathname && (
-    <a href={sanitizeURL(Routes.sell_path)} data-turbo={false}>
+  const ctaBtn = Routes.sell_path !== window.location.pathname && (
+    <a href={Routes.sell_path} data-turbo={false}>
       <div className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark mr-4">
         <p>{t("home.cta.long")}</p>
       </div>
@@ -202,7 +194,7 @@ export default function Navbar(props: Props) {
             <div className="flex items-center justify-between min-h-[4rem]">
               <div className="flex items-center">
                 <div className="flex-shrink-0 relative">
-                  <a data-turbo="true" href={sanitizeURL(Routes.root_path)}>
+                  <a data-turbo="true" href={Routes.root_path}>
                     <img
                       loading="lazy"
                       className="w-[6rem] relative z-10"

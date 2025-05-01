@@ -7,7 +7,7 @@ import SubNavbar from "../shared/SubNavbar";
 import { clubSections } from "../../utils/constants/clubSections";
 import ClubHeader from "./ClubHeader";
 import IconDecorationWrapper from "../shared/IconDecorationWrapper";
-// import ClubJoinForm from "./ClubJoinForm";
+import ClubJoinForm from "./ClubJoinForm";
 import Routes from "../../utils/routes";
 import togetherImage from "../../assets/images/together.webp";
 
