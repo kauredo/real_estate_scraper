@@ -34,7 +34,10 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-dark text-black dark:text-light">
-      <Navbar admin={isAuthenticated} backoffice={isBackoffice} />
+      <Navbar
+        admin={isAuthenticated}
+        backoffice={isAuthenticated && isBackoffice}
+      />
       <div className="flex-auto">
         <Routes>
           {/* Auth Routes */}

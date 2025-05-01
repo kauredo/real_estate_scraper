@@ -21,6 +21,11 @@ module Api
           render json: { error: 'Invalid email or password' }, status: :unauthorized
         end
       end
+
+      def logout
+        # Clear any session data or invalidate token if needed
+        render json: { message: 'Logged out successfully' }, status: :ok
+      end
     end
   end
 end
