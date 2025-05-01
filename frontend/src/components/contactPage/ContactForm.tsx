@@ -60,7 +60,7 @@ export default function ContactForm(props: Props) {
       <form
         ref={form}
         onSubmit={e => validateUser(e)}
-        action={Routes.new_contact_path()}
+        action={Routes.contact_path}
         method="post"
       >
         <div className="mb-6">

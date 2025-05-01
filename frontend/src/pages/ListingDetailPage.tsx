@@ -1,4 +1,3 @@
-// src/pages/ListingDetailPage.jsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getListing } from "../services/api";
