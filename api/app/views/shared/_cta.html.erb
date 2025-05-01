@@ -1,0 +1,15 @@
+<% unless current_page? sell_path %>
+  <% if current_page?(services_path) || current_page?(about_path) %>
+    <%= link_to contact_path, data: { "turbolinks": false } do %>
+      <div style="z-index: 99" class="hidden tablet:block shadow-md fixed bottom-5 right-5 bg-beige-default dark:bg-beige-medium border-white dark:border-dark border-2 text-white dark:text-dark text-lg px-6 py-3 rounded hover:bg-white dark:hover:bg-dark hover:text-beige-default dark:hover:text-beige-medium hover:border-beige-default dark:hover:border-beige-medium">
+        <p><%= I18n.t('home.cta.contact') %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to sell_path, data: { "turbolinks": false } do %>
+      <div style="z-index: 99" class="hidden tablet:block shadow-md fixed bottom-5 right-5 bg-beige-default dark:bg-beige-medium border-white dark:border-dark border-2 text-white dark:text-dark text-lg px-6 py-3 rounded hover:bg-white dark:hover:bg-dark hover:text-beige-default dark:hover:text-beige-medium hover:border-beige-default dark:hover:border-beige-medium">
+        <p><%= I18n.t('home.cta.long') %></p>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

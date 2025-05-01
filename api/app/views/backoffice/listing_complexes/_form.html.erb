@@ -1,0 +1,123 @@
+<div class="bg-blue-100 dark:bg-beige-medium p-4 rounded mb-4">
+  <p><strong>Nota:</strong></p>
+  <hr class="my-2">
+  <p class="max-w-none">O campo <strong>New format</strong> altera a visualização do empreendimento.</p>
+  <p class="max-w-none">Se o empreendimento <strong>tiver</strong> os imóveis presentes no site, adicionar os imóveis e a lista aparecerá na página com esses detalhes.</p>
+  <p class="max-w-none">Se o empreendimento <strong>não tiver</strong> os imóveis presentes no site, adicionar os preços num dos campos de texto (description, subtext ou final text) com o seguinte formato (consoante a versão PT ou EN do site):</p>
+  <br>
+  <p><strong>Exemplo:</strong></p>
+  <p class="max-w-none text-center">
+    <code>
+      <span>Versão PT: </span><br>
+      Preço <strong>para um</strong> tipologia<br>
+      290 000€ para um Estúdio<br>
+      610 000€ para um apartamento T2<br>
+      <br>
+      <span>Versão EN: </span><br>
+      Preço <strong>for a</strong> tipologia<br>
+      290 000€ for a Studio<br>
+      610 000€ for a 2 bedroom apartment<br>
+    </code>
+  </p>
+</div>
+<div class="flex sm:items-center gap-2 mb-2 flex-wrap">
+  <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% if @listing_complex.url.present? %>
+    <%= link_to 'Atualizar informação - site KW', update_details_backoffice_listing_complex_path(@listing_complex), data: { "turbo-method": :post }, class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% end %>
+  <% if @listing_complex.persisted? %>
+    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% end %>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+  <%= f.label :url, class: 'sm:w-1/4 font-bold' %>
+  <%= f.text_field :url, class: 'shadow appearance-none bg-gray-200 dark:bg-beige-medium border dark:border-gray-600 rounded w-full py-2 px-3 text-gray-700 dark:text-light leading-tight focus:outline-none focus:shadow-outline' %>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+  <%= f.label :name, class: 'w-1/4 font-bold' %>
+  <%= f.text_field :name, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+  <%= f.label :new_format, class: 'w-1/4 font-bold' %>
+  <div class="w-full">
+    <%= f.check_box :new_format %>
+  </div>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+  <%= f.label :hidden, class: 'w-1/4 font-bold' %>
+  <div class="w-full">
+    <%= f.check_box :hidden %>
+  </div>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+  <%= f.label :video_link, class: 'w-1/4 font-bold' %>
+  <%= f.text_field :video_link, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+  <%= f.label :order, class: 'w-1/4 font-bold' %>
+  <%= f.text_field :order, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+  <%= f.label :description, class: 'w-1/4 font-bold' %>
+  <%= f.text_area :description, rows: 20, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+  <%= f.label :subtext, class: 'w-1/4 font-bold' %>
+  <%= f.text_area :subtext, rows: 20, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+</div>
+<div class="field mb-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+  <%= f.label :final_text, class: 'w-1/4 font-bold' %>
+  <%= f.text_area :final_text, rows: 20, class: 'shadow appearance-none bg-white dark:bg-light border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+</div>
+<div class="field mb-4 flex flex-col sm:items-center gap-2 sm:gap-4">
+  <%= f.label :photos, class: 'w-1/4 font-bold' %>
+  <%= f.fields_for :photos do |p| %>
+    <div class="field">
+      <%= p.label :image %><br>
+      <%= p.file_field :image, multiple: true, name: 'photos[image][]' %>
+    </div>
+  <% end %>
+  <% if @listing_complex.photos.present? %>
+    <div class="flex flex-wrap justify-between content-center">
+      <% @listing_complex.photos.each do |photo| %>
+        <div class="w-full sm:w-1/4 m-2">
+          <%= link_to '❌', photo_path(photo), method: :delete, data: { "turbo-method": :delete, confirm: 'Are you sure?' } %>
+          <%= cl_image_tag(photo.image)  %>
+          <%= fields_for 'photos[]', photo do |f| %>
+            <div class="flex gap-2">
+              <%= f.label :main_photo? %><br>
+              <%= f.check_box :main, value: photo.main %>
+            </div>
+            <div>
+              <%= f.label :order_on_page %><br>
+              <%= f.number_field :order, value: photo.order, class: 'shadow appearance-none bg-white dark:bg-light border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="field mb-4 flex flex-col sm:items-center gap-2 sm:gap-4">
+  <%= f.label :listings, class: 'w-1/4 font-bold' %>
+  <div class="mb-4">
+    <div class="flex flex-col sm:items-center gap-2 sm:gap-4 md:gap-6">
+      <% selected_listings = Listing.where(id: f.object.listing_ids) %>
+      <% unselected_listings = Listing.where.not(id: f.object.listing_ids) %>
+      <%= f.collection_check_boxes :listing_ids, selected_listings + unselected_listings, :id, :title, {}, { multiple: true, class: 'hidden' } do |listing| %>
+        <div class="flex sm:items-center">
+          <%= react_component 'indexPage--LongCard', { listing: listing.object, small: true } %>
+          <span class="w-fit d-none">
+            <%= listing.check_box %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="flex sm:items-center gap-2">
+  <%= f.submit (f.object.persisted? ? 'Atualizar' : 'Criar').to_s, class: 'cursor-pointer bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% if @listing_complex.persisted? %>
+    <%= link_to 'Ver Empreendimento', listing_complex_path(@listing_complex), class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <% end %>
+</div>

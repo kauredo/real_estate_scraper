@@ -1,0 +1,12 @@
+<div class="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg max-w-sm w-96 mb-5 mx-auto">
+  <%= link_to blog_post_path(blog_post) do %>
+    <img loading="lazy" class="w-full rounded-t-lg aspect-video object-cover" src="<%= blog_post.main_photo %>" alt="<%= blog_post.title %>">
+  <% end %>
+  <div class="p-5">
+    <%= link_to blog_post_path(blog_post) do %>
+      <h5 class="text-gray-900 dark:text-light font-bold text-2xl tracking-tight mb-2"><%= blog_post.title %></h5>
+    <% end %>
+    <p class="font-normal text-gray-700 dark:text-light mb-3 whitespace-pre-line"><%= blog_post.sample_text %></p>
+    <%= link_to 'Ler Mais', blog_post_path(blog_post), class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', data: { "turbo": false } %>
+  </div>
+</div>

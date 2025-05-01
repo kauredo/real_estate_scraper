@@ -1,0 +1,20 @@
+Novo Contacto Recebido
+
+Nome: <%= @name %>
+Email: <%= @email %>
+Telefone: <%= @phone %>
+
+<% if @listing %>
+Imóvel de Interesse:
+<%= @listing.title %>
+<%= listing_url(@listing, locale: '') %>
+<% end %>
+
+<% if @complex %>
+Empreendimento de Interesse:
+<%= @complex.name %>
+<%= listing_complex_url(@complex, locale: '') %>
+<% end %>
+
+Mensagem:
+<%= @message %>
