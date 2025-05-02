@@ -1,19 +1,77 @@
-# MAIN TASK
+# Real Estate Scraper: Rails API + React Frontend Migration
 
-The Task at hand is to convert a rails app into a rails api, and a react/vite frontend app
+## Project Overview
 
-## Achieved
+Converting a monolithic Rails application into a decoupled architecture with:
 
-- moved the api into /api
-- created a /frontend app
-- moved old controllers into /api/app/controllers/old, and created new api controllers
-- moved all react components from /app/javascript/components to /frontend/src/components
-- added api routes
-- added serializers
+- Rails API backend (/api)
+- React/Vite frontend (/frontend)
 
-## TODO
+## Completed Tasks
 
-- some .erb/.html.erb views need to be converted into react components in the frontend
-- backoffice views need to be implemented
-- login pages to access the backoffice views, otherwise cannot be accessed
-- check if need to add any api controllers for models. This must fully be CRUD. Add this to the frontend through api.ts and routes.ts
+- [x] Backend Migration
+
+  - Moved Rails application to /api directory
+  - Relocated old controllers to /api/app/controllers/old
+  - Created new API controllers with JSON responses
+  - Implemented API routes in config/routes.rb
+  - Added serializers for model JSON responses
+
+- [x] Frontend Setup
+  - Created new Vite/React frontend in /frontend
+  - Migrated React components from /app/javascript/components to /frontend/src/components
+
+## Current Tasks
+
+### Frontend Development
+
+1. View Migration
+
+   - Identify and list all .erb/.html.erb views that need conversion
+   - Convert existing ERB views to React components
+   - Ensure feature parity with original views
+
+2. Authentication & Authorization
+
+   - Implement login pages and authentication flow
+   - Set up protected routes for backoffice access
+   - Integrate with Rails API authentication endpoints
+
+3. Backoffice Implementation
+   - Design and implement backoffice dashboard
+   - Create CRUD interfaces for all administrative functions
+   - Add user management screens
+
+### API Development
+
+1. Controller Audit
+
+   - Review all models to ensure complete API coverage
+   - Implement missing CRUD controllers where needed
+   - Add necessary endpoints for backoffice operations
+
+2. Frontend Integration
+   - Create/update api.ts with all API endpoints
+   - Update routes.ts to match new API structure
+   - Implement proper error handling and loading states
+
+## Technical Requirements
+
+- All API endpoints must follow RESTful conventions
+- Frontend must use TypeScript
+- Implement proper authentication/authorization
+- Add comprehensive error handling
+- Ensure responsive design for all views
+
+## Testing Requirements
+
+- API endpoints need proper request specs
+- Frontend components should have unit tests
+- Add integration tests for critical user flows
+
+## Next Steps
+
+1. List all remaining .erb views that need conversion
+2. Map out required API endpoints for each feature
+3. Design authentication flow between frontend and API
+4. Create component hierarchy for backoffice views
