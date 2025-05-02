@@ -5,6 +5,14 @@ import { useMetaTags } from "../hooks/useMetaTags";
 import Banner from "../components/shared/Banner";
 import Pagination from "../components/shared/Pagination";
 import ListingComplexes from "../components/listingComplex/ListingComplexes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrophy,
+  faCalendarAlt,
+  faHardHat,
+  faMoneyBill,
+  faHouseUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 const ListingComplexesPage = () => {
   const { t } = useTranslation();
@@ -71,7 +79,7 @@ const ListingComplexesPage = () => {
                 <div>
                   <dt className="flex items-center">
                     <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <i className="fas fa-trophy" aria-hidden="true"></i>
+                      <FontAwesomeIcon icon={faTrophy} />
                     </div>
                     <p className="ml-4 text-lg font-bold font-medium text-dark dark:text-light  w-3/4">
                       {t("enterprises.list.own.title")}
@@ -84,7 +92,7 @@ const ListingComplexesPage = () => {
                 <div>
                   <dt className="flex items-center">
                     <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <i className="fas fa-calendar-alt" aria-hidden="true"></i>
+                      <FontAwesomeIcon icon={faCalendarAlt} />
                     </div>
                     <p className="ml-4 text-lg font-bold font-medium text-dark dark:text-light  w-3/4">
                       {t("enterprises.list.invest.title")}
@@ -97,7 +105,7 @@ const ListingComplexesPage = () => {
                 <div>
                   <dt className="flex items-center">
                     <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <i className="fas fa-hard-hat" aria-hidden="true"></i>
+                      <FontAwesomeIcon icon={faHardHat} />
                     </div>
                     <p className="ml-4 text-lg font-bold font-medium text-dark dark:text-light  w-3/4">
                       {t("enterprises.list.warranty.title")}
@@ -110,7 +118,7 @@ const ListingComplexesPage = () => {
                 <div>
                   <dt className="flex items-center">
                     <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <i className="fa fa-money" aria-hidden="true"></i>
+                      <FontAwesomeIcon icon={faMoneyBill} />
                     </div>
                     <p className="ml-4 text-lg font-bold font-medium text-dark dark:text-light  w-3/4">
                       {t("enterprises.list.perspective.title")}
@@ -123,7 +131,7 @@ const ListingComplexesPage = () => {
                 <div>
                   <dt className="flex items-center">
                     <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <i className="fas fa-house-user" aria-hidden="true"></i>
+                      <FontAwesomeIcon icon={faHouseUser} />
                     </div>
                     <p className="ml-4 text-lg font-bold font-medium text-dark dark:text-light  w-3/4">
                       {t("enterprises.list.yours.title")}

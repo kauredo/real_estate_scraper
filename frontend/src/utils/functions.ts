@@ -2,40 +2,12 @@ import { useTranslation } from "react-i18next";
 import { i18n as I18nType } from "i18next";
 import { translateRoute } from "./routes";
 
-export function lazyloadImages() {
-  var tablinks = document.getElementsByClassName("ajustedBackground");
-  for (let i = 0; i < tablinks.length; i++) {
-    var lazy = tablinks[i] as HTMLElement;
-    var src = lazy.dataset.src;
-
-    lazy.style.backgroundImage = 'url("' + src + '")';
-  }
-}
-
 export function truncateText(title: string, length: number): string {
   if (title && title.length > length) {
     return title.substring(0, length) + "...";
   } else {
     return title;
   }
-}
-
-export function getUrlParameter(sParam: string): string | boolean {
-  var sPageURL = window.location.search.substring(1),
-    sURLVariables = sPageURL.split("&"),
-    sParameterName,
-    i;
-
-  for (i = 0; i < sURLVariables.length; i++) {
-    sParameterName = sURLVariables[i].split("=");
-
-    if (sParameterName[0] === sParam) {
-      return sParameterName[1] === undefined
-        ? true
-        : decodeURIComponent(sParameterName[1]);
-    }
-  }
-  return false;
 }
 
 export function toCapitalize(str: string): string {
@@ -45,23 +17,6 @@ export function toCapitalize(str: string): string {
 
   return str;
 }
-
-export const sanitizeURL = (url: string): string => {
-  const { i18n } = useTranslation();
-  return i18n.language === "pt" ? url : `/${i18n.language}${url}`;
-};
-
-export const sanitizeURLWithParams = (url: string, params: string): string => {
-  const { i18n } = useTranslation();
-
-  if (params === undefined || params === null) {
-    return "#";
-  }
-
-  return i18n.language === "pt"
-    ? `/${url}?${params}`
-    : `/${i18n.language}/${url}?${params}`;
-};
 
 export const changeLocale = (i18n: I18nType) => {
   const newLanguage = i18n.language === "pt" ? "en" : "pt";
@@ -83,26 +38,6 @@ export const changeLocale = (i18n: I18nType) => {
   const newPath = `/${translatedSegments.join("/")}`;
   return newLanguage === "pt" ? newPath : `/en${newPath}${searchParams}`;
 };
-
-export function waitForElm(selector: string): Promise<Element | null> {
-  return new Promise(resolve => {
-    if (document.querySelector(selector)) {
-      return resolve(document.querySelector(selector));
-    }
-
-    const observer = new MutationObserver(() => {
-      if (document.querySelector(selector)) {
-        resolve(document.querySelector(selector));
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-  });
-}
 
 export const navbarItemClass = (
   path: string,

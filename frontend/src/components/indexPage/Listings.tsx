@@ -2,7 +2,6 @@ import React from "react";
 import { Listing } from "../../utils/interfaces";
 import LongCard from "./LongCard";
 import { useTranslation } from "react-i18next";
-import { sanitizeURL } from "../../utils/functions";
 import Routes from "../../utils/routes";
 
 interface Props {

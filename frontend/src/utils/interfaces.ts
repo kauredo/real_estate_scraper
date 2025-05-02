@@ -151,6 +151,7 @@ export interface BlogPost {
   id: number;
   title: string;
   slug: string;
+  slug_en: string;
   small_description: string;
   text: string;
   sanitized_text: string;

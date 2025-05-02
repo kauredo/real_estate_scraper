@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { BlogPost } from "../../utils/interfaces";
 
-const BlogCard = ({ blogPost }) => {
+const BlogCard = ({ blogPost }: { blogPost: BlogPost }) => {
   const { t, i18n } = useTranslation();
   const isEnglish = i18n.language === "en";
   const prefix = isEnglish ? "/en" : "";
@@ -32,7 +33,7 @@ const BlogCard = ({ blogPost }) => {
           className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           data-turbo="false"
         >
-          {t("blog_posts.read_more")}
+          {t("general.read_more")}
         </Link>
       </div>
     </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import { sanitizeURL } from "../../utils/functions";
 import { SubNavItem } from "../../utils/interfaces";
 import Routes from "../../utils/routes";
 

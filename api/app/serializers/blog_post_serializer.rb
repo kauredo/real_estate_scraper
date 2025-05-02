@@ -11,6 +11,7 @@ class BlogPostSerializer
       id: @blog_post.id,
       title: @blog_post.title,
       slug: @blog_post.slug,
+      slug_en: @blog_post.slug_en,
       small_description: @blog_post.small_description,
       text: @blog_post.text,
       sanitized_text: @blog_post.sanitized_text,
