@@ -43,15 +43,7 @@ const ListingComplexesPage = () => {
 
   return (
     <>
-      <Banner height="20vh" blurred={true} text={t("listing_complex.header")} />
-
-      <div className="pt-6 bg-white dark:bg-dark text-center md:hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
-          <h1 className="relative block md:hidden mt-2 text-3xl text-dark dark:text-light sm:text-4xl px-4">
-            {t("listing_complex.header")}
-          </h1>
-        </div>
-      </div>
+      <Banner height="20vh" blurred={true} text={t("enterprises.header")} />
 
       {loading ? (
         <div className="flex justify-center items-center py-8">

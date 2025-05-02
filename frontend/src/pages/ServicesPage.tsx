@@ -18,18 +18,6 @@ const ServicesPage = () => {
     <>
       <Banner height="20vh" blurred={true} text={t("services.header")} />
       <div className="container mx-auto mb-12 px-8">
-        {/* Header Section */}
-        <div className="pt-6 bg-white dark:bg-dark text-center md:hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
-            <h1
-              id="main-title"
-              className="relative block md:hidden mt-2 text-3xl text-dark dark:text-light sm:text-4xl px-4"
-            >
-              {t("services.header")}
-            </h1>
-          </div>
-        </div>
-
         {/* Introduction Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
           <p className="mx-auto tablet:text-center mt-2 text-xl text-dark dark:text-light sm:text-2xl">

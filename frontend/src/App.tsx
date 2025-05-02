@@ -8,6 +8,7 @@ import Footer from "./components/layout/Footer";
 import HomePage from "./pages/HomePage";
 import ListingsPage from "./pages/ListingsPage";
 import ListingDetailPage from "./pages/ListingDetailPage";
+import ListingsSellPage from "./pages/ListingsSellPage";
 import BlogPostsPage from "./pages/BlogPostsPage";
 import BlogPostDetailPage from "./pages/BlogPostDetailPage";
 import LoginPage from "./pages/Auth/LoginPage";
@@ -73,7 +74,7 @@ function AppContent() {
           <Route path="/" element={<HomePage />} />
           <Route path="/comprar" element={<ListingsPage />} />
           <Route path="/comprar/:slug" element={<ListingDetailPage />} />
-          {/* <Route path="/vender" element={<ListingsPage sellPage />} /> */}
+          <Route path="/vender" element={<ListingsSellPage />} />
           <Route path="/empreendimentos" element={<ListingComplexesPage />} />
           <Route
             path="/empreendimentos/:slug"
@@ -102,7 +103,7 @@ function AppContent() {
           <Route path="/en" element={<HomePage />} />
           <Route path="/en/buy" element={<ListingsPage />} />
           <Route path="/en/buy/:slug" element={<ListingDetailPage />} />
-          {/* <Route path="/en/sell" element={<ListingsPage sellPage />} /> */}
+          <Route path="/en/sell" element={<ListingsSellPage />} />
           <Route path="/en/enterprises" element={<ListingComplexesPage />} />
           <Route
             path="/en/enterprises/:slug"

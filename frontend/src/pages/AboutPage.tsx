@@ -77,17 +77,6 @@ const AboutPage = () => {
     <>
       <Banner height="20vh" blurred={true} text={t("about.header")} />
       <section className="container mx-auto mt-6 mb-12 px-8">
-        <div className="pt-6 bg-white dark:bg-dark text-center md:hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
-            <h1
-              id="main-title"
-              className="relative block md:hidden mt-2 text-3xl text-dark dark:text-light sm:text-4xl px-4"
-            >
-              {t("about.header")}
-            </h1>
-          </div>
-        </div>
-
         <Profile />
 
         <div className="py-8 md:pb-0 md:pt-4 bg-white dark:bg-dark">
