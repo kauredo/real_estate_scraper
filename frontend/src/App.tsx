@@ -19,8 +19,8 @@ import FaqPage from "./pages/FaqPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 // import ClubPage from "./pages/ClubPage";
-// import ListingComplexesPage from "./pages/ListingComplexesPage";
-// import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
+import ListingComplexesPage from "./pages/ListingComplexesPage";
+import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -57,7 +57,10 @@ function AppContent() {
               <ProtectedRoute>
                 <Routes>
                   <Route path="listings" element={<ListingsPage />} />
-                  {/* <Route path="listing-complexes" element={<ListingComplexesPage />} /> */}
+                  <Route
+                    path="listing-complexes"
+                    element={<ListingComplexesPage />}
+                  />
                 </Routes>
               </ProtectedRoute>
             }
@@ -68,8 +71,11 @@ function AppContent() {
           <Route path="/comprar" element={<ListingsPage />} />
           <Route path="/comprar/:slug" element={<ListingDetailPage />} />
           {/* <Route path="/vender" element={<ListingsPage sellPage />} /> */}
-          {/* <Route path="/empreendimentos" element={<ListingComplexesPage />} /> */}
-          {/* <Route path="/empreendimentos/:slug" element={<ListingComplexDetailPage />} /> */}
+          <Route path="/empreendimentos" element={<ListingComplexesPage />} />
+          <Route
+            path="/empreendimentos/:slug"
+            element={<ListingComplexDetailPage />}
+          />
           {/* <Route path="/club" element={<ClubPage />} /> */}
           <Route path="/blog" element={<BlogPostsPage />} />
           <Route path="/blog/:slug" element={<BlogPostDetailPage />} />
@@ -88,8 +94,11 @@ function AppContent() {
           <Route path="/en/buy" element={<ListingsPage />} />
           <Route path="/en/buy/:slug" element={<ListingDetailPage />} />
           {/* <Route path="/en/sell" element={<ListingsPage sellPage />} /> */}
-          {/* <Route path="/en/enterprises" element={<ListingComplexesPage />} /> */}
-          {/* <Route path="/en/enterprises/:slug" element={<ListingComplexDetailPage />} /> */}
+          <Route path="/en/enterprises" element={<ListingComplexesPage />} />
+          <Route
+            path="/en/enterprises/:slug"
+            element={<ListingComplexDetailPage />}
+          />
           {/* <Route path="/en/club" element={<ClubPage />} /> */}
           <Route path="/en/blog" element={<BlogPostsPage />} />
           <Route path="/en/blog/:slug" element={<BlogPostDetailPage />} />

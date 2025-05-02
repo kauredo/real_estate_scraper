@@ -31,11 +31,17 @@ export interface ListingComplex {
   description: string;
   subtext: string;
   final_text: string;
+  location: string;
+  price_from: number;
+  features: string[];
   listings: Listing[];
   main_photo: Photo;
   photos: Photo[];
+  thumbnail_url: string;
+  banner_image_url?: string;
   slug: string;
   listing_prices?: [string, [string[]]];
+  new_format: boolean;
 }
 
 export interface Listing {

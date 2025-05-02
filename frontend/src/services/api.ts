@@ -143,12 +143,6 @@ export const adminRecoverListing = id =>
 export const adminUpdateAllListings = () =>
   api.post(apiRoutes.admin.updateAllListings);
 
-// Listing complexes API functions
-export const getListingComplexes = params =>
-  api.get(apiRoutes.listingComplexes, { params });
-export const getListingComplex = slug =>
-  api.get(apiRoutes.listingComplex(slug));
-
 // Admin - Listing complexes API functions
 export const adminGetListingComplexes = () =>
   api.get(apiRoutes.admin.listingComplexes);
