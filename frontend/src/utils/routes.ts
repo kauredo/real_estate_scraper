@@ -116,12 +116,12 @@ const baseAppRoutes = {
 
   // Listings
   buy: "/comprar",
-  listing: (slug: string): string => `/comprar/${slug}`,
+  listing: (slug: string | number) => `/comprar/${slug}`,
   sell: "/vender",
 
   // Listing complexes
   listingComplexes: "/empreendimentos",
-  listingComplex: (slug: string): string => `/empreendimentos/${slug}`,
+  listingComplex: (slug: string | number) => `/empreendimentos/${slug}`,
 
   // Blog
   blog: "/blog",

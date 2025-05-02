@@ -18,6 +18,7 @@ export interface ResultNumbers {
 export interface Photo {
   id: number;
   image: { url: string };
+  image_url: string;
   main: boolean;
   order: number;
   listing_complex_id: number;
@@ -138,8 +139,6 @@ export interface ClubStory {
 
 export interface ClubStoryPhoto {
   id: number;
-  image: {
-    url: string;
-  };
+  image_url: string;
   main: boolean;
 }

@@ -29,19 +29,23 @@ export default function Cards(props: Props) {
         <div className="w-full relative flex items-center justify-center">
           <div className="w-full h-full mx-auto">
             <Carousel
-              items={photos.map(photo => (
-                <img
-                  loading="lazy"
-                  key={photo.image.url}
-                  style={{
-                    maxHeight: "70vh",
-                    objectFit: "contain",
-                    padding: "0 1rem",
-                  }}
-                  src={photo.image.url}
-                  alt=""
-                />
-              ))}
+              items={photos.map(photo => {
+                // if photo has image_url, use it, otherwise use photo.image.url
+                const image_url = photo.image_url || photo.image.url;
+                return (
+                  <img
+                    loading="lazy"
+                    key={image_url}
+                    style={{
+                      maxHeight: "70vh",
+                      objectFit: "contain",
+                      padding: "0 1rem",
+                    }}
+                    src={image_url}
+                    alt=""
+                  />
+                );
+              })}
               autoplay
               autoplaySpeed={5000}
               infinite={false}

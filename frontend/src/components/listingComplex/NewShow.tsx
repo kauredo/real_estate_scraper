@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import ContactForm from "../contactPage/ContactForm";
 import Cards from "../homePage/Cards";
-import { sanitizeURLWithParams } from "../../utils/functions";
 import { ListingComplex } from "../../utils/interfaces";
 import ShareIcons from "../shared/ShareIcons";
 import Routes from "../../utils/routes";
@@ -33,7 +32,7 @@ export default function NewShow(props: Props) {
           <img
             loading="lazy"
             style={{ maxHeight: "70vh", objectFit: "contain" }}
-            src={complex.photos[0].image.url}
+            src={complex.photos[0].image_url}
           />
         </div>
       );
@@ -151,10 +150,7 @@ export default function NewShow(props: Props) {
                           listing.status === "standard" ||
                           listing.status === "recent" ? (
                             <a
-                              href={sanitizeURLWithParams(
-                                Routes.listing_path,
-                                listing.slug
-                              )}
+                              href={Routes.listing_path(listing.slug)}
                               target="_blank"
                               className="relative z-10 whitespace-nowrap bg-transparent hover:bg-beige-default dark:hover:bg-beige-medium text-beige-default dark:text-beige-medium hover:text-white dark:hover:text-dark py-1 px-2 border border-beige-default dark:border-beige-medium hover:border-transparent rounded"
                             >

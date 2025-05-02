@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Listing } from "../../utils/interfaces";
-import { truncateText, sanitizeURLWithParams } from "../../utils/functions";
+import { truncateText } from "../../utils/functions";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
 import Routes from "../../utils/routes";
-import { adminDeleteListing } from "../../services/api";
+import { adminDeleteListing, adminRecoverListing } from "../../services/api";
 
 interface Props {
   listing: Listing;
@@ -18,45 +18,35 @@ export default function LongCard(props: Props) {
   const [checked, setChecked] = useState(false);
   const [checkbox, setCheckbox] = useState<HTMLElement | null>(null);
   const listingRef = useRef<HTMLDivElement>(null);
-  const handleRemoveItem = e => {
+
+  const handleRemoveItem = async (e: React.MouseEvent) => {
     e.preventDefault();
-    const tokenElement = document.querySelector('meta[name="csrf-token"]');
-    const token = tokenElement ? (tokenElement as HTMLMetaElement).content : "";
 
     const confirmDelete = confirm("De certeza que queres apagar o imóvel?");
     if (!confirmDelete) return;
 
-    fetch(adminDeleteListing(slugOrId), {
-      method: "DELETE",
-      headers: {
-        "X-CSRF-Token": token,
-        "Content-Type": "application/json",
-      },
-    }).then(() => {
+    try {
+      await adminDeleteListing(slugOrId);
       window.location.reload();
-    });
+    } catch (error) {
+      console.error("Error deleting listing:", error);
+    }
   };
-  const handleRecoverItem = e => {
+
+  const handleRecoverItem = async (e: React.MouseEvent) => {
     e.preventDefault();
-    const tokenElement = document.querySelector('meta[name="csrf-token"]');
-    const token = tokenElement ? (tokenElement as HTMLMetaElement).content : "";
 
     const confirmRecover = confirm("De certeza que queres restaurar o imóvel?");
     if (!confirmRecover) return;
 
-    fetch(
-      sanitizeURLWithParams(Routes.recover_backoffice_listing_path, listing.id),
-      {
-        method: "POST",
-        headers: {
-          "X-CSRF-Token": token,
-          "Content-Type": "application/json",
-        },
-      }
-    ).then(() => {
+    try {
+      await adminRecoverListing(listing.id);
       window.location.reload();
-    });
+    } catch (error) {
+      console.error("Error recovering listing:", error);
+    }
   };
+
   const clickId = () => {
     if (checkbox) {
       checkbox.click();
@@ -111,10 +101,7 @@ export default function LongCard(props: Props) {
           small
             ? "#"
             : backoffice
-            ? sanitizeURLWithParams(
-                Routes.edit_backoffice_listing_path,
-                slugOrId
-              )
+            ? Routes.edit_backoffice_listing_path(slugOrId)
             : Routes.listing_path(slugOrId)
         }
         onClick={e => small && e.preventDefault()}
