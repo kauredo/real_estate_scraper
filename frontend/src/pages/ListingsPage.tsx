@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { getListings } from "../services/api";
 import { useMetaTags } from "../hooks/useMetaTags";
 import Banner from "../components/shared/Banner";
 import ListingSearch from "../components/shared/ListingSearch";
 import Pagination from "../components/shared/Pagination";
 import Listings from "../components/indexPage/Listings";
+import { Listing } from "../utils/interfaces";
 
 const ListingsPage = () => {
   const { t } = useTranslation();
-  const [searchParams] = useSearchParams();
-  const [listings, setListings] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
   const [pagination, setPagination] = useState({
     current_page: 1,
@@ -19,9 +21,13 @@ const ListingsPage = () => {
     total_count: 0,
     total_pages: 0,
   });
-  const [statsKeys, setStatsKeys] = useState([]);
-  const [kinds, setKinds] = useState([]);
-  const [objectives, setObjectives] = useState([]);
+  const [statsKeys, setStatsKeys] = useState<string[]>([]);
+  const [kinds, setKinds] = useState<Array<{ kind: string; index: number }>>(
+    []
+  );
+  const [objectives, setObjectives] = useState<
+    Array<{ objective: string; index: number }>
+  >([]);
   const [maxPrice, setMaxPrice] = useState(0);
 
   useMetaTags({
@@ -30,31 +36,39 @@ const ListingsPage = () => {
     url: window.location.href,
   });
 
+  const fetchListings = async (params: Record<string, string>) => {
+    try {
+      setLoading(true);
+      const response = await getListings(params);
+      setListings(response.data.listings);
+      setPagination(response.data.pagination);
+      setStatsKeys(response.data.stats_keys || []);
+      setKinds(response.data.kinds || []);
+      setObjectives(response.data.objectives || []);
+      setMaxPrice(response.data.max_price || 0);
+    } catch (error) {
+      console.error("Error fetching listings:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchListings = async () => {
-      try {
-        setLoading(true);
-        const params: Record<string, string> = {};
-        for (const [key, value] of searchParams.entries()) {
-          params[key] = value;
-        }
-
-        const response = await getListings(params);
-        setListings(response.data.listings);
-        setPagination(response.data.pagination);
-        setStatsKeys(response.data.stats_keys || []);
-        setKinds(response.data.kinds || []);
-        setObjectives(response.data.objectives || []);
-        setMaxPrice(response.data.max_price || 0);
-      } catch (error) {
-        console.error("Error fetching listings:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchListings();
+    const params: Record<string, string> = {};
+    for (const [key, value] of searchParams.entries()) {
+      params[key] = value;
+    }
+    fetchListings(params);
   }, [searchParams]);
+
+  const handleSearch = (searchParams: Record<string, string>) => {
+    fetchListings(searchParams);
+  };
+
+  const handlePageChange = (page: number) => {
+    searchParams.set("page", page.toString());
+    setSearchParams(searchParams);
+  };
 
   return (
     <>
@@ -66,6 +80,7 @@ const ListingsPage = () => {
         statsKeys={statsKeys}
         kinds={kinds}
         objectives={objectives}
+        onSearch={handleSearch}
       />
 
       {loading ? (
@@ -74,9 +89,9 @@ const ListingsPage = () => {
         </div>
       ) : (
         <>
-          <Pagination pagination={pagination} />
+          <Pagination pagination={pagination} onPageChange={handlePageChange} />
           <Listings listings={listings} backoffice={false} />
-          <Pagination pagination={pagination} />
+          <Pagination pagination={pagination} onPageChange={handlePageChange} />
         </>
       )}
     </>

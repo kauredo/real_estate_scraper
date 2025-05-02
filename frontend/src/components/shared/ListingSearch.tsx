@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { numberToCurrency } from "../../utils/functions";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import Slider from "rc-slider";
 import AdvancedSearch from "./AdvancedSearch";
 import { StatsFilter } from "../../utils/interfaces";
@@ -8,38 +9,37 @@ import ObjectiveTabs from "./ObjectiveTabs";
 import Routes from "../../utils/routes";
 
 interface Props {
-  params: {
-    title_cont?: string;
-    address_cont?: string;
-    price_cents_gteq?: number;
-    price_cents_lteq?: number;
-    status_eq?: string;
-    kind_eq?: number;
-    objective_eq?: number;
-  };
+  params: Record<string, any>;
   listingMaxPrice: number;
   statsKeys: string[];
   kinds: { kind: string; index: number }[];
   objectives: { objective: string; index: number }[];
+  onSearch?: (params: Record<string, string>) => void;
 }
 
 export default function ListingSearch(props: Props) {
-  const { t, i18n } = useTranslation();
-  const { params, listingMaxPrice, statsKeys, kinds, objectives } = props;
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const {
+    params = {},
+    listingMaxPrice = 0,
+    statsKeys = [],
+    kinds = [],
+    objectives = [],
+    onSearch,
+  } = props;
   const [title, setTitle] = useState(params?.title_cont || "");
-  const [address, setAddress] = useState(params?.address_cont || "");
   const [status, setStatus] = useState(params?.status_eq || "");
   const [kind, setKind] = useState(params?.kind_eq || 0);
   const [objective, setObjective] = useState(params?.objective_eq || 1);
   const [statsFilters, setStatsFilters] = useState<Partial<StatsFilter>>(
-    // only keep params that are in statsKeys
     Object.fromEntries(
       Object.entries(params || {}).filter(([key]) =>
         statsKeys.includes(key.replace("_eq", ""))
       )
     )
   );
-  const transformedMaxPrice = listingMaxPrice / 100;
+  const transformedMaxPrice = (listingMaxPrice || 0) / 100;
   const [prices, setPrices] = useState([
     (params?.price_cents_gteq ?? 0) / 100,
     (params?.price_cents_lteq ?? transformedMaxPrice * 100) / 100,
@@ -61,24 +61,33 @@ export default function ListingSearch(props: Props) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+    const searchParams = new URLSearchParams();
 
-    // Add price parameters to the form data
-    formData.append("q[price_cents_gteq]", (prices[0] * 100).toString());
-    formData.append("q[price_cents_lteq]", (prices[1] * 100).toString());
-    formData.append("q[objective_eq]", objective.toString());
-
-    // Convert FormData to object
-    const formDataObject: Record<string, string> = {};
     formData.forEach((value, key) => {
-      if (typeof value === "string") {
-        formDataObject[key] = value;
+      if (value && value !== "") {
+        searchParams.append(key, value.toString());
       }
     });
 
-    // Submit form
-    const action = e.currentTarget.action;
-    window.location.href = `${action}?${new URLSearchParams(formDataObject)}`;
-    // console.log(formDataObject);
+    if (prices[0] > 0) {
+      searchParams.append("q[price_cents_gteq]", (prices[0] * 100).toString());
+    }
+    if (prices[1] < transformedMaxPrice) {
+      searchParams.append("q[price_cents_lteq]", (prices[1] * 100).toString());
+    }
+
+    searchParams.append("q[objective_eq]", objective.toString());
+
+    const searchObject = Object.fromEntries(searchParams.entries());
+
+    if (onSearch) {
+      onSearch(searchObject);
+    }
+
+    navigate({
+      pathname: Routes.buy_path,
+      search: `?${searchParams.toString()}`,
+    });
   };
 
   const handleStatChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -89,7 +98,6 @@ export default function ListingSearch(props: Props) {
 
   useEffect(() => {
     const oldObjective = params?.objective_eq;
-    // Submit the form when the objective changes
     if (!oldObjective && objective === 1) {
       return;
     }
@@ -98,7 +106,7 @@ export default function ListingSearch(props: Props) {
     if (form && oldObjective !== objective) {
       form.requestSubmit();
     }
-  }, [objective]);
+  }, [objective, params?.objective_eq]);
 
   return (
     <div className="container mx-auto sm:px-6 px-4">
@@ -106,7 +114,7 @@ export default function ListingSearch(props: Props) {
       <form action={Routes.buy_path} onSubmit={handleSubmit}>
         <ObjectiveTabs
           objective={objective}
-          objectives={objectives}
+          objectives={objectives || []}
           setObjective={setObjective}
         />
 
@@ -123,17 +131,12 @@ export default function ListingSearch(props: Props) {
               onChange={e => setKind(Number(e.target.value))}
             >
               <option value="">{t("listing.search.status.all")}</option>
-              {Object.entries(kinds).map(([key, value]) => {
-                if (typeof key !== "string" || typeof value !== "number") {
-                  return null;
-                }
-
-                return (
-                  <option key={key} value={value}>
-                    {t(`listing.kind.${key}`)}
+              {Array.isArray(kinds) &&
+                kinds.map(({ kind, index }) => (
+                  <option key={kind} value={index}>
+                    {t(`listing.kind.${kind}`)}
                   </option>
-                );
-              })}
+                ))}
             </select>
           </div>
           {otherStatsKeys.map(key => {
@@ -221,6 +224,10 @@ export default function ListingSearch(props: Props) {
           <a
             href={Routes.buy_path}
             className="text-beige-default dark:text-beige-medium font-bold underline sm:ml-2 mt-2 sm:mt-0 w-full md:w-[23%]"
+            onClick={e => {
+              e.preventDefault();
+              navigate(Routes.buy_path);
+            }}
           >
             {t("listing.reset_filters")}
           </a>

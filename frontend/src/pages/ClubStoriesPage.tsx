@@ -30,27 +30,33 @@ export default function ClubStoriesPage({ isBackoffice = false }) {
     url: window.location.href,
   });
 
-  useEffect(() => {
-    const fetchStories = async () => {
-      try {
-        setLoading(true);
-        const params: Record<string, string> = {};
-        for (const [key, value] of searchParams.entries()) {
+  const fetchStories = async (page = 1) => {
+    try {
+      setLoading(true);
+      const params: Record<string, string> = { page: page.toString() };
+      for (const [key, value] of searchParams.entries()) {
+        if (key !== "page") {
           params[key] = value;
         }
-
-        const response = await getClubStories(params);
-        setStories(response.data.club_stories);
-        setPagination(response.data.pagination);
-      } catch (error) {
-        console.error("Error fetching club stories:", error);
-      } finally {
-        setLoading(false);
       }
-    };
 
-    fetchStories();
+      const response = await getClubStories(params);
+      setStories(response.data.club_stories);
+      setPagination(response.data.pagination);
+    } catch (error) {
+      console.error("Error fetching club stories:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchStories(Number(searchParams.get("page") || 1));
   }, [searchParams]);
+
+  const handlePageChange = (page: number) => {
+    fetchStories(page);
+  };
 
   return (
     <>
@@ -120,7 +126,10 @@ export default function ClubStoriesPage({ isBackoffice = false }) {
                 )}
                 {stories.length >= 3 && (
                   <>
-                    <Pagination pagination={pagination} />
+                    <Pagination
+                      pagination={pagination}
+                      onPageChange={handlePageChange}
+                    />
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {stories.map(story => (
                         <div className="w-full" key={story.id}>
@@ -131,7 +140,10 @@ export default function ClubStoriesPage({ isBackoffice = false }) {
                         </div>
                       ))}
                     </div>
-                    <Pagination pagination={pagination} />
+                    <Pagination
+                      pagination={pagination}
+                      onPageChange={handlePageChange}
+                    />
                   </>
                 )}
               </>

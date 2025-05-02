@@ -8,9 +8,13 @@ interface PaginationProps {
     total_count: number;
     total_pages: number;
   };
+  onPageChange?: (page: number) => void;
 }
 
-export default function Pagination({ pagination }: PaginationProps) {
+export default function Pagination({
+  pagination,
+  onPageChange,
+}: PaginationProps) {
   const { t } = useTranslation();
   const [searchParams] = useSearchParams();
 
@@ -20,6 +24,16 @@ export default function Pagination({ pagination }: PaginationProps) {
     return `?${newParams.toString()}`;
   };
 
+  const handlePageClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    page: number
+  ) => {
+    if (onPageChange) {
+      e.preventDefault();
+      onPageChange(page);
+    }
+  };
+
   if (pagination.total_pages > 1) {
     return (
       <div className="flex items-center justify-center py-4 md:py-10 sm:px-6 px-4 container mx-auto">
@@ -27,7 +41,10 @@ export default function Pagination({ pagination }: PaginationProps) {
           <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
             {pagination.current_page > 1 && (
               <>
-                <a href={createPageUrl(pagination.current_page - 1)}>
+                <a
+                  href={createPageUrl(pagination.current_page - 1)}
+                  onClick={e => handlePageClick(e, pagination.current_page - 1)}
+                >
                   <svg
                     width="14"
                     height="8"
@@ -58,7 +75,10 @@ export default function Pagination({ pagination }: PaginationProps) {
                     />
                   </svg>
                 </a>
-                <a href={createPageUrl(pagination.current_page - 1)}>
+                <a
+                  href={createPageUrl(pagination.current_page - 1)}
+                  onClick={e => handlePageClick(e, pagination.current_page - 1)}
+                >
                   <p className="text-sm ml-3 font-medium leading-none">
                     {t("pagination.previous")}
                   </p>
@@ -81,7 +101,11 @@ export default function Pagination({ pagination }: PaginationProps) {
               }
 
               return (
-                <a key={`page-${page}`} href={createPageUrl(page)}>
+                <a
+                  key={`page-${page}`}
+                  href={createPageUrl(page)}
+                  onClick={e => handlePageClick(e, page)}
+                >
                   <p className={classes}>{page}</p>
                 </a>
               );
@@ -90,12 +114,18 @@ export default function Pagination({ pagination }: PaginationProps) {
           <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
             {pagination.current_page < pagination.total_pages && (
               <>
-                <a href={createPageUrl(pagination.current_page + 1)}>
+                <a
+                  href={createPageUrl(pagination.current_page + 1)}
+                  onClick={e => handlePageClick(e, pagination.current_page + 1)}
+                >
                   <p className="text-sm font-medium leading-none mr-3">
                     {t("pagination.next")}
                   </p>
                 </a>
-                <a href={createPageUrl(pagination.current_page + 1)}>
+                <a
+                  href={createPageUrl(pagination.current_page + 1)}
+                  onClick={e => handlePageClick(e, pagination.current_page + 1)}
+                >
                   <svg
                     width="14"
                     height="8"

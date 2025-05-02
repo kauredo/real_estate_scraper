@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getBlogPosts } from "../services/api";
 import BlogCard from "../components/blog/BlogCard";
@@ -24,22 +24,26 @@ const BlogPostsPage = () => {
     url: window.location.href,
   });
 
-  useEffect(() => {
-    const fetchBlogPosts = async () => {
-      try {
-        setLoading(true);
-        const response = await getBlogPosts();
-        setBlogPosts(response.data.blog_posts);
-        setPagination(response.data.pagination);
-      } catch (error) {
-        console.error("Error fetching blog posts:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchBlogPosts = async (page = 1) => {
+    try {
+      setLoading(true);
+      const response = await getBlogPosts({ page });
+      setBlogPosts(response.data.blog_posts);
+      setPagination(response.data.pagination);
+    } catch (error) {
+      console.error("Error fetching blog posts:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchBlogPosts();
   }, []);
+
+  const handlePageChange = (page: number) => {
+    fetchBlogPosts(page);
+  };
 
   if (loading) {
     return (
@@ -80,13 +84,19 @@ const BlogPostsPage = () => {
               </div>
             ) : (
               <>
-                <Pagination pagination={pagination} />
+                <Pagination
+                  pagination={pagination}
+                  onPageChange={handlePageChange}
+                />
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {blogPosts.map(blogPost => (
                     <BlogCard key={blogPost.id} blogPost={blogPost} />
                   ))}
                 </div>
-                <Pagination pagination={pagination} />
+                <Pagination
+                  pagination={pagination}
+                  onPageChange={handlePageChange}
+                />
               </>
             )}
           </div>
