@@ -3,45 +3,39 @@ import { useTranslation } from "react-i18next";
 
 interface Props {
   objective: number;
-  objectives: { objective: string; index: number }[];
-  setObjective: (value: number) => void;
+  objectives: Array<{ objective: string; index: number }>;
+  setObjective: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function ObjectiveTabs(props: Props) {
-  const { t, i18n } = useTranslation();
-  const { objective, objectives, setObjective } = props;
+export default function ObjectiveTabs({
+  objective,
+  objectives = [],
+  setObjective,
+}: Props) {
+  const { t } = useTranslation();
 
-  const setTab = (index: number) => e => {
-    e.preventDefault();
-    setObjective(index);
-  };
+  if (!Array.isArray(objectives) || objectives.length === 0) {
+    return null;
+  }
 
   return (
-    <div className="w-full flex gap-2 mb-4 border-b border-gray-200 dark:border-beige-medium">
-      {Object.entries(objectives).map(([key, index]) => {
-        if (typeof key !== "string" || typeof index !== "number") {
-          return null;
-        }
-
-        const isActive = objective == index;
-        const tabClasses = [
-          "px-4 pt-2 pb-1",
-          "rounded-t-md",
-          "transition-colors duration-200 ease-in-out",
-          isActive
-            ? "bg-beige-default dark:bg-beige-medium text-white dark:text-dark"
-            : "bg-gray-200 hover:bg-gray-200 dark:bg-dark dark:hover:bg-gray-700 text-gray-800 dark:text-light",
-          isActive
-            ? "border-b-2 border-beige-default dark:border-beige-medium"
-            : "border-b-2 border-transparent dark:border-gray-700 dark:border",
-        ].join(" ");
-
-        return (
-          <button key={index} onClick={setTab(index)} className={tabClasses}>
-            {t(`listing.objective.${key}`)}
+    <div className="w-full flex align-center gap-6 mb-4">
+      <div className="w-full flex gap-2">
+        {objectives.map(({ objective: obj, index }) => (
+          <button
+            key={obj}
+            type="button"
+            onClick={() => setObjective(index)}
+            className={`py-2 px-4 rounded-lg font-bold w-[calc(50%-0.25rem)] ${
+              objective === index
+                ? "bg-beige-default dark:bg-beige-medium text-white dark:text-dark"
+                : "bg-transparent text-beige-default dark:text-beige-medium border border-beige-default dark:border-beige-medium"
+            }`}
+          >
+            {t(`listing.objective.${obj}`)}
           </button>
-        );
-      })}
+        ))}
+      </div>
     </div>
   );
 }

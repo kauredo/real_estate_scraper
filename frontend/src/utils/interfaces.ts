@@ -113,12 +113,13 @@ export interface SubNavItem {
 }
 
 export interface StatsFilter {
-  Quartos: string;
-  Casas_de_Banho: string;
-  Area_do_terreno: string;
-  Area_util: string;
-  Area_bruta_CP: string;
-  Ano_de_construção: string;
+  [key: string]: string;
+  Quartos_eq?: string;
+  "Casas de Banho_eq"?: string;
+  "Area do terreno_eq"?: string;
+  "Area util_eq"?: string;
+  "Area bruta (CP)_eq"?: string;
+  "Ano de construção_eq"?: string;
 }
 
 export interface ClubStory {

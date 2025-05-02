@@ -31,23 +31,26 @@ const ListingComplexesPage = () => {
     url: window.location.href,
   });
 
+  const fetchListingComplexes = async (page = 1) => {
+    try {
+      setLoading(true);
+      const response = await getListingComplexes({ page });
+      setListingComplexes(response.data.listing_complexes);
+      setPagination(response.data.pagination);
+    } catch (error) {
+      console.error("Error fetching listing complexes:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchListingComplexes = async () => {
-      try {
-        setLoading(true);
-
-        const response = await getListingComplexes();
-        setListingComplexes(response.data.listing_complexes);
-        setPagination(response.data.pagination);
-      } catch (error) {
-        console.error("Error fetching listing complexes:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchListingComplexes();
   }, []);
+
+  const handlePageChange = (page: number) => {
+    fetchListingComplexes(page);
+  };
 
   return (
     <>
@@ -59,9 +62,9 @@ const ListingComplexesPage = () => {
         </div>
       ) : (
         <>
-          <Pagination pagination={pagination} />
+          <Pagination pagination={pagination} onPageChange={handlePageChange} />
           <ListingComplexes listingComplexes={listingComplexes} />
-          <Pagination pagination={pagination} />
+          <Pagination pagination={pagination} onPageChange={handlePageChange} />
         </>
       )}
 
