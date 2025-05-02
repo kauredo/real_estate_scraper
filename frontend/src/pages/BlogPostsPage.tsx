@@ -53,17 +53,6 @@ const BlogPostsPage = () => {
     <>
       <Banner height="20vh" blurred={true} text={t("blog_posts.header")} />
 
-      <div className="pt-6 bg-white dark:bg-dark text-center md:hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
-          <h1
-            id="main-title"
-            className="relative block md:hidden mt-2 text-3xl text-dark dark:text-light sm:text-4xl px-4"
-          >
-            {t("blog_posts.header")}
-          </h1>
-        </div>
-      </div>
-
       <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
         <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
           <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">

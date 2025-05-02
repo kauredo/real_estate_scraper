@@ -34,16 +34,6 @@ const FaqPage = () => {
     <>
       <Banner height="20vh" blurred={true} text={t("faq.header")} />
       <section className="container mx-auto pt-6 px-8">
-        <div className="pt-6 bg-white dark:bg-dark text-center md:hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
-            <h1
-              id="main-title"
-              className="relative block md:hidden pt-2 text-3xl text-dark dark:text-light sm:text-4xl px-4"
-            >
-              {t("faq.header")}
-            </h1>
-          </div>
-        </div>
         <div className="py-8 md:pb-0 md:pt-4 bg-white dark:bg-dark">
           <div className="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
             <h2 className="block pt-2 text-2xl text-dark dark:text-light sm:text-4xl mx-auto">
