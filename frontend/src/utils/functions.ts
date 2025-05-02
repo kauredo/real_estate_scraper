@@ -1,4 +1,6 @@
 import { useTranslation } from "react-i18next";
+import { i18n as I18nType } from "i18next";
+import { translateRoute } from "./routes";
 
 export function lazyloadImages() {
   var tablinks = document.getElementsByClassName("ajustedBackground");
@@ -10,7 +12,7 @@ export function lazyloadImages() {
   }
 }
 
-export function truncateText(title, length) {
+export function truncateText(title: string, length: number): string {
   if (title && title.length > length) {
     return title.substring(0, length) + "...";
   } else {
@@ -18,7 +20,7 @@ export function truncateText(title, length) {
   }
 }
 
-export function getUrlParameter(sParam) {
+export function getUrlParameter(sParam: string): string | boolean {
   var sPageURL = window.location.search.substring(1),
     sURLVariables = sPageURL.split("&"),
     sParameterName,
@@ -36,60 +38,59 @@ export function getUrlParameter(sParam) {
   return false;
 }
 
-export function toCapitalize(string) {
-  if (string[0]) {
-    return string[0].toUpperCase() + string.substring(1);
+export function toCapitalize(str: string): string {
+  if (str[0]) {
+    return str[0].toUpperCase() + str.substring(1);
   }
 
-  return string;
+  return str;
 }
 
-export const sanitizeURL = url => {
-  const { t, i18n } = useTranslation();
-
-  if (i18n.language === "pt") {
-    return url;
-  } else {
-    return `/${i18n.language}${url}`;
-  }
+export const sanitizeURL = (url: string): string => {
+  const { i18n } = useTranslation();
+  return i18n.language === "pt" ? url : `/${i18n.language}${url}`;
 };
 
-export const sanitizeURLWithParams = (url, params) => {
-  const { t, i18n } = useTranslation();
+export const sanitizeURLWithParams = (url: string, params: string): string => {
+  const { i18n } = useTranslation();
 
   if (params === undefined || params === null) {
     return "#";
   }
 
-  if (i18n.language === "pt") {
-    return `/${url}?${params}`;
-  } else if (i18n.language === "en") {
-    return `/${i18n.language}/${url}?${params}`;
-  }
+  return i18n.language === "pt"
+    ? `/${url}?${params}`
+    : `/${i18n.language}/${url}?${params}`;
 };
 
-export const changeLocale = (i18n: any) => {
+export const changeLocale = (i18n: I18nType) => {
   const newLanguage = i18n.language === "pt" ? "en" : "pt";
   localStorage.setItem("language", newLanguage);
   i18n.changeLanguage(newLanguage);
 
-  // Reconstruct the current URL with the new locale
   const currentPath = window.location.pathname;
   const searchParams = window.location.search;
-  const basePath = currentPath.replace(/^\/(en|pt)/, "");
 
-  return newLanguage === "pt"
-    ? basePath
-    : `/${newLanguage}${basePath}${searchParams}`;
+  // Remove language prefix if it exists
+  const pathWithoutLang = currentPath.replace(/^\/(en|pt)\//, "/");
+  const segments = pathWithoutLang.split("/").filter(Boolean);
+
+  // Translate the path segments
+  const translatedSegments = segments.map(segment =>
+    translateRoute(segment, newLanguage === "en")
+  );
+
+  const newPath = `/${translatedSegments.join("/")}`;
+  return newLanguage === "pt" ? newPath : `/en${newPath}${searchParams}`;
 };
 
-export function waitForElm(selector) {
+export function waitForElm(selector: string): Promise<Element | null> {
   return new Promise(resolve => {
     if (document.querySelector(selector)) {
       return resolve(document.querySelector(selector));
     }
 
-    const observer = new MutationObserver(mutations => {
+    const observer = new MutationObserver(() => {
       if (document.querySelector(selector)) {
         resolve(document.querySelector(selector));
         observer.disconnect();
@@ -103,7 +104,11 @@ export function waitForElm(selector) {
   });
 }
 
-export const navbarItemClass = (path, isMobile, children: string[] = []) => {
+export const navbarItemClass = (
+  path: string,
+  isMobile: boolean,
+  children: string[] = []
+): string => {
   const base =
     "whitespace-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase ";
   const mobile = "block text-base relative z-3 ";
@@ -121,8 +126,8 @@ export const navbarItemClass = (path, isMobile, children: string[] = []) => {
   return base + (isActive ? active : inactive) + (isMobile ? mobile : desktop);
 };
 
-export const numberToCurrency = (number, currency = "EUR") => {
-  const { t, i18n } = useTranslation();
+export const numberToCurrency = (number: number, currency = "EUR"): string => {
+  const { i18n } = useTranslation();
 
   return new Intl.NumberFormat(i18n.language, {
     style: "currency",
@@ -131,8 +136,8 @@ export const numberToCurrency = (number, currency = "EUR") => {
   }).format(number);
 };
 
-export const gsubMeterSquare = string => {
-  return string.replace("m2", "m²");
+export const gsubMeterSquare = (str: string): string => {
+  return str.replace("m2", "m²");
 };
 
 export function isDarkModeActive(): boolean {
