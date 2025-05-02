@@ -16,3 +16,15 @@ class VariableSerializer
     }
   end
 end
+
+# == Schema Information
+#
+# Table name: variables
+#
+#  id         :bigint           not null, primary key
+#  icon       :string
+#  name       :string
+#  value      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
