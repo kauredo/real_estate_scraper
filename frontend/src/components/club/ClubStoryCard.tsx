@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { sanitizeURLWithParams } from "../../utils/functions";
 import { ClubStory } from "../../utils/interfaces";
 import Routes from "../../utils/routes";
 
@@ -12,11 +11,9 @@ interface Props {
 
 export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
   const { t, i18n } = useTranslation();
-  const storyUrl = sanitizeURLWithParams(
-    isBackoffice ? Routes.backoffice_club_story_path : Routes.club_story_path,
-    story.slug
-  );
-
+  const storyUrl = isBackoffice
+    ? Routes.backoffice_club_story_path(story.slug)
+    : Routes.club_story_path(story.slug);
   return (
     <div className="bg-white dark:bg-dark shadow-md border border-gray-200 dark:border-gray-700 rounded-lg w-full h-full flex flex-col">
       {story.main_photo && (
@@ -49,20 +46,14 @@ export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
           {isBackoffice && (
             <>
               <a
-                href={sanitizeURLWithParams(
-                  Routes.edit_backoffice_club_story_path,
-                  story.slug
-                )}
+                href={Routes.edit_backoffice_club_story_path(story.slug)}
                 className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 data-turbo="false"
               >
                 {t("backoffice.common.edit")}
               </a>
               <a
-                href={sanitizeURLWithParams(
-                  Routes.backoffice_club_story_path,
-                  story.slug
-                )}
+                href={Routes.backoffice_club_story_path(story.slug)}
                 className="bg-red-500 hover:bg-red-700 text-white dark:text-dark p-2 rounded font-bold"
                 data-turbo-method="delete"
                 onClick={() => confirm(t("backoffice.common.confirm_delete"))}

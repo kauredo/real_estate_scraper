@@ -18,7 +18,8 @@ const ListingComplexDetailPage = () => {
       try {
         setLoading(true);
         const response = await getListingComplex(slug);
-        setListingComplex(response.data.listing_complex);
+        console.log(response.data);
+        setListingComplex(response.data);
       } catch (error) {
         console.error("Error fetching listing complex:", error);
       } finally {
