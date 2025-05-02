@@ -3,6 +3,16 @@ import { useMetaTags } from "../hooks/useMetaTags";
 import Banner from "../components/shared/Banner";
 import FaqAccordion from "../components/faq/FaqAccordion";
 
+interface FaqQuestion {
+  title: string;
+  answer: string;
+}
+
+interface FaqSection {
+  title: string;
+  questions: Record<string, FaqQuestion>;
+}
+
 const FaqPage = () => {
   const { t } = useTranslation();
 
@@ -11,6 +21,14 @@ const FaqPage = () => {
     description: t("faq.meta_description"),
     url: window.location.href,
   });
+
+  const faqSections = t("faq.sections", { returnObjects: true }) as Record<
+    string,
+    FaqSection
+  >;
+  const reasonAnswers = t("faq.reason.answers", {
+    returnObjects: true,
+  }) as Record<string, { title: string; description: string }>;
 
   return (
     <>
@@ -38,15 +56,13 @@ const FaqPage = () => {
         </div>
 
         <div className="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
-          <FaqAccordion sections={t("faq.sections", { returnObjects: true })} />
+          <FaqAccordion sections={faqSections} />
 
           <h3 className="pt-10 pb-3 text-2xl text-dark dark:text-light sm:text-3xl">
             {t("faq.reason.title")}
           </h3>
           <ul className="list-disc list-inside">
-            {Object.entries(
-              t("faq.reason.answers", { returnObjects: true })
-            ).map(([key, answer]: [string, any]) => (
+            {Object.entries(reasonAnswers).map(([key, answer]) => (
               <li key={key} className="text-lg text-dark dark:text-light">
                 <strong>{answer.title}:</strong> {answer.description}
               </li>

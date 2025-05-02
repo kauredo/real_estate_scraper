@@ -10,6 +10,16 @@ const TermsAndConditionsPage = () => {
     url: window.location.href,
   });
 
+  const licenseRestrictions = t("terms.sections.license.restrictions", {
+    returnObjects: true,
+  }) as string[];
+  const disclaimerPoints = t("terms.sections.disclaimer.points", {
+    returnObjects: true,
+  }) as string[];
+
+  console.log(licenseRestrictions);
+  console.log(disclaimerPoints);
+
   return (
     <>
       <Banner height="20vh" blurred={true} text={t("terms.header")} />
@@ -49,9 +59,7 @@ const TermsAndConditionsPage = () => {
               }}
             />
             <ul className="list-disc" style={{ listStylePosition: "inside" }}>
-              {t("terms.sections.license.restrictions", {
-                returnObjects: true,
-              }).map((item: string, index: number) => (
+              {licenseRestrictions.map((item: string, index: number) => (
                 <li
                   key={index}
                   className="pt-4 text-xl text-gray-500 dark:text-light max-w-max"
@@ -72,9 +80,7 @@ const TermsAndConditionsPage = () => {
               {t("terms.sections.disclaimer.title")}
             </h2>
             <ul className="list-disc" style={{ listStylePosition: "inside" }}>
-              {t("terms.sections.disclaimer.points", {
-                returnObjects: true,
-              }).map((item: string, index: number) => (
+              {disclaimerPoints.map((item: string, index: number) => (
                 <li
                   key={index}
                   className="pt-4 text-xl text-gray-500 dark:text-light max-w-max"

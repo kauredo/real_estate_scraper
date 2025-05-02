@@ -3,15 +3,75 @@ import { useMetaTags } from "../hooks/useMetaTags";
 import Banner from "../components/shared/Banner";
 import Profile from "../components/homePage/Profile";
 import Results from "../components/homePage/Results";
+import { getHomePage } from "../services/api";
+import { ResultNumbers, Testimonial } from "../utils/interfaces";
+import { useState, useEffect } from "react";
 
 const AboutPage = () => {
   const { t } = useTranslation();
+  const [results, setResults] = useState<ResultNumbers | null>(null);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useMetaTags({
     title: t("about.header"),
     description: t("about.meta_description"),
     url: window.location.href,
   });
+
+  useEffect(() => {
+    const fetchHomeData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await getHomePage();
+        const data = response.data;
+
+        if (data.stats) {
+          setResults(data.stats as ResultNumbers);
+        }
+
+        if (data.testimonials) {
+          setTestimonials(data.testimonials as Testimonial[]);
+        }
+
+        setIsLoading(false);
+      } catch (err) {
+        console.error("Error fetching home data:", err);
+        setError("Failed to load home page data");
+        setIsLoading(false);
+      }
+    };
+
+    fetchHomeData();
+  }, []);
+
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen text-red-500">
+        {error}
+      </div>
+    );
+  }
+
+  // If no results data yet, show a placeholder
+  if (!results) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        No data available
+      </div>
+    );
+  }
 
   return (
     <>
@@ -106,17 +166,22 @@ const AboutPage = () => {
                   t("about.kw_partnership.principles.list", {
                     returnObjects: true,
                   })
-                ).map(([key, value]) => (
-                  <li key={key}>
-                    {key}: {value}
-                  </li>
-                ))}
+                ).map(([_, object]) =>
+                  Object.entries(object).map(([key, value]) => (
+                    <li
+                      key={key}
+                      className="text-lg text-gray-500 dark:text-light"
+                    >
+                      {String(key)}: {String(value)}
+                    </li>
+                  ))
+                )}
               </ul>
             </div>
           </div>
         </div>
 
-        <Results />
+        <Results results={results} testimonials={testimonials} />
       </section>
     </>
   );
