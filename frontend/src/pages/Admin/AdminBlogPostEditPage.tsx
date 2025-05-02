@@ -67,7 +67,7 @@ const AdminBlogPostEditPage = () => {
 
     try {
       const response = await adminGetBlogPost(parseInt(id));
-      const post = response.data.blog_post;
+      const post = response.data;
       setFormData({
         title: post.title,
         small_description: post.small_description,
@@ -98,7 +98,8 @@ const AdminBlogPostEditPage = () => {
         await fetchBlogPost();
       } else {
         const response = await adminCreateBlogPost(formData);
-        navigate(appRoutes.backoffice.editBlogPost(response.data.blog_post.id));
+        console.log("Blog post created:", response.data);
+        navigate(appRoutes.backoffice.editBlogPost(response.data.id));
       }
     } catch (error) {
       console.error("Error saving blog post:", error);

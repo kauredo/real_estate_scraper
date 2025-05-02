@@ -2306,18 +2306,19 @@
       "title": "Posts do Blog",
       "new": "Novo Post",
       "edit": "Editar Post",
+      "delete": "Apagar Post",
       "meta_title": "Título SEO",
       "meta_description": "Descrição SEO",
       "title": "Título",
       "small_description": "Descrição Curta",
       "content": "Conteúdo",
       "video_link": "Link do Vídeo",
-      "hidden": "Oculto",
+      "hidden": "Escondido do site",
       "total": "Total posts: {count}",
       "not_found": "Post não encontrado"
     },
-    "confirmDelete": "Tem certeza que deseja excluir este item?",
-    "confirmDeletePhoto": "Tem certeza que deseja excluir esta foto?",
+    "confirmDelete": "Tem certeza que deseja apagar este item?",
+    "confirmDeletePhoto": "Tem certeza que deseja apagar esta foto?",
     "view": "Ver",
     "edit": "Editar"
   }

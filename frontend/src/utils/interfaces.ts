@@ -148,6 +148,7 @@ export interface BlogPost {
   slug: string;
   slug_en: string;
   small_description: string;
+  description: string;
   text: string;
   sanitized_text: string;
   sample_text: string;
