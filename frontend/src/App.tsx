@@ -17,7 +17,7 @@ import ContactPage from "./pages/ContactPage";
 import ServicesPage from "./pages/ServicesPage";
 import FaqPage from "./pages/FaqPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
-// import PrivacyPage from "./pages/PrivacyPage";
+import PrivacyPage from "./pages/PrivacyPage";
 // import ClubPage from "./pages/ClubPage";
 // import ListingComplexesPage from "./pages/ListingComplexesPage";
 // import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
@@ -81,7 +81,7 @@ function AppContent() {
             path="/termos-e-condicoes"
             element={<TermsAndConditionsPage />}
           />
-          {/* <Route path="/privacidade" element={<PrivacyPage />} /> */}
+          <Route path="/privacidade" element={<PrivacyPage />} />
 
           {/* English Routes */}
           <Route path="/en" element={<HomePage />} />
@@ -101,7 +101,7 @@ function AppContent() {
             path="/en/terms-and-conditions"
             element={<TermsAndConditionsPage />}
           />
-          {/* <Route path="/en/privacy" element={<PrivacyPage />} /> */}
+          <Route path="/en/privacy" element={<PrivacyPage />} />
 
           {/* 404 Page */}
           <Route path="*" element={<NotFoundPage />} />
