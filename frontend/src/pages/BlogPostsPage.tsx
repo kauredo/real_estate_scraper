@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
 import { getBlogPosts } from "../services/api";
 import BlogCard from "../components/blog/BlogCard";
 import Banner from "../components/shared/Banner";
+import Pagination from "../components/shared/Pagination";
 import { useMetaTags } from "../hooks/useMetaTags";
+import { BlogPost } from "../utils/interfaces";
 
 const BlogPostsPage = () => {
-  const { t, i18n } = useTranslation();
-  const [blogPosts, setBlogPosts] = useState([]);
+  const { t } = useTranslation();
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const location = useLocation();
+  const [pagination, setPagination] = useState({
+    current_page: 1,
+    per_page: 12,
+    total_count: 0,
+    total_pages: 0,
+  });
 
   useMetaTags({
     title: t("meta.blog.title"),
@@ -23,7 +29,8 @@ const BlogPostsPage = () => {
       try {
         setLoading(true);
         const response = await getBlogPosts();
-        setBlogPosts(response.data);
+        setBlogPosts(response.data.blog_posts);
+        setPagination(response.data.pagination);
       } catch (error) {
         console.error("Error fetching blog posts:", error);
       } finally {
@@ -83,11 +90,15 @@ const BlogPostsPage = () => {
                 ))}
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {blogPosts.map(blogPost => (
-                  <BlogCard key={blogPost.id} blogPost={blogPost} />
-                ))}
-              </div>
+              <>
+                <Pagination pagination={pagination} />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {blogPosts.map(blogPost => (
+                    <BlogCard key={blogPost.id} blogPost={blogPost} />
+                  ))}
+                </div>
+                <Pagination pagination={pagination} />
+              </>
             )}
           </div>
         </div>
