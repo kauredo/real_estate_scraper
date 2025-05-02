@@ -25,6 +25,9 @@ import ClubStoriesPage from "./pages/ClubStoriesPage";
 import ClubStoryDetailPage from "./pages/ClubStoryDetailPage";
 import ListingComplexesPage from "./pages/ListingComplexesPage";
 import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
+import AdminBlogPostsPage from "./pages/Admin/AdminBlogPostsPage";
+import AdminBlogPostEditPage from "./pages/Admin/AdminBlogPostEditPage";
+import AdminBlogPostDetailPage from "./pages/Admin/AdminBlogPostDetailPage";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -61,6 +64,19 @@ function AppContent() {
               <ProtectedRoute>
                 <Routes>
                   <Route path="listings" element={<ListingsPage />} />
+                  <Route path="blog_posts" element={<AdminBlogPostsPage />} />
+                  <Route
+                    path="blog_posts/new"
+                    element={<AdminBlogPostEditPage />}
+                  />
+                  <Route
+                    path="blog_posts/:id/edit"
+                    element={<AdminBlogPostEditPage />}
+                  />
+                  <Route
+                    path="blog_posts/:id"
+                    element={<AdminBlogPostDetailPage />}
+                  />
                   <Route
                     path="listing-complexes"
                     element={<ListingComplexesPage />}
