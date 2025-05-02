@@ -2313,7 +2313,7 @@
       "content": "Conteúdo",
       "video_link": "Link do Vídeo",
       "hidden": "Oculto",
-      "total": "Total %{count} posts",
+      "total": "Total posts: {count}",
       "not_found": "Post não encontrado"
     },
     "confirmDelete": "Tem certeza que deseja excluir este item?",

@@ -14,16 +14,16 @@ const BlogPostList = ({ posts, onEdit, onDelete, onView }: Props) => {
 
   if (!posts.length) {
     return (
-      <div className="text-center text-gray-500 dark:text-gray-400 py-8">
+      <div className="flex items-center justify-center min-h-[200px] text-lg text-gray-500 dark:text-gray-400">
         {t("admin.blog_posts.not_found")}
       </div>
     );
   }
 
   return (
-    <div>
-      <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {t("admin.blog_posts.total", { count: posts.length })}
+    <div className="space-y-6">
+      <div className="text-sm font-medium text-gray-600 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-4">
+        {t("admin.blog_posts.total")}: {posts.length}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map(post => (

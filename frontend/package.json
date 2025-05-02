@@ -19,6 +19,7 @@
     "@heroicons/react": "^2.2.0",
     "@tinymce/tinymce-react": "^6.1.0",
     "axios": "^1.8.4",
+    "date-fns": "^4.1.0",
     "i18next": "^25.0.1",
     "rc-slider": "^11.1.8",
     "react": "^19.0.0",

@@ -46,32 +46,34 @@ const AdminBlogPostsPage = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-beige-default"></div>
+      <div className="flex justify-center items-center min-h-[50vh]">
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-beige-default border-t-transparent"></div>
       </div>
     );
   }
 
   return (
-    <div className="w-full">
-      <div className="mb-6 flex justify-between items-center">
-        <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light sm:text-3xl">
+    <div className="container mx-auto px-4 py-8 max-w-7xl">
+      <div className="px-6 mb-8 flex justify-between items-center">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
           {t("admin.blog_posts.title")}
         </h1>
         <Link
           to={appRoutes.backoffice.newBlogPost}
-          className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-beige-default hover:bg-beige-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-beige-default transition-colors duration-200"
         >
           {t("admin.blog_posts.new")}
         </Link>
       </div>
 
-      <BlogPostList
-        posts={blogPosts}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-        onView={handleView}
-      />
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+        <BlogPostList
+          posts={blogPosts}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+          onView={handleView}
+        />
+      </div>
     </div>
   );
 };

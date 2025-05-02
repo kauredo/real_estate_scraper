@@ -114,12 +114,6 @@ export interface SubNavItem {
 
 export interface StatsFilter {
   [key: string]: string;
-  Quartos_eq?: string;
-  "Casas de Banho_eq"?: string;
-  "Area do terreno_eq"?: string;
-  "Area util_eq"?: string;
-  "Area bruta (CP)_eq"?: string;
-  "Ano de construção_eq"?: string;
 }
 
 export interface ClubStory {
@@ -165,6 +159,9 @@ export interface BlogPost {
   updated_at: string;
   main_photo: string;
   blog_photos: BlogPostPhoto[];
+  content: string;
+  excerpt?: string;
+  featured_image?: string;
 }
 
 export interface BlogPostPhoto {
