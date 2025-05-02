@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { BlogPost } from "../../utils/interfaces";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface BlogPostCardProps {
   post: BlogPost;
@@ -67,7 +68,7 @@ const BlogPostCard = ({
               onClick={handleDelete}
               className="bg-red-500 hover:bg-red-700 text-white dark:text-dark p-2 rounded font-bold"
             >
-              <i className="fas fa-trash-alt"></i>
+              <FontAwesomeIcon icon="trash-alt" />
             </button>
           )}
         </div>
