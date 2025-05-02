@@ -1,14 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { sanitizeURL, scrollToSection } from "../../utils/functions";
-import { ClubStory } from "../../utils/interfaces";
-import ClubStoryCard from "./ClubStoryCard";
-import SubNavbar from "../shared/SubNavbar";
-import { clubSections } from "../../utils/constants/clubSections";
-import ClubHeader from "./ClubHeader";
-import IconDecorationWrapper from "../shared/IconDecorationWrapper";
-import ClubJoinForm from "./ClubJoinForm";
-import Routes from "../../utils/routes";
+import { sanitizeURL, scrollToSection } from "../utils/functions";
+import { ClubStory } from "../utils/interfaces";
+import ClubStoryCard from "../components/club/ClubStoryCard";
+import SubNavbar from "../components/shared/SubNavbar";
+import { clubSections } from "../utils/constants/clubSections";
+import ClubHeader from "../components/club/ClubHeader";
+import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
+// import ClubJoinForm from "./ClubJoinForm";
+import Routes from "../utils/routes";
 import togetherImage from "../../assets/images/together.webp";
 
 interface Props {

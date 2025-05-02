@@ -1,18 +1,18 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ClubStory } from "../../utils/interfaces";
-import ClubStoryCard from "./ClubStoryCard";
-import SubNavbar from "../shared/SubNavbar";
-import { clubSections } from "../../utils/constants/clubSections";
-import ClubHeader from "./ClubHeader";
-import IconDecorationWrapper from "../shared/IconDecorationWrapper";
+import ClubStoryCard from "../components/club/ClubStoryCard";
+import SubNavbar from "../components/shared/SubNavbar";
+import ClubHeader from "../components/club/ClubHeader";
+import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
+import { clubSections } from "../utils/constants/clubSections";
+import { ClubStory } from "../utils/interfaces";
 
 interface Props {
   club_stories: ClubStory[];
   isBackoffice?: boolean;
 }
 
-export default function ClubStories({
+export default function ClubStoriesPage({
   club_stories,
   isBackoffice = false,
 }: Props) {
