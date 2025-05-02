@@ -68,25 +68,19 @@ export const sanitizeURLWithParams = (url, params) => {
   }
 };
 
-export const changeLocale = () => {
-  var url = [window.location.origin];
-  if (window.location.pathname.split("/")[1] === "en") {
-    const path = window.location.pathname.split("/");
-    path.splice(1, 1);
-    url.push(path.join("/"));
-  } else if (window.location.pathname.split("/")[1] === "pt") {
-    const path = window.location.pathname.split("/");
-    path.splice(1, 1);
-    url.push("/en");
-    url.push(path.join("/"));
-  } else {
-    url.push("/en");
-    url.push(window.location.pathname);
-  }
+export const changeLocale = (i18n: any) => {
+  const newLanguage = i18n.language === "pt" ? "en" : "pt";
+  localStorage.setItem("language", newLanguage);
+  i18n.changeLanguage(newLanguage);
 
-  url.push(window.location.search);
+  // Reconstruct the current URL with the new locale
+  const currentPath = window.location.pathname;
+  const searchParams = window.location.search;
+  const basePath = currentPath.replace(/^\/(en|pt)/, "");
 
-  return url.join("");
+  return newLanguage === "pt"
+    ? basePath
+    : `/${newLanguage}${basePath}${searchParams}`;
 };
 
 export function waitForElm(selector) {

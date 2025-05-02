@@ -96,6 +96,7 @@ export interface NavbarItemProps {
   items?: NavbarItemProps[];
   children?: React.ReactNode;
   method?: string;
+  onClick?: () => void;
 }
 
 export interface SubNavItem {
