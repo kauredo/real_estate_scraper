@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import ShareIcons from "../../components/shared/ShareIcons";
 import { BlogPost } from "../../utils/interfaces";
 import { adminGetBlogPost, adminDeleteBlogPost } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
@@ -17,7 +18,7 @@ const AdminBlogPostDetailPage = () => {
       try {
         setLoading(true);
         const response = await adminGetBlogPost(parseInt(id!));
-        setBlogPost(response.data.blog_post);
+        setBlogPost(response.data);
       } catch (error) {
         console.error("Error fetching blog post:", error);
       } finally {
@@ -41,7 +42,7 @@ const AdminBlogPostDetailPage = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
+      <div className="container mx-auto p-8 flex justify-center items-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-beige-default"></div>
       </div>
     );
@@ -49,133 +50,55 @@ const AdminBlogPostDetailPage = () => {
 
   if (!blogPost) {
     return (
-      <div className="text-center">
-        <h2 className="text-xl font-bold text-gray-800 dark:text-light">
-          {t("admin.blog_posts.not_found")}
-        </h2>
+      <div className="container mx-auto p-8 text-center">
+        <h1 className="text-2xl">Blog post not found</h1>
       </div>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-light">
-          {blogPost.title}
-        </h1>
-        <div className="flex gap-2">
-          <Link
-            to={appRoutes.backoffice.editBlogPost(blogPost.id)}
-            className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          >
-            {t("admin.edit")}
-          </Link>
-          <button
-            onClick={handleDelete}
-            className="bg-red-500 hover:bg-red-700 text-white dark:text-dark p-2 rounded font-bold"
-          >
-            <i className="fas fa-trash-alt"></i>
-          </button>
-        </div>
+    <div id="blog-show" className="relative">
+      <div className="container mx-auto px-4 py-4 flex justify-end gap-4">
+        <Link
+          to={appRoutes.backoffice.editBlogPost(parseInt(id!))}
+          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+        >
+          {t("admin.blog_posts.edit")}
+        </Link>
+        <button
+          onClick={handleDelete}
+          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
+        >
+          {t("admin.blog_posts.delete")}
+        </button>
       </div>
-
-      {/* Status Badge */}
-      {blogPost.hidden && (
-        <div className="mb-4">
-          <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">
-            {t("admin.blog_posts.hidden")}
-          </span>
-        </div>
-      )}
-
-      {/* SEO Section */}
-      <div className="mb-8">
-        <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
-          {t("admin.common.seo_section")}
-        </h2>
-        <div className="space-y-4">
-          <div>
-            <h3 className="text-sm font-bold">
-              {t("admin.blog_posts.meta_title")}
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300">
-              {blogPost.meta_title}
-            </p>
-          </div>
-          <div>
-            <h3 className="text-sm font-bold">
-              {t("admin.blog_posts.meta_description")}
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300">
-              {blogPost.meta_description}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Content Preview */}
-      <div className="mb-8">
-        <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
-          {t("admin.common.content_section")}
-        </h2>
-
-        <div className="mb-4">
-          <h3 className="text-sm font-bold mb-2">
-            {t("admin.blog_posts.small_description")}
-          </h3>
-          <p className="text-gray-700 dark:text-gray-300 whitespace-pre-line">
-            {blogPost.small_description}
-          </p>
-        </div>
-
+      <header
+        className="!bg-center !bg-no-repeat !bg-cover min-h-[320px] relative"
+        style={{ background: `url('${blogPost.main_photo}')` }}
+      >
         {blogPost.video_link && (
-          <div className="mb-4">
-            <h3 className="text-sm font-bold mb-2">
-              {t("admin.blog_posts.video_link")}
-            </h3>
-            <a
-              href={blogPost.video_link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-beige-default hover:text-beige-medium"
-            >
-              {blogPost.video_link}
-            </a>
-          </div>
+          <iframe
+            className="relative top-0 right-0 p-0 w-full min-h-[320px]"
+            src={blogPost.video_link}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         )}
-
-        <div className="prose dark:prose-invert max-w-none">
-          <div dangerouslySetInnerHTML={{ __html: blogPost.text }} />
+      </header>
+      <div className="tinymce pt-8 px-8 mx-auto container">
+        <div className="w-full tablet:w-2/3 mb-4">
+          <h1>{blogPost.title}</h1>
+          <p>{new Date(blogPost.created_at).toLocaleDateString()}</p>
         </div>
+        <ShareIcons title={blogPost.meta_title || blogPost.title} />
+
+        <div
+          className="blog-content"
+          dangerouslySetInnerHTML={{ __html: blogPost.sanitized_text }}
+        />
       </div>
-
-      {/* Media Gallery */}
-      {blogPost.blog_photos && blogPost.blog_photos.length > 0 && (
-        <div className="mb-8">
-          <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
-            {t("admin.common.media_section")}
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {blogPost.blog_photos.map(photo => (
-              <div
-                key={photo.id}
-                className="relative bg-white dark:bg-gray-800 rounded-lg shadow-md p-2"
-              >
-                <img
-                  src={photo.image_url}
-                  alt=""
-                  className="w-full h-48 object-cover rounded-lg"
-                />
-                {photo.main && (
-                  <span className="absolute top-4 right-4 bg-beige-default text-white dark:text-dark text-xs font-medium px-2.5 py-0.5 rounded">
-                    {t("admin.common.main_photo")}
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

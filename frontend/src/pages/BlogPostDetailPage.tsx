@@ -4,11 +4,12 @@ import { useTranslation } from "react-i18next";
 import { getBlogPost } from "../services/api";
 import ShareIcons from "../components/shared/ShareIcons";
 import { useMetaTags } from "../hooks/useMetaTags";
+import { BlogPost } from "../utils/interfaces";
 
 const BlogPostDetailPage = () => {
   const { slug } = useParams();
   const { i18n } = useTranslation();
-  const [blogPost, setBlogPost] = useState(null);
+  const [blogPost, setBlogPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
