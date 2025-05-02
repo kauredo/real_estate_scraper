@@ -18,7 +18,10 @@ import ServicesPage from "./pages/ServicesPage";
 import FaqPage from "./pages/FaqPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import PrivacyPage from "./pages/PrivacyPage";
-// import ClubPage from "./pages/ClubPage";
+import ClubPage from "./pages/ClubPage";
+import ClubRulesPage from "./pages/ClubRulesPage";
+import ClubStoriesPage from "./pages/ClubStoriesPage";
+import ClubStoryDetailPage from "./pages/ClubStoryDetailPage";
 import ListingComplexesPage from "./pages/ListingComplexesPage";
 import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
 
@@ -76,7 +79,13 @@ function AppContent() {
             path="/empreendimentos/:slug"
             element={<ListingComplexDetailPage />}
           />
-          {/* <Route path="/club" element={<ClubPage />} /> */}
+          <Route path="/clube-sgg" element={<ClubPage />} />
+          <Route path="/clube-sgg/regulamento" element={<ClubRulesPage />} />
+          <Route path="/clube-sgg/historias" element={<ClubStoriesPage />} />
+          <Route
+            path="/clube-sgg/historias/:slug"
+            element={<ClubStoryDetailPage />}
+          />
           <Route path="/blog" element={<BlogPostsPage />} />
           <Route path="/blog/:slug" element={<BlogPostDetailPage />} />
           <Route path="/kw" element={<AboutPage />} />
@@ -99,7 +108,13 @@ function AppContent() {
             path="/en/enterprises/:slug"
             element={<ListingComplexDetailPage />}
           />
-          {/* <Route path="/en/club" element={<ClubPage />} /> */}
+          <Route path="/en/clube-sgg" element={<ClubPage />} />
+          <Route path="/en/clube-sgg/regulamento" element={<ClubRulesPage />} />
+          <Route path="/en/clube-sgg/historias" element={<ClubStoriesPage />} />
+          <Route
+            path="/en/clube-sgg/historias/:slug"
+            element={<ClubStoryDetailPage />}
+          />
           <Route path="/en/blog" element={<BlogPostsPage />} />
           <Route path="/en/blog/:slug" element={<BlogPostDetailPage />} />
           <Route path="/en/kw" element={<AboutPage />} />

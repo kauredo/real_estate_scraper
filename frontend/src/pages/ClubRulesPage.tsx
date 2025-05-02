@@ -1,11 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import SubNavbar from "../shared/SubNavbar";
-import { clubSections } from "../../utils/constants/clubSections";
-import ClubHeader from "./ClubHeader";
-import IconDecorationWrapper from "../shared/IconDecorationWrapper";
+import SubNavbar from "../components/shared/SubNavbar";
+import ClubHeader from "../components/club/ClubHeader";
+import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
+import { clubSections } from "../utils/constants/clubSections";
 
-export default function Rules() {
+export default function ClubRulesPage() {
   const { t, i18n } = useTranslation();
   return (
     <>
