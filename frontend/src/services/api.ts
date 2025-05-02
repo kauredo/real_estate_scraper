@@ -175,7 +175,7 @@ export const adminFetchListingComplex = data =>
 // Club API functions
 export const getClub = () => api.get(apiRoutes.club);
 export const getClubRules = () => api.get(apiRoutes.clubRules);
-export const getClubStories = params =>
+export const getClubStories = (params = {}) =>
   api.get(apiRoutes.clubStories, { params });
 export const getClubStory = slug => api.get(apiRoutes.clubStory(slug));
 export const joinClub = data => api.post(apiRoutes.clubJoin, data);

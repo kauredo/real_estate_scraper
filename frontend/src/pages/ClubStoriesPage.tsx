@@ -1,22 +1,57 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 import ClubStoryCard from "../components/club/ClubStoryCard";
 import SubNavbar from "../components/shared/SubNavbar";
 import ClubHeader from "../components/club/ClubHeader";
 import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
-import { clubSections } from "../utils/constants/clubSections";
+import { useClubSections } from "../utils/constants/clubSections";
 import { ClubStory } from "../utils/interfaces";
+import { useMetaTags } from "../hooks/useMetaTags";
+import { getClubStories } from "../services/api";
+import Pagination from "../components/shared/Pagination";
 
-interface Props {
-  club_stories: ClubStory[];
-  isBackoffice?: boolean;
-}
+export default function ClubStoriesPage({ isBackoffice = false }) {
+  const { t } = useTranslation();
+  const [searchParams] = useSearchParams();
+  const [stories, setStories] = useState<ClubStory[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [pagination, setPagination] = useState({
+    current_page: 1,
+    per_page: 12,
+    total_count: 0,
+    total_pages: 0,
+  });
+  const clubSections = useClubSections();
 
-export default function ClubStoriesPage({
-  club_stories,
-  isBackoffice = false,
-}: Props) {
-  const { t, i18n } = useTranslation();
+  useMetaTags({
+    title: t("meta.club.stories.title"),
+    description: t("meta.club.stories.description"),
+    url: window.location.href,
+  });
+
+  useEffect(() => {
+    const fetchStories = async () => {
+      try {
+        setLoading(true);
+        const params: Record<string, string> = {};
+        for (const [key, value] of searchParams.entries()) {
+          params[key] = value;
+        }
+
+        const response = await getClubStories(params);
+        setStories(response.data.club_stories);
+        setPagination(response.data.pagination);
+      } catch (error) {
+        console.error("Error fetching club stories:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStories();
+  }, [searchParams]);
+
   return (
     <>
       {!isBackoffice && <SubNavbar items={clubSections} />}
@@ -25,6 +60,7 @@ export default function ClubStoriesPage({
           {!isBackoffice && (
             <>
               <ClubHeader />
+
               <section className="w-full max-w-4xl">
                 <div className="prose prose-lg dark:prose-invert max-w-none space-y-16">
                   <IconDecorationWrapper id="dignity">
@@ -52,11 +88,15 @@ export default function ClubStoriesPage({
           )}
 
           <div className="w-full max-w-7xl mt-16">
-            {club_stories && club_stories.length > 0 ? (
+            {loading ? (
+              <div className="flex justify-center items-center py-8">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+              </div>
+            ) : stories && stories.length > 0 ? (
               <>
-                {club_stories.length === 1 && (
+                {stories.length === 1 && (
                   <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-                    {club_stories.map(story => (
+                    {stories.map(story => (
                       <div className="w-full" key={story.id}>
                         <ClubStoryCard
                           story={story}
@@ -66,9 +106,9 @@ export default function ClubStoriesPage({
                     ))}
                   </div>
                 )}
-                {club_stories.length === 2 && (
+                {stories.length === 2 && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {club_stories.map(story => (
+                    {stories.map(story => (
                       <div className="w-full" key={story.id}>
                         <ClubStoryCard
                           story={story}
@@ -78,17 +118,21 @@ export default function ClubStoriesPage({
                     ))}
                   </div>
                 )}
-                {club_stories.length >= 3 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {club_stories.map(story => (
-                      <div className="w-full" key={story.id}>
-                        <ClubStoryCard
-                          story={story}
-                          isBackoffice={isBackoffice}
-                        />
-                      </div>
-                    ))}
-                  </div>
+                {stories.length >= 3 && (
+                  <>
+                    <Pagination pagination={pagination} />
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {stories.map(story => (
+                        <div className="w-full" key={story.id}>
+                          <ClubStoryCard
+                            story={story}
+                            isBackoffice={isBackoffice}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <Pagination pagination={pagination} />
+                  </>
                 )}
               </>
             ) : (

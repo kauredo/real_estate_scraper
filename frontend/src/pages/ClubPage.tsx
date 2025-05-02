@@ -1,22 +1,45 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { sanitizeURL, scrollToSection } from "../utils/functions";
+import { scrollToSection } from "../utils/functions";
 import { ClubStory } from "../utils/interfaces";
 import ClubStoryCard from "../components/club/ClubStoryCard";
 import SubNavbar from "../components/shared/SubNavbar";
-import { clubSections } from "../utils/constants/clubSections";
 import ClubHeader from "../components/club/ClubHeader";
 import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
-// import ClubJoinForm from "./ClubJoinForm";
+import { useClubSections } from "../utils/constants/clubSections";
 import Routes from "../utils/routes";
-import togetherImage from "../../assets/images/together.webp";
+import { useMetaTags } from "../hooks/useMetaTags";
+import { getClub } from "../services/api";
+import togetherImage from "../assets/images/together.webp";
 
-interface Props {
-  recent_stories: ClubStory[];
-}
+export default function ClubPage() {
+  const { t } = useTranslation();
+  const [recentStories, setRecentStories] = useState<ClubStory[]>([]);
+  const [loading, setLoading] = useState(true);
+  const clubSections = useClubSections();
 
-export default function ClubPage({ recent_stories }: Props) {
-  const { t, i18n } = useTranslation();
+  useMetaTags({
+    title: t("meta.club.title"),
+    description: t("meta.club.description"),
+    url: window.location.href,
+  });
+
+  useEffect(() => {
+    const fetchClub = async () => {
+      try {
+        setLoading(true);
+        const response = await getClub();
+        setRecentStories(response.data);
+      } catch (error) {
+        console.error("Error fetching club data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchClub();
+  }, []);
+
   return (
     <>
       <SubNavbar items={clubSections} />
@@ -36,39 +59,46 @@ export default function ClubPage({ recent_stories }: Props) {
               </IconDecorationWrapper>
 
               {/* Recent Stories Section */}
-              {recent_stories && recent_stories.length > 0 && (
-                <section className="w-full py-12">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-8 text-dark dark:text-light">
-                    {t("club.home.impact.subtitle")}
-                  </h2>
-                  {recent_stories.length === 1 && (
-                    <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-                      {recent_stories.map(story => (
-                        <div className="w-full" key={story.id}>
-                          <ClubStoryCard story={story} />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {recent_stories.length === 2 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      {recent_stories.map(story => (
-                        <div className="w-full" key={story.id}>
-                          <ClubStoryCard story={story} />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {recent_stories.length >= 3 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {recent_stories.map(story => (
-                        <div className="w-full" key={story.id}>
-                          <ClubStoryCard story={story} />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </section>
+              {loading ? (
+                <div className="flex justify-center items-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                </div>
+              ) : (
+                recentStories &&
+                recentStories.length > 0 && (
+                  <section className="w-full py-12">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-dark dark:text-light">
+                      {t("club.home.impact.subtitle")}
+                    </h2>
+                    {recentStories.length === 1 && (
+                      <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
+                        {recentStories.map(story => (
+                          <div className="w-full" key={story.id}>
+                            <ClubStoryCard story={story} />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {recentStories.length === 2 && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {recentStories.map(story => (
+                          <div className="w-full" key={story.id}>
+                            <ClubStoryCard story={story} />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {recentStories.length >= 3 && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {recentStories.map(story => (
+                          <div className="w-full" key={story.id}>
+                            <ClubStoryCard story={story} />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </section>
+                )
               )}
 
               <div

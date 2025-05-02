@@ -1,19 +1,23 @@
-import { i18n } from "../../../languages/languages";
+import { useTranslation } from "react-i18next";
 
-export const clubSections = [
-  {
-    routeName: "club_path",
-    title: i18n.t("navbar.club"),
-    description: i18n.t("club.description"),
-  },
-  {
-    routeName: "club_rules_path",
-    title: i18n.t("navbar.club_rules"),
-    description: i18n.t("club.rules_description"),
-  },
-  {
-    routeName: "club_stories_path",
-    title: i18n.t("navbar.club_stories"),
-    description: i18n.t("club.stories_description"),
-  },
-];
+export const useClubSections = () => {
+  const { t } = useTranslation();
+
+  return [
+    {
+      routeName: "club_path",
+      title: t("navbar.club"),
+      description: t("club.description"),
+    },
+    {
+      routeName: "club_rules_path",
+      title: t("navbar.club_rules"),
+      description: t("club.rules_description"),
+    },
+    {
+      routeName: "club_stories_path",
+      title: t("navbar.club_stories"),
+      description: t("club.stories_description"),
+    },
+  ];
+};

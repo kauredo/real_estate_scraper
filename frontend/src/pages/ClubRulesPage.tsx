@@ -1,12 +1,22 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import SubNavbar from "../components/shared/SubNavbar";
 import ClubHeader from "../components/club/ClubHeader";
 import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
-import { clubSections } from "../utils/constants/clubSections";
+import { useClubSections } from "../utils/constants/clubSections";
+import { useMetaTags } from "../hooks/useMetaTags";
+import { getClubRules } from "../services/api";
 
 export default function ClubRulesPage() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const clubSections = useClubSections();
+
+  useMetaTags({
+    title: t("meta.club.rules.title"),
+    description: t("meta.club.rules.description"),
+    url: window.location.href,
+  });
+
   return (
     <>
       <SubNavbar items={clubSections} />
