@@ -4,6 +4,44 @@ import i18n from "../i18n";
 const API_BASE_URL =
   import.meta.env.VITE_API_URL || "http://localhost:3001/api/v1";
 
+// Route translations between Portuguese and English
+export const routeMappings = {
+  // Main pages
+  servicos: "services",
+  kw: "kw",
+  privacidade: "privacy",
+  "termos-e-condicoes": "terms-and-conditions",
+  contactos: "contact",
+  faq: "faq",
+
+  // Listings
+  comprar: "buy",
+  vender: "sell",
+  empreendimentos: "enterprises",
+
+  // Other
+  "clube-sgg": "club",
+  regulamento: "rules",
+  historias: "stories",
+  blog: "blog",
+  backoffice: "backoffice",
+} as const;
+
+// Function to translate route segments
+export const translateRoute = (segment: string, toEnglish: boolean): string => {
+  if (toEnglish) {
+    const entry = Object.entries(routeMappings).find(
+      ([pt, _]) => pt === segment
+    );
+    return entry ? entry[1] : segment;
+  } else {
+    const entry = Object.entries(routeMappings).find(
+      ([_, en]) => en === segment
+    );
+    return entry ? entry[0] : segment;
+  }
+};
+
 // Helper to handle language prefix
 export const getLocalizedRoute = (route: string): string => {
   // Don't add /en prefix to API routes or absolute URLs
@@ -12,10 +50,22 @@ export const getLocalizedRoute = (route: string): string => {
   }
 
   const language = i18n.language;
-  if (language === "en" && !route.startsWith("/en")) {
-    return `/en${route}`;
+  const segments = route.split("/").filter(Boolean);
+
+  if (language === "en") {
+    const translatedSegments = segments.map(segment =>
+      translateRoute(segment, true)
+    );
+    return `/${language}/${translatedSegments.join("/")}`;
   }
-  return route;
+
+  // Remove 'en' prefix if present and translate to Portuguese
+  const withoutPrefix = route.replace(/^\/en\//, "");
+  const portugueseSegments = withoutPrefix
+    .split("/")
+    .filter(Boolean)
+    .map(segment => translateRoute(segment, false));
+  return `/${portugueseSegments.join("/")}`;
 };
 
 // Type for route parameters
