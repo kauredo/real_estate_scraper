@@ -17,9 +17,6 @@ const TermsAndConditionsPage = () => {
     returnObjects: true,
   }) as string[];
 
-  console.log(licenseRestrictions);
-  console.log(disclaimerPoints);
-
   return (
     <>
       <Banner height="20vh" blurred={true} text={t("terms.header")} />
