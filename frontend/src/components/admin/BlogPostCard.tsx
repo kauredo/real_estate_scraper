@@ -24,7 +24,7 @@ const BlogPostCard = ({
   };
 
   return (
-    <div className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg max-w-sm w-96 mb-5">
+    <div className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg max-w-sm w-96 mb-5 mx-auto">
       {onView && (
         <div onClick={() => onView(post.id)} className="cursor-pointer">
           <img
