@@ -111,11 +111,13 @@ export const toggleDarkMode = () => api.post(apiRoutes.toggleDarkMode);
 export const submitContactForm = data => api.post(apiRoutes.contact, data);
 
 // Blog posts API functions
-export const getBlogPosts = params => api.get(apiRoutes.blogPosts, { params });
+export const getBlogPosts = (params = {}) =>
+  api.get(apiRoutes.blogPosts, { params });
 export const getBlogPost = slug => api.get(apiRoutes.blogPost(slug));
 
 // Admin - Blog posts API functions
-export const adminGetBlogPosts = () => api.get(apiRoutes.admin.blogPosts);
+export const adminGetBlogPosts = (params = {}) =>
+  api.get(apiRoutes.admin.blogPosts, { params });
 export const adminGetBlogPost = id => api.get(apiRoutes.admin.blogPost(id));
 export const adminCreateBlogPost = data =>
   api.post(apiRoutes.admin.blogPosts, { blog_post: data });
@@ -125,11 +127,13 @@ export const adminDeleteBlogPost = id =>
   api.delete(apiRoutes.admin.blogPost(id));
 
 // Listings API functions
-export const getListings = params => api.get(apiRoutes.listings, { params });
+export const getListings = (params = {}) =>
+  api.get(apiRoutes.listings, { params });
 export const getListing = slug => api.get(apiRoutes.listing(slug));
 
 // Listing complexes API functions
-export const getListingComplexes = () => api.get(apiRoutes.listingComplexes);
+export const getListingComplexes = (params = {}) =>
+  api.get(apiRoutes.listingComplexes, { params });
 export const getListingComplex = slug =>
   api.get(apiRoutes.listingComplex(slug));
 

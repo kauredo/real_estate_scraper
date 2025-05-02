@@ -142,3 +142,27 @@ export interface ClubStoryPhoto {
   image_url: string;
   main: boolean;
 }
+
+export interface BlogPost {
+  id: number;
+  title: string;
+  slug: string;
+  small_description: string;
+  text: string;
+  sanitized_text: string;
+  sample_text: string;
+  video_link: string;
+  meta_title: string;
+  meta_description: string;
+  hidden: boolean;
+  created_at: string;
+  updated_at: string;
+  main_photo: string;
+  blog_photos: BlogPostPhoto[];
+}
+
+export interface BlogPostPhoto {
+  id: number;
+  image_url: string;
+  main: boolean;
+}
