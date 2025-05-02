@@ -2282,5 +2282,43 @@
       "loading": "A entrar...",
       "error": "Email ou senha inválidos"
     }
+  },
+  "admin": {
+    "dashboard": "Painel Administrativo",
+    "nav": {
+      "blog_posts": "Posts do Blog",
+      "club_stories": "Histórias do Club",
+      "listing_complexes": "Empreendimentos",
+      "listings": "Imóveis",
+      "testimonials": "Depoimentos",
+      "variables": "Variáveis"
+    },
+    "common": {
+      "content_section": "Conteúdo",
+      "media_section": "Mídia",
+      "seo_section": "SEO",
+      "dropzone": "Arraste e solte arquivos aqui, ou clique para selecionar",
+      "main_photo": "Foto Principal",
+      "saving": "Salvando...",
+      "save": "Salvar"
+    },
+    "blog_posts": {
+      "title": "Posts do Blog",
+      "new": "Novo Post",
+      "edit": "Editar Post",
+      "meta_title": "Título SEO",
+      "meta_description": "Descrição SEO",
+      "title": "Título",
+      "small_description": "Descrição Curta",
+      "content": "Conteúdo",
+      "video_link": "Link do Vídeo",
+      "hidden": "Oculto",
+      "total": "Total %{count} posts",
+      "not_found": "Post não encontrado"
+    },
+    "confirmDelete": "Tem certeza que deseja excluir este item?",
+    "confirmDeletePhoto": "Tem certeza que deseja excluir esta foto?",
+    "view": "Ver",
+    "edit": "Editar"
   }
 }
