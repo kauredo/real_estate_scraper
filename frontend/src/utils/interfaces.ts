@@ -131,6 +131,7 @@ export interface ClubStory {
   sample_text: string;
   meta_title?: string;
   meta_description?: string;
+  excerpt?: string;
   created_at: string;
   updated_at: string;
   video_link?: string;
@@ -140,6 +141,9 @@ export interface ClubStory {
 export interface ClubStoryPhoto {
   id: number;
   image_url: string;
+  image: {
+    url: string;
+  };
   main: boolean;
 }
 
