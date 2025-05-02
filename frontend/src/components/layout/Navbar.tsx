@@ -137,8 +137,10 @@ export default function Navbar(props: Props) {
       },
       {
         title: t("navbar.other_language"),
-        url: changeLocale(),
-        turbo: "false",
+        onClick: () => {
+          const newUrl = changeLocale(i18n);
+          window.location.href = newUrl;
+        },
         img: (
           <img
             loading="lazy"
