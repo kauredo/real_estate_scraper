@@ -6,7 +6,7 @@ module Api
       include Pagy::Backend
 
       def index
-        listing_complexes = ListingComplex.includes(:listings, :photos).where(hidden: false)
+        listing_complexes = ListingComplex.includes(:translations, :photos).where(hidden: false)
         paginated = paginate(listing_complexes)
 
         render json: {
@@ -16,7 +16,7 @@ module Api
       end
 
       def show
-        @listing_complex = ListingComplex.includes(:listings, :photos).friendly.find(params[:id])
+        @listing_complex = ListingComplex.includes(:translations, :listings, :photos).friendly.find(params[:id])
 
         if @listing_complex.hidden? && !current_admin&.confirmed?
           render json: { error: 'Not found' }, status: :not_found

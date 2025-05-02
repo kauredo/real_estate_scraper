@@ -37,3 +37,24 @@ class BlogPostSerializer
     json
   end
 end
+
+# == Schema Information
+#
+# Table name: blog_posts
+#
+#  id                :bigint           not null, primary key
+#  hidden            :boolean          default(TRUE)
+#  meta_description  :text
+#  meta_title        :text
+#  slug              :string
+#  small_description :text
+#  text              :text
+#  title             :string
+#  video_link        :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+# Indexes
+#
+#  index_blog_posts_on_slug  (slug) UNIQUE
+#

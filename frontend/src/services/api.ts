@@ -128,6 +128,11 @@ export const adminDeleteBlogPost = id =>
 export const getListings = params => api.get(apiRoutes.listings, { params });
 export const getListing = slug => api.get(apiRoutes.listing(slug));
 
+// Listing complexes API functions
+export const getListingComplexes = () => api.get(apiRoutes.listingComplexes);
+export const getListingComplex = slug =>
+  api.get(apiRoutes.listingComplex(slug));
+
 // Admin - Listings API functions
 export const adminGetListings = () => api.get(apiRoutes.admin.listings);
 export const adminGetListing = id => api.get(apiRoutes.admin.listing(id));

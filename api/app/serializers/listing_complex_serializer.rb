@@ -42,3 +42,26 @@ class ListingComplexSerializer
     json
   end
 end
+
+# == Schema Information
+#
+# Table name: listing_complexes
+#
+#  id          :bigint           not null, primary key
+#  description :text
+#  final_text  :text
+#  hidden      :boolean          default(FALSE)
+#  name        :string
+#  new_format  :boolean          default(FALSE)
+#  order       :integer
+#  slug        :string
+#  subtext     :text
+#  url         :string
+#  video_link  :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+# Indexes
+#
+#  index_listing_complexes_on_slug  (slug) UNIQUE
+#
