@@ -22,9 +22,6 @@ const BlogPostList = ({ posts, onEdit, onDelete, onView }: Props) => {
 
   return (
     <div className="space-y-6">
-      <div className="text-sm font-medium text-gray-600 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-4">
-        {t("admin.blog_posts.total")}: {posts.length}
-      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map(post => (
           <BlogPostCard

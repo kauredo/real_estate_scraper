@@ -10,6 +10,7 @@ import {
   adminUploadBlogPhoto,
 } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
+import { isDarkModeActive } from "../../utils/functions";
 
 interface BlogPostFormData {
   title: string;
@@ -121,199 +122,227 @@ const AdminBlogPostEditPage = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-beige-default"></div>
+      <div className="min-h-[50vh] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-beige-default border-t-transparent"></div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-light">
-          {isEditing ? t("admin.blog_posts.edit") : t("admin.blog_posts.new")}
-        </h1>
-      </div>
-
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="bg-white dark:bg-dark shadow rounded-lg p-6 space-y-4">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-light">
-            {t("admin.common.content_section")}
-          </h2>
-
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-8 flex items-center justify-between">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              {t("admin.blog_posts.title")}
-            </label>
-            <input
-              type="text"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-dark-lighter dark:border-gray-600"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              {t("admin.blog_posts.small_description")}
-            </label>
-            <textarea
-              name="small_description"
-              value={formData.small_description}
-              onChange={handleChange}
-              rows={3}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-dark-lighter dark:border-gray-600"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              {t("admin.blog_posts.content")}
-            </label>
-            <Editor
-              value={formData.text}
-              onEditorChange={content =>
-                setFormData(prev => ({ ...prev, text: content }))
-              }
-              init={{
-                height: 500,
-                menubar: true,
-                plugins: [
-                  "advlist",
-                  "autolink",
-                  "lists",
-                  "link",
-                  "image",
-                  "charmap",
-                  "preview",
-                  "anchor",
-                  "searchreplace",
-                  "visualblocks",
-                  "code",
-                  "fullscreen",
-                  "insertdatetime",
-                  "media",
-                  "table",
-                  "code",
-                  "help",
-                  "wordcount",
-                ],
-                toolbar:
-                  "undo redo | blocks | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help",
-              }}
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              {t("admin.blog_posts.video_link")}
-            </label>
-            <input
-              type="url"
-              name="video_link"
-              value={formData.video_link}
-              onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-dark-lighter dark:border-gray-600"
-            />
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+              {isEditing
+                ? t("admin.blog_posts.edit")
+                : t("admin.blog_posts.new")}
+            </h1>
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+              {isEditing
+                ? t("admin.blog_posts.edit_description")
+                : t("admin.blog_posts.new_description")}
+            </p>
           </div>
         </div>
 
-        <div className="bg-white dark:bg-dark shadow rounded-lg p-6 space-y-4">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-light">
-            {t("admin.common.seo_section")}
-          </h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
+            <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
+              <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                {t("admin.common.content_section")}
+              </h2>
+            </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              {t("admin.blog_posts.meta_title")}
-            </label>
-            <input
-              type="text"
-              name="meta_title"
-              value={formData.meta_title}
-              onChange={handleChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-dark-lighter dark:border-gray-600"
-              required
-            />
-          </div>
+            <div className="grid grid-cols-1 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  {t("admin.blog_posts.title")}
+                </label>
+                <input
+                  type="text"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  className="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 sm:text-sm"
+                  required
+                />
+              </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              {t("admin.blog_posts.meta_description")}
-            </label>
-            <textarea
-              name="meta_description"
-              value={formData.meta_description}
-              onChange={handleChange}
-              rows={3}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-dark-lighter dark:border-gray-600"
-              required
-            />
-          </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  {t("admin.blog_posts.small_description")}
+                </label>
+                <textarea
+                  name="small_description"
+                  value={formData.small_description}
+                  onChange={handleChange}
+                  rows={3}
+                  className="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 sm:text-sm"
+                  required
+                />
+              </div>
 
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              name="hidden"
-              checked={formData.hidden}
-              onChange={handleChange}
-              className="h-4 w-4 text-beige-medium focus:ring-beige-medium border-gray-300 rounded"
-            />
-            <label className="ml-2 text-sm text-gray-900 dark:text-gray-300">
-              {t("admin.blog_posts.hidden")}
-            </label>
-          </div>
-        </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  {t("admin.blog_posts.content")}
+                </label>
+                <Editor
+                  value={formData.text}
+                  onEditorChange={content =>
+                    setFormData(prev => ({ ...prev, text: content }))
+                  }
+                  init={{
+                    height: 500,
+                    menubar: true,
+                    plugins: [
+                      "advlist",
+                      "autolink",
+                      "lists",
+                      "link",
+                      "image",
+                      "charmap",
+                      "preview",
+                      "anchor",
+                      "searchreplace",
+                      "visualblocks",
+                      "code",
+                      "fullscreen",
+                      "insertdatetime",
+                      "media",
+                      "table",
+                      "code",
+                      "help",
+                      "wordcount",
+                    ],
+                    toolbar:
+                      "undo redo | blocks | " +
+                      "bold italic forecolor | alignleft aligncenter " +
+                      "alignright alignjustify | bullist numlist outdent indent | " +
+                      "removeformat | help",
+                    skin: isDarkModeActive() ? "oxide-dark" : "oxide",
+                    content_css: isDarkModeActive() ? "dark" : "default",
+                  }}
+                />
+              </div>
 
-        {isEditing && (
-          <div className="bg-white dark:bg-dark shadow rounded-lg p-6 space-y-4">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-light">
-              {t("admin.common.media_section")}
-            </h2>
-
-            <div
-              {...getRootProps()}
-              className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md cursor-pointer hover:border-beige-medium"
-            >
-              <div className="space-y-1 text-center">
-                <svg
-                  className="mx-auto h-12 w-12 text-gray-400"
-                  stroke="currentColor"
-                  fill="none"
-                  viewBox="0 0 48 48"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <div className="flex text-sm text-gray-600">
-                  <input {...getInputProps()} />
-                  <p className="pl-1 dark:text-gray-300">
-                    {t("admin.common.dropzone")}
-                  </p>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  {t("admin.blog_posts.video_link")}
+                </label>
+                <input
+                  type="url"
+                  name="video_link"
+                  value={formData.video_link}
+                  onChange={handleChange}
+                  className="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 sm:text-sm"
+                />
               </div>
             </div>
           </div>
-        )}
 
-        <div className="flex justify-end">
-          <button
-            type="submit"
-            disabled={saving}
-            className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
-          >
-            {saving ? t("admin.common.saving") : t("admin.common.save")}
-          </button>
-        </div>
-      </form>
+          <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
+            <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
+              <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                {t("admin.common.seo_section")}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  {t("admin.blog_posts.meta_title")}
+                </label>
+                <input
+                  type="text"
+                  name="meta_title"
+                  value={formData.meta_title}
+                  onChange={handleChange}
+                  className="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 sm:text-sm"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  {t("admin.blog_posts.meta_description")}
+                </label>
+                <textarea
+                  name="meta_description"
+                  value={formData.meta_description}
+                  onChange={handleChange}
+                  rows={3}
+                  className="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 sm:text-sm"
+                  required
+                />
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <input
+                  type="checkbox"
+                  name="hidden"
+                  id="hidden"
+                  checked={formData.hidden}
+                  onChange={handleChange}
+                  className="h-4 w-4 rounded border-gray-300 text-beige-medium focus:ring-beige-medium"
+                />
+                <label
+                  htmlFor="hidden"
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300"
+                >
+                  {t("admin.blog_posts.hidden")}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {isEditing && (
+            <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
+              <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
+                <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                  {t("admin.common.media_section")}
+                </h2>
+              </div>
+
+              <div
+                {...getRootProps()}
+                className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg cursor-pointer hover:border-beige-medium transition-colors duration-200"
+              >
+                <div className="space-y-1 text-center">
+                  <svg
+                    className="mx-auto h-12 w-12 text-gray-400"
+                    stroke="currentColor"
+                    fill="none"
+                    viewBox="0 0 48 48"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div className="flex text-sm text-gray-600 dark:text-gray-400">
+                    <input {...getInputProps()} />
+                    <p className="pl-1">{t("admin.common.dropzone")}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              disabled={saving}
+              className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-beige-default hover:bg-beige-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-beige-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {saving ? t("admin.common.saving") : t("admin.common.save")}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

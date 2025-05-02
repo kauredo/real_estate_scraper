@@ -2314,7 +2314,7 @@
       "content": "Conteúdo",
       "video_link": "Link do Vídeo",
       "hidden": "Escondido do site",
-      "total": "Total posts: {count}",
+      "total": "Total posts",
       "not_found": "Post não encontrado"
     },
     "confirmDelete": "Tem certeza que deseja apagar este item?",
