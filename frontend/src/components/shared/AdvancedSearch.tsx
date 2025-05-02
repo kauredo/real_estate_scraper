@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { sanitizeURL } from "../../utils/functions";
 import { useTranslation } from "react-i18next";
 import { StatsFilter } from "../../utils/interfaces";
 

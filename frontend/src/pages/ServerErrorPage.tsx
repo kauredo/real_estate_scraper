@@ -4,6 +4,8 @@ import ServerError from "../components/svgs/ServerError";
 import { useMetaTags } from "../hooks/useMetaTags";
 import mainWhiteLogo from "../assets/logos/main_white.webp";
 import mainLogo from "../assets/logos/main.webp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const ServerErrorPage = () => {
   const { t } = useTranslation();
@@ -44,7 +46,7 @@ const ServerErrorPage = () => {
               to="/"
               className="text-lg font-light outline-none focus:outline-none transform transition-all hover:scale-110 text-beige-default dark:text-beige-medium hover:brightness-50 dark:hover:text-light dark:hover:brightness-100"
             >
-              <i className="mdi mdi-arrow-left mr-2"></i>
+              <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
               {t("errors.500.button")}
             </Link>
           </div>

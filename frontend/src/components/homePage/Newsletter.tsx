@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { sanitizeURL } from "../../utils/functions";
 import { apiRoutes } from "../../utils/routes";
 import emailImage from "../../assets/images/email.webp";
 

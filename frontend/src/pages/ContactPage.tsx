@@ -1,6 +1,14 @@
 import { useTranslation } from "react-i18next";
 import { useMetaTags } from "../hooks/useMetaTags";
 import ContactForm from "../components/contactPage/ContactForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLocationArrow,
+  faStore,
+  faMobile,
+  faAt,
+} from "@fortawesome/free-solid-svg-icons";
+import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const ContactPage = () => {
   const { t } = useTranslation();
@@ -27,10 +35,7 @@ const ContactPage = () => {
                 <div className="mt-4">
                   <dt className="flex items-center">
                     <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <i
-                        className="fas fa-location-arrow"
-                        aria-hidden="true"
-                      ></i>
+                      <FontAwesomeIcon icon={faLocationArrow} />
                     </div>
                     <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
                       Av. Dom Carlos I 124, Lisboa, Portugal
@@ -40,7 +45,7 @@ const ContactPage = () => {
                 <div className="mt-4">
                   <dt className="flex items-center">
                     <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <i className="fas fa-store-alt" aria-hidden="true"></i>
+                      <FontAwesomeIcon icon={faStore} />
                     </div>
                     <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
                       KW Lead - Santos
@@ -50,7 +55,7 @@ const ContactPage = () => {
                 <div className="mt-4">
                   <dt className="flex items-center">
                     <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <i className="fas fa-mobile-alt" aria-hidden="true"></i>
+                      <FontAwesomeIcon icon={faMobile} />
                     </div>
                     <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
                       +351 93 28 29 084 - Sofia Galvão
@@ -60,7 +65,7 @@ const ContactPage = () => {
                 <div className="mt-4">
                   <dt className="flex items-center">
                     <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <i className="fas fa-at" aria-hidden="true"></i>
+                      <FontAwesomeIcon icon={faAt} />
                     </div>
                     <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
                       geral@sofiagalvaogroup.com
@@ -75,7 +80,7 @@ const ContactPage = () => {
                   >
                     <dt className="flex items-center">
                       <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                        <i className="fa fa-facebook-f" aria-hidden="true"></i>
+                        <FontAwesomeIcon icon={faFacebook} />
                       </div>
                       <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
                         /sofiagalvaokw
@@ -91,7 +96,7 @@ const ContactPage = () => {
                   >
                     <dt className="flex items-center">
                       <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                        <i className="fa fa-instagram" aria-hidden="true"></i>
+                        <FontAwesomeIcon icon={faInstagram} />
                       </div>
                       <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
                         @sofiagalvaogroupkw

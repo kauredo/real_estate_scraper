@@ -5,7 +5,6 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { useTranslation } from "react-i18next";
-import { sanitizeURL } from "../../utils/functions";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Routes from "../../utils/routes";
 import mainWhiteLogo from "../../assets/logos/main_white.webp";

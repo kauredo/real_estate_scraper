@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { numberToCurrency, sanitizeURL } from "../../utils/functions";
+import { numberToCurrency } from "../../utils/functions";
 import { useTranslation } from "react-i18next";
 import Slider from "rc-slider";
 import AdvancedSearch from "./AdvancedSearch";
