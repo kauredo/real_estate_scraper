@@ -60,7 +60,7 @@ const baseAppRoutes = {
   services: "/servicos",
   about: "/kw",
   privacy: "/privacidade",
-  terms: "/termos_e_condicoes",
+  terms: "/termos-e-condicoes",
   contact: "/contactos",
   faq: "/faq",
 

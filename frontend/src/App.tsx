@@ -12,6 +12,15 @@ import BlogPostsPage from "./pages/BlogPostsPage";
 import BlogPostDetailPage from "./pages/BlogPostDetailPage";
 import LoginPage from "./pages/Auth/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import ServicesPage from "./pages/ServicesPage";
+import FaqPage from "./pages/FaqPage";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
+// import PrivacyPage from "./pages/PrivacyPage";
+// import ClubPage from "./pages/ClubPage";
+// import ListingComplexesPage from "./pages/ListingComplexesPage";
+// import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -23,8 +32,6 @@ function ScrollToTop() {
 
   return null;
 }
-
-// Wrapper component to handle navbar props based on auth state and location
 function AppContent() {
   const { isAuthenticated } = useAuth();
   const location = useLocation();
@@ -50,6 +57,7 @@ function AppContent() {
               <ProtectedRoute>
                 <Routes>
                   <Route path="listings" element={<ListingsPage />} />
+                  {/* <Route path="listing-complexes" element={<ListingComplexesPage />} /> */}
                 </Routes>
               </ProtectedRoute>
             }
@@ -59,15 +67,41 @@ function AppContent() {
           <Route path="/" element={<HomePage />} />
           <Route path="/comprar" element={<ListingsPage />} />
           <Route path="/comprar/:slug" element={<ListingDetailPage />} />
+          {/* <Route path="/vender" element={<ListingsPage sellPage />} /> */}
+          {/* <Route path="/empreendimentos" element={<ListingComplexesPage />} /> */}
+          {/* <Route path="/empreendimentos/:slug" element={<ListingComplexDetailPage />} /> */}
+          {/* <Route path="/club" element={<ClubPage />} /> */}
           <Route path="/blog" element={<BlogPostsPage />} />
           <Route path="/blog/:slug" element={<BlogPostDetailPage />} />
+          <Route path="/kw" element={<AboutPage />} />
+          <Route path="/servicos" element={<ServicesPage />} />
+          <Route path="/contactos" element={<ContactPage />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route
+            path="/termos-e-condicoes"
+            element={<TermsAndConditionsPage />}
+          />
+          {/* <Route path="/privacidade" element={<PrivacyPage />} /> */}
 
           {/* English Routes */}
           <Route path="/en" element={<HomePage />} />
-          <Route path="/en/comprar" element={<ListingsPage />} />
-          <Route path="/en/comprar/:slug" element={<ListingDetailPage />} />
+          <Route path="/en/buy" element={<ListingsPage />} />
+          <Route path="/en/buy/:slug" element={<ListingDetailPage />} />
+          {/* <Route path="/en/sell" element={<ListingsPage sellPage />} /> */}
+          {/* <Route path="/en/enterprises" element={<ListingComplexesPage />} /> */}
+          {/* <Route path="/en/enterprises/:slug" element={<ListingComplexDetailPage />} /> */}
+          {/* <Route path="/en/club" element={<ClubPage />} /> */}
           <Route path="/en/blog" element={<BlogPostsPage />} />
           <Route path="/en/blog/:slug" element={<BlogPostDetailPage />} />
+          <Route path="/en/kw" element={<AboutPage />} />
+          <Route path="/en/services" element={<ServicesPage />} />
+          <Route path="/en/contact" element={<ContactPage />} />
+          <Route path="/en/faq" element={<FaqPage />} />
+          <Route
+            path="/en/terms-and-conditions"
+            element={<TermsAndConditionsPage />}
+          />
+          {/* <Route path="/en/privacy" element={<PrivacyPage />} /> */}
 
           {/* 404 Page */}
           <Route path="*" element={<NotFoundPage />} />
@@ -81,14 +115,9 @@ function AppContent() {
 function App() {
   const { i18n } = useTranslation();
 
-  // Initialize language from URL or localStorage
   useEffect(() => {
-    const path = window.location.pathname;
-    if (path.startsWith("/en")) {
-      i18n.changeLanguage("en");
-    } else {
-      i18n.changeLanguage("pt");
-    }
+    const currentLanguage = localStorage.getItem("language") || "pt";
+    i18n.changeLanguage(currentLanguage);
   }, [i18n]);
 
   return (
