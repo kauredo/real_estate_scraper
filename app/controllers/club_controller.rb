@@ -18,14 +18,26 @@ class ClubController < ApplicationController
       end
     end
 
-    NewClubJoinMailer.with(join_params).new_join_request.deliver_later
+    @club_user = ClubUser.new(join_params)
 
-    respond_to do |format|
-      format.html do
-        flash[:notice] = I18n.t('club.flash.join.thanks')
-        redirect_back(fallback_location: club_path)
+    if @club_user.save
+      NewClubJoinMailer.with(join_params).new_join_request.deliver_later
+
+      respond_to do |format|
+        format.html do
+          flash[:notice] = I18n.t('club.flash.join.thanks')
+          redirect_back(fallback_location: club_path)
+        end
+        format.json { render json: { success: true } }
       end
-      format.json { render json: { success: true } }
+    else
+      respond_to do |format|
+        format.html do
+          flash[:error] = @club_user.errors.full_messages.join('. ')
+          redirect_back(fallback_location: club_path)
+        end
+        format.json { render json: { success: false, error: @club_user.errors.full_messages.join('. ') } }
+      end
     end
   end
 
