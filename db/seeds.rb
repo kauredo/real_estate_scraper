@@ -145,7 +145,7 @@ puts "\n#{Time.current} - Creating listing complexes..."
 end
 
 puts "\n#{Time.current} - Creating variables..."
-10.times do |i|
+3.times do |i|
   print "  • Variable #{i + 1}/10: "
   content = with_locales do |_locale|
     {

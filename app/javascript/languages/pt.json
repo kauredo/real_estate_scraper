@@ -152,11 +152,13 @@
         "fields": {
           "email": "Email",
           "name": "Nome",
-          "phone": "Telefone",
-          "send": "Juntar ao Clube"
+          "phone": "Telemóvel",
+          "send": "Juntar ao Clube",
+          "terms_link": "Regulamento do Clube SGG",
+          "terms_prefix": "Declaro que li e aceito os termos presentes no"
         },
         "titles": {
-          "main": "Preencha o formulário para nos referenciar um membro:"
+          "main": "Torne-se membro do Clube SGG"
         }
       },
       "home": {

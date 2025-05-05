@@ -1221,6 +1221,9 @@ en:
         email: Email
         phone: Phone
         send: Join Club
+        terms_prefix:
+          I declare that I have read and accept the terms presented in the
+        terms_link: SGG Club Regulations
     flash:
       join:
         thanks:

@@ -1225,7 +1225,7 @@ pt:
     rules_description: "Conheça os termos e condições de membro do Clube SGG"
     form:
       titles:
-        main: "Preencha o formulário para nos referenciar um membro:"
+        main: "Torne-se membro do Clube SGG"
       consent:
         Ao contactar-nos está a autorizar o Sofia Galvão Group a guardar os seus
         dados para fins de adesão ao clube.
@@ -1233,8 +1233,10 @@ pt:
       fields:
         name: Nome
         email: Email
-        phone: Telefone
+        phone: Telemóvel
         send: Juntar ao Clube
+        terms_prefix: Declaro que li e aceito os termos presentes no
+        terms_link: Regulamento do Clube SGG
     flash:
       join:
         thanks:

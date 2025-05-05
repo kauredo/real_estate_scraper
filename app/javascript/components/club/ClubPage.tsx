@@ -168,27 +168,8 @@ export default function ClubPage({ recent_stories }: Props) {
                 <p className="text-xl font-bold mb-4 text-beige-default dark:text-beige-medium">
                   {i18n.t("club.home.join.impact")}
                 </p>
-                <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
-                  {i18n.t("club.home.join.whatsapp")}
-                </p>
-                <div className="flex flex-col items-start gap-4">
-                  <a
-                    href="https://wa.me/351932829084"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="whitespace-nowrap mx-auto mb-4 border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
-                  >
-                    {i18n.t("club.home.join.cta")}
-                  </a>
-                  <p className="text-xl font-bold mx-auto">
-                    {i18n.t("club.home.join.mission")}
-                  </p>
-                  <a
-                    href={sanitizeURL(window.Routes.club_rules_path)}
-                    className="mx-auto text-xl font-bold text-beige-default dark:text-beige-medium underline"
-                  >
-                    {i18n.t("club.home.know_more.rules")}
-                  </a>
+                <div className="flex justify-center mt-2">
+                  <ClubJoinForm />
                 </div>
               </IconDecorationWrapper>
 
@@ -216,9 +197,6 @@ export default function ClubPage({ recent_stories }: Props) {
                     {i18n.t("club.home.know_more.cta")}
                   </a>
                 </p>
-                {/* <div className="flex justify-center mt-2">
-                  <ClubJoinForm />
-                </div> */}
               </div>
             </div>
           </section>

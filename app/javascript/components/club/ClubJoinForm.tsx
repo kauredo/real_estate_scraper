@@ -5,15 +5,17 @@ export default function ClubJoinForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [error, setError] = useState("");
-  const form = useRef(null);
-  const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+  const form = useRef<HTMLFormElement>(null);
+  const pattern =
+    /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
 
   const validateUser = e => {
     e.preventDefault();
-    const valid_params = pattern.test(email) && name && phone;
+    const valid_params = pattern.test(email) && name && phone && termsAccepted;
 
-    if (valid_params) {
+    if (valid_params && form.current) {
       form.current.submit();
     } else {
       setError(i18n.t("club.form.error"));
@@ -50,6 +52,15 @@ export default function ClubJoinForm() {
         </div>
         <div className="mb-6">
           <input
+            type="tel"
+            placeholder={i18n.t("club.form.fields.phone")}
+            name="club_join[phone]"
+            onChange={e => setPhone(e.target.value)}
+            className="w-full rounded py-3 px-[14px] text-sm bg-white dark:bg-light border border-[#f0f0f0] outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium"
+          />
+        </div>
+        <div className="mb-6">
+          <input
             type="email"
             placeholder={i18n.t("club.form.fields.email")}
             name="club_join[email]"
@@ -58,13 +69,26 @@ export default function ClubJoinForm() {
           />
         </div>
         <div className="mb-6">
-          <input
-            type="tel"
-            placeholder={i18n.t("club.form.fields.phone")}
-            name="club_join[phone]"
-            onChange={e => setPhone(e.target.value)}
-            className="w-full rounded py-3 px-[14px] text-sm bg-white dark:bg-light border border-[#f0f0f0] outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium"
-          />
+          <label className="flex items-center">
+            <input
+              type="checkbox"
+              name="club_join[terms_accepted]"
+              checked={termsAccepted}
+              onChange={e => setTermsAccepted(e.target.checked)}
+              className="mr-2"
+            />
+            <span className="text-sm">
+              {i18n.t("club.form.fields.terms_prefix")}{" "}
+              <a
+                href={window.Routes.club_rules_path()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-beige-default dark:text-beige-medium underline"
+              >
+                {i18n.t("club.form.fields.terms_link")}
+              </a>
+            </span>
+          </label>
         </div>
         <div>
           <button

@@ -142,7 +142,9 @@
           "email": "Email",
           "name": "Name",
           "phone": "Phone",
-          "send": "Join Club"
+          "send": "Join Club",
+          "terms_link": "SGG Club Regulations",
+          "terms_prefix": "I declare that I have read and accept the terms presented in the"
         },
         "titles": {
           "main": "Fill in the form to refer a member:"
@@ -78943,11 +78945,13 @@
         "fields": {
           "email": "Email",
           "name": "Nome",
-          "phone": "Telefone",
-          "send": "Juntar ao Clube"
+          "phone": "Telemóvel",
+          "send": "Juntar ao Clube",
+          "terms_link": "Regulamento do Clube SGG",
+          "terms_prefix": "Declaro que li e aceito os termos presentes no"
         },
         "titles": {
-          "main": "Preencha o formulário para nos referenciar um membro:"
+          "main": "Torne-se membro do Clube SGG"
         }
       },
       "home": {
