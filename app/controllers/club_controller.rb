@@ -8,20 +8,30 @@ class ClubController < ApplicationController
   def rules; end
 
   def join
-    unless params[:club_join][:terms_accepted] == 'true'
-      flash[:error] = I18n.t('flash.club.join.terms_required')
-      return redirect_back(fallback_location: club_path)
+    unless join_params[:terms_accepted] == 'on'
+      respond_to do |format|
+        format.html do
+          flash[:error] = I18n.t('club.form.error.terms_required')
+          return redirect_back(fallback_location: club_path)
+        end
+        format.json { return render json: { success: false, error: I18n.t('club.form.error.terms_required') } }
+      end
     end
 
     NewClubJoinMailer.with(join_params).new_join_request.deliver_later
 
-    flash[:notice] = I18n.t('flash.club.join.thanks')
-    redirect_back(fallback_location: club_path)
+    respond_to do |format|
+      format.html do
+        flash[:notice] = I18n.t('club.flash.join.thanks')
+        redirect_back(fallback_location: club_path)
+      end
+      format.json { render json: { success: true } }
+    end
   end
 
   private
 
   def join_params
-    params.require(:club_join).permit(:name, :email, :phone, :terms_accepted)
+    params.require(:club).permit(:name, :email, :phone, :terms_accepted)
   end
 end

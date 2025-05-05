@@ -210,6 +210,11 @@
         "subtitle": "Buy and sell houses, rebuild lives",
         "title": "SGG Club"
       },
+      "mailer": {
+        "new_join_request": {
+          "subject": "Welcome to SGG Club, %{name}!"
+        }
+      },
       "recent_stories": {
         "description": "Discover our latest member stories and experiences",
         "title": "Recent Stories"

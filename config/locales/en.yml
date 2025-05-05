@@ -1229,6 +1229,9 @@ en:
         thanks:
           Thank you for your interest in joining SGG Club. We will contact you
           soon!
+    mailer:
+      new_join_request:
+        subject: Welcome to SGG Club, %{name}!
 
   club_stories:
     resource: Story
