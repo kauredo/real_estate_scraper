@@ -11,8 +11,7 @@ export default function ClubJoinForm() {
   const [error, setError] = useState("");
   const [flash, setFlash] = useState({ type: "", message: "" });
   const form = useRef<HTMLFormElement>(null);
-  const pattern =
-    /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+  const pattern = /^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/i;
 
   const validateUser = e => {
     e.preventDefault();
