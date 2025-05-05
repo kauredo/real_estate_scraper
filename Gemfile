@@ -109,3 +109,5 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
 end
+
+gem "sib-api-v3-sdk", "~> 9.1"

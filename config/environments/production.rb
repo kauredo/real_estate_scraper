@@ -70,15 +70,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN'], protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: 'smtp-relay.brevo.com',
     port: 587,
     domain: ENV['APP_DOMAIN'],
-    user_name: ENV['GMAIL_EMAIL'],
-    password: ENV['GMAIL_APP_PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true,
-    open_timeout: 5,
-    read_timeout: 5
+    user_name: ENV['BREVO_SMTP_LOGIN'],
+    password: ENV['BREVO_SMTP_KEY'],
+    authentication: 'login',
+    enable_starttls_auto: true
   }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
