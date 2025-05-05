@@ -44,5 +44,7 @@ latest.dump
 /coverage
 .fly-pg-secrets
 client
+api
+frontend
 
 public/storage
