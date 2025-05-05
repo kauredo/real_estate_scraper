@@ -12,6 +12,21 @@ class ClubUser < ApplicationRecord
 
   before_create :set_default_status
 
+  def self.to_csv
+    require 'csv'
+
+    headers = ['Nome', 'Email', 'Telefone', 'Data de Inscrição']
+    attributes = %w[name email phone created_at]
+
+    CSV.generate(headers: true) do |csv|
+      csv << headers
+
+      all.each do |user|
+        csv << attributes.map { |attr| attr == 'created_at' ? user[attr].strftime('%d/%m/%Y %H:%M') : user[attr] }
+      end
+    end
+  end
+
   private
 
   def set_default_status
