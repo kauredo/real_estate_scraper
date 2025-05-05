@@ -5,7 +5,7 @@ interface Props {
   message: string;
 }
 
-export default function Flashes(props: Props) {
+export default function Flashes(props: Props): JSX.Element {
   const [visible, setVisible] = useState(false);
   const { type, message } = props;
 
@@ -16,17 +16,21 @@ export default function Flashes(props: Props) {
     }, 3000);
   }, []);
 
-  return visible ? (
+  if (!visible) {
+    return <></>;
+  }
+
+  return (
     <div
       className={`container mx-auto absolute top-0 left-0 right-0 z-50 border px-4 py-3 rounded ${
         type === "error"
-          ? "bg-red-100 border-red-400 text-red-700 "
-          : "bg-blue-100 border-blue-400 text-blue-700 "
+          ? "bg-red-100 border-red-400 text-red-700"
+          : "bg-blue-100 border-blue-400 text-blue-700"
       }`}
       role="alert"
     >
       <div className="relative container mx-auto">
-        <span className="block sm:inline">{message}.</span>
+        <span className="block sm:inline">{message}</span>
         <span
           onClick={() => setVisible(false)}
           className="absolute top-0 bottom-0 right-0"
@@ -45,7 +49,5 @@ export default function Flashes(props: Props) {
         </span>
       </div>
     </div>
-  ) : (
-    ""
   );
 }

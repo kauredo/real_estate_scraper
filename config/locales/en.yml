@@ -1221,11 +1221,17 @@ en:
         email: Email
         phone: Phone
         send: Join Club
+        terms_prefix:
+          I declare that I have read and accept the terms presented in the
+        terms_link: SGG Club Regulations
     flash:
       join:
         thanks:
           Thank you for your interest in joining SGG Club. We will contact you
           soon!
+    mailer:
+      new_join_request:
+        subject: Welcome to SGG Club, %{name}!
 
   club_stories:
     resource: Story

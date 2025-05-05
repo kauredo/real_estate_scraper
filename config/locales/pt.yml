@@ -1225,21 +1225,29 @@ pt:
     rules_description: "Conheça os termos e condições de membro do Clube SGG"
     form:
       titles:
-        main: "Preencha o formulário para nos referenciar um membro:"
+        main: "Torne-se membro do Clube SGG"
       consent:
-        Ao contactar-nos está a autorizar o Sofia Galvão Group a guardar os seus
-        dados para fins de adesão ao clube.
-      error: Por favor preencha todos os campos obrigatórios corretamente
+        Ao submeter este formulário, está a autorizar o Sofia Galvão Group a
+        guardar os seus dados para fins de adesão e comunicação relacionados com
+        o Clube SGG.
+      error:
+        generic: Por favor preencha todos os campos obrigatórios corretamente
+        terms_required: Por favor aceite os termos e condições do Clube SGG
       fields:
         name: Nome
         email: Email
-        phone: Telefone
-        send: Juntar ao Clube
+        phone: Telemóvel
+        send: Submeter
+        terms_prefix: Declaro que li e aceito os termos presentes no
+        terms_link: Regulamento do Clube SGG
     flash:
       join:
         thanks:
           Obrigado pelo seu interesse em juntar-se ao Clube SGG. Entraremos em
           contacto em breve!
+    mailer:
+      new_join_request:
+        subject: Bem-vindo(a) ao Clube SGG, %{name}!
 
   club_stories:
     resource: História

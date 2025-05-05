@@ -1,4 +1,36 @@
 <div class="container mx-auto px-4 py-6 space-y-16">
+  <!-- Listings Management Section -->
+  <section>
+    <h1 class="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">Gestão de Imóveis</h1>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Listings Section -->
+      <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 text-dark dark:text-light">Links de Imóveis</h2>
+        <p class="text-gray-500 dark:text-light mb-6">Nota: este campo pode ser usado para adicionar imóveis de colegas, ou para ir buscar a informação mais recente de qualquer imóvel já na plataforma.</p>
+
+        <%= form_for(Listing.new, url: backoffice_listings_path, data: { turbo: false }) do |f| %>
+          <div class="flex flex-wrap items-center gap-3">
+            <%= f.text_field :url, placeholder: 'url', class: 'flex-1 bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
+            <%= f.submit 'Procurar', class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded' %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Complexes Section -->
+      <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-4 text-dark dark:text-light">Links de Empreendimentos</h2>
+        <p class="text-gray-500 dark:text-light mb-6">Nota: este campo pode ser usado para adicionar Empreendimentos da Sofia ou de colegas.</p>
+
+        <%= form_for(ListingComplex.new, url: fetch_backoffice_listing_complexes_path, data: { turbo: false }) do |f| %>
+          <div class="flex flex-wrap items-center gap-3">
+            <%= f.text_field :url, placeholder: 'url', class: 'flex-1 bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
+            <%= f.submit 'Procurar', class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
   <!-- System Settings Section -->
   <section>
     <h1 class="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">Configurações do Sistema</h1>
@@ -55,34 +87,36 @@
     </div>
   </section>
 
-  <!-- Listings Management Section -->
+  <!-- Club Users Section -->
   <section>
-    <h1 class="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">Gestão de Imóveis</h1>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <!-- Listings Section -->
+    <h1 class="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">Definições do Clube SGG</h1>
+    <div class="space-y-6">
       <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
-        <h2 class="text-2xl font-bold mb-4 text-dark dark:text-light">Links de Imóveis</h2>
-        <p class="text-gray-500 dark:text-light mb-6">Nota: este campo pode ser usado para adicionar imóveis de colegas, ou para ir buscar a informação mais recente de qualquer imóvel já na plataforma.</p>
-
-        <%= form_for(Listing.new, url: backoffice_listings_path, data: { turbo: false }) do |f| %>
-          <div class="flex flex-wrap items-center gap-3">
-            <%= f.text_field :url, placeholder: 'url', class: 'flex-1 bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
-            <%= f.submit 'Procurar', class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded' %>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- Complexes Section -->
-      <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
-        <h2 class="text-2xl font-bold mb-4 text-dark dark:text-light">Links de Empreendimentos</h2>
-        <p class="text-gray-500 dark:text-light mb-6">Nota: este campo pode ser usado para adicionar Empreendimentos da Sofia ou de colegas.</p>
-
-        <%= form_for(ListingComplex.new, url: fetch_backoffice_listing_complexes_path, data: { turbo: false }) do |f| %>
-          <div class="flex flex-wrap items-center gap-3">
-            <%= f.text_field :url, placeholder: 'url', class: 'flex-1 bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700' %>
-            <%= f.submit 'Procurar', class: 'bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded' %>
-          </div>
-        <% end %>
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-2xl font-bold text-dark dark:text-light">Membros</h2>
+          <%= link_to backoffice_export_club_users_path, class: "bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded flex items-center gap-2" do %>
+            <i class="fas fa-file-export"></i>
+            <span>Exportar CSV</span>
+          <% end %>
+        </div>
+        <div class="max-h-[300px] overflow-y-auto">
+          <ul class="space-y-2">
+            <% @club_users.each do |user| %>
+              <li class="py-2 px-3 bg-gray-50 dark:bg-gray-800 rounded flex items-center justify-between">
+                <div>
+                  <div class="font-medium"><%= user.name %></div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400"><%= user.email %></div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400"><%= user.phone %></div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-1 text-sm rounded-full <%= user.approved? ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' %>">
+                    <%= user.status.capitalize %>
+                  </span>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </section>

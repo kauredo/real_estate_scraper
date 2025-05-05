@@ -64,6 +64,7 @@ Rails.application.routes.draw do
     namespace :backoffice do
       mount Flipper::UI.app(Flipper) => '/features', as: :flipper
       get '/', to: 'pages#home'
+      get 'export_club_users', to: 'pages#export_club_users', as: :export_club_users
       resources :variables, only: %i[create update destroy]
       resources :blog_posts
       resources :club_stories
