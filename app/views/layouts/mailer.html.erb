@@ -16,14 +16,14 @@
         background-color: #F8F9FA;
         max-width: 900px;
         margin: 0 auto;
-        padding: 3rem 2.5rem;
+        padding: 2rem 1.5rem;
         background-color: #FFFFFF;
         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
         border-radius: 12px;
       }
 
       .email-content {
-        padding: 2em;
+        padding: 1.5em;
         color: #2C3E50;
       }
 
@@ -44,9 +44,9 @@
       }
 
       .email-title {
-        font-size: 28px;
+        font-size: 24px;
         line-height: 1.4;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         color: #1a1a1a;
         font-weight: 700;
       }
@@ -131,10 +131,34 @@
         height: auto;
         display: block;
       }
+
+      @media (max-width: 600px) {
+        .email-container {
+          padding: 1rem;
+          border-radius: 8px;
+        }
+
+        .email-content {
+          padding: 1em;
+        }
+
+        .email-title {
+          font-size: 22px;
+          margin-bottom: 1rem;
+        }
+
+        .logo-container img {
+          max-height: 40px;
+        }
+
+        .logo-container-main img {
+          max-height: 50px;
+        }
+      }
     </style>
   </head>
   <body>
-    <div style="padding: 2rem 1rem;">
+    <div style="padding: 1rem 0.5rem;">
       <div class="email-container">
         <div class="email-content">
           <%= yield %>
