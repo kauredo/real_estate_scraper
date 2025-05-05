@@ -1211,16 +1211,18 @@ en:
       description: Discover our latest member stories and experiences
     form:
       titles:
-        main: "Fill in the form to refer a member:"
+        main: Become a member of Clube SGG
       consent:
-        By contacting us you're allowing Sofia Galvão Group to store your data
-        for club membership purposes.
-      error: Please fill in all required fields correctly
+        By submitting this form, you authorize Sofia Galvão Group to store your
+        data for admission and communication purposes related to Clube SGG.
+      error:
+        generic: Please fill in all required fields correctly
+        terms_required: You must accept the terms and conditions
       fields:
         name: Name
         email: Email
         phone: Phone
-        send: Join Club
+        send: Submit
         terms_prefix:
           I declare that I have read and accept the terms presented in the
         terms_link: SGG Club Regulations

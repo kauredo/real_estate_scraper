@@ -136,18 +136,21 @@
         }
       },
       "form": {
-        "consent": "By contacting us you're allowing Sofia Galvão Group to store your data for club membership purposes.",
-        "error": "Please fill in all required fields correctly",
+        "consent": "By submitting this form, you authorize Sofia Galvão Group to store your data for admission and communication purposes related to Clube SGG.",
+        "error": {
+          "generic": "Please fill in all required fields correctly",
+          "terms_required": "You must accept the terms and conditions"
+        },
         "fields": {
           "email": "Email",
           "name": "Name",
           "phone": "Phone",
-          "send": "Join Club",
+          "send": "Submit",
           "terms_link": "SGG Club Regulations",
           "terms_prefix": "I declare that I have read and accept the terms presented in the"
         },
         "titles": {
-          "main": "Fill in the form to refer a member:"
+          "main": "Become a member of Clube SGG"
         }
       },
       "home": {
