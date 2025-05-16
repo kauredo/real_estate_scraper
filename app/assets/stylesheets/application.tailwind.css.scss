@@ -89,7 +89,7 @@ strong {
 .quarter {
   position: relative;
   z-index: 1;
-  background-position: center;
+  background-position: top;
   background-size: cover;
   border-top-right-radius: 100%;
   border-top-left-radius: 0;
@@ -99,7 +99,6 @@ strong {
   height: 50vh;
   width: 50vh;
   aspect-ratio: 1;
-  /* overflow: hidden; */
 }
 
 .quarter.moving::after {
