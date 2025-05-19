@@ -50,6 +50,11 @@ latest.dump
 node_modules
 tmp
 
+# old app
+/app
+/public
+/log
+
 # API
 /api/log/*
 /api/tmp/*
