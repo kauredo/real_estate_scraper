@@ -89,7 +89,7 @@ export default function ClubRulesPage() {
                         {t("club.rules.sections.members.who_can.intro")}
                       </p>
                       <ul className="list-disc pl-6 mb-8 space-y-2">
-                        {["first", "second", "third"].map(item => (
+                        {["1", "2", "3"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
@@ -109,7 +109,7 @@ export default function ClubRulesPage() {
                         {t("club.rules.sections.members.rights.intro")}
                       </p>
                       <ul className="list-disc pl-6 mb-8 space-y-2">
-                        {["first", "second", "third", "fourth"].map(item => (
+                        {["1", "2", "3", "4"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
@@ -130,7 +130,7 @@ export default function ClubRulesPage() {
                         {t("club.rules.sections.members.duties.intro")}
                       </p>
                       <ul className="list-disc pl-6 mb-8 space-y-2">
-                        {["first", "second", "third", "fourth"].map(item => (
+                        {["1", "2", "3", "4"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
@@ -179,7 +179,7 @@ export default function ClubRulesPage() {
                         )}
                       </p>
                       <ul className="list-disc pl-6 mb-6 space-y-2">
-                        {["first", "second", "third"].map(item => (
+                        {["1", "2", "3"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
@@ -240,7 +240,7 @@ export default function ClubRulesPage() {
                         )}
                       </p>
                       <ul className="list-disc pl-6 mb-12 space-y-2">
-                        {["first", "second", "third", "fourth"].map(item => (
+                        {["1", "2", "3", "4"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
@@ -270,7 +270,7 @@ export default function ClubRulesPage() {
                         {t("club.rules.sections.criteria.submited_by.title")}
                       </p>
                       <ul className="list-disc pl-6 mb-8 space-y-2">
-                        {["first", "second", "third"].map(item => (
+                        {["1", "2", "3"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
@@ -286,7 +286,7 @@ export default function ClubRulesPage() {
                         {t("club.rules.sections.criteria.criteria.title")}
                       </p>
                       <ul className="list-disc pl-6 mb-8 space-y-2">
-                        {["first", "second"].map(item => (
+                        {["1", "2"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
@@ -315,7 +315,7 @@ export default function ClubRulesPage() {
                         {t("club.rules.sections.events.description")}
                       </p>
                       <ul className="list-disc pl-6 mb-8 space-y-2">
-                        {["first", "second", "third"].map(item => (
+                        {["1", "2", "3"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
@@ -346,7 +346,7 @@ export default function ClubRulesPage() {
                         )}
                       </p>
                       <ul className="list-disc pl-6 mb-12 space-y-2">
-                        {["first", "second", "third"].map(item => (
+                        {["1", "2", "3"].map(item => (
                           <li
                             key={item}
                             className="text-gray-600 dark:text-gray-300"
