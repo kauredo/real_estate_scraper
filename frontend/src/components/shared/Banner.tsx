@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 interface Props {
   blurred?: boolean;
   height?: string;
@@ -23,7 +21,9 @@ function Banner(props: Props) {
       >
         {text && (
           <span className="flex justify-center items-center mx-auto container z-4 absolute top-0 bottom-0 left-0 right-0 w-full h-full">
-            <h1 className="relative px-4 text-5xl mt-0 mb-2">{text}</h1>
+            <h1 id="main-title" className="relative px-4 text-5xl mt-0 mb-2">
+              {text}
+            </h1>
           </span>
         )}
       </header>

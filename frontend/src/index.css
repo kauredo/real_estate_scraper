@@ -42,6 +42,25 @@ h2,
   font-family: "Exter";
 }
 
+#main-title::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  height: 75%;
+  aspect-ratio: 1;
+  border: 2px solid #000;
+  right: 100%;
+  bottom: 0;
+  border-bottom-right-radius: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.dark #main-title::before {
+  border-color: theme("colors.light");
+}
+
 h3,
 h4,
 h5 {

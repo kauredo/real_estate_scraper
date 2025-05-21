@@ -3,9 +3,9 @@
     "header": "Sobre Nós",
     "history_and_values": {
       "content": {
-        "first_paragraph": "Fundado por Sofia Galvão, o Sofia Galvão Group nasceu da paixão por oferecer soluções imobiliárias de qualidade. Com uma vasta experiência no setor, a nossa equipa está comprometida em fornecer um serviço de consultoria personalizado e transparente. Acreditamos que cada transação imobiliária é uma oportunidade de construir relacionamentos duradouros e ajudar nossos clientes a alcançar seus objetivos.",
-        "second_paragraph": "Desde 2022 que fazemos parte do Top 20 dos consultores mais produtivos em todo o País, da KW Portugal e estamos no top 3 na KW Lead Santos, integrando, por isso o Associate Leadership Council (ALC), um órgão coletivo que apoia a estratégia de negócio a nível local.",
-        "third_paragraph": "Fazemos parte do 3º market center mais bem-sucedido a nível nacional. Aqui ajudamos clientes a terem a casa com que sonham, ajudamos proprietários a encontrar a melhor solução de negócio e ajudamos consultores a terem a carreira que procuram!"
+        "1_paragraph": "Fundado por Sofia Galvão, o Sofia Galvão Group nasceu da paixão por oferecer soluções imobiliárias de qualidade. Com uma vasta experiência no setor, a nossa equipa está comprometida em fornecer um serviço de consultoria personalizado e transparente. Acreditamos que cada transação imobiliária é uma oportunidade de construir relacionamentos duradouros e ajudar nossos clientes a alcançar seus objetivos.",
+        "2_paragraph": "Desde 2022 que fazemos parte do Top 20 dos consultores mais produtivos em todo o País, da KW Portugal e estamos no top 3 na KW Lead Santos, integrando, por isso o Associate Leadership Council (ALC), um órgão coletivo que apoia a estratégia de negócio a nível local.",
+        "3_paragraph": "Fazemos parte do 3º market center mais bem-sucedido a nível nacional. Aqui ajudamos clientes a terem a casa com que sonham, ajudamos proprietários a encontrar a melhor solução de negócio e ajudamos consultores a terem a carreira que procuram!"
       },
       "title": "A Nossa História e os Nossos Valores"
     },
@@ -194,7 +194,7 @@
         "cta": "Enviar WhatsApp",
         "description": "A missão do Clube SGG só é possível graças à colaboração essencial dos nossos membros e embaixadores, que dão vida ao impacto que queremos alcançar.\n",
         "dynamic": "Não só pela dinâmica de recomendações no setor imobiliário que alimentam o movimento, mas também pela identificação de histórias e pessoas que mais precisam de apoio.\n",
-        "second_title": "Sabe de alguém que possamos ajudar?",
+        "2_title": "Sabe de alguém que possamos ajudar?",
         "situations": "Estamos sempre à procura de situações reais onde o nosso apoio possa fazer a diferença.",
         "someone": "Se conhece alguém que esteja a passar por dificuldades e que possa beneficiar da nossa ajuda, fale connosco.",
         "subtitle": "Juntos, podemos criar histórias que mudam vidas.",
@@ -218,8 +218,8 @@
         "criteria": {
           "criteria": {
             "list": {
-              "first": "Condições atuais de habitação e urgência do apoio;",
-              "second": "Impacto que a intervenção pode gerar na qualidade de vida da família."
+              "1": "Condições atuais de habitação e urgência do apoio;",
+              "2": "Impacto que a intervenção pode gerar na qualidade de vida da família."
             },
             "title": "4.3. A atribuição do apoio será analisada com base nos seguintes critérios:"
           },
@@ -227,9 +227,9 @@
           "families_html": "4.1. O apoio do Clube SGG destina-se a <strong>famílias carenciadas, idosos e pessoas em situação de sem-abrigo</strong> que necessitem de melhorias habitacionais.",
           "submited_by": {
             "list": {
-              "first": "As próprias famílias;",
-              "second": "Organizações sociais ou entidades parceiras que identifiquem casos de necessidade.",
-              "third": "Membros ou embaixadores do Clube SGG."
+              "1": "As próprias famílias;",
+              "2": "Organizações sociais ou entidades parceiras que identifiquem casos de necessidade.",
+              "3": "Membros ou embaixadores do Clube SGG."
             },
             "title": "4.2. As candidaturas ao apoio podem ser submetidas por:"
           },
@@ -239,25 +239,25 @@
           "description": "5.1. O Clube SGG promove regularmente eventos para:",
           "incentives": "5.2. Todos os embaixadores são incentivados a participar nos eventos e a contribuir para o crescimento do impacto do clube.",
           "list": {
-            "first": "Angariação de referenciações e mobilização de recursos;",
-            "second": "Sensibilização para a problemática da habitação digna;",
-            "third": "Celebração dos projetos concluídos e partilha de testemunhos."
+            "1": "Angariação de referenciações e mobilização de recursos;",
+            "2": "Sensibilização para a problemática da habitação digna;",
+            "3": "Celebração dos projetos concluídos e partilha de testemunhos."
           },
           "title": "5. Eventos e Iniciativas do Clube"
         },
         "final": {
-          "first": "7.1. O presente regulamento pode ser ajustado conforme necessário, mediante aprovação dos responsáveis do clube.",
-          "second_html": "7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus valores e missão, garantindo sempre que o impacto na comunidade é <strong>positivo e significativo.</strong>",
+          "1": "7.1. O presente regulamento pode ser ajustado conforme necessário, mediante aprovação dos responsáveis do clube.",
+          "2_html": "7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus valores e missão, garantindo sempre que o impacto na comunidade é <strong>positivo e significativo.</strong>",
           "title": "7. Disposições Finais"
         },
         "financial_model": {
           "application": {
             "intro": "Os fundos do Clube SGG são aplicados em:",
             "list_html": {
-              "first": "<strong>Remodelações e reparações habitacionais</strong> para pessoas carenciadas;",
-              "fourth": "<strong>Desenvolvimento de novas iniciativas e parcerias</strong> que aumentem o impacto do clube.",
-              "second": "<strong>Aquisição de mobília e equipamentos essenciais</strong> para melhorar as condições de vida das pessoas apoiadas;",
-              "third": "<strong>Contributo para melhorar as condições necessárias</strong> para transformar uma casa num lar;"
+              "1": "<strong>Remodelações e reparações habitacionais</strong> para pessoas carenciadas;",
+              "2": "<strong>Aquisição de mobília e equipamentos essenciais</strong> para melhorar as condições de vida das pessoas apoiadas;",
+              "3": "<strong>Contributo para melhorar as condições necessárias</strong> para transformar uma casa num lar;",
+              "4": "<strong>Desenvolvimento de novas iniciativas e parcerias</strong> que aumentem o impacto do clube."
             },
             "title": "3.2. Aplicação dos Fundos"
           },
@@ -278,10 +278,10 @@
           "duties": {
             "intro": "Os membros do Clube SGG comprometem-se a:",
             "list": {
-              "first": "Respeitar os valores e princípios do clube;",
-              "fourth": "Identificar pessoas ou situações que possam ser alvo da intervenção do clube.",
-              "second": "Contribuir ativamente dentro das suas possibilidades, seja através de referências ou voluntariado;",
-              "third": "Agir com transparência e ética em todas as interações relacionadas com o clube."
+              "1": "Respeitar os valores e princípios do clube;",
+              "2": "Contribuir ativamente dentro das suas possibilidades, seja através de referências ou voluntariado;",
+              "3": "Agir com transparência e ética em todas as interações relacionadas com o clube.",
+              "4": "Identificar pessoas ou situações que possam ser alvo da intervenção do clube."
             },
             "title": "2.3. Deveres dos Membros"
           },
@@ -294,9 +294,9 @@
               },
               "description": "Os embaixadores distinguem-se pelo seu envolvimento ativo, compromisso regular e pela sua iniciativa em contribuir para o crescimento do clube, principalmente através da referenciação ativa e contínua de negócios imobiliários e referenciação de situações que necessitam de intervenção do clube. São membros que procuram constantemente apresentar e desenvolver novas ideias e ações, assumindo maior responsabilidade na concretização dos objetivos do clube.\n",
               "list": {
-                "first": "Participação regular nos eventos e iniciativas do clube;",
-                "second": "Proposta ativa de novas iniciativas e ideias que impulsionem o impacto do clube;",
-                "third": "Apoio direto aos responsáveis do clube na promoção da sua missão e valores."
+                "1": "Participação regular nos eventos e iniciativas do clube;",
+                "2": "Proposta ativa de novas iniciativas e ideias que impulsionem o impacto do clube;",
+                "3": "Apoio direto aos responsáveis do clube na promoção da sua missão e valores."
               },
               "loss_of_status": {
                 "description": "Um embaixador poderá voltar a ser membro caso se afaste significativamente do núcleo central de envolvimento do clube, mediante decisão dos responsáveis.\n",
@@ -313,10 +313,10 @@
           "rights": {
             "intro": "Os membros do Clube SGG têm direito a:",
             "list": {
-              "first": "Participar nas iniciativas promovidas pelo clube;",
-              "fourth": "Receber informação regular sobre as atividades e evolução do clube.",
-              "second": "Acompanhar os projetos apoiados e os impactos gerados;",
-              "third": "Propor novas ações e iniciativas alinhadas com a missão do clube;"
+              "1": "Participar nas iniciativas promovidas pelo clube;",
+              "2": "Acompanhar os projetos apoiados e os impactos gerados;",
+              "3": "Propor novas ações e iniciativas alinhadas com a missão do clube;",
+              "4": "Receber informação regular sobre as atividades e evolução do clube."
             },
             "title": "2.2. Direitos dos Membros"
           },
@@ -324,9 +324,9 @@
           "who_can": {
             "intro": "Podem tornar-se membros do Clube SGG:",
             "list": {
-              "first": "Pessoas individuais que queiram apoiar a causa através de referência de negócios imobiliários de compra e venda;",
-              "second": "Empresas e profissionais do setor imobiliário, construção e serviços para o lar que queiram contribuir ou estabelecer parcerias;",
-              "third": "Qualquer pessoa que se identifique com os valores do clube e queira ajudar na sua missão."
+              "1": "Pessoas individuais que queiram apoiar a causa através de referência de negócios imobiliários de compra e venda;",
+              "2": "Empresas e profissionais do setor imobiliário, construção e serviços para o lar que queiram contribuir ou estabelecer parcerias;",
+              "3": "Qualquer pessoa que se identifique com os valores do clube e queira ajudar na sua missão."
             },
             "title": "2.1. Quem pode ser membro"
           }
@@ -336,9 +336,9 @@
           "reports": {
             "description": "6.2. Será publicada periodicamente uma prestação de contas com:",
             "list": {
-              "first": "Valores angariados através de referências imobiliárias e parcerias;",
-              "second": "Projetos financiados e impacto gerado;",
-              "third": "Relatórios de evolução e planeamento futuro."
+              "1": "Valores angariados através de referências imobiliárias e parcerias;",
+              "2": "Projetos financiados e impacto gerado;",
+              "3": "Relatórios de evolução e planeamento futuro."
             }
           },
           "title": "6. Transparência e Prestação de Contas"
@@ -460,7 +460,7 @@
         "one": "menos de um minuto",
         "other": "menos de %{count} minutos"
       },
-      "less_than_x_seconds": {
+      "less_than_x_2s": {
         "one": "menos de 1 segundo",
         "other": "menos de %{count} segundos"
       },
@@ -480,7 +480,7 @@
         "one": "1 mês",
         "other": "%{count} meses"
       },
-      "x_seconds": {
+      "x_2s": {
         "one": "1 segundo",
         "other": "%{count} segundos"
       },
@@ -494,7 +494,7 @@
       "hour": "Hora",
       "minute": "Minuto",
       "month": "Mês",
-      "second": "Segundo",
+      "2": "Segundo",
       "year": "Ano"
     }
   },
@@ -1137,7 +1137,7 @@
       "default_country": ["Portugal"],
       "default_country_code": ["PT"],
       "postcode": ["####"],
-      "secondary_address": [
+      "2ary_address": [
         "Apto. ###",
         "Sobrado ##",
         "Casa #",
@@ -1440,7 +1440,7 @@
       ]
     },
     "name": {
-      "first_name": [
+      "1_name": [
         "Águeda",
         "Amélia",
         "Ângela",
@@ -1566,12 +1566,12 @@
         "Albuquerque"
       ],
       "name_with_middle": [
-        "#{prefix} #{first_name} #{last_name} #{last_name}",
-        "#{first_name} #{last_name} #{last_name} #{suffix}",
-        "#{first_name} #{last_name} #{last_name}",
-        "#{first_name} #{last_name} #{last_name}",
-        "#{first_name} #{last_name} #{last_name}",
-        "#{first_name} #{last_name} #{last_name}"
+        "#{prefix} #{1_name} #{last_name} #{last_name}",
+        "#{1_name} #{last_name} #{last_name} #{suffix}",
+        "#{1_name} #{last_name} #{last_name}",
+        "#{1_name} #{last_name} #{last_name}",
+        "#{1_name} #{last_name} #{last_name}",
+        "#{1_name} #{last_name} #{last_name}"
       ],
       "prefix": ["Sr.", "Sra.", "Srta.", "Dr.", "Eng."],
       "suffix": ["Jr.", "Neto", "Filho"]
@@ -1586,126 +1586,126 @@
     "header": "FAQ (Perguntas Frequentes)",
     "reason": {
       "answers": {
-        "fifth": {
-          "description": "Utilizamos estratégias de marketing que maximizam a exposição do seu imóvel, garantindo que chega aos compradores ou inquilinos certos.",
-          "title": "Marketing Eficaz"
-        },
-        "first": {
+        "1": {
           "description": "Anos de atuação no mercado imobiliário, com dezenas de negócios fechados com sucesso.",
           "title": "Experiência"
         },
-        "fourth": {
-          "description": "Garantimos que todas as questões legais são tratadas de forma segura e precisa.",
-          "title": "Suporte Jurídico"
-        },
-        "second": {
+        "2": {
           "description": "Acompanhamos cada etapa do processo, garantindo que tudo é feito de forma correta e eficiente.",
           "title": "Serviço Completo"
         },
-        "third": {
+        "3": {
           "description": "Os nossos clientes confiam na nossa capacidade de fechar negócios rapidamente, ao melhor preço e da forma correta para todas as partes.",
           "title": "Resultados Comprovados"
+        },
+        "4": {
+          "description": "Garantimos que todas as questões legais são tratadas de forma segura e precisa.",
+          "title": "Suporte Jurídico"
+        },
+        "5": {
+          "description": "Utilizamos estratégias de marketing que maximizam a exposição do seu imóvel, garantindo que chega aos compradores ou inquilinos certos.",
+          "title": "Marketing Eficaz"
         }
       },
       "title": "Por que razão devo escolher o Sofia Galvão Group?"
     },
     "sections": {
-      "first": {
+      "1": {
         "questions": {
-          "fifth": {
-            "answer": "Sim. Além de impostos, como o IMT e o Imposto de Selo, há a considerar os custos da escritura e registo predial. A nossa comissão é competitiva e transparente, e cobre todos os serviços de promoção, acompanhamento e gestão do processo de venda.",
-            "title": "Existem custos associados à venda?"
-          },
-          "first": {
+          "1": {
             "answer": "Vender um imóvel é um processo que exige conhecimento do mercado, estratégias de promoção e atenção a detalhes jurídicos e burocráticos. O Sofia Galvão Group oferece um serviço completo, desde a avaliação precisa do valor do imóvel até à negociação final, assegurando que o cliente obtém o melhor preço e uma venda rápida e tranquila. Com uma vasta experiência e uma rede de contactos sólida, maximizamos as suas oportunidades de sucesso.",
             "title": "Porquê contratar o Sofia Galvão Group para vender a minha casa?"
           },
-          "fourth": {
-            "answer": "Combinamos marketing digital, plataformas imobiliárias de referência, home staging, fotografia profissional e visitas virtuais. Estas técnicas maximizam a exposição do seu imóvel aos compradores certos, resultando em mais interesse e, geralmente, em vendas mais rápidas.",
-            "title": "Como é que o Sofia Galvão Group promove o meu imóvel?"
-          },
-          "second": {
+          "2": {
             "answer": "O primeiro passo é assegurar que toda a documentação do imóvel está em ordem. Isso inclui documentos como a caderneta predial, a certidão permanente e o certificado energético. O Sofia Galvão Group ajuda-o a garantir que tudo está correto e prepara uma avaliação detalhada para definir o preço de venda adequado.",
             "title": "Quais são os primeiros passos para vender a minha casa?"
           },
-          "third": {
+          "3": {
             "answer": "O tempo necessário para vender uma casa depende de vários fatores, como o estado do mercado e o preço do imóvel. No entanto, com uma abordagem personalizada e estratégias de marketing avançadas, muitos imóveis são vendidos num espaço de tempo inferior à média do mercado.",
             "title": "Quanto tempo demora o processo de venda?"
+          },
+          "4": {
+            "answer": "Combinamos marketing digital, plataformas imobiliárias de referência, home staging, fotografia profissional e visitas virtuais. Estas técnicas maximizam a exposição do seu imóvel aos compradores certos, resultando em mais interesse e, geralmente, em vendas mais rápidas.",
+            "title": "Como é que o Sofia Galvão Group promove o meu imóvel?"
+          },
+          "5": {
+            "answer": "Sim. Além de impostos, como o IMT e o Imposto de Selo, há a considerar os custos da escritura e registo predial. A nossa comissão é competitiva e transparente, e cobre todos os serviços de promoção, acompanhamento e gestão do processo de venda.",
+            "title": "Existem custos associados à venda?"
           }
         },
         "title": "Vender um imóvel"
       },
-      "fourth": {
+      "4": {
         "questions": {
-          "fifth": {
-            "answer": "Sim. A nossa equipa está consigo em todas as etapas, desde a angariação ou procura de imóveis, na negociação de propostas e até à assinatura da escritura ou contrato de arrendamento. Garantimos, desta forma, acompanhamento total desde o primeiro ao último minuto!",
-            "title": "O consultor imobiliário acompanha-me até ao final do processo?"
-          },
-          "first": {
+          "1": {
             "answer": "A exclusividade significa que o Sofia Galvão Group será a única empresa responsável pela promoção do seu imóvel, mas não operamos em exclusivo para fazer a venda. Para encontrar as melhores soluções para os nossos clientes fazemos parcerias com todas as agências imobiliárias com AMI válido e que possam ter um cliente interessado no seu imóvel. Assim, garantimos que o seu imóvel possa ser comprado por qualquer cliente que procure casa diretamente ou que esteja a ser representado por um consultor imobiliário. Contudo, o exclusivo na promoção permite-nos dedicar mais recursos e atenção ao seu imóvel, garantindo um serviço mais eficiente e um acompanhamento personalizado até ao final do processo.",
             "title": "O que é a exclusividade na mediação imobiliária?"
           },
-          "fourth": {
-            "answer": "Os tempos variam de acordo com o tipo de transação e as condições do mercado. No entanto, com a abordagem personalizada do Sofia Galvão Group, muitos dos nossos clientes conseguem fechar negócios em prazos inferiores à média do mercado.",
-            "title": "Quanto tempo demora todo o processo de venda, compra ou arrendamento?"
-          },
-          "second": {
+          "2": {
             "answer": "Sim! A nossa equipa está capacitada para gerir processos simultâneos de venda e compra, garantindo que a transição entre propriedades seja suave e sem complicações. Facilitamos ambos os processos, oferecendo soluções integradas.",
             "title": "Posso vender e comprar ao mesmo tempo?"
           },
-          "third": {
+          "3": {
             "answer": "Home staging é a preparação do imóvel para torná-lo mais atrativo para potenciais compradores ou inquilinos. Envolve a organização, a decoração e pequenos pormenores que permitem que o seu imóvel se destaque nas fotos e nas visitas. Com home staging, o seu imóvel destaca-se no mercado, aumenta a atratividade e, geralmente, é vendido ou arrendado mais rapidamente.",
             "title": "O que é o home staging e por que é importante?"
+          },
+          "4": {
+            "answer": "Os tempos variam de acordo com o tipo de transação e as condições do mercado. No entanto, com a abordagem personalizada do Sofia Galvão Group, muitos dos nossos clientes conseguem fechar negócios em prazos inferiores à média do mercado.",
+            "title": "Quanto tempo demora todo o processo de venda, compra ou arrendamento?"
+          },
+          "5": {
+            "answer": "Sim. A nossa equipa está consigo em todas as etapas, desde a angariação ou procura de imóveis, na negociação de propostas e até à assinatura da escritura ou contrato de arrendamento. Garantimos, desta forma, acompanhamento total desde o primeiro ao último minuto!",
+            "title": "O consultor imobiliário acompanha-me até ao final do processo?"
           }
         },
         "title": "Perguntas Frequentes"
       },
-      "second": {
+      "2": {
         "questions": {
-          "fifth": {
-            "answer": "Sim! Temos parcerias com vários bancos e podemos ajudá-lo a encontrar as melhores condições de financiamento para a sua compra.",
-            "title": "Posso obter ajuda com financiamento bancário?"
-          },
-          "first": {
+          "1": {
             "answer": "Comprar uma casa é uma das decisões financeiras mais importantes, e o Sofia Galvão Group assegura que fará a escolha certa. Temos acesso a uma vasta rede de propriedades, incluindo imóveis exclusivos que não estão publicitados nos portais imobiliários. Oferecemos suporte em todas as etapas, desde a pesquisa até à negociação final e à assinatura da escritura.",
             "title": "Porquê escolher o Sofia Galvão Group para comprar uma casa?"
           },
-          "fourth": {
-            "answer": "Além do preço do imóvel, há a considerar custos como o IMT (Imposto Municipal sobre Transmissões Onerosas de Imóveis), Imposto de Selo, escritura e registo. O Sofia Galvão Group ajuda a calcular todos estes valores, de forma a garantir que tem conhecimento de todos os valores envolvidos.",
-            "title": "Quais são os custos envolvidos na compra de uma casa?"
-          },
-          "second": {
+          "2": {
             "answer": "O primeiro passo é identificar as suas necessidades e definir o budget. Com base nisso, a nossa equipa ajudará a encontrar as propriedades mais adequadas. Uma vez escolhida a casa, orientamos no processo de verificação da documentação e na preparação da proposta.",
             "title": "Qual é o primeiro passo para comprar uma casa?"
           },
-          "third": {
+          "3": {
             "answer": "Fazemos uma avaliação detalhada do mercado, comparando imóveis semelhantes na mesma área. Também analisamos as condições do imóvel para garantir que o valor pedido reflete a realidade do mercado.",
             "title": "Como saber se o preço de um imóvel é justo?"
+          },
+          "4": {
+            "answer": "Além do preço do imóvel, há a considerar custos como o IMT (Imposto Municipal sobre Transmissões Onerosas de Imóveis), Imposto de Selo, escritura e registo. O Sofia Galvão Group ajuda a calcular todos estes valores, de forma a garantir que tem conhecimento de todos os valores envolvidos.",
+            "title": "Quais são os custos envolvidos na compra de uma casa?"
+          },
+          "5": {
+            "answer": "Sim! Temos parcerias com vários bancos e podemos ajudá-lo a encontrar as melhores condições de financiamento para a sua compra.",
+            "title": "Posso obter ajuda com financiamento bancário?"
           }
         },
         "title": "Comprar um imóvel"
       },
-      "third": {
+      "3": {
         "questions": {
-          "fifth": {
-            "answer": "Para o inquilino, os custos incluem, normalmente, o pagamento de dois meses de renda e um mês de caução.",
-            "title": "Quais são os custos associados ao arrendamento?"
-          },
-          "first": {
+          "1": {
             "answer": "Seja inquilino ou senhorio, o Sofia Galvão Group facilita o processo de arrendamento, tornando-o mais seguro e eficiente. Para senhorios, promovemos o imóvel de forma eficaz, ajudando a encontrar o inquilino certo. Para inquilinos, garantimos que o processo de arrendamento é simples e que o imóvel está em conformidade com todas as obrigações legais.",
             "title": "Porquê escolher o Sofia Galvão Group para arrendar uma casa ou encontrar inquilinos?"
           },
-          "fourth": {
-            "answer": "Nem sempre é necessário, mas em alguns casos o senhorio pode exigir um fiador como garantia adicional. Este requisito varia de contrato para contrato.",
-            "title": "Preciso de um fiador para arrendar uma casa?"
-          },
-          "second": {
+          "2": {
             "answer": "No caso dos inquilinos, são necessários documentos como o comprovativo de rendimentos, o documento de identificação e, em alguns casos, um fiador. No caso dos senhorios, é importante garantir que o imóvel tem a documentação em dia, incluindo o certificado energético e o seguro obrigatório.",
             "title": "Que documentos são necessários para arrendar um imóvel?"
           },
-          "third": {
+          "3": {
             "answer": "O valor da renda é definido com base numa avaliação de mercado, considerando a localização do imóvel e comparando-o com outros arrendamentos semelhantes na área. Com base nesta avaliação, ajudamo-lo a definir um valor justo e competitivo.",
             "title": "Como é definido o valor da renda?"
+          },
+          "4": {
+            "answer": "Nem sempre é necessário, mas em alguns casos o senhorio pode exigir um fiador como garantia adicional. Este requisito varia de contrato para contrato.",
+            "title": "Preciso de um fiador para arrendar uma casa?"
+          },
+          "5": {
+            "answer": "Para o inquilino, os custos incluem, normalmente, o pagamento de dois meses de renda e um mês de caução.",
+            "title": "Quais são os custos associados ao arrendamento?"
           }
         },
         "title": "Arrendar um imóvel"
@@ -1812,7 +1812,7 @@
       "reputation": "Acreditamos que nenhuma transação pode pôr em causa a nossa reputação.",
       "title": "Crenças"
     },
-    "first_paragraph": {
+    "1_paragraph": {
       "bottom": "A KW conta com um total de <span class=\"font-bold\">23 representações</span> e mais de <span class=\"font-bold\">2.000 consultores e associados</span> em Portugal.",
       "middle": "Hoje, por todo o mundo mais de <span class=\"font-bold\">165.000 consultores</span> e mais de <span class=\"font-bold\">1.000 Market Centers</span> são filiados KW.",
       "top": "A KW actua segundo o princípio de que, se focar todos os seus recursos na construção dos negócios dos seus consultores, estes irão, em retorno, ajudar a construir uma empresa acima de todas as expectativas. Com esta filosofia em prática, estamos a transformar o panorama geral da mediação imobiliária."
