@@ -7,10 +7,10 @@ import SubNavbar from "../components/shared/SubNavbar";
 import ClubHeader from "../components/club/ClubHeader";
 import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
 import { useClubSections } from "../utils/constants/clubSections";
-import Routes from "../utils/routes";
 import { useMetaTags } from "../hooks/useMetaTags";
 import { getClub } from "../services/api";
 import togetherImage from "../assets/images/together.webp";
+import ClubJoinForm from "../components/club/ClubJoinForm";
 
 export default function ClubPage() {
   const { t } = useTranslation();

@@ -190,6 +190,13 @@ export const adminUpdateClubStory = (id, data) =>
 export const adminDeleteClubStory = id =>
   api.delete(apiRoutes.admin.clubStory(id));
 
+// Admin - Club Users API functions
+export const adminGetClubUsers = () => api.get(apiRoutes.admin.clubUsers);
+export const adminExportClubUsers = () =>
+  api.get(apiRoutes.admin.exportClubUsers, {
+    responseType: "blob", // Important for file downloads
+  });
+
 // Admin - Photos API functions
 export const adminUploadBlogPhoto = (blogPostId, formData) =>
   api.post(apiRoutes.admin.blogPhotos, {
@@ -214,6 +221,10 @@ export const unsubscribeFromNewsletter = id =>
   api.delete(apiRoutes.newsletterSubscription(id));
 export const confirmNewsletterSubscription = (id, token) =>
   api.get(apiRoutes.confirmNewsletterSubscription(id, token));
+
+// Admin - Newsletter Subscriptions API functions
+export const adminGetNewsletterSubscriptions = () =>
+  api.get(apiRoutes.admin.newsletterSubscriptions);
 
 // Testimonials API functions
 export const getTestimonials = () => api.get(apiRoutes.testimonials);

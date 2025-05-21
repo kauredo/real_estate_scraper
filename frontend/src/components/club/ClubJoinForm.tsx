@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Routes from "../../utils/routes";
+import { apiRoutes } from "../../utils/routes";
+import Flashes from "../shared/Flashes";
 
 export default function ClubJoinForm() {
   const { t } = useTranslation();
@@ -13,57 +14,25 @@ export default function ClubJoinForm() {
   const form = useRef<HTMLFormElement>(null);
   const pattern = /^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/i;
 
-  const validateUser = e => {
+  const validateUser = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const valid_params = pattern.test(email) && name && phone && termsAccepted;
 
     if (valid_params && form.current) {
-      submitForm(e);
+      form.current.submit();
+      setFlash({
+        type: "notice",
+        message: t("club.flash.join.thanks"),
+      });
+      form.current.reset();
+      setName("");
+      setEmail("");
+      setPhone("");
+      setTermsAccepted(false);
+      setError("");
+    } else if (!termsAccepted) {
+      setError(t("club.form.error.terms"));
     } else {
-      setError(t("club.form.error.generic"));
-    }
-  };
-
-  const submitForm = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const formData = new FormData(form.current!);
-    const tokenElement = document.querySelector('meta[name="csrf-token"]');
-    const token = tokenElement ? (tokenElement as HTMLMetaElement).content : "";
-
-    try {
-      const response = await fetch(
-        sanitizeURL(window.Routes.join_club_index_path),
-        {
-          method: "POST",
-          headers: {
-            "X-CSRF-Token": token,
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(Object.fromEntries(formData)),
-        }
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        if (data.success) {
-          setFlash({
-            type: "notice",
-            message: t("club.flash.join.thanks"),
-          });
-          form.current?.reset();
-          setName("");
-          setEmail("");
-          setPhone("");
-          setTermsAccepted(false);
-          setError("");
-        } else {
-          setError(data.error);
-        }
-      } else {
-        setError(t("club.form.error.generic"));
-      }
-    } catch (err) {
       setError(t("club.form.error.generic"));
     }
   };
@@ -89,7 +58,7 @@ export default function ClubJoinForm() {
       <form
         ref={form}
         onSubmit={e => validateUser(e)}
-        action={Routes.join_club_index_path()}
+        action={apiRoutes.clubJoin}
         method="post"
         className="space-y-6"
       >
@@ -132,7 +101,7 @@ export default function ClubJoinForm() {
             <span className="text-base text-gray-700 dark:text-gray-200">
               {t("club.form.fields.terms_prefix")}{" "}
               <a
-                href={sanitizeURL(window.Routes.club_rules_path)}
+                href={apiRoutes.clubRules}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-beige-default dark:text-beige-medium hover:underline"

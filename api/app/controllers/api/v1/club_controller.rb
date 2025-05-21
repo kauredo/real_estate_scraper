@@ -13,15 +13,17 @@ module Api
       end
 
       def join
-        render json: { success: false, error: I18n.t('club.form.error.terms_required') } and return unless join_params[:terms_accepted] == 'on'
+        unless join_params[:terms_accepted] == 'on'
+          render json: { error: I18n.t('club.form.error.terms_required') }, status: :unprocessable_entity
+          return
+        end
 
         @club_user = ClubUser.new(join_params)
-
         if @club_user.save
           NewClubJoinMailer.with(join_params).new_join_request.deliver_later
-          render json: { message: I18n.t('flash.club.join.thanks') }, status: :ok
+          render json: { message: I18n.t('club.flash.join.thanks') }, status: :ok
         else
-          render json: { success: false, error: @club_user.errors.full_messages.join('. ') }
+          render json: { errors: @club_user.errors.full_messages }, status: :unprocessable_entity
         end
       end
 
