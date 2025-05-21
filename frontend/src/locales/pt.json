@@ -143,16 +143,21 @@
       }
     },
     "form": {
-      "consent": "Ao contactar-nos está a autorizar o Sofia Galvão Group a guardar os seus dados para fins de adesão ao clube.",
-      "error": "Por favor preencha todos os campos obrigatórios corretamente",
+      "consent": "Ao submeter este formulário, está a autorizar o Sofia Galvão Group a guardar os seus dados para fins de adesão e comunicação relacionados com o Clube SGG.",
+      "error": {
+        "generic": "Por favor preencha todos os campos obrigatórios corretamente",
+        "terms_required": "Por favor aceite os termos e condições do Clube SGG"
+      },
       "fields": {
         "email": "Email",
         "name": "Nome",
-        "phone": "Telefone",
-        "send": "Juntar ao Clube"
+        "phone": "Telemóvel",
+        "send": "Submeter",
+        "terms_link": "Regulamento do Clube SGG",
+        "terms_prefix": "Declaro que li e aceito os termos presentes no"
       },
       "titles": {
-        "main": "Preencha o formulário para nos referenciar um membro:"
+        "main": "Torne-se membro do Clube SGG"
       }
     },
     "home": {
@@ -202,6 +207,11 @@
       },
       "subtitle": "Comprar e vender casas, reabilitar vidas",
       "title": "Clube SGG"
+    },
+    "mailer": {
+      "new_join_request": {
+        "subject": "Bem-vindo(a) ao Clube SGG, %{name}!"
+      }
     },
     "recent_stories": {
       "description": "Descubra as histórias e experiências mais recentes dos nossos membros",

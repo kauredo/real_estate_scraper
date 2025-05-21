@@ -3,6 +3,8 @@ class AddClubEnabledFlag < ActiveRecord::Migration[7.1]
     return unless defined?(Flipper)
 
     Flipper.add(:club_enabled)
+
+    Flipper[:club_enabled].enable
   end
 
   def down

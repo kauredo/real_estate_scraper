@@ -14,7 +14,7 @@ FileUtils.mkdir_p(Rails.root.join('tmp', 'storage'))
 FileUtils.touch(Rails.root.join('tmp', 'storage', '.keep'))
 
 puts "\n#{Time.current} - Cleaning up database..."
-[Variable, Testimonial, ClubStory, ClubStoryPhoto, BlogPost, BlogPhoto, ListingComplex, Listing, Photo, User, NewsletterSubscription].each do |model|
+[Variable, Testimonial, ClubStory, ClubStoryPhoto, BlogPost, BlogPhoto, ListingComplex, Listing, Photo, User, NewsletterSubscription, ClubUser].each do |model|
   print "  • Cleaning #{model.name}... "
   count = model.count
   model.destroy_all
@@ -145,7 +145,7 @@ puts "\n#{Time.current} - Creating listing complexes..."
 end
 
 puts "\n#{Time.current} - Creating variables..."
-10.times do |i|
+3.times do |i|
   print "  • Variable #{i + 1}/10: "
   content = with_locales do |_locale|
     {
@@ -322,6 +322,20 @@ puts "\n#{Time.current} - Creating users and newsletter subscriptions..."
   puts "✓"
 end
 
+puts "\n#{Time.current} - Creating club users..."
+15.times do |i|
+  print "  • Club User #{i + 1}/15: "
+  club_user = ClubUser.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    phone: Faker::PhoneNumber.cell_phone,
+    terms_accepted: true,
+    status: ClubUser.statuses.keys.sample
+  )
+  print "Created with status: #{club_user.status} "
+  puts "✓"
+end
+
 puts "\n=== Seed completed successfully! 🎉 ==="
 puts "#{Time.current} - Summary:"
 puts "  • #{ListingComplex.count} listing complexes"
@@ -332,6 +346,7 @@ puts "  • #{ClubStory.count} club stories"
 puts "  • #{BlogPost.count} blog posts"
 puts "  • #{User.count} users"
 puts "  • #{NewsletterSubscription.count} newsletter subscriptions"
+puts "  • #{ClubUser.count} club users"
 puts "  • #{Photo.count} photos"
 puts "  • #{ClubStoryPhoto.count} club story photos"
 puts "  • #{BlogPhoto.count} blog photos"

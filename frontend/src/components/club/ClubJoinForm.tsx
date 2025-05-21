@@ -1,37 +1,56 @@
-import React, { useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Routes from "../../utils/routes";
+import { apiRoutes } from "../../utils/routes";
+import Flashes from "../shared/Flashes";
 
 export default function ClubJoinForm() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [error, setError] = useState("");
-  const form = useRef(null);
-  const pattern =
-    /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+  const [flash, setFlash] = useState({ type: "", message: "" });
+  const form = useRef<HTMLFormElement>(null);
+  const pattern = /^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/i;
 
-  const validateUser = e => {
+  const validateUser = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const valid_params = pattern.test(email) && name && phone;
+    const valid_params = pattern.test(email) && name && phone && termsAccepted;
 
-    if (valid_params) {
+    if (valid_params && form.current) {
       form.current.submit();
+      setFlash({
+        type: "notice",
+        message: i18n.t("club.flash.join.thanks"),
+      });
+      form.current.reset();
+      setName("");
+      setEmail("");
+      setPhone("");
+      setTermsAccepted(false);
+      setError("");
+    } else if (!termsAccepted) {
+      setError(i18n.t("club.form.error.terms"));
     } else {
-      setError(t("club.form.error"));
+      setError(i18n.t("club.form.error.generic"));
     }
   };
 
   return (
-    <div className="p-8 relative rounded-lg shadow-lg">
-      <p className="text-base text-body-color leading-relaxed mb-9">
-        {t("club.form.titles.main")}
-        <span className="flex items-center font-medium tracking-wide text-beige-default dark:text-beige-medium text-xs mt-1 ml-1">
-          {t("club.form.consent")}
+    <div className="p-8 relative rounded-lg bg-white/50 dark:bg-dark/50">
+      {flash.type && flash.message && (
+        <Flashes type={flash.type} message={flash.message} />
+      )}
+      <h3 className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed mb-0">
+        {i18n.t("club.form.titles.main")}
+      </h3>
+      <p className="leading-relaxed mb-8">
+        <span className="flex items-center font-medium tracking-wide text-beige-default dark:text-beige-medium text-sm mt-2">
+          {i18n.t("club.form.consent")}
         </span>
         {error && (
-          <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-2">
             {error}
           </span>
         )}
@@ -39,42 +58,65 @@ export default function ClubJoinForm() {
       <form
         ref={form}
         onSubmit={e => validateUser(e)}
-        action={Routes.join_club_index_path()}
+        action={apiRoutes.clubJoin}
         method="post"
+        className="space-y-6"
       >
-        <div className="mb-6">
+        <div>
           <input
             type="text"
-            placeholder={t("club.form.fields.name")}
-            name="club_join[name]"
+            placeholder={i18n.t("club.form.fields.name")}
+            name="name"
             onChange={e => setName(e.target.value)}
-            className="w-full rounded py-3 px-[14px] text-sm bg-white dark:bg-light border border-[#f0f0f0] outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium"
+            className="w-full rounded-lg py-3 px-4 text-base bg-white dark:bg-light text-gray-700 border border-gray-200 outline-none focus:border-beige-default dark:focus:border-beige-medium focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20 transition-colors"
           />
         </div>
-        <div className="mb-6">
-          <input
-            type="email"
-            placeholder={t("club.form.fields.email")}
-            name="club_join[email]"
-            onChange={e => setEmail(e.target.value)}
-            className="w-full rounded py-3 px-[14px] text-sm bg-white dark:bg-light border border-[#f0f0f0] outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium"
-          />
-        </div>
-        <div className="mb-6">
+        <div>
           <input
             type="tel"
-            placeholder={t("club.form.fields.phone")}
-            name="club_join[phone]"
+            placeholder={i18n.t("club.form.fields.phone")}
+            name="phone"
             onChange={e => setPhone(e.target.value)}
-            className="w-full rounded py-3 px-[14px] text-sm bg-white dark:bg-light border border-[#f0f0f0] outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium"
+            className="w-full rounded-lg py-3 px-4 text-base bg-white dark:bg-light text-gray-700 border border-gray-200 outline-none focus:border-beige-default dark:focus:border-beige-medium focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20 transition-colors"
           />
+        </div>
+        <div>
+          <input
+            type="email"
+            placeholder={i18n.t("club.form.fields.email")}
+            name="email"
+            onChange={e => setEmail(e.target.value)}
+            className="w-full rounded-lg py-3 px-4 text-base bg-white dark:bg-light text-gray-700 border border-gray-200 outline-none focus:border-beige-default dark:focus:border-beige-medium focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20 transition-colors"
+          />
+        </div>
+        <div>
+          <label className="flex items-center space-x-3">
+            <input
+              type="checkbox"
+              name="terms_accepted"
+              checked={termsAccepted}
+              onChange={e => setTermsAccepted(e.target.checked)}
+              className="w-4 h-4 text-beige-default dark:text-beige-medium border-gray-300 rounded focus:ring-beige-default dark:focus:ring-beige-medium"
+            />
+            <span className="text-base text-gray-700 dark:text-gray-200">
+              {i18n.t("club.form.fields.terms_prefix")}{" "}
+              <a
+                href={apiRoutes.clubRules}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-beige-default dark:text-beige-medium hover:underline"
+              >
+                {i18n.t("club.form.fields.terms_link")}
+              </a>
+            </span>
+          </label>
         </div>
         <div>
           <button
             type="submit"
-            className="w-full font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-medium rounded p-3 transition hover:bg-opacity-90"
+            className="w-full text-lg font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-medium rounded-lg py-3 px-6 transition hover:bg-opacity-90 focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20"
           >
-            {t("club.form.fields.send")}
+            {i18n.t("club.form.fields.send")}
           </button>
         </div>
       </form>

@@ -10,22 +10,4 @@ class NewClubJoinMailerPreview < ActionMailer::Preview
     }
     NewClubJoinMailer.with(params).new_join_request
   end
-
-  def new_join_request_international
-    params = {
-      name: 'John Smith',
-      email: 'john.smith@example.com',
-      phone: '+44 7700 900123'
-    }
-    NewClubJoinMailer.with(params).new_join_request
-  end
-
-  def new_join_request_business
-    params = {
-      name: 'Miguel Santos',
-      email: 'miguel.santos@empresa.pt',
-      phone: '+351 910 000 000'
-    }
-    NewClubJoinMailer.with(params).new_join_request
-  end
 end

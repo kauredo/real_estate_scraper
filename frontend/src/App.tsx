@@ -28,6 +28,7 @@ import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
 import AdminBlogPostsPage from "./pages/Admin/AdminBlogPostsPage";
 import AdminBlogPostEditPage from "./pages/Admin/AdminBlogPostEditPage";
 import AdminBlogPostDetailPage from "./pages/Admin/AdminBlogPostDetailPage";
+import AdminBackofficePage from "./pages/Admin/AdminBackofficePage";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -63,6 +64,7 @@ function AppContent() {
             element={
               <ProtectedRoute>
                 <Routes>
+                  <Route path="" element={<AdminBackofficePage />} />
                   <Route path="listings" element={<ListingsPage />} />
                   <Route path="blog_posts" element={<AdminBlogPostsPage />} />
                   <Route

@@ -288,6 +288,10 @@ const baseApiRoutes = {
     clubStory: (id: string | number): string =>
       `${API_BASE_URL}/admin/club_stories/${id}`,
 
+    // Club users
+    clubUsers: `${API_BASE_URL}/admin/club_users`,
+    exportClubUsers: `${API_BASE_URL}/admin/export_club_users`,
+
     // Listing complexes
     listingComplexes: `${API_BASE_URL}/admin/listing_complexes`,
     listingComplex: (id: string | number): string =>
@@ -330,6 +334,9 @@ const baseApiRoutes = {
     clubStoryPhotos: `${API_BASE_URL}/admin/club_story_photos`,
     clubStoryPhoto: (id: string | number): string =>
       `${API_BASE_URL}/admin/club_story_photos/${id}`,
+
+    // Newsletter subscriptions
+    newsletterSubscriptions: `${API_BASE_URL}/admin/newsletter_subscriptions`,
   },
 };
 

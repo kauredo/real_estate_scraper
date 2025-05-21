@@ -7,10 +7,10 @@ import SubNavbar from "../components/shared/SubNavbar";
 import ClubHeader from "../components/club/ClubHeader";
 import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
 import { useClubSections } from "../utils/constants/clubSections";
-import Routes from "../utils/routes";
 import { useMetaTags } from "../hooks/useMetaTags";
 import { getClub } from "../services/api";
 import togetherImage from "../assets/images/together.webp";
+import ClubJoinForm from "../components/club/ClubJoinForm";
 
 export default function ClubPage() {
   const { t } = useTranslation();
@@ -200,27 +200,8 @@ export default function ClubPage() {
                 <p className="text-xl font-bold mb-4 text-beige-default dark:text-beige-medium">
                   {t("club.home.join.impact")}
                 </p>
-                <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
-                  {t("club.home.join.whatsapp")}
-                </p>
-                <div className="flex flex-col items-start gap-4">
-                  <a
-                    href="https://wa.me/351932829084"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="whitespace-nowrap mx-auto mb-4 border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark"
-                  >
-                    {t("club.home.join.cta")}
-                  </a>
-                  <p className="text-xl font-bold mx-auto">
-                    {t("club.home.join.mission")}
-                  </p>
-                  <a
-                    href={Routes.club_rules_path}
-                    className="mx-auto text-xl font-bold text-beige-default dark:text-beige-medium underline"
-                  >
-                    {t("club.home.know_more.rules")}
-                  </a>
+                <div className="flex justify-center mt-2">
+                  <ClubJoinForm />
                 </div>
               </IconDecorationWrapper>
 

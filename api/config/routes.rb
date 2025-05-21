@@ -40,6 +40,9 @@ Rails.application.routes.draw do
         resources :photos, only: [:destroy]
         resources :blog_photos, only: %i[create destroy]
         resources :club_story_photos, only: %i[create destroy]
+        resources :club_users, only: [:index]
+        get 'export_club_users', to: 'club_users#export'
+        resources :newsletter_subscriptions, only: [:index]
       end
 
       resources :listings, only: %i[index show]
