@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
 import { toCapitalize } from "../../utils/functions";
 import { Photo, Listing } from "../../utils/interfaces";
@@ -11,8 +11,27 @@ interface Props {
 
 export default function Cards(props: Props) {
   const { listings, photos } = props;
+  const [windowWidth, setWindowWidth] = useState(1200); // Default width
   const isGroupedByLocation = !Array.isArray(listings);
   const locations = isGroupedByLocation ? Object.keys(listings) : [];
+
+  // Handle window resize
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      setWindowWidth(window.innerWidth); // Set initial width
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
+  // Calculate slides to show with better logic
+  const getSlidesToShow = () => {
+    const slideWidth = 412;
+    const actualWidth = Math.min(windowWidth, 1400); // Limit to a maximum width
+    const calculatedSlides = Math.floor(actualWidth / slideWidth);
+    return Math.max(1, calculatedSlides); // Ensure at least 1 slide is shown
+  };
 
   // Show photos only if there are no listings but photos exist
   if (
@@ -79,7 +98,9 @@ export default function Cards(props: Props) {
                       : "border-grey text-grey dark:text-light"
                   }`}
                 >
-                  {`${toCapitalize(location)} (${locationListings.length})`}
+                  {`${toCapitalize(location)} (${
+                    listings[location]?.length || 0
+                  })`}
                 </button>
               ))}
             </div>
@@ -91,7 +112,7 @@ export default function Cards(props: Props) {
               autoplaySpeed={5000}
               infinite={false}
               responsive
-              slidesToShow={Math.floor(window.innerWidth / 412)}
+              slidesToShow={getSlidesToShow()}
             />
           </div>
         </div>
@@ -115,7 +136,7 @@ export default function Cards(props: Props) {
             autoplaySpeed={5000}
             infinite={false}
             responsive
-            slidesToShow={Math.floor(window.innerWidth / 412)}
+            slidesToShow={getSlidesToShow()}
           />
         </div>
       </div>
