@@ -23,9 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "jti", default: -> { "gen_random_uuid()" }, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["jti"], name: "index_admins_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
