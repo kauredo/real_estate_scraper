@@ -45,6 +45,9 @@ latest.dump
 /coverage
 .fly-pg-secrets
 client
-api
+# api
 frontend
 public/storage
+
+# ignore all db dump files
+/latest.dump

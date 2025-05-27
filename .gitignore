@@ -49,6 +49,7 @@ latest.dump
 .env
 node_modules
 tmp
+latest.dump
 
 # old app
 /app

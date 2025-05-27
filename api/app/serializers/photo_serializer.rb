@@ -11,3 +11,22 @@ class PhotoSerializer < ActiveModel::Serializer
 
   belongs_to :listing_complex
 end
+
+# == Schema Information
+#
+# Table name: photos
+#
+#  id                 :bigint           not null, primary key
+#  image              :text
+#  main               :boolean          default(FALSE)
+#  order              :integer
+#  original_url       :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  listing_complex_id :bigint
+#
+# Indexes
+#
+#  index_photos_on_listing_complex_id  (listing_complex_id)
+#  index_photos_on_original_url        (original_url) UNIQUE WHERE (original_url IS NOT NULL)
+#
