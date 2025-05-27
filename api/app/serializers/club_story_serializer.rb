@@ -1,40 +1,26 @@
 # frozen_string_literal: true
 
-class ClubStorySerializer
-  def initialize(club_story, include_photos: false)
-    @club_story = club_story
-    @include_photos = include_photos
-  end
+class ClubStorySerializer < ActiveModel::Serializer
+  attributes :id, :title, :slug, :small_description, :text, :sanitized_text,
+             :sample_text, :video_link, :meta_title, :meta_description, :hidden,
+             :created_at, :updated_at, :main_photo
 
-  def as_json
-    json = {
-      id: @club_story.id,
-      title: @club_story.title,
-      slug: @club_story.slug,
-      small_description: @club_story.small_description,
-      text: @club_story.text,
-      sanitized_text: @club_story.sanitized_text,
-      sample_text: @club_story.sample_text,
-      video_link: @club_story.video_link,
-      meta_title: @club_story.meta_title,
-      meta_description: @club_story.meta_description,
-      hidden: @club_story.hidden,
-      created_at: @club_story.created_at,
-      updated_at: @club_story.updated_at,
-      main_photo: @club_story.main_photo
-    }
+  has_many :club_story_photos, serializer: ClubStoryPhotoSerializer, if: :include_photos?
 
-    if @include_photos
-      json[:club_story_photos] = @club_story.club_story_photos.map do |photo|
-        {
-          id: photo.id,
-          image_url: photo.image.url,
-          main: photo.main
-        }
-      end
-    end
+  delegate :title, to: :object
+  delegate :slug, to: :object
+  delegate :small_description, to: :object
+  delegate :text, to: :object
+  delegate :sanitized_text, to: :object
+  delegate :sample_text, to: :object
+  delegate :video_link, to: :object
+  delegate :meta_title, to: :object
+  delegate :meta_description, to: :object
+  delegate :hidden, to: :object
+  delegate :main_photo, to: :object
 
-    json
+  def include_photos?
+    @instance_options[:include_photos]
   end
 end
 

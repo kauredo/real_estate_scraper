@@ -8,13 +8,13 @@ module Api
         listings_by_geography = listings.by_geography
 
         render json: {
-          listings_by_geography:,
+          listings_by_geography: listings_by_geography.as_json,
           stats: {
             listing_count: listings.count,
-            variables: Variable.includes([:translations]).all.as_json
+            variables: serialize_collection(Variable.all, VariableSerializer)
           },
           photos: Listing.random_photos(listings.available, 3).as_json,
-          testimonials: Testimonial.includes([:translations]).all.as_json
+          testimonials: serialize_collection(Testimonial.all, TestimonialSerializer)
         }
       end
 
@@ -22,9 +22,9 @@ module Api
         render json: {
           stats: {
             listing_count: Listing.all.count,
-            variables: Variable.all.as_json
+            variables: serialize_collection(Variable.all, VariableSerializer)
           },
-          testimonials: Testimonial.all.as_json
+          testimonials: serialize_collection(Testimonial.all, TestimonialSerializer)
         }
       end
 
@@ -57,6 +57,13 @@ module Api
 
       def contact_params
         params.require(:contact).permit(:name, :email, :phone, :message, :listing, :complex)
+      end
+
+      def serialize_collection(collection, serializer)
+        ActiveModelSerializers::SerializableResource.new(
+          collection,
+          each_serializer: serializer
+        ).as_json[collection.klass.name.underscore.pluralize.to_sym]
       end
     end
   end

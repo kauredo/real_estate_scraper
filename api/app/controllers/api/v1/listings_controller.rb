@@ -25,18 +25,19 @@ module Api
         paginated = paginate(listings)
 
         render json: {
-          listings: paginated[:data].map { |listing| ListingSerializer.new(listing).as_json },
+          listings: paginated[:data],
           pagination: paginated[:pagination],
           max_price: Listing.all.pluck(:price_cents).uniq.reject(&:blank?).map(&:to_i).max,
           stats_keys: Listing.unscoped.possible_stats_keys,
           kinds: Listing.kinds.reject { |k, _v| k == 'other' },
           objectives: Listing.objectives.reject { |k, _v| k == 'other' }
-        }
+        }, each_serializer: ListingSerializer
       end
 
       def show
         @listing = Listing.friendly.find(params[:id])
-        render json: ListingSerializer.new(@listing).as_json
+        render json: @listing,
+               serializer: ListingSerializer
       end
 
       def buy

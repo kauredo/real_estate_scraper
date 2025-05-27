@@ -10,14 +10,16 @@ module Api
         paginated = paginate(club_stories)
 
         render json: {
-          club_stories: paginated[:data].map { |story| ClubStorySerializer.new(story).as_json },
+          club_stories: paginated[:data],
           pagination: paginated[:pagination]
-        }
+        }, each_serializer: ClubStorySerializer
       end
 
       def show
         @club_story = ClubStory.friendly.find(params[:id])
-        render json: ClubStorySerializer.new(@club_story, include_photos: true).as_json
+        render json: @club_story,
+               serializer: ClubStorySerializer,
+               include_photos: true
       end
     end
   end

@@ -5,7 +5,7 @@ module Api
     class ClubController < Api::V1::BaseController
       def index
         @recent_stories = ClubStory.visible.limit(2)
-        render json: @recent_stories.map { |story| ClubStorySerializer.new(story).as_json }
+        render json: @recent_stories, each_serializer: ClubStorySerializer
       end
 
       def rules

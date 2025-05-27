@@ -12,13 +12,15 @@ module Api
           paginated = paginate(@blog_posts)
 
           render json: {
-            blog_posts: paginated[:data].map { |post| BlogPostSerializer.new(post).as_json },
+            blog_posts: paginated[:data],
             pagination: paginated[:pagination]
-          }
+          }, each_serializer: BlogPostSerializer
         end
 
         def show
-          render json: BlogPostSerializer.new(@blog_post, include_photos: true).as_json
+          render json: @blog_post,
+                 serializer: BlogPostSerializer,
+                 include_photos: true
         end
 
         def create
@@ -29,7 +31,8 @@ module Api
 
             render json: {
               message: 'Post criado com sucesso',
-              blog_post: BlogPostSerializer.new(@blog_post).as_json
+              blog_post: @blog_post,
+              serializer: BlogPostSerializer
             }, status: :created
           else
             render json: { errors: @blog_post.errors.full_messages }, status: :unprocessable_entity
@@ -43,7 +46,9 @@ module Api
 
             render json: {
               message: 'Post atualizado com sucesso',
-              blog_post: BlogPostSerializer.new(@blog_post, include_photos: true).as_json
+              blog_post: @blog_post,
+              serializer: BlogPostSerializer,
+              include_photos: true
             }
           else
             render json: { errors: @blog_post.errors.full_messages }, status: :unprocessable_entity

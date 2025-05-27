@@ -10,9 +10,9 @@ module Api
         paginated = paginate(listing_complexes)
 
         render json: {
-          listing_complexes: paginated[:data].map { |complex| ListingComplexSerializer.new(complex).as_json },
+          listing_complexes: paginated[:data],
           pagination: paginated[:pagination]
-        }
+        }, each_serializer: ListingComplexSerializer
       end
 
       def show
@@ -23,7 +23,9 @@ module Api
           return
         end
 
-        render json: ListingComplexSerializer.new(@listing_complex, include_listings: true).as_json
+        render json: @listing_complex,
+               serializer: ListingComplexSerializer,
+               include_listings: true
       end
     end
   end

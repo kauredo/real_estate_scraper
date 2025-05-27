@@ -24,9 +24,9 @@ const AdminBackofficePage = () => {
           adminGetClubUsers(),
         ]);
 
-        setVariables(variablesRes.data);
-        setSubs(subsRes.data);
-        setClubUsers(clubUsersRes.data);
+        setVariables(variablesRes.data.variables);
+        setSubs(subsRes.data.newsletter_subscriptions);
+        setClubUsers(clubUsersRes.data.club_users);
       } catch (error) {
         console.error("Error fetching backoffice data:", error);
       } finally {
