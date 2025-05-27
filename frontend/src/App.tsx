@@ -29,6 +29,10 @@ import AdminBlogPostsPage from "./pages/Admin/AdminBlogPostsPage";
 import AdminBlogPostEditPage from "./pages/Admin/AdminBlogPostEditPage";
 import AdminBlogPostDetailPage from "./pages/Admin/AdminBlogPostDetailPage";
 import AdminBackofficePage from "./pages/Admin/AdminBackofficePage";
+import AdminClubStoriesPage from "./pages/Admin/AdminClubStoriesPage";
+import AdminClubStoryEditPage from "./pages/Admin/AdminClubStoryEditPage";
+import AdminClubStoryDetailPage from "./pages/Admin/AdminClubStoryDetailPage";
+import AdminClubStoryNewPage from "./pages/Admin/AdminClubStoryNewPage";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -64,8 +68,10 @@ function AppContent() {
             element={
               <ProtectedRoute>
                 <Routes>
+                  {/* Home */}
                   <Route path="" element={<AdminBackofficePage />} />
-                  <Route path="listings" element={<ListingsPage />} />
+
+                  {/* Blog Posts */}
                   <Route path="blog_posts" element={<AdminBlogPostsPage />} />
                   <Route
                     path="blog_posts/new"
@@ -79,9 +85,27 @@ function AppContent() {
                     path="blog_posts/:id"
                     element={<AdminBlogPostDetailPage />}
                   />
+
+                  {/* Club Stories */}
                   <Route
-                    path="listing-complexes"
-                    element={<ListingComplexesPage />}
+                    path="club_stories"
+                    element={<AdminClubStoriesPage />}
+                  />
+                  <Route
+                    path="club_stories/new"
+                    element={<AdminClubStoryNewPage />}
+                  />
+                  <Route
+                    path="club_stories/:id/edit"
+                    element={<AdminClubStoryEditPage />}
+                  />
+                  <Route
+                    path="club_stories/:id"
+                    element={<AdminClubStoryDetailPage />}
+                  />
+                  <Route
+                    path="club_stories/:id"
+                    element={<AdminClubStoryDetailPage />}
                   />
                 </Routes>
               </ProtectedRoute>

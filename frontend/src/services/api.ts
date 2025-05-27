@@ -181,7 +181,8 @@ export const getClubStory = slug => api.get(apiRoutes.clubStory(slug));
 export const joinClub = data => api.post(apiRoutes.clubJoin, data);
 
 // Admin - Club stories API functions
-export const adminGetClubStories = () => api.get(apiRoutes.admin.clubStories);
+export const adminGetClubStories = (params = {}) =>
+  api.get(apiRoutes.admin.clubStories, { params });
 export const adminGetClubStory = id => api.get(apiRoutes.admin.clubStory(id));
 export const adminCreateClubStory = data =>
   api.post(apiRoutes.admin.clubStories, { club_story: data });
