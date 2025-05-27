@@ -33,9 +33,10 @@ export default function Home() {
         setIsLoading(true);
         const response = await getHomePage();
         const data = response.data;
-        console.log("Home data fetched:", data);
+
         // Extract data from the response
         if (data.listings_by_geography) {
+          console.log("Listings by geography:", data.listings_by_geography);
           // Keep the listings grouped by geography
           setListings(data.listings_by_geography);
         }

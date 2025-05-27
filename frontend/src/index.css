@@ -159,9 +159,9 @@ strong {
 .slick-list {
   position: relative;
   display: block;
-  overflow: visible;
   margin: 0;
   padding: 0;
+  height: 100% !important;
 }
 
 .slick-track {
@@ -479,5 +479,15 @@ strong {
 
   .carousel-container .slick-next {
     right: 15px;
+  }
+}
+
+@media screen and (min-width: 1340px) {
+  .slick-prev {
+    left: -45px !important;
+  }
+
+  .slick-next {
+    right: -45px !important;
   }
 }
