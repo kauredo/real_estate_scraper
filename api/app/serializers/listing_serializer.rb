@@ -1,33 +1,32 @@
 # frozen_string_literal: true
 
-class ListingSerializer
-  def initialize(listing)
-    @listing = listing
-  end
+class ListingSerializer < ActiveModel::Serializer
+  attributes :id, :title, :slug, :description, :address, :price, :price_cents,
+             :status, :objective, :kind, :features, :stats, :url, :video_link,
+             :virtual_tour_url, :photos, :listing_complex_id, :city, :created_at,
+             :updated_at
 
-  def as_json
-    {
-      id: @listing.id,
-      title: @listing.title,
-      slug: @listing.slug,
-      description: @listing.description,
-      address: @listing.address,
-      price: @listing.price ? @listing.price.format(symbol: nil, no_cents_if_whole: true) : nil,
-      price_cents: @listing.price_cents,
-      status: @listing.status,
-      objective: @listing.objective,
-      kind: @listing.kind,
-      features: @listing.features,
-      stats: @listing.stats,
-      url: @listing.url,
-      video_link: @listing.video_link,
-      virtual_tour_url: @listing.virtual_tour_url,
-      photos: @listing.photos,
-      listing_complex_id: @listing.listing_complex_id,
-      city: @listing.city,
-      created_at: @listing.created_at,
-      updated_at: @listing.updated_at
-    }
+  belongs_to :listing_complex
+
+  delegate :title, to: :object
+  delegate :slug, to: :object
+  delegate :description, to: :object
+  delegate :address, to: :object
+  delegate :price_cents, to: :object
+  delegate :status, to: :object
+  delegate :objective, to: :object
+  delegate :kind, to: :object
+  delegate :features, to: :object
+  delegate :stats, to: :object
+  delegate :url, to: :object
+  delegate :video_link, to: :object
+  delegate :virtual_tour_url, to: :object
+  delegate :photos, to: :object
+  delegate :listing_complex_id, to: :object
+  delegate :city, to: :object
+
+  def price
+    object.price ? object.price.format(symbol: nil, no_cents_if_whole: true) : nil
   end
 end
 

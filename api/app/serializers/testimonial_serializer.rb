@@ -1,19 +1,10 @@
 # frozen_string_literal: true
 
-class TestimonialSerializer
-  def initialize(testimonial)
-    @testimonial = testimonial
-  end
+class TestimonialSerializer < ActiveModel::Serializer
+  attributes :id, :name, :text, :created_at, :updated_at
 
-  def as_json
-    {
-      id: @testimonial.id,
-      name: @testimonial.name,
-      text: @testimonial.text,
-      created_at: @testimonial.created_at,
-      updated_at: @testimonial.updated_at
-    }
-  end
+  delegate :name, to: :object
+  delegate :text, to: :object
 end
 
 # == Schema Information

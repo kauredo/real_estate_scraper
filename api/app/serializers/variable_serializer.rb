@@ -1,20 +1,10 @@
 # frozen_string_literal: true
 
-class VariableSerializer
-  def initialize(variable)
-    @variable = variable
-  end
+class VariableSerializer < ActiveModel::Serializer
+  attributes :id, :name, :value, :icon, :created_at, :updated_at
 
-  def as_json
-    {
-      id: @variable.id,
-      name: @variable.name,
-      value: @variable.value,
-      icon: @variable.icon,
-      created_at: @variable.created_at,
-      updated_at: @variable.updated_at
-    }
-  end
+  delegate :name, to: :object
+  delegate :value, to: :object
 end
 
 # == Schema Information

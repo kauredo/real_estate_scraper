@@ -6,13 +6,16 @@ module Api
       class VariablesController < Api::V1::Admin::BaseController
         def index
           @variables = Variable.all
-          render json: @variables.as_json(include: [:translations])
+          render json: @variables,
+                 each_serializer: VariableSerializer
         end
 
         def create
           @variable = Variable.new(variable_params)
           if @variable.save
-            render json: @variable.as_json(include: [:translations]), status: :created
+            render json: @variable,
+                   serializer: VariableSerializer,
+                   status: :created
           else
             render json: { errors: @variable.errors.full_messages }, status: :unprocessable_entity
           end
@@ -21,7 +24,9 @@ module Api
         def update
           @variable = Variable.find(params[:id])
           if @variable.update(variable_params)
-            render json: @variable.as_json(include: [:translations]), status: :ok
+            render json: @variable,
+                   serializer: VariableSerializer,
+                   status: :ok
           else
             render json: { errors: @variable.errors.full_messages }, status: :unprocessable_entity
           end

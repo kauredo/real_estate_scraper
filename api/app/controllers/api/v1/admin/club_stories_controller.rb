@@ -13,13 +13,15 @@ module Api
           paginated = paginate(@club_stories)
 
           render json: {
-            club_stories: paginated[:data].map { |story| ClubStorySerializer.new(story).as_json },
+            club_stories: paginated[:data],
             pagination: paginated[:pagination]
-          }
+          }, each_serializer: ClubStorySerializer
         end
 
         def show
-          render json: ClubStorySerializer.new(@club_story, include_photos: true).as_json
+          render json: @club_story,
+                 serializer: ClubStorySerializer,
+                 include_photos: true
         end
 
         def create
@@ -30,7 +32,8 @@ module Api
 
             render json: {
               message: 'História criada com sucesso',
-              club_story: ClubStorySerializer.new(@club_story).as_json
+              club_story: @club_story,
+              serializer: ClubStorySerializer
             }, status: :created
           else
             render json: { errors: @club_story.errors.full_messages }, status: :unprocessable_entity
@@ -44,7 +47,9 @@ module Api
 
             render json: {
               message: 'História atualizada com sucesso',
-              club_story: ClubStorySerializer.new(@club_story, include_photos: true).as_json
+              club_story: @club_story,
+              serializer: ClubStorySerializer,
+              include_photos: true
             }
           else
             render json: { errors: @club_story.errors.full_messages }, status: :unprocessable_entity

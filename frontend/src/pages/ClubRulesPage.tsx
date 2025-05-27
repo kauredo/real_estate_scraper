@@ -363,12 +363,12 @@ export default function ClubRulesPage() {
                         {t("club.rules.sections.final.title")}
                       </h2>
                       <p className="text-gray-600 dark:text-gray-300 mb-4">
-                        {t("club.rules.sections.final.first")}
+                        {t("club.rules.sections.final.1")}
                       </p>
                       <p
                         className="text-gray-600 dark:text-gray-300"
                         dangerouslySetInnerHTML={{
-                          __html: t("club.rules.sections.final.second_html"),
+                          __html: t("club.rules.sections.final.2_html"),
                         }}
                       ></p>
                     </div>

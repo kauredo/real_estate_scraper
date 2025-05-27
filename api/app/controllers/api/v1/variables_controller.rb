@@ -5,7 +5,8 @@ module Api
     class VariablesController < Api::V1::BaseController
       def index
         @variables = Variable.all
-        render json: @variables.as_json(include: [:translations])
+        render json: @variables,
+               each_serializer: VariableSerializer
       end
     end
   end

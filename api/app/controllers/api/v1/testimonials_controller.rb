@@ -5,7 +5,8 @@ module Api
     class TestimonialsController < Api::V1::BaseController
       def index
         @testimonials = Testimonial.all
-        render json: @testimonials.as_json(include: [:translations])
+        render json: @testimonials,
+               each_serializer: TestimonialSerializer
       end
     end
   end

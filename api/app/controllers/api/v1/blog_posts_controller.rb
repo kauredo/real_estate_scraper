@@ -10,14 +10,16 @@ module Api
         paginated = paginate(@blog_posts)
 
         render json: {
-          blog_posts: paginated[:data].map { |post| BlogPostSerializer.new(post).as_json },
+          blog_posts: paginated[:data],
           pagination: paginated[:pagination]
-        }
+        }, each_serializer: BlogPostSerializer
       end
 
       def show
         @blog_post = BlogPost.friendly.find(params[:id])
-        render json: BlogPostSerializer.new(@blog_post, include_photos: true).as_json
+        render json: @blog_post,
+               serializer: BlogPostSerializer,
+               include_photos: true
       end
     end
   end
