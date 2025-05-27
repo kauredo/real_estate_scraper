@@ -9,8 +9,6 @@ class Variable < ApplicationRecord
   validates :name, presence: { message: 'não pode estar vazio' }
   validates :value, presence: { message: 'não pode estar vazio' }
   validates :icon, presence: { message: 'não pode estar vazio' }
-
-  default_scope { includes(:translations) }
 end
 
 # == Schema Information
