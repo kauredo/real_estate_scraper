@@ -50,5 +50,8 @@ if [ $? != 0 ]; then
     tmux select-window -t "${SESSION_NAME}:Rails Server"
 fi
 
+tmux set-option -t $SESSION_NAME -g history-limit 10000
+tmux set-option -t $SESSION_NAME -g mouse on
+
 # Attach to the tmux session
 tmux attach -t $SESSION_NAME

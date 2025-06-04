@@ -37,3 +37,14 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 /public/assets
+
+# Additional ignores for consistency with .gitignore
+/public/uploads/tmp
+latest.dump
+*.DS_Store
+/coverage
+.fly-pg-secrets
+client
+api
+frontend
+public/storage
