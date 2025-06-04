@@ -7,6 +7,7 @@ class ScrapeListingDetails
     website_avaliable = navigate_and_check_website(browser, imovel_url)
     return unless website_avaliable
 
+    accept_cookies(browser)
     toggle_language(browser, 'Português')
     gather_listing_data(browser, imovel_url, force)
   end
@@ -30,8 +31,8 @@ class ScrapeListingDetails
       log 'KW website down'
       return false
     end
-
-    return true if browser.text.include? 'Contacte-me'
+    # Check if the page contains '404' to determine if the listing is unavailable
+    return true unless browser.text.downcase.include?('404')
 
     log 'listing unavailable on KW website, it will be destroyed'
     destroy_listing_if_exists(url) if delete
@@ -39,25 +40,29 @@ class ScrapeListingDetails
   end
 
   def self.toggle_language(browser, target_language)
-    toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
-    retry_count = 0
+    current_url = browser.url
 
-    until toggle&.text == target_language || retry_count >= 2
-      toggle = browser.a(id: 'navbarDropdownLanguage').wait_until(timeout: 10, &:present?)
+    # Map language names to URL path segments
+    language_map = {
+      'Português' => 'pt',
+      'English' => 'en'
+    }
 
-      toggle.click
-      language_list = browser.ul(class: 'dropdown-menu show').wait_until(timeout: 10, &:present?)
-      language_list.a(text: target_language).click
+    target_lang_code = language_map[target_language] || target_language.downcase
 
-      # go back on the page to refresh the page with the new language
-      browser.refresh
-      sleep ENV['SLEEP_TIME']&.to_i || 5
-      retry_count += 1
-    end
+    # Replace the language code in the URL
+    # This handles both /pt/ and /en/ in the URL path
+    new_url = current_url.gsub(%r{/(pt|en)/}, "/#{target_lang_code}/")
+
+    # Navigate to the new URL
+    browser.goto(new_url)
+
+    # Wait for page to load
+    sleep ENV['SLEEP_TIME']&.to_i || 5
   end
 
   def self.gather_listing_data(browser, imovel_url, force)
-    title = browser.title.gsub('m2', 'm²')
+    title = browser.h1.text.gsub('m2', 'm²')
     url = browser.url
     log "Gathering data for listing \"#{title}\""
 
@@ -72,7 +77,7 @@ class ScrapeListingDetails
   end
 
   def self.update_listing_fields(browser, listing, force)
-    listing.title = browser.title.gsub('m2', 'm²')
+    listing.title = browser.h1.text.gsub('m2', 'm²')
     listing.url = browser.url
     listing.status = 1
 
@@ -107,7 +112,7 @@ class ScrapeListingDetails
   def self.update_translatable_listing_fields(browser, listing)
     log "Gathering translated data for listing \"#{listing.title}\""
 
-    listing.title = browser.title.gsub('m2', 'm²')
+    listing.title = browser.h1.text.gsub('m2', 'm²')
 
     features = extract_features(browser)
     listing.features = features if features
@@ -121,7 +126,8 @@ class ScrapeListingDetails
   def self.extract_price(browser)
     count = 0
     begin
-      browser.div(class: 'price').wait_until(timeout: 10, &:present?)&.text
+      texts = browser.div(id: 'propertyHeader').wait_until(timeout: 10, &:present?)&.ps&.map(&:text)
+      texts.find { |text| text.downcase.include?('€') }
     rescue StandardError => _e
       count += 1
       retry if count < 3
@@ -133,19 +139,133 @@ class ScrapeListingDetails
   def self.extract_stats(browser)
     count = 0
     begin
-      browser.div(class: 'infopoints').wait_until(timeout: 10, &:present?)&.divs(class: 'point')&.map { |row| row&.text&.squish&.split(': ') }.to_h
+      stats = {}
+
+      # Wait for the stats container to be present
+      stats_container = browser.div(class: 'gap-2 items-center flex').wait_until(timeout: 10, &:present?)
+      return {} unless stats_container
+
+      # Find all property info containers
+      containers = browser.divs(class: 'z-20 flex flex-row').wait_until(timeout: 10, &:present?)
+
+      containers.each_with_index do |container, index|
+        svg = container.svg.wait_until(timeout: 10, &:present?)
+        number_elem = container.p(class: /text-grey-01/).wait_until(timeout: 10, &:present?)
+
+        next unless svg.exists? && number_elem.exists?
+
+        # Scroll container into view
+        browser.execute_script("arguments[0].scrollIntoView({block: 'center'});", container)
+        sleep(0.3)
+
+        number = number_elem.text.strip
+        description = get_stat_description(browser, svg, container, index)
+
+        # Map to appropriate stat key based on index or description
+        stat_key = determine_stat_key(description, index, number)
+
+        stats[stat_key] = number if stat_key
+
+      rescue StandardError => e
+        log "Error extracting stat #{index}: #{e.message}"
+      end
+
+      stats
     rescue StandardError => _e
       count += 1
       retry if count < 3
 
-      nil
+      {}
+    end
+  end
+
+  def self.get_stat_description(browser, svg, container, index)
+    # Method 1: Check for tooltip attributes
+    %w[title data-tooltip aria-label data-original-title].each do |attr|
+      value = svg.attribute_value(attr) || container.attribute_value(attr)
+      return value if value.present?
+    end
+
+    # Method 2: Try hover for tooltip
+    begin
+      svg.hover
+      sleep(0.5)
+
+      tooltip_selectors = [
+        '[role="tooltip"]',
+        '.tooltip',
+        '.popover',
+        '[data-tooltip-show="true"]'
+      ]
+
+      tooltip_selectors.each do |selector|
+        tooltip = browser.element(css: selector)
+        return tooltip.text.strip if tooltip.exists? && !tooltip.text.strip.empty?
+      end
+    rescue StandardError => e
+      log "Hover failed for stat #{index}: #{e.message}"
+    end
+
+    # Method 3: JavaScript hover simulation
+    script = <<~JS
+      const svg = arguments[0];
+      svg.dispatchEvent(new MouseEvent('mouseover', {bubbles: true}));
+
+      setTimeout(() => {
+        const tooltip = document.querySelector('[role="tooltip"], .tooltip, .popover');
+        return tooltip ? tooltip.textContent.trim() : null;
+      }, 200);
+    JS
+
+    result = browser.execute_script(script, svg)
+    return result if result.present?
+
+    # Fallback: determine by index
+    get_default_description_by_index(index)
+  end
+
+  def self.determine_stat_key(description, index, _number)
+    description_lower = description&.downcase || ''
+
+    # Try to determine from description first
+    if description_lower.include?('quarto') || description_lower.include?('bedroom')
+      'Quartos'
+    elsif description_lower.include?('casa de banho') || description_lower.include?('bathroom') || description_lower.include?('wc')
+      'Casas de banho'
+    elsif description_lower.include?('área') || description_lower.include?('area') || description_lower.include?('m²') || description_lower.include?('m2')
+      'Área útil'
+    elsif description_lower.include?('ano') || description_lower.include?('year')
+      'Ano de construção'
+    elsif description_lower.include?('estacionamento') || description_lower.include?('parking') || description_lower.include?('garagem') || description_lower.include?('garagens')
+      'Estacionamentos'
+    elsif description_lower.include?('sala') || description_lower.include?('living room') || description_lower.include?('salas')
+      'Salas'
+    else
+      # Fallback to index-based determination
+      case index
+      when 0 then 'Quartos'
+      when 1 then 'Casas de banho'
+      when 2 then 'Estacionamentos'
+      when 3 then 'Área útil'
+      else 'Característica da propriedade'
+      end
+    end
+  end
+
+  def self.get_default_description_by_index(index)
+    case index
+    when 0 then 'Quartos'
+    when 1 then 'Casas de banho'
+    when 2 then 'Estacionamentos'
+    when 3 then 'Área útil'
+    else 'Característica da propriedade'
     end
   end
 
   def self.extract_address(browser)
     count = 0
     begin
-      browser.div(class: 'location').wait_until(timeout: 10, &:present?)&.text&.squish
+      browser.div(class: 'address-label').wait_until(timeout: 10, &:present?)&.p&.text&.squish
     rescue StandardError => _e
       count += 1
       retry if count < 3
@@ -154,22 +274,25 @@ class ScrapeListingDetails
     end
   end
 
-  def self.extract_features(browser)
-    count = 0
-    begin
-      browser.div(class: 'characteristics').wait_until(timeout: 10, &:present?)&.lis&.map(&:text)
-    rescue StandardError => _e
-      count += 1
-      retry if count < 3
+  def self.extract_features(_browser)
+    # count = 0
+    # begin
+    #   browser.ul(class: 'grid auto-rows-max').wait_until(timeout: 10, &:present?)&.lis&.map(&:text)
+    # rescue StandardError => _e
+    #   count += 1
+    #   retry if count < 3
 
-      []
-    end
+    #   []
+    # end
+    []
   end
 
   def self.extract_description(browser)
     count = 0
     begin
-      browser.div(class: 'description').wait_until(timeout: 10, &:present?)&.div(class: 'texts')&.wait_until(timeout: 10, &:present?)&.text
+      browser.span(id: 'development-description').wait_until(timeout: 10, &:present?)&.ps&.last&.click
+      sleep 1 # wait for the description to expand
+      browser.span(id: 'development-description').wait_until(timeout: 10, &:present?)&.ps&.first&.text
     rescue StandardError => _e
       count += 1
       retry if count < 3
@@ -181,12 +304,48 @@ class ScrapeListingDetails
   def self.extract_images(browser)
     count = 0
     begin
-      browser.div(class: 'content-photos').wait_until(timeout: 10, &:present?)&.as&.map(&:href)
+      browser.execute_script('window.scrollTo(0, 0)')
+      sleep 1
+      browser.div(class: 'flex touch-pan-y touch-pinch-zoom').wait_until(timeout: 10, &:present?)&.div(class: 'cursor-grab')&.click
+      sleep 1
+      images = []
+      image_divs = browser.divs(class: 'flex touch-pan-y touch-pinch-zoom').wait_until(timeout: 10, &:present?)
+      # image_counts = image_divs.map { |div| div.images.count }
+      most_images_div = image_divs[1]
+      most_images_div.images.each do |image|
+        next if image.src.blank?
+
+        images << image.src if image.src.present? && image.src.start_with?('https://')
+      end
+      images.uniq
     rescue StandardError => _e
       count += 1
       retry if count < 3
 
       []
+    end
+  end
+
+  def self.accept_cookies(browser)
+    count = 0
+    begin
+      # Get the shadow root and then find elements within it
+      aside_element = browser.element(id: 'usercentrics-cmp-ui')
+      shadow_root = browser.execute_script('return arguments[0].shadowRoot', aside_element)
+
+      # Now search within the shadow root
+      accept_button = browser.execute_script(
+        'return arguments[0].querySelector("button[data-testid*=accept], button[id*=accept]")',
+        shadow_root
+      )
+
+      accept_button&.click
+      log 'Cookies accepted'
+    rescue StandardError => _e
+      count += 1
+      retry if count < 3
+
+      log 'Failed to accept cookies'
     end
   end
 
