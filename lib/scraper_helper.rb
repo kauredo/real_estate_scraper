@@ -68,6 +68,10 @@ module ScraperHelper
       '--disable-blink-features=AutomationControlled',
       '--disable-web-security',
       '--aggressive-cache-discard',
+      '--disable-images',           # NEW: Don't load images to save bandwidth
+      '--memory-pressure-off',      # NEW: Reduce memory pressure
+      '--max_old_space_size=1024',  # NEW: Limit V8 memory
+      # '--single-process',           # NEW: Use single process (risky but uses less memory)
       '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
     ]
     args << '--headless=new' if headless
