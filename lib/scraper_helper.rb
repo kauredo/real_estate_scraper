@@ -143,4 +143,13 @@ module ScraperHelper
       ScrapeListingDetails.log 'Failed to accept cookies'
     end
   end
+
+  def self.safe_goto(browser, url, timeout: 240)
+    Timeout.timeout(timeout) do
+      browser.goto(url)
+    end
+  rescue Timeout::Error => e
+    log "Browser navigation timed out for #{url}"
+    raise e
+  end
 end

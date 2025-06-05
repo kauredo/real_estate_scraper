@@ -101,13 +101,8 @@ class RealEstateScraperService
 
   private
 
-  def safe_goto(url, timeout: 30)
-    Timeout.timeout(timeout) do
-      @browser.goto(url)
-    end
-  rescue Timeout::Error => e
-    log "Browser navigation timed out for #{url}"
-    raise e
+  def safe_goto(url, timeout: 240)
+    ScraperHelper.safe_goto(@browser, url, timeout:)
   end
 
   def log(message)
