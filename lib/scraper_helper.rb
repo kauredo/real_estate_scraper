@@ -190,7 +190,7 @@ module ScraperHelper
   rescue Timeout::Error => e
     ScrapeListingDetails.log("[RealEstateScraperService] Navigation timeout for #{url} after #{timeout} seconds")
     raise e
-  rescue Net::ReadTimeout, Net::TimeoutError => e
+  rescue Net::ReadTimeout => e
     ScrapeListingDetails.log("[RealEstateScraperService] Network timeout for #{url}: #{e.message}")
     raise e
   end
