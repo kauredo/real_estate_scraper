@@ -11,8 +11,8 @@ class ScrapeUrlJob < ApplicationJob
       block.call
     end
   rescue Timeout::Error => e
-    ScrapeListingDetails.log("[ScrapeUrlJob] Timed out after 10 minutes for #{job.arguments.first}")
-    raise # This will trigger discard_on
+    ScrapeListingDetails.log("[ScrapeUrlJob] Timed out after 10 minutes for #{job.arguments.first}: #{e.message}")
+    raise e # This will trigger discard_on
   end
 
   def perform(url, force = false)

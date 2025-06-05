@@ -11,8 +11,8 @@ class ScrapeAll < ApplicationJob
       block.call
     end
   rescue Timeout::Error => e
-    ScrapeListingDetails.log('[ScrapeAll] Timed out after 40 minutes')
-    raise # This will trigger discard_on
+    ScrapeListingDetails.log("[ScrapeAll] Timed out after 40 minutes: #{e.message}")
+    raise e # This will trigger discard_on
   end
 
   def perform

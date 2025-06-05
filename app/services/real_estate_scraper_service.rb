@@ -107,7 +107,7 @@ class RealEstateScraperService
     end
   rescue Timeout::Error => e
     log "Browser navigation timed out for #{url}"
-    raise
+    raise e
   end
 
   def log(message)
@@ -115,6 +115,7 @@ class RealEstateScraperService
   end
 
   def scrape_all_listings
+    start_time = Time.current
     @browser.refresh
     return 0 if ScraperHelper.check_if_invalid?(@browser)
 

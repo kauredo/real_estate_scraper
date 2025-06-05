@@ -15,6 +15,7 @@ echo "Current Node version: $(node --version)"
 
 # Session name
 SESSION_NAME="rails-dev"
+GOOD_JOB_FLAGS="--queues=bulk_scraping:10,individual_scraping:5,default:1 --max_threads=1"
 
 # Check if the session already exists
 tmux has-session -t $SESSION_NAME 2>/dev/null
@@ -44,8 +45,7 @@ if [ $? != 0 ]; then
 
     # Good Job worker with queue priorities (same as production)
     tmux new-window -t $SESSION_NAME -n "Background Worker"
-    tmux send-keys -t "${SESSION_NAME}:Background Worker" "bundle exec good_job start --queues=bulk_scraping:10,individual_scraping:5,default:1 --max_threads=1" Enter
-
+    tmux send-keys -t "${SESSION_NAME}:Background Worker" "bundle exec good_job start $GOOD_JOB_FLAGS" Enter
     # Select the first window
     tmux select-window -t "${SESSION_NAME}:Rails Server"
 fi
@@ -54,4 +54,4 @@ tmux set-option -t $SESSION_NAME -g history-limit 10000
 tmux set-option -t $SESSION_NAME -g mouse on
 
 # Attach to the tmux session
-tmux attach -t $SESSION_NAME
+exec tmux attach -t $SESSION_NAME
