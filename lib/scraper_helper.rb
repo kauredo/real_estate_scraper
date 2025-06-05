@@ -93,9 +93,10 @@ module ScraperHelper
         browser = Watir::Browser.new(:chrome, options:, service:)
 
         # Set more aggressive timeouts
-        browser.driver.manage.timeouts.page_load = 120
-        browser.driver.manage.timeouts.implicit_wait = 20
-        browser.driver.manage.timeouts.script_timeout = 60
+        browser.driver.manage.timeouts.page_load = 60 # Reduced from 120
+        browser.driver.manage.timeouts.implicit_wait = 10  # Reduced from 20
+        browser.driver.manage.timeouts.script_timeout = 30 # Reduced from 60
+        browser.driver.options[:read_timeout] = 60 if browser.driver.respond_to?(:options)
 
         # Quick test with timeout
         Timeout.timeout(30) do
@@ -144,12 +145,22 @@ module ScraperHelper
     end
   end
 
-  def self.safe_goto(browser, url, timeout: 240)
-    Timeout.timeout(timeout) do
-      browser.goto(url)
+  def self.safe_goto(browser, url)
+    # Use Watir's goto with timeout instead of Ruby's Timeout
+    browser.goto(url)
+
+    # Wait for page to be in a ready state
+    browser.wait_until(timeout: 30) do
+      browser.execute_script('return document.readyState') == 'complete'
     end
-  rescue Timeout::Error => e
-    ScrapeListingDetails.log "Browser navigation timed out for #{url}"
+  rescue Watir::Wait::TimeoutError => e
+    ScrapeListingDetails.log "Watir timeout while navigating to #{url}: #{e.message}"
+    raise e
+  rescue Net::ReadTimeout, Net::TimeoutError => e
+    ScrapeListingDetails.log "Network timeout while navigating to #{url}: #{e.message}"
+    raise e
+  rescue Selenium::WebDriver::Error::TimeoutError => e
+    ScrapeListingDetails.log "WebDriver timeout while navigating to #{url}: #{e.message}"
     raise e
   end
 end
