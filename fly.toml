@@ -11,7 +11,7 @@ primary_region = "mad"
 
 [processes]
   web = "bundle exec puma -C config/puma.rb"
-  worker = "bundle exec good_job start --max_threads=2"
+  worker = "bundle exec good_job start --max_threads=1"
 
 [deploy]
   release_command = './bin/rails db:migrate'
