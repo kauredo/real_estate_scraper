@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class ScrapeUrlJob < ApplicationJob
-  queue_as :individual_scraping, priority: 5
+  queue_as :individual_scraping
+  queue_with_priority 5
+
   retry_on(StandardError, wait: 10.minutes, attempts: 3)
   discard_on(Timeout::Error) # Don't retry timeout errors
 
