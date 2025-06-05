@@ -149,7 +149,7 @@ module ScraperHelper
       browser.goto(url)
     end
   rescue Timeout::Error => e
-    log "Browser navigation timed out for #{url}"
+    ScrapeListingDetails.log "Browser navigation timed out for #{url}"
     raise e
   end
 end

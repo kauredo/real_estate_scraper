@@ -57,7 +57,7 @@ class RealEstateScraperService
   def scrape_one(url, listing, force: false)
     listing ||= Listing.unscoped.where(url:).order(:updated_at).last
 
-    safe_goto(@url)
+    safe_goto(url)
     return if ScraperHelper.check_if_invalid?(@browser)
 
     ScraperHelper.scrape_one(@browser, url, listing, force:)
