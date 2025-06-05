@@ -42,9 +42,9 @@ if [ $? != 0 ]; then
     tmux send-keys -t "${SESSION_NAME}:PostCSS Build" "$NVM_SETUP" Enter
     tmux send-keys -t "${SESSION_NAME}:PostCSS Build" "yarn build:postcss --watch" Enter
 
-    # Good Job worker
+    # Good Job worker with queue priorities (same as production)
     tmux new-window -t $SESSION_NAME -n "Background Worker"
-    tmux send-keys -t "${SESSION_NAME}:Background Worker" "bundle exec good_job start" Enter
+    tmux send-keys -t "${SESSION_NAME}:Background Worker" "bundle exec good_job start --queues=bulk_scraping:10,individual_scraping:5,default:1 --max_threads=1" Enter
 
     # Select the first window
     tmux select-window -t "${SESSION_NAME}:Rails Server"
