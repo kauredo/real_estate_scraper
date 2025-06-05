@@ -15,7 +15,7 @@ echo "Current Node version: $(node --version)"
 
 # Session name
 SESSION_NAME="rails-dev"
-GOOD_JOB_FLAGS="--queues=bulk_scraping:10;individual_scraping:5;default:1;* --max_threads=1"
+GOOD_JOB_FLAGS="--max_threads=1"
 
 # Check if the session already exists
 tmux has-session -t $SESSION_NAME 2>/dev/null
