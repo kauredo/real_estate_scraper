@@ -67,7 +67,6 @@ module ScraperHelper
       '--disable-backgrounding-occluded-windows',
       '--disable-blink-features=AutomationControlled',
       '--disable-web-security',
-      '--page-load-strategy=eager',
       '--aggressive-cache-discard',
       '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
     ]
@@ -75,6 +74,7 @@ module ScraperHelper
 
     options = Selenium::WebDriver::Chrome::Options.new(args:)
     options.binary = '/opt/chrome-linux64/chrome' if Rails.env.production? || Rails.env.staging?
+    options.page_load_strategy = :normal
 
     service = Selenium::WebDriver::Chrome::Service.new
     if Rails.env.production? || Rails.env.staging?
@@ -89,16 +89,16 @@ module ScraperHelper
     attempts = 0
 
     begin
-      Timeout.timeout(60) do # 60 second timeout for browser setup
+      Timeout.timeout(120) do # 60 second timeout for browser setup
         browser = Watir::Browser.new(:chrome, options:, service:)
 
         # Set more aggressive timeouts
-        browser.driver.manage.timeouts.page_load = 30
-        browser.driver.manage.timeouts.implicit_wait = 5
-        browser.driver.manage.timeouts.script_timeout = 15
+        browser.driver.manage.timeouts.page_load = 120
+        browser.driver.manage.timeouts.implicit_wait = 20
+        browser.driver.manage.timeouts.script_timeout = 60
 
         # Quick test with timeout
-        Timeout.timeout(10) do
+        Timeout.timeout(30) do
           browser.driver.current_url
         end
 
