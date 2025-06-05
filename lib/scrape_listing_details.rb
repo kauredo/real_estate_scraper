@@ -4,15 +4,22 @@ require 'task_helper'
 
 class ScrapeListingDetails
   def self.scrape_details(browser, imovel_url, force = false)
+    return unless browser
+
+    log "Scraping details for listing at #{imovel_url}"
+
+    # Navigate to the listing URL and check if the website is available
     website_avaliable = navigate_and_check_website(browser, imovel_url)
     return unless website_avaliable
 
-    accept_cookies(browser)
+    ScraperHelper.accept_cookies(browser)
     toggle_language(browser, 'Português')
     gather_listing_data(browser, imovel_url, force)
   end
 
   def self.scrape_language_details(browser, listing, language)
+    return unless browser
+
     website_avaliable = navigate_and_check_website(browser, listing.url)
     return unless website_avaliable
 
@@ -323,29 +330,6 @@ class ScrapeListingDetails
       retry if count < 3
 
       []
-    end
-  end
-
-  def self.accept_cookies(browser)
-    count = 0
-    begin
-      # Get the shadow root and then find elements within it
-      aside_element = browser.element(id: 'usercentrics-cmp-ui')
-      shadow_root = browser.execute_script('return arguments[0].shadowRoot', aside_element)
-
-      # Now search within the shadow root
-      accept_button = browser.execute_script(
-        'return arguments[0].querySelector("button[data-testid*=accept], button[id*=accept]")',
-        shadow_root
-      )
-
-      accept_button&.click
-      log 'Cookies accepted'
-    rescue StandardError => _e
-      count += 1
-      retry if count < 3
-
-      log 'Failed to accept cookies'
     end
   end
 

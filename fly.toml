@@ -45,9 +45,7 @@ primary_region = "mad"
 
 [[services]]
   # Worker service - handles background jobs
-  internal_port = 4000
   processes = ["worker"]
-  protocol = "tcp"
 
   [[services.ports]]
     handlers = []
