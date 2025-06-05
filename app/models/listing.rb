@@ -127,8 +127,8 @@ class Listing < ApplicationRecord
   end
 
   def populate_type_and_objective
-    objective = url.split('/')[4]
-    type = url.split('/')[5]
+    objective = url.split('/')[5]
+    type = url.split('/')[6]
     self.objective = case objective&.downcase
                      when 'venda' then 1
                      when 'arrendamento' then 2

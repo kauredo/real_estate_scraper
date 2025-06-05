@@ -11,11 +11,12 @@ class RealEstateScraperService
   def scrape_all
     @browser.goto(@url)
     log @url
-    @lister = @url.split('/').last.split('-')[1..-2].join(' ')
-    total = total_pages
-    total.times do |page|
-      one_page(page)
-    end
+    @lister = @url.split('/').last(2).first.split('-').join(' ')
+    ScraperHelper.accept_cookies(@browser)
+
+    log "Getting all listings for #{@lister}"
+    scrape_all_listings
+    log 'Finished getting all listings'
   end
 
   def scrape_english_listings
@@ -104,45 +105,87 @@ class RealEstateScraperService
     ScrapeListingDetails.log("[RealEstateScraperService] #{message}")
   end
 
-  def scrape_total
+  def scrape_all_listings
     @browser.refresh
     return 0 if ScraperHelper.check_if_invalid?(@browser)
 
-    @browser.div(class: 'properties').wait_until(timeout: 10, &:present?)
-    matches = @browser.ul(class: 'pagination').wait_until(timeout: 10, &:present?).lis
-    matches.count - 2
+    ScraperHelper.accept_cookies(@browser)
+
+    total_listings = @browser.div(class: 'flex items-center flex-col md:flex-row gap-4 md:gap-0 justify-between w-full').wait_until(timeout: 10, &:present?)
+    total_text = total_listings.text.match(/(\d+)\s/)[1].to_i
+
+    button = @browser.button(text: 'Ver imóveis').wait_until(timeout: 10, &:present?)
+    button_parent = button.parent
+    id = button_parent.attribute_value('aria-controls')
+    button.click if button.present? && id.present?
+
+    listings_div = @browser.div(id:).div(class: 'px-4 h-full overflow-auto flex flex-col')
+
+    listing_urls = []
+    previous_count = 0
+    no_change_counter = 0
+    max_attempts = 10 # Add a safety limit
+
+    loop do
+      log 'Getting current listings from the page...'
+      # Get current listings
+      current_listings = listings_div.as(class: 'w-0 h-0').wait_until(timeout: 10, &:present?).map(&:href).uniq.compact.select { |url| url.start_with?('https://www.kwportugal.pt') && url.downcase.include?('/imovel/') }
+      listing_urls = current_listings
+
+      log "Found #{listing_urls.size} listings (target: #{total_text})"
+
+      # Break conditions
+      break if listing_urls.size >= total_text
+      break if no_change_counter >= max_attempts
+
+      # Check if we're making progress
+      if listing_urls.size == previous_count
+        no_change_counter += 1
+        log "No new listings loaded (attempt #{no_change_counter}/#{max_attempts})"
+      else
+        no_change_counter = 0 # Reset counter if we made progress
+      end
+
+      previous_count = listing_urls.size
+
+      # Try to load more content
+      load_more_content(listings_div)
+    end
+
+    log "Final count: #{listing_urls.size} listings"
+    queue_urls(listing_urls)
   end
 
-  def scrape_page(page)
-    url = @url + "/pagina-#{page + 1}"
-    @browser.goto(url)
-    js_doc = @browser.div(class: 'properties').wait_until(timeout: 10, &:present?)
-    imoveis = Nokogiri::HTML(js_doc.inner_html)
-    res = imoveis.css('.property-tile2')
-    res.each_with_index do |imovel, index|
-      url = "https://www.kwportugal.pt#{imovel.css('a').map { |link| link['href'] }.uniq.compact.first}"
-      log "Queuing ScrapeUrlJob for #{url}"
+  def load_more_content(listings_div)
+    log 'Loading more content...'
+    # Scroll to bottom
+    @browser.execute_script('arguments[0].scrollTop = arguments[0].scrollHeight', listings_div)
+    # sleep 2
 
-      wait_time = (index + page) * 2.minutes
-      ScrapeUrlJob.set(wait: wait_time).perform_later(url, false)
+    # Try clicking "Ver mais" if present
+    if listings_div.button(text: 'Ver mais').present?
+      begin
+        listings_div.button(text: 'Ver mais').click
+        log "Clicked 'Ver mais' button"
+        # sleep 3
+      rescue StandardError => e
+        log "Failed to click 'Ver mais': #{e.message}"
+      end
+    else
+      # If no button, try scrolling again
+      log "'Ver mais' button not found, scrolling to load more listings"
+      @browser.execute_script('arguments[0].scrollTop = arguments[0].scrollHeight', listings_div)
+      # sleep 2
     end
   end
 
-  def total_pages
-    log "Getting total pages for #{@lister}"
-    total = scrape_total
-    log "Total: #{total} pages"
-    total
-  end
+  def queue_urls(listing_urls)
+    listing_urls.each_with_index do |url, index|
+      log "Queuing ScrapeUrlJob for #{url}"
 
-  def one_page(page)
-    log ''
-    log '*********'
-    log "Started page #{page + 1}"
-    scrape_page(page)
-    log "Finished page #{page + 1}"
-    log '*********'
-    log ''
+      wait_time = index * 2.minutes
+      ScrapeUrlJob.set(wait: wait_time).perform_later(url, false)
+    end
   end
 
   def scrape_language_listings(listings, locale: :en, language: 'English')

@@ -55,20 +55,51 @@ module ScraperHelper
   end
 
   def self.setup_browser(headless: true)
-    args = ['--disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800', '--no-sandbox', '--incognito', '--disable-gpu']
+    args = [
+      '--disable-dev-shm-usage',
+      '--enable-features=NetworkService,NetworkServiceInProcess',
+      '--window-size=1280,800',
+      '--no-sandbox',
+      '--incognito',
+      '--disable-gpu',
+      '--disable-background-timer-throttling',
+      '--disable-backgrounding-occluded-windows',
+      '--disable-blink-features=AutomationControlled',
+      '--disable-web-security', # Can help with strict sites
+      '--page-load-strategy=eager', # Don't wait for ALL resources
+      '--aggressive-cache-discard',
+      '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+    ]
     args << '--headless=new' if headless
 
     options = Selenium::WebDriver::Chrome::Options.new(args:)
 
+    options.binary = '/opt/chrome-linux64/chrome' if Rails.env.production? || Rails.env.staging?
+
+    # Add service with logging for debugging
+    service = Selenium::WebDriver::Chrome::Service.new
     if Rails.env.production? || Rails.env.staging?
       binary_path = '/opt/chrome-linux64/chrome'
       options.binary = binary_path
+
+      service.args << '--verbose'
+      service.args << '--log-path=/tmp/chromedriver.log'
     end
 
     max_attempts = 3
     attempts = 0
     begin
-      browser = Watir::Browser.new(:chrome, options:)
+      browser = Watir::Browser.new(:chrome, options:, service:)
+
+      # Set timeouts after browser creation
+      browser.driver.manage.timeouts.page_load = 60
+      browser.driver.manage.timeouts.implicit_wait = 10
+      browser.driver.manage.timeouts.script_timeout = 30 # Add script timeout
+
+      # Test browser is working
+      browser.driver.current_url # This will fail fast if browser isn't working
+
+      browser
     rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError => e
       ScrapeListingDetails.log "[ScraperHelper] Attempt #{attempts + 1} failed: #{e.message}"
       attempts += 1
@@ -77,7 +108,28 @@ module ScraperHelper
       sleep(2**attempts)
       retry
     end
+  end
 
-    browser
+  def self.accept_cookies(browser)
+    count = 0
+    begin
+      # Get the shadow root and then find elements within it
+      aside_element = browser.element(id: 'usercentrics-cmp-ui')
+      shadow_root = browser.execute_script('return arguments[0].shadowRoot', aside_element)
+
+      # Now search within the shadow root
+      accept_button = browser.execute_script(
+        'return arguments[0].querySelector("button[data-testid*=accept], button[id*=accept]")',
+        shadow_root
+      )
+
+      accept_button&.click
+      ScrapeListingDetails.log 'Cookies accepted'
+    rescue StandardError => _e
+      count += 1
+      retry if count < 3
+
+      ScrapeListingDetails.log 'Failed to accept cookies'
+    end
   end
 end

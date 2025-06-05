@@ -33,6 +33,9 @@ RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz
 # Verify Node.js installation
 RUN node -v
 
+RUN echo 'export PATH="/usr/local/node/bin:$PATH"' >> /etc/profile
+RUN echo 'export PATH="/usr/local/node/bin:$PATH"' >> /root/.bashrc
+
 # Install Chrome and dependencies
 RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends \
