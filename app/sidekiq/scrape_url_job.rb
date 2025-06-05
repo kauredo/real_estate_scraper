@@ -31,8 +31,9 @@ class ScrapeUrlJob < ApplicationJob
     total_time = scrape_end - start_time
     ScrapeListingDetails.log("[ScrapeUrlJob] DONE for #{url} in #{total_time} seconds")
   ensure
-    cleanup_start = Time.current if defined?(cleanup_start).nil?
+    cleanup_start = Time.current
     scraper_service&.destroy
-    ScrapeListingDetails.log("[ScrapeUrlJob] Cleanup completed in #{Time.current - cleanup_start} seconds")
+    cleanup_time = Time.current - cleanup_start
+    ScrapeListingDetails.log("[ScrapeUrlJob] Cleanup completed in #{cleanup_time} seconds")
   end
 end
