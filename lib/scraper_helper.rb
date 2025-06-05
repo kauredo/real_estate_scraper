@@ -88,22 +88,32 @@ module ScraperHelper
 
     max_attempts = 3
     attempts = 0
+
     begin
       browser = Watir::Browser.new(:chrome, options:, service:)
 
-      # Set timeouts after browser creation
-      browser.driver.manage.timeouts.page_load = 60
-      browser.driver.manage.timeouts.implicit_wait = 10
-      browser.driver.manage.timeouts.script_timeout = 30 # Add script timeout
+      # Set more aggressive timeouts
+      browser.driver.manage.timeouts.page_load = 30      # Reduced from 60
+      browser.driver.manage.timeouts.implicit_wait = 5   # Reduced from 10
+      browser.driver.manage.timeouts.script_timeout = 15 # Reduced from 30
 
-      # Test browser is working
-      browser.driver.current_url # This will fail fast if browser isn't working
+      # Test browser quickly
+      Timeout.timeout(10) do
+        browser.driver.current_url
+      end
 
       browser
-    rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError => e
-      ScrapeListingDetails.log "[ScraperHelper] Attempt #{attempts + 1} failed: #{e.message}"
+    rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError, Timeout::Error => e
+      ScrapeListingDetails.log "[ScraperHelper] Browser setup attempt #{attempts + 1} failed: #{e.message}"
       attempts += 1
-      raise e unless attempts < max_attempts
+
+      begin
+        browser&.quit
+      rescue StandardError
+        nil
+      end
+
+      raise "Failed to create browser after #{max_attempts} attempts: #{e.message}" unless attempts < max_attempts
 
       sleep(2**attempts)
       retry

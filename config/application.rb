@@ -15,6 +15,11 @@ module SofiaGalvao
     config.load_defaults 7.0
     config.react.camelize_props = false
     config.active_job.queue_adapter = :good_job
+    config.good_job.queues = {
+      bulk_scraping: 10,
+      individual_scraping: 5,
+      default: 1
+    }
     config.autoload_paths << Rails.root.join('lib')
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.i18n.available_locales = %i[pt en]

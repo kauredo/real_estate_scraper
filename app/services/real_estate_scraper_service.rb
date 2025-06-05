@@ -9,7 +9,7 @@ class RealEstateScraperService
   end
 
   def scrape_all
-    @browser.goto(@url)
+    safe_goto(@url)
     log @url
     @lister = @url.split('/').last(2).first.split('-').join(' ')
     ScraperHelper.accept_cookies(@browser)
@@ -45,7 +45,7 @@ class RealEstateScraperService
   end
 
   def rescrape(force: false)
-    @browser.goto(@url)
+    safe_goto(@url)
     return if ScraperHelper.check_if_invalid?(@browser)
 
     Listing.all.each do |listing|
@@ -57,7 +57,7 @@ class RealEstateScraperService
   def scrape_one(url, listing, force: false)
     listing ||= Listing.unscoped.where(url:).order(:updated_at).last
 
-    @browser.goto(@url)
+    safe_goto(@url)
     return if ScraperHelper.check_if_invalid?(@browser)
 
     ScraperHelper.scrape_one(@browser, url, listing, force:)
@@ -66,7 +66,7 @@ class RealEstateScraperService
   def scrape_complex(url, listing_complex)
     listing_complex ||= ListingComplex.find_by(url:)
 
-    @browser.goto(url)
+    safe_goto(url)
     return if ScraperHelper.check_if_invalid?(@browser)
 
     name = @browser.h1.wait_until(timeout: 10, &:present?).text
@@ -101,6 +101,15 @@ class RealEstateScraperService
 
   private
 
+  def safe_goto(url, timeout: 30)
+    Timeout.timeout(timeout) do
+      @browser.goto(url)
+    end
+  rescue Timeout::Error => e
+    log "Browser navigation timed out for #{url}"
+    raise
+  end
+
   def log(message)
     ScrapeListingDetails.log("[RealEstateScraperService] #{message}")
   end
@@ -125,6 +134,7 @@ class RealEstateScraperService
     previous_count = 0
     no_change_counter = 0
     max_attempts = 10 # Add a safety limit
+    max_total_time = 30.minutes
 
     loop do
       log 'Getting current listings from the page...'
@@ -135,6 +145,10 @@ class RealEstateScraperService
       log "Found #{listing_urls.size} listings (target: #{total_text})"
 
       # Break conditions
+      if Time.current - start_time > max_total_time
+        log "Scraping timed out after #{max_total_time / 60} minutes"
+        break
+      end
       break if listing_urls.size >= total_text
       break if no_change_counter >= max_attempts
 
@@ -191,7 +205,7 @@ class RealEstateScraperService
   def scrape_language_listings(listings, locale: :en, language: 'English')
     return unless %i[en pt].include?(locale) && %w[English Português].include?(language)
 
-    @browser.goto(@url)
+    safe_goto(@url)
     return if ScraperHelper.check_if_invalid?(@browser)
 
     I18n.with_locale(locale) do
