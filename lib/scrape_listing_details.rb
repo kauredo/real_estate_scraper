@@ -117,7 +117,7 @@ class ScrapeListingDetails
   end
 
   def self.update_translatable_listing_fields(browser, listing)
-    log "Gathering translated data for listing \"#{listing.title}\""
+    log "Gathering translated data for listing \"#{listing.title_pt}\""
 
     listing.title = browser.h1.text.gsub('m2', 'm²')
 
