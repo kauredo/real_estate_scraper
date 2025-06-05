@@ -101,8 +101,8 @@ class RealEstateScraperService
 
   private
 
-  def safe_goto(url, timeout: 240)
-    ScraperHelper.safe_goto(@browser, url, timeout:)
+  def safe_goto(url)
+    ScraperHelper.safe_goto(@browser, url)
   end
 
   def log(message)
