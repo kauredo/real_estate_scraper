@@ -61,7 +61,7 @@ class RealEstateScraperService
 
     # Add timeout to initial navigation
     nav_start = Time.current
-    safe_goto(@url)
+    safe_goto(url)
     ScrapeListingDetails.log("[RealEstateScraperService] Base URL loaded in #{Time.current - nav_start} seconds")
 
     return if ScraperHelper.check_if_invalid?(@browser)
