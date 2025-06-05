@@ -56,53 +56,7 @@ module ScraperHelper
 
   # In ScraperHelper
   def self.setup_browser(headless: true)
-    args = [
-      # Essential for containers
-      '--no-sandbox',
-      '--disable-dev-shm-usage',
-
-      # Performance & Speed Optimizations
-      '--disable-gpu',
-      '--disable-software-rasterizer',
-      '--disable-background-timer-throttling',
-      '--disable-backgrounding-occluded-windows',
-      '--disable-renderer-backgrounding',
-      '--disable-features=TranslateUI,BlinkGenPropertyTrees',
-
-      # Aggressive Resource Savings
-      '--disable-plugins',
-      '--disable-extensions',
-      '--disable-default-apps',
-
-      # Network & Loading Optimizations
-      '--aggressive-cache-discard',
-      '--memory-pressure-off',
-      '--disable-ipc-flooding-protection',
-      '--disable-features=VizDisplayCompositor',
-
-      # Timeout & Loading Strategy
-      '--timeout=30000',               # 30 second timeout
-      '--disable-hang-monitor',        # Don't wait for hanging tabs
-      '--disable-prompt-on-repost',
-      '--disable-client-side-phishing-detection',
-
-      # Memory Management
-      '--max_old_space_size=512', # Limit V8 memory to 512MB
-      '--memory-pressure-off',
-      '--disable-background-networking',
-
-      # Window & Display (minimal)
-      '--window-size=1024,768',        # Smaller window
-      '--virtual-time-budget=30000',   # 30 second budget
-
-      # Security (relaxed for scraping)
-      '--disable-web-security',
-      '--disable-features=VizDisplayCompositor',
-      '--disable-blink-features=AutomationControlled',
-
-      # Essential Headers
-      '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
-    ]
+    args = ['--disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800', '--no-sandbox', '--incognito', '--disable-gpu']
     args << '--headless=new' if headless
 
     options = Selenium::WebDriver::Chrome::Options.new(args:)
