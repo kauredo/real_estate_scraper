@@ -97,10 +97,10 @@ module ScraperHelper
         browser = Watir::Browser.new(:chrome, options:, service:)
 
         # Set more aggressive timeouts
-        browser.driver.manage.timeouts.page_load = 60 # Reduced from 120
-        browser.driver.manage.timeouts.implicit_wait = 10  # Reduced from 20
-        browser.driver.manage.timeouts.script_timeout = 30 # Reduced from 60
-        browser.driver.options[:read_timeout] = 60 if browser.driver.respond_to?(:options)
+        # browser.driver.manage.timeouts.page_load = 60 # Reduced from 120
+        # browser.driver.manage.timeouts.implicit_wait = 10  # Reduced from 20
+        # browser.driver.manage.timeouts.script_timeout = 30 # Reduced from 60
+        # browser.driver.options[:read_timeout] = 60 if browser.driver.respond_to?(:options)
 
         # Quick test with timeout
         Timeout.timeout(30) do
