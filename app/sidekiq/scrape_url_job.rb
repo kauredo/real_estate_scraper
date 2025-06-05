@@ -8,12 +8,12 @@ class ScrapeUrlJob < ApplicationJob
   discard_on(Timeout::Error) # Don't retry timeout errors
 
   around_perform do |job, block|
-    # Kill the job after 10 minutes total
-    Timeout.timeout(600) do
+    # Kill the job after 20 minutes total
+    Timeout.timeout(1200) do
       block.call
     end
   rescue Timeout::Error => e
-    ScrapeListingDetails.log("[ScrapeUrlJob] Timed out after 10 minutes for #{job.arguments.first}: #{e.message}")
+    ScrapeListingDetails.log("[ScrapeUrlJob] Timed out after 20 minutes for #{job.arguments.first}: #{e.message}")
     raise e # This will trigger discard_on
   end
 
