@@ -370,7 +370,7 @@ class ScrapeListingDetails
   end
 
   def self.log(message)
-    puts message # rubocop:disable Rails/Output
     Rails.logger.info "[ScrapeListingDetails] #{message}"
+    puts message # rubocop:disable Rails/Output
   end
 end
