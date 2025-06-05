@@ -76,22 +76,11 @@ module ScraperHelper
     attempts = 0
 
     begin
-      Timeout.timeout(120) do # 60 second timeout for browser setup
-        browser = Watir::Browser.new(:chrome, options:, service:)
+      browser = Watir::Browser.new(:chrome, options:, service:)
 
-        # Set more aggressive timeouts
-        # browser.driver.manage.timeouts.page_load = 60 # Reduced from 120
-        # browser.driver.manage.timeouts.implicit_wait = 10  # Reduced from 20
-        # browser.driver.manage.timeouts.script_timeout = 30 # Reduced from 60
-        # browser.driver.options[:read_timeout] = 60 if browser.driver.respond_to?(:options)
+      browser.driver.current_url
 
-        # Quick test with timeout
-        Timeout.timeout(30) do
-          browser.driver.current_url
-        end
-
-        browser
-      end
+      browser
     rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError, Timeout::Error => e
       ScrapeListingDetails.log "[ScraperHelper] Browser setup attempt #{attempts + 1} failed: #{e.message}"
       attempts += 1
@@ -132,17 +121,15 @@ module ScraperHelper
     end
   end
 
-  def self.safe_goto(browser, url, timeout: 60)
+  def self.safe_goto(browser, url)
     ScrapeListingDetails.log("[RealEstateScraperService] Navigating to #{url}")
     start_time = Time.current
 
-    Timeout.timeout(timeout) do
-      browser.goto(url)
-    end
+    browser.goto(url)
 
     ScrapeListingDetails.log("[RealEstateScraperService] Navigation completed in #{Time.current - start_time} seconds")
   rescue Timeout::Error => e
-    ScrapeListingDetails.log("[RealEstateScraperService] Navigation timeout for #{url} after #{timeout} seconds")
+    ScrapeListingDetails.log("[RealEstateScraperService] Navigation timeout for #{url} after #{Time.current - start_time} seconds")
     raise e
   rescue Net::ReadTimeout => e
     ScrapeListingDetails.log("[RealEstateScraperService] Network timeout for #{url}: #{e.message}")

@@ -8,10 +8,7 @@ class ScrapeUrlJob < ApplicationJob
   discard_on(Timeout::Error)
 
   around_perform do |job, block|
-    # Reduce to 5 minutes - no page should take 20 minutes
-    Timeout.timeout(300) do
-      block.call
-    end
+    block.call
   rescue Timeout::Error => e
     ScrapeListingDetails.log("[ScrapeUrlJob] Timed out after 5 minutes for #{job.arguments.first}")
     raise e
