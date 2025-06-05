@@ -54,6 +54,7 @@ module ScraperHelper
     end
   end
 
+  # In ScraperHelper
   def self.setup_browser(headless: true)
     args = [
       '--disable-dev-shm-usage',
@@ -65,18 +66,16 @@ module ScraperHelper
       '--disable-background-timer-throttling',
       '--disable-backgrounding-occluded-windows',
       '--disable-blink-features=AutomationControlled',
-      '--disable-web-security', # Can help with strict sites
-      '--page-load-strategy=eager', # Don't wait for ALL resources
+      '--disable-web-security',
+      '--page-load-strategy=eager',
       '--aggressive-cache-discard',
       '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
     ]
     args << '--headless=new' if headless
 
     options = Selenium::WebDriver::Chrome::Options.new(args:)
-
     options.binary = '/opt/chrome-linux64/chrome' if Rails.env.production? || Rails.env.staging?
 
-    # Add service with logging for debugging
     service = Selenium::WebDriver::Chrome::Service.new
     if Rails.env.production? || Rails.env.staging?
       binary_path = '/opt/chrome-linux64/chrome'
@@ -88,24 +87,36 @@ module ScraperHelper
 
     max_attempts = 3
     attempts = 0
+
     begin
-      browser = Watir::Browser.new(:chrome, options:, service:)
+      Timeout.timeout(60) do # 60 second timeout for browser setup
+        browser = Watir::Browser.new(:chrome, options:, service:)
 
-      # Set timeouts after browser creation
-      browser.driver.manage.timeouts.page_load = 60
-      browser.driver.manage.timeouts.implicit_wait = 10
-      browser.driver.manage.timeouts.script_timeout = 30 # Add script timeout
+        # Set more aggressive timeouts
+        browser.driver.manage.timeouts.page_load = 30
+        browser.driver.manage.timeouts.implicit_wait = 5
+        browser.driver.manage.timeouts.script_timeout = 15
 
-      # Test browser is working
-      browser.driver.current_url # This will fail fast if browser isn't working
+        # Quick test with timeout
+        Timeout.timeout(10) do
+          browser.driver.current_url
+        end
 
-      browser
-    rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError => e
-      ScrapeListingDetails.log "[ScraperHelper] Attempt #{attempts + 1} failed: #{e.message}"
+        browser
+      end
+    rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError, Timeout::Error => e
+      ScrapeListingDetails.log "[ScraperHelper] Browser setup attempt #{attempts + 1} failed: #{e.message}"
       attempts += 1
-      raise e unless attempts < max_attempts
 
-      sleep(2**attempts)
+      begin
+        browser&.quit
+      rescue StandardError
+        nil
+      end
+
+      raise "Failed to create browser after #{max_attempts} attempts: #{e.message}" unless attempts < max_attempts
+
+      sleep(5 + 2**attempts)
       retry
     end
   end
