@@ -57,21 +57,50 @@ module ScraperHelper
   # In ScraperHelper
   def self.setup_browser(headless: true)
     args = [
-      '--disable-dev-shm-usage',
-      '--enable-features=NetworkService,NetworkServiceInProcess',
-      '--window-size=1280,800',
+      # Essential for containers
       '--no-sandbox',
-      '--incognito',
+      '--disable-dev-shm-usage',
+
+      # Performance & Speed Optimizations
       '--disable-gpu',
+      '--disable-software-rasterizer',
       '--disable-background-timer-throttling',
       '--disable-backgrounding-occluded-windows',
-      '--disable-blink-features=AutomationControlled',
-      '--disable-web-security',
+      '--disable-renderer-backgrounding',
+      '--disable-features=TranslateUI,BlinkGenPropertyTrees',
+
+      # Aggressive Resource Savings
+      '--disable-plugins',
+      '--disable-extensions',
+      '--disable-default-apps',
+
+      # Network & Loading Optimizations
       '--aggressive-cache-discard',
-      '--disable-images',           # NEW: Don't load images to save bandwidth
-      '--memory-pressure-off',      # NEW: Reduce memory pressure
-      '--max_old_space_size=1024',  # NEW: Limit V8 memory
-      # '--single-process',           # NEW: Use single process (risky but uses less memory)
+      '--memory-pressure-off',
+      '--disable-ipc-flooding-protection',
+      '--disable-features=VizDisplayCompositor',
+
+      # Timeout & Loading Strategy
+      '--timeout=30000',               # 30 second timeout
+      '--disable-hang-monitor',        # Don't wait for hanging tabs
+      '--disable-prompt-on-repost',
+      '--disable-client-side-phishing-detection',
+
+      # Memory Management
+      '--max_old_space_size=512', # Limit V8 memory to 512MB
+      '--memory-pressure-off',
+      '--disable-background-networking',
+
+      # Window & Display (minimal)
+      '--window-size=1024,768',        # Smaller window
+      '--virtual-time-budget=30000',   # 30 second budget
+
+      # Security (relaxed for scraping)
+      '--disable-web-security',
+      '--disable-features=VizDisplayCompositor',
+      '--disable-blink-features=AutomationControlled',
+
+      # Essential Headers
       '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
     ]
     args << '--headless=new' if headless
@@ -149,22 +178,20 @@ module ScraperHelper
     end
   end
 
-  def self.safe_goto(browser, url)
-    # Use Watir's goto with timeout instead of Ruby's Timeout
-    browser.goto(url)
+  def self.safe_goto(browser, url, timeout: 60)
+    ScrapeListingDetails.log("[RealEstateScraperService] Navigating to #{url}")
+    start_time = Time.current
 
-    # Wait for page to be in a ready state
-    browser.wait_until(timeout: 30) do
-      browser.execute_script('return document.readyState') == 'complete'
+    Timeout.timeout(timeout) do
+      browser.goto(url)
     end
-  rescue Watir::Wait::TimeoutError => e
-    ScrapeListingDetails.log "Watir timeout while navigating to #{url}: #{e.message}"
+
+    ScrapeListingDetails.log("[RealEstateScraperService] Navigation completed in #{Time.current - start_time} seconds")
+  rescue Timeout::Error => e
+    ScrapeListingDetails.log("[RealEstateScraperService] Navigation timeout for #{url} after #{timeout} seconds")
     raise e
   rescue Net::ReadTimeout, Net::TimeoutError => e
-    ScrapeListingDetails.log "Network timeout while navigating to #{url}: #{e.message}"
-    raise e
-  rescue Selenium::WebDriver::Error::TimeoutError => e
-    ScrapeListingDetails.log "WebDriver timeout while navigating to #{url}: #{e.message}"
+    ScrapeListingDetails.log("[RealEstateScraperService] Network timeout for #{url}: #{e.message}")
     raise e
   end
 end

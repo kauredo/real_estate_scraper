@@ -57,10 +57,18 @@ class RealEstateScraperService
   def scrape_one(url, listing, force: false)
     listing ||= Listing.unscoped.where(url:).order(:updated_at).last
 
-    safe_goto(url)
+    ScrapeListingDetails.log("[RealEstateScraperService] Starting scrape_one for #{url}")
+
+    # Add timeout to initial navigation
+    nav_start = Time.current
+    safe_goto(@url)
+    ScrapeListingDetails.log("[RealEstateScraperService] Base URL loaded in #{Time.current - nav_start} seconds")
+
     return if ScraperHelper.check_if_invalid?(@browser)
 
+    scrape_start = Time.current
     ScraperHelper.scrape_one(@browser, url, listing, force:)
+    ScrapeListingDetails.log("[RealEstateScraperService] ScraperHelper.scrape_one completed in #{Time.current - scrape_start} seconds")
   end
 
   def scrape_complex(url, listing_complex)
