@@ -124,7 +124,7 @@ namespace :listings do
 
       # Handle both /imovel and /Imovel cases
       new_url = if old_url.include?('https://www.kwportugal.pt/imovel')
-                  old_url.gsub('https://www.kwportugal.pt/imovel', 'https://www.kwportugal.pt/pt/imovel')
+                  old_url.gsub('https://www.kwportugal.pt/imovel', 'https://www.kwportugal.pt/pt/Imovel')
                 elsif old_url.include?('https://www.kwportugal.pt/Imovel')
                   old_url.gsub('https://www.kwportugal.pt/Imovel', 'https://www.kwportugal.pt/pt/Imovel')
                 else
