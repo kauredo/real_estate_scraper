@@ -56,25 +56,12 @@ module ScraperHelper
 
   # In ScraperHelper
   def self.setup_browser(headless: true)
-    args = [
-      '--disable-dev-shm-usage',
-      '--enable-features=NetworkService,NetworkServiceInProcess',
-      '--window-size=1280,800',
-      '--no-sandbox',
-      '--incognito',
-      '--disable-gpu',
-      '--disable-background-timer-throttling',
-      '--disable-backgrounding-occluded-windows',
-      '--disable-blink-features=AutomationControlled',
-      '--disable-web-security',
-      '--page-load-strategy=eager',
-      '--aggressive-cache-discard',
-      '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
-    ]
+    args = ['--disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800', '--no-sandbox', '--incognito', '--disable-gpu']
     args << '--headless=new' if headless
 
     options = Selenium::WebDriver::Chrome::Options.new(args:)
     options.binary = '/opt/chrome-linux64/chrome' if Rails.env.production? || Rails.env.staging?
+    options.page_load_strategy = :normal
 
     service = Selenium::WebDriver::Chrome::Service.new
     if Rails.env.production? || Rails.env.staging?
@@ -89,21 +76,11 @@ module ScraperHelper
     attempts = 0
 
     begin
-      Timeout.timeout(60) do # 60 second timeout for browser setup
-        browser = Watir::Browser.new(:chrome, options:, service:)
+      browser = Watir::Browser.new(:chrome, options:, service:)
 
-        # Set more aggressive timeouts
-        browser.driver.manage.timeouts.page_load = 30
-        browser.driver.manage.timeouts.implicit_wait = 5
-        browser.driver.manage.timeouts.script_timeout = 15
+      browser.driver.current_url
 
-        # Quick test with timeout
-        Timeout.timeout(10) do
-          browser.driver.current_url
-        end
-
-        browser
-      end
+      browser
     rescue Net::ReadTimeout, Selenium::WebDriver::Error::WebDriverError, Timeout::Error => e
       ScrapeListingDetails.log "[ScraperHelper] Browser setup attempt #{attempts + 1} failed: #{e.message}"
       attempts += 1
@@ -142,5 +119,20 @@ module ScraperHelper
 
       ScrapeListingDetails.log 'Failed to accept cookies'
     end
+  end
+
+  def self.safe_goto(browser, url)
+    ScrapeListingDetails.log("[RealEstateScraperService] Navigating to #{url}")
+    start_time = Time.current
+
+    browser.goto(url)
+
+    ScrapeListingDetails.log("[RealEstateScraperService] Navigation completed in #{Time.current - start_time} seconds")
+  rescue Timeout::Error => e
+    ScrapeListingDetails.log("[RealEstateScraperService] Navigation timeout for #{url} after #{Time.current - start_time} seconds")
+    raise e
+  rescue Net::ReadTimeout => e
+    ScrapeListingDetails.log("[RealEstateScraperService] Network timeout for #{url}: #{e.message}")
+    raise e
   end
 end

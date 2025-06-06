@@ -28,7 +28,7 @@ class ScrapeListingDetails
   end
 
   def self.navigate_and_check_website(browser, url, delete: false)
-    browser.goto(url)
+    ScraperHelper.safe_goto(browser, url)
     check_website_availability(browser, url, delete)
   end
 
@@ -62,7 +62,8 @@ class ScrapeListingDetails
     new_url = current_url.gsub(%r{/(pt|en)/}, "/#{target_lang_code}/")
 
     # Navigate to the new URL
-    browser.goto(new_url)
+
+    ScraperHelper.safe_goto(browser, new_url)
 
     # Wait for page to load
     sleep ENV['SLEEP_TIME']&.to_i || 5
@@ -369,7 +370,7 @@ class ScrapeListingDetails
   end
 
   def self.log(message)
+    Rails.logger.info "[ScrapeListingDetails] #{message}"
     puts message # rubocop:disable Rails/Output
-    Rails.logger.debug message
   end
 end
