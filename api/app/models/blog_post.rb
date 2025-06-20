@@ -8,7 +8,7 @@ class BlogPost < ApplicationRecord
   friendly_id :title, use: %i[mobility history]
   has_many :blog_photos, dependent: :destroy
 
-  default_scope { includes(:translations, :blog_photos).order(created_at: :desc) }
+  default_scope { includes(:translations).order(created_at: :desc) }
   scope :visible, -> { where.not(hidden: true) }
 
   def sample_text
@@ -36,6 +36,8 @@ class BlogPost < ApplicationRecord
   end
 
   def sanitized_text
+    return '' if text.nil?
+
     text.gsub('background: white;', '').gsub('color', '')
   end
 

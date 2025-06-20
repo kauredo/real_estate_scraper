@@ -24,7 +24,7 @@ const BlogPostCard = ({
   };
 
   return (
-    <div className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg max-w-sm w-96 mb-5 mx-auto">
+    <div className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg max-w-sm w-full mb-5 mx-auto">
       {onView && (
         <div onClick={() => onView(post.id)} className="cursor-pointer">
           <img
@@ -44,7 +44,7 @@ const BlogPostCard = ({
           </div>
         )}
         <p className="font-normal text-gray-700 dark:text-gray-300 mb-3 whitespace-pre-line">
-          {post.small_description}
+          {post.small_description || post.sample_text}
         </p>
         <div className="flex gap-2">
           {onView && (

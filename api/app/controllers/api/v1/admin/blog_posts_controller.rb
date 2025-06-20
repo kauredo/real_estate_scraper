@@ -9,12 +9,14 @@ module Api
 
         def index
           @blog_posts = BlogPost.all
-          paginated = paginate(@blog_posts)
+          result = paginate(@blog_posts,
+                            serializer: BlogPostSerializer,
+                            serializer_options: { include_photos: false })
 
           render json: {
-            blog_posts: paginated[:data],
-            pagination: paginated[:pagination]
-          }, each_serializer: BlogPostSerializer
+            blog_posts: result[:data],
+            pagination: result[:pagination]
+          }
         end
 
         def show
