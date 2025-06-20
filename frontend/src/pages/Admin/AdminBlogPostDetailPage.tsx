@@ -18,7 +18,8 @@ const AdminBlogPostDetailPage = () => {
       try {
         setLoading(true);
         const response = await adminGetBlogPost(parseInt(id!));
-        setBlogPost(response.data);
+        console.log("Fetched blog post:", response.data);
+        setBlogPost(response.data.blog_post);
       } catch (error) {
         console.error("Error fetching blog post:", error);
       } finally {
@@ -62,73 +63,50 @@ const AdminBlogPostDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8 flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-            {blogPost.title}
-          </h1>
-          <div className="flex items-center space-x-4">
-            <Link
-              to={appRoutes.backoffice.editBlogPost(parseInt(id!))}
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
-            >
-              {t("admin.blog_posts.edit")}
-            </Link>
-            <button
-              onClick={handleDelete}
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
-            >
-              {t("admin.blog_posts.delete")}
-            </button>
-          </div>
+      <div className="m-8 flex items-center justify-end">
+        <div className="flex items-center space-x-4">
+          <Link
+            to={appRoutes.backoffice.editBlogPost(parseInt(id!))}
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+          >
+            {t("admin.blog_posts.edit")}
+          </Link>
+          <button
+            onClick={handleDelete}
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
+          >
+            {t("admin.blog_posts.delete")}
+          </button>
         </div>
+      </div>
 
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden">
-          {blogPost.video_link ? (
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                src={blogPost.video_link}
-                className="w-full"
-                title="Blog post video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          ) : (
-            blogPost.main_photo && (
-              <div className="aspect-w-16 aspect-h-9">
-                <img
-                  src={blogPost.main_photo}
-                  alt={blogPost.title}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            )
+      <div id="blog-show" className="relative">
+        <header
+          className="!bg-center !bg-no-repeat !bg-cover min-h-[320px] relative"
+          style={{ background: `url('${blogPost.main_photo}')` }}
+        >
+          {blogPost.video_link && (
+            <iframe
+              className="relative top-0 right-0 p-0 w-full min-h-[320px]"
+              src={blogPost.video_link}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           )}
-
-          <div className="p-6">
-            <div className="prose dark:prose-invert max-w-none">
-              <div className="mb-6 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {new Date(blogPost.created_at).toLocaleDateString()}
-                  </p>
-                  {blogPost.hidden && (
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mt-2">
-                      {t("admin.blog_posts.hidden")}
-                    </span>
-                  )}
-                </div>
-                <ShareIcons title={blogPost.meta_title || blogPost.title} />
-              </div>
-
-              <div
-                className="blog-content mt-6"
-                dangerouslySetInnerHTML={{ __html: blogPost.text }}
-              />
-            </div>
+        </header>
+        <div className="tinymce pt-8 px-8 mx-auto container">
+          <div className="w-full tablet:w-2/3 mb-4">
+            <h1>{blogPost.title}</h1>
+            <p>{new Date(blogPost.created_at).toLocaleDateString()}</p>
           </div>
+          <ShareIcons title={blogPost.meta_title || blogPost.title} />
+
+          <div
+            className="blog-content"
+            dangerouslySetInnerHTML={{ __html: blogPost.sanitized_text }}
+          />
         </div>
       </div>
     </div>

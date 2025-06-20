@@ -4,11 +4,21 @@ module ApiPagination
   extend ActiveSupport::Concern
   include Pagy::Backend
 
-  def paginate(collection)
+  def paginate(collection, serializer: nil, serializer_options: {})
     pagy, paginated_collection = pagy(collection, items: params[:per_page] || 25)
 
+    data = if serializer
+             ActiveModelSerializers::SerializableResource.new(
+               paginated_collection,
+               each_serializer: serializer,
+               **serializer_options
+             ).as_json[collection.model_name.plural.to_sym]
+           else
+             paginated_collection
+           end
+
     {
-      data: paginated_collection,
+      data:,
       pagination: {
         current_page: pagy.page,
         total_pages: pagy.pages,

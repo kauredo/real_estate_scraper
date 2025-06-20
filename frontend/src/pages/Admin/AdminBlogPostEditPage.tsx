@@ -20,6 +20,7 @@ interface BlogPostFormData {
   meta_title: string;
   meta_description: string;
   video_link?: string;
+  blog_photos: { id: number; main: boolean; image: { url: string } }[];
 }
 
 const AdminBlogPostEditPage = () => {
@@ -38,6 +39,7 @@ const AdminBlogPostEditPage = () => {
     meta_title: "",
     meta_description: "",
     video_link: "",
+    blog_photos: [],
   });
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -68,7 +70,8 @@ const AdminBlogPostEditPage = () => {
 
     try {
       const response = await adminGetBlogPost(parseInt(id));
-      const post = response.data;
+      const post = response.data.blog_post;
+      console.log(post);
       setFormData({
         title: post.title,
         small_description: post.small_description,
@@ -77,6 +80,7 @@ const AdminBlogPostEditPage = () => {
         meta_title: post.meta_title,
         meta_description: post.meta_description,
         video_link: post.video_link,
+        blog_photos: post.blog_photos || [],
       });
     } catch (error) {
       console.error("Error fetching blog post:", error);
@@ -138,15 +142,65 @@ const AdminBlogPostEditPage = () => {
                 ? t("admin.blog_posts.edit")
                 : t("admin.blog_posts.new")}
             </h1>
-            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-              {isEditing
-                ? t("admin.blog_posts.edit_description")
-                : t("admin.blog_posts.new_description")}
-            </p>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
+            <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
+              <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                {t("admin.common.seo_section")}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  {t("admin.blog_posts.meta_title")}
+                </label>
+                <input
+                  type="text"
+                  name="meta_title"
+                  value={formData.meta_title}
+                  onChange={handleChange}
+                  className="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 sm:text-sm"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  {t("admin.blog_posts.meta_description")}
+                </label>
+                <textarea
+                  name="meta_description"
+                  value={formData.meta_description}
+                  onChange={handleChange}
+                  rows={3}
+                  className="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 sm:text-sm"
+                  required
+                />
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <input
+                  type="checkbox"
+                  name="hidden"
+                  id="hidden"
+                  checked={formData.hidden}
+                  onChange={handleChange}
+                  className="h-4 w-4 rounded border-gray-300 text-beige-medium focus:ring-beige-medium"
+                />
+                <label
+                  htmlFor="hidden"
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300"
+                >
+                  {t("admin.blog_posts.hidden")}
+                </label>
+              </div>
+            </div>
+          </div>
+
           <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
             <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
               <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
@@ -241,62 +295,7 @@ const AdminBlogPostEditPage = () => {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
-            <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
-              <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                {t("admin.common.seo_section")}
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  {t("admin.blog_posts.meta_title")}
-                </label>
-                <input
-                  type="text"
-                  name="meta_title"
-                  value={formData.meta_title}
-                  onChange={handleChange}
-                  className="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 sm:text-sm"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  {t("admin.blog_posts.meta_description")}
-                </label>
-                <textarea
-                  name="meta_description"
-                  value={formData.meta_description}
-                  onChange={handleChange}
-                  rows={3}
-                  className="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 sm:text-sm"
-                  required
-                />
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <input
-                  type="checkbox"
-                  name="hidden"
-                  id="hidden"
-                  checked={formData.hidden}
-                  onChange={handleChange}
-                  className="h-4 w-4 rounded border-gray-300 text-beige-medium focus:ring-beige-medium"
-                />
-                <label
-                  htmlFor="hidden"
-                  className="text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
-                  {t("admin.blog_posts.hidden")}
-                </label>
-              </div>
-            </div>
-          </div>
-
-          {isEditing && (
+          {(isEditing || formData.blog_photos.length > 0) && (
             <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
               <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
                 <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
@@ -304,31 +303,111 @@ const AdminBlogPostEditPage = () => {
                 </h2>
               </div>
 
-              <div
-                {...getRootProps()}
-                className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg cursor-pointer hover:border-beige-medium transition-colors duration-200"
-              >
-                <div className="space-y-1 text-center">
-                  <svg
-                    className="mx-auto h-12 w-12 text-gray-400"
-                    stroke="currentColor"
-                    fill="none"
-                    viewBox="0 0 48 48"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <div className="flex text-sm text-gray-600 dark:text-gray-400">
-                    <input {...getInputProps()} />
-                    <p className="pl-1">{t("admin.common.dropzone")}</p>
+              {isEditing && (
+                <div
+                  {...getRootProps()}
+                  className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg cursor-pointer hover:border-beige-medium transition-colors duration-200"
+                >
+                  <div className="space-y-1 text-center">
+                    <svg
+                      className="mx-auto h-12 w-12 text-gray-400"
+                      stroke="currentColor"
+                      fill="none"
+                      viewBox="0 0 48 48"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <div className="flex text-sm text-gray-600 dark:text-gray-400">
+                      <input {...getInputProps()} />
+                      <p className="pl-1">{t("admin.common.dropzone")}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
+
+              {formData.blog_photos.length > 0 && (
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                  {formData.blog_photos.map(photo => (
+                    <div
+                      key={photo.id}
+                      className="relative bg-white dark:bg-gray-800 rounded-lg shadow-md p-2"
+                    >
+                      <img
+                        src={photo.image.url}
+                        alt="Blog post photo"
+                        className="w-full h-48 object-cover rounded-lg mb-2"
+                      />
+
+                      <div className="flex items-center justify-between px-2">
+                        <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2">
+                            <input
+                              type="checkbox"
+                              id={`main-${photo.id}`}
+                              checked={photo.main}
+                              onChange={() => {
+                                setFormData(prev => ({
+                                  ...prev,
+                                  blog_photos: prev.blog_photos.map(p => ({
+                                    ...p,
+                                    main: p.id === photo.id,
+                                  })),
+                                }));
+                              }}
+                              className="form-checkbox h-4 w-4 text-beige-default rounded border-gray-300 focus:ring-beige-medium"
+                            />
+                            <label
+                              htmlFor={`main-${photo.id}`}
+                              className="text-sm font-medium text-gray-700 dark:text-gray-300"
+                            >
+                              Main
+                            </label>
+                          </div>
+                        </div>
+
+                        <button
+                          onClick={async () => {
+                            if (
+                              !confirm(t("admin.common.delete_photo_confirm"))
+                            ) {
+                              return;
+                            }
+
+                            try {
+                              // Add your delete API call here
+                              // await adminDeleteBlogPhoto(photo.id);
+                              setFormData(prev => ({
+                                ...prev,
+                                blog_photos: prev.blog_photos.filter(
+                                  p => p.id !== photo.id
+                                ),
+                              }));
+                            } catch (error) {
+                              console.error("Error deleting photo:", error);
+                            }
+                          }}
+                          className="text-red-500 hover:text-red-700 transition-colors"
+                          title={t("admin.common.delete_photo")}
+                        >
+                          <i className="fas fa-trash-alt"></i>
+                        </button>
+                      </div>
+
+                      {photo.main && (
+                        <div className="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full shadow">
+                          Main
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
 

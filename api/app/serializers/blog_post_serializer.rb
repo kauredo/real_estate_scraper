@@ -7,17 +7,8 @@ class BlogPostSerializer < ActiveModel::Serializer
 
   has_many :blog_photos, serializer: BlogPhotoSerializer, if: :include_photos?
 
-  delegate :title, to: :object
-  delegate :slug, to: :object
-  delegate :slug_en, to: :object
-  delegate :small_description, to: :object
-  delegate :text, to: :object
   delegate :sanitized_text, to: :object
   delegate :sample_text, to: :object
-  delegate :video_link, to: :object
-  delegate :meta_title, to: :object
-  delegate :meta_description, to: :object
-  delegate :hidden, to: :object
   delegate :main_photo, to: :object
 
   def include_photos?
