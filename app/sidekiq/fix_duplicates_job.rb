@@ -7,9 +7,9 @@ class FixDuplicatesJob < ApplicationJob
     ScrapeListingDetails.log '[FixDuplicatesJob] is being performed'
     Rails.application.load_tasks
 
-    Rake::Task['fix_duplicates'].reenable
-    Rake::Task['fix_duplicates'].invoke
-    Rake::Task['fix_duplicates'].reenable
+    Rake::Task['listings:fix_duplicates'].reenable
+    Rake::Task['listings:fix_duplicates'].invoke
+    Rake::Task['listings:fix_duplicates'].reenable
 
     ScrapeListingDetails.log '[FixDuplicatesJob] DONE'
   end
