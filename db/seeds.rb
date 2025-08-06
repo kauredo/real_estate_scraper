@@ -27,17 +27,33 @@ def download_image(file_name, index)
   FileUtils.mkdir_p(File.dirname(file_path))
 
   unless File.exist?(file_path)
-    random = Faker::Number.number(digits: 6) + index
-    # Added -L flag to follow redirects
-    command = "curl -L -s -f -o #{file_path} 'https://picsum.photos/800/600?random=#{random}'"
-    success = system(command)
-    raise "Failed to download image #{index}" unless success && File.size?(file_path).to_i > 0
+    # Try different image services
+    urls = [
+      "https://picsum.photos/800/600?random=#{Faker::Number.number(digits: 6) + index}",
+      "https://source.unsplash.com/800x600/?random&sig=#{index}",
+      "https://loremflickr.com/800/600/house?random=#{index}"
+    ]
+
+    urls.each do |url|
+      command = "curl -L -s -f --connect-timeout 5 --max-time 15 -o #{file_path} '#{url}'"
+      if system(command) && File.size?(file_path)&.positive?
+        break
+      else
+        puts "\n    Failed to download from #{url}, trying next..."
+      end
+    end
+
+    # Create dummy if all failed
+    unless File.size?(file_path)&.positive?
+      File.write(file_path, "dummy image content for #{file_name}")
+    end
   end
 
   File.open(file_path)
 rescue => e
   puts "\nError downloading image #{index}: #{e.message}"
-  nil
+  File.write(file_path, "dummy image content for #{file_name}")
+  File.open(file_path)
 end
 
 # Helper method to create content with locales

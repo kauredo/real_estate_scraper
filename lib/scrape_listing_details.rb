@@ -38,10 +38,16 @@ class ScrapeListingDetails
       log 'KW website down'
       return false
     end
-    # Check if the page contains '404' to determine if the listing is unavailable
-    return true unless browser.text.downcase.include?('404')
+    # Check if the page contains HTTP 404 error indicators (not area measurements like 404m2)
+    page_text = browser.text.downcase
+    return true unless page_text.include?('404') && (
+      page_text.include?('not found') ||
+      page_text.include?('page not found') ||
+      page_text.include?('página não encontrada') ||
+      page_text.include?('erro 404')
+    )
 
-    log 'listing unavailable on KW website, it will be destroyed'
+    log 'listing unavailable on KW website'
     destroy_listing_if_exists(url) if delete
     false
   end
