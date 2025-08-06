@@ -9,9 +9,6 @@ class ScrapeUrlJob < ApplicationJob
   retry_on(StandardError, wait: 10.minutes, attempts: 3)
   discard_on(Timeout::Error)
 
-  # Add job timeout at the GoodJob level
-  queue_as :individual_scraping, priority: 5, job_timeout: 20.minutes
-
   around_perform do |job, block|
     Timeout.timeout(20.minutes) do
       block.call
