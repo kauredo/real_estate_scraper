@@ -13,3 +13,10 @@ jobs:
       - run: flyctl deploy --remote-only -a sofia-galvao-group-staging
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      - name: Suspend staging after deploy
+        run: |
+          flyctl scale count web=0 -a sofia-galvao-group-staging
+          flyctl scale count worker=0 -a sofia-galvao-group-staging
+          flyctl scale count 0 -a sofia-galvao-group-staging-db
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
