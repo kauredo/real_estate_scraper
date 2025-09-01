@@ -4,7 +4,12 @@ This document tracks the progress of migrating the original Rails monolith into 
 
 ## 🏗️ Architecture Status
 
-- ✅ **API Setup**: Rails API backend (port 3000)
+-### 1. **Critical Missing API Controllers** 🔥
+
+- [x] Create `api/v1/admin/listings_controller.rb` *(COMPLETED 2025-09-01)*
+- [x] Create `api/v1/admin/listing_complexes_controller.rb` *(COMPLETED 2025-09-01)*
+- [x] Create `api/v1/admin/testimonials_controller.rb` *(COMPLETED 2025-09-01)*
+- [ ] Create `api/v1/admin/photos_controller.rb`PI Setup**: Rails API backend (port 3000)
 - ✅ **Frontend Setup**: React + Vite frontend (port 5173)
 - ✅ **Development Environment**: Both services run in parallel with `npm run dev`
 - ✅ **Database**: PostgreSQL configured and running
@@ -70,7 +75,7 @@ This document tracks the progress of migrating the original Rails monolith into 
    - ✅ `api/v1/admin/listing_complexes_controller.rb` - Manage listing complexes _(COMPLETED 2025-09-01)_
 
 2. **General Management**
-   - ❌ `api/v1/admin/testimonials_controller.rb` - Manage testimonials
+   - ✅ `api/v1/admin/testimonials_controller.rb` - Manage testimonials *(COMPLETED 2025-09-01)*
    - ❌ `api/v1/admin/photos_controller.rb` - General photo management
 
 ## 🎨 Frontend Implementation Progress
