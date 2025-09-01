@@ -8,7 +8,7 @@ module Api
         after_action :update_video_link, only: %i[create update]
 
         def index
-          @q = Listing.with_deleted.includes([:translations, :listing_complex]).ransack(params[:q])
+          @q = Listing.with_deleted.includes(%i[translations listing_complex]).ransack(params[:q])
           listings = @q.result
 
           # Apply additional filters
@@ -97,7 +97,7 @@ module Api
 
         def listing_params
           params.require(:listing).permit(
-            :title, :description, :address, :price_cents, :status, :objective, 
+            :title, :description, :address, :price_cents, :status, :objective,
             :kind, :url, :video_link, :virtual_tour_url, :listing_complex_id,
             :order, features: [], photos: [], stats: {}
           )
