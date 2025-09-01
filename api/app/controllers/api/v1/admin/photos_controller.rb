@@ -6,6 +6,15 @@ module Api
       class PhotosController < Api::V1::Admin::BaseController
         before_action :find_photo, only: [:destroy]
 
+        def index
+          result = paginate(Photo.all.order(created_at: :desc), serializer: PhotoSerializer)
+
+          render json: {
+            photos: result[:data],
+            pagination: result[:pagination]
+          }
+        end
+
         def destroy
           if @photo.destroy
             render json: { message: 'Foto apagada com sucesso' }

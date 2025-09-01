@@ -17,6 +17,8 @@ module Api
       token = header.split(' ').last
       begin
         decoded = JsonWebToken.decode(token)
+        return render json: { error: 'Invalid token' }, status: :unauthorized unless decoded
+
         @current_admin = Admin.find(decoded[:admin_id])
       rescue JWT::DecodeError, ActiveRecord::RecordNotFound
         render json: { error: 'Invalid token' }, status: :unauthorized

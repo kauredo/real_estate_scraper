@@ -37,7 +37,7 @@ Rails.application.routes.draw do
         end
         resources :testimonials
         resources :variables, only: %i[index create update destroy]
-        resources :photos, only: [:destroy]
+        resources :photos, only: %i[index destroy]
         resources :blog_photos, only: %i[create destroy]
         resources :club_story_photos, only: %i[create destroy]
         resources :club_users, only: [:index]
