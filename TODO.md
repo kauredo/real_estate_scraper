@@ -66,7 +66,7 @@ This document tracks the progress of migrating the original Rails monolith into 
 
 1. **Listings Management**
 
-   - ❌ `api/v1/admin/listings_controller.rb` - Manage listings
+   - ✅ `api/v1/admin/listings_controller.rb` - Manage listings *(COMPLETED 2025-09-01)*
    - ❌ `api/v1/admin/listing_complexes_controller.rb` - Manage listing complexes
 
 2. **General Management**
@@ -193,7 +193,7 @@ This document tracks the progress of migrating the original Rails monolith into 
 
 ### 1. **Critical Missing API Controllers** 🔥
 
-- [ ] Create `api/v1/admin/listings_controller.rb`
+- [x] Create `api/v1/admin/listings_controller.rb` *(COMPLETED 2025-09-01)*
 - [ ] Create `api/v1/admin/listing_complexes_controller.rb`
 - [ ] Create `api/v1/admin/testimonials_controller.rb`
 - [ ] Create `api/v1/admin/photos_controller.rb`
