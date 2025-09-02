@@ -33,8 +33,7 @@ module Api
 
             render json: {
               message: 'Post criado com sucesso',
-              blog_post: @blog_post,
-              serializer: BlogPostSerializer
+              blog_post: BlogPostSerializer.new(@blog_post)
             }, status: :created
           else
             render json: { errors: @blog_post.errors.full_messages }, status: :unprocessable_entity
@@ -48,9 +47,7 @@ module Api
 
             render json: {
               message: 'Post atualizado com sucesso',
-              blog_post: @blog_post,
-              serializer: BlogPostSerializer,
-              include_photos: true
+              blog_post: BlogPostSerializer.new(@blog_post, include_photos: true)
             }
           else
             render json: { errors: @blog_post.errors.full_messages }, status: :unprocessable_entity

@@ -27,8 +27,8 @@ module Api
           if @testimonial.save
             render json: {
               message: 'Testemunho criado com sucesso',
-              testimonial: @testimonial
-            }, serializer: TestimonialSerializer, status: :created
+              testimonial: TestimonialSerializer.new(@testimonial)
+            }, status: :created
           else
             render json: { errors: @testimonial.errors.full_messages }, status: :unprocessable_entity
           end
@@ -38,8 +38,8 @@ module Api
           if @testimonial.update(testimonial_params)
             render json: {
               message: 'Testemunho atualizado com sucesso',
-              testimonial: @testimonial
-            }, serializer: TestimonialSerializer
+              testimonial: TestimonialSerializer.new(@testimonial)
+            }
           else
             render json: { errors: @testimonial.errors.full_messages }, status: :unprocessable_entity
           end

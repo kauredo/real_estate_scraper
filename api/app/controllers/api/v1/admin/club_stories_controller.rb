@@ -32,8 +32,7 @@ module Api
 
             render json: {
               message: 'História criada com sucesso',
-              club_story: @club_story,
-              serializer: ClubStorySerializer
+              club_story: ClubStorySerializer.new(@club_story)
             }, status: :created
           else
             render json: { errors: @club_story.errors.full_messages }, status: :unprocessable_entity
@@ -47,9 +46,7 @@ module Api
 
             render json: {
               message: 'História atualizada com sucesso',
-              club_story: @club_story,
-              serializer: ClubStorySerializer,
-              include_photos: true
+              club_story: ClubStorySerializer.new(@club_story, include_photos: true)
             }
           else
             render json: { errors: @club_story.errors.full_messages }, status: :unprocessable_entity

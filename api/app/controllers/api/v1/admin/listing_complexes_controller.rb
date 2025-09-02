@@ -35,8 +35,8 @@ module Api
 
             render json: {
               message: 'Complexo criado com sucesso',
-              listing_complex: @listing_complex
-            }, serializer: ListingComplexSerializer, status: :created
+              listing_complex: ListingComplexSerializer.new(@listing_complex)
+            }, status: :created
           else
             render json: { errors: @listing_complex.errors.full_messages }, status: :unprocessable_entity
           end
@@ -49,8 +49,8 @@ module Api
 
             render json: {
               message: 'Complexo atualizado com sucesso',
-              listing_complex: @listing_complex
-            }, serializer: ListingComplexSerializer, include_listings: true
+              listing_complex: ListingComplexSerializer.new(@listing_complex, include_listings: true)
+            }
           else
             render json: { errors: @listing_complex.errors.full_messages }, status: :unprocessable_entity
           end

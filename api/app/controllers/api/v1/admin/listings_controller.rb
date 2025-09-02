@@ -41,8 +41,8 @@ module Api
           if @listing.save
             render json: {
               message: 'Listing criado com sucesso',
-              listing: @listing
-            }, serializer: ListingSerializer, status: :created
+              listing: ListingSerializer.new(@listing)
+            }, status: :created
           else
             render json: { errors: @listing.errors.full_messages }, status: :unprocessable_entity
           end
@@ -52,8 +52,8 @@ module Api
           if @listing.update(listing_params)
             render json: {
               message: 'Listing atualizado com sucesso',
-              listing: @listing
-            }, serializer: ListingSerializer
+              listing: ListingSerializer.new(@listing)
+            }
           else
             render json: { errors: @listing.errors.full_messages }, status: :unprocessable_entity
           end
