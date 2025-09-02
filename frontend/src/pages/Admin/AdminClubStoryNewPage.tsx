@@ -56,156 +56,154 @@ const AdminClubStoryNewPage = () => {
   };
 
   return (
-    <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
-      <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
-        <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
-          {t("club.stories.new")}
-        </h2>
-        <form onSubmit={handleSubmit} className="my-6">
-          <div className="mb-8">
-            <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
-              {t("common.basicInfo")}
-            </h3>
-            <div className="field mb-4">
-              <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-                {t("common.title")}
-              </label>
-              <input
-                type="text"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white"
-                required
-              />
-            </div>
+    <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
+      <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
+        {t("club.stories.new")}
+      </h2>
+      <form onSubmit={handleSubmit} className="my-6">
+        <div className="mb-8">
+          <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
+            {t("common.basicInfo")}
+          </h3>
+          <div className="field mb-4">
+            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+              {t("common.title")}
+            </label>
+            <input
+              type="text"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white"
+              required
+            />
+          </div>
 
-            <div className="field mb-4">
-              <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-                {t("common.description")}
-              </label>
-              <textarea
-                name="small_description"
-                value={formData.small_description}
-                onChange={handleChange}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white"
-                rows={3}
-                required
-              />
-            </div>
+          <div className="field mb-4">
+            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+              {t("common.description")}
+            </label>
+            <textarea
+              name="small_description"
+              value={formData.small_description}
+              onChange={handleChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white"
+              rows={3}
+              required
+            />
+          </div>
 
-            <div className="field mb-4">
-              <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-                {t("common.content")}
-              </label>
-              <Editor
-                value={formData.text}
-                onEditorChange={content =>
-                  setFormData(prev => ({ ...prev, text: content }))
-                }
-                init={{
-                  height: 500,
-                  menubar: false,
-                  plugins: [
-                    "advlist",
-                    "autolink",
-                    "lists",
-                    "link",
-                    "image",
-                    "charmap",
-                    "preview",
-                    "anchor",
-                    "searchreplace",
-                    "visualblocks",
-                    "code",
-                    "fullscreen",
-                    "insertdatetime",
-                    "media",
-                    "table",
-                    "help",
-                    "wordcount",
-                  ],
-                  toolbar:
-                    "undo redo | blocks | bold italic | \
+          <div className="field mb-4">
+            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+              {t("common.content")}
+            </label>
+            <Editor
+              value={formData.text}
+              onEditorChange={content =>
+                setFormData(prev => ({ ...prev, text: content }))
+              }
+              init={{
+                height: 500,
+                menubar: false,
+                plugins: [
+                  "advlist",
+                  "autolink",
+                  "lists",
+                  "link",
+                  "image",
+                  "charmap",
+                  "preview",
+                  "anchor",
+                  "searchreplace",
+                  "visualblocks",
+                  "code",
+                  "fullscreen",
+                  "insertdatetime",
+                  "media",
+                  "table",
+                  "help",
+                  "wordcount",
+                ],
+                toolbar:
+                  "undo redo | blocks | bold italic | \
                     alignleft aligncenter alignright alignjustify | \
                     bullist numlist outdent indent | removeformat | help",
-                }}
-              />
-            </div>
+              }}
+            />
+          </div>
 
-            <div className="field mb-4">
-              <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-                {t("common.videoLink")}
-              </label>
+          <div className="field mb-4">
+            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+              {t("common.videoLink")}
+            </label>
+            <input
+              type="url"
+              name="video_link"
+              value={formData.video_link}
+              onChange={handleChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white"
+            />
+          </div>
+
+          <div className="field mb-4">
+            <label className="flex items-center">
               <input
-                type="url"
-                name="video_link"
-                value={formData.video_link}
+                type="checkbox"
+                name="hidden"
+                checked={formData.hidden}
                 onChange={handleChange}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white"
+                className="mr-2"
               />
-            </div>
+              <span className="text-gray-700 dark:text-gray-300 text-sm font-bold">
+                {t("common.hidden")}
+              </span>
+            </label>
+          </div>
+        </div>
 
-            <div className="field mb-4">
-              <label className="flex items-center">
-                <input
-                  type="checkbox"
-                  name="hidden"
-                  checked={formData.hidden}
-                  onChange={handleChange}
-                  className="mr-2"
-                />
-                <span className="text-gray-700 dark:text-gray-300 text-sm font-bold">
-                  {t("common.hidden")}
-                </span>
-              </label>
-            </div>
+        <div className="mb-8">
+          <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
+            {t("common.meta")}
+          </h3>
+          <div className="field mb-4">
+            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+              {t("common.metaTitle")}
+            </label>
+            <input
+              type="text"
+              name="meta_title"
+              value={formData.meta_title}
+              onChange={handleChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white"
+              required
+            />
           </div>
 
-          <div className="mb-8">
-            <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
-              {t("common.meta")}
-            </h3>
-            <div className="field mb-4">
-              <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-                {t("common.metaTitle")}
-              </label>
-              <input
-                type="text"
-                name="meta_title"
-                value={formData.meta_title}
-                onChange={handleChange}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white"
-                required
-              />
-            </div>
-
-            <div className="field mb-4">
-              <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-                {t("common.metaDescription")}
-              </label>
-              <textarea
-                name="meta_description"
-                value={formData.meta_description}
-                onChange={handleChange}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white"
-                rows={3}
-                required
-              />
-            </div>
+          <div className="field mb-4">
+            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+              {t("common.metaDescription")}
+            </label>
+            <textarea
+              name="meta_description"
+              value={formData.meta_description}
+              onChange={handleChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:text-white"
+              rows={3}
+              required
+            />
           </div>
+        </div>
 
-          <div className="flex justify-end space-x-4">
-            <button
-              type="submit"
-              disabled={saving}
-              className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              {saving ? t("common.saving") : t("common.save")}
-            </button>
-          </div>
-        </form>
-      </div>
+        <div className="flex justify-end space-x-4">
+          <button
+            type="submit"
+            disabled={saving}
+            className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            {saving ? t("common.saving") : t("common.save")}
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

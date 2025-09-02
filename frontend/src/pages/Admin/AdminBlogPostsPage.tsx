@@ -53,24 +53,22 @@ const AdminBlogPostsPage = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="mb-8 flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-            {t("admin.blog_posts.title")}
-          </h1>
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-            {t("admin.blog_posts.total")}: {blogPosts.length}
-          </p>
-        </div>
+    <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+      <div className="mb-6">
         <Link
           to={appRoutes.backoffice.newBlogPost}
-          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-beige-default hover:bg-beige-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-beige-default transition-colors duration-200"
+          className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          {t("admin.blog_posts.new")}
+          Novo Post
         </Link>
       </div>
-
+      <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
+        Blog Posts
+      </h1>
+      <p className="text-center text-gray-600 max-w-none">
+        Total {blogPosts.length} posts
+      </p>
+      <br />
       <BlogPostList
         posts={blogPosts}
         onEdit={handleEdit}

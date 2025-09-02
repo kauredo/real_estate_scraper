@@ -33,6 +33,10 @@ import AdminClubStoriesPage from "./pages/Admin/AdminClubStoriesPage";
 import AdminClubStoryEditPage from "./pages/Admin/AdminClubStoryEditPage";
 import AdminClubStoryDetailPage from "./pages/Admin/AdminClubStoryDetailPage";
 import AdminClubStoryNewPage from "./pages/Admin/AdminClubStoryNewPage";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import AdminListingsPage from "./pages/Admin/AdminListingsPage";
+import AdminListingComplexesPage from "./pages/Admin/AdminListingComplexesPage";
+import AdminTestimonialsPage from "./pages/Admin/AdminTestimonialsPage";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -71,6 +75,9 @@ function AppContent() {
                   {/* Home */}
                   <Route path="" element={<AdminBackofficePage />} />
 
+                  {/* Dashboard */}
+                  <Route path="dashboard" element={<AdminDashboard />} />
+
                   {/* Blog Posts */}
                   <Route path="blog_posts" element={<AdminBlogPostsPage />} />
                   <Route
@@ -106,6 +113,21 @@ function AppContent() {
                   <Route
                     path="club_stories/:id"
                     element={<AdminClubStoryDetailPage />}
+                  />
+
+                  {/* Listings */}
+                  <Route path="listings" element={<AdminListingsPage />} />
+
+                  {/* Listing Complexes */}
+                  <Route
+                    path="listing_complexes"
+                    element={<AdminListingComplexesPage />}
+                  />
+
+                  {/* Testimonials */}
+                  <Route
+                    path="testimonials"
+                    element={<AdminTestimonialsPage />}
                   />
                 </Routes>
               </ProtectedRoute>

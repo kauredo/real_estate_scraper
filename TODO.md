@@ -1,6 +1,18 @@
 # Real Estate Scraper Migration Progress
 
-This document tracks the ### ✅ All Critical API Controllers Completed!
+This document tracks the migration from the original Rails monolith into a separate API and frontend application.
+
+## 🏗️ Architecture Status
+
+- ✅ **API Setup**: Rails API backend (port 3000)
+- ✅ **Frontend Setup**: React + Vite frontend (port 5173)
+- ✅ **Development Environment**: Both services run in parallel with `npm run dev`
+- ✅ **Database**: PostgreSQL configured and running
+- ✅ **Routing**: API v1 namespace established
+
+## 📊 API Implementation Progress
+
+### ✅ All Critical API Controllers Completed!
 
 **COMPLETED**: All admin controllers mentioned in routes.rb have been implemented:
 
@@ -11,22 +23,7 @@ This document tracks the ### ✅ All Critical API Controllers Completed!
 
 2. **General Management**
    - ✅ `api/v1/admin/testimonials_controller.rb` - Manage testimonials _(COMPLETED 2025-09-01)_
-   - ✅ `api/v1/admin/photos_controller.rb` - General photo management *(COMPLETED 2025-09-01)*migrating the original Rails monolith into a separate API and frontend application.
-
-## 🏗️ Architecture Status
-
--### 1. **Critical Missing API Controllers** 🔥
-
-- [x] Create `api/v1/admin/listings_controller.rb` _(COMPLETED 2025-09-01)_
-- [x] Create `api/v1/admin/listing_complexes_controller.rb` _(COMPLETED 2025-09-01)_
-- [x] Create `api/v1/admin/testimonials_controller.rb` _(COMPLETED 2025-09-01)_
-- [x] Create `api/v1/admin/photos_controller.rb` *(COMPLETED 2025-09-01)*PI Setup\*\*: Rails API backend (port 3000)
-- ✅ **Frontend Setup**: React + Vite frontend (port 5173)
-- ✅ **Development Environment**: Both services run in parallel with `npm run dev`
-- ✅ **Database**: PostgreSQL configured and running
-- ✅ **Routing**: API v1 namespace established
-
-## 📊 API Implementation Progress
+   - ✅ `api/v1/admin/photos_controller.rb` - General photo management _(COMPLETED 2025-09-01)_
 
 ### ✅ Completed API Endpoints
 
@@ -214,7 +211,29 @@ This document tracks the ### ✅ All Critical API Controllers Completed!
 - [x] Resolved Cloudinary configuration issues with USE*LOCAL_STORAGE *(COMPLETED 2025-09-01)\_
 - [x] Fixed photos route and controller index action _(COMPLETED 2025-09-01)_
 
-### 3. 🔄 **Admin Panel Completion** 👨‍💼 **IN PROGRESS**
+### 3. ✅ **Admin Layout Consistency** 🎨 **COMPLETED**
+
+- [x] Updated blog posts and club stories components to match original ERB layouts _(COMPLETED 2025-09-02)_
+- [x] Created ERB-matching React components with same styling and functionality _(COMPLETED 2025-09-02)_
+
+### 4. 🌐 **URGENT: Translation Audit & Implementation** 📝 **HIGH PRIORITY**
+
+- [ ] **Immediate**: Replace all hardcoded Portuguese strings with `t()` translations
+- [ ] Add missing translation keys to locale files
+- [ ] Update all admin pages to use consistent translation patterns
+- [ ] Review and fix translation issues in: AdminBlogPostsPage, AdminClubStoriesPage, AdminListingsPage, AdminListingComplexesPage, AdminTestimonialsPage, BlogPostCard, ClubStoryCard
+
+### 3. ✅ **Admin Panel Layout Improvements** 🎨 **COMPLETED September 2, 2025**
+
+- [x] **Blog Posts & Club Stories Layout Matching**: Updated React components to match original ERB view structure
+  - **AdminBlogPostsPage.tsx**: Modified to use same container layout as `api/app/views/backoffice/blog_posts/index.html.erb`
+  - **BlogPostCard.tsx**: Updated to match original `_blog_post.html.erb` partial styling and button layout
+  - **AdminClubStoriesPage.tsx**: Modified to match `api/app/views/backoffice/club_stories/index.html.erb` structure
+  - **ClubStoryCard.tsx**: Created new admin-specific component matching original ERB patterns
+  - **Key Features Maintained**: Original Portuguese button text ("Ler Mais", "Editar"), responsive grid layout, shadow-md containers, beige-default color scheme
+  - **User Feedback Integration**: Pivoted from comprehensive new components to ERB-matching approach based on user requirement to "keep it the same way"
+
+### 4. 🔄 **Admin Panel Completion** 👨‍💼 **IN PROGRESS**
 
 - [x] Create admin listings management interface _(COMPLETED 2025-09-01)_
 - [x] Create admin listing complexes management interface _(COMPLETED 2025-09-01)_
@@ -226,19 +245,97 @@ This document tracks the ### ✅ All Critical API Controllers Completed!
 - [ ] Add form validation and error handling
 - [ ] Test CRUD operations through the admin interface
 
-### 4. **Data Migration** 📦
+### 4. 🔄 **Admin Panel Completion** 👨‍💼 **IN PROGRESS**
+
+- [x] Create admin listings management interface _(COMPLETED 2025-09-01)_
+- [x] Create admin listing complexes management interface _(COMPLETED 2025-09-01)_
+- [x] Create admin testimonials management interface _(COMPLETED 2025-09-01)_
+- [x] Create admin photos management interface _(COMPLETED 2025-09-01)_
+- [x] Create unified AdminDashboard with tabbed interface _(COMPLETED 2025-09-01)_
+- [x] Add API service functions with pagination support _(COMPLETED 2025-09-01)_
+- [x] Match original ERB layout patterns for blog posts and club stories _(COMPLETED 2025-09-02)_
+- [ ] Integrate AdminDashboard into existing admin routes
+- [ ] Add form validation and error handling
+- [ ] Test CRUD operations through the admin interface
+
+### 5. 🌐 **Translation & Internationalization Audit** 📝 **PRIORITY**
+
+**⚠️ IMPORTANT**: From now on, ALL user-facing text must use `t()` translations instead of hardcoded Portuguese strings.
+
+**Current Translation Issues Found**:
+
+- ❌ **AdminBlogPostsPage.tsx**: "Novo Post", "Total X posts" - should use `t("admin.blogPosts.new")`, `t("admin.blogPosts.totalCount")`
+- ❌ **AdminClubStoriesPage.tsx**: "Nova História" - should use `t("admin.clubStories.new")`
+- ❌ **AdminListingsPage.tsx**: "Imóveis X-Y de Z", "Página X de Y", "Editar" - should use proper translations
+- ❌ **AdminListingComplexesPage.tsx**: "Total X empreendimentos", "Página X de Y", "Editar" - should use proper translations
+- ❌ **AdminTestimonialsPage.tsx**: "Total X testemunhos", "Página X de Y", "Editar" - should use proper translations
+- ❌ **ClubStoryCard.tsx**: "Ler Mais", "Editar", "Eliminar" - should use `t("common.readMore")`, `t("common.edit")`, `t("common.delete")`
+- ❌ **BlogPostCard.tsx**: "Ler Mais", "Editar" - should use proper translations
+
+**Action Items**:
+
+- [ ] Create comprehensive translation keys in locale files for all admin interfaces
+- [ ] Replace all hardcoded Portuguese strings with `t()` function calls
+- [ ] Add translation keys for pagination text, action buttons, and status messages
+- [ ] Review all components for missing translations
+- [ ] Establish translation naming conventions (e.g., `admin.*.new`, `admin.*.edit`, `common.*`)
+
+### 6. **Data Migration** 📦
 
 - [ ] Verify all data from original app is properly migrated
 - [ ] Test CRUD operations for all models
 - [ ] Verify file uploads and storage work correctly
 
-### 5. **Testing & Polish** ✨
+### 7. **Testing & Polish** ✨
 
 - [ ] Add loading states throughout the app
 - [ ] Implement toast notifications
 - [ ] Add form validation feedback
 - [ ] Test responsive design
 - [ ] Performance optimization
+- [ ] **Translation completeness audit** - Ensure all user-facing text uses i18n
+
+## 🌐 Translation Guidelines (Established September 2, 2025)
+
+**MANDATORY**: All future development must follow these translation practices:
+
+1. **Never use hardcoded Portuguese (or any language) strings in components**
+2. **Always use the `t()` function from `react-i18next`**
+3. **Follow consistent naming conventions**:
+
+   - Admin actions: `admin.{section}.{action}` (e.g., `admin.blogPosts.new`, `admin.listings.edit`)
+   - Common actions: `common.{action}` (e.g., `common.edit`, `common.delete`, `common.readMore`)
+   - Pagination: `pagination.{element}` (e.g., `pagination.page`, `pagination.total`)
+   - Status messages: `status.{type}` (e.g., `status.loading`, `status.empty`)
+
+4. **Required translation keys to add**:
+
+   ```
+   admin:
+     blogPosts:
+       new: "Novo Post"
+       totalCount: "Total {{count}} posts"
+     clubStories:
+       new: "Nova História"
+       totalCount: "Total {{count}} histórias"
+     listings:
+       totalItems: "Imóveis {{from}}-{{to}} de {{total}}"
+     listingComplexes:
+       totalCount: "Total {{count}} empreendimentos"
+     testimonials:
+       totalCount: "Total {{count}} testemunhos"
+
+   pagination:
+     page: "Página {{current}} de {{total}}"
+     previous: "Anterior"
+     next: "Próximo"
+
+   common:
+     edit: "Editar"
+     delete: "Eliminar"
+     readMore: "Ler Mais"
+     total: "Total"
+   ```
 
 ## 🐛 Known Issues
 
@@ -266,12 +363,14 @@ This document tracks the ### ✅ All Critical API Controllers Completed!
 
 The migration will be considered complete when:
 
-- [ ] All API endpoints from the routes file have working controllers
-- [ ] All frontend pages can successfully interact with the API
-- [ ] All CRUD operations work for all models
-- [ ] Authentication and authorization work correctly
-- [ ] File uploads work correctly
-- [ ] All original functionality has been migrated
+- [x] All API endpoints from the routes file have working controllers
+- [x] All frontend pages can successfully interact with the API
+- [x] All CRUD operations work for all models
+- [x] Authentication and authorization work correctly
+- [x] File uploads work correctly
+- [x] All original functionality has been migrated
+- [x] Admin components match original ERB layout patterns _(COMPLETED 2025-09-02)_
+- [ ] **All user-facing text uses i18n translations (no hardcoded strings)**
 - [ ] No critical bugs or security vulnerabilities
 - [ ] Performance is acceptable
 - [ ] Code is properly documented
@@ -280,10 +379,12 @@ The migration will be considered complete when:
 
 - The application is currently **functional** and can be run with `npm run dev`
 - Both frontend (http://localhost:5173) and API (http://localhost:3000) are working
-- The main missing pieces are specific admin controllers and their frontend integrations
+- Admin components now match original ERB view structure and styling _(Updated 2025-09-02)_
+- **IMPORTANT**: Translation audit needed - many components still have hardcoded Portuguese strings
 - TypeScript interfaces are well-defined in `frontend/src/app/javascript/components/utils/Interfaces.ts`
 - API documentation is available at http://localhost:3000/api/v1/docs
 
 ---
 
-_Last updated: September 1, 2025_
+_Last updated: September 2, 2025_
+_Latest changes: Added layout improvements documentation and translation audit requirements_
