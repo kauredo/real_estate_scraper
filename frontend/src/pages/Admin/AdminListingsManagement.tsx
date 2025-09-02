@@ -26,7 +26,7 @@ const AdminListingsManagement = () => {
       await adminCreateListing({ url: listingUrl });
 
       setMessage({
-        text: "Imóvel adicionado com sucesso!",
+        text: "Imóvel adicionado à fila de processamento. Os dados serão atualizados em breve.",
         type: "success",
       });
       setListingUrl("");
@@ -56,7 +56,7 @@ const AdminListingsManagement = () => {
       await adminFetchListingComplex({ url: complexUrl });
 
       setMessage({
-        text: "Empreendimento adicionado com sucesso!",
+        text: "Empreendimento adicionado à fila de processamento. Os dados serão atualizados em breve.",
         type: "success",
       });
       setComplexUrl("");
@@ -114,7 +114,7 @@ const AdminListingsManagement = () => {
                 disabled={loading}
                 className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded"
               >
-                {loading ? "A processar..." : "Procurar"}
+                {loading ? "A processar..." : "Adicionar à Fila"}
               </button>
             </div>
           </form>
@@ -144,7 +144,7 @@ const AdminListingsManagement = () => {
                 disabled={loading}
                 className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded"
               >
-                {loading ? "A processar..." : "Procurar"}
+                {loading ? "A processar..." : "Adicionar à Fila"}
               </button>
             </div>
           </form>

@@ -3,7 +3,8 @@
   "scripts": {
     "api": "cd api && bundle exec rails s -b 0.0.0.0",
     "frontend": "cd frontend && npm run dev",
-    "dev": "npm-run-all --parallel api frontend"
+    "jobs": "cd api && bundle exec good_job start",
+    "dev": "npm-run-all --parallel api frontend jobs"
   },
   "devDependencies": {
     "@types/node": "^22.15.2",

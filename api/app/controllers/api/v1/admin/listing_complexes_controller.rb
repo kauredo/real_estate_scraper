@@ -65,9 +65,9 @@ module Api
         end
 
         def update_details
-          # This would typically scrape/update details from original source
-          # For now, just return success
-          render json: { message: 'Detalhes do complexo atualizados com sucesso' }
+          # Scrape/update details from original source
+          ScrapeComplexJob.perform_later(@listing_complex.url)
+          render json: { message: 'Atualização dos detalhes do complexo iniciada. Os dados serão atualizados em breve.' }
         end
 
         def photos
@@ -103,16 +103,32 @@ module Api
         end
 
         def fetch
-          # This would typically fetch complex from external URL
-          # For now, just return an example response
-          render json: {
-            message: 'Função de busca externa ainda não implementada',
-            example_data: {
-              name: 'Exemplo de Complexo',
-              description: 'Descrição do complexo...',
-              url: params[:url]
+          # Fetch complex from external URL using background job
+          if params[:listing_complex] && params[:listing_complex][:url].present? &&
+             params[:listing_complex][:url].starts_with?('https://www.kwportugal.pt/')
+
+            url = params[:listing_complex][:url]
+            @listing_complex = ListingComplex.find_or_create_by(url:)
+
+            # Set temporary data if complex is invalid
+            unless @listing_complex.valid?
+              @listing_complex.name = 'Nome Temporário'
+              @listing_complex.description = 'Descrição Temporária'
+              @listing_complex.hidden = true
+              @listing_complex.save
+            end
+
+            ScrapeComplexJob.perform_later(@listing_complex.url)
+
+            render json: {
+              message: 'Empreendimento adicionado à fila de processamento. Os dados serão atualizados em breve.',
+              listing_complex: ListingComplexSerializer.new(@listing_complex)
             }
-          }
+          else
+            render json: {
+              errors: ['URL inválida. A URL deve começar com https://www.kwportugal.pt/']
+            }, status: :unprocessable_entity
+          end
         end
 
         private

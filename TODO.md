@@ -182,23 +182,37 @@ This document tracks the migration from the original Rails monolith into a separ
 - ✅ **Club Components**
 - ✅ **Shared UI Components** (Hero, Gallery, etc.)
 
-### ❌ Missing Frontend Features
+### ✅ Completed Admin Features (September 2, 2025)
 
 1. **Admin Listings Management**
 
-   - ❌ Complete listings management interface
-   - ❌ `AdminListingsManagement.tsx` is present but may need backend integration
+   - ✅ Complete listings management interface with full CRUD operations
+   - ✅ AdminListingsPage, AdminListingNewPage, AdminListingEditPage, AdminListingDetailPage
+   - ✅ Photo upload/management for listings
+   - ✅ Backend integration working properly
 
 2. **Admin Listing Complexes Management**
 
-   - ❌ Admin interface for managing listing complexes
-   - ❌ Photo upload/management for complexes
+   - ✅ Complete admin interface for managing listing complexes
+   - ✅ AdminListingComplexesPage, AdminListingComplexNewPage, AdminListingComplexEditPage, AdminListingComplexDetailPage
+   - ✅ Photo upload/management for complexes
+   - ✅ Preview functionality matching public layouts
 
 3. **Admin Testimonials Management**
 
-   - ❌ Admin interface for managing testimonials
+   - ✅ Complete admin interface for managing testimonials
+   - ✅ AdminTestimonialsPage, AdminTestimonialNewPage, AdminTestimonialEditPage, AdminTestimonialDetailPage
+   - ✅ Full CRUD operations working properly
 
-4. **Error Handling & UX**
+### ❌ Remaining Frontend Tasks
+
+1. **Translation & Internationalization** 🌐 **HIGH PRIORITY**
+
+   - ❌ Replace all hardcoded Portuguese strings with i18n translations
+   - ❌ Add missing translation keys to locale files
+   - ❌ Complete translation audit across all admin components
+
+2. **Error Handling & UX**
    - ❌ Server Error Page (`ServerErrorPage.tsx` exists)
    - ❌ Not Found Page (`NotFoundPage.tsx` exists)
    - ❌ Loading states and error boundaries

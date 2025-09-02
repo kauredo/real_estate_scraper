@@ -36,15 +36,27 @@ module Api
         end
 
         def create
-          @listing = Listing.new(listing_params)
+          # If URL is provided, use scraping logic like the old controller
+          if listing_params[:url].present? && listing_params[:url].starts_with?('https://www.kwportugal.pt/')
+            @listing = Listing.find_or_create_by(url: listing_params[:url])
+            ScrapeUrlJob.perform_later(@listing.url, true)
 
-          if @listing.save
             render json: {
-              message: 'Listing criado com sucesso',
+              message: 'Imóvel adicionado à fila de processamento. Os dados serão atualizados em breve.',
               listing: ListingSerializer.new(@listing)
             }, status: :created
           else
-            render json: { errors: @listing.errors.full_messages }, status: :unprocessable_entity
+            # Manual creation without URL
+            @listing = Listing.new(listing_params)
+
+            if @listing.save
+              render json: {
+                message: 'Listing criado com sucesso',
+                listing: ListingSerializer.new(@listing)
+              }, status: :created
+            else
+              render json: { errors: @listing.errors.full_messages }, status: :unprocessable_entity
+            end
           end
         end
 
@@ -69,22 +81,24 @@ module Api
 
         def recover
           if @listing.restore
-            render json: { message: 'Listing recuperado com sucesso' }
+            # Also trigger scraping to get latest data after recovery
+            ScrapeUrlJob.perform_later(@listing.url, true) if @listing.url.present?
+            render json: { message: 'Listing recuperado com sucesso. Dados serão atualizados em breve.' }
           else
             render json: { errors: ['Erro ao recuperar listing'] }, status: :unprocessable_entity
           end
         end
 
         def update_details
-          # This would typically scrape/update details from original source
-          # For now, just return success
-          render json: { message: 'Detalhes atualizados com sucesso' }
+          # Scrape/update details from original source
+          ScrapeUrlJob.perform_later(@listing.url, true)
+          render json: { message: 'Atualização dos detalhes iniciada. Os dados serão atualizados em breve.' }
         end
 
         def update_all
-          # This would typically update all listings from external source
-          # For now, just return success
-          render json: { message: 'Todos os listings atualizados com sucesso' }
+          # Update all listings from external source
+          ScrapeAll.perform_later
+          render json: { message: 'Atualização de todos os imóveis iniciada. O processo será executado em segundo plano.' }
         end
 
         private
