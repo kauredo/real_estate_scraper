@@ -41,6 +41,8 @@ import AdminListingEditPage from "./pages/Admin/AdminListingEditPage";
 import AdminListingDetailPage from "./pages/Admin/AdminListingDetailPage";
 import AdminListingComplexesPage from "./pages/Admin/AdminListingComplexesPage";
 import AdminListingComplexNewPage from "./pages/Admin/AdminListingComplexNewPage";
+import AdminListingComplexEditPage from "./pages/Admin/AdminListingComplexEditPage";
+import AdminListingComplexDetailPage from "./pages/Admin/AdminListingComplexDetailPage";
 import AdminTestimonialsPage from "./pages/Admin/AdminTestimonialsPage";
 import AdminTestimonialNewPage from "./pages/Admin/AdminTestimonialNewPage";
 import AdminTestimonialEditPage from "./pages/Admin/AdminTestimonialEditPage";
@@ -142,6 +144,14 @@ function AppContent() {
                   <Route
                     path="listing_complexes/new"
                     element={<AdminListingComplexNewPage />}
+                  />
+                  <Route
+                    path="listing_complexes/:id/edit"
+                    element={<AdminListingComplexEditPage />}
+                  />
+                  <Route
+                    path="listing_complexes/:id"
+                    element={<AdminListingComplexDetailPage />}
                   />
 
                   {/* Testimonials */}
