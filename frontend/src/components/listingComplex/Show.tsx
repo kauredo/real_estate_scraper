@@ -16,23 +16,27 @@ export default function Show(props: Props) {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   // Collect all unique photos from all listings
-  const allPhotos = complex.listings.reduce((photos: string[], listing) => {
-    listing.photos.forEach(photo => {
-      if (!photos.includes(photo)) {
-        photos.push(photo);
-      }
-    });
-    return photos;
-  }, []);
+  const allPhotos =
+    complex.listings &&
+    complex.listings.reduce((photos: string[], listing) => {
+      listing.photos.forEach(photo => {
+        if (!photos.includes(photo)) {
+          photos.push(photo);
+        }
+      });
+      return photos;
+    }, []);
 
-  const photoItems = allPhotos.map((photo, index) => (
-    <img
-      loading={index === 0 ? "eager" : "lazy"}
-      className="object-contain w-full max-h-[70vh] mx-auto"
-      src={photo}
-      alt={`${complex.name} - ${index + 1}`}
-    />
-  ));
+  const photoItems =
+    allPhotos &&
+    allPhotos.map((photo, index) => (
+      <img
+        loading={index === 0 ? "eager" : "lazy"}
+        className="object-contain w-full max-h-[70vh] mx-auto"
+        src={photo}
+        alt={`${complex.name} - ${index + 1}`}
+      />
+    ));
 
   return (
     <div className="relative container mx-auto text-black dark:text-light">
@@ -59,7 +63,7 @@ export default function Show(props: Props) {
             </div>
           </div>
         </section>
-      ) : (
+      ) : photoItems && photoItems.length > 0 ? (
         <div className="relative slider-container">
           <Carousel
             items={photoItems}
@@ -68,7 +72,7 @@ export default function Show(props: Props) {
             infinite={photoItems.length > 1}
           />
         </div>
-      )}
+      ) : null}
 
       <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige-default dark:bg-beige-medium text-white dark:text-dark px-4 py-2">
         <h1 className="standard">{complex.name}</h1>
