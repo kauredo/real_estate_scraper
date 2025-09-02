@@ -26,6 +26,7 @@ import ClubStoryDetailPage from "./pages/ClubStoryDetailPage";
 import ListingComplexesPage from "./pages/ListingComplexesPage";
 import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
 import AdminBlogPostsPage from "./pages/Admin/AdminBlogPostsPage";
+import AdminBlogPostNewPage from "./pages/Admin/AdminBlogPostNewPage";
 import AdminBlogPostEditPage from "./pages/Admin/AdminBlogPostEditPage";
 import AdminBlogPostDetailPage from "./pages/Admin/AdminBlogPostDetailPage";
 import AdminBackofficePage from "./pages/Admin/AdminBackofficePage";
@@ -35,8 +36,15 @@ import AdminClubStoryDetailPage from "./pages/Admin/AdminClubStoryDetailPage";
 import AdminClubStoryNewPage from "./pages/Admin/AdminClubStoryNewPage";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminListingsPage from "./pages/Admin/AdminListingsPage";
+import AdminListingNewPage from "./pages/Admin/AdminListingNewPage";
+import AdminListingEditPage from "./pages/Admin/AdminListingEditPage";
+import AdminListingDetailPage from "./pages/Admin/AdminListingDetailPage";
 import AdminListingComplexesPage from "./pages/Admin/AdminListingComplexesPage";
+import AdminListingComplexNewPage from "./pages/Admin/AdminListingComplexNewPage";
 import AdminTestimonialsPage from "./pages/Admin/AdminTestimonialsPage";
+import AdminTestimonialNewPage from "./pages/Admin/AdminTestimonialNewPage";
+import AdminTestimonialEditPage from "./pages/Admin/AdminTestimonialEditPage";
+import AdminTestimonialDetailPage from "./pages/Admin/AdminTestimonialDetailPage";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -82,7 +90,7 @@ function AppContent() {
                   <Route path="blog_posts" element={<AdminBlogPostsPage />} />
                   <Route
                     path="blog_posts/new"
-                    element={<AdminBlogPostEditPage />}
+                    element={<AdminBlogPostNewPage />}
                   />
                   <Route
                     path="blog_posts/:id/edit"
@@ -110,24 +118,48 @@ function AppContent() {
                     path="club_stories/:id"
                     element={<AdminClubStoryDetailPage />}
                   />
-                  <Route
-                    path="club_stories/:id"
-                    element={<AdminClubStoryDetailPage />}
-                  />
 
                   {/* Listings */}
                   <Route path="listings" element={<AdminListingsPage />} />
+                  <Route
+                    path="listings/new"
+                    element={<AdminListingNewPage />}
+                  />
+                  <Route
+                    path="listings/:id/edit"
+                    element={<AdminListingEditPage />}
+                  />
+                  <Route
+                    path="listings/:id"
+                    element={<AdminListingDetailPage />}
+                  />
 
                   {/* Listing Complexes */}
                   <Route
                     path="listing_complexes"
                     element={<AdminListingComplexesPage />}
                   />
+                  <Route
+                    path="listing_complexes/new"
+                    element={<AdminListingComplexNewPage />}
+                  />
 
                   {/* Testimonials */}
                   <Route
                     path="testimonials"
                     element={<AdminTestimonialsPage />}
+                  />
+                  <Route
+                    path="testimonials/new"
+                    element={<AdminTestimonialNewPage />}
+                  />
+                  <Route
+                    path="testimonials/:id/edit"
+                    element={<AdminTestimonialEditPage />}
+                  />
+                  <Route
+                    path="testimonials/:id"
+                    element={<AdminTestimonialDetailPage />}
                   />
                 </Routes>
               </ProtectedRoute>
