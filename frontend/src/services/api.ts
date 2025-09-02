@@ -138,7 +138,8 @@ export const getListingComplex = slug =>
   api.get(apiRoutes.listingComplex(slug));
 
 // Admin - Listings API functions
-export const adminGetListings = () => api.get(apiRoutes.admin.listings);
+export const adminGetListings = (params = {}) =>
+  api.get(apiRoutes.admin.listings, { params });
 export const adminGetListing = id => api.get(apiRoutes.admin.listing(id));
 export const adminCreateListing = data =>
   api.post(apiRoutes.admin.listings, { listing: data });
@@ -153,8 +154,8 @@ export const adminUpdateAllListings = () =>
   api.post(apiRoutes.admin.updateAllListings);
 
 // Admin - Listing complexes API functions
-export const adminGetListingComplexes = () =>
-  api.get(apiRoutes.admin.listingComplexes);
+export const adminGetListingComplexes = (params = {}) =>
+  api.get(apiRoutes.admin.listingComplexes, { params });
 export const adminGetListingComplex = id =>
   api.get(apiRoutes.admin.listingComplex(id));
 export const adminCreateListingComplex = data =>
@@ -199,6 +200,8 @@ export const adminExportClubUsers = () =>
   });
 
 // Admin - Photos API functions
+export const adminGetPhotos = (params = {}) =>
+  api.get(apiRoutes.admin.photos, { params });
 export const adminUploadBlogPhoto = (blogPostId, formData) =>
   api.post(apiRoutes.admin.blogPhotos, {
     ...formData,
@@ -231,7 +234,8 @@ export const adminGetNewsletterSubscriptions = () =>
 export const getTestimonials = () => api.get(apiRoutes.testimonials);
 
 // Admin - Testimonials API functions
-export const adminGetTestimonials = () => api.get(apiRoutes.admin.testimonials);
+export const adminGetTestimonials = (params = {}) =>
+  api.get(apiRoutes.admin.testimonials, { params });
 export const adminGetTestimonial = id =>
   api.get(apiRoutes.admin.testimonial(id));
 export const adminCreateTestimonial = data =>
