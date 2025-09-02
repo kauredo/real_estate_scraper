@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import {
   adminGetListingComplexes,
   adminDeleteListingComplex,
@@ -14,6 +15,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
   onEdit,
   onView,
 }) => {
+  const { t } = useTranslation();
   const [listingComplexes, setListingComplexes] = useState<ListingComplex[]>(
     []
   );
@@ -34,7 +36,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
       setPagination(response.data.pagination);
       setError(null);
     } catch (err) {
-      setError("Erro ao carregar os empreendimentos");
+      setError(t("admin.listingComplexes.errorLoading"));
       console.error("Error fetching listing complexes:", err);
     } finally {
       setLoading(false);
@@ -46,9 +48,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
   }, []);
 
   const handleDelete = async (id: number) => {
-    if (
-      !window.confirm("Tem certeza que deseja eliminar este empreendimento?")
-    ) {
+    if (!window.confirm(t("admin.listingComplexes.confirmDelete"))) {
       return;
     }
 
@@ -56,7 +56,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
       await adminDeleteListingComplex(id);
       await fetchListingComplexes(pagination.current_page);
     } catch (err) {
-      setError("Erro ao eliminar o empreendimento");
+      setError(t("admin.listingComplexes.errorDeleting"));
       console.error("Error deleting listing complex:", err);
     }
   };
@@ -68,7 +68,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="text-lg">A carregar empreendimentos...</div>
+        <div className="text-lg">{t("admin.listingComplexes.loading")}</div>
       </div>
     );
   }
@@ -84,9 +84,13 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Gestão de Empreendimentos</h2>
+        <h2 className="text-2xl font-bold">
+          {t("admin.listingComplexes.title")}
+        </h2>
         <div className="text-sm text-gray-600">
-          {pagination.total_count} empreendimentos no total
+          {t("admin.listingComplexes.totalCount", {
+            count: pagination.total_count,
+          })}
         </div>
       </div>
 
@@ -114,7 +118,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
                 <div className="flex items-center space-x-1">
                   {complex.new_format && (
                     <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                      Novo
+                      {t("common.new")}
                     </span>
                   )}
                 </div>
@@ -127,8 +131,14 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
               <div className="space-y-2 text-sm text-gray-500 mb-4">
                 <div>ID: {complex.id}</div>
                 <div>Slug: {complex.slug}</div>
-                <div>Fotos: {complex.photos?.length || 0}</div>
-                <div>Imóveis: {complex.listings?.length || 0}</div>
+                <div>
+                  {t("admin.listingComplexes.details.photos")}:{" "}
+                  {complex.photos?.length || 0}
+                </div>
+                <div>
+                  {t("admin.listingComplexes.details.listings")}:{" "}
+                  {complex.listings?.length || 0}
+                </div>
               </div>
 
               <div className="flex justify-end space-x-2">
@@ -137,7 +147,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
                     onClick={() => onView(complex)}
                     className="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
                   >
-                    Ver
+                    {t("common.view")}
                   </button>
                 )}
                 {onEdit && (
@@ -145,14 +155,14 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
                     onClick={() => onEdit(complex)}
                     className="text-blue-600 hover:text-blue-900 text-sm font-medium"
                   >
-                    Editar
+                    {t("common.edit")}
                   </button>
                 )}
                 <button
                   onClick={() => handleDelete(complex.id)}
                   className="text-red-600 hover:text-red-900 text-sm font-medium"
                 >
-                  Eliminar
+                  {t("common.delete")}
                 </button>
               </div>
             </div>
@@ -162,7 +172,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
 
       {listingComplexes.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-500">Nenhum empreendimento encontrado</p>
+          <p className="text-gray-500">{t("admin.listingComplexes.empty")}</p>
         </div>
       )}
 
@@ -174,11 +184,14 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
             disabled={pagination.current_page === 1}
             className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Anterior
+            {t("pagination.previous")}
           </button>
 
           <span className="px-3 py-1">
-            Página {pagination.current_page} de {pagination.total_pages}
+            {t("pagination.page", {
+              current: pagination.current_page,
+              total: pagination.total_pages,
+            })}
           </span>
 
           <button
@@ -186,7 +199,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
             disabled={pagination.current_page === pagination.total_pages}
             className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Próxima
+            {t("pagination.next")}
           </button>
         </div>
       )}

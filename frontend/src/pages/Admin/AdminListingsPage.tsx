@@ -54,7 +54,7 @@ const AdminListingsPage = () => {
   };
 
   const handleUpdateAll = async () => {
-    if (!window.confirm("Tem certeza que deseja buscar os imóveis em falta?")) {
+    if (!window.confirm(t("admin.listings.confirmUpdateAll"))) {
       return;
     }
 
@@ -94,7 +94,9 @@ const AdminListingsPage = () => {
           disabled={updating}
           className="cursor-pointer bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
         >
-          {updating ? "A buscar..." : "Buscar os imóveis em falta ao site KW"}
+          {updating
+            ? t("admin.listings.updating")
+            : t("admin.listings.updateAll")}
         </button>
 
         <select
@@ -102,20 +104,25 @@ const AdminListingsPage = () => {
           onChange={e => handleOrderChange(e.target.value)}
           className="block w-full sm:w-auto p-2 border rounded focus:border-blue-500 dark:bg-beige-medium"
         >
-          <option value="order">Ordem normal</option>
-          <option value="recent">Mais recentes</option>
-          <option value="deleted">Incluir apagados</option>
-          <option value="deleted_only">Só apagados</option>
+          <option value="order">{t("admin.listings.order.normal")}</option>
+          <option value="recent">{t("admin.listings.order.recent")}</option>
+          <option value="deleted">{t("admin.listings.order.deleted")}</option>
+          <option value="deleted_only">
+            {t("admin.listings.order.deletedOnly")}
+          </option>
         </select>
       </div>
 
       {/* Header */}
       <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
-        Imóveis
+        {t("admin.listings.title")}
       </h2>
       <p className="text-center text-gray-600 max-w-none">
-        Imóveis {pagination.from}-{pagination.to} de {pagination.total_count}{" "}
-        totais
+        {t("admin.listings.itemsRange", {
+          from: pagination.from,
+          to: pagination.to,
+          total: pagination.total_count,
+        })}
       </p>
 
       {/* Pagination */}
@@ -126,11 +133,14 @@ const AdminListingsPage = () => {
             disabled={pagination.current_page === 1}
             className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
           >
-            Anterior
+            {t("pagination.previous")}
           </button>
 
           <span className="px-3 py-1">
-            Página {pagination.current_page} de {pagination.total_pages}
+            {t("pagination.page", {
+              current: pagination.current_page,
+              total: pagination.total_pages,
+            })}
           </span>
 
           <button
@@ -138,7 +148,7 @@ const AdminListingsPage = () => {
             disabled={pagination.current_page === pagination.total_pages}
             className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
           >
-            Próxima
+            {t("pagination.next")}
           </button>
         </div>
       )}
@@ -161,7 +171,9 @@ const AdminListingsPage = () => {
                 />
               ) : (
                 <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500">Sem foto</span>
+                  <span className="text-gray-500">
+                    {t("admin.listings.noPhoto")}
+                  </span>
                 </div>
               )}
             </div>
@@ -196,13 +208,13 @@ const AdminListingsPage = () => {
                   href={`/backoffice/listings/${listing.id}`}
                   className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-1 px-3 rounded text-sm"
                 >
-                  Ver
+                  {t("common.view")}
                 </a>
                 <a
                   href={`/backoffice/listings/${listing.id}/edit`}
                   className="bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-1 px-3 rounded text-sm"
                 >
-                  Editar
+                  {t("common.edit")}
                 </a>
                 <span
                   className={`px-2 py-1 rounded text-xs font-semibold ${
@@ -229,11 +241,14 @@ const AdminListingsPage = () => {
             disabled={pagination.current_page === 1}
             className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
           >
-            Anterior
+            {t("pagination.previous")}
           </button>
 
           <span className="px-3 py-1">
-            Página {pagination.current_page} de {pagination.total_pages}
+            {t("pagination.page", {
+              current: pagination.current_page,
+              total: pagination.total_pages,
+            })}
           </span>
 
           <button
@@ -241,7 +256,7 @@ const AdminListingsPage = () => {
             disabled={pagination.current_page === pagination.total_pages}
             className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
           >
-            Próxima
+            {t("pagination.next")}
           </button>
         </div>
       )}

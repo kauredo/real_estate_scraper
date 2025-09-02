@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import {
   adminGetTestimonials,
   adminDeleteTestimonial,
@@ -8,6 +9,7 @@ import {
 import { Testimonial } from "../../utils/interfaces";
 
 const TestimonialsManagement: React.FC = () => {
+  const { t } = useTranslation();
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -33,7 +35,7 @@ const TestimonialsManagement: React.FC = () => {
       setPagination(response.data.pagination);
       setError(null);
     } catch (err) {
-      setError("Erro ao carregar os testemunhos");
+      setError(t("admin.testimonials.errorLoading"));
       console.error("Error fetching testimonials:", err);
     } finally {
       setLoading(false);
@@ -45,7 +47,7 @@ const TestimonialsManagement: React.FC = () => {
   }, []);
 
   const handleDelete = async (id: number) => {
-    if (!window.confirm("Tem certeza que deseja eliminar este testemunho?")) {
+    if (!window.confirm(t("admin.confirmDelete"))) {
       return;
     }
 
@@ -53,7 +55,7 @@ const TestimonialsManagement: React.FC = () => {
       await adminDeleteTestimonial(id);
       await fetchTestimonials(pagination.current_page);
     } catch (err) {
-      setError("Erro ao eliminar o testemunho");
+      setError(t("admin.testimonials.errorDeleting"));
       console.error("Error deleting testimonial:", err);
     }
   };
@@ -73,7 +75,7 @@ const TestimonialsManagement: React.FC = () => {
       setFormData({ name: "", text: "" });
       await fetchTestimonials(pagination.current_page);
     } catch (err) {
-      setError("Erro ao salvar o testemunho");
+      setError(t("admin.testimonials.errorSaving"));
       console.error("Error saving testimonial:", err);
     }
   };
@@ -100,7 +102,7 @@ const TestimonialsManagement: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="text-lg">A carregar testemunhos...</div>
+        <div className="text-lg">{t("admin.testimonials.loading")}</div>
       </div>
     );
   }
@@ -108,12 +110,14 @@ const TestimonialsManagement: React.FC = () => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Gestão de Testemunhos</h2>
+        <h2 className="text-2xl font-bold">
+          {t("admin.testimonials.managementTitle")}
+        </h2>
         <button
           onClick={() => setShowForm(true)}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
-          Novo Testemunho
+          {t("admin.testimonials.new")}
         </button>
       </div>
 
@@ -126,7 +130,9 @@ const TestimonialsManagement: React.FC = () => {
       {showForm && (
         <div className="bg-white p-6 border rounded-lg shadow">
           <h3 className="text-xl font-semibold mb-4">
-            {editingTestimonial ? "Editar Testemunho" : "Novo Testemunho"}
+            {editingTestimonial
+              ? t("admin.testimonials.edit")
+              : t("admin.testimonials.new")}
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -135,7 +141,7 @@ const TestimonialsManagement: React.FC = () => {
                 htmlFor="name"
                 className="block text-sm font-medium text-gray-700"
               >
-                Nome
+                {t("admin.testimonials.form.name")}
               </label>
               <input
                 type="text"
@@ -154,7 +160,7 @@ const TestimonialsManagement: React.FC = () => {
                 htmlFor="text"
                 className="block text-sm font-medium text-gray-700"
               >
-                Testemunho
+                {t("admin.testimonials.form.testimonial")}
               </label>
               <textarea
                 id="text"
@@ -173,14 +179,16 @@ const TestimonialsManagement: React.FC = () => {
                 type="submit"
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
               >
-                {editingTestimonial ? "Atualizar" : "Criar"}
+                {editingTestimonial
+                  ? t("admin.testimonials.form.update")
+                  : t("admin.testimonials.form.create")}
               </button>
               <button
                 type="button"
                 onClick={handleCancel}
                 className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
               >
-                Cancelar
+                {t("admin.testimonials.form.cancel")}
               </button>
             </div>
           </form>
@@ -190,7 +198,9 @@ const TestimonialsManagement: React.FC = () => {
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200">
           <h3 className="text-lg font-medium">
-            {pagination.total_count} testemunhos no total
+            {t("admin.testimonials.totalCount", {
+              count: pagination.total_count,
+            })}
           </h3>
         </div>
 
@@ -209,13 +219,13 @@ const TestimonialsManagement: React.FC = () => {
                     onClick={() => handleEdit(testimonial)}
                     className="text-blue-600 hover:text-blue-900 text-sm"
                   >
-                    Editar
+                    {t("common.edit")}
                   </button>
                   <button
                     onClick={() => handleDelete(testimonial.id)}
                     className="text-red-600 hover:text-red-900 text-sm"
                   >
-                    Eliminar
+                    {t("common.delete")}
                   </button>
                 </div>
               </div>
@@ -232,11 +242,14 @@ const TestimonialsManagement: React.FC = () => {
             disabled={pagination.current_page === 1}
             className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Anterior
+            {t("pagination.previous")}
           </button>
 
           <span className="px-3 py-1">
-            Página {pagination.current_page} de {pagination.total_pages}
+            {t("pagination.page", {
+              current: pagination.current_page,
+              total: pagination.total_pages,
+            })}
           </span>
 
           <button
@@ -244,7 +257,7 @@ const TestimonialsManagement: React.FC = () => {
             disabled={pagination.current_page === pagination.total_pages}
             className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Próxima
+            {t("pagination.next")}
           </button>
         </div>
       )}

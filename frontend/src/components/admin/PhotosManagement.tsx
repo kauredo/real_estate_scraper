@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { adminGetPhotos, adminDeletePhoto } from "../../services/api";
 import { Photo } from "../../utils/interfaces";
 
 const PhotosManagement: React.FC = () => {
+  const { t } = useTranslation();
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +23,7 @@ const PhotosManagement: React.FC = () => {
       setPagination(response.data.pagination);
       setError(null);
     } catch (err) {
-      setError("Erro ao carregar as fotos");
+      setError(t("admin.photos.errorLoading"));
       console.error("Error fetching photos:", err);
     } finally {
       setLoading(false);
@@ -33,7 +35,7 @@ const PhotosManagement: React.FC = () => {
   }, []);
 
   const handleDelete = async (id: number) => {
-    if (!window.confirm("Tem certeza que deseja eliminar esta foto?")) {
+    if (!window.confirm(t("admin.photos.confirmDelete"))) {
       return;
     }
 
@@ -41,7 +43,7 @@ const PhotosManagement: React.FC = () => {
       await adminDeletePhoto(id);
       await fetchPhotos(pagination.current_page);
     } catch (err) {
-      setError("Erro ao eliminar a foto");
+      setError(t("admin.photos.errorDeleting"));
       console.error("Error deleting photo:", err);
     }
   };
@@ -53,7 +55,7 @@ const PhotosManagement: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="text-lg">A carregar fotos...</div>
+        <div className="text-lg">{t("admin.photos.loading")}</div>
       </div>
     );
   }
@@ -61,9 +63,9 @@ const PhotosManagement: React.FC = () => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Gestão de Fotos</h2>
+        <h2 className="text-2xl font-bold">{t("admin.photos.title")}</h2>
         <div className="text-sm text-gray-600">
-          {pagination.total_count} fotos no total
+          {t("admin.photos.totalCount", { count: pagination.total_count })}
         </div>
       </div>
 
@@ -93,18 +95,21 @@ const PhotosManagement: React.FC = () => {
                   <p className="text-sm font-medium text-gray-900">
                     ID: {photo.id}
                   </p>
-                  <p className="text-xs text-gray-500">Ordem: {photo.order}</p>
+                  <p className="text-xs text-gray-500">
+                    {t("admin.photos.order")}: {photo.order}
+                  </p>
                 </div>
                 {photo.main && (
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                    Principal
+                    {t("admin.photos.main")}
                   </span>
                 )}
               </div>
 
               <div className="mb-3">
                 <p className="text-xs text-gray-600">
-                  Empreendimento ID: {photo.listing_complex_id}
+                  {t("admin.photos.listingComplexId")}:{" "}
+                  {photo.listing_complex_id}
                 </p>
               </div>
 
@@ -113,7 +118,7 @@ const PhotosManagement: React.FC = () => {
                   onClick={() => handleDelete(photo.id)}
                   className="text-red-600 hover:text-red-900 text-sm font-medium"
                 >
-                  Eliminar
+                  {t("common.delete")}
                 </button>
               </div>
             </div>
@@ -123,7 +128,7 @@ const PhotosManagement: React.FC = () => {
 
       {photos.length === 0 && !loading && (
         <div className="text-center py-12">
-          <p className="text-gray-500">Nenhuma foto encontrada</p>
+          <p className="text-gray-500">{t("admin.photos.empty")}</p>
         </div>
       )}
 
@@ -135,11 +140,14 @@ const PhotosManagement: React.FC = () => {
             disabled={pagination.current_page === 1}
             className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Anterior
+            {t("pagination.previous")}
           </button>
 
           <span className="px-3 py-1">
-            Página {pagination.current_page} de {pagination.total_pages}
+            {t("pagination.page", {
+              current: pagination.current_page,
+              total: pagination.total_pages,
+            })}
           </span>
 
           <button
@@ -147,7 +155,7 @@ const PhotosManagement: React.FC = () => {
             disabled={pagination.current_page === pagination.total_pages}
             className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Próxima
+            {t("pagination.next")}
           </button>
         </div>
       )}

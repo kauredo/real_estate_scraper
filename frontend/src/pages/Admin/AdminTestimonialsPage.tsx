@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Testimonial } from "../../utils/interfaces";
 import { adminGetTestimonials } from "../../services/api";
@@ -11,6 +12,7 @@ interface PaginationState {
 }
 
 const AdminTestimonialsPage = () => {
+  const { t } = useTranslation();
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [pagination, setPagination] = useState<PaginationState>({
     current_page: 1,
@@ -57,15 +59,15 @@ const AdminTestimonialsPage = () => {
           to="/backoffice/testimonials/new"
           className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          Novo Testemunho
+          {t("admin.testimonials.new")}
         </Link>
       </div>
 
       <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
-        Testemunhos
+        {t("admin.testimonials.title")}
       </h2>
       <p className="text-center text-gray-600 max-w-none">
-        Total {pagination.total_count} testemunhos
+        {t("admin.testimonials.totalCount", { count: pagination.total_count })}
       </p>
 
       {/* Pagination */}
@@ -76,11 +78,14 @@ const AdminTestimonialsPage = () => {
             disabled={pagination.current_page === 1}
             className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
           >
-            Anterior
+            {t("pagination.previous")}
           </button>
 
           <span className="px-3 py-1">
-            Página {pagination.current_page} de {pagination.total_pages}
+            {t("pagination.page", {
+              current: pagination.current_page,
+              total: pagination.total_pages,
+            })}
           </span>
 
           <button
@@ -88,7 +93,7 @@ const AdminTestimonialsPage = () => {
             disabled={pagination.current_page === pagination.total_pages}
             className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
           >
-            Próxima
+            {t("pagination.next")}
           </button>
         </div>
       )}
@@ -99,16 +104,16 @@ const AdminTestimonialsPage = () => {
           <thead>
             <tr className="bg-gray-100 dark:bg-gray-700">
               <th className="border border-gray-300 px-4 py-2 text-left text-sm font-medium text-gray-900 dark:text-light">
-                ID
+                {t("admin.testimonials.table.id")}
               </th>
               <th className="border border-gray-300 px-4 py-2 text-left text-sm font-medium text-gray-900 dark:text-light">
-                Nome
+                {t("admin.testimonials.table.name")}
               </th>
               <th className="border border-gray-300 px-4 py-2 text-left text-sm font-medium text-gray-900 dark:text-light">
-                Testemunho
+                {t("admin.testimonials.table.testimonial")}
               </th>
               <th className="border border-gray-300 px-4 py-2 text-left text-sm font-medium text-gray-900 dark:text-light">
-                Ações
+                {t("admin.testimonials.table.actions")}
               </th>
             </tr>
           </thead>
@@ -139,13 +144,13 @@ const AdminTestimonialsPage = () => {
                       href={`/backoffice/testimonials/${testimonial.id}`}
                       className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-1 px-3 rounded text-xs"
                     >
-                      Ver
+                      {t("common.view")}
                     </a>
                     <a
                       href={`/backoffice/testimonials/${testimonial.id}/edit`}
                       className="bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-1 px-3 rounded text-xs"
                     >
-                      Editar
+                      {t("common.edit")}
                     </a>
                   </div>
                 </td>
@@ -159,7 +164,7 @@ const AdminTestimonialsPage = () => {
       {testimonials.length === 0 && (
         <div className="text-center py-8">
           <p className="text-gray-500 dark:text-light">
-            Nenhum testemunho encontrado.
+            {t("admin.testimonials.empty")}
           </p>
         </div>
       )}
@@ -172,11 +177,14 @@ const AdminTestimonialsPage = () => {
             disabled={pagination.current_page === 1}
             className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
           >
-            Anterior
+            {t("pagination.previous")}
           </button>
 
           <span className="px-3 py-1">
-            Página {pagination.current_page} de {pagination.total_pages}
+            {t("pagination.page", {
+              current: pagination.current_page,
+              total: pagination.total_pages,
+            })}
           </span>
 
           <button
@@ -184,7 +192,7 @@ const AdminTestimonialsPage = () => {
             disabled={pagination.current_page === pagination.total_pages}
             className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
           >
-            Próxima
+            {t("pagination.next")}
           </button>
         </div>
       )}

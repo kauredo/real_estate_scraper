@@ -95,14 +95,14 @@ const AdminTestimonialDetailPage = () => {
         </div>
 
         <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mb-6">
-          {t("admin.testimonials.detail")}
+          {t("admin.testimonials.form.testimonial")}
         </h1>
 
         <div className="max-w-2xl mx-auto">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
             <div className="mb-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                {t("admin.testimonials.fields.name")}
+                {t("admin.testimonials.form.name")}
               </h3>
               <p className="text-gray-700 dark:text-gray-300 text-xl font-medium">
                 {testimonial.name}
@@ -111,7 +111,7 @@ const AdminTestimonialDetailPage = () => {
 
             <div className="mb-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                {t("admin.testimonials.fields.text")}
+                {t("admin.testimonials.form.testimonial")}
               </h3>
               <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed italic">
@@ -122,7 +122,7 @@ const AdminTestimonialDetailPage = () => {
 
             <div className="border-t pt-4">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                {t("admin.testimonials.fields.metadata")}
+                {t("admin.testimonials.form.metadata")}
               </h3>
               <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-sm">
                 <p className="mb-2">
