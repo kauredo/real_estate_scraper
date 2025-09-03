@@ -16,7 +16,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
                       .reject(&:empty?) # Remove empty strings from splitting
 
     # Convert wildcard patterns to regex for proper matching
-    origins cors_origins.map do |origin|
+    processed_origins = cors_origins.map do |origin|
       if origin.include?('*')
         # Convert wildcard pattern to regex
         regex_pattern = origin.gsub('.', '\.').gsub('*', '.*')
@@ -25,6 +25,8 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
         origin
       end
     end
+
+    origins processed_origins
 
     resource '*',
              headers: :any,
