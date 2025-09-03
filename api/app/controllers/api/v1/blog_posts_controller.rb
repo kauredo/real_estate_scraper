@@ -3,8 +3,6 @@
 module Api
   module V1
     class BlogPostsController < Api::V1::BaseController
-      include Pagy::Backend
-
       def index
         @blog_posts = BlogPost.visible
         paginated = paginate(@blog_posts, serializer: BlogPostSerializer)

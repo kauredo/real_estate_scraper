@@ -3,8 +3,6 @@
 module Api
   module V1
     class ClubStoriesController < Api::V1::BaseController
-      include Pagy::Backend
-
       def index
         club_stories = ClubStory.visible
         paginated = paginate(club_stories, serializer: ClubStorySerializer)

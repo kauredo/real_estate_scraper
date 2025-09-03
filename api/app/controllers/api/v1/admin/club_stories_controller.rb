@@ -4,7 +4,6 @@ module Api
   module V1
     module Admin
       class ClubStoriesController < Api::V1::Admin::BaseController
-        include Pagy::Backend
         before_action :find_club_story, except: %i[index create]
         after_action :update_video_link, only: %i[create update]
 

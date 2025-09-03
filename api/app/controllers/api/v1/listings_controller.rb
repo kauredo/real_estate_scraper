@@ -3,8 +3,6 @@
 module Api
   module V1
     class ListingsController < Api::V1::BaseController
-      include Pagy::Backend
-
       def index
         @q = Listing.includes([:translations]).ransack(params[:q])
         listings = @q.result
