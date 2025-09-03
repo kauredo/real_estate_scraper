@@ -9,7 +9,22 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins ENV.fetch('CORS_ORIGINS', 'http://localhost:5173')
+    # Split CORS_ORIGINS by comma and clean up whitespace
+    cors_origins = ENV.fetch('CORS_ORIGINS', 'http://localhost:5173')
+                      .split(',')
+                      .map(&:strip)
+                      .reject(&:empty?) # Remove empty strings from splitting
+
+    # Convert wildcard patterns to regex for proper matching
+    origins cors_origins.map do |origin|
+      if origin.include?('*')
+        # Convert wildcard pattern to regex
+        regex_pattern = origin.gsub('.', '\.').gsub('*', '.*')
+        /^#{regex_pattern}$/
+      else
+        origin
+      end
+    end
 
     resource '*',
              headers: :any,
