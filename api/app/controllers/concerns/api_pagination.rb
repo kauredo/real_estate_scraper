@@ -8,11 +8,11 @@ module ApiPagination
     pagy, paginated_collection = pagy(collection, items: params[:per_page] || 25)
 
     data = if serializer
-             ActiveModelSerializers::SerializableResource.new(
+             ActiveModel::Serializer::CollectionSerializer.new(
                paginated_collection,
-               each_serializer: serializer,
+               serializer:,
                **serializer_options
-             ).as_json[collection.model_name.plural.to_sym]
+             ).as_json
            else
              paginated_collection
            end

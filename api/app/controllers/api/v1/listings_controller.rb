@@ -22,7 +22,7 @@ module Api
           listings = listings.objective_sale if params[:q][:objective_eq].blank?
         end
 
-        paginated = paginate(listings)
+        paginated = paginate(listings, serializer: ListingSerializer)
 
         render json: {
           listings: paginated[:data],
@@ -31,7 +31,7 @@ module Api
           stats_keys: Listing.unscoped.possible_stats_keys,
           kinds: Listing.kinds.reject { |k, _v| k == 'other' },
           objectives: Listing.objectives.reject { |k, _v| k == 'other' }
-        }, each_serializer: ListingSerializer
+        }
       end
 
       def show

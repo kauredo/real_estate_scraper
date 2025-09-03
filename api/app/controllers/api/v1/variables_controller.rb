@@ -5,8 +5,10 @@ module Api
     class VariablesController < Api::V1::BaseController
       def index
         @variables = Variable.all
-        render json: @variables,
-               each_serializer: VariableSerializer
+        render json: ActiveModel::Serializer::CollectionSerializer.new(
+          @variables,
+          serializer: VariableSerializer
+        )
       end
     end
   end

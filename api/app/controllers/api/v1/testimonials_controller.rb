@@ -5,8 +5,10 @@ module Api
     class TestimonialsController < Api::V1::BaseController
       def index
         @testimonials = Testimonial.all
-        render json: @testimonials,
-               each_serializer: TestimonialSerializer
+        render json: ActiveModel::Serializer::CollectionSerializer.new(
+          @testimonials,
+          serializer: TestimonialSerializer
+        )
       end
     end
   end

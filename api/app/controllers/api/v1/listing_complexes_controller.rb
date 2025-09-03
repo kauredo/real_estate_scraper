@@ -7,12 +7,12 @@ module Api
 
       def index
         listing_complexes = ListingComplex.includes(:translations, :photos).where(hidden: false)
-        paginated = paginate(listing_complexes)
+        paginated = paginate(listing_complexes, serializer: ListingComplexSerializer)
 
         render json: {
           listing_complexes: paginated[:data],
           pagination: paginated[:pagination]
-        }, each_serializer: ListingComplexSerializer
+        }
       end
 
       def show

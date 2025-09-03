@@ -60,10 +60,10 @@ module Api
       end
 
       def serialize_collection(collection, serializer)
-        ActiveModelSerializers::SerializableResource.new(
+        ActiveModel::Serializer::CollectionSerializer.new(
           collection,
-          each_serializer: serializer
-        ).as_json[collection.klass.name.underscore.pluralize.to_sym]
+          serializer:
+        ).as_json
       end
     end
   end

@@ -10,12 +10,12 @@ module Api
 
         def index
           @club_stories = ClubStory.all
-          paginated = paginate(@club_stories)
+          paginated = paginate(@club_stories, serializer: ClubStorySerializer)
 
           render json: {
             club_stories: paginated[:data],
             pagination: paginated[:pagination]
-          }, each_serializer: ClubStorySerializer
+          }
         end
 
         def show
