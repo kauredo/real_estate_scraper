@@ -7,10 +7,17 @@ import {
   adminGetBlogPost,
   adminCreateBlogPost,
   adminUpdateBlogPost,
-  adminUploadBlogPhoto,
+  adminDeleteBlogPhoto, // You'll need to implement this API call
 } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import { isDarkModeActive } from "../../utils/functions";
+
+interface BlogPhoto {
+  id: number;
+  main: boolean;
+  image: { url: string };
+  blog_post_id?: number;
+}
 
 interface BlogPostFormData {
   title: string;
@@ -20,7 +27,7 @@ interface BlogPostFormData {
   meta_title: string;
   meta_description: string;
   video_link?: string;
-  blog_photos: { id: number; main: boolean; image: { url: string } }[];
+  blog_photos: BlogPhoto[];
 }
 
 const AdminBlogPostEditPage = () => {
@@ -31,6 +38,7 @@ const AdminBlogPostEditPage = () => {
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [newPhotos, setNewPhotos] = useState<File[]>([]); // Store new photos to upload
   const [formData, setFormData] = useState<BlogPostFormData>({
     title: "",
     small_description: "",
@@ -46,19 +54,9 @@ const AdminBlogPostEditPage = () => {
     accept: {
       "image/*": [".png", ".jpg", ".jpeg", ".webp"],
     },
-    onDrop: async acceptedFiles => {
-      if (!id) return;
-
-      try {
-        for (const file of acceptedFiles) {
-          const formData = new FormData();
-          formData.append("image", file);
-          await adminUploadBlogPhoto(parseInt(id), formData);
-        }
-        fetchBlogPost();
-      } catch (error) {
-        console.error("Error uploading photos:", error);
-      }
+    onDrop: acceptedFiles => {
+      // Store files to upload later with form submission
+      setNewPhotos(prev => [...prev, ...acceptedFiles]);
     },
   });
 
@@ -71,7 +69,7 @@ const AdminBlogPostEditPage = () => {
     try {
       const response = await adminGetBlogPost(parseInt(id));
       const post = response.data.blog_post;
-      console.log(post);
+
       setFormData({
         title: post.title,
         small_description: post.small_description,
@@ -98,13 +96,45 @@ const AdminBlogPostEditPage = () => {
     setSaving(true);
 
     try {
+      // Prepare form data similar to Ruby form
+      const submitData = new FormData();
+
+      // Add blog post data
+      Object.entries(formData).forEach(([key, value]) => {
+        if (key !== "blog_photos") {
+          if (typeof value === "boolean") {
+            submitData.append(`blog_post[${key}]`, value.toString());
+          } else if (value !== null && value !== undefined) {
+            submitData.append(`blog_post[${key}]`, value.toString());
+          }
+        }
+      });
+
+      // Add new photo files (similar to Ruby's photos[image][] array)
+      if (newPhotos.length > 0) {
+        newPhotos.forEach(photo => {
+          submitData.append("blog_photos[image][]", photo);
+        });
+      }
+
+      // Add existing photo updates (similar to Ruby's photos[] fields_for)
+      if (isEditing && formData.blog_photos.length > 0) {
+        formData.blog_photos.forEach(photo => {
+          submitData.append(
+            `blog_photos[${photo.id}][main]`,
+            photo.main.toString()
+          );
+        });
+      }
+
       if (isEditing) {
-        await adminUpdateBlogPost(parseInt(id!), formData);
-        await fetchBlogPost();
+        await adminUpdateBlogPost(parseInt(id!), submitData);
+        // Clear new photos after successful upload
+        setNewPhotos([]);
+        await fetchBlogPost(); // Refresh to get updated photos
       } else {
-        const response = await adminCreateBlogPost(formData);
-        console.log("Blog post created:", response.data);
-        navigate(appRoutes.backoffice.editBlogPost(response.data.id));
+        const response = await adminCreateBlogPost(submitData);
+        navigate(appRoutes.backoffice.editBlogPost(response.data.blog_post.id));
       }
     } catch (error) {
       console.error("Error saving blog post:", error);
@@ -122,6 +152,36 @@ const AdminBlogPostEditPage = () => {
       [name]:
         type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
     }));
+  };
+
+  const updatePhotoMain = (photoId: number) => {
+    setFormData(prev => ({
+      ...prev,
+      blog_photos: prev.blog_photos.map(p => ({
+        ...p,
+        main: p.id === photoId, // Only the selected photo is main
+      })),
+    }));
+  };
+
+  const deletePhoto = async (photoId: number) => {
+    if (!confirm(t("admin.common.delete_photo_confirm"))) {
+      return;
+    }
+
+    try {
+      await adminDeleteBlogPhoto(photoId);
+      setFormData(prev => ({
+        ...prev,
+        blog_photos: prev.blog_photos.filter(p => p.id !== photoId),
+      }));
+    } catch (error) {
+      console.error("Error deleting photo:", error);
+    }
+  };
+
+  const removeNewPhoto = (index: number) => {
+    setNewPhotos(prev => prev.filter((_, i) => i !== index));
   };
 
   if (loading) {
@@ -295,43 +355,76 @@ const AdminBlogPostEditPage = () => {
             </div>
           </div>
 
-          {(isEditing || formData.blog_photos.length > 0) && (
-            <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
-              <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
-                <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                  {t("admin.common.media_section")}
-                </h2>
-              </div>
+          <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
+            <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
+              <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                {t("admin.common.media_section")}
+              </h2>
+            </div>
 
-              {isEditing && (
-                <div
-                  {...getRootProps()}
-                  className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg cursor-pointer hover:border-beige-medium transition-colors duration-200"
+            {/* Photo Upload Dropzone */}
+            <div
+              {...getRootProps()}
+              className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg cursor-pointer hover:border-beige-medium transition-colors duration-200"
+            >
+              <div className="space-y-1 text-center">
+                <svg
+                  className="mx-auto h-12 w-12 text-gray-400"
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 48 48"
+                  aria-hidden="true"
                 >
-                  <div className="space-y-1 text-center">
-                    <svg
-                      className="mx-auto h-12 w-12 text-gray-400"
-                      stroke="currentColor"
-                      fill="none"
-                      viewBox="0 0 48 48"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <div className="flex text-sm text-gray-600 dark:text-gray-400">
-                      <input {...getInputProps()} />
-                      <p className="pl-1">{t("admin.common.dropzone")}</p>
-                    </div>
-                  </div>
+                  <path
+                    d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <div className="flex text-sm text-gray-600 dark:text-gray-400">
+                  <input {...getInputProps()} />
+                  <p className="pl-1">{t("admin.common.dropzone")}</p>
                 </div>
-              )}
+              </div>
+            </div>
 
-              {formData.blog_photos.length > 0 && (
+            {/* Show new photos to be uploaded */}
+            {newPhotos.length > 0 && (
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                  New Photos (will be uploaded on save)
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                  {newPhotos.map((photo, index) => (
+                    <div
+                      key={index}
+                      className="relative bg-white dark:bg-gray-800 rounded-lg shadow-md p-2"
+                    >
+                      <img
+                        src={URL.createObjectURL(photo)}
+                        alt="New photo preview"
+                        className="w-full h-48 object-cover rounded-lg mb-2"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeNewPhoto(index)}
+                        className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs hover:bg-red-700 transition-colors"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Existing Photos */}
+            {formData.blog_photos.length > 0 && (
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                  Current Photos
+                </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                   {formData.blog_photos.map(photo => (
                     <div
@@ -344,58 +437,30 @@ const AdminBlogPostEditPage = () => {
                         className="w-full h-48 object-cover rounded-lg mb-2"
                       />
 
-                      <div className="flex items-center justify-between px-2">
+                      <div className="space-y-2">
                         <div className="flex items-center gap-2">
-                          <div className="flex items-center gap-2">
-                            <input
-                              type="checkbox"
-                              id={`main-${photo.id}`}
-                              checked={photo.main}
-                              onChange={() => {
-                                setFormData(prev => ({
-                                  ...prev,
-                                  blog_photos: prev.blog_photos.map(p => ({
-                                    ...p,
-                                    main: p.id === photo.id,
-                                  })),
-                                }));
-                              }}
-                              className="form-checkbox h-4 w-4 text-beige-default rounded border-gray-300 focus:ring-beige-medium"
-                            />
-                            <label
-                              htmlFor={`main-${photo.id}`}
-                              className="text-sm font-medium text-gray-700 dark:text-gray-300"
-                            >
-                              Main
-                            </label>
-                          </div>
+                          <input
+                            type="checkbox"
+                            id={`main-${photo.id}`}
+                            checked={photo.main}
+                            onChange={() => updatePhotoMain(photo.id)}
+                            className="form-checkbox h-4 w-4 text-beige-default rounded border-gray-300 focus:ring-beige-medium"
+                          />
+                          <label
+                            htmlFor={`main-${photo.id}`}
+                            className="text-sm font-medium text-gray-700 dark:text-gray-300"
+                          >
+                            Main Photo
+                          </label>
                         </div>
 
                         <button
-                          onClick={async () => {
-                            if (
-                              !confirm(t("admin.common.delete_photo_confirm"))
-                            ) {
-                              return;
-                            }
-
-                            try {
-                              // Add your delete API call here
-                              // await adminDeleteBlogPhoto(photo.id);
-                              setFormData(prev => ({
-                                ...prev,
-                                blog_photos: prev.blog_photos.filter(
-                                  p => p.id !== photo.id
-                                ),
-                              }));
-                            } catch (error) {
-                              console.error("Error deleting photo:", error);
-                            }
-                          }}
-                          className="text-red-500 hover:text-red-700 transition-colors"
-                          title={t("admin.common.delete_photo")}
+                          type="button"
+                          onClick={() => deletePhoto(photo.id)}
+                          className="w-full text-red-500 hover:text-red-700 transition-colors text-sm"
                         >
-                          <i className="fas fa-trash-alt"></i>
+                          <i className="fas fa-trash-alt mr-1"></i>
+                          Delete Photo
                         </button>
                       </div>
 
@@ -407,9 +472,9 @@ const AdminBlogPostEditPage = () => {
                     </div>
                   ))}
                 </div>
-              )}
-            </div>
-          )}
+              </div>
+            )}
+          </div>
 
           <div className="flex justify-end">
             <button

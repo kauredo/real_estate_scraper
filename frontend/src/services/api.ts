@@ -119,10 +119,29 @@ export const getBlogPost = slug => api.get(apiRoutes.blogPost(slug));
 export const adminGetBlogPosts = (params = {}) =>
   api.get(apiRoutes.admin.blogPosts, { params });
 export const adminGetBlogPost = id => api.get(apiRoutes.admin.blogPost(id));
-export const adminCreateBlogPost = data =>
-  api.post(apiRoutes.admin.blogPosts, { blog_post: data });
-export const adminUpdateBlogPost = (id, data) =>
-  api.put(apiRoutes.admin.blogPost(id), { blog_post: data });
+export const adminCreateBlogPost = data => {
+  if (data instanceof FormData) {
+    return api.post(apiRoutes.admin.blogPosts, data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  } else {
+    return api.post(apiRoutes.admin.blogPosts, { blog_post: data });
+  }
+};
+export const adminUpdateBlogPost = (id, data) => {
+  if (data instanceof FormData) {
+    return api.put(apiRoutes.admin.blogPost(id), data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  } else {
+    return api.put(apiRoutes.admin.blogPost(id), { blog_post: data });
+  }
+};
+
 export const adminDeleteBlogPost = id =>
   api.delete(apiRoutes.admin.blogPost(id));
 

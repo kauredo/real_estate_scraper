@@ -17,7 +17,7 @@ const BlogPostDetailPage = () => {
       try {
         setLoading(true);
         const response = await getBlogPost(slug);
-        setBlogPost(response.data);
+        setBlogPost(response.data.blog_post);
       } catch (error) {
         console.error("Error fetching blog post:", error);
       } finally {

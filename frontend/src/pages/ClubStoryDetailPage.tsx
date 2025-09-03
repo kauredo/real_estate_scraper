@@ -33,8 +33,7 @@ export default function ClubStoryDetailPage({ isBackoffice = false }: Props) {
       try {
         setLoading(true);
         const response = await getClubStory(slug);
-        console.log(response.data);
-        setClubStory(response.data);
+        setClubStory(response.data.club_story);
       } catch (error) {
         console.error("Error fetching club story:", error);
       } finally {

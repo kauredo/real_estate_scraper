@@ -29,11 +29,12 @@ module Api
           @blog_post = BlogPost.new(blog_post_params)
 
           if @blog_post.save
+
             create_blog_photos if params[:blog_photos] && params[:blog_photos][:image]&.any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
 
             render json: {
               message: 'Post criado com sucesso',
-              blog_post: BlogPostSerializer.new(@blog_post)
+              blog_post: BlogPostSerializer.new(@blog_post, include_photos: true)
             }, status: :created
           else
             render json: { errors: @blog_post.errors.full_messages }, status: :unprocessable_entity
@@ -42,8 +43,10 @@ module Api
 
         def update
           if @blog_post.update(blog_post_params)
+
             create_blog_photos if params[:blog_photos] && params[:blog_photos][:image]&.any? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) }
-            update_blog_photos if params[:blog_photos].present? && (params[:blog_photos][:image].blank? || params[:blog_photos][:image].none? { |img| img.is_a?(ActionDispatch::Http::UploadedFile) })
+
+            update_blog_photos if params[:blog_photos].present?
 
             render json: {
               message: 'Post atualizado com sucesso',
@@ -67,7 +70,7 @@ module Api
         def create_blog_photos
           upload_errors = []
 
-          params[:blog_photos][:image].each do |photo|
+          Array(params[:blog_photos][:image]).each do |photo|
             next unless photo.is_a?(ActionDispatch::Http::UploadedFile)
 
             if File.size(photo) > 10_485_760
@@ -81,13 +84,16 @@ module Api
         end
 
         def update_blog_photos
-          params[:blog_photos].each do |id, values|
-            next if id == 'image'
+          blog_photos_params.to_h.each do |key, values|
+            next if key == 'image'
 
-            photo = BlogPhoto.find(id)
-            photo.main = values['main']
-
-            photo.save if photo.changed?
+            begin
+              photo = BlogPhoto.find(key)
+              photo.main = values['main'] == 'true' if values['main'].present?
+              photo.save if photo.changed?
+            rescue ActiveRecord::RecordNotFound
+              next
+            end
           end
         end
 
@@ -110,13 +116,11 @@ module Api
                                             :hidden,
                                             :meta_title,
                                             :meta_description,
-                                            :video_link,
-                                            blog_photos: %i[
-                                              id
-                                              blog_post_id
-                                              image
-                                              main
-                                            ])
+                                            :video_link)
+        end
+
+        def blog_photos_params
+          params.require(:blog_photos).permit!
         end
       end
     end

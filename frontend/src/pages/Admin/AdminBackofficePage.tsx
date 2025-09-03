@@ -24,7 +24,7 @@ const AdminBackofficePage = () => {
           adminGetClubUsers(),
         ]);
 
-        setVariables(variablesRes.data.variables);
+        setVariables(variablesRes.data);
         setSubs(subsRes.data.newsletter_subscriptions);
         setClubUsers(clubUsersRes.data.club_users);
       } catch (error) {

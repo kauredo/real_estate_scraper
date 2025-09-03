@@ -16,7 +16,7 @@ const ListingDetailPage = () => {
       try {
         setLoading(true);
         const response = await getListing(slug);
-        setListing(response.data);
+        setListing(response.data.listing);
       } catch (error) {
         console.error(
           "Error fetching listing:",
