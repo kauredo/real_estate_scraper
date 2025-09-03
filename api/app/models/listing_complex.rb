@@ -31,7 +31,7 @@ class ListingComplex < ApplicationRecord
                 .gsub('para um', '').gsub('for a', '').gsub('apartamento', '').gsub('apartment', '').gsub('euros', '').gsub('bedroom', '').gsub(',', '').gsub('.', '')
                 .strip.capitalize
 
-      [apt, ApplicationHelper.number_to_currency(price, unit: '€', precision: 0, format: '%n %u', delimiter: '.')]
+      [apt, ActionController::Base.helpers.number_to_currency(price, unit: '€', precision: 0, format: '%n %u', delimiter: '.')]
     end
     [name, apt_and_price]
   end
