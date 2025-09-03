@@ -23,8 +23,8 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-# Install Node.js
-ARG NODE_VERSION=19.4.0
+# Install Node.js (needed for some gems like execjs)
+ARG NODE_VERSION=20.17.0
 ENV PATH="/usr/local/node/bin:$PATH"
 RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
     /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
@@ -77,7 +77,7 @@ RUN apt-get update -qq && \
         xdg-utils \
         && rm -rf /var/lib/apt/lists/*
 
-ARG CHROME_VERSION=124.0.6367.91
+ARG CHROME_VERSION=131.0.6778.87
 
 # Download and install Chrome
 RUN apt-get update && \
@@ -102,22 +102,11 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential libpq-dev libvips node-gyp pkg-config python-is-python3
 
-# Install yarn
-ARG YARN_VERSION=1.22.19
-RUN npm install -g yarn@$YARN_VERSION
-
-# Build options
-ENV PATH="/usr/local/node/bin:$PATH"
-
 # Install application gems
 COPY --link Gemfile Gemfile.lock ./
 RUN bundle install && \
     bundle exec bootsnap precompile --gemfile && \
     rm -rf ~/.bundle/ $BUNDLE_PATH/ruby/*/cache $BUNDLE_PATH/ruby/*/bundler/gems/*/.git
-
-# Install node modules
-COPY --link package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
 
 # Copy application code
 COPY --link . .
@@ -127,9 +116,6 @@ RUN bundle exec bootsnap precompile app/ lib/
 
 # Adjust binfiles to set current working directory
 RUN grep -l '#!/usr/bin/env ruby' /rails/bin/* | xargs sed -i '/^#!/aDir.chdir File.expand_path("..", __dir__)'
-
-# Precompile assets
-RUN SECRET_KEY_BASE=DUMMY RAILS_GROUPS=assets bundle exec rails assets:precompile
 
 # Final stage for app image
 FROM base
@@ -148,9 +134,9 @@ USER rails:rails
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build --chown=rails:rails /rails /rails
 
-# Deployment options
+# Deployment options for API
 ENV RAILS_LOG_TO_STDOUT="1" \
-    RAILS_SERVE_STATIC_FILES="true"
+    RAILS_SERVE_STATIC_FILES="false"
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]

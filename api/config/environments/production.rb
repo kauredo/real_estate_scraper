@@ -3,6 +3,10 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  config.hosts << /.*\.railway\.app/
+  config.hosts << /.*\.vercel\.app/
+  config.hosts << /.*\.netlify\.app/
+  config.hosts << /.*\.sofiagalvaogroup\.com/
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
