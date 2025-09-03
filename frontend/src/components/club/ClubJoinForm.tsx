@@ -21,7 +21,7 @@ export default function ClubJoinForm() {
     if (valid_params && form.current) {
       form.current.submit();
       setFlash({
-        type: "notice",
+        type: "success", // Changed from "notice" to "success" for better styling
         message: t("club.flash.join.thanks"),
       });
       form.current.reset();
@@ -37,10 +37,18 @@ export default function ClubJoinForm() {
     }
   };
 
+  const clearFlash = () => {
+    setFlash({ type: "", message: "" });
+  };
+
   return (
     <div className="p-8 relative rounded-lg bg-white/50 dark:bg-dark/50">
       {flash.type && flash.message && (
-        <Flashes type={flash.type} message={flash.message} />
+        <Flashes
+          type={flash.type}
+          message={flash.message}
+          onClose={clearFlash}
+        />
       )}
       <h3 className="text-lg text-gray-700 dark:text-gray-200 leading-relaxed mb-0">
         {t("club.form.titles.main")}

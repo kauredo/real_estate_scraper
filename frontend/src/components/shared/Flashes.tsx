@@ -3,50 +3,86 @@ import React, { useEffect, useState } from "react";
 interface Props {
   type: string;
   message: string;
+  onClose?: () => void;
 }
 
-export default function Flashes(props: Props): JSX.Element {
+export default function Flashes(props: Props): React.JSX.Element {
   const [visible, setVisible] = useState(false);
-  const { type, message } = props;
+  const { type, message, onClose } = props;
 
   useEffect(() => {
-    setVisible(true);
-    setTimeout(() => {
-      setVisible(false);
-    }, 3000);
-  }, []);
+    if (message) {
+      setVisible(true);
+      const timer = setTimeout(() => {
+        setVisible(false);
+        if (onClose) {
+          setTimeout(onClose, 300); // Delay to allow fade animation
+        }
+      }, 5000); // Increased to 5 seconds for better UX
 
-  if (!visible) {
+      return () => clearTimeout(timer);
+    }
+  }, [message, onClose]);
+
+  const handleClose = () => {
+    setVisible(false);
+    if (onClose) {
+      setTimeout(onClose, 300);
+    }
+  };
+
+  if (!visible || !message) {
     return <></>;
   }
 
+  const getFlashStyles = () => {
+    switch (type) {
+      case "error":
+        return "bg-red-100 border-red-400 text-red-700 dark:bg-red-900/20 dark:border-red-600 dark:text-red-400";
+      case "success":
+        return "bg-green-100 border-green-400 text-green-700 dark:bg-green-900/20 dark:border-green-600 dark:text-green-400";
+      case "warning":
+        return "bg-yellow-100 border-yellow-400 text-yellow-700 dark:bg-yellow-900/20 dark:border-yellow-600 dark:text-yellow-400";
+      default: // notice/info
+        return "bg-blue-100 border-blue-400 text-blue-700 dark:bg-blue-900/20 dark:border-blue-600 dark:text-blue-400";
+    }
+  };
+
+  const getIconColor = () => {
+    switch (type) {
+      case "error":
+        return "text-red-500 dark:text-red-400";
+      case "success":
+        return "text-green-500 dark:text-green-400";
+      case "warning":
+        return "text-yellow-500 dark:text-yellow-400";
+      default:
+        return "text-blue-500 dark:text-blue-400";
+    }
+  };
+
   return (
     <div
-      className={`container mx-auto absolute top-0 left-0 right-0 z-50 border px-4 py-3 rounded ${
-        type === "error"
-          ? "bg-red-100 border-red-400 text-red-700"
-          : "bg-blue-100 border-blue-400 text-blue-700"
-      }`}
+      className={`fixed top-4 right-4 z-50 border px-4 py-3 rounded-lg shadow-lg max-w-md transition-all duration-300 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+      } ${getFlashStyles()}`}
       role="alert"
     >
-      <div className="relative container mx-auto">
-        <span className="block sm:inline">{message}</span>
-        <span
-          onClick={() => setVisible(false)}
-          className="absolute top-0 bottom-0 right-0"
+      <div className="flex items-start justify-between">
+        <span className="block pr-8">{message}</span>
+        <button
+          onClick={handleClose}
+          className="flex-shrink-0 ml-2 p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
         >
           <svg
-            className={`fill-current h-6 w-6 ${
-              type === "error" ? "text-red-500" : "text-blue-500"
-            }`}
-            role="button"
+            className={`h-4 w-4 ${getIconColor()}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
+            fill="currentColor"
           >
-            <title>Close</title>
-            <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+            <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
           </svg>
-        </span>
+        </button>
       </div>
     </div>
   );

@@ -1810,22 +1810,23 @@
       "variables": "Variables"
     },
     "common": {
-      "content_section": "Content",
-      "media_section": "Media",
-      "seo_section": "SEO",
-      "dropzone": "Drag and drop files here, or click to select",
-      "main_photo": "Main Photo",
-      "saving": "Saving...",
-      "save": "Save",
-      "edit": "Edit",
+      "content_section": "Content Information",
+      "delete_photo_confirm": "Are you sure you want to delete this photo?",
       "delete": "Delete",
-      "view": "View",
+      "dropzone": "Drag and drop files here, or click to select",
+      "edit": "Edit",
+      "loading": "Loading...",
+      "main_photo": "Main Photo",
+      "media_section": "Media & Photos",
       "new": "New",
-      "total": "Total",
       "readMore": "Read More",
-      "loading": "Loading..."
+      "save": "Save",
+      "saving": "Saving...",
+      "seo_section": "SEO Information",
+      "total": "Total",
+      "view": "View"
     },
-    "blogPosts": {
+    "blog_posts": {
       "title": "Blog Posts",
       "new": "New Post",
       "edit": "Edit Post",
@@ -1838,16 +1839,23 @@
       "video_link": "Video Link",
       "hidden": "Hidden from site",
       "totalCount": "Total {{count}} posts",
-      "not_found": "Post not found"
-    },
-    "blog_posts": {
+      "not_found": "Post not found",
       "title": "Title",
       "small_description": "Short Description",
       "content": "Content",
       "video_link": "Video Link",
       "meta_title": "SEO Title",
       "meta_description": "SEO Description",
-      "hidden": "Hidden from site"
+      "hidden": "Hidden from site",
+      "edit": "Edit Blog Post",
+      "new": "New Blog Post",
+      "create_success": "Blog post created successfully!",
+      "update_success": "Blog post updated successfully!",
+      "create_error": "Error creating blog post. Please try again.",
+      "update_error": "Error updating blog post. Please try again.",
+      "fetch_error": "Error loading blog post. Please try again.",
+      "photo_delete_success": "Photo deleted successfully!",
+      "photo_delete_error": "Error deleting photo. Please try again."
     },
     "clubStories": {
       "title": "Club Stories",

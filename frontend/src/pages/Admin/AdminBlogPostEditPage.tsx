@@ -11,6 +11,7 @@ import {
 } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import { isDarkModeActive } from "../../utils/functions";
+import Flashes from "../../components/shared/Flashes";
 
 interface BlogPhoto {
   id: number;
@@ -30,6 +31,11 @@ interface BlogPostFormData {
   blog_photos: BlogPhoto[];
 }
 
+interface FlashMessage {
+  type: string;
+  message: string;
+}
+
 const AdminBlogPostEditPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -39,6 +45,7 @@ const AdminBlogPostEditPage = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [newPhotos, setNewPhotos] = useState<File[]>([]); // Store new photos to upload
+  const [flash, setFlash] = useState<FlashMessage | null>(null);
   const [formData, setFormData] = useState<BlogPostFormData>({
     title: "",
     small_description: "",
@@ -82,6 +89,10 @@ const AdminBlogPostEditPage = () => {
       });
     } catch (error) {
       console.error("Error fetching blog post:", error);
+      setFlash({
+        type: "error",
+        message: t("admin.blog_posts.fetch_error"),
+      });
     } finally {
       setLoading(false);
     }
@@ -94,6 +105,8 @@ const AdminBlogPostEditPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
+    // Clear any existing flash messages
+    setFlash(null);
 
     try {
       // Prepare form data similar to Ruby form
@@ -132,12 +145,26 @@ const AdminBlogPostEditPage = () => {
         // Clear new photos after successful upload
         setNewPhotos([]);
         await fetchBlogPost(); // Refresh to get updated photos
+        setFlash({
+          type: "success",
+          message: t("admin.blog_posts.update_success"),
+        });
       } else {
         const response = await adminCreateBlogPost(submitData);
+        setFlash({
+          type: "success",
+          message: t("admin.blog_posts.create_success"),
+        });
         navigate(appRoutes.backoffice.editBlogPost(response.data.blog_post.id));
       }
     } catch (error) {
       console.error("Error saving blog post:", error);
+      setFlash({
+        type: "error",
+        message: isEditing
+          ? t("admin.blog_posts.update_error")
+          : t("admin.blog_posts.create_error"),
+      });
     } finally {
       setSaving(false);
     }
@@ -175,13 +202,25 @@ const AdminBlogPostEditPage = () => {
         ...prev,
         blog_photos: prev.blog_photos.filter(p => p.id !== photoId),
       }));
+      setFlash({
+        type: "success",
+        message: t("admin.blog_posts.photo_delete_success"),
+      });
     } catch (error) {
       console.error("Error deleting photo:", error);
+      setFlash({
+        type: "error",
+        message: t("admin.blog_posts.photo_delete_error"),
+      });
     }
   };
 
   const removeNewPhoto = (index: number) => {
     setNewPhotos(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const clearFlash = () => {
+    setFlash(null);
   };
 
   if (loading) {
@@ -194,6 +233,15 @@ const AdminBlogPostEditPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      {/* Flash Messages */}
+      {flash && (
+        <Flashes
+          type={flash.type}
+          message={flash.message}
+          onClose={clearFlash}
+        />
+      )}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8 flex items-center justify-between">
           <div>

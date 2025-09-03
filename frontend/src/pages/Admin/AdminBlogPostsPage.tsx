@@ -59,14 +59,14 @@ const AdminBlogPostsPage = () => {
           to={appRoutes.backoffice.newBlogPost}
           className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          {t("admin.blogPosts.new")}
+          {t("admin.blog_posts.new")}
         </Link>
       </div>
       <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
-        {t("admin.blogPosts.title")}
+        {t("admin.blog_posts.title")}
       </h1>
       <p className="text-center text-gray-600 max-w-none">
-        {t("admin.blogPosts.totalCount", { count: blogPosts.length })}
+        {t("admin.blog_posts.totalCount", { count: blogPosts.length })}
       </p>
       <br />
       <BlogPostList

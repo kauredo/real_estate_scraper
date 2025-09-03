@@ -50,13 +50,13 @@ const AdminBlogPostNewPage = () => {
         </div>
 
         <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mb-6">
-          {t("admin.blogPosts.new")}
+          {t("admin.blog_posts.new")}
         </h1>
 
         <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
           <div className="mb-4">
             <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.blogPosts.fields.title")}
+              {t("admin.blog_posts.fields.title")}
             </label>
             <input
               type="text"
@@ -70,7 +70,7 @@ const AdminBlogPostNewPage = () => {
 
           <div className="mb-4">
             <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.blogPosts.fields.description")}
+              {t("admin.blog_posts.fields.description")}
             </label>
             <textarea
               name="description"
@@ -83,7 +83,7 @@ const AdminBlogPostNewPage = () => {
 
           <div className="mb-4">
             <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.blogPosts.fields.content")}
+              {t("admin.blog_posts.fields.content")}
             </label>
             <textarea
               name="content"
@@ -97,7 +97,7 @@ const AdminBlogPostNewPage = () => {
 
           <div className="mb-6">
             <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.blogPosts.fields.status")}
+              {t("admin.blog_posts.fields.status")}
             </label>
             <select
               name="status"
