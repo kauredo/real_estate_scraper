@@ -8,14 +8,15 @@ module Api
         after_action :update_video_link, only: %i[create update]
 
         def index
-          @q = Listing.with_deleted.includes(%i[translations listing_complex]).ransack(params[:q])
-          listings = @q.result
-
-          # Apply additional filters
-          if params[:q].present?
-            listings = apply_stats_filters(listings, params[:q])
-            listings = listings.objective_sale if params[:q][:objective_eq].blank?
-          end
+          listings = if params[:order] == 'recent'
+                       Listing.all.reorder(created_at: :desc)
+                     elsif params[:order] == 'deleted'
+                       Listing.with_deleted_ordered.where(id: Listing.ids_with_title)
+                     elsif params[:order] == 'deleted_only'
+                       Listing.only_deleted.where(id: Listing.ids_with_title)
+                     else
+                       Listing.all
+                     end
 
           result = paginate(listings, serializer: ListingSerializer)
 

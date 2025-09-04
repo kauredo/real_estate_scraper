@@ -1799,6 +1799,62 @@
     },
     "pm": "pm"
   },
+  "listingComplex": {
+    "watchVideo": "Watch Video",
+    "about": "About",
+    "gallery": "Gallery",
+    "features": "Features",
+    "quickInfo": "Quick Info",
+    "priceFrom": "Starting from",
+    "availableUnits": "Available Units",
+    "contactDescription": "Interested in this development? Contact us for more information.",
+    "details": "Details"
+  },
+  "contact": {
+    "title": "Contact Us"
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "loading": "Signing in...",
+      "submit": "Sign In"
+    }
+  },
+  "share": {
+    "title": "Share",
+    "copied": "Link copied to clipboard!",
+    "whatsapp": "Share on WhatsApp",
+    "messenger": "Share on Messenger",
+    "telegram": "Share on Telegram",
+    "facebook": "Share on Facebook",
+    "twitter": "Share on Twitter",
+    "email": "Share via Email",
+    "copy": "Copy Link"
+  },
+  "navbar": {
+    "about": "About Us",
+    "backoffice": "Backoffice",
+    "blog_posts": "Blog",
+    "buy": "Buy",
+    "change_language": "Mudar site para Português",
+    "club": "SGG Club",
+    "club_rules": "Regulation",
+    "club_stories": "SGG Club Stories",
+    "contacts": "Contacts",
+    "dark_mode": "Dark Mode",
+    "enterprises": "Developments",
+    "faq": "FAQ",
+    "flipper": "Features",
+    "light_mode": "Light Mode",
+    "listings": "Listings",
+    "more": "More",
+    "other_language": "Português",
+    "sell": "Sell",
+    "services": "Services",
+    "testimonies": "Testimonies"
+  },
   "admin": {
     "dashboard": "Administrative Panel",
     "nav": {
@@ -1866,7 +1922,11 @@
       "noStories": "No stories found"
     },
     "listings": {
-      "title": "Properties",
+      "updating": "Updating...",
+      "update_success": "All listings updated successfully!",
+      "update_error": "Error updating listings. Please try again.",
+      "fetch_error": "Error loading listings. Please try again.",
+      "title": "Listings Management",
       "new": "New Property",
       "edit": "Edit Property",
       "delete": "Delete Property",
@@ -1954,61 +2014,5 @@
     "previewMode": "Preview Mode",
     "view": "View",
     "edit": "Edit"
-  },
-  "listingComplex": {
-    "watchVideo": "Watch Video",
-    "about": "About",
-    "gallery": "Gallery",
-    "features": "Features",
-    "quickInfo": "Quick Info",
-    "priceFrom": "Starting from",
-    "availableUnits": "Available Units",
-    "contactDescription": "Interested in this development? Contact us for more information.",
-    "details": "Details"
-  },
-  "contact": {
-    "title": "Contact Us"
-  },
-  "auth": {
-    "login": {
-      "title": "Login",
-      "email": "Email",
-      "password": "Password",
-      "loading": "Signing in...",
-      "submit": "Sign In"
-    }
-  },
-  "share": {
-    "title": "Share",
-    "copied": "Link copied to clipboard!",
-    "whatsapp": "Share on WhatsApp",
-    "messenger": "Share on Messenger",
-    "telegram": "Share on Telegram",
-    "facebook": "Share on Facebook",
-    "twitter": "Share on Twitter",
-    "email": "Share via Email",
-    "copy": "Copy Link"
-  },
-  "navbar": {
-    "about": "About Us",
-    "backoffice": "Backoffice",
-    "blog_posts": "Blog",
-    "buy": "Buy",
-    "change_language": "Mudar site para Português",
-    "club": "SGG Club",
-    "club_rules": "Regulation",
-    "club_stories": "SGG Club Stories",
-    "contacts": "Contacts",
-    "dark_mode": "Dark Mode",
-    "enterprises": "Developments",
-    "faq": "FAQ",
-    "flipper": "Features",
-    "light_mode": "Light Mode",
-    "listings": "Listings",
-    "more": "More",
-    "other_language": "Português",
-    "sell": "Sell",
-    "services": "Services",
-    "testimonies": "Testimonies"
   }
 }

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import { Listing } from "../../utils/interfaces";
 import { adminGetListings, adminUpdateAllListings } from "../../services/api";
+import Flashes from "../../components/shared/Flashes";
 
 interface PaginationState {
   current_page: number;
@@ -11,6 +12,11 @@ interface PaginationState {
   total_pages: number;
   from: number;
   to: number;
+}
+
+interface FlashMessage {
+  type: string;
+  message: string;
 }
 
 const AdminListingsPage = () => {
@@ -27,14 +33,18 @@ const AdminListingsPage = () => {
   });
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
+  const [flash, setFlash] = useState<FlashMessage | null>(null);
 
   const order = searchParams.get("order") || "order";
 
-  const fetchListings = async (page = 1) => {
+  const fetchListings = async (page = 1, resetPage = false) => {
     try {
       setLoading(true);
+      // Clear any existing flash messages when fetching
+      setFlash(null);
+
       const params = {
-        page,
+        page: resetPage ? 1 : page,
         order,
         per_page: 25,
       };
@@ -44,6 +54,10 @@ const AdminListingsPage = () => {
       setPagination(response.data.pagination);
     } catch (error) {
       console.error("Error fetching listings:", error);
+      setFlash({
+        type: "error",
+        message: t("admin.listings.fetch_error"),
+      });
     } finally {
       setLoading(false);
     }
@@ -51,6 +65,8 @@ const AdminListingsPage = () => {
 
   const handleOrderChange = (newOrder: string) => {
     setSearchParams({ order: newOrder });
+    // Reset to page 1 when order changes
+    fetchListings(1, true);
   };
 
   const handleUpdateAll = async () => {
@@ -60,10 +76,19 @@ const AdminListingsPage = () => {
 
     try {
       setUpdating(true);
+      setFlash(null); // Clear any existing flash messages
       await adminUpdateAllListings();
-      await fetchListings(); // Refresh after update
+      setFlash({
+        type: "success",
+        message: t("admin.listings.update_success"),
+      });
+      await fetchListings(pagination.current_page); // Refresh current page after update
     } catch (error) {
       console.error("Error updating listings:", error);
+      setFlash({
+        type: "error",
+        message: t("admin.listings.update_error"),
+      });
     } finally {
       setUpdating(false);
     }
@@ -73,9 +98,14 @@ const AdminListingsPage = () => {
     fetchListings(page);
   };
 
+  const clearFlash = () => {
+    setFlash(null);
+  };
+
   useEffect(() => {
-    fetchListings();
-  }, [order]);
+    // Only fetch on initial mount, order changes are handled by handleOrderChange
+    fetchListings(1);
+  }, []); // Remove order dependency
 
   if (loading) {
     return (
@@ -87,6 +117,15 @@ const AdminListingsPage = () => {
 
   return (
     <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
+      {/* Flash Messages */}
+      {flash && (
+        <Flashes
+          type={flash.type}
+          message={flash.message}
+          onClose={clearFlash}
+        />
+      )}
+
       {/* Controls */}
       <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap mb-6">
         <button

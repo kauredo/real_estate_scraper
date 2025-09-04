@@ -1507,6 +1507,9 @@
       "updateAll": "Buscar os imóveis em falta ao site KW",
       "updating": "A buscar...",
       "confirmUpdateAll": "Tem certeza que deseja buscar os imóveis em falta?",
+      "update_success": "Todos os imóveis foram atualizados com sucesso!",
+      "update_error": "Erro ao atualizar imóveis. Tente novamente.",
+      "fetch_error": "Erro ao carregar imóveis. Tente novamente.",
       "noPhoto": "Sem foto",
       "view": "Ver",
       "fields": {
