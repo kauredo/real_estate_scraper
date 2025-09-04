@@ -1,22 +1,39 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { apiRoutes } from "../../utils/routes";
+import { useAsyncOperation } from "../../hooks/useAsyncOperation";
+import { subscribeToNewsletter } from "../../services/api";
 import emailImage from "../../assets/images/email.webp";
 
 export default function Newsletter() {
   const { t } = useTranslation();
+  const { isLoading, execute } = useAsyncOperation();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const form = useRef<HTMLFormElement>(null);
   const pattern = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i;
 
-  const validateUser = (e: React.FormEvent) => {
+  const validateUser = async (e: React.FormEvent) => {
     e.preventDefault();
     const valid_email = pattern.test(email);
 
-    if (valid_email && name && form.current) {
-      form.current.submit();
+    if (valid_email && name) {
+      setError("");
+      
+      const result = await execute(
+        () => subscribeToNewsletter({ email, name }),
+        {
+          successMessage: t("notifications.messages.newsletter_subscribed"),
+          errorMessage: t("notifications.messages.newsletter_error"),
+          showSuccessNotification: true,
+        }
+      );
+
+      if (result) {
+        // Reset form on success
+        setEmail("");
+        setName("");
+      }
     } else if (valid_email) {
       setError(t("home.newsletter.form.errors.name"));
     } else {
@@ -41,9 +58,7 @@ export default function Newsletter() {
         </p>
         <form
           ref={form}
-          onSubmit={e => validateUser(e)}
-          action={apiRoutes.newsletterSubscriptions}
-          method="post"
+          onSubmit={validateUser}
         >
           <div className="w-full">
             <input
@@ -52,6 +67,7 @@ export default function Newsletter() {
               name="newsletter[name]"
               type="text"
               id="name"
+              value={name}
               onChange={e => setName(e.target.value)}
             />
             <input
@@ -60,13 +76,15 @@ export default function Newsletter() {
               name="newsletter[email]"
               type="text"
               id="email"
+              value={email}
               onChange={e => setEmail(e.target.value)}
             />
             <input
-              className="w-4/5 inline-flex text-white dark:text-dark py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-beige-default dark:bg-beige-medium cursor-pointer"
+              className="w-4/5 inline-flex text-white dark:text-dark py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-beige-default dark:bg-beige-medium cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               required
               type="submit"
-              value={t("home.newsletter.form.fields.subscribe")}
+              disabled={isLoading}
+              value={isLoading ? (t("common.saving") || "Subscribing...") : t("home.newsletter.form.fields.subscribe")}
             />
           </div>
           {error && (

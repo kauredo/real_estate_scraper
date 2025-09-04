@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Listing, ResultNumbers, Testimonial } from "../utils/interfaces";
 import { getHomePage } from "../services/api";
+import { useAsyncOperation } from "../hooks/useAsyncOperation";
+import { useTranslation } from "react-i18next";
 import { MetaTags } from "../components/shared/MetaTags";
 import Hero from "../components/shared/Hero";
 import Cards from "../components/homePage/Cards";
@@ -13,70 +15,52 @@ export default function Home() {
   const [results, setResults] = useState<ResultNumbers | null>(null);
   const [photos, setPhotos] = useState<string[]>([]);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const { isLoading, execute } = useAsyncOperation();
+  const { t } = useTranslation();
 
   // Fetch data when component mounts
   useEffect(() => {
     const fetchHomeData = async () => {
-      try {
-        setIsLoading(true);
-        const response = await getHomePage();
-        const data = response.data;
+      const result = await execute(
+        async () => {
+          const response = await getHomePage();
+          return response.data;
+        },
+        {
+          errorMessage: t("notifications.messages.data_load_error"),
+        }
+      );
 
+      if (result) {
         // Extract data from the response
-        if (data.listings_by_geography) {
-          console.log("Listings by geography:", data.listings_by_geography);
+        if (result.listings_by_geography) {
+          console.log("Listings by geography:", result.listings_by_geography);
           // Keep the listings grouped by geography
-          setListings(data.listings_by_geography);
+          setListings(result.listings_by_geography);
         }
 
-        if (data.stats) {
-          setResults(data.stats as ResultNumbers);
+        if (result.stats) {
+          setResults(result.stats as ResultNumbers);
         }
 
-        if (data.photos) {
-          setPhotos(data.photos as string[]);
+        if (result.photos) {
+          setPhotos(result.photos as string[]);
         }
 
-        if (data.testimonials) {
-          setTestimonials(data.testimonials as Testimonial[]);
+        if (result.testimonials) {
+          setTestimonials(result.testimonials as Testimonial[]);
         }
-
-        setIsLoading(false);
-      } catch (err) {
-        console.error("Error fetching home data:", err);
-        setError("Failed to load home page data");
-        setIsLoading(false);
       }
     };
 
     fetchHomeData();
-  }, []);
+  }, [execute, t]);
 
   // Show loading state
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        Loading...
-      </div>
-    );
-  }
-
-  // Show error state
-  if (error) {
-    return (
-      <div className="flex justify-center items-center h-screen text-red-500">
-        {error}
-      </div>
-    );
-  }
-
-  // If no results data yet, show a placeholder
-  if (!results) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        No data available
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-beige-default dark:border-beige-medium"></div>
       </div>
     );
   }
@@ -86,7 +70,7 @@ export default function Home() {
       <MetaTags pageType="home" image={photos[0]} url={window.location.href} />
       <Hero photos={photos} />
       <Cards listings={listings} />
-      <Results results={results} testimonials={testimonials} />
+      {results && <Results results={results} testimonials={testimonials} />}
       <Newsletter />
     </>
   );

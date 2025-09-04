@@ -10,6 +10,16 @@ const api = axios.create({
   withCredentials: true, // Important for cookies/sessions if needed
 });
 
+// We'll store notification functions that will be injected from the component tree
+let notificationContext: {
+  showError: (message: string) => void;
+  showSuccess: (message: string) => void;
+} | null = null;
+
+export const setNotificationContext = (context: typeof notificationContext) => {
+  notificationContext = context;
+};
+
 // Request interceptor for adding auth token
 api.interceptors.request.use(
   config => {
@@ -22,28 +32,55 @@ api.interceptors.request.use(
   error => Promise.reject(error)
 );
 
-// Response interceptor for handling errors
+// Response interceptor for handling errors and success notifications
 api.interceptors.response.use(
-  response => response,
+  response => {
+    // Handle success responses that might need user feedback
+    const method = response.config.method?.toUpperCase();
+    const showSuccessForMethods = ['POST', 'PUT', 'DELETE', 'PATCH'];
+    
+    if (method && showSuccessForMethods.includes(method) && notificationContext) {
+      // Check if it's a form submission or important update
+      const url = response.config.url || '';
+      
+      if (url.includes('/contact')) {
+        notificationContext.showSuccess("notifications.messages.contact_sent");
+      } else if (url.includes('/newsletter_subscriptions')) {
+        notificationContext.showSuccess("notifications.messages.newsletter_subscribed");
+      }
+      // Add more specific success messages as needed
+    }
+    
+    return response;
+  },
   error => {
-    // Handle common errors
-    if (error.response) {
+    // Handle common errors with user-friendly notifications
+    if (error.response && notificationContext) {
       const { status } = error.response;
-
+      
       if (status === 401) {
         // Handle unauthorized (redirect to login, clear token, etc.)
         localStorage.removeItem("token");
-      }
-
-      if (status === 404) {
+        notificationContext.showError("Your session has expired. Please log in again.");
+      } else if (status === 404) {
         // Handle not found
-        console.error("Resource not found");
-      }
-
-      if (status === 500) {
+        notificationContext.showError("notifications.messages.data_load_error");
+      } else if (status === 500) {
         // Handle server error
-        console.error("Server error occurred");
+        notificationContext.showError("notifications.messages.server_error");
+      } else if (status === 422) {
+        // Validation errors
+        const errorMessage = error.response.data?.message || 
+                            error.response.data?.error || 
+                            "Please check your input and try again.";
+        notificationContext.showError(errorMessage);
+      } else {
+        // Generic error
+        notificationContext.showError("notifications.messages.network_error");
       }
+    } else if (error.request && notificationContext) {
+      // Network error
+      notificationContext.showError("notifications.messages.network_error");
     }
 
     return Promise.reject(error);
@@ -51,7 +88,7 @@ api.interceptors.response.use(
 );
 
 // Auth API functions
-export const login = async (email, password) => {
+export const login = async (email: string, password: string) => {
   try {
     const response = await api.post(apiRoutes.auth, {
       email,
@@ -108,12 +145,12 @@ export const getSellPage = () => api.get(apiRoutes.sell);
 export const toggleDarkMode = () => api.post(apiRoutes.toggleDarkMode);
 
 // Contact API functions
-export const submitContactForm = data => api.post(apiRoutes.contact, data);
+export const submitContactForm = (data: any) => api.post(apiRoutes.contact, data);
 
 // Blog posts API functions
 export const getBlogPosts = (params = {}) =>
   api.get(apiRoutes.blogPosts, { params });
-export const getBlogPost = slug => api.get(apiRoutes.blogPost(slug));
+export const getBlogPost = (slug: string) => api.get(apiRoutes.blogPost(slug));
 
 // Admin - Blog posts API functions
 export const adminGetBlogPosts = (params = {}) =>
@@ -148,12 +185,12 @@ export const adminDeleteBlogPost = id =>
 // Listings API functions
 export const getListings = (params = {}) =>
   api.get(apiRoutes.listings, { params });
-export const getListing = slug => api.get(apiRoutes.listing(slug));
+export const getListing = (slug: string) => api.get(apiRoutes.listing(slug));
 
 // Listing complexes API functions
 export const getListingComplexes = (params = {}) =>
   api.get(apiRoutes.listingComplexes, { params });
-export const getListingComplex = slug =>
+export const getListingComplex = (slug: string) =>
   api.get(apiRoutes.listingComplex(slug));
 
 // Admin - Listings API functions

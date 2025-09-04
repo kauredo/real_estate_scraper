@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useAsyncOperation } from "../../hooks/useAsyncOperation";
+import { submitContactForm } from "../../services/api";
 import { Listing, ListingComplex } from "../../utils/interfaces";
-import Routes from "../../utils/routes";
 
 interface Props {
   listing?: Listing;
@@ -9,8 +10,9 @@ interface Props {
 }
 
 export default function ContactForm(props: Props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { complex, listing } = props;
+  const { isLoading, execute } = useAsyncOperation();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,14 +23,43 @@ export default function ContactForm(props: Props) {
   const pattern =
     /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
 
-  const validateUser = e => {
+  const validateUser = async (e: React.FormEvent) => {
     e.preventDefault();
     const valid_params = pattern.test(email) && name && message;
 
     if (valid_params) {
-      form.current.submit().then(res => {
-        console.log(res);
-      });
+      setError("");
+      
+      // Prepare form data
+      const formData = new FormData();
+      formData.append("contact[name]", name);
+      formData.append("contact[email]", email);
+      formData.append("contact[phone]", phone);
+      formData.append("contact[message]", message);
+      
+      if (listing) {
+        formData.append("contact[listing]", listing.slug);
+      }
+      if (complex) {
+        formData.append("contact[complex]", complex.slug);
+      }
+
+      const result = await execute(
+        () => submitContactForm(formData),
+        {
+          successMessage: t("notifications.messages.contact_sent"),
+          errorMessage: t("notifications.messages.contact_error"),
+          showSuccessNotification: true,
+        }
+      );
+
+      if (result) {
+        // Reset form on success
+        setName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+      }
     } else {
       setError(t("contacts.form.error"));
     }
@@ -59,9 +90,7 @@ export default function ContactForm(props: Props) {
       </p>
       <form
         ref={form}
-        onSubmit={e => validateUser(e)}
-        action={Routes.contact_path}
-        method="post"
+        onSubmit={validateUser}
       >
         <div className="mb-6">
           <input
@@ -120,12 +149,13 @@ export default function ContactForm(props: Props) {
         <div>
           <button
             type="submit"
+            disabled={isLoading}
             className={
-              "w-full font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-medium border dark:border-0 p-3 transition hover:bg-opacity-90 " +
+              "w-full font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-medium border dark:border-0 p-3 transition hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed " +
               (listing || complex ? "" : "rounded")
             }
           >
-            {t("contacts.form.fields.send")}
+            {isLoading ? t("common.saving") || "Sending..." : t("contacts.form.fields.send")}
           </button>
         </div>
       </form>

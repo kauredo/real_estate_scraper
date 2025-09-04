@@ -2,9 +2,12 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { AuthProvider, useAuth } from "./context/AuthContext";
+import { NotificationProvider, useNotifications } from "./context/NotificationContext";
+import { setNotificationContext } from "./services/api";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import NotificationToastContainer from "./components/shared/NotificationToast";
 import HomePage from "./pages/HomePage";
 import ListingsPage from "./pages/ListingsPage";
 import ListingDetailPage from "./pages/ListingDetailPage";
@@ -253,12 +256,27 @@ function App() {
 
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <AppContent />
-      </BrowserRouter>
+      <NotificationProvider>
+        <BrowserRouter>
+          <NotificationHandler />
+          <ScrollToTop />
+          <AppContent />
+          <NotificationToastContainer />
+        </BrowserRouter>
+      </NotificationProvider>
     </AuthProvider>
   );
+}
+
+// Component to initialize the notification context for API calls
+function NotificationHandler() {
+  const { showError, showSuccess } = useNotifications();
+  
+  useEffect(() => {
+    setNotificationContext({ showError, showSuccess });
+  }, [showError, showSuccess]);
+  
+  return null;
 }
 
 export default App;
