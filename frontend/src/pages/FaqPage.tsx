@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useMetaTags } from "../hooks/useMetaTags";
+import MetaTags from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
 import FaqAccordion from "../components/faq/FaqAccordion";
 
@@ -16,12 +16,6 @@ interface FaqSection {
 const FaqPage = () => {
   const { t } = useTranslation();
 
-  useMetaTags({
-    title: t("faq.header"),
-    description: t("faq.meta_description"),
-    url: window.location.href,
-  });
-
   const faqSections = t("faq.sections", { returnObjects: true }) as Record<
     string,
     FaqSection
@@ -32,6 +26,12 @@ const FaqPage = () => {
 
   return (
     <>
+      <MetaTags
+        pageType="faq"
+        title={t("faq.header")}
+        description={t("faq.meta_description")}
+        url={window.location.href}
+      />
       <Banner height="20vh" blurred={true} text={t("faq.header")} />
       <section className="container mx-auto pt-6 px-8">
         <div className="py-8 md:pb-0 md:pt-4 bg-white dark:bg-dark">

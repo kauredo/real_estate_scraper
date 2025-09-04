@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useMetaTags } from "../hooks/useMetaTags";
+import MetaTags from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
 import Profile from "../components/homePage/Profile";
 import Results from "../components/homePage/Results";
@@ -13,12 +13,6 @@ const AboutPage = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-
-  useMetaTags({
-    title: t("about.header"),
-    description: t("about.meta_description"),
-    url: window.location.href,
-  });
 
   useEffect(() => {
     const fetchHomeData = async () => {
@@ -75,6 +69,12 @@ const AboutPage = () => {
 
   return (
     <>
+      <MetaTags
+        pageType="about"
+        title={t("about.header")}
+        description={t("about.meta_description")}
+        url={window.location.href}
+      />
       <Banner height="20vh" blurred={true} text={t("about.header")} />
       <section className="container mx-auto mt-6 mb-12 px-8">
         <Profile />

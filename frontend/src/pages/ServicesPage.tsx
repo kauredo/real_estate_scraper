@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useMetaTags } from "../hooks/useMetaTags";
+import MetaTags from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
 import HouseTrees from "../components/svgs/HouseTrees";
 import HouseLens from "../components/svgs/HouseLens";
@@ -8,14 +8,14 @@ import HouseLens from "../components/svgs/HouseLens";
 const ServicesPage = () => {
   const { t } = useTranslation();
 
-  useMetaTags({
-    title: t("services.header"),
-    description: t("services.meta_description"),
-    url: window.location.href,
-  });
-
   return (
     <>
+      <MetaTags
+        pageType="services"
+        title={t("services.header")}
+        description={t("services.meta_description")}
+        url={window.location.href}
+      />
       <Banner height="20vh" blurred={true} text={t("services.header")} />
       <div className="container mx-auto mb-12 px-8">
         {/* Introduction Section */}

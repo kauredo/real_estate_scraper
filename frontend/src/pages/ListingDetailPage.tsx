@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getListing } from "../services/api";
 import ShowPage from "../components/showPage/Show";
+import MetaTags from "../components/shared/MetaTags";
 import { Listing } from "../utils/interfaces";
 import { AxiosError } from "axios";
-import { useMetaTags } from "../hooks/useMetaTags";
 
 const ListingDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -32,14 +32,6 @@ const ListingDetailPage = () => {
     }
   }, [slug]);
 
-  useMetaTags({
-    title: listing?.title,
-    description: listing?.description?.trim(),
-    image: listing?.photos?.[0],
-    type: "article",
-    url: window.location.href,
-  });
-
   if (loading) {
     return (
       <div className="container mx-auto p-8 flex justify-center items-center">
@@ -58,6 +50,16 @@ const ListingDetailPage = () => {
 
   return (
     <div id="show" className="relative">
+      <MetaTags
+        pageType="listings"
+        listingMeta={{
+          title: listing?.title,
+          description: listing?.description,
+          images: listing?.photos,
+        }}
+        type="article"
+        url={window.location.href}
+      />
       <ShowPage listing={listing} />
     </div>
   );

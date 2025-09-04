@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import { Listing, ResultNumbers, Testimonial } from "../utils/interfaces";
 import { getHomePage } from "../services/api";
-import { useMetaTags } from "../hooks/useMetaTags";
-import { useTranslation } from "react-i18next";
+import { MetaTags } from "../components/shared/MetaTags";
 import Hero from "../components/shared/Hero";
 import Cards from "../components/homePage/Cards";
 import Results from "../components/homePage/Results";
 import Newsletter from "../components/homePage/Newsletter";
 
 export default function Home() {
-  const { t } = useTranslation();
-
   // Create state to hold the data
   const [listings, setListings] = useState<Record<string, Listing[]>>({});
   const [results, setResults] = useState<ResultNumbers | null>(null);
@@ -18,13 +15,6 @@ export default function Home() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-
-  useMetaTags({
-    title: t("meta.home.title"),
-    description: t("meta.home.description"),
-    image: photos[0],
-    url: window.location.href,
-  });
 
   // Fetch data when component mounts
   useEffect(() => {
@@ -93,6 +83,7 @@ export default function Home() {
 
   return (
     <>
+      <MetaTags pageType="home" image={photos[0]} url={window.location.href} />
       <Hero photos={photos} />
       <Cards listings={listings} />
       <Results results={results} testimonials={testimonials} />

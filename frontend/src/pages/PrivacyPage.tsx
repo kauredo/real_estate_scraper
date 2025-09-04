@@ -1,15 +1,13 @@
 import { useTranslation } from "react-i18next";
 import Banner from "../components/shared/Banner";
-import { useMetaTags } from "../hooks/useMetaTags";
+import { MetaTags } from "../components/shared/MetaTags";
 
 const PrivacyPage = () => {
   const { t } = useTranslation();
-  useMetaTags({
-    title: t("privacy.header"),
-  });
 
   return (
     <>
+      <MetaTags pageType="privacy" url={window.location.href} />
       <Banner height="20vh" blurred text={t("privacy.header")} />
       <section className="container mx-auto pt-6 px-8">
         <div className="py-8 md:pb-0 md:pt-4 bg-white dark:bg-dark">

@@ -1415,7 +1415,10 @@
     },
     "blog": {
       "title": "Blog Imobiliário - Sofia Galvão Group",
-      "description": "Mantenha-se informado com nossos insights imobiliários, tendências de mercado e conselhos especializados. Descubra informações valiosas sobre o mercado imobiliário português."
+      "description": "Mantenha-se informado com nossos insights imobiliários, tendências de mercado e conselhos especializados. Descubra informações valiosas sobre o mercado imobiliário português.",
+      "post_not_found": "Post do blog não encontrado",
+      "date_locale": "pt-PT",
+      "fetch_error": "Erro ao carregar post do blog. Tente novamente."
     },
     "about": {
       "title": "Sobre Nós - Sofia Galvão Group",
@@ -1424,6 +1427,46 @@
     "contact": {
       "title": "Contacte-nos - Sofia Galvão Group",
       "description": "Entre em contacto com Sofia Galvão Group. Estamos aqui para ajudá-lo a encontrar seu imóvel perfeito em Portugal."
+    },
+    "club": {
+      "title": "SGG Club - Sofia Galvão Group",
+      "description": "Descubra o SGG Club by Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos."
+    },
+    "club_stories": {
+      "title": "Histórias do Clube - Sofia Galvão Group",
+      "description": "Histórias inspiradoras e casos de sucesso dos membros do SGG Club."
+    },
+    "club_rules": {
+      "title": "Regulamento do Clube - Sofia Galvão Group",
+      "description": "Regras e diretrizes para o SGG Club."
+    },
+    "enterprises": {
+      "title": "Empreendimentos - Sofia Galvão Group",
+      "description": "Os melhores empreendimentos em Portugal para comprar com Sofia Galvão Group."
+    },
+    "faq": {
+      "title": "FAQ - Sofia Galvão Group",
+      "description": "Perguntas frequentes sobre imobiliário e os serviços prestados pelo Sofia Galvão Group."
+    },
+    "services": {
+      "title": "Serviços - Sofia Galvão Group",
+      "description": "Como profissionais do mercado imobiliário, conheça aqui os serviços do Sofia Galvão Group."
+    },
+    "sell": {
+      "title": "Vender Imóvel - Sofia Galvão Group",
+      "description": "Venda imóveis em Portugal com a consultora imobiliária Sofia Galvão do Sofia Galvão Group."
+    },
+    "kw": {
+      "title": "Parceria KW Portugal - Sofia Galvão Group",
+      "description": "Sofia Galvão Group em parceria com a Kw Portugal."
+    },
+    "privacy": {
+      "title": "Política de Privacidade - Sofia Galvão Group",
+      "description": "Política de privacidade e informações sobre proteção de dados do website Sofia Galvão Group."
+    },
+    "terms": {
+      "title": "Termos e Condições - Sofia Galvão Group",
+      "description": "Termos e condições para os serviços e uso do website Sofia Galvão Group."
     },
     "error": {
       "title": "Página Não Encontrada - Sofia Galvão Group",

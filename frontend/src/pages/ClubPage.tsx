@@ -7,7 +7,7 @@ import SubNavbar from "../components/shared/SubNavbar";
 import ClubHeader from "../components/club/ClubHeader";
 import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
 import { useClubSections } from "../utils/constants/clubSections";
-import { useMetaTags } from "../hooks/useMetaTags";
+import MetaTags from "../components/shared/MetaTags";
 import { getClub } from "../services/api";
 import togetherImage from "../assets/images/together.webp";
 import ClubJoinForm from "../components/club/ClubJoinForm";
@@ -17,12 +17,6 @@ export default function ClubPage() {
   const [recentStories, setRecentStories] = useState<ClubStory[]>([]);
   const [loading, setLoading] = useState(true);
   const clubSections = useClubSections();
-
-  useMetaTags({
-    title: t("meta.club.title"),
-    description: t("meta.club.description"),
-    url: window.location.href,
-  });
 
   useEffect(() => {
     const fetchClub = async () => {
@@ -42,6 +36,7 @@ export default function ClubPage() {
 
   return (
     <>
+      <MetaTags pageType="club" url={window.location.href} />
       <SubNavbar items={clubSections} />
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center pt-12 pb-24">

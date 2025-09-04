@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useMetaTags } from "../hooks/useMetaTags";
+import { MetaTags } from "../components/shared/MetaTags";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearchDollar,
@@ -33,11 +33,6 @@ declare global {
 
 const ListingsSellPage = () => {
   const { t, i18n } = useTranslation();
-
-  useMetaTags({
-    title: t("sell.header"),
-    description: t("sell.meta_description"),
-  });
 
   useEffect(() => {
     // Load Casafari widget script
@@ -80,6 +75,7 @@ const ListingsSellPage = () => {
 
   return (
     <>
+      <MetaTags pageType="sell" />
       <Banner height="20vh" blurred={true} text={t("sell.header")} />
 
       <div className="pt-6 bg-white dark:bg-dark text-center md:hidden">

@@ -7,7 +7,7 @@ import ClubHeader from "../components/club/ClubHeader";
 import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
 import { useClubSections } from "../utils/constants/clubSections";
 import { ClubStory } from "../utils/interfaces";
-import { useMetaTags } from "../hooks/useMetaTags";
+import MetaTags from "../components/shared/MetaTags";
 import { getClubStories } from "../services/api";
 import Pagination from "../components/shared/Pagination";
 
@@ -23,12 +23,6 @@ export default function ClubStoriesPage({ isBackoffice = false }) {
     total_pages: 0,
   });
   const clubSections = useClubSections();
-
-  useMetaTags({
-    title: t("meta.club.stories.title"),
-    description: t("meta.club.stories.description"),
-    url: window.location.href,
-  });
 
   const fetchStories = async (page = 1) => {
     try {
@@ -60,6 +54,7 @@ export default function ClubStoriesPage({ isBackoffice = false }) {
 
   return (
     <>
+      <MetaTags pageType="club_stories" url={window.location.href} />
       {!isBackoffice && <SubNavbar items={clubSections} />}
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center pt-12 pb-24">

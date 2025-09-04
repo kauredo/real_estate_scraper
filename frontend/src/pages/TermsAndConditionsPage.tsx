@@ -1,14 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { useMetaTags } from "../hooks/useMetaTags";
+import { MetaTags } from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
 
 const TermsAndConditionsPage = () => {
   const { t } = useTranslation();
-
-  useMetaTags({
-    title: t("terms.header"),
-    url: window.location.href,
-  });
 
   const licenseRestrictions = t("terms.sections.license.restrictions", {
     returnObjects: true,
@@ -19,6 +14,7 @@ const TermsAndConditionsPage = () => {
 
   return (
     <>
+      <MetaTags pageType="terms" url={window.location.href} />
       <Banner height="20vh" blurred={true} text={t("terms.header")} />
       <section className="container mx-auto pt-6 px-8">
         <div className="py-8 md:pb-0 md:pt-4 bg-white dark:bg-dark">

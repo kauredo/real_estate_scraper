@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useMetaTags } from "../hooks/useMetaTags";
+import MetaTags from "../components/shared/MetaTags";
 import ContactForm from "../components/contactPage/ContactForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,14 +13,14 @@ import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 const ContactPage = () => {
   const { t } = useTranslation();
 
-  useMetaTags({
-    title: t("contacts.header"),
-    description: t("contacts.meta_description"),
-    url: window.location.href,
-  });
-
   return (
     <div className="container mx-auto mt-6 mb-12 px-8 text-black dark:text-light">
+      <MetaTags
+        pageType="contact"
+        title={t("contacts.header")}
+        description={t("contacts.meta_description")}
+        url={window.location.href}
+      />
       <section className="bg-white dark:bg-dark py-5 lg:py-[120px] overflow-hidden relative">
         <div className="container">
           <div className="flex flex-col tablet:flex-row lg:justify-around">

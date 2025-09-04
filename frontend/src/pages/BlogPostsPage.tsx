@@ -4,7 +4,7 @@ import { getBlogPosts } from "../services/api";
 import BlogCard from "../components/blog/BlogCard";
 import Banner from "../components/shared/Banner";
 import Pagination from "../components/shared/Pagination";
-import { useMetaTags } from "../hooks/useMetaTags";
+import MetaTags from "../components/shared/MetaTags";
 import { BlogPost } from "../utils/interfaces";
 
 const BlogPostsPage = () => {
@@ -16,12 +16,6 @@ const BlogPostsPage = () => {
     per_page: 12,
     total_count: 0,
     total_pages: 0,
-  });
-
-  useMetaTags({
-    title: t("meta.blog.title"),
-    description: t("meta.blog.description"),
-    url: window.location.href,
   });
 
   const fetchBlogPosts = async (page = 1) => {
@@ -55,6 +49,7 @@ const BlogPostsPage = () => {
 
   return (
     <>
+      <MetaTags pageType="blog" url={window.location.href} />
       <Banner height="20vh" blurred={true} text={t("blog_posts.header")} />
 
       <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">

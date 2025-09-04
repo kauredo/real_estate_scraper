@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import PhotoGallery from "../components/shared/PhotoGallery";
@@ -6,7 +6,7 @@ import ShareIcons from "../components/shared/ShareIcons";
 import SubNavbar from "../components/shared/SubNavbar";
 import { useClubSections } from "../utils/constants/clubSections";
 import { ClubStory } from "../utils/interfaces";
-import { useMetaTags } from "../hooks/useMetaTags";
+import { MetaTags } from "../components/shared/MetaTags";
 import { getClubStory } from "../services/api";
 
 interface Props {
@@ -19,12 +19,6 @@ export default function ClubStoryDetailPage({ isBackoffice = false }: Props) {
   const [clubStory, setClubStory] = useState<ClubStory | null>(null);
   const [loading, setLoading] = useState(true);
   const clubSections = useClubSections();
-
-  useMetaTags({
-    title: clubStory ? clubStory.title : t("meta.club.story.title"),
-    description: clubStory?.excerpt || t("meta.club.story.description"),
-    url: window.location.href,
-  });
 
   useEffect(() => {
     const fetchStory = async () => {
@@ -64,6 +58,13 @@ export default function ClubStoryDetailPage({ isBackoffice = false }: Props) {
 
   return (
     <>
+      <MetaTags
+        pageType="club_stories"
+        title={clubStory?.title}
+        description={clubStory?.excerpt}
+        image={clubStory?.main_photo}
+        url={window.location.href}
+      />
       {!isBackoffice && <SubNavbar items={clubSections} />}
       <div className="container mx-auto px-4 py-12">
         <article className="max-w-4xl mx-auto bg-white/50 dark:bg-dark/50 rounded-lg shadow-lg overflow-hidden">

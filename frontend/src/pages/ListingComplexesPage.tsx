@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getListingComplexes } from "../services/api";
-import { useMetaTags } from "../hooks/useMetaTags";
+import MetaTags from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
 import Pagination from "../components/shared/Pagination";
 import ListingComplexes from "../components/listingComplex/ListingComplexes";
@@ -23,12 +23,6 @@ const ListingComplexesPage = () => {
     per_page: 12,
     total_count: 0,
     total_pages: 0,
-  });
-
-  useMetaTags({
-    title: t("meta.listing_complexes.title"),
-    description: t("meta.listing_complexes.description"),
-    url: window.location.href,
   });
 
   const fetchListingComplexes = async (page = 1) => {
@@ -54,6 +48,12 @@ const ListingComplexesPage = () => {
 
   return (
     <>
+      <MetaTags
+        pageType="enterprises"
+        title={t("enterprises.header")}
+        description={t("enterprises.meta_description")}
+        url={window.location.href}
+      />
       <Banner height="20vh" blurred={true} text={t("enterprises.header")} />
 
       {loading ? (

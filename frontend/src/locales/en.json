@@ -1402,7 +1402,10 @@
     },
     "blog": {
       "title": "Real Estate Blog - Sofia Galvão Group",
-      "description": "Stay informed with our real estate insights, market trends, and expert advice. Discover valuable information about the Portuguese real estate market."
+      "description": "Stay informed with our real estate insights, market trends, and expert advice. Discover valuable information about the Portuguese real estate market.",
+      "post_not_found": "Blog post not found",
+      "date_locale": "en-US",
+      "fetch_error": "Error loading blog post. Please try again."
     },
     "about": {
       "title": "About Us - Sofia Galvão Group",
@@ -1411,6 +1414,46 @@
     "contact": {
       "title": "Contact Us - Sofia Galvão Group",
       "description": "Get in touch with Sofia Galvão Group. We're here to help you find your perfect property in Portugal."
+    },
+    "club": {
+      "title": "SGG Club - Sofia Galvão Group",
+      "description": "Discover SGG Club by Sofia Galvão Group - where real estate excellence meets exclusive benefits."
+    },
+    "club_stories": {
+      "title": "Club Stories - Sofia Galvão Group",
+      "description": "Inspiring stories and success cases from SGG Club members."
+    },
+    "club_rules": {
+      "title": "Club Regulations - Sofia Galvão Group",
+      "description": "Rules and guidelines for SGG Club."
+    },
+    "enterprises": {
+      "title": "Developments - Sofia Galvão Group",
+      "description": "The best developments in Portugal to buy with Sofia Galvão Group."
+    },
+    "faq": {
+      "title": "FAQ - Sofia Galvão Group",
+      "description": "Frequently asked questions about real estate and the services provided by Sofia Galvão Group."
+    },
+    "services": {
+      "title": "Services - Sofia Galvão Group",
+      "description": "As professionals in the real estate market, get to know Sofia Galvão Group's services here."
+    },
+    "sell": {
+      "title": "Sell Property - Sofia Galvão Group",
+      "description": "Sell properties in Portugal with real estate consultant Sofia Galvão from Sofia Galvão Group."
+    },
+    "kw": {
+      "title": "KW Portugal Partnership - Sofia Galvão Group",
+      "description": "Sofia Galvão Group in partnership with Kw Portugal."
+    },
+    "privacy": {
+      "title": "Privacy Policy - Sofia Galvão Group",
+      "description": "Privacy policy and data protection information for Sofia Galvão Group website."
+    },
+    "terms": {
+      "title": "Terms & Conditions - Sofia Galvão Group",
+      "description": "Terms and conditions for Sofia Galvão Group services and website usage."
     },
     "error": {
       "title": "Page Not Found - Sofia Galvão Group",

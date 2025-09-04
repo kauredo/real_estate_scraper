@@ -4,7 +4,7 @@ import { getListingComplex } from "../services/api";
 import { ListingComplex } from "../utils/interfaces";
 import Show from "../components/listingComplex/Show";
 import NewShow from "../components/listingComplex/NewShow";
-import { useMetaTags } from "../hooks/useMetaTags";
+import { MetaTags } from "../components/shared/MetaTags";
 
 const ListingComplexDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -31,14 +31,6 @@ const ListingComplexDetailPage = () => {
     }
   }, [slug]);
 
-  useMetaTags({
-    title: listingComplex?.name,
-    description: listingComplex?.description?.trim(),
-    image: listingComplex?.photos?.[0]?.image?.url,
-    type: "article",
-    url: window.location.href,
-  });
-
   if (loading) {
     return (
       <div className="container mx-auto p-8 flex justify-center items-center">
@@ -55,10 +47,22 @@ const ListingComplexDetailPage = () => {
     );
   }
 
-  return listingComplex.new_format ? (
-    <NewShow complex={listingComplex} />
-  ) : (
-    <Show complex={listingComplex} />
+  return (
+    <>
+      <MetaTags
+        pageType="enterprises"
+        title={listingComplex?.name}
+        description={listingComplex?.description?.trim()}
+        image={listingComplex?.photos?.[0]?.image?.url}
+        type="article"
+        url={window.location.href}
+      />
+      {listingComplex.new_format ? (
+        <NewShow complex={listingComplex} />
+      ) : (
+        <Show complex={listingComplex} />
+      )}
+    </>
   );
 };
 

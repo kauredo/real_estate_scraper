@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { getListings } from "../services/api";
-import { useMetaTags } from "../hooks/useMetaTags";
+import MetaTags from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
 import ListingSearch from "../components/shared/ListingSearch";
 import Pagination from "../components/shared/Pagination";
@@ -29,12 +29,6 @@ const ListingsPage = () => {
     Array<{ objective: string; index: number }>
   >([]);
   const [maxPrice, setMaxPrice] = useState(0);
-
-  useMetaTags({
-    title: t("meta.listings.title"),
-    description: t("meta.listings.description"),
-    url: window.location.href,
-  });
 
   const fetchListings = async (params: Record<string, string>) => {
     try {
@@ -72,6 +66,7 @@ const ListingsPage = () => {
 
   return (
     <>
+      <MetaTags pageType="listings" url={window.location.href} />
       <Banner height="20vh" blurred={true} text={t("listing.header")} />
 
       <ListingSearch

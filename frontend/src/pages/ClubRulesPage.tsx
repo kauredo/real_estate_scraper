@@ -1,24 +1,17 @@
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import SubNavbar from "../components/shared/SubNavbar";
 import ClubHeader from "../components/club/ClubHeader";
 import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
 import { useClubSections } from "../utils/constants/clubSections";
-import { useMetaTags } from "../hooks/useMetaTags";
-import { getClubRules } from "../services/api";
+import MetaTags from "../components/shared/MetaTags";
 
 export default function ClubRulesPage() {
   const { t } = useTranslation();
   const clubSections = useClubSections();
 
-  useMetaTags({
-    title: t("meta.club.rules.title"),
-    description: t("meta.club.rules.description"),
-    url: window.location.href,
-  });
-
   return (
     <>
+      <MetaTags pageType="club_rules" url={window.location.href} />
       <SubNavbar items={clubSections} />
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center pt-12 pb-24">
