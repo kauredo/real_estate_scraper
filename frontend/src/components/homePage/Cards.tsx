@@ -121,6 +121,11 @@ export default function Cards(props: Props) {
   }
 
   // Show listings without location grouping
+  // Flatten the grouped listings if they come as Record<string, Listing[]>
+  const flatListings = isGroupedByLocation
+    ? Object.values(listings).flat()
+    : (listings as Listing[]);
+
   return (
     <section
       id="cards"
@@ -129,7 +134,7 @@ export default function Cards(props: Props) {
       <div className="w-full relative flex items-center justify-center">
         <div className="w-full h-full mx-auto">
           <Carousel
-            items={(listings as Listing[]).map(listing => (
+            items={flatListings.map(listing => (
               <Card listing={listing} key={listing.slug} />
             ))}
             autoplay

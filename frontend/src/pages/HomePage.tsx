@@ -54,7 +54,7 @@ export default function Home() {
     };
 
     fetchHomeData();
-  }, [execute, t]);
+  }, []);
 
   // Show loading state
   if (isLoading) {
