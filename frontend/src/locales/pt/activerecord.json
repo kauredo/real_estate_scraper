@@ -1,0 +1,11 @@
+{
+  "errors": {
+    "messages": {
+      "record_invalid": "A validação falhou: %{errors}",
+      "restrict_dependent_destroy": {
+        "has_many": "Não pode ser eliminado por existirem dependências de %{record}",
+        "has_one": "Não pode ser eliminado por existir uma dependência de %{record}"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "success": {
+    "title": "Sucesso"
+  },
+  "error": {
+    "title": "Erro"
+  },
+  "warning": {
+    "title": "Aviso"
+  },
+  "info": {
+    "title": "Informação"
+  },
+  "messages": {
+    "contact_sent": "A sua mensagem foi enviada com sucesso. Entraremos em contacto em breve!",
+    "contact_error": "Ocorreu um erro ao enviar a sua mensagem. Tente novamente.",
+    "newsletter_subscribed": "Subscreveu com sucesso a nossa newsletter!",
+    "newsletter_error": "Ocorreu um erro ao subscrever a newsletter. Tente novamente.",
+    "data_load_error": "Ocorreu um erro ao carregar os dados. Recarregue a página.",
+    "network_error": "Erro de ligação à rede. Verifique a sua ligação à internet.",
+    "server_error": "Erro no servidor. Tente novamente mais tarde."
+  }
+}

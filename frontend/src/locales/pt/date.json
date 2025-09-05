@@ -1,0 +1,60 @@
+{
+  "abbr_day_names": [
+    "dom",
+    "seg",
+    "ter",
+    "qua",
+    "qui",
+    "sex",
+    "sáb"
+  ],
+  "abbr_month_names": [
+    null,
+    "jan",
+    "fev",
+    "mar",
+    "abr",
+    "mai",
+    "jun",
+    "jul",
+    "ago",
+    "set",
+    "out",
+    "nov",
+    "dez"
+  ],
+  "day_names": [
+    "domingo",
+    "segunda-feira",
+    "terça-feira",
+    "quarta-feira",
+    "quinta-feira",
+    "sexta-feira",
+    "sábado"
+  ],
+  "formats": {
+    "default": "%d/%m/%Y",
+    "long": "%d de %B de %Y",
+    "short": "%d de %B"
+  },
+  "month_names": [
+    null,
+    "janeiro",
+    "fevereiro",
+    "março",
+    "abril",
+    "maio",
+    "junho",
+    "julho",
+    "agosto",
+    "setembro",
+    "outubro",
+    "novembro",
+    "dezembro"
+  ],
+  "order": [
+    "day",
+    "month",
+    "year"
+  ]
+}

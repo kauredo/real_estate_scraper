@@ -1,0 +1,6 @@
+{
+  "page": "Página {{current}} de {{total}}",
+  "previous": "Anterior",
+  "next": "Próxima",
+  "total": "Total"
+}

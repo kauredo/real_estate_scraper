@@ -1,0 +1,23 @@
+{
+  "blog_posts": {
+    "view_post": "View Post"
+  },
+  "club_stories": {
+    "view_story": "View Story"
+  },
+  "common": {
+    "confirm_delete": "Are you sure you want to delete this item?",
+    "create": "Create",
+    "delete_confirm": "Are you sure you want to delete this item?",
+    "delete_photo_confirm": "Are you sure you want to delete this photo?",
+    "edit": "Edit",
+    "hidden_hint": "The content will only be visible on the site if this option is NOT checked (only visible in backoffice)",
+    "main_photo": "Main photo?",
+    "photos": "Photos",
+    "seo_description_hint": "This is the description that will appear on search engines 👇",
+    "seo_section": "SEO",
+    "seo_title_hint": "This is the title that will appear on search engines 👇",
+    "update": "Update",
+    "view": "View"
+  }
+}

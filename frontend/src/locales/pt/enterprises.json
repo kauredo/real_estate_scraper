@@ -1,0 +1,40 @@
+{
+  "header": "Empreendimentos",
+  "list": {
+    "invest": {
+      "description": "Possibilidade de disponibilizar o pagamento consoante as fases de evolução da obra e da construção.",
+      "title": "Investimento Faseado"
+    },
+    "own": {
+      "description": "Na compra em planta tem a garantia de que o imóvel está pronto a estrear e a certeza que será o primeiro proprietário.",
+      "title": "Vai ser o primeiro dono da sua nova casa"
+    },
+    "perspective": {
+      "description": "Ao adquirir uma casa em planta o investimento que é feito é, por norma, inferior ao investimento que seria necessário fazer caso ela já estivesse pronta. Isto significa que a sua casa, a partir do momento que está pronta, já potencia o seu investimento.",
+      "title": "Perspectiva de melhor retorno de investimento"
+    },
+    "warranty": {
+      "description": "Um imóvel novo tem garantia de construção, além da certeza de não haver necessidade de melhoramentos nos próximos anos.",
+      "title": "Garantia de construção"
+    },
+    "yours": {
+      "description": "A aquisição em planta confere a possibilidade do futuro proprietário fazer alterações ao nível de materiais e por vezes ao nível da configuração, de forma a que a sua futura casa vá ao encontro das suas necessidades e gostos.",
+      "title": "Imóvel à sua medida"
+    }
+  },
+  "resource": "Empreendimento",
+  "show": {
+    "bedrooms": "Tipologia",
+    "built": "Área Bruta",
+    "living": "Área Útil",
+    "more": "Ver mais",
+    "parking": "Estacionamento",
+    "price": "Preço",
+    "type": "Natureza"
+  },
+  "subheader": "Porquê Comprar <span class=\"underline decoration-beige-default dark:decoration-beige-medium\">em Planta?</span>",
+  "subtitle": {
+    "description": "Conheça os nossos projetos de empreendimentos imobiliários, que oferecem oportunidades únicas de investimento. Com opções de compra em planta, pode personalizar o seu imóvel e investir em propriedades com alto potencial de valorização. A nossa equipa fornece informações detalhadas sobre cada empreendimento, incluindo localização, planos de pagamento e potencial de retorno.",
+    "title": "Oportunidades de Investimento"
+  }
+}

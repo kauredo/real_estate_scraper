@@ -1,0 +1,89 @@
+{
+  "404": {
+    "button": "Go Back",
+    "text_1": "The page you're looking for isn't available.",
+    "text_2": "Try searching again or use the Go Back button below.",
+    "title": "You seem to be lost!"
+  },
+  "500": {
+    "text_1": "We're trying our best to fix it.",
+    "text_2": "Please try again in a few minutes.",
+    "title": "Server is down!"
+  },
+  "connection_refused": "Oops! Failed to connect to the Web Console middleware.\nPlease make sure a rails development server is running.\n",
+  "email": {
+    "invalid": "is not a valid email"
+  },
+  "format": "%{attribute} %{message}",
+  "messages": {
+    "accepted": "must be accepted",
+    "already_confirmed": "was already confirmed, please try signing in",
+    "blank": "can't be blank",
+    "carrierwave_download_error": "could not be downloaded",
+    "carrierwave_integrity_error": "is not of an allowed file type",
+    "carrierwave_processing_error": "failed to be processed",
+    "confirmation": "doesn't match %{attribute}",
+    "confirmation_period_expired": "needs to be confirmed within %{period}, please request a new one",
+    "content_type_allowlist_error": "You are not allowed to upload %{content_type} files, allowed types: %{allowed_types}",
+    "content_type_denylist_error": "You are not allowed to upload %{content_type} files",
+    "empty": "can't be empty",
+    "equal_to": "must be equal to %{count}",
+    "even": "must be even",
+    "exclusion": "is reserved",
+    "expired": "has expired, please request a new one",
+    "extension_allowlist_error": "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}",
+    "extension_denylist_error": "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}",
+    "greater_than": "must be greater than %{count}",
+    "greater_than_or_equal_to": "must be greater than or equal to %{count}",
+    "in": "must be in %{count}",
+    "inclusion": "is not included in the list",
+    "invalid": "is invalid",
+    "invalid_currency": "has invalid format (must be '100', '5%{decimal}24', or '123%{thousands}456%{decimal}78'). Got %{currency}",
+    "less_than": "must be less than %{count}",
+    "less_than_or_equal_to": "must be less than or equal to %{count}",
+    "max_height_error": "Image height should be less than %{max_height}px",
+    "max_size_error": "File size should be less than %{max_size}",
+    "max_width_error": "Image width should be less than %{max_width}px",
+    "min_height_error": "Image height should be greater than %{min_height}px",
+    "min_size_error": "File size should be greater than %{min_size}",
+    "min_width_error": "Image width should be greater than %{min_width}px",
+    "model_invalid": "Validation failed: %{errors}",
+    "not_a_number": "is not a number",
+    "not_an_integer": "must be an integer",
+    "not_found": "not found",
+    "not_locked": "was not locked",
+    "not_saved": {
+      "one": "1 error prohibited this %{resource} from being saved:",
+      "other": "%{count} errors prohibited this %{resource} from being saved:"
+    },
+    "odd": "must be odd",
+    "other_than": "must be other than %{count}",
+    "password_too_long": "is too long",
+    "present": "must be blank",
+    "processing_error": "Failed to manipulate, maybe it is not an image?",
+    "required": "must exist",
+    "taken": "has already been taken",
+    "too_long": {
+      "one": "is too long (maximum is 1 character)",
+      "other": "is too long (maximum is %{count} characters)"
+    },
+    "too_short": {
+      "one": "is too short (minimum is 1 character)",
+      "other": "is too short (minimum is %{count} characters)"
+    },
+    "wrong_length": {
+      "one": "is the wrong length (should be 1 character)",
+      "other": "is the wrong length (should be %{count} characters)"
+    }
+  },
+  "presence": "cannot be empty",
+  "template": {
+    "body": "There were problems with the following fields:",
+    "header": {
+      "one": "1 error prohibited this %{model} from being saved",
+      "other": "%{count} errors prohibited this %{model} from being saved"
+    }
+  },
+  "unacceptable_request": "A supported version is expected in the Accept header.\n",
+  "unavailable_session": "Session %{id} is no longer available in memory.\n\nIf you happen to run on a multi-process server (like Unicorn or Puma) the process\nthis request hit doesn't store %{id} in memory. Consider turning the number of\nprocesses/workers to one (1) or using a different server in development.\n"
+}

@@ -1,0 +1,11 @@
+{
+  "contact": {
+    "thanks": "Obrigado pela sua mensagem. Entraremos em contacto em breve"
+  },
+  "newsletters": {
+    "confirm": "Subscrição à newsletter ativa, obrigado pela confiança",
+    "error": "Não foi possível subscrever à newsletter, por favor tente novamente",
+    "repeat": "Já tem uma subscrição ativa à nossa newsletter. Obrigada pela confiança!",
+    "subscribe": "Por favor confirme a subscrição através do seu email"
+  }
+}

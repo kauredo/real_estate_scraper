@@ -1,0 +1,20 @@
+{
+  "contact_us": "Contacte-nos",
+  "cta": "ENTRE EM CONTACTO CONNOSCO",
+  "form": {
+    "consent": "Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os seus dados para o informar sobre oportunidades de negócio, de acordo com a Política de Privacidade.",
+    "error": "Por favor insira valores válidos",
+    "fields": {
+      "email": "Email",
+      "message": "Mensagem",
+      "name": "Nome",
+      "phone": "Telefone",
+      "send": "Enviar"
+    },
+    "titles": {
+      "main": "Preencha o formulário e entraremos em contacto consigo:",
+      "visit": "Precisa de mais informação? Quer agendar uma visita? Entre em contacto connosco!"
+    }
+  },
+  "header": "Contactos"
+}

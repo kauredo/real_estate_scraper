@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "split-locales": "node scripts/split-locales.js",
+    "merge-locales": "node scripts/merge-locales.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",

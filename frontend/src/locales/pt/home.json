@@ -1,0 +1,27 @@
+{
+  "cta": {
+    "contact": "Fale connosco",
+    "long": "Avalie a sua casa",
+    "short": "Avalie casa"
+  },
+  "newsletter": {
+    "form": {
+      "errors": {
+        "email": "Por favor insira um email válido",
+        "name": "Por favor insira um nome válido"
+      },
+      "fields": {
+        "email": "Email",
+        "name": "Nome",
+        "subscribe": "Subscrever"
+      }
+    },
+    "subtitle": "Subscreva a nossa newsletter e fique a par das mais recentes oportunidades, noticias e dicas do mercado.",
+    "terms": "Ao pedir informações está a autorizar o Sofia Galvão Group a guardar os seus dados para o informar sobre oportunidades de negócio, de acordo com a Política de Privacidade.",
+    "title": "Receba as novidades do Mercado"
+  },
+  "slogan": {
+    "bottom": "lares felizes!",
+    "top": "Juntos criamos"
+  }
+}
