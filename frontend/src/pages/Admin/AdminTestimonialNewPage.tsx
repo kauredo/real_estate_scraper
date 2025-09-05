@@ -3,11 +3,18 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { adminCreateTestimonial } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
+import Flashes from "../../components/shared/Flashes";
+
+interface FlashMessage {
+  type: string;
+  message: string;
+}
 
 const AdminTestimonialNewPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [flash, setFlash] = useState<FlashMessage | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     text: "",
@@ -17,13 +24,27 @@ const AdminTestimonialNewPage = () => {
     e.preventDefault();
     try {
       setLoading(true);
+      setFlash(null); // Clear any existing flash messages
       await adminCreateTestimonial(formData);
-      navigate(appRoutes.backoffice.testimonials);
+      setFlash({
+        type: "success",
+        message: t("admin.testimonials.create_success"),
+      });
+      // Navigate after showing success message
+      setTimeout(() => navigate(appRoutes.backoffice.testimonials), 1500);
     } catch (error) {
       console.error("Error creating testimonial:", error);
+      setFlash({
+        type: "error",
+        message: t("admin.testimonials.create_error"),
+      });
     } finally {
       setLoading(false);
     }
+  };
+
+  const clearFlash = () => {
+    setFlash(null);
   };
 
   const handleChange = (
@@ -35,6 +56,15 @@ const AdminTestimonialNewPage = () => {
 
   return (
     <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
+      {/* Flash Messages */}
+      {flash && (
+        <Flashes
+          type={flash.type}
+          message={flash.message}
+          onClose={clearFlash}
+        />
+      )}
+
       <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
         <div className="mb-6">
           <button

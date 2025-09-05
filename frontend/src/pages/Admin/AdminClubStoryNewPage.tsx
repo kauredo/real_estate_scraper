@@ -4,6 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { adminCreateClubStory } from "../../services/api";
 import { Editor } from "@tinymce/tinymce-react";
 import { appRoutes } from "../../utils/routes";
+import Flashes from "../../components/shared/Flashes";
+
+interface FlashMessage {
+  type: string;
+  message: string;
+}
 
 interface ClubStoryFormData {
   title: string;
@@ -20,6 +26,7 @@ const AdminClubStoryNewPage = () => {
   const navigate = useNavigate();
 
   const [saving, setSaving] = useState(false);
+  const [flash, setFlash] = useState<FlashMessage | null>(null);
   const [formData, setFormData] = useState<ClubStoryFormData>({
     title: "",
     small_description: "",
@@ -33,15 +40,29 @@ const AdminClubStoryNewPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
+    setFlash(null); // Clear any existing flash messages
 
     try {
       await adminCreateClubStory(formData);
-      navigate(appRoutes.backoffice.clubStories);
+      setFlash({
+        type: "success",
+        message: t("admin.clubStories.create_success"),
+      });
+      // Navigate after showing success message
+      setTimeout(() => navigate(appRoutes.backoffice.clubStories), 1500);
     } catch (error) {
       console.error("Error creating club story:", error);
+      setFlash({
+        type: "error",
+        message: t("admin.clubStories.create_error"),
+      });
     } finally {
       setSaving(false);
     }
+  };
+
+  const clearFlash = () => {
+    setFlash(null);
   };
 
   const handleChange = (
@@ -57,6 +78,15 @@ const AdminClubStoryNewPage = () => {
 
   return (
     <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
+      {/* Flash Messages */}
+      {flash && (
+        <Flashes
+          type={flash.type}
+          message={flash.message}
+          onClose={clearFlash}
+        />
+      )}
+
       <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
         {t("club.stories.new")}
       </h2>

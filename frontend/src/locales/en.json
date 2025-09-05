@@ -1962,7 +1962,12 @@
       "edit": "Edit Story",
       "delete": "Delete Story",
       "totalCount": "Total {{count}} stories",
-      "noStories": "No stories found"
+      "noStories": "No stories found",
+      "create_success": "Club story created successfully!",
+      "update_success": "Club story updated successfully!",
+      "create_error": "Error creating club story. Please try again.",
+      "update_error": "Error updating club story. Please try again.",
+      "fetch_error": "Error loading club story. Please try again."
     },
     "listings": {
       "updating": "Updating...",
@@ -2024,6 +2029,11 @@
       "errorLoading": "Error loading testimonials",
       "errorDeleting": "Error deleting testimonial",
       "errorSaving": "Error saving testimonial",
+      "create_success": "Testimonial created successfully!",
+      "update_success": "Testimonial updated successfully!",
+      "create_error": "Error creating testimonial. Please try again.",
+      "update_error": "Error updating testimonial. Please try again.",
+      "fetch_error": "Error loading testimonial. Please try again.",
       "table": {
         "id": "ID",
         "name": "Name",

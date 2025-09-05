@@ -15,7 +15,7 @@ export const useAsyncOperation = () => {
   const { showError, showSuccess } = useNotifications();
   const { t } = useTranslation();
 
-  const execute = async <T,>(
+  const execute = async <T>(
     operation: () => Promise<T>,
     options: {
       successMessage?: string;
@@ -35,7 +35,7 @@ export const useAsyncOperation = () => {
 
     try {
       const result = await operation();
-      
+
       setLoadingState({ isLoading: false, error: null });
 
       if (showSuccessNotification && successMessage) {
@@ -45,7 +45,7 @@ export const useAsyncOperation = () => {
       return result;
     } catch (error) {
       const errorMsg = errorMessage || getErrorMessage(error);
-      
+
       setLoadingState({ isLoading: false, error: errorMsg });
 
       if (showErrorNotification) {

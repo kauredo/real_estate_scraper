@@ -2,7 +2,10 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { AuthProvider, useAuth } from "./context/AuthContext";
-import { NotificationProvider, useNotifications } from "./context/NotificationContext";
+import {
+  NotificationProvider,
+  useNotifications,
+} from "./context/NotificationContext";
 import { setNotificationContext } from "./services/api";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/layout/Navbar";
@@ -271,11 +274,11 @@ function App() {
 // Component to initialize the notification context for API calls
 function NotificationHandler() {
   const { showError, showSuccess } = useNotifications();
-  
+
   useEffect(() => {
     setNotificationContext({ showError, showSuccess });
   }, [showError, showSuccess]);
-  
+
   return null;
 }
 

@@ -37,31 +37,39 @@ api.interceptors.response.use(
   response => {
     // Handle success responses that might need user feedback
     const method = response.config.method?.toUpperCase();
-    const showSuccessForMethods = ['POST', 'PUT', 'DELETE', 'PATCH'];
-    
-    if (method && showSuccessForMethods.includes(method) && notificationContext) {
+    const showSuccessForMethods = ["POST", "PUT", "DELETE", "PATCH"];
+
+    if (
+      method &&
+      showSuccessForMethods.includes(method) &&
+      notificationContext
+    ) {
       // Check if it's a form submission or important update
-      const url = response.config.url || '';
-      
-      if (url.includes('/contact')) {
+      const url = response.config.url || "";
+
+      if (url.includes("/contact")) {
         notificationContext.showSuccess("notifications.messages.contact_sent");
-      } else if (url.includes('/newsletter_subscriptions')) {
-        notificationContext.showSuccess("notifications.messages.newsletter_subscribed");
+      } else if (url.includes("/newsletter_subscriptions")) {
+        notificationContext.showSuccess(
+          "notifications.messages.newsletter_subscribed"
+        );
       }
       // Add more specific success messages as needed
     }
-    
+
     return response;
   },
   error => {
     // Handle common errors with user-friendly notifications
     if (error.response && notificationContext) {
       const { status } = error.response;
-      
+
       if (status === 401) {
         // Handle unauthorized (redirect to login, clear token, etc.)
         localStorage.removeItem("token");
-        notificationContext.showError("Your session has expired. Please log in again.");
+        notificationContext.showError(
+          "Your session has expired. Please log in again."
+        );
       } else if (status === 404) {
         // Handle not found
         notificationContext.showError("notifications.messages.data_load_error");
@@ -70,9 +78,10 @@ api.interceptors.response.use(
         notificationContext.showError("notifications.messages.server_error");
       } else if (status === 422) {
         // Validation errors
-        const errorMessage = error.response.data?.message || 
-                            error.response.data?.error || 
-                            "Please check your input and try again.";
+        const errorMessage =
+          error.response.data?.message ||
+          error.response.data?.error ||
+          "Please check your input and try again.";
         notificationContext.showError(errorMessage);
       } else {
         // Generic error
@@ -145,7 +154,8 @@ export const getSellPage = () => api.get(apiRoutes.sell);
 export const toggleDarkMode = () => api.post(apiRoutes.toggleDarkMode);
 
 // Contact API functions
-export const submitContactForm = (data: any) => api.post(apiRoutes.contact, data);
+export const submitContactForm = (data: any) =>
+  api.post(apiRoutes.contact, data);
 
 // Blog posts API functions
 export const getBlogPosts = (params = {}) =>

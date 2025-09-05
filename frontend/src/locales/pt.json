@@ -1537,7 +1537,12 @@
       "edit": "Editar História",
       "delete": "Apagar História",
       "totalCount": "Total {{count}} histórias",
-      "noStories": "Nenhuma história encontrada"
+      "noStories": "Nenhuma história encontrada",
+      "create_success": "História do clube criada com sucesso!",
+      "update_success": "História do clube atualizada com sucesso!",
+      "create_error": "Erro ao criar história do clube. Tente novamente.",
+      "update_error": "Erro ao atualizar história do clube. Tente novamente.",
+      "fetch_error": "Erro ao carregar história do clube. Tente novamente."
     },
     "listings": {
       "title": "Imóveis",
@@ -1598,6 +1603,11 @@
       "errorLoading": "Erro ao carregar os testemunhos",
       "errorDeleting": "Erro ao eliminar o testemunho",
       "errorSaving": "Erro ao salvar o testemunho",
+      "create_success": "Testemunho criado com sucesso!",
+      "update_success": "Testemunho atualizado com sucesso!",
+      "create_error": "Erro ao criar testemunho. Tente novamente.",
+      "update_error": "Erro ao atualizar testemunho. Tente novamente.",
+      "fetch_error": "Erro ao carregar testemunho. Tente novamente.",
       "table": {
         "id": "ID",
         "name": "Nome",

@@ -29,14 +29,14 @@ export default function ContactForm(props: Props) {
 
     if (valid_params) {
       setError("");
-      
+
       // Prepare form data
       const formData = new FormData();
       formData.append("contact[name]", name);
       formData.append("contact[email]", email);
       formData.append("contact[phone]", phone);
       formData.append("contact[message]", message);
-      
+
       if (listing) {
         formData.append("contact[listing]", listing.slug);
       }
@@ -44,14 +44,11 @@ export default function ContactForm(props: Props) {
         formData.append("contact[complex]", complex.slug);
       }
 
-      const result = await execute(
-        () => submitContactForm(formData),
-        {
-          successMessage: t("notifications.messages.contact_sent"),
-          errorMessage: t("notifications.messages.contact_error"),
-          showSuccessNotification: true,
-        }
-      );
+      const result = await execute(() => submitContactForm(formData), {
+        successMessage: t("notifications.messages.contact_sent"),
+        errorMessage: t("notifications.messages.contact_error"),
+        showSuccessNotification: true,
+      });
 
       if (result) {
         // Reset form on success
@@ -88,10 +85,7 @@ export default function ContactForm(props: Props) {
           </span>
         )}
       </p>
-      <form
-        ref={form}
-        onSubmit={validateUser}
-      >
+      <form ref={form} onSubmit={validateUser}>
         <div className="mb-6">
           <input
             type="text"
@@ -155,7 +149,9 @@ export default function ContactForm(props: Props) {
               (listing || complex ? "" : "rounded")
             }
           >
-            {isLoading ? t("common.saving") || "Sending..." : t("contacts.form.fields.send")}
+            {isLoading
+              ? t("common.saving") || "Sending..."
+              : t("contacts.form.fields.send")}
           </button>
         </div>
       </form>

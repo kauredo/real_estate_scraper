@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Notification, useNotifications } from "../../context/NotificationContext";
+import {
+  Notification,
+  useNotifications,
+} from "../../context/NotificationContext";
 
 interface ToastProps {
   notification: Notification;
@@ -88,7 +91,10 @@ const Toast: React.FC<ToastProps> = ({ notification }) => {
         </div>
         <button
           onClick={handleClose}
-          className={`${textColor} hover:${textColor.replace('700', '900')} ml-2 flex-shrink-0`}
+          className={`${textColor} hover:${textColor.replace(
+            "700",
+            "900"
+          )} ml-2 flex-shrink-0`}
           aria-label="Close notification"
         >
           <svg

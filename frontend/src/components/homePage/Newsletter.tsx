@@ -19,7 +19,7 @@ export default function Newsletter() {
 
     if (valid_email && name) {
       setError("");
-      
+
       const result = await execute(
         () => subscribeToNewsletter({ email, name }),
         {
@@ -56,10 +56,7 @@ export default function Newsletter() {
             {t("home.newsletter.terms")}
           </span>
         </p>
-        <form
-          ref={form}
-          onSubmit={validateUser}
-        >
+        <form ref={form} onSubmit={validateUser}>
           <div className="w-full">
             <input
               className="border-l-4 border-beige-default dark:border-beige-medium bg-white dark:bg-light focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
@@ -84,7 +81,11 @@ export default function Newsletter() {
               required
               type="submit"
               disabled={isLoading}
-              value={isLoading ? (t("common.saving") || "Subscribing...") : t("home.newsletter.form.fields.subscribe")}
+              value={
+                isLoading
+                  ? t("common.saving") || "Subscribing..."
+                  : t("home.newsletter.form.fields.subscribe")
+              }
             />
           </div>
           {error && (

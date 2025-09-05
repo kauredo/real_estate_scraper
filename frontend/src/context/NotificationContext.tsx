@@ -57,7 +57,10 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
     }
   };
 
-  const showSuccess = (message: string, options: Partial<Notification> = {}) => {
+  const showSuccess = (
+    message: string,
+    options: Partial<Notification> = {}
+  ) => {
     showNotification({
       type: "success",
       message,
@@ -76,7 +79,10 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
     });
   };
 
-  const showWarning = (message: string, options: Partial<Notification> = {}) => {
+  const showWarning = (
+    message: string,
+    options: Partial<Notification> = {}
+  ) => {
     showNotification({
       type: "warning",
       message,
@@ -95,7 +101,9 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
   };
 
   const hideNotification = (id: string) => {
-    setNotifications(prev => prev.filter(notification => notification.id !== id));
+    setNotifications(prev =>
+      prev.filter(notification => notification.id !== id)
+    );
   };
 
   const clearNotifications = () => {
@@ -123,7 +131,9 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
 export const useNotifications = () => {
   const context = useContext(NotificationContext);
   if (context === undefined) {
-    throw new Error("useNotifications must be used within a NotificationProvider");
+    throw new Error(
+      "useNotifications must be used within a NotificationProvider"
+    );
   }
   return context;
 };
