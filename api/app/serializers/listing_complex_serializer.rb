@@ -50,8 +50,14 @@ end
 #  video_link  :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  tenant_id   :bigint
 #
 # Indexes
 #
-#  index_listing_complexes_on_slug  (slug) UNIQUE
+#  index_listing_complexes_on_slug       (slug) UNIQUE
+#  index_listing_complexes_on_tenant_id  (tenant_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (tenant_id => tenants.id)
 #

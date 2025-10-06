@@ -1,0 +1,31 @@
+require "test_helper"
+
+class TenantTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end
+
+# == Schema Information
+#
+# Table name: tenants
+#
+#  id            :bigint           not null, primary key
+#  active        :boolean          default(TRUE), not null
+#  api_key       :string           not null
+#  contact_email :string
+#  domain        :string
+#  features      :jsonb            not null
+#  metadata      :jsonb            not null
+#  name          :string           not null
+#  slug          :string           not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+# Indexes
+#
+#  index_tenants_on_active   (active)
+#  index_tenants_on_api_key  (api_key) UNIQUE
+#  index_tenants_on_domain   (domain)
+#  index_tenants_on_slug     (slug) UNIQUE
+#

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
+ActiveRecord::Schema[7.1].define(version: 2025_10_06_160350) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,8 +23,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tenant_id"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["tenant_id"], name: "index_admins_on_tenant_id"
   end
 
   create_table "blog_photos", force: :cascade do |t|
@@ -33,7 +35,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.bigint "blog_post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tenant_id"
     t.index ["blog_post_id"], name: "index_blog_photos_on_blog_post_id"
+    t.index ["tenant_id"], name: "index_blog_photos_on_tenant_id"
   end
 
   create_table "blog_post_translations", force: :cascade do |t|
@@ -60,7 +64,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.string "slug"
     t.string "video_link"
     t.text "small_description"
+    t.bigint "tenant_id"
     t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
+    t.index ["tenant_id"], name: "index_blog_posts_on_tenant_id"
   end
 
   create_table "club_stories", force: :cascade do |t|
@@ -74,7 +80,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.datetime "updated_at", null: false
     t.string "video_link"
     t.text "small_description"
+    t.bigint "tenant_id"
     t.index ["slug"], name: "index_club_stories_on_slug", unique: true
+    t.index ["tenant_id"], name: "index_club_stories_on_tenant_id"
   end
 
   create_table "club_story_photos", force: :cascade do |t|
@@ -83,7 +91,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.bigint "club_story_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tenant_id"
     t.index ["club_story_id"], name: "index_club_story_photos_on_club_story_id"
+    t.index ["tenant_id"], name: "index_club_story_photos_on_tenant_id"
   end
 
   create_table "club_story_translations", force: :cascade do |t|
@@ -107,6 +117,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.boolean "terms_accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tenant_id"
+    t.index ["tenant_id"], name: "index_club_users_on_tenant_id"
   end
 
   create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
@@ -239,7 +251,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.boolean "hidden", default: false
     t.string "slug"
     t.string "url"
+    t.bigint "tenant_id"
     t.index ["slug"], name: "index_listing_complexes_on_slug", unique: true
+    t.index ["tenant_id"], name: "index_listing_complexes_on_tenant_id"
   end
 
   create_table "listing_translations", force: :cascade do |t|
@@ -278,9 +292,13 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.integer "kind", default: 0, null: false
     t.integer "objective", default: 0, null: false
     t.string "virtual_tour_url"
+    t.bigint "tenant_id"
     t.index ["deleted_at"], name: "index_listings_on_deleted_at"
     t.index ["listing_complex_id"], name: "index_listings_on_listing_complex_id"
     t.index ["slug"], name: "index_listings_on_slug", unique: true
+    t.index ["tenant_id", "created_at"], name: "index_listings_on_tenant_id_and_created_at"
+    t.index ["tenant_id", "status"], name: "index_listings_on_tenant_id_and_status"
+    t.index ["tenant_id"], name: "index_listings_on_tenant_id"
   end
 
   create_table "mobility_string_translations", force: :cascade do |t|
@@ -312,6 +330,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tenant_id"
+    t.index ["tenant_id"], name: "index_newsletter_subscriptions_on_tenant_id"
     t.index ["user_id"], name: "index_newsletter_subscriptions_on_user_id"
   end
 
@@ -323,8 +343,27 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "original_url"
+    t.bigint "tenant_id"
     t.index ["listing_complex_id"], name: "index_photos_on_listing_complex_id"
     t.index ["original_url"], name: "index_photos_on_original_url", unique: true, where: "(original_url IS NOT NULL)"
+    t.index ["tenant_id"], name: "index_photos_on_tenant_id"
+  end
+
+  create_table "tenants", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.string "api_key", null: false
+    t.jsonb "features", default: {}, null: false
+    t.jsonb "metadata", default: {}, null: false
+    t.string "domain"
+    t.string "contact_email"
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["active"], name: "index_tenants_on_active"
+    t.index ["api_key"], name: "index_tenants_on_api_key", unique: true
+    t.index ["domain"], name: "index_tenants_on_domain"
+    t.index ["slug"], name: "index_tenants_on_slug", unique: true
   end
 
   create_table "testimonial_translations", force: :cascade do |t|
@@ -342,6 +381,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tenant_id"
+    t.index ["tenant_id"], name: "index_testimonials_on_tenant_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -352,6 +393,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "confirmed_email"
+    t.bigint "tenant_id"
+    t.index ["tenant_id"], name: "index_users_on_tenant_id"
   end
 
   create_table "variable_translations", force: :cascade do |t|
@@ -371,13 +414,28 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_05_144456) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "icon"
+    t.bigint "tenant_id"
+    t.index ["tenant_id"], name: "index_variables_on_tenant_id"
   end
 
+  add_foreign_key "admins", "tenants"
+  add_foreign_key "blog_photos", "tenants"
   add_foreign_key "blog_post_translations", "blog_posts"
+  add_foreign_key "blog_posts", "tenants"
+  add_foreign_key "club_stories", "tenants"
+  add_foreign_key "club_story_photos", "tenants"
   add_foreign_key "club_story_translations", "club_stories"
+  add_foreign_key "club_users", "tenants"
   add_foreign_key "listing_complex_translations", "listing_complexes"
+  add_foreign_key "listing_complexes", "tenants"
   add_foreign_key "listing_translations", "listings"
+  add_foreign_key "listings", "tenants"
+  add_foreign_key "newsletter_subscriptions", "tenants"
   add_foreign_key "newsletter_subscriptions", "users"
+  add_foreign_key "photos", "tenants"
   add_foreign_key "testimonial_translations", "testimonials"
+  add_foreign_key "testimonials", "tenants"
+  add_foreign_key "users", "tenants"
   add_foreign_key "variable_translations", "variables"
+  add_foreign_key "variables", "tenants"
 end

@@ -20,8 +20,14 @@ end
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  blog_post_id :bigint
+#  tenant_id    :bigint
 #
 # Indexes
 #
 #  index_blog_photos_on_blog_post_id  (blog_post_id)
+#  index_blog_photos_on_tenant_id     (tenant_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (tenant_id => tenants.id)
 #

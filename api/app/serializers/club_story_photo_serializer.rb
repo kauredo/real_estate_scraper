@@ -20,8 +20,14 @@ end
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  club_story_id :bigint
+#  tenant_id     :bigint
 #
 # Indexes
 #
 #  index_club_story_photos_on_club_story_id  (club_story_id)
+#  index_club_story_photos_on_tenant_id      (tenant_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (tenant_id => tenants.id)
 #

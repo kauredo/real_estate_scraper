@@ -56,10 +56,18 @@ end
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  listing_complex_id :bigint
+#  tenant_id          :bigint
 #
 # Indexes
 #
-#  index_listings_on_deleted_at          (deleted_at)
-#  index_listings_on_listing_complex_id  (listing_complex_id)
-#  index_listings_on_slug                (slug) UNIQUE
+#  index_listings_on_deleted_at                (deleted_at)
+#  index_listings_on_listing_complex_id        (listing_complex_id)
+#  index_listings_on_slug                      (slug) UNIQUE
+#  index_listings_on_tenant_id                 (tenant_id)
+#  index_listings_on_tenant_id_and_created_at  (tenant_id,created_at)
+#  index_listings_on_tenant_id_and_status      (tenant_id,status)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (tenant_id => tenants.id)
 #
