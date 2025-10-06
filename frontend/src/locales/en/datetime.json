@@ -25,6 +25,10 @@
       "one": "less than 1 second",
       "other": "less than %{count} seconds"
     },
+    "less_than_x_2s": {
+      "one": "less than 1 second",
+      "other": "less than %{count} seconds"
+    },
     "over_x_years": {
       "one": "over 1 year",
       "other": "over %{count} years"
@@ -42,6 +46,10 @@
       "other": "%{count} months"
     },
     "x_seconds": {
+      "one": "1 second",
+      "other": "%{count} seconds"
+    },
+    "x_2s": {
       "one": "1 second",
       "other": "%{count} seconds"
     },

@@ -3,6 +3,8 @@
     "error": "Error: the link must start with 'https://www.kwportugal.pt/'",
     "notice": "Development added, wait a little and it will appear on the platform"
   },
+  "no_results": "No developments found",
+  "price_from": "Starting from {{price}}",
   "update_details": {
     "notice": "Development will be updated shortly, please wait and check in a few minutes"
   }

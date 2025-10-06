@@ -1,4 +1,6 @@
 {
   "next": "Next",
-  "previous": "Previous"
+  "page": "Page {{current}} of {{total}}",
+  "previous": "Previous",
+  "total": "Total"
 }

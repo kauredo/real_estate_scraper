@@ -23,11 +23,23 @@
     "decimal_units": {
       "format": "%n %u",
       "units": {
-        "billion": "Billion",
-        "million": "Million",
-        "quadrillion": "Quadrillion",
+        "billion": {
+          "one": "Billion",
+          "other": "Billion"
+        },
+        "million": {
+          "one": "Million",
+          "other": "Million"
+        },
+        "quadrillion": {
+          "one": "Quadrillion",
+          "other": "Quadrillion"
+        },
         "thousand": "Thousand",
-        "trillion": "Trillion",
+        "trillion": {
+          "one": "Trillion",
+          "other": "Trillion"
+        },
         "unit": ""
       }
     },

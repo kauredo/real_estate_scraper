@@ -3,6 +3,7 @@
     "format": {
       "delimiter": ".",
       "format": "%u %n",
+      "negative_format": "-%u %n",
       "precision": 2,
       "separator": ",",
       "significant": false,
@@ -13,6 +14,7 @@
   "format": {
     "delimiter": ".",
     "precision": 3,
+    "round_mode": "default",
     "separator": ",",
     "significant": false,
     "strip_insignificant_zeros": false
@@ -59,7 +61,8 @@
         "kb": "KB",
         "mb": "MB",
         "pb": "PB",
-        "tb": "TB"
+        "tb": "TB",
+        "zb": "ZB"
       }
     }
   },

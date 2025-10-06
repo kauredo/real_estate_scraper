@@ -12,6 +12,11 @@
     "middle": "Hoje, por todo o mundo mais de <span class=\"font-bold\">165.000 consultores</span> e mais de <span class=\"font-bold\">1.000 Market Centers</span> são filiados KW.",
     "top": "A KW actua segundo o princípio de que, se focar todos os seus recursos na construção dos negócios dos seus consultores, estes irão, em retorno, ajudar a construir uma empresa acima de todas as expectativas. Com esta filosofia em prática, estamos a transformar o panorama geral da mediação imobiliária."
   },
+  "first_paragraph": {
+    "bottom": "A KW conta com um total de <span class=\"font-bold\">23 representações</span> e mais de <span class=\"font-bold\">2.000 consultores e associados</span> em Portugal.",
+    "middle": "Hoje, por todo o mundo mais de <span class=\"font-bold\">165.000 consultores</span> e mais de <span class=\"font-bold\">1.000 Market Centers</span> são filiados KW.",
+    "top": "A KW actua segundo o princípio de que, se focar todos os seus recursos na construção dos negócios dos seus consultores, estes irão, em retorno, ajudar a construir uma empresa acima de todas as expectativas. Com esta filosofia em prática, estamos a transformar o panorama geral da mediação imobiliária."
+  },
   "header": "KW Portugal",
   "more": "Descubra mais sobre a KW Portugal",
   "perspectives": {
@@ -25,5 +30,6 @@
     "title": "Perspetivas"
   },
   "principle": "Princípios - WI4C2TES",
-  "subheader": "Uma empresa feita de consultores para consultores!"
+  "subheader": "Uma empresa feita de consultores para consultores!",
+  "meta_description": "Sofia Galvão Group em parceria com a Kw Portugal."
 }

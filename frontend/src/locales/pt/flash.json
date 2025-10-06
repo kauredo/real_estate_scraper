@@ -1,6 +1,21 @@
 {
+  "actions": {
+    "create": {
+      "notice": "%{resource_name} foi criado com sucesso."
+    },
+    "destroy": {
+      "alert": "%{resource_name} não pôde ser eliminado.",
+      "notice": "%{resource_name} foi eliminado com sucesso."
+    },
+    "update": {
+      "notice": "%{resource_name} foi atualizado com sucesso."
+    }
+  },
   "contact": {
     "thanks": "Obrigado pela sua mensagem. Entraremos em contacto em breve"
+  },
+  "join": {
+    "thanks": "Obrigado pelo seu interesse em aderir ao Clube SGG. Entraremos em contacto em breve!"
   },
   "newsletters": {
     "confirm": "Subscrição à newsletter ativa, obrigado pela confiança",

@@ -7,6 +7,10 @@
   "form": {
     "consent": "By contacting us you're allowing Sofia Galvão Group to store your data for club membership purposes.",
     "error": "Please fill in all required fields correctly",
+    "error": {
+      "generic": "Please fill in all required fields correctly",
+      "terms_required": "Please accept the SGG Club terms and conditions"
+    },
     "fields": {
       "email": "Email",
       "name": "Name",
@@ -119,8 +123,9 @@
         "title": "5. Club Events and Initiatives"
       },
       "final": {
-        "1": "7.1. These regulations may be adjusted as needed, with the approval of the club’s leadership.",
+        "1": "7.1. These regulations may be adjusted as needed, with the approval of the club's leadership.",
         "2": "7.2. All actions by SGG Club must align with its values and mission, always ensuring that the impact on the community is positive and meaningful.",
+        "2_html": "7.2. All actions by SGG Club must align with its values and mission, always ensuring that the impact on the community is <strong>positive and meaningful.</strong>",
         "second_html": "7.2. All actions by SGG Club must align with its values and mission, always ensuring that the impact on the community is always <strong>positive and meaningful.</strong>",
         "title": "7. Final Provisions"
       },
@@ -232,6 +237,7 @@
     "explore_stories": "Explore Our Stories",
     "header": "Club Stories",
     "impact_description": "Discover real stories from those directly impacted by the mission of SGG Club. Each story is living proof of how your support can change lives — by providing dignified housing and turning dreams into reality.\n",
+    "intro": "Discover unique experiences from our community",
     "meta_description": "Inspiring stories and success cases from SGG Club members.",
     "real_people": "Behind every project, there are real people with inspiring stories",
     "stories_description": "Discover below emotional and inspiring stories where the support of SGG Club made all the difference.\n",

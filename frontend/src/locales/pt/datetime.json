@@ -21,6 +21,10 @@
       "one": "menos de um minuto",
       "other": "menos de %{count} minutos"
     },
+    "less_than_x_seconds": {
+      "one": "menos de 1 segundo",
+      "other": "menos de %{count} segundos"
+    },
     "less_than_x_2s": {
       "one": "menos de 1 segundo",
       "other": "menos de %{count} segundos"
@@ -40,6 +44,10 @@
     "x_months": {
       "one": "1 mês",
       "other": "%{count} meses"
+    },
+    "x_seconds": {
+      "one": "1 segundo",
+      "other": "%{count} segundos"
     },
     "x_2s": {
       "one": "1 segundo",

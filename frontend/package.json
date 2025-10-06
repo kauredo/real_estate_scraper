@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "split-locales": "node scripts/split-locales.js",
-    "merge-locales": "node scripts/merge-locales.js"
+    "merge-locales": "node scripts/merge-locales.js",
+    "compare-translations": "node scripts/compare-translations.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",

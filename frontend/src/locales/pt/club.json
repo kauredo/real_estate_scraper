@@ -6,6 +6,7 @@
   },
   "form": {
     "consent": "Ao submeter este formulário, está a autorizar o Sofia Galvão Group a guardar os seus dados para fins de adesão e comunicação relacionados com o Clube SGG.",
+    "error": "Por favor preencha todos os campos obrigatórios corretamente",
     "error": {
       "generic": "Por favor preencha todos os campos obrigatórios corretamente",
       "terms_required": "Por favor aceite os termos e condições do Clube SGG"
@@ -56,6 +57,7 @@
       "rules": "Conheça aqui o Regulamento do Clube SGG",
       "whatsapp": "Envie-nos um WhatsApp para referenciar membros para o clube."
     },
+    "meta_description": "Descubra o SGG Club by Sofia Galvão Group - onde a excelência imobiliária encontra benefícios exclusivos.",
     "partners": {
       "conclusion_html": "<strong>A sua indicação pode mudar uma vida. Entre em contacto e faça parte desta mudança.</strong>",
       "cta": "Enviar WhatsApp",
@@ -85,6 +87,7 @@
     "header": "Regulamento",
     "intro": "O regulamento do Clube SGG estabelece as regras claras de funcionamento,\n definindo os direitos e deveres dos membros, os critérios para o apoio\nàs  famílias e os princípios que garantem uma gestão transparente e responsável  dos fundos obtidos.\n",
     "introduction": "Regulamento do Clube SGG",
+    "meta_description": "Regras e diretrizes para o SGG Club.",
     "read_below": "Conheça abaixo o regulamento completo que orienta toda a nossa atividade.",
     "sections": {
       "criteria": {
@@ -95,7 +98,9 @@
           },
           "title": "4.3. A atribuição do apoio será analisada com base nos seguintes critérios:"
         },
+        "decisions": "4.4. As decisões de apoio serão tomadas por um grupo de membros do clube, garantindo transparência e equidade na seleção dos beneficiários.",
         "decisions_html": "4.4. As decisões de apoio serão tomadas por um grupo de membros do clube, garantindo <strong>transparência e equidade</strong> na seleção dos beneficiários.",
+        "families": "4.1. O apoio do Clube SGG destina-se a famílias carenciadas, idosos e pessoas em situação de sem-abrigo que necessitem de melhorias habitacionais.",
         "families_html": "4.1. O apoio do Clube SGG destina-se a <strong>famílias carenciadas, idosos e pessoas em situação de sem-abrigo</strong> que necessitem de melhorias habitacionais.",
         "submited_by": {
           "list": {
@@ -119,7 +124,9 @@
       },
       "final": {
         "1": "7.1. O presente regulamento pode ser ajustado conforme necessário, mediante aprovação dos responsáveis do clube.",
+        "2": "7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus valores e missão, garantindo sempre que o impacto na comunidade é positivo e significativo.",
         "2_html": "7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus valores e missão, garantindo sempre que o impacto na comunidade é <strong>positivo e significativo.</strong>",
+        "second_html": "7.2. Todas as ações do Clube SGG devem estar alinhadas com os seus valores e missão, garantindo sempre que o impacto na comunidade é <strong>positivo e significativo.</strong>",
         "title": "7. Disposições Finais"
       },
       "financial_model": {
@@ -204,6 +211,7 @@
         }
       },
       "transparency": {
+        "description": "6.1. O Clube SGG compromete-se a manter total transparência na gestão dos fundos e nas ações realizadas.",
         "description_html": "6.1. O Clube SGG compromete-se a manter <strong>total transparência na gestão dos fundos e nas ações realizadas.</strong>",
         "reports": {
           "description": "6.2. Será publicada periodicamente uma prestação de contas com:",
@@ -230,6 +238,7 @@
     "header": "Histórias dos Membros",
     "impact_description": "Conheça as histórias reais de quem foi impactado diretamente pela missão\n do Clube SGG. Cada história é a prova viva de como o seu apoio pode\nmudar  vidas, proporcionando habitações dignas e transformando sonhos em realidade.\n",
     "intro": "Descubra experiências únicas da nossa comunidade",
+    "meta_description": "Histórias inspiradoras e casos de sucesso dos membros do SGG Club.",
     "real_people": "Por trás de cada projeto há pessoas reais com histórias inspiradoras",
     "stories_description": "Descubra abaixo relatos emocionantes e inspiradores, onde o apoio do Clube SGG fez toda a diferença.\n",
     "subheader": "Leia sobre experiências e histórias de sucesso dos nossos membros.",
