@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ClubStoryPhoto < ApplicationRecord
+  include ActsAsTenant
   mount_uploader :image, ImageUploader
   belongs_to :club_story
   after_save :update_main

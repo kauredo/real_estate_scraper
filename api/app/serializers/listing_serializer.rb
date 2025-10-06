@@ -26,7 +26,7 @@ class ListingSerializer < ActiveModel::Serializer
   delegate :city, to: :object
 
   def price
-    object.price ? object.price.format(symbol: nil, no_cents_if_whole: true) : nil
+    object.price&.format(symbol: nil, no_cents_if_whole: true)
   end
 end
 

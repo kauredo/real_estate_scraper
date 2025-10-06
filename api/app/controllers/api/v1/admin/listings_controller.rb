@@ -8,11 +8,12 @@ module Api
         after_action :update_video_link, only: %i[create update]
 
         def index
-          listings = if params[:order] == 'recent'
+          listings = case params[:order]
+                     when 'recent'
                        Listing.all.reorder(created_at: :desc)
-                     elsif params[:order] == 'deleted'
+                     when 'deleted'
                        Listing.with_deleted_ordered.where(id: Listing.ids_with_title)
-                     elsif params[:order] == 'deleted_only'
+                     when 'deleted_only'
                        Listing.only_deleted.where(id: Listing.ids_with_title)
                      else
                        Listing.all
@@ -121,14 +122,14 @@ module Api
         def apply_stats_filters(listings, filters)
           %w[Estacionamentos Quartos Salas].each do |field|
             filter_key = "#{field}_eq"
-            next unless filters[filter_key].present?
+            next if filters[filter_key].blank?
 
             listings = listings.where("stats->>'#{field}' = ?", filters[filter_key])
           end
 
           ['Casas de Banho', 'Área útil', 'Área bruta (CP)', 'Ano de construção', 'Área do terreno'].each do |field|
             filter_key = "#{field}_eq"
-            next unless filters[filter_key].present?
+            next if filters[filter_key].blank?
 
             listings = listings.where("stats->>'#{field}' = ?", filters[filter_key])
           end

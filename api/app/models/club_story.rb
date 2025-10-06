@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ClubStory < ApplicationRecord
+  include ActsAsTenant
   extend Mobility
   extend FriendlyId
 

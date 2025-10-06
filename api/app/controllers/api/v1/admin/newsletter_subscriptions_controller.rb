@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/controllers/api/v1/admin/club_users_controller.rb
 module Api
   module V1

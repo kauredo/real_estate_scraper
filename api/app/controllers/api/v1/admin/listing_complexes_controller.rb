@@ -31,7 +31,7 @@ module Api
           @listing_complex = ListingComplex.new(listing_complex_params)
 
           if @listing_complex.save
-            upload_photos if params[:photos] && params[:photos].any? { |photo| photo.is_a?(ActionDispatch::Http::UploadedFile) }
+            upload_photos if params[:photos]&.any? { |photo| photo.is_a?(ActionDispatch::Http::UploadedFile) }
 
             render json: {
               message: 'Complexo criado com sucesso',
@@ -44,7 +44,7 @@ module Api
 
         def update
           if @listing_complex.update(listing_complex_params)
-            upload_photos if params[:photos] && params[:photos].any? { |photo| photo.is_a?(ActionDispatch::Http::UploadedFile) }
+            upload_photos if params[:photos]&.any? { |photo| photo.is_a?(ActionDispatch::Http::UploadedFile) }
             update_photos if params[:photos_update].present?
 
             render json: {
@@ -73,7 +73,7 @@ module Api
         def photos
           upload_errors = []
 
-          if params[:photos] && params[:photos].any? { |photo| photo.is_a?(ActionDispatch::Http::UploadedFile) }
+          if params[:photos]&.any? { |photo| photo.is_a?(ActionDispatch::Http::UploadedFile) }
             params[:photos].each do |photo|
               if File.size(photo) > 10_485_760
                 upload_errors << 'A imagem é demasiado grande, por favor comprime-a ou usa outra imagem'

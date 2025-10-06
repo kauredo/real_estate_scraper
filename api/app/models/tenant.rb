@@ -50,7 +50,7 @@ class Tenant < ApplicationRecord
 
   # Get all enabled features
   def enabled_features
-    [:blog, :club, :testimonials, :newsletter, :listing_complexes].select do |feature|
+    %i[blog club testimonials newsletter listing_complexes].select do |feature|
       feature_enabled?(feature)
     end
   end

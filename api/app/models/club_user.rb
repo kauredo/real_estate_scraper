@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ClubUser < ApplicationRecord
+  include ActsAsTenant
+
   validates :name, presence: { message: I18n.t('errors.presence') }
   validates :email, presence: { message: I18n.t('errors.presence') },
                     uniqueness: { case_sensitive: false },
@@ -21,7 +23,7 @@ class ClubUser < ApplicationRecord
     CSV.generate(headers: true) do |csv|
       csv << headers
 
-      all.each do |user|
+      all.find_each do |user|
         csv << attributes.map { |attr| attr == 'created_at' ? user[attr].strftime('%d/%m/%Y %H:%M') : user[attr] }
       end
     end

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Listing < ApplicationRecord
+  include ActsAsTenant
+
   extend Mobility
   extend FriendlyId
 

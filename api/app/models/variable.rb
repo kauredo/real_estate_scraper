@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Variable < ApplicationRecord
+  include ActsAsTenant
   extend Mobility
   translates :name, :value
 

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Photo < ApplicationRecord
+  include ActsAsTenant
   mount_uploader :image, ImageUploader
   belongs_to :listing_complex
   after_save :update_orders

@@ -21,6 +21,9 @@ module SofiaGalvao
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
 
+    # Add tenant middleware for multi-tenancy
+    config.middleware.use TenantMiddleware
+
     # Replace the default ErrorsController with a JSON error handler
     config.exceptions_app = lambda { |env|
       Api::V1::ErrorsController.action(:show).call(env)

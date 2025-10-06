@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EmailValidator < ActiveModel::EachValidator
+  include ActsAsTenant
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   def validate_each(record, attribute, value)
@@ -11,6 +12,7 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class User < ApplicationRecord
+  include ActsAsTenant
   validates :email, presence: { message: I18n.t('errors.presence') }, uniqueness: { case_sensitive: false }, email: true
   validates :first_name, presence: { message: I18n.t('errors.presence') }
   validates :last_name, presence: { message: I18n.t('errors.presence') }

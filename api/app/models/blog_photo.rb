@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class BlogPhoto < ApplicationRecord
+  include ActsAsTenant
+
   mount_uploader :image, ImageUploader
   belongs_to :blog_post
   after_save :update_main

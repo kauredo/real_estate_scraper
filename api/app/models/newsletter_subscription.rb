@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class NewsletterSubscription < ApplicationRecord
+  include ActsAsTenant
   belongs_to :user
 end
 
