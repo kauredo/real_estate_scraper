@@ -68,8 +68,14 @@ Rails.application.routes.draw do
       get '/sell', to: 'listings#sell'
       get '/club', to: 'club#index'
       get '/club/rules', to: 'club#rules'
+
+      # Sitemap
+      get '/sitemap', to: 'sitemap#index', defaults: { format: 'xml' }
     end
   end
+
+  # Sitemap at root level (for SEO tools that expect it at /sitemap.xml)
+  get '/sitemap.xml', to: redirect('/api/v1/sitemap.xml')
 
   # Redirect root to API documentation
   root to: redirect('/api/v1/docs')

@@ -11,6 +11,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import NotificationToastContainer from "./components/shared/NotificationToast";
+import Analytics from "./components/analytics/Analytics";
 import HomePage from "./pages/HomePage";
 import ListingsPage from "./pages/ListingsPage";
 import ListingDetailPage from "./pages/ListingDetailPage";
@@ -221,11 +222,11 @@ function AppContent() {
             path="/en/enterprises/:slug"
             element={<ListingComplexDetailPage />}
           />
-          <Route path="/en/clube-sgg" element={<ClubPage />} />
-          <Route path="/en/clube-sgg/regulamento" element={<ClubRulesPage />} />
-          <Route path="/en/clube-sgg/historias" element={<ClubStoriesPage />} />
+          <Route path="/en/club" element={<ClubPage />} />
+          <Route path="/en/club/rules" element={<ClubRulesPage />} />
+          <Route path="/en/club/stories" element={<ClubStoriesPage />} />
           <Route
-            path="/en/clube-sgg/historias/:slug"
+            path="/en/club/stories/:slug"
             element={<ClubStoryDetailPage />}
           />
           <Route path="/en/blog" element={<BlogPostsPage />} />
@@ -261,6 +262,7 @@ function App() {
     <AuthProvider>
       <NotificationProvider>
         <BrowserRouter>
+          <Analytics />
           <NotificationHandler />
           <ScrollToTop />
           <AppContent />
