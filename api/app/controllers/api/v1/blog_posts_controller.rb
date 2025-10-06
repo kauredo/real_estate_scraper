@@ -3,6 +3,10 @@
 module Api
   module V1
     class BlogPostsController < Api::V1::BaseController
+      include FeatureFlag
+
+      before_action -> { require_feature!(:blog) }
+
       def index
         @blog_posts = BlogPost.visible
         paginated = paginate(@blog_posts, serializer: BlogPostSerializer)

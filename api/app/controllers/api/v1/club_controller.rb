@@ -3,6 +3,10 @@
 module Api
   module V1
     class ClubController < Api::V1::BaseController
+      include FeatureFlag
+
+      before_action -> { require_feature!(:club) }
+
       def index
         @recent_stories = ClubStory.visible.limit(2)
         render json: ActiveModel::Serializer::CollectionSerializer.new(

@@ -7,17 +7,122 @@ ENV['DISABLE_CLOUDINARY'] = 'true'
 
 puts "\n=== Starting seed process ==="
 start_time = Time.current
-puts "#{Time.current} - Cleaning up temp storage..."
+
+# ========================================
+# Create Tenants
+# ========================================
+puts "\n#{Time.current} - Creating tenants..."
+
+# Sofia Galvao Group (SGG) - Primary tenant with all features enabled
+sgg_tenant = Tenant.find_by(slug: 'sgg')
+if sgg_tenant
+  sgg_tenant.update!(
+    name: 'Sofia Galvao Group',
+    domain: 'sofiagalvaogroup.com',
+    contact_email: 'info@sofiagalvaogroup.com',
+    active: true,
+    features: {
+      blog_enabled: true,
+      club_enabled: true,
+      testimonials_enabled: true,
+      newsletter_enabled: true,
+      listing_complexes_enabled: true
+    },
+    metadata: {
+      timezone: 'Europe/Lisbon',
+      currency: 'EUR',
+      locale: 'pt'
+    }
+  )
+  puts '  ✓ SGG Tenant updated'
+else
+  sgg_tenant = Tenant.create!(
+    name: 'Sofia Galvao Group',
+    slug: 'sgg',
+    domain: 'sofiagalvaogroup.com',
+    contact_email: 'info@sofiagalvaogroup.com',
+    active: true,
+    features: {
+      blog_enabled: true,
+      club_enabled: true,
+      testimonials_enabled: true,
+      newsletter_enabled: true,
+      listing_complexes_enabled: true
+    },
+    metadata: {
+      timezone: 'Europe/Lisbon',
+      currency: 'EUR',
+      locale: 'pt'
+    }
+  )
+  puts '  ✓ SGG Tenant created'
+end
+
+# Test tenant for development (disabled by default for most features)
+test_tenant = Tenant.find_by(slug: 'test-agency')
+if test_tenant
+  test_tenant.update!(
+    name: 'Test Real Estate Agency',
+    domain: 'test-agency.example.com',
+    contact_email: 'test@example.com',
+    active: true,
+    features: {
+      blog_enabled: true,
+      club_enabled: false,  # Club is SGG-specific
+      testimonials_enabled: true,
+      newsletter_enabled: true,
+      listing_complexes_enabled: true
+    },
+    metadata: {
+      timezone: 'Europe/London',
+      currency: 'GBP',
+      locale: 'en'
+    }
+  )
+  puts '  ✓ Test Tenant updated'
+else
+  test_tenant = Tenant.create!(
+    name: 'Test Real Estate Agency',
+    slug: 'test-agency',
+    domain: 'test-agency.example.com',
+    contact_email: 'test@example.com',
+    active: true,
+    features: {
+      blog_enabled: true,
+      club_enabled: false,  # Club is SGG-specific
+      testimonials_enabled: true,
+      newsletter_enabled: true,
+      listing_complexes_enabled: true
+    },
+    metadata: {
+      timezone: 'Europe/London',
+      currency: 'GBP',
+      locale: 'en'
+    }
+  )
+  puts '  ✓ Test Tenant created'
+end
+
+# Set current tenant to SGG for all subsequent record creation
+Current.tenant = sgg_tenant
+puts "\n  📌 Current tenant set to: #{Current.tenant.name}"
+puts "  🔑 SGG API Key: #{sgg_tenant.api_key}"
+puts "  🔑 Test API Key: #{test_tenant.api_key}"
+
+puts "\n#{Time.current} - Cleaning up temp storage..."
 FileUtils.rm_rf(Rails.root.join('tmp', 'storage'))
 FileUtils.mkdir_p(Rails.root.join('tmp', 'storage'))
 # add .keep file to prevent git from deleting the folder
 FileUtils.touch(Rails.root.join('tmp', 'storage', '.keep'))
 
 puts "\n#{Time.current} - Cleaning up database..."
-[Variable, Testimonial, ClubStory, ClubStoryPhoto, BlogPost, BlogPhoto, ListingComplex, Listing, Photo, User, NewsletterSubscription, ClubUser].each do |model|
+# Use .without_tenant to clean all tenant data across all tenants
+# Order matters due to foreign key constraints
+[NewsletterSubscription, ClubUser, BlogPhoto, BlogPost, ClubStoryPhoto, ClubStory, Photo, Listing, ListingComplex,
+ Testimonial, Variable, User].each do |model|
   print "  • Cleaning #{model.name}... "
-  count = model.count
-  model.destroy_all
+  count = model.without_tenant.count
+  model.without_tenant.destroy_all
   puts "#{count} records removed"
 end
 
@@ -36,21 +141,17 @@ def download_image(file_name, index)
 
     urls.each do |url|
       command = "curl -L -s -f --connect-timeout 5 --max-time 15 -o #{file_path} '#{url}'"
-      if system(command) && File.size?(file_path)&.positive?
-        break
-      else
-        puts "\n    Failed to download from #{url}, trying next..."
-      end
+      break if system(command) && File.size?(file_path)&.positive?
+
+      puts "\n    Failed to download from #{url}, trying next..."
     end
 
     # Create dummy if all failed
-    unless File.size?(file_path)&.positive?
-      File.write(file_path, "dummy image content for #{file_name}")
-    end
+    File.write(file_path, "dummy image content for #{file_name}") unless File.size?(file_path)&.positive?
   end
 
   File.open(file_path)
-rescue => e
+rescue StandardError => e
   puts "\nError downloading image #{index}: #{e.message}"
   File.write(file_path, "dummy image content for #{file_name}")
   File.open(file_path)
@@ -79,7 +180,7 @@ puts "\n#{Time.current} - Creating listing complexes..."
     }
   end
 
-  print "Creating base record... "
+  print 'Creating base record... '
   complex = ListingComplex.create!(
     name: content[:pt][:name],
     description: content[:pt][:description],
@@ -91,9 +192,9 @@ puts "\n#{Time.current} - Creating listing complexes..."
     hidden: [true, false].sample,
     url: Faker::Internet.url
   )
-  print "✓ "
+  print '✓ '
 
-  print "Adding English translation... "
+  print 'Adding English translation... '
   I18n.with_locale(:en) do
     complex.name = content[:en][:name]
     complex.description = content[:en][:description]
@@ -101,9 +202,9 @@ puts "\n#{Time.current} - Creating listing complexes..."
     complex.final_text = content[:en][:final_text]
     complex.save!
   end
-  print "✓ "
+  print '✓ '
 
-  print "Adding photos: "
+  print 'Adding photos: '
   rand(3..8).times do |j|
     Photo.create!(
       listing_complex: complex,
@@ -111,11 +212,11 @@ puts "\n#{Time.current} - Creating listing complexes..."
       main: j.zero?,
       order: j + 1
     )
-    print "📸 "
+    print '📸 '
   end
-  puts "✓"
+  puts '✓'
 
-  print "    Creating listings: "
+  print '    Creating listings: '
   listings_count = rand(3..8)
   listings_count.times do |j|
     content = with_locales do |_locale|
@@ -155,7 +256,7 @@ puts "\n#{Time.current} - Creating listing complexes..."
       listing.features = content[:en][:features]
       listing.save!(validate: false)
     end
-    print "🏠 "
+    print '🏠 '
   end
   puts "✓ (#{listings_count} created)"
 end
@@ -175,14 +276,14 @@ puts "\n#{Time.current} - Creating variables..."
     value: content[:pt][:value],
     icon: ['fas fa-medal', 'fas fa-trophy', 'fas fa-star', 'fas fa-award', 'fas fa-certificate'].sample
   )
-  print "Created "
+  print 'Created '
 
   I18n.with_locale(:en) do
     variable.name = content[:en][:name]
     variable.value = content[:en][:value]
     variable.save!
   end
-  puts "✓"
+  puts '✓'
 end
 
 puts "\n#{Time.current} - Creating testimonials..."
@@ -195,20 +296,20 @@ puts "\n#{Time.current} - Creating testimonials..."
       text << Faker::Lorem.paragraph(sentence_count: rand(4..12))
     end
 
-    {text: text.join("\n\n")}
+    { text: text.join("\n\n") }
   end
 
   testimonial = Testimonial.create!(
     name: Faker::Name.name,
     text: content[:pt][:text]
   )
-  print "Created "
+  print 'Created '
 
   I18n.with_locale(:en) do
     testimonial.text = content[:en][:text]
     testimonial.save!
   end
-  puts "✓"
+  puts '✓'
 end
 
 puts "\n#{Time.current} - Creating club stories..."
@@ -222,7 +323,7 @@ puts "\n#{Time.current} - Creating club stories..."
     }
   end
 
-  print "    Base record... "
+  print '    Base record... '
   story = ClubStory.create!(
     title: content[:pt][:title],
     small_description: content[:pt][:small_description],
@@ -232,18 +333,18 @@ puts "\n#{Time.current} - Creating club stories..."
     meta_description: Faker::Company.catch_phrase,
     video_link: "https://www.youtube.com/embed/#{Faker::Alphanumeric.alpha(number: 11)}"
   )
-  puts "✓"
+  puts '✓'
 
-  print "    English translation... "
+  print '    English translation... '
   I18n.with_locale(:en) do
     story.title = content[:en][:title]
     story.small_description = content[:en][:small_description]
     story.text = content[:en][:text]
     story.save!
   end
-  puts "✓"
+  puts '✓'
 
-  print "    Photos: "
+  print '    Photos: '
   rand(1..5).times do |j|
     image = download_image("story_#{story.id}_#{i}", j)
     if image
@@ -252,12 +353,12 @@ puts "\n#{Time.current} - Creating club stories..."
         image: image,
         main: j.zero?
       )
-      print "📸 "
+      print '📸 '
     else
-      print "❌ "
+      print '❌ '
     end
   end
-  puts "✓"
+  puts '✓'
 end
 
 puts "\n#{Time.current} - Creating blog posts..."
@@ -271,7 +372,7 @@ puts "\n#{Time.current} - Creating blog posts..."
     }
   end
 
-  print "    Base record... "
+  print '    Base record... '
   blog_post = BlogPost.create!(
     title: content[:pt][:title],
     small_description: content[:pt][:small_description],
@@ -281,18 +382,18 @@ puts "\n#{Time.current} - Creating blog posts..."
     meta_description: Faker::Company.catch_phrase,
     video_link: "https://www.youtube.com/embed/#{Faker::Alphanumeric.alpha(number: 11)}"
   )
-  puts "✓"
+  puts '✓'
 
-  print "    English translation... "
+  print '    English translation... '
   I18n.with_locale(:en) do
     blog_post.title = content[:en][:title]
     blog_post.small_description = content[:en][:small_description]
     blog_post.text = content[:en][:text]
     blog_post.save!
   end
-  puts "✓"
+  puts '✓'
 
-  print "    Photos: "
+  print '    Photos: '
   rand(1..6).times do |j|
     image = download_image("blog_#{blog_post.id}_#{i}", j)
     if image
@@ -301,21 +402,54 @@ puts "\n#{Time.current} - Creating blog posts..."
         image: image,
         main: j.zero?
       )
-      print "📸 "
+      print '📸 '
     else
-      print "❌ "
+      print '❌ '
     end
   end
-  puts "✓"
+  puts '✓'
 end
 
-puts "\n#{Time.current} - Creating admin user..."
-Admin.create!(
-  email: 'admin@example.com',
-  password: 'password123',
-  confirmed: true
-) unless Admin.find_by(email: 'admin@example.com').present?
-puts "  • Admin created with email: admin@example.com"
+puts "\n#{Time.current} - Creating admin users..."
+
+# Super Admin (tenant_id = NULL, can access all tenants)
+if Admin.find_by(email: 'superadmin@example.com').present?
+  puts '  ⚠ Super Admin already exists'
+else
+  Admin.create!(
+    email: 'superadmin@example.com',
+    password: 'password123',
+    confirmed: true,
+    tenant_id: nil
+  )
+  puts '  ✓ Super Admin created with email: superadmin@example.com'
+end
+
+# SGG Tenant Admin (tenant_id = sgg_tenant.id)
+if Admin.find_by(email: 'admin@sofiagalvaogroup.com').present?
+  puts '  ⚠ SGG Tenant Admin already exists'
+else
+  Admin.create!(
+    email: 'admin@sofiagalvaogroup.com',
+    password: 'password123',
+    confirmed: true,
+    tenant_id: sgg_tenant.id
+  )
+  puts '  ✓ SGG Tenant Admin created with email: admin@sofiagalvaogroup.com'
+end
+
+# Test Tenant Admin
+if Admin.find_by(email: 'admin@test-agency.com').present?
+  puts '  ⚠ Test Tenant Admin already exists'
+else
+  Admin.create!(
+    email: 'admin@test-agency.com',
+    password: 'password123',
+    confirmed: true,
+    tenant_id: test_tenant.id
+  )
+  puts '  ✓ Test Tenant Admin created with email: admin@test-agency.com'
+end
 
 puts "\n#{Time.current} - Creating users and newsletter subscriptions..."
 20.times do |i|
@@ -327,15 +461,15 @@ puts "\n#{Time.current} - Creating users and newsletter subscriptions..."
     phone: Faker::PhoneNumber.cell_phone,
     confirmed_email: [true, false].sample
   )
-  print "Created "
+  print 'Created '
 
   if rand < 0.7
     NewsletterSubscription.create!(user: user)
-    print "with newsletter "
+    print 'with newsletter '
   else
-    print "without newsletter "
+    print 'without newsletter '
   end
-  puts "✓"
+  puts '✓'
 end
 
 puts "\n#{Time.current} - Creating club users..."
@@ -349,11 +483,17 @@ puts "\n#{Time.current} - Creating club users..."
     status: ClubUser.statuses.keys.sample
   )
   print "Created with status: #{club_user.status} "
-  puts "✓"
+  puts '✓'
 end
 
 puts "\n=== Seed completed successfully! 🎉 ==="
 puts "#{Time.current} - Summary:"
+puts "\n📊 Tenants:"
+puts "  • #{Tenant.count} tenants total"
+puts "  • SGG Tenant: #{sgg_tenant.name}"
+puts "  • Test Tenant: #{test_tenant.name}"
+
+puts "\n📈 Data (for current tenant: #{Current.tenant.name}):"
 puts "  • #{ListingComplex.count} listing complexes"
 puts "  • #{Listing.count} listings"
 puts "  • #{Variable.count} variables"
@@ -366,5 +506,19 @@ puts "  • #{ClubUser.count} club users"
 puts "  • #{Photo.count} photos"
 puts "  • #{ClubStoryPhoto.count} club story photos"
 puts "  • #{BlogPhoto.count} blog photos"
-puts "\nTotal time: #{(Time.current - start_time).round(2)} seconds"
+
+puts "\n👥 Admin Users:"
+puts "  • #{Admin.where(tenant_id: nil).count} super admin(s)"
+puts "  • #{Admin.where.not(tenant_id: nil).count} tenant admin(s)"
+
+puts "\n🔑 API Keys (save these for frontend .env files):"
+puts "  • SGG API Key: #{sgg_tenant.api_key}"
+puts "  • Test API Key: #{test_tenant.api_key}"
+
+puts "\n🔐 Admin Credentials:"
+puts '  • Super Admin: superadmin@example.com / password123'
+puts '  • SGG Admin: admin@sofiagalvaogroup.com / password123'
+puts '  • Test Admin: admin@test-agency.com / password123'
+
+puts "\n⏱  Total time: #{(Time.current - start_time).round(2)} seconds"
 puts "=== End of seed process ===\n"

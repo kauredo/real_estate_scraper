@@ -3,6 +3,10 @@
 module Api
   module V1
     class ClubStoriesController < Api::V1::BaseController
+      include FeatureFlag
+
+      before_action -> { require_feature!(:club) }
+
       def index
         club_stories = ClubStory.visible
         paginated = paginate(club_stories, serializer: ClubStorySerializer)

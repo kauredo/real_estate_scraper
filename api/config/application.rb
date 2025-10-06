@@ -6,6 +6,9 @@ require 'rails/all'
 
 Bundler.require(*Rails.groups)
 
+# Require custom middleware
+require_relative '../app/middleware/tenant_middleware'
+
 module SofiaGalvao
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -14,6 +17,7 @@ module SofiaGalvao
 
     config.active_job.queue_adapter = :good_job
     config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join('app', 'middleware')
     config.i18n.available_locales = %i[pt en]
     config.i18n.default_locale = :pt
 

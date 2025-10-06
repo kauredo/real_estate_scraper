@@ -3,6 +3,10 @@
 module Api
   module V1
     class ListingComplexesController < Api::V1::BaseController
+      include FeatureFlag
+
+      before_action -> { require_feature!(:listing_complexes) }
+
       def index
         listing_complexes = ListingComplex.includes(:translations, :photos).where(hidden: false)
         paginated = paginate(listing_complexes, serializer: ListingComplexSerializer)

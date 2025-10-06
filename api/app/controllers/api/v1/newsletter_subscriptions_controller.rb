@@ -3,7 +3,10 @@
 module Api
   module V1
     class NewsletterSubscriptionsController < Api::V1::BaseController
+      include FeatureFlag
+
       before_action :find_subscription, only: [:confirm]
+      before_action -> { require_feature!(:newsletter) }, only: [:create]
 
       def create
         @user = User.find_or_initialize_by(email: email_params[:email])

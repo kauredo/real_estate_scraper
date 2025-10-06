@@ -7,6 +7,7 @@ module Api
     include ApiPagination
 
     before_action :set_locale
+    before_action :verify_tenant
 
     protected
 
@@ -20,6 +21,9 @@ module Api
         return render json: { error: 'Invalid token' }, status: :unauthorized unless decoded
 
         @current_admin = Admin.find(decoded[:admin_id])
+
+        # Verify admin belongs to current tenant (unless super admin)
+        return render json: { error: 'Unauthorized - tenant mismatch' }, status: :unauthorized unless @current_admin.super_admin? || @current_admin.tenant_id == Current.tenant&.id
       rescue JWT::DecodeError, ActiveRecord::RecordNotFound
         render json: { error: 'Invalid token' }, status: :unauthorized
       end
@@ -28,6 +32,13 @@ module Api
     private
 
     attr_reader :current_admin
+
+    def verify_tenant
+      return if Current.tenant
+
+      render json: { error: 'Invalid or missing API key' }, status: :unauthorized
+      false
+    end
 
     def set_locale
       I18n.locale = params[:locale] || I18n.default_locale

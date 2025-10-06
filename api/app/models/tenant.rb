@@ -38,6 +38,7 @@ class Tenant < ApplicationRecord
   scope :inactive, -> { where(active: false) }
 
   # Callbacks
+  before_validation :ensure_api_key, on: :create
   before_validation :generate_slug, on: :create
   before_validation :set_default_features, on: :create
 
@@ -62,6 +63,10 @@ class Tenant < ApplicationRecord
   end
 
   private
+
+  def ensure_api_key
+    self.api_key ||= SecureRandom.base58(24)
+  end
 
   def generate_slug
     self.slug ||= name.parameterize if name.present?
