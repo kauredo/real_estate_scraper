@@ -18,6 +18,6 @@ class NewContactMailer < ApplicationMailer
                 "Novo contacto Site - #{@name}"
               end
 
-    mail(to: ENV['GMAIL_EMAIL'], subject:)
+    mail(to: ENV.fetch('GMAIL_EMAIL', nil), subject:)
   end
 end

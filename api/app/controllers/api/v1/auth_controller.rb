@@ -7,7 +7,11 @@ module Api
         admin = ::Admin.find_by(email: params[:email])
 
         if admin&.valid_password?(params[:password])
-          token = JsonWebToken.encode(admin_id: admin.id)
+          token = JsonWebToken.encode(
+            admin_id: admin.id,
+            email: admin.email,
+            tenant_id: admin.tenant_id
+          )
           time = Time.zone.now + 24.hours.to_i
 
           render json: {
@@ -15,7 +19,9 @@ module Api
             exp: time.strftime('%m-%d-%Y %H:%M'),
             admin_id: admin.id,
             email: admin.email,
-            confirmed: admin.confirmed
+            confirmed: admin.confirmed,
+            tenant_id: admin.tenant_id,
+            is_super_admin: admin.super_admin?
           }, status: :ok
         else
           render json: { error: 'Invalid email or password' }, status: :unauthorized

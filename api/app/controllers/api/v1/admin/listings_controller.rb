@@ -24,7 +24,7 @@ module Api
           render json: {
             listings: result[:data],
             pagination: result[:pagination],
-            max_price: Listing.unscoped.pluck(:price_cents).uniq.reject(&:blank?).map(&:to_i).max,
+            max_price: Listing.unscoped.pluck(:price_cents).uniq.compact_blank.map(&:to_i).max,
             stats_keys: Listing.unscoped.possible_stats_keys,
             kinds: Listing.kinds,
             objectives: Listing.objectives,

@@ -1,0 +1,32 @@
+{
+  "admins": {
+    "title": "Gerir Administradores",
+    "create_new": "Criar Novo Administrador",
+    "create_admin": "Criar Administrador",
+    "edit_admin": "Editar Administrador",
+    "email": "Email",
+    "password": "Palavra-passe",
+    "password_confirmation": "Confirmação da Palavra-passe",
+    "tenant": "Tenant",
+    "super_admin": "Super Admin",
+    "confirmed": "Confirmado",
+    "unconfirmed": "Não Confirmado",
+    "status": "Estado",
+    "created_at": "Criado Em",
+    "search_placeholder": "Pesquisar por email...",
+    "all_tenants": "Todos os Tenants",
+    "all_statuses": "Todos os Estados",
+    "no_admins": "Nenhum administrador encontrado",
+    "delete_confirm": "Tem a certeza que deseja eliminar este administrador?",
+    "unconfirm_confirm": "Tem a certeza que deseja remover a confirmação deste administrador?",
+    "confirm": "Confirmar",
+    "unconfirm": "Remover Confirmação",
+    "leave_blank": "Deixar em branco para manter a palavra-passe atual",
+    "errors": {
+      "email_required": "Email é obrigatório",
+      "password_required": "Palavra-passe é obrigatória",
+      "password_mismatch": "As palavras-passe não coincidem",
+      "generic": "Ocorreu um erro. Por favor, tente novamente."
+    }
+  }
+}

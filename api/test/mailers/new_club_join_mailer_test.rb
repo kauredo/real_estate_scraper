@@ -15,7 +15,7 @@ class NewClubJoinMailerTest < ActionMailer::TestCase
       mail.deliver_now
     end
 
-    assert_equal [ENV['GMAIL_EMAIL']], mail.to
+    assert_equal [ENV.fetch('GMAIL_EMAIL', nil)], mail.to
     assert_equal 'Nova Inscrição Clube SGG - John Doe', mail.subject
     assert_match 'John Doe', mail.body.encoded
     assert_match '+351912345678', mail.body.encoded

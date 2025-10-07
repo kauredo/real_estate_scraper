@@ -6,6 +6,7 @@ const api = axios.create({
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
+    "X-API-Key": import.meta.env.VITE_API_KEY || "",
   },
   withCredentials: true, // Important for cookies/sessions if needed
 });
@@ -128,10 +129,24 @@ export const getCurrentUser = () => {
   const token = localStorage.getItem("token");
   if (!token) return null;
 
-  // Parse token if needed - usually JWT can be decoded client-side
+  // Parse JWT token - decode the payload (middle part of JWT)
   try {
-    // For a simple implementation, return a boolean
-    return { isAuthenticated: true };
+    const payload = JSON.parse(atob(token.split('.')[1]));
+
+    // Check if token is expired
+    if (payload.exp && Date.now() >= payload.exp * 1000) {
+      localStorage.removeItem("token");
+      return null;
+    }
+
+    // Return user information from token
+    return {
+      id: payload.admin_id || payload.user_id,
+      email: payload.email,
+      isSuperAdmin: payload.tenant_id === null || payload.tenant_id === undefined,
+      tenantId: payload.tenant_id,
+      isAuthenticated: true,
+    };
   } catch (error) {
     localStorage.removeItem("token");
     return null;
@@ -322,5 +337,29 @@ export const adminUpdateVariable = (id, data) =>
   api.put(apiRoutes.admin.variable(id), { variable: data });
 export const adminDeleteVariable = id =>
   api.delete(apiRoutes.admin.variable(id));
+
+// Super Admin - Admins Management API functions
+export const superAdminGetAdmins = (params = {}) =>
+  api.get(apiRoutes.superAdmin.admins, { params });
+export const superAdminGetAdmin = id =>
+  api.get(apiRoutes.superAdmin.admin(id));
+export const superAdminCreateAdmin = data =>
+  api.post(apiRoutes.superAdmin.admins, { admin: data });
+export const superAdminUpdateAdmin = (id, data) =>
+  api.put(apiRoutes.superAdmin.admin(id), { admin: data });
+export const superAdminDeleteAdmin = id =>
+  api.delete(apiRoutes.superAdmin.admin(id));
+export const superAdminConfirmAdmin = id =>
+  api.post(apiRoutes.superAdmin.confirmAdmin(id));
+export const superAdminUnconfirmAdmin = id =>
+  api.post(apiRoutes.superAdmin.unconfirmAdmin(id));
+export const superAdminResetAdminPassword = (id, password, passwordConfirmation) =>
+  api.post(apiRoutes.superAdmin.resetPasswordAdmin(id), {
+    password,
+    password_confirmation: passwordConfirmation,
+  });
+
+// Super Admin - Tenants API functions
+export const superAdminGetTenants = () => api.get(apiRoutes.superAdmin.tenants);
 
 export default api;

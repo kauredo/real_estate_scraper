@@ -12,6 +12,18 @@ Rails.application.routes.draw do
       delete '/auth/logout', to: 'auth#logout'
       post '/toggle_dark_mode', to: 'base#toggle_dark_mode'
 
+      # Super Admin API endpoints
+      namespace :super_admin do
+        resources :admins do
+          member do
+            post :confirm
+            post :unconfirm
+            post :reset_password
+          end
+        end
+        resources :tenants, only: [:index]
+      end
+
       # Admin API endpoints
       namespace :admin do
         resources :blog_posts
@@ -26,7 +38,7 @@ Rails.application.routes.draw do
             post :fetch
           end
         end
-        resources :listings, only: %i[index create show update destroy] do
+        resources :listings, only: [:index, :create, :show, :update, :destroy] do
           member do
             post :update_details
             post :recover
@@ -36,19 +48,19 @@ Rails.application.routes.draw do
           end
         end
         resources :testimonials
-        resources :variables, only: %i[index create update destroy]
-        resources :photos, only: %i[index destroy]
-        resources :blog_photos, only: %i[create destroy]
-        resources :club_story_photos, only: %i[create destroy]
+        resources :variables, only: [:index, :create, :update, :destroy]
+        resources :photos, only: [:index, :destroy]
+        resources :blog_photos, only: [:create, :destroy]
+        resources :club_story_photos, only: [:create, :destroy]
         resources :club_users, only: [:index]
         get 'export_club_users', to: 'club_users#export'
         resources :newsletter_subscriptions, only: [:index]
       end
 
-      resources :listings, only: %i[index show]
-      resources :listing_complexes, only: %i[index show]
-      resources :blog_posts, only: %i[index show]
-      resources :club_stories, only: %i[index show]
+      resources :listings, only: [:index, :show]
+      resources :listing_complexes, only: [:index, :show]
+      resources :blog_posts, only: [:index, :show]
+      resources :club_stories, only: [:index, :show]
       resources :testimonials, only: [:index]
       resources :variables, only: [:index]
 

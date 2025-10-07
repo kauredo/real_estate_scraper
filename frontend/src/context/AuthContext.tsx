@@ -11,9 +11,18 @@ import {
   getCurrentUser,
 } from "../services/api";
 
+interface CurrentAdmin {
+  id: number;
+  email: string;
+  isSuperAdmin: boolean;
+  tenantId: number | null;
+  isAuthenticated: boolean;
+}
+
 interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
+  currentAdmin: CurrentAdmin | null;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   error: string | null;
@@ -23,6 +32,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentAdmin, setCurrentAdmin] = useState<CurrentAdmin | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -34,6 +44,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       const user = getCurrentUser();
       setIsAuthenticated(!!user);
+      setCurrentAdmin(user);
     } catch (err) {
       setError("Failed to check authentication status");
     } finally {
@@ -45,7 +56,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       setError(null);
       const response = await apiLogin(email, password);
+      const user = getCurrentUser();
       setIsAuthenticated(true);
+      setCurrentAdmin(user);
       return response;
     } catch (err: any) {
       setError(err.response?.data?.error || "Failed to login");
@@ -57,6 +70,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       await apiLogout();
       setIsAuthenticated(false);
+      setCurrentAdmin(null);
     } catch (err: any) {
       setError(err.response?.data?.error || "Failed to logout");
       throw err;
@@ -65,7 +79,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, isLoading, login, logout, error }}
+      value={{ isAuthenticated, isLoading, currentAdmin, login, logout, error }}
     >
       {children}
     </AuthContext.Provider>

@@ -93,7 +93,7 @@ module ScraperHelper
 
       raise "Failed to create browser after #{max_attempts} attempts: #{e.message}" unless attempts < max_attempts
 
-      sleep(5 + 2**attempts)
+      sleep(5 + (2**attempts))
       retry
     end
   end

@@ -4,9 +4,14 @@ Style/Documentation:
 Layout/LineLength:
   Enabled: false
 AllCops:
+  NewCops: enable
+  SuggestExtensions: false
   Exclude:
     - db/**/*
     - bin/*
+    - config/**/*
+    - node_modules/**/*
+    - vendor/**/*
 
 Metrics/AbcSize:
   Enabled: false

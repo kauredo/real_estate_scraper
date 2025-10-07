@@ -12,7 +12,7 @@ module AuthApi
 
   def authorize_request
     header = request.headers['Authorization']
-    header = header.split(' ').last if header
+    header = header.split.last if header
 
     begin
       @decoded = JsonWebToken.decode(header)

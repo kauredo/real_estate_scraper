@@ -1,0 +1,32 @@
+{
+  "admins": {
+    "title": "Manage Admins",
+    "create_new": "Create New Admin",
+    "create_admin": "Create Admin",
+    "edit_admin": "Edit Admin",
+    "email": "Email",
+    "password": "Password",
+    "password_confirmation": "Password Confirmation",
+    "tenant": "Tenant",
+    "super_admin": "Super Admin",
+    "confirmed": "Confirmed",
+    "unconfirmed": "Unconfirmed",
+    "status": "Status",
+    "created_at": "Created At",
+    "search_placeholder": "Search by email...",
+    "all_tenants": "All Tenants",
+    "all_statuses": "All Statuses",
+    "no_admins": "No admins found",
+    "delete_confirm": "Are you sure you want to delete this admin?",
+    "unconfirm_confirm": "Are you sure you want to unconfirm this admin?",
+    "confirm": "Confirm",
+    "unconfirm": "Unconfirm",
+    "leave_blank": "Leave blank to keep current password",
+    "errors": {
+      "email_required": "Email is required",
+      "password_required": "Password is required",
+      "password_mismatch": "Passwords do not match",
+      "generic": "An error occurred. Please try again."
+    }
+  }
+}

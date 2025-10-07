@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# frozen_string_literal: true
-
 namespace :listings do
   desc 'Change status no enum'
   task fix_status: :environment do

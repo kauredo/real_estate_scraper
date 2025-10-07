@@ -11,6 +11,7 @@ import DropdownLink from "../shared/DropdownLink";
 import Routes from "../../utils/routes";
 import mainWhiteLogo from "../../assets/logos/main_white.webp";
 import mainLogo from "../../assets/logos/main.webp";
+import { useAuth } from "../../context/AuthContext";
 
 interface Props {
   backoffice?: boolean;
@@ -20,6 +21,7 @@ interface Props {
 export default function Navbar(props: Props) {
   const { t, i18n } = useTranslation();
   const { backoffice, admin } = props;
+  const { currentAdmin } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -118,6 +120,14 @@ export default function Navbar(props: Props) {
       title: t("navbar.club_stories"),
     },
   ];
+
+  // Add super admin menu item if user is super admin
+  if (currentAdmin?.isSuperAdmin) {
+    backofficeNavItems.push({
+      routeName: "backoffice_super_admin_admins_path",
+      title: t("navbar.super_admin"),
+    });
+  }
 
   const middleItems = items;
 

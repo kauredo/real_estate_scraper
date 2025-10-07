@@ -4,9 +4,9 @@ class Photo < ApplicationRecord
   include ActsAsTenant
   mount_uploader :image, ImageUploader
   belongs_to :listing_complex
+  after_create :update_main
   after_save :update_orders
   after_save :update_main
-  after_create :update_main
   validates :main, inclusion: [true, false]
   validates :original_url, uniqueness: true, allow_nil: true
 

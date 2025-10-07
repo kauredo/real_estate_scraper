@@ -1261,5 +1261,18 @@ en:
     club_stories:
       view_story: View Story
 
+  super_admin:
+    access_denied: Super admin access required
+    admins:
+      created: Admin created successfully
+      updated: Admin updated successfully
+      deleted: Admin deleted successfully
+      confirmed: Admin confirmed successfully
+      unconfirmed: Admin unconfirmed successfully
+      password_reset: Password reset successfully
+      password_mismatch: Password and confirmation must match
+      cannot_delete_self: Cannot delete yourself
+      cannot_unconfirm_self: Cannot unconfirm yourself
+
   general:
     read_more: Read more

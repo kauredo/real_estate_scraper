@@ -21,7 +21,7 @@ class Tenant < ApplicationRecord
   # Validations
   validates :name, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true,
-                   format: { with: /\A[a-z0-9-]+\z/, message: 'only lowercase letters, numbers, and hyphens' }
+                   format: { with: /\A[a-z0-9-]+\z/ }
   validates :api_key, presence: true, uniqueness: true
   validates :contact_email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
 

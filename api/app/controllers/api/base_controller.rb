@@ -15,7 +15,7 @@ module Api
       header = request.headers['Authorization']
       return render json: { error: 'No token provided' }, status: :unauthorized unless header
 
-      token = header.split(' ').last
+      token = header.split.last
       begin
         decoded = JsonWebToken.decode(token)
         return render json: { error: 'Invalid token' }, status: :unauthorized unless decoded
@@ -27,6 +27,12 @@ module Api
       rescue JWT::DecodeError, ActiveRecord::RecordNotFound
         render json: { error: 'Invalid token' }, status: :unauthorized
       end
+    end
+
+    def require_super_admin!
+      return if @current_admin&.super_admin?
+
+      render json: { error: I18n.t('super_admin.access_denied') }, status: :forbidden
     end
 
     private

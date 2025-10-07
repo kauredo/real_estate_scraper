@@ -1,10 +1,27 @@
 # frozen_string_literal: true
 
 class AdminSerializer < ActiveModel::Serializer
-  attributes :id, :email, :confirmed, :created_at, :updated_at
+  attributes :id, :email, :confirmed, :tenant_id, :created_at, :updated_at
 
-  delegate :email, to: :object
-  delegate :confirmed, to: :object
+  belongs_to :tenant, optional: true
+
+  # Include additional details when requested
+  attribute :last_sign_in_at, if: :include_details?
+  attribute :sign_in_count, if: :include_details?
+
+  def include_details?
+    instance_options[:include_details]
+  end
+
+  def tenant
+    return nil if object.tenant_id.nil?
+
+    {
+      id: object.tenant.id,
+      name: object.tenant.name,
+      slug: object.tenant.slug
+    }
+  end
 end
 
 # == Schema Information

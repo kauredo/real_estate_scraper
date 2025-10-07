@@ -7,7 +7,6 @@ module ActsAsTenant
 
   included do
     belongs_to :tenant
-    validates :tenant_id, presence: true
 
     # Automatically scope all queries to current tenant
     default_scope { where(tenant_id: Current.tenant&.id) if Current.tenant }

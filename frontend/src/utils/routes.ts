@@ -193,6 +193,11 @@ const baseAppRoutes = {
       `/backoffice/testimonials/${id}/edit`,
     showTestimonial: (id: string | number): string =>
       `/backoffice/testimonials/${id}`,
+
+    // Super Admin
+    superAdmin: {
+      admins: "/backoffice/super_admin/admins",
+    },
   },
 
   // Authentication
@@ -338,6 +343,23 @@ const baseApiRoutes = {
     // Newsletter subscriptions
     newsletterSubscriptions: `${API_BASE_URL}/admin/newsletter_subscriptions`,
   },
+
+  // Super Admin API endpoints
+  superAdmin: {
+    // Admins management
+    admins: `${API_BASE_URL}/super_admin/admins`,
+    admin: (id: string | number): string =>
+      `${API_BASE_URL}/super_admin/admins/${id}`,
+    confirmAdmin: (id: string | number): string =>
+      `${API_BASE_URL}/super_admin/admins/${id}/confirm`,
+    unconfirmAdmin: (id: string | number): string =>
+      `${API_BASE_URL}/super_admin/admins/${id}/unconfirm`,
+    resetPasswordAdmin: (id: string | number): string =>
+      `${API_BASE_URL}/super_admin/admins/${id}/reset_password`,
+
+    // Tenants
+    tenants: `${API_BASE_URL}/super_admin/tenants`,
+  },
 };
 
 export const apiRoutes = baseApiRoutes; // Don't localize API routes
@@ -421,6 +443,9 @@ export const Routes = createLocalizedRoutes({
   new_backoffice_testimonial_path: appRoutes.backoffice.newTestimonial,
   edit_backoffice_testimonial_path: appRoutes.backoffice.editTestimonial,
   backoffice_testimonial_path: appRoutes.backoffice.showTestimonial,
+
+  // Super Admin
+  backoffice_super_admin_admins_path: appRoutes.backoffice.superAdmin.admins,
 
   // Authentication
   new_admin_session_path: appRoutes.adminSignIn,

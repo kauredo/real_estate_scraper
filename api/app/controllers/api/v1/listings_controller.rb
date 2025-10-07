@@ -25,10 +25,10 @@ module Api
         render json: {
           listings: paginated[:data],
           pagination: paginated[:pagination],
-          max_price: Listing.all.pluck(:price_cents).uniq.reject(&:blank?).map(&:to_i).max,
+          max_price: Listing.all.pluck(:price_cents).uniq.compact_blank.map(&:to_i).max,
           stats_keys: Listing.unscoped.possible_stats_keys,
-          kinds: Listing.kinds.reject { |k, _v| k == 'other' },
-          objectives: Listing.objectives.reject { |k, _v| k == 'other' }
+          kinds: Listing.kinds.except('other'),
+          objectives: Listing.objectives.except('other')
         }
       end
 

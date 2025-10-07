@@ -54,6 +54,8 @@ import AdminTestimonialsPage from "./pages/Admin/AdminTestimonialsPage";
 import AdminTestimonialNewPage from "./pages/Admin/AdminTestimonialNewPage";
 import AdminTestimonialEditPage from "./pages/Admin/AdminTestimonialEditPage";
 import AdminTestimonialDetailPage from "./pages/Admin/AdminTestimonialDetailPage";
+import SuperAdminAdminsPage from "./pages/Admin/SuperAdmin/SuperAdminAdminsPage";
+import SuperAdminRoute from "./components/SuperAdminRoute";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -177,6 +179,16 @@ function AppContent() {
                   <Route
                     path="testimonials/:id"
                     element={<AdminTestimonialDetailPage />}
+                  />
+
+                  {/* Super Admin Routes */}
+                  <Route
+                    path="super_admin/admins"
+                    element={
+                      <SuperAdminRoute>
+                        <SuperAdminAdminsPage />
+                      </SuperAdminRoute>
+                    }
                   />
                 </Routes>
               </ProtectedRoute>

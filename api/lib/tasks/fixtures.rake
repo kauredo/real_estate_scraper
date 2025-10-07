@@ -7,7 +7,7 @@ namespace :fixtures do
     fixture_files = Pathname.glob("#{fixtures_dir}/**/*.yml")
 
     fixture_files.each do |file|
-      fixture = YAML.load(IO.read(file))
+      fixture = YAML.load(File.read(file))
       # puts fixture
       fixture.each_pair do |name, entry|
         puts "Bad fixture entry #{name}: #{entry.inspect} in fixture #{file}" unless entry.is_a? Hash
@@ -38,10 +38,10 @@ namespace :fixtures do
 
           File.open(path, 'w') do |file|
             instances = model.all.to_a.map.with_index(1) do |m, idx|
-              attributes = m.attributes.reject { |k, _v| k.include?('_at') }.merge({
-                                                                                     "created_at": Time.zone.now.to_s,
-                                                                                     "updated_at": Time.zone.now.to_s
-                                                                                   })
+              attributes = m.attributes.except('_at').merge({
+                                                              created_at: Time.zone.now.to_s,
+                                                              updated_at: Time.zone.now.to_s
+                                                            })
               { idx.humanize => attributes }
             end
 
@@ -52,7 +52,7 @@ namespace :fixtures do
 
           File.open(path, 'w') do |file|
             instances = model.all.to_a.map.with_index(1) do |m, idx|
-              attributes = m.attributes.reject { |k, _v| k.include?('_at') }.reject { |k, _v| k.include?('password') }
+              attributes = m.attributes.except('_at').except('password')
               { idx.humanize => attributes }
             end
 
