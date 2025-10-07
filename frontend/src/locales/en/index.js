@@ -42,6 +42,7 @@ import auth from "./auth.json";
 import share from "./share.json";
 import navbar from "./navbar.json";
 import admin from "./admin.json";
+import common from "./common.json";
 import notifications from "./notifications.json";
 import super_admin from "./super_admin.json";
 
@@ -89,6 +90,7 @@ export default {
   share,
   navbar,
   admin,
+  common,
   notifications,
   super_admin,
 };
