@@ -23,7 +23,7 @@ const BlogPostDetailPage = () => {
         setBlogPost(response.data.blog_post);
       } catch (error) {
         console.error("Error fetching blog post:", error);
-        setError(t("blog.fetch_error"));
+        setError(t("meta.blog.fetch_error"));
       } finally {
         setLoading(false);
       }
@@ -47,7 +47,7 @@ const BlogPostDetailPage = () => {
   if (!blogPost) {
     return (
       <div className="container mx-auto p-8 text-center">
-        <h1 className="text-2xl">{t("blog.post_not_found")}</h1>
+        <h1 className="text-2xl">{t("meta.blog.post_not_found")}</h1>
       </div>
     );
   }
@@ -90,7 +90,7 @@ const BlogPostDetailPage = () => {
             <h1>{blogPost.title}</h1>
             <p className="text-gray-600 dark:text-gray-400">
               {new Date(blogPost.created_at).toLocaleDateString(
-                t("blog.date_locale"),
+                t("meta.blog.date_locale"),
                 {
                   year: "numeric",
                   month: "long",

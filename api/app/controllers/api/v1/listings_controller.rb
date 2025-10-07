@@ -27,8 +27,8 @@ module Api
           pagination: paginated[:pagination],
           max_price: Listing.all.pluck(:price_cents).uniq.compact_blank.map(&:to_i).max,
           stats_keys: Listing.unscoped.possible_stats_keys,
-          kinds: Listing.kinds.except('other'),
-          objectives: Listing.objectives.except('other')
+          kinds: Listing.kinds.except('other').map { |kind, index| { kind:, index: } },
+          objectives: Listing.objectives.except('other').map { |objective, index| { objective:, index: } }
         }
       end
 
