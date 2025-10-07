@@ -1,8 +1,7 @@
 /// <reference types="vite/client" />
 import i18n from "../i18n";
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "/api/v1";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "/api/v1";
 
 // Route translations between Portuguese and English
 export const routeMappings = {
@@ -141,34 +140,27 @@ const baseAppRoutes = {
     // Variables
     variables: "/variables",
     newVariable: "/variables/new",
-    editVariable: (id: string | number): string =>
-      `/variables/${id}/edit`,
+    editVariable: (id: string | number): string => `/variables/${id}/edit`,
 
     // Blog posts
     blogPosts: "/blog_posts",
     newBlogPost: "/blog_posts/new",
-    editBlogPost: (id: string | number): string =>
-      `/blog_posts/${id}/edit`,
-    showBlogPost: (id: string | number): string =>
-      `/blog_posts/${id}`,
+    editBlogPost: (id: string | number): string => `/blog_posts/${id}/edit`,
+    showBlogPost: (id: string | number): string => `/blog_posts/${id}`,
 
     // Club stories
     clubStories: "/club_stories",
     newClubStory: "/club_stories/new",
-    editClubStory: (id: string | number): string =>
-      `/club_stories/${id}/edit`,
-    showClubStory: (id: string | number): string =>
-      `/club_stories/${id}`,
+    editClubStory: (id: string | number): string => `/club_stories/${id}/edit`,
+    showClubStory: (id: string | number): string => `/club_stories/${id}`,
 
     // Listings
     listings: "/listings",
     newListing: "/listings/new",
-    editListing: (id: string | number): string =>
-      `/listings/${id}/edit`,
+    editListing: (id: string | number): string => `/listings/${id}/edit`,
     updateDetailsListing: (id: string | number): string =>
       `/listings/${id}/update_details`,
-    recoverListing: (id: string | number): string =>
-      `/listings/${id}/recover`,
+    recoverListing: (id: string | number): string => `/listings/${id}/recover`,
     updateAllListings: "/listings/update_all",
 
     // Listing complexes
@@ -191,8 +183,7 @@ const baseAppRoutes = {
     newTestimonial: "/testimonials/new",
     editTestimonial: (id: string | number): string =>
       `/testimonials/${id}/edit`,
-    showTestimonial: (id: string | number): string =>
-      `/testimonials/${id}`,
+    showTestimonial: (id: string | number): string => `/testimonials/${id}`,
 
     // Super Admin
     superAdmin: {

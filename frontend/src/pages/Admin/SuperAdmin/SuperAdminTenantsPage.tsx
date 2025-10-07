@@ -95,9 +95,7 @@ const SuperAdminTenantsPage = () => {
 
   const handleRotateApiKey = async (id: number, name: string) => {
     if (
-      !window.confirm(
-        t("super_admin.tenants.rotate_api_key_confirm", { name }),
-      )
+      !window.confirm(t("super_admin.tenants.rotate_api_key_confirm", { name }))
     )
       return;
 
@@ -261,7 +259,9 @@ const SuperAdminTenantsPage = () => {
                           : t("super_admin.tenants.activate")}
                       </button>
                       <button
-                        onClick={() => handleRotateApiKey(tenant.id, tenant.name)}
+                        onClick={() =>
+                          handleRotateApiKey(tenant.id, tenant.name)
+                        }
                         disabled={rotatingApiKey === tenant.id}
                         className="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 text-left disabled:opacity-50"
                       >

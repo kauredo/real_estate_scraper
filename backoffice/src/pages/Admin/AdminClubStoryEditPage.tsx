@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams, useNavigate } from "react-router-dom";
-import { adminGetClubStory, adminUpdateClubStory, adminUploadClubStoryPhoto } from "../../services/api";
+import {
+  adminGetClubStory,
+  adminUpdateClubStory,
+  adminUploadClubStoryPhoto,
+} from "../../services/api";
 import { useDropzone } from "react-dropzone";
 import { Editor } from "@tinymce/tinymce-react";
 import { appRoutes } from "../../utils/routes";

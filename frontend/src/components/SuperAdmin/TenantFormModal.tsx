@@ -119,10 +119,9 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
 
       onClose();
     } catch (error: any) {
-      const errorMessages =
-        error.response?.data?.errors ||
-        [error.response?.data?.error] ||
-        [t("super_admin.tenants.errors.generic")];
+      const errorMessages = error.response?.data?.errors || [
+          error.response?.data?.error,
+        ] || [t("super_admin.tenants.errors.generic")];
       setErrors(errorMessages);
     } finally {
       setLoading(false);
@@ -319,9 +318,7 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
                 <input
                   type="checkbox"
                   checked={listingComplexesEnabled}
-                  onChange={(e) =>
-                    setListingComplexesEnabled(e.target.checked)
-                  }
+                  onChange={(e) => setListingComplexesEnabled(e.target.checked)}
                   className="mr-2"
                 />
                 <span className="text-sm dark:text-white">
