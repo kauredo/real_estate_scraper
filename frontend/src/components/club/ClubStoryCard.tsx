@@ -21,7 +21,7 @@ export default function ClubStoryCard({ story, isBackoffice = false }: Props) {
           <img
             loading="lazy"
             className="w-full rounded-t-lg aspect-video object-cover"
-            src={story.main_photo}
+            src={story.main_photo_thumb || story.main_photo}
             alt={story.title}
           />
         </a>

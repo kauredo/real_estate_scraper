@@ -26,11 +26,12 @@ export default function ComplexCard(props: Props) {
               alt={listing_complex.name}
               className="w-full md:w-128 h-full block mx-auto object-cover dark:opacity-80"
               src={
-                listing_complex.main_photo
+                listing_complex.main_photo_medium ||
+                (listing_complex.main_photo
                   ? listing_complex.main_photo.image.url
-                  : listing_complex.listings.length > 0
+                  : listing_complex.listings?.length > 0
                     ? listing_complex.listings[0].photos[0]
-                    : ""
+                    : "")
               }
             />
           </div>

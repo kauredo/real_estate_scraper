@@ -1,13 +1,31 @@
 # frozen_string_literal: true
 
 class PhotoSerializer < ActiveModel::Serializer
-  attributes :id, :image, :main, :order, :original_url, :listing_complex_id, :created_at, :updated_at
+  attributes :id, :image, :image_thumb, :image_medium, :image_large, :main, :order, :original_url, :listing_complex_id, :created_at, :updated_at
 
   delegate :image, to: :object
   delegate :main, to: :object
   delegate :order, to: :object
   delegate :original_url, to: :object
   delegate :listing_complex_id, to: :object
+
+  def image_thumb
+    object.image.thumb.url
+  rescue StandardError
+    object.image.url
+  end
+
+  def image_medium
+    object.image.medium.url
+  rescue StandardError
+    object.image.url
+  end
+
+  def image_large
+    object.image.large.url
+  rescue StandardError
+    object.image.url
+  end
 
   belongs_to :listing_complex
 end

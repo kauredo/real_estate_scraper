@@ -15,7 +15,7 @@ const BlogCard = ({ blogPost }: { blogPost: BlogPost }) => {
         <img
           loading="lazy"
           className="w-full rounded-t-lg aspect-video object-cover"
-          src={blogPost.main_photo}
+          src={blogPost.main_photo_thumb || blogPost.main_photo}
           alt={blogPost.title}
         />
       </Link>

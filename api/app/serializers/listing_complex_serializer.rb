@@ -3,7 +3,7 @@
 class ListingComplexSerializer < ActiveModel::Serializer
   attributes :id, :name, :slug, :description, :subtext, :final_text, :order,
              :url, :video_link, :new_format, :hidden, :created_at, :updated_at,
-             :main_photo, :thumbnail_url, :listing_prices
+             :main_photo, :main_photo_thumb, :main_photo_medium, :thumbnail_url, :listing_prices
 
   has_many :photos, serializer: PhotoSerializer
   has_many :listings, serializer: ListingSerializer, if: :include_listings?
@@ -24,8 +24,20 @@ class ListingComplexSerializer < ActiveModel::Serializer
     object.main_photo&.image&.url
   end
 
+  def main_photo_thumb
+    object.main_photo&.image&.thumb&.url
+  rescue StandardError
+    main_photo
+  end
+
+  def main_photo_medium
+    object.main_photo&.image&.medium&.url
+  rescue StandardError
+    main_photo
+  end
+
   def thumbnail_url
-    object.main_photo&.image&.url
+    main_photo_thumb
   end
 
   def include_listings?

@@ -19,6 +19,9 @@ export interface Photo {
   id: number;
   image: { url: string };
   image_url: string;
+  image_thumb?: string;
+  image_medium?: string;
+  image_large?: string;
   main: boolean;
   order: number;
   listing_complex_id: number;
@@ -37,6 +40,8 @@ export interface ListingComplex {
   features: string[];
   listings: Listing[];
   main_photo: Photo;
+  main_photo_thumb?: string;
+  main_photo_medium?: string;
   photos: Photo[];
   thumbnail_url: string;
   banner_image_url?: string;
@@ -123,6 +128,8 @@ export interface ClubStory {
   text: string;
   slug: string;
   main_photo?: string;
+  main_photo_thumb?: string;
+  main_photo_medium?: string;
   sample_text: string;
   meta_title?: string;
   meta_description?: string;
@@ -159,6 +166,8 @@ export interface BlogPost {
   created_at: string;
   updated_at: string;
   main_photo: string;
+  main_photo_thumb?: string;
+  main_photo_medium?: string;
   blog_photos: BlogPostPhoto[];
   content: string;
   excerpt?: string;
