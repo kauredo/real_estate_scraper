@@ -1,51 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Listing } from "../../utils/interfaces";
 import { truncateText } from "../../utils/functions";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
 import Routes from "../../utils/routes";
-import { adminDeleteListing, adminRecoverListing } from "../../services/api";
 
 interface Props {
   listing: Listing;
-  backoffice?: boolean;
   small?: boolean;
 }
 
 export default function LongCard(props: Props) {
-  let { listing, backoffice, small } = props;
+  let { listing, small } = props;
   const [checked, setChecked] = useState(false);
   const [checkbox, setCheckbox] = useState<HTMLElement | null>(null);
   const listingRef = useRef<HTMLDivElement>(null);
-
-  const handleRemoveItem = async (e: React.MouseEvent) => {
-    e.preventDefault();
-
-    const confirmDelete = confirm("De certeza que queres apagar o imóvel?");
-    if (!confirmDelete) return;
-
-    try {
-      await adminDeleteListing(slugOrId);
-      window.location.reload();
-    } catch (error) {
-      console.error("Error deleting listing:", error);
-    }
-  };
-
-  const handleRecoverItem = async (e: React.MouseEvent) => {
-    e.preventDefault();
-
-    const confirmRecover = confirm("De certeza que queres restaurar o imóvel?");
-    if (!confirmRecover) return;
-
-    try {
-      await adminRecoverListing(listing.id);
-      window.location.reload();
-    } catch (error) {
-      console.error("Error recovering listing:", error);
-    }
-  };
 
   const clickId = () => {
     if (checkbox) {
@@ -97,13 +66,7 @@ export default function LongCard(props: Props) {
     >
       <a
         className={small ? "cursor-not-allowed" : ""}
-        href={
-          small
-            ? "#"
-            : backoffice
-              ? Routes.edit_backoffice_listing_path(slugOrId)
-              : Routes.listing_path(slugOrId)
-        }
+        href={small ? "#" : Routes.listing_path(slugOrId)}
         onClick={(e) => small && e.preventDefault()}
       >
         <div
@@ -127,11 +90,6 @@ export default function LongCard(props: Props) {
             )}
             <Overlay status={listing.status} show />
             <div className="w-full md:w-128 h-full block mx-auto relative">
-              {backoffice && (
-                <div className="absolute top-0 left-0 w-20 p-2 bg-black text-white dark:text-light font-bold text-center z-10">
-                  {listing.order || "N/A"}
-                </div>
-              )}
               <img
                 loading="lazy"
                 alt={listing.title}
@@ -160,22 +118,6 @@ export default function LongCard(props: Props) {
                 </p>
                 <ListingIcons listing={listing} />
               </>
-            )}
-            {backoffice && !listing.deleted_at && (
-              <span
-                className="inline-block px-5 py-2 my-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800"
-                onClick={handleRemoveItem}
-              >
-                Apagar Imóvel <FontAwesomeIcon icon="trash-alt" />
-              </span>
-            )}
-            {backoffice && listing.deleted_at && (
-              <span
-                className="inline-block px-5 py-2 my-2 text-red-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
-                onClick={handleRecoverItem}
-              >
-                Restaurar Imóvel 🔄
-              </span>
             )}
           </div>
         </div>

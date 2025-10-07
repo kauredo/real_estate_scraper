@@ -2,26 +2,17 @@ import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 import { changeLocale, isDarkModeActive } from "../../utils/functions";
-import { NavbarItemProps, SubNavItem } from "../../utils/interfaces";
+import { NavbarItemProps } from "../../utils/interfaces";
 import Socials from "../shared/Socials";
 import DarkModeToggle from "../shared/DarkModeToggle";
-import SubNavbar from "../shared/SubNavbar";
 import NavbarItem from "../shared/NavbarItem";
 import DropdownLink from "../shared/DropdownLink";
 import Routes from "../../utils/routes";
 import mainWhiteLogo from "../../assets/logos/main_white.webp";
 import mainLogo from "../../assets/logos/main.webp";
-import { useAuth } from "../../context/AuthContext";
 
-interface Props {
-  backoffice?: boolean;
-  admin?: boolean;
-}
-
-export default function Navbar(props: Props) {
+export default function Navbar() {
   const { t, i18n } = useTranslation();
-  const { backoffice, admin } = props;
-  const { currentAdmin } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -94,45 +85,6 @@ export default function Navbar(props: Props) {
     },
   ];
 
-  const backofficeNavItems: SubNavItem[] = [
-    {
-      routeName: "backoffice_path",
-      title: t("navbar.backoffice"),
-    },
-    {
-      routeName: "backoffice_listings_path",
-      title: t("navbar.listings"),
-    },
-    {
-      routeName: "backoffice_listing_complexes_path",
-      title: t("navbar.enterprises"),
-    },
-    {
-      routeName: "backoffice_testimonials_path",
-      title: t("navbar.testimonies"),
-    },
-    {
-      routeName: "backoffice_blog_posts_path",
-      title: t("navbar.blog_posts"),
-    },
-    {
-      routeName: "backoffice_club_stories_path",
-      title: t("navbar.club_stories"),
-    },
-  ];
-
-  // Add super admin menu items if user is super admin
-  if (currentAdmin?.isSuperAdmin) {
-    backofficeNavItems.push({
-      routeName: "backoffice_super_admin_admins_path",
-      title: t("navbar.super_admin_admins"),
-    });
-    backofficeNavItems.push({
-      routeName: "backoffice_super_admin_tenants_path",
-      title: t("navbar.super_admin_tenants"),
-    });
-  }
-
   const middleItems = items;
 
   const otherImg = i18n.language === "pt" ? "uk" : "pt";
@@ -176,23 +128,6 @@ export default function Navbar(props: Props) {
   });
 
   mobileItems.push(...rightItems);
-
-  if (admin && rightItems[0] && rightItems[0].items) {
-    if (!backoffice) {
-      rightItems[0].items.unshift({
-        title: "Backoffice",
-        url: Routes.backoffice_path,
-        turbo: "true",
-      });
-    }
-
-    rightItems[0].items.push({
-      title: "Log out",
-      url: Routes.destroy_admin_session_path,
-      method: "delete",
-      turbo: "false",
-    });
-  }
 
   const ctaBtn = Routes.sell_path !== window.location.pathname && (
     <a href={Routes.sell_path} data-turbo={false}>
@@ -249,7 +184,7 @@ export default function Navbar(props: Props) {
               <div className="flex items-center">
                 <div className="hidden tablet:block">
                   <div className="ml-4 flex items-baseline">
-                    {!backoffice && <Socials small />}
+                    <Socials small />
                     {rightItems?.map((item) => {
                       if (item.items?.length && item.items.length > 0) {
                         return (
@@ -315,11 +250,9 @@ export default function Navbar(props: Props) {
                 </button>
               </div>
             </div>
-            {!backoffice && (
-              <div className="tablet:hidden">
-                <Socials small />
-              </div>
-            )}
+            <div className="tablet:hidden">
+              <Socials small />
+            </div>
           </div>
         </div>
 
@@ -359,7 +292,6 @@ export default function Navbar(props: Props) {
           </div>
         </Transition>
       </nav>
-      {backoffice && <SubNavbar items={backofficeNavItems} />}
     </div>
   );
 }

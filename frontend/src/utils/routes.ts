@@ -24,7 +24,6 @@ export const routeMappings = {
   regulamento: "rules",
   historias: "stories",
   blog: "blog",
-  backoffice: "backoffice",
 } as const;
 
 // Function to translate route segments
@@ -133,85 +132,6 @@ const baseAppRoutes = {
   clubStories: "/clube-sgg/historias",
   clubStory: (slug: string): string => `/clube-sgg/historias/${slug}`,
 
-  // Backoffice
-  backoffice: {
-    root: "/backoffice",
-    features: "/backoffice/features",
-
-    // Variables
-    variables: "/backoffice/variables",
-    newVariable: "/backoffice/variables/new",
-    editVariable: (id: string | number): string =>
-      `/backoffice/variables/${id}/edit`,
-
-    // Blog posts
-    blogPosts: "/backoffice/blog_posts",
-    newBlogPost: "/backoffice/blog_posts/new",
-    editBlogPost: (id: string | number): string =>
-      `/backoffice/blog_posts/${id}/edit`,
-    showBlogPost: (id: string | number): string =>
-      `/backoffice/blog_posts/${id}`,
-
-    // Club stories
-    clubStories: "/backoffice/club_stories",
-    newClubStory: "/backoffice/club_stories/new",
-    editClubStory: (id: string | number): string =>
-      `/backoffice/club_stories/${id}/edit`,
-    showClubStory: (id: string | number): string =>
-      `/backoffice/club_stories/${id}`,
-
-    // Listings
-    listings: "/backoffice/listings",
-    newListing: "/backoffice/listings/new",
-    editListing: (id: string | number): string =>
-      `/backoffice/listings/${id}/edit`,
-    updateDetailsListing: (id: string | number): string =>
-      `/backoffice/listings/${id}/update_details`,
-    recoverListing: (id: string | number): string =>
-      `/backoffice/listings/${id}/recover`,
-    updateAllListings: "/backoffice/listings/update_all",
-
-    // Listing complexes
-    listingComplexes: "/backoffice/listing_complexes",
-    newListingComplex: "/backoffice/listing_complexes/new",
-    editListingComplex: (id: string | number): string =>
-      `/backoffice/listing_complexes/${id}/edit`,
-    showListingComplex: (id: string | number): string =>
-      `/backoffice/listing_complexes/${id}`,
-    updateDetailsListingComplex: (id: string | number): string =>
-      `/backoffice/listing_complexes/${id}/update_details`,
-    photosListingComplex: (id: string | number): string =>
-      `/backoffice/listing_complexes/${id}/photos`,
-    deletePhotoListingComplex: (id: string | number): string =>
-      `/backoffice/listing_complexes/${id}/delete_photo`,
-    fetchListingComplex: "/backoffice/listing_complexes/fetch",
-
-    // Testimonials
-    testimonials: "/backoffice/testimonials",
-    newTestimonial: "/backoffice/testimonials/new",
-    editTestimonial: (id: string | number): string =>
-      `/backoffice/testimonials/${id}/edit`,
-    showTestimonial: (id: string | number): string =>
-      `/backoffice/testimonials/${id}`,
-
-    // Super Admin
-    superAdmin: {
-      admins: "/backoffice/super_admin/admins",
-      tenants: "/backoffice/super_admin/tenants",
-    },
-  },
-
-  // Authentication
-  adminSignIn: "/admins/sign_in",
-  adminSignUp: "/admins/sign_up",
-  adminSignOut: "/admins/sign_out",
-  adminEditAccount: "/admins/edit",
-
-  // Auth routes
-  auth: {
-    login: "/backoffice/login",
-  },
-
   // Newsletter
   confirmNewsletter: (id: string | number, token: string): string =>
     `/newsletter_subscriptions/${id}/confirm?token=${token}`,
@@ -230,9 +150,6 @@ export const appRoutes = createLocalizedRoutes(baseAppRoutes);
 
 // API routes
 const baseApiRoutes = {
-  // Authentication
-  auth: `${API_BASE_URL}/auth/login`,
-
   // Documentation
   docs: `${API_BASE_URL}/docs`,
 
@@ -281,94 +198,6 @@ const baseApiRoutes = {
     `${API_BASE_URL}/newsletter_subscriptions/${id}`,
   confirmNewsletterSubscription: (id: string | number, token: string): string =>
     `${API_BASE_URL}/newsletter_subscriptions/${id}/confirm?token=${token}`,
-
-  // Admin API endpoints
-  admin: {
-    // Blog posts
-    blogPosts: `${API_BASE_URL}/admin/blog_posts`,
-    blogPost: (id: string | number): string =>
-      `${API_BASE_URL}/admin/blog_posts/${id}`,
-
-    // Club stories
-    clubStories: `${API_BASE_URL}/admin/club_stories`,
-    clubStory: (id: string | number): string =>
-      `${API_BASE_URL}/admin/club_stories/${id}`,
-
-    // Club users
-    clubUsers: `${API_BASE_URL}/admin/club_users`,
-    exportClubUsers: `${API_BASE_URL}/admin/export_club_users`,
-
-    // Listing complexes
-    listingComplexes: `${API_BASE_URL}/admin/listing_complexes`,
-    listingComplex: (id: string | number): string =>
-      `${API_BASE_URL}/admin/listing_complexes/${id}`,
-    updateDetailsListingComplex: (id: string | number): string =>
-      `${API_BASE_URL}/admin/listing_complexes/${id}/update_details`,
-    photosListingComplex: (id: string | number): string =>
-      `${API_BASE_URL}/admin/listing_complexes/${id}/photos`,
-    deletePhotoListingComplex: (id: string | number): string =>
-      `${API_BASE_URL}/admin/listing_complexes/${id}/delete_photo`,
-    fetchListingComplex: `${API_BASE_URL}/admin/listing_complexes/fetch`,
-
-    // Listings
-    listings: `${API_BASE_URL}/admin/listings`,
-    listing: (id: string | number): string =>
-      `${API_BASE_URL}/admin/listings/${id}`,
-    updateDetailsListing: (id: string | number): string =>
-      `${API_BASE_URL}/admin/listings/${id}/update_details`,
-    recoverListing: (id: string | number): string =>
-      `${API_BASE_URL}/admin/listings/${id}/recover`,
-    updateAllListings: `${API_BASE_URL}/admin/listings/update_all`,
-
-    // Testimonials
-    testimonials: `${API_BASE_URL}/admin/testimonials`,
-    testimonial: (id: string | number): string =>
-      `${API_BASE_URL}/admin/testimonials/${id}`,
-
-    // Variables
-    variables: `${API_BASE_URL}/admin/variables`,
-    variable: (id: string | number): string =>
-      `${API_BASE_URL}/admin/variables/${id}`,
-
-    // Photos
-    blogPhotos: `${API_BASE_URL}/admin/blog_photos`,
-    blogPhoto: (id: string | number): string =>
-      `${API_BASE_URL}/admin/blog_photos/${id}`,
-    photos: `${API_BASE_URL}/admin/photos`,
-    photo: (id: string | number): string =>
-      `${API_BASE_URL}/admin/photos/${id}`,
-    clubStoryPhotos: `${API_BASE_URL}/admin/club_story_photos`,
-    clubStoryPhoto: (id: string | number): string =>
-      `${API_BASE_URL}/admin/club_story_photos/${id}`,
-
-    // Newsletter subscriptions
-    newsletterSubscriptions: `${API_BASE_URL}/admin/newsletter_subscriptions`,
-  },
-
-  // Super Admin API endpoints
-  superAdmin: {
-    // Admins management
-    admins: `${API_BASE_URL}/super_admin/admins`,
-    admin: (id: string | number): string =>
-      `${API_BASE_URL}/super_admin/admins/${id}`,
-    confirmAdmin: (id: string | number): string =>
-      `${API_BASE_URL}/super_admin/admins/${id}/confirm`,
-    unconfirmAdmin: (id: string | number): string =>
-      `${API_BASE_URL}/super_admin/admins/${id}/unconfirm`,
-    resetPasswordAdmin: (id: string | number): string =>
-      `${API_BASE_URL}/super_admin/admins/${id}/reset_password`,
-
-    // Tenants management
-    tenants: `${API_BASE_URL}/super_admin/tenants`,
-    tenant: (id: string | number): string =>
-      `${API_BASE_URL}/super_admin/tenants/${id}`,
-    toggleActiveTenant: (id: string | number): string =>
-      `${API_BASE_URL}/super_admin/tenants/${id}/toggle_active`,
-    rotateApiKeyTenant: (id: string | number): string =>
-      `${API_BASE_URL}/super_admin/tenants/${id}/rotate_api_key`,
-    updateFeaturesTenant: (id: string | number): string =>
-      `${API_BASE_URL}/super_admin/tenants/${id}/update_features`,
-  },
 };
 
 export const apiRoutes = baseApiRoutes; // Don't localize API routes
@@ -402,71 +231,6 @@ export const Routes = createLocalizedRoutes({
   club_rules_path: appRoutes.clubRules,
   club_stories_path: appRoutes.clubStories,
   club_story_path: appRoutes.clubStory,
-
-  // Backoffice
-  backoffice_path: appRoutes.backoffice.root,
-  backoffice_features_path: appRoutes.backoffice.features,
-
-  // Variables
-  backoffice_variables_path: appRoutes.backoffice.variables,
-  new_backoffice_variable_path: appRoutes.backoffice.newVariable,
-  edit_backoffice_variable_path: appRoutes.backoffice.editVariable,
-
-  // Blog posts
-  backoffice_blog_posts_path: appRoutes.backoffice.blogPosts,
-  new_backoffice_blog_post_path: appRoutes.backoffice.newBlogPost,
-  edit_backoffice_blog_post_path: appRoutes.backoffice.editBlogPost,
-  backoffice_blog_post_path: appRoutes.backoffice.showBlogPost,
-
-  // Club stories
-  backoffice_club_stories_path: appRoutes.backoffice.clubStories,
-  new_backoffice_club_story_path: appRoutes.backoffice.newClubStory,
-  edit_backoffice_club_story_path: appRoutes.backoffice.editClubStory,
-  backoffice_club_story_path: appRoutes.backoffice.showClubStory,
-
-  // Listings
-  backoffice_listings_path: appRoutes.backoffice.listings,
-  new_backoffice_listing_path: appRoutes.backoffice.newListing,
-  edit_backoffice_listing_path: appRoutes.backoffice.editListing,
-  update_details_backoffice_listing_path:
-    appRoutes.backoffice.updateDetailsListing,
-  recover_backoffice_listing_path: appRoutes.backoffice.recoverListing,
-  update_all_backoffice_listings_path: appRoutes.backoffice.updateAllListings,
-
-  // Listing complexes
-  backoffice_listing_complexes_path: appRoutes.backoffice.listingComplexes,
-  new_backoffice_listing_complex_path: appRoutes.backoffice.newListingComplex,
-  edit_backoffice_listing_complex_path: appRoutes.backoffice.editListingComplex,
-  backoffice_listing_complex_path: appRoutes.backoffice.showListingComplex,
-  update_details_backoffice_listing_complex_path:
-    appRoutes.backoffice.updateDetailsListingComplex,
-  photos_backoffice_listing_complex_path:
-    appRoutes.backoffice.photosListingComplex,
-  delete_photo_backoffice_listing_complex_path:
-    appRoutes.backoffice.deletePhotoListingComplex,
-  fetch_backoffice_listing_complexes_path:
-    appRoutes.backoffice.fetchListingComplex,
-
-  // Testimonials
-  backoffice_testimonials_path: appRoutes.backoffice.testimonials,
-  new_backoffice_testimonial_path: appRoutes.backoffice.newTestimonial,
-  edit_backoffice_testimonial_path: appRoutes.backoffice.editTestimonial,
-  backoffice_testimonial_path: appRoutes.backoffice.showTestimonial,
-
-  // Super Admin
-  backoffice_super_admin_admins_path: appRoutes.backoffice.superAdmin.admins,
-  backoffice_super_admin_tenants_path: appRoutes.backoffice.superAdmin.tenants,
-
-  // Authentication
-  new_admin_session_path: appRoutes.adminSignIn,
-  new_admin_registration_path: appRoutes.adminSignUp,
-  destroy_admin_session_path: appRoutes.adminSignOut,
-  edit_admin_registration_path: appRoutes.adminEditAccount,
-
-  // Auth routes
-  auth: {
-    login: appRoutes.auth.login,
-  },
 
   // Newsletter
   confirm_newsletter_subscription_path: appRoutes.confirmNewsletter,

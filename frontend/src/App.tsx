@@ -1,13 +1,11 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { AuthProvider, useAuth } from "./context/AuthContext";
 import {
   NotificationProvider,
   useNotifications,
 } from "./context/NotificationContext";
 import { setNotificationContext } from "./services/api";
-import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import NotificationToastContainer from "./components/shared/NotificationToast";
@@ -18,7 +16,6 @@ import ListingDetailPage from "./pages/ListingDetailPage";
 import ListingsSellPage from "./pages/ListingsSellPage";
 import BlogPostsPage from "./pages/BlogPostsPage";
 import BlogPostDetailPage from "./pages/BlogPostDetailPage";
-import LoginPage from "./pages/Auth/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -32,31 +29,6 @@ import ClubStoriesPage from "./pages/ClubStoriesPage";
 import ClubStoryDetailPage from "./pages/ClubStoryDetailPage";
 import ListingComplexesPage from "./pages/ListingComplexesPage";
 import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
-import AdminBlogPostsPage from "./pages/Admin/AdminBlogPostsPage";
-import AdminBlogPostNewPage from "./pages/Admin/AdminBlogPostNewPage";
-import AdminBlogPostEditPage from "./pages/Admin/AdminBlogPostEditPage";
-import AdminBlogPostDetailPage from "./pages/Admin/AdminBlogPostDetailPage";
-import AdminBackofficePage from "./pages/Admin/AdminBackofficePage";
-import AdminClubStoriesPage from "./pages/Admin/AdminClubStoriesPage";
-import AdminClubStoryEditPage from "./pages/Admin/AdminClubStoryEditPage";
-import AdminClubStoryDetailPage from "./pages/Admin/AdminClubStoryDetailPage";
-import AdminClubStoryNewPage from "./pages/Admin/AdminClubStoryNewPage";
-import AdminDashboard from "./pages/Admin/AdminDashboard";
-import AdminListingsPage from "./pages/Admin/AdminListingsPage";
-import AdminListingNewPage from "./pages/Admin/AdminListingNewPage";
-import AdminListingEditPage from "./pages/Admin/AdminListingEditPage";
-import AdminListingDetailPage from "./pages/Admin/AdminListingDetailPage";
-import AdminListingComplexesPage from "./pages/Admin/AdminListingComplexesPage";
-import AdminListingComplexNewPage from "./pages/Admin/AdminListingComplexNewPage";
-import AdminListingComplexEditPage from "./pages/Admin/AdminListingComplexEditPage";
-import AdminListingComplexDetailPage from "./pages/Admin/AdminListingComplexDetailPage";
-import AdminTestimonialsPage from "./pages/Admin/AdminTestimonialsPage";
-import AdminTestimonialNewPage from "./pages/Admin/AdminTestimonialNewPage";
-import AdminTestimonialEditPage from "./pages/Admin/AdminTestimonialEditPage";
-import AdminTestimonialDetailPage from "./pages/Admin/AdminTestimonialDetailPage";
-import SuperAdminAdminsPage from "./pages/Admin/SuperAdmin/SuperAdminAdminsPage";
-import SuperAdminTenantsPage from "./pages/Admin/SuperAdmin/SuperAdminTenantsPage";
-import SuperAdminRoute from "./components/SuperAdminRoute";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -69,140 +41,11 @@ function ScrollToTop() {
   return null;
 }
 function AppContent() {
-  const { isAuthenticated } = useAuth();
-  const location = useLocation();
-  const isBackoffice =
-    location.pathname.startsWith("/backoffice") ||
-    location.pathname.startsWith("/en/backoffice");
-
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-dark text-black dark:text-light">
-      <Navbar
-        admin={isAuthenticated}
-        backoffice={isAuthenticated && isBackoffice}
-      />
+      <Navbar />
       <div className="flex-auto">
         <Routes>
-          {/* Auth Routes */}
-          <Route path="/backoffice/login" element={<LoginPage />} />
-
-          {/* Backoffice Protected Routes */}
-          <Route
-            path="/backoffice/*"
-            element={
-              <ProtectedRoute>
-                <Routes>
-                  {/* Home */}
-                  <Route path="" element={<AdminBackofficePage />} />
-
-                  {/* Dashboard */}
-                  <Route path="dashboard" element={<AdminDashboard />} />
-
-                  {/* Blog Posts */}
-                  <Route path="blog_posts" element={<AdminBlogPostsPage />} />
-                  <Route
-                    path="blog_posts/new"
-                    element={<AdminBlogPostNewPage />}
-                  />
-                  <Route
-                    path="blog_posts/:id/edit"
-                    element={<AdminBlogPostEditPage />}
-                  />
-                  <Route
-                    path="blog_posts/:id"
-                    element={<AdminBlogPostDetailPage />}
-                  />
-
-                  {/* Club Stories */}
-                  <Route
-                    path="club_stories"
-                    element={<AdminClubStoriesPage />}
-                  />
-                  <Route
-                    path="club_stories/new"
-                    element={<AdminClubStoryNewPage />}
-                  />
-                  <Route
-                    path="club_stories/:id/edit"
-                    element={<AdminClubStoryEditPage />}
-                  />
-                  <Route
-                    path="club_stories/:id"
-                    element={<AdminClubStoryDetailPage />}
-                  />
-
-                  {/* Listings */}
-                  <Route path="listings" element={<AdminListingsPage />} />
-                  <Route
-                    path="listings/new"
-                    element={<AdminListingNewPage />}
-                  />
-                  <Route
-                    path="listings/:id/edit"
-                    element={<AdminListingEditPage />}
-                  />
-                  <Route
-                    path="listings/:id"
-                    element={<AdminListingDetailPage />}
-                  />
-
-                  {/* Listing Complexes */}
-                  <Route
-                    path="listing_complexes"
-                    element={<AdminListingComplexesPage />}
-                  />
-                  <Route
-                    path="listing_complexes/new"
-                    element={<AdminListingComplexNewPage />}
-                  />
-                  <Route
-                    path="listing_complexes/:id/edit"
-                    element={<AdminListingComplexEditPage />}
-                  />
-                  <Route
-                    path="listing_complexes/:id"
-                    element={<AdminListingComplexDetailPage />}
-                  />
-
-                  {/* Testimonials */}
-                  <Route
-                    path="testimonials"
-                    element={<AdminTestimonialsPage />}
-                  />
-                  <Route
-                    path="testimonials/new"
-                    element={<AdminTestimonialNewPage />}
-                  />
-                  <Route
-                    path="testimonials/:id/edit"
-                    element={<AdminTestimonialEditPage />}
-                  />
-                  <Route
-                    path="testimonials/:id"
-                    element={<AdminTestimonialDetailPage />}
-                  />
-
-                  {/* Super Admin Routes */}
-                  <Route
-                    path="super_admin/admins"
-                    element={
-                      <SuperAdminRoute>
-                        <SuperAdminAdminsPage />
-                      </SuperAdminRoute>
-                    }
-                  />
-                  <Route
-                    path="super_admin/tenants"
-                    element={
-                      <SuperAdminRoute>
-                        <SuperAdminTenantsPage />
-                      </SuperAdminRoute>
-                    }
-                  />
-                </Routes>
-              </ProtectedRoute>
-            }
-          />
 
           {/* Portuguese Routes */}
           <Route path="/" element={<HomePage />} />
@@ -280,17 +123,15 @@ function App() {
   }, [i18n]);
 
   return (
-    <AuthProvider>
-      <NotificationProvider>
-        <BrowserRouter>
-          <Analytics />
-          <NotificationHandler />
-          <ScrollToTop />
-          <AppContent />
-          <NotificationToastContainer />
-        </BrowserRouter>
-      </NotificationProvider>
-    </AuthProvider>
+    <NotificationProvider>
+      <BrowserRouter>
+        <Analytics />
+        <NotificationHandler />
+        <ScrollToTop />
+        <AppContent />
+        <NotificationToastContainer />
+      </BrowserRouter>
+    </NotificationProvider>
   );
 }
 
