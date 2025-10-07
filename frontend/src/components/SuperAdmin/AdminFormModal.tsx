@@ -41,9 +41,11 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
   const fetchTenants = async () => {
     try {
       const response = await superAdminGetTenants();
-      setTenants(response.data.tenants);
+      console.log("Tenants response:", response.data);
+      setTenants(response.data.tenants || []);
     } catch (error) {
       console.error("Failed to fetch tenants:", error);
+      setTenants([]);
     }
   };
 

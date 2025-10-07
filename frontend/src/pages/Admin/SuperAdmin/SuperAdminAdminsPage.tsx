@@ -5,6 +5,7 @@ import {
   superAdminDeleteAdmin,
   superAdminConfirmAdmin,
   superAdminUnconfirmAdmin,
+  superAdminGetTenants,
 } from "../../../services/api";
 import AdminFormModal from "../../../components/SuperAdmin/AdminFormModal";
 
@@ -21,9 +22,17 @@ interface Admin {
   created_at: string;
 }
 
+interface Tenant {
+  id: number;
+  name: string;
+  slug: string;
+  active: boolean;
+}
+
 const SuperAdminAdminsPage = () => {
   const { t } = useTranslation();
   const [admins, setAdmins] = useState<Admin[]>([]);
+  const [tenants, setTenants] = useState<Tenant[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [tenantFilter, setTenantFilter] = useState("");
@@ -47,6 +56,19 @@ const SuperAdminAdminsPage = () => {
       setLoading(false);
     }
   };
+
+  const fetchTenants = async () => {
+    try {
+      const response = await superAdminGetTenants();
+      setTenants(response.data.tenants || []);
+    } catch (error) {
+      console.error("Failed to fetch tenants:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTenants();
+  }, []);
 
   useEffect(() => {
     fetchAdmins();
@@ -128,6 +150,11 @@ const SuperAdminAdminsPage = () => {
           className="border rounded px-4 py-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
         >
           <option value="">{t("super_admin.admins.all_tenants")}</option>
+          {tenants.map((tenant) => (
+            <option key={tenant.id} value={tenant.id}>
+              {tenant.name}
+            </option>
+          ))}
         </select>
         <select
           value={confirmedFilter}
