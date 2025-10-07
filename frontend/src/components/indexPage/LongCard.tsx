@@ -54,7 +54,7 @@ export default function LongCard(props: Props) {
     }
   };
   const [listingRefWidth, setListingRefWidth] = useState(
-    listingRef.current?.offsetWidth
+    listingRef.current?.offsetWidth,
   );
 
   const photo = listing.photos ? listing.photos[0] : "";
@@ -70,7 +70,7 @@ export default function LongCard(props: Props) {
   useEffect(() => {
     window.addEventListener("resize", handleResize, false);
     let box = document.getElementById(
-      `listing_complex_listing_ids_${listing.id}`
+      `listing_complex_listing_ids_${listing.id}`,
     );
 
     if (box) {
@@ -101,10 +101,10 @@ export default function LongCard(props: Props) {
           small
             ? "#"
             : backoffice
-            ? Routes.edit_backoffice_listing_path(slugOrId)
-            : Routes.listing_path(slugOrId)
+              ? Routes.edit_backoffice_listing_path(slugOrId)
+              : Routes.listing_path(slugOrId)
         }
-        onClick={e => small && e.preventDefault()}
+        onClick={(e) => small && e.preventDefault()}
       >
         <div
           className={
@@ -154,7 +154,7 @@ export default function LongCard(props: Props) {
                   <span>
                     {truncateText(
                       listing.description,
-                      (listingRefWidth ?? window.innerWidth) / 4
+                      (listingRefWidth ?? window.innerWidth) / 4,
                     )}
                   </span>
                 </p>

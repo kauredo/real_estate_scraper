@@ -11,14 +11,14 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   const nextPhoto = () => {
-    setCurrentPhotoIndex(prev =>
-      prev === listingComplex.photos.length - 1 ? 0 : prev + 1
+    setCurrentPhotoIndex((prev) =>
+      prev === listingComplex.photos.length - 1 ? 0 : prev + 1,
     );
   };
 
   const prevPhoto = () => {
-    setCurrentPhotoIndex(prev =>
-      prev === 0 ? listingComplex.photos.length - 1 : prev - 1
+    setCurrentPhotoIndex((prev) =>
+      prev === 0 ? listingComplex.photos.length - 1 : prev - 1,
     );
   };
 
@@ -103,7 +103,7 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
                 {
                   style: "currency",
                   currency: "EUR",
-                }
+                },
               )}
             </p>
           </div>
@@ -156,7 +156,7 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
               {t("listing_complex.available_units")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {listingComplex.listings.map(listing => (
+              {listingComplex.listings.map((listing) => (
                 <div
                   key={listing.id}
                   className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4"
@@ -175,7 +175,7 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
                       {
                         style: "currency",
                         currency: "EUR",
-                      }
+                      },
                     )}
                   </p>
                 </div>

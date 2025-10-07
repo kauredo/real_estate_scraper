@@ -28,7 +28,7 @@ export default function Home() {
         },
         {
           errorMessage: t("notifications.messages.data_load_error"),
-        }
+        },
       );
 
       if (result) {

@@ -8,7 +8,7 @@ interface CustomDotsProps {
 const CustomDots: React.FC<CustomDotsProps> = ({ dots, dotWidth = 30 }) => {
   const totalDots = dots.length;
   const currentSlide = dots.findIndex((dot: any) =>
-    dot.props.className.includes("slick-active")
+    dot.props.className.includes("slick-active"),
   );
 
   return (

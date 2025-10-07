@@ -19,7 +19,7 @@ export default function Show(props: Props) {
   const allPhotos =
     complex.listings &&
     complex.listings.reduce((photos: string[], listing) => {
-      listing.photos.forEach(photo => {
+      listing.photos.forEach((photo) => {
         if (!photos.includes(photo)) {
           photos.push(photo);
         }
@@ -124,7 +124,7 @@ export default function Show(props: Props) {
                 </tr>
               </thead>
               <tbody>
-                {complex.listings?.map(listing => {
+                {complex.listings?.map((listing) => {
                   return (
                     <tr
                       key={listing.slug}

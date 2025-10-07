@@ -65,7 +65,7 @@ export const getPageMetaTags = (
     title?: string;
     description?: string;
     image?: string;
-  } = {}
+  } = {},
 ) => ({
   title: overrides.title,
   description: overrides.description,

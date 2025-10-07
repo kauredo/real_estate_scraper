@@ -33,19 +33,21 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: Props) => {
     meta_description: initialData?.meta_description || "",
     video_link: initialData?.video_link || "",
     hidden: initialData?.hidden || false,
+    description: initialData?.description || "",
+    content: initialData?.content || "",
   });
   const [photos, setPhotos] = useState<File[]>([]);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: { "image/*": [] },
-    onDrop: acceptedFiles => {
-      setPhotos(prev => [...prev, ...acceptedFiles]);
+    onDrop: (acceptedFiles) => {
+      setPhotos((prev) => [...prev, ...acceptedFiles]);
     },
   });
 
   const handleChange = (
     field: keyof BlogPostFormData,
-    value: string | boolean
+    value: string | boolean,
   ) => {
     setFormData((prev: BlogPostFormData) => ({ ...prev, [field]: value }));
   };
@@ -69,7 +71,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: Props) => {
           <input
             type="text"
             value={formData.title}
-            onChange={e => handleChange("title", e.target.value)}
+            onChange={(e) => handleChange("title", e.target.value)}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-dark-lighter dark:border-gray-600"
             required
           />
@@ -81,7 +83,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: Props) => {
           </label>
           <textarea
             value={formData.small_description}
-            onChange={e => handleChange("small_description", e.target.value)}
+            onChange={(e) => handleChange("small_description", e.target.value)}
             rows={3}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-dark-lighter dark:border-gray-600"
             required
@@ -94,7 +96,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: Props) => {
           </label>
           <Editor
             value={formData.text}
-            onEditorChange={content => handleChange("text", content)}
+            onEditorChange={(content) => handleChange("text", content)}
             init={{
               height: 500,
               menubar: false,
@@ -135,7 +137,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: Props) => {
           <input
             type="url"
             value={formData.video_link}
-            onChange={e => handleChange("video_link", e.target.value)}
+            onChange={(e) => handleChange("video_link", e.target.value)}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-dark-lighter dark:border-gray-600"
           />
         </div>
@@ -186,7 +188,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: Props) => {
                 <button
                   type="button"
                   onClick={() =>
-                    setPhotos(prev => prev.filter((_, i) => i !== index))
+                    setPhotos((prev) => prev.filter((_, i) => i !== index))
                   }
                   className="absolute top-0 right-0 -mt-2 -mr-2 bg-red-500 text-white rounded-full p-1"
                 >
@@ -220,7 +222,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: Props) => {
           <input
             type="text"
             value={formData.meta_title}
-            onChange={e => handleChange("meta_title", e.target.value)}
+            onChange={(e) => handleChange("meta_title", e.target.value)}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-dark-lighter dark:border-gray-600"
             required
           />
@@ -232,7 +234,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: Props) => {
           </label>
           <textarea
             value={formData.meta_description}
-            onChange={e => handleChange("meta_description", e.target.value)}
+            onChange={(e) => handleChange("meta_description", e.target.value)}
             rows={3}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-beige-medium focus:ring-beige-medium dark:bg-dark-lighter dark:border-gray-600"
             required
@@ -244,7 +246,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: Props) => {
             type="checkbox"
             id="hidden"
             checked={formData.hidden}
-            onChange={e => handleChange("hidden", e.target.checked)}
+            onChange={(e) => handleChange("hidden", e.target.checked)}
             className="h-4 w-4 text-beige-medium focus:ring-beige-medium border-gray-300 rounded"
           />
           <label

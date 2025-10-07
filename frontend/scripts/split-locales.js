@@ -54,7 +54,7 @@ function splitLocaleFile(language) {
   const createdFiles = [];
 
   // Split each top-level key into its own file
-  Object.keys(localeData).forEach(key => {
+  Object.keys(localeData).forEach((key) => {
     const keyData = localeData[key];
     const keyFilePath = path.join(languageDir, `${key}.json`);
 
@@ -74,7 +74,7 @@ function splitLocaleFile(language) {
   console.log(`  💾 Backup created: ${language}.json.backup`);
 
   console.log(
-    `✨ Completed splitting ${language}.json into ${createdFiles.length} files`
+    `✨ Completed splitting ${language}.json into ${createdFiles.length} files`,
   );
 }
 
@@ -88,14 +88,14 @@ function createIndexFile(language, keys) {
   let indexContent = "// Auto-generated index file for split locale files\n\n";
 
   // Import statements
-  keys.forEach(key => {
+  keys.forEach((key) => {
     indexContent += `import ${key} from './${key}.json';\n`;
   });
 
   indexContent += "\n// Re-export all locale data\n";
   indexContent += "export default {\n";
 
-  keys.forEach(key => {
+  keys.forEach((key) => {
     indexContent += `  ${key},\n`;
   });
 

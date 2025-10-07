@@ -123,7 +123,7 @@ export default function Show(props: Props) {
                   <br />
                   <span>{listing.price} €</span>
                 </div>
-                {Object.keys(listing.stats)?.map(k => {
+                {Object.keys(listing.stats)?.map((k) => {
                   return (
                     <div key={k} className="border p-2 w-1/2">
                       <span className="font-bold">
@@ -153,7 +153,7 @@ export default function Show(props: Props) {
                       "repeat( auto-fit, minmax(230px, 1fr) )",
                   }}
                 >
-                  {listing?.features?.map(feat => {
+                  {listing?.features?.map((feat) => {
                     return (
                       <li key={feat} className="mx-8 list-disc">
                         {feat}

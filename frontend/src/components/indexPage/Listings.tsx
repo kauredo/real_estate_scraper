@@ -35,7 +35,7 @@ export default function Listings(props: Props) {
 
   return (
     <div className="container mx-auto flex flex-wrap" id="listings">
-      {listings?.map(listing => {
+      {listings?.map((listing) => {
         return (
           <LongCard
             backoffice={backoffice}

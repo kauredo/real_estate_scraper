@@ -22,7 +22,7 @@ export const useAsyncOperation = () => {
       errorMessage?: string;
       showSuccessNotification?: boolean;
       showErrorNotification?: boolean;
-    } = {}
+    } = {},
   ): Promise<T | null> => {
     const {
       successMessage,

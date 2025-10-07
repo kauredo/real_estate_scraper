@@ -1,13 +1,5 @@
 {
-  "abbr_day_names": [
-    "dom",
-    "seg",
-    "ter",
-    "qua",
-    "qui",
-    "sex",
-    "sáb"
-  ],
+  "abbr_day_names": ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"],
   "abbr_month_names": [
     null,
     "jan",
@@ -52,9 +44,5 @@
     "novembro",
     "dezembro"
   ],
-  "order": [
-    "day",
-    "month",
-    "year"
-  ]
+  "order": ["day", "month", "year"]
 }

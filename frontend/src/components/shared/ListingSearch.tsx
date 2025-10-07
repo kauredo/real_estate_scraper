@@ -37,9 +37,9 @@ export default function ListingSearch(props: Props) {
   const [statsFilters, setStatsFilters] = useState<Partial<StatsFilter>>(
     Object.fromEntries(
       Object.entries(params || {}).filter(([key]) =>
-        statsKeys.includes(key.replace("_eq", ""))
-      )
-    )
+        statsKeys.includes(key.replace("_eq", "")),
+      ),
+    ),
   );
 
   const transformedMaxPrice = (listingMaxPrice || 0) / 100;
@@ -52,11 +52,11 @@ export default function ListingSearch(props: Props) {
   });
 
   // Separate the most important stats from advanced ones
-  const basicStatsKeys = statsKeys.filter(key =>
-    ["Quartos", "Casas de Banho"].includes(key)
+  const basicStatsKeys = statsKeys.filter((key) =>
+    ["Quartos", "Casas de Banho"].includes(key),
   );
   const advancedStatsKeys = statsKeys.filter(
-    key => !["Quartos", "Casas de Banho"].includes(key)
+    (key) => !["Quartos", "Casas de Banho"].includes(key),
   );
 
   const handlePriceChange = (value: number | number[]) => {
@@ -124,7 +124,7 @@ export default function ListingSearch(props: Props) {
     const { name, value } = event.target;
     // Extract the stat name from the form field name (q[StatName_eq] -> StatName_eq)
     const statName = name.replace("q[", "").replace("]", "");
-    setStatsFilters(prev => ({
+    setStatsFilters((prev) => ({
       ...prev,
       [statName]: value || undefined,
     }));
@@ -162,7 +162,7 @@ export default function ListingSearch(props: Props) {
     // Only run this when transformedMaxPrice becomes available for the first time
     // and we don't have specific price parameters from URL
     if (transformedMaxPrice > 0 && !params?.price_cents_lteq) {
-      setPrices(prevPrices => {
+      setPrices((prevPrices) => {
         // Only update if the current max price is 0 (initial state)
         if (prevPrices[1] === 0) {
           const minPrice = Number(params?.price_cents_gteq || 0) / 100;
@@ -204,7 +204,7 @@ export default function ListingSearch(props: Props) {
               id="q_kind_eq"
               className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px] focus:ring-2 focus:ring-beige-default focus:border-transparent"
               value={kind}
-              onChange={e => setKind(Number(e.target.value))}
+              onChange={(e) => setKind(Number(e.target.value))}
             >
               <option value="0">{t("listing.search.status.all")}</option>
               {Array.isArray(kinds) &&
@@ -233,7 +233,7 @@ export default function ListingSearch(props: Props) {
                 className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px] focus:ring-2 focus:ring-beige-default focus:border-transparent"
               >
                 <option value="">{t("listing.search.any")}</option>
-                {[...Array(11).keys()].map(num => (
+                {[...Array(11).keys()].map((num) => (
                   <option key={num} value={num}>
                     {num}
                   </option>
@@ -252,7 +252,7 @@ export default function ListingSearch(props: Props) {
               id="q_status_eq"
               className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px] focus:ring-2 focus:ring-beige-default focus:border-transparent"
               value={status}
-              onChange={e => setStatus(e.target.value)}
+              onChange={(e) => setStatus(e.target.value)}
             >
               <option value="">{t("listing.search.status.all")}</option>
               <option value="0">{t("listing.search.status.recent")}</option>

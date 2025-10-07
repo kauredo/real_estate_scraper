@@ -147,7 +147,7 @@ const TestimonialsManagement: React.FC = () => {
                 type="text"
                 id="name"
                 value={formData.name}
-                onChange={e =>
+                onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
                 required
@@ -165,7 +165,7 @@ const TestimonialsManagement: React.FC = () => {
               <textarea
                 id="text"
                 value={formData.text}
-                onChange={e =>
+                onChange={(e) =>
                   setFormData({ ...formData, text: e.target.value })
                 }
                 required
@@ -205,7 +205,7 @@ const TestimonialsManagement: React.FC = () => {
         </div>
 
         <div className="divide-y divide-gray-200">
-          {testimonials.map(testimonial => (
+          {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="p-6">
               <div className="flex justify-between items-start">
                 <div className="flex-1">

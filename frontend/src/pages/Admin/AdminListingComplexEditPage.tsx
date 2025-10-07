@@ -15,7 +15,7 @@ const AdminListingComplexEditPage = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [listingComplex, setListingComplex] = useState<ListingComplex | null>(
-    null
+    null,
   );
   const [formData, setFormData] = useState({
     name: "",
@@ -77,10 +77,10 @@ const AdminListingComplexEditPage = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   if (loading) {

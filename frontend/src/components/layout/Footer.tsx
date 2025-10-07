@@ -95,7 +95,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex mt-4 space-x-4 sm:justify-center sm:mt-0">
-            {items?.map(item => {
+            {items?.map((item) => {
               return (
                 <a
                   key={`${item.title}--desktop`}

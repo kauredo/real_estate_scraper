@@ -16,12 +16,12 @@ interface FaqAccordionProps {
 
 const FaqAccordion = ({ sections }: FaqAccordionProps) => {
   const [openQuestions, setOpenQuestions] = useState<Record<string, boolean>>(
-    {}
+    {},
   );
 
   const toggleQuestion = (sectionIndex: number, questionIndex: number) => {
     const key = `${sectionIndex}-${questionIndex}`;
-    setOpenQuestions(prev => ({
+    setOpenQuestions((prev) => ({
       ...prev,
       [key]: !prev[key],
     }));
@@ -77,7 +77,7 @@ const FaqAccordion = ({ sections }: FaqAccordionProps) => {
                   />
                 </div>
               );
-            }
+            },
           )}
         </div>
       ))}

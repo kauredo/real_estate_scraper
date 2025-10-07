@@ -15,12 +15,12 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleVariableSubmit = async e => {
+  const handleVariableSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.name || !formData.value || !formData.icon) {
@@ -59,7 +59,7 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
     }
   };
 
-  const handleVariableDelete = async id => {
+  const handleVariableDelete = async (id) => {
     if (!window.confirm("Tem certeza que deseja excluir esta variável?")) {
       return;
     }
@@ -115,7 +115,7 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
           </p>
 
           <div className="space-y-6">
-            {variables.map(variable => (
+            {variables.map((variable) => (
               <div
                 key={variable.id}
                 className="flex flex-wrap items-center gap-3 p-2 bg-gray-50 dark:bg-gray-800 rounded-lg"
@@ -123,19 +123,19 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
                 <input
                   type="text"
                   defaultValue={variable.name}
-                  onChange={e => (variable.name = e.target.value)}
+                  onChange={(e) => (variable.name = e.target.value)}
                   className="flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
                 />
                 <input
                   type="text"
                   defaultValue={variable.value}
-                  onChange={e => (variable.value = e.target.value)}
+                  onChange={(e) => (variable.value = e.target.value)}
                   className="flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
                 />
                 <input
                   type="text"
                   defaultValue={variable.icon}
-                  onChange={e => (variable.icon = e.target.value)}
+                  onChange={(e) => (variable.icon = e.target.value)}
                   className="flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
                 />
                 <div className="flex gap-2">
@@ -206,7 +206,7 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
             </h2>
             <div className="max-h-[300px] overflow-y-auto">
               <ul className="space-y-2">
-                {subs.map(sub => (
+                {subs.map((sub) => (
                   <li
                     key={sub.id}
                     className="py-2 px-3 bg-gray-50 dark:bg-gray-800 rounded"

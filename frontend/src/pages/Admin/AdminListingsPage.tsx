@@ -140,7 +140,7 @@ const AdminListingsPage = () => {
 
         <select
           value={order}
-          onChange={e => handleOrderChange(e.target.value)}
+          onChange={(e) => handleOrderChange(e.target.value)}
           className="block w-full sm:w-auto p-2 border rounded focus:border-blue-500 dark:bg-beige-medium"
         >
           <option value="order">{t("admin.listings.order.normal")}</option>
@@ -194,7 +194,7 @@ const AdminListingsPage = () => {
 
       {/* Listings Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        {listings.map(listing => (
+        {listings.map((listing) => (
           <div
             key={listing.id}
             className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg"
@@ -260,8 +260,8 @@ const AdminListingsPage = () => {
                     listing.status === "sold"
                       ? "bg-red-100 text-red-800"
                       : listing.status === "rented"
-                      ? "bg-yellow-100 text-yellow-800"
-                      : "bg-green-100 text-green-800"
+                        ? "bg-yellow-100 text-yellow-800"
+                        : "bg-green-100 text-green-800"
                   }`}
                 >
                   {listing.status}

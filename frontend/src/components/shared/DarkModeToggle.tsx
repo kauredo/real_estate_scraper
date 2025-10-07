@@ -31,7 +31,7 @@ export default function DarkModeToggle() {
       const newImg = navImg.includes("white")
         ? navImg.replace("main_white", "main")
         : navImg.replace("main", "main_white");
-      imgs.forEach(img => img.setAttribute("src", newImg));
+      imgs.forEach((img) => img.setAttribute("src", newImg));
     }
 
     setIsDarkMode(newDarkMode);
@@ -43,7 +43,7 @@ export default function DarkModeToggle() {
       headers: {
         "Content-Type": "application/json",
       },
-    }).catch(error => console.error("Error syncing dark mode:", error));
+    }).catch((error) => console.error("Error syncing dark mode:", error));
   };
 
   return (

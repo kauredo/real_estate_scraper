@@ -20,7 +20,7 @@ const ListingDetailPage = () => {
       } catch (error) {
         console.error(
           "Error fetching listing:",
-          error instanceof AxiosError ? error.message : "Unknown error"
+          error instanceof AxiosError ? error.message : "Unknown error",
         );
       } finally {
         setLoading(false);

@@ -112,7 +112,7 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit, onView }) => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {listings.map(listing => (
+            {listings.map((listing) => (
               <tr key={listing.id} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {listing.id}
@@ -132,10 +132,10 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit, onView }) => {
                       listing.status === "recent"
                         ? "bg-green-100 text-green-800"
                         : listing.status === "sold"
-                        ? "bg-red-100 text-red-800"
-                        : listing.status === "rented"
-                        ? "bg-yellow-100 text-yellow-800"
-                        : "bg-gray-100 text-gray-800"
+                          ? "bg-red-100 text-red-800"
+                          : listing.status === "rented"
+                            ? "bg-yellow-100 text-yellow-800"
+                            : "bg-gray-100 text-gray-800"
                     }`}
                   >
                     {listing.status}

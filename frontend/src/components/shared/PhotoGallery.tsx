@@ -23,14 +23,14 @@ export default function PhotoGallery({ photos }: Props) {
   };
 
   const goToPrevious = () => {
-    setCurrentImageIndex(prevIndex =>
-      prevIndex === 0 ? photos.length - 1 : prevIndex - 1
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? photos.length - 1 : prevIndex - 1,
     );
   };
 
   const goToNext = () => {
-    setCurrentImageIndex(prevIndex =>
-      prevIndex === photos.length - 1 ? 0 : prevIndex + 1
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === photos.length - 1 ? 0 : prevIndex + 1,
     );
   };
 

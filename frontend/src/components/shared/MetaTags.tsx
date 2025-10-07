@@ -57,7 +57,7 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
     blogMeta,
     listingMeta,
     pageType,
-    t
+    t,
   );
   const finalImage = getFinalImage(image, listingMeta);
   const finalUrl = url || window.location.href;
@@ -95,7 +95,7 @@ const getFinalTitle = (
     | "error"
     | "privacy"
     | "terms",
-  t?: any
+  t?: any,
 ): string => {
   // Priority: explicit title > blog meta_title > listing title > page type default > site default
   if (title) return title;
@@ -132,7 +132,7 @@ const getFinalDescription = (
     | "error"
     | "privacy"
     | "terms",
-  t?: any
+  t?: any,
 ): string => {
   // Priority: explicit description > blog meta_description > listing description > page type default > site default
   if (description) return description;
@@ -151,7 +151,7 @@ const getFinalDescription = (
 
 const getFinalImage = (
   image?: string,
-  listingMeta?: { images?: string[] }
+  listingMeta?: { images?: string[] },
 ): string => {
   // Priority: explicit image > first listing image > default site image
   if (image) return image;

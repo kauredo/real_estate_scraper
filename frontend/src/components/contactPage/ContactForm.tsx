@@ -91,7 +91,7 @@ export default function ContactForm(props: Props) {
             type="text"
             placeholder={t("contacts.form.fields.name")}
             name="contact[name]"
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
@@ -103,7 +103,7 @@ export default function ContactForm(props: Props) {
             type="email"
             placeholder={t("contacts.form.fields.email")}
             name="contact[email]"
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
@@ -115,7 +115,7 @@ export default function ContactForm(props: Props) {
             type="text"
             placeholder={t("contacts.form.fields.phone")}
             name="contact[phone]"
-            onChange={e => setPhone(e.target.value)}
+            onChange={(e) => setPhone(e.target.value)}
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
@@ -127,7 +127,7 @@ export default function ContactForm(props: Props) {
             rows={6}
             placeholder={t("contacts.form.fields.message")}
             name="contact[message]"
-            onChange={e => setMessage(e.target.value)}
+            onChange={(e) => setMessage(e.target.value)}
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border resize-none outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")

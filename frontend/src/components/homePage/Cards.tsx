@@ -48,7 +48,7 @@ export default function Cards(props: Props) {
         <div className="w-full relative flex items-center justify-center">
           <div className="w-full h-full mx-auto">
             <Carousel
-              items={photos.map(photo => {
+              items={photos.map((photo) => {
                 // if photo has image_url, use it, otherwise use photo.image.url
                 const image_url = photo.image_url || photo.image.url;
                 return (
@@ -88,7 +88,7 @@ export default function Cards(props: Props) {
         <div className="w-full relative flex items-center justify-center">
           <div className="w-full h-full mx-auto">
             <div className="sm:w-min mx-auto flex flex-col sm:flex-row mb-6">
-              {locations.map(location => (
+              {locations.map((location) => (
                 <button
                   key={`${location}-tab`}
                   onClick={() => setSelectedLocation(location)}
@@ -105,7 +105,7 @@ export default function Cards(props: Props) {
               ))}
             </div>
             <Carousel
-              items={locationListings.map(listing => (
+              items={locationListings.map((listing) => (
                 <Card listing={listing} key={listing.slug} />
               ))}
               autoplay
@@ -134,7 +134,7 @@ export default function Cards(props: Props) {
       <div className="w-full relative flex items-center justify-center">
         <div className="w-full h-full mx-auto">
           <Carousel
-            items={flatListings.map(listing => (
+            items={flatListings.map((listing) => (
               <Card listing={listing} key={listing.slug} />
             ))}
             autoplay

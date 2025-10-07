@@ -92,7 +92,7 @@ export default function ClubStoryDetailPage({ isBackoffice = false }: Props) {
             clubStory.club_story_photos.length > 0 && (
               <div className="px-8">
                 <PhotoGallery
-                  photos={clubStory.club_story_photos.map(p => p.image_url)}
+                  photos={clubStory.club_story_photos.map((p) => p.image_url)}
                 />
               </div>
             )}

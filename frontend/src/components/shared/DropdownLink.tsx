@@ -46,8 +46,8 @@ const DropdownLink = (props: DropdownProps) => {
           null,
           false,
           items
-            ?.map(item => item.url)
-            .filter((url): url is string => url !== undefined)
+            ?.map((item) => item.url)
+            .filter((url): url is string => url !== undefined),
         )
       : "";
 

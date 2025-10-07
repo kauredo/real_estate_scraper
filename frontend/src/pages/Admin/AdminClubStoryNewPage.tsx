@@ -66,10 +66,10 @@ const AdminClubStoryNewPage = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value, type } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]:
         type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
@@ -129,8 +129,8 @@ const AdminClubStoryNewPage = () => {
             </label>
             <Editor
               value={formData.text}
-              onEditorChange={content =>
-                setFormData(prev => ({ ...prev, text: content }))
+              onEditorChange={(content) =>
+                setFormData((prev) => ({ ...prev, text: content }))
               }
               init={{
                 height: 500,

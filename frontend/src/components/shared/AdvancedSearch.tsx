@@ -21,7 +21,7 @@ export default function AdvancedSearch({
 }: Props) {
   const { t } = useTranslation();
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(
-    Object.values(statsFilters).some(value => value !== "") || title !== ""
+    Object.values(statsFilters).some((value) => value !== "") || title !== "",
   );
 
   const toggleAdvancedSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -31,8 +31,8 @@ export default function AdvancedSearch({
 
   const acceptedStatsFilters =
     Object.values(t("listing.stats", { returnObjects: true })) || [];
-  const acceptedKeys = statsKeys.filter(key =>
-    acceptedStatsFilters.includes(key)
+  const acceptedKeys = statsKeys.filter((key) =>
+    acceptedStatsFilters.includes(key),
   );
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -77,7 +77,7 @@ export default function AdvancedSearch({
             className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black"
           />
         </div>
-        {acceptedKeys.map(key => (
+        {acceptedKeys.map((key) => (
           <div key={key} className="w-full md:w-[calc((23%/2)-0.75rem)]">
             <label htmlFor={`q_${key}_eq`} className="block mb-1">
               {t(`listing.stats.${key.toLowerCase()}`)}
@@ -90,7 +90,7 @@ export default function AdvancedSearch({
               className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px]"
             >
               <option value="">{t("listing.search.any")}</option>
-              {[...Array(11).keys()].map(num => (
+              {[...Array(11).keys()].map((num) => (
                 <option key={num} value={num}>
                   {num}
                 </option>

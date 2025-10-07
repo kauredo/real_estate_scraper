@@ -18,7 +18,7 @@ export default function NewShow(props: Props) {
     if (text && complex.listing_prices && complex.listing_prices[1]) {
       return text
         .split("\r\n")
-        .filter(line => !line.includes("€"))
+        .filter((line) => !line.includes("€"))
         .join("\r\n");
     }
 
@@ -109,7 +109,7 @@ export default function NewShow(props: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {complex.listings?.map(listing => {
+                  {complex.listings?.map((listing) => {
                     return (
                       <tr
                         key={listing.slug}
@@ -181,7 +181,7 @@ export default function NewShow(props: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {complex.listing_prices[1]?.map(prices => {
+                  {complex.listing_prices[1]?.map((prices) => {
                     return (
                       <tr
                         key={prices[0]}
@@ -218,10 +218,10 @@ export default function NewShow(props: Props) {
       <div>
         <Cards
           listings={complex.listings.filter(
-            l =>
+            (l) =>
               l.status === "new" ||
               l.status === "standard" ||
-              l.status === "recent"
+              l.status === "recent",
           )}
           photos={complex.photos}
         ></Cards>

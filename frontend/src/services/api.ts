@@ -23,19 +23,19 @@ export const setNotificationContext = (context: typeof notificationContext) => {
 
 // Request interceptor for adding auth token
 api.interceptors.request.use(
-  config => {
+  (config) => {
     const token = localStorage.getItem("token");
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
     return config;
   },
-  error => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 // Response interceptor for handling errors and success notifications
 api.interceptors.response.use(
-  response => {
+  (response) => {
     // Handle success responses that might need user feedback
     const method = response.config.method?.toUpperCase();
     const showSuccessForMethods = ["POST", "PUT", "DELETE", "PATCH"];
@@ -52,7 +52,7 @@ api.interceptors.response.use(
         notificationContext.showSuccess("notifications.messages.contact_sent");
       } else if (url.includes("/newsletter_subscriptions")) {
         notificationContext.showSuccess(
-          "notifications.messages.newsletter_subscribed"
+          "notifications.messages.newsletter_subscribed",
         );
       }
       // Add more specific success messages as needed
@@ -60,7 +60,7 @@ api.interceptors.response.use(
 
     return response;
   },
-  error => {
+  (error) => {
     // Handle common errors with user-friendly notifications
     if (error.response && notificationContext) {
       const { status } = error.response;
@@ -69,7 +69,7 @@ api.interceptors.response.use(
         // Handle unauthorized (redirect to login, clear token, etc.)
         localStorage.removeItem("token");
         notificationContext.showError(
-          "Your session has expired. Please log in again."
+          "Your session has expired. Please log in again.",
         );
       } else if (status === 404) {
         // Handle not found
@@ -94,7 +94,7 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 // Auth API functions
@@ -131,7 +131,7 @@ export const getCurrentUser = () => {
 
   // Parse JWT token - decode the payload (middle part of JWT)
   try {
-    const payload = JSON.parse(atob(token.split('.')[1]));
+    const payload = JSON.parse(atob(token.split(".")[1]));
 
     // Check if token is expired
     if (payload.exp && Date.now() >= payload.exp * 1000) {
@@ -143,7 +143,8 @@ export const getCurrentUser = () => {
     return {
       id: payload.admin_id || payload.user_id,
       email: payload.email,
-      isSuperAdmin: payload.tenant_id === null || payload.tenant_id === undefined,
+      isSuperAdmin:
+        payload.tenant_id === null || payload.tenant_id === undefined,
       tenantId: payload.tenant_id,
       isAuthenticated: true,
     };
@@ -180,8 +181,8 @@ export const getBlogPost = (slug: string) => api.get(apiRoutes.blogPost(slug));
 // Admin - Blog posts API functions
 export const adminGetBlogPosts = (params = {}) =>
   api.get(apiRoutes.admin.blogPosts, { params });
-export const adminGetBlogPost = id => api.get(apiRoutes.admin.blogPost(id));
-export const adminCreateBlogPost = data => {
+export const adminGetBlogPost = (id) => api.get(apiRoutes.admin.blogPost(id));
+export const adminCreateBlogPost = (data) => {
   if (data instanceof FormData) {
     return api.post(apiRoutes.admin.blogPosts, data, {
       headers: {
@@ -204,7 +205,7 @@ export const adminUpdateBlogPost = (id, data) => {
   }
 };
 
-export const adminDeleteBlogPost = id =>
+export const adminDeleteBlogPost = (id) =>
   api.delete(apiRoutes.admin.blogPost(id));
 
 // Listings API functions
@@ -221,15 +222,16 @@ export const getListingComplex = (slug: string) =>
 // Admin - Listings API functions
 export const adminGetListings = (params = {}) =>
   api.get(apiRoutes.admin.listings, { params });
-export const adminGetListing = id => api.get(apiRoutes.admin.listing(id));
-export const adminCreateListing = data =>
+export const adminGetListing = (id) => api.get(apiRoutes.admin.listing(id));
+export const adminCreateListing = (data) =>
   api.post(apiRoutes.admin.listings, { listing: data });
 export const adminUpdateListing = (id, data) =>
   api.put(apiRoutes.admin.listing(id), { listing: data });
-export const adminDeleteListing = id => api.delete(apiRoutes.admin.listing(id));
-export const adminUpdateListingDetails = id =>
+export const adminDeleteListing = (id) =>
+  api.delete(apiRoutes.admin.listing(id));
+export const adminUpdateListingDetails = (id) =>
   api.post(apiRoutes.admin.updateDetailsListing(id));
-export const adminRecoverListing = id =>
+export const adminRecoverListing = (id) =>
   api.post(apiRoutes.admin.recoverListing(id));
 export const adminUpdateAllListings = () =>
   api.post(apiRoutes.admin.updateAllListings);
@@ -237,21 +239,21 @@ export const adminUpdateAllListings = () =>
 // Admin - Listing complexes API functions
 export const adminGetListingComplexes = (params = {}) =>
   api.get(apiRoutes.admin.listingComplexes, { params });
-export const adminGetListingComplex = id =>
+export const adminGetListingComplex = (id) =>
   api.get(apiRoutes.admin.listingComplex(id));
-export const adminCreateListingComplex = data =>
+export const adminCreateListingComplex = (data) =>
   api.post(apiRoutes.admin.listingComplexes, { listing_complex: data });
 export const adminUpdateListingComplex = (id, data) =>
   api.put(apiRoutes.admin.listingComplex(id), { listing_complex: data });
-export const adminDeleteListingComplex = id =>
+export const adminDeleteListingComplex = (id) =>
   api.delete(apiRoutes.admin.listingComplex(id));
-export const adminUpdateListingComplexDetails = id =>
+export const adminUpdateListingComplexDetails = (id) =>
   api.post(apiRoutes.admin.updateDetailsListingComplex(id));
 export const adminUpdateListingComplexPhotos = (id, data) =>
   api.patch(apiRoutes.admin.photosListingComplex(id), data);
-export const adminDeleteListingComplexPhoto = id =>
+export const adminDeleteListingComplexPhoto = (id) =>
   api.delete(apiRoutes.admin.deletePhotoListingComplex(id));
-export const adminFetchListingComplex = data =>
+export const adminFetchListingComplex = (data) =>
   api.post(apiRoutes.admin.fetchListingComplex, { listing_complex: data });
 
 // Club API functions
@@ -259,18 +261,18 @@ export const getClub = () => api.get(apiRoutes.club);
 export const getClubRules = () => api.get(apiRoutes.clubRules);
 export const getClubStories = (params = {}) =>
   api.get(apiRoutes.clubStories, { params });
-export const getClubStory = slug => api.get(apiRoutes.clubStory(slug));
-export const joinClub = data => api.post(apiRoutes.clubJoin, data);
+export const getClubStory = (slug) => api.get(apiRoutes.clubStory(slug));
+export const joinClub = (data) => api.post(apiRoutes.clubJoin, data);
 
 // Admin - Club stories API functions
 export const adminGetClubStories = (params = {}) =>
   api.get(apiRoutes.admin.clubStories, { params });
-export const adminGetClubStory = id => api.get(apiRoutes.admin.clubStory(id));
-export const adminCreateClubStory = data =>
+export const adminGetClubStory = (id) => api.get(apiRoutes.admin.clubStory(id));
+export const adminCreateClubStory = (data) =>
   api.post(apiRoutes.admin.clubStories, { club_story: data });
 export const adminUpdateClubStory = (id, data) =>
   api.put(apiRoutes.admin.clubStory(id), { club_story: data });
-export const adminDeleteClubStory = id =>
+export const adminDeleteClubStory = (id) =>
   api.delete(apiRoutes.admin.clubStory(id));
 
 // Admin - Club Users API functions
@@ -288,21 +290,21 @@ export const adminUploadBlogPhoto = (blogPostId, formData) =>
     ...formData,
     blog_post_id: blogPostId,
   });
-export const adminDeleteBlogPhoto = id =>
+export const adminDeleteBlogPhoto = (id) =>
   api.delete(apiRoutes.admin.blogPhoto(id));
-export const adminDeletePhoto = id => api.delete(apiRoutes.admin.photo(id));
+export const adminDeletePhoto = (id) => api.delete(apiRoutes.admin.photo(id));
 export const adminUploadClubStoryPhoto = (clubStoryId, formData) =>
   api.post(apiRoutes.admin.clubStoryPhotos, {
     ...formData,
     club_story_id: clubStoryId,
   });
-export const adminDeleteClubStoryPhoto = id =>
+export const adminDeleteClubStoryPhoto = (id) =>
   api.delete(apiRoutes.admin.clubStoryPhoto(id));
 
 // Newsletter API functions
-export const subscribeToNewsletter = data =>
+export const subscribeToNewsletter = (data) =>
   api.post(apiRoutes.newsletterSubscriptions, { newsletter: data });
-export const unsubscribeFromNewsletter = id =>
+export const unsubscribeFromNewsletter = (id) =>
   api.delete(apiRoutes.newsletterSubscription(id));
 export const confirmNewsletterSubscription = (id, token) =>
   api.get(apiRoutes.confirmNewsletterSubscription(id, token));
@@ -317,13 +319,13 @@ export const getTestimonials = () => api.get(apiRoutes.testimonials);
 // Admin - Testimonials API functions
 export const adminGetTestimonials = (params = {}) =>
   api.get(apiRoutes.admin.testimonials, { params });
-export const adminGetTestimonial = id =>
+export const adminGetTestimonial = (id) =>
   api.get(apiRoutes.admin.testimonial(id));
-export const adminCreateTestimonial = data =>
+export const adminCreateTestimonial = (data) =>
   api.post(apiRoutes.admin.testimonials, { testimonial: data });
 export const adminUpdateTestimonial = (id, data) =>
   api.put(apiRoutes.admin.testimonial(id), { testimonial: data });
-export const adminDeleteTestimonial = id =>
+export const adminDeleteTestimonial = (id) =>
   api.delete(apiRoutes.admin.testimonial(id));
 
 // Variables API functions
@@ -331,29 +333,33 @@ export const getVariables = () => api.get(apiRoutes.variables);
 
 // Admin - Variables API functions
 export const adminGetVariables = () => api.get(apiRoutes.admin.variables);
-export const adminCreateVariable = data =>
+export const adminCreateVariable = (data) =>
   api.post(apiRoutes.admin.variables, { variable: data });
 export const adminUpdateVariable = (id, data) =>
   api.put(apiRoutes.admin.variable(id), { variable: data });
-export const adminDeleteVariable = id =>
+export const adminDeleteVariable = (id) =>
   api.delete(apiRoutes.admin.variable(id));
 
 // Super Admin - Admins Management API functions
 export const superAdminGetAdmins = (params = {}) =>
   api.get(apiRoutes.superAdmin.admins, { params });
-export const superAdminGetAdmin = id =>
+export const superAdminGetAdmin = (id) =>
   api.get(apiRoutes.superAdmin.admin(id));
-export const superAdminCreateAdmin = data =>
+export const superAdminCreateAdmin = (data) =>
   api.post(apiRoutes.superAdmin.admins, { admin: data });
 export const superAdminUpdateAdmin = (id, data) =>
   api.put(apiRoutes.superAdmin.admin(id), { admin: data });
-export const superAdminDeleteAdmin = id =>
+export const superAdminDeleteAdmin = (id) =>
   api.delete(apiRoutes.superAdmin.admin(id));
-export const superAdminConfirmAdmin = id =>
+export const superAdminConfirmAdmin = (id) =>
   api.post(apiRoutes.superAdmin.confirmAdmin(id));
-export const superAdminUnconfirmAdmin = id =>
+export const superAdminUnconfirmAdmin = (id) =>
   api.post(apiRoutes.superAdmin.unconfirmAdmin(id));
-export const superAdminResetAdminPassword = (id, password, passwordConfirmation) =>
+export const superAdminResetAdminPassword = (
+  id,
+  password,
+  passwordConfirmation,
+) =>
   api.post(apiRoutes.superAdmin.resetPasswordAdmin(id), {
     password,
     password_confirmation: passwordConfirmation,

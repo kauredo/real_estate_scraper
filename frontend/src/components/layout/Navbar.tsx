@@ -220,7 +220,7 @@ export default function Navbar(props: Props) {
               <div className="flex items-center">
                 <div className="hidden tablet:block">
                   <div className="ml-4 flex items-baseline flex-wrap justify-center gap-1">
-                    {middleItems?.map(item => {
+                    {middleItems?.map((item) => {
                       if (item.items?.length && item.items.length > 0) {
                         return (
                           <DropdownLink
@@ -246,7 +246,7 @@ export default function Navbar(props: Props) {
                 <div className="hidden tablet:block">
                   <div className="ml-4 flex items-baseline">
                     {!backoffice && <Socials small />}
-                    {rightItems?.map(item => {
+                    {rightItems?.map((item) => {
                       if (item.items?.length && item.items.length > 0) {
                         return (
                           <DropdownLink
@@ -330,9 +330,9 @@ export default function Navbar(props: Props) {
         >
           <div className="tablet:hidden" id="mobile-menu">
             <div ref={dropdownRef} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {mobileItems?.map(item => {
+              {mobileItems?.map((item) => {
                 if (item.items?.length && item.items.length > 0) {
-                  return item.items?.map(insideItem => {
+                  return item.items?.map((insideItem) => {
                     return (
                       <NavbarItem
                         key={`${insideItem.title}_mobile`}

@@ -61,9 +61,9 @@ const AdminBlogPostEditPage = () => {
     accept: {
       "image/*": [".png", ".jpg", ".jpeg", ".webp"],
     },
-    onDrop: acceptedFiles => {
+    onDrop: (acceptedFiles) => {
       // Store files to upload later with form submission
-      setNewPhotos(prev => [...prev, ...acceptedFiles]);
+      setNewPhotos((prev) => [...prev, ...acceptedFiles]);
     },
   });
 
@@ -125,17 +125,17 @@ const AdminBlogPostEditPage = () => {
 
       // Add new photo files (similar to Ruby's photos[image][] array)
       if (newPhotos.length > 0) {
-        newPhotos.forEach(photo => {
+        newPhotos.forEach((photo) => {
           submitData.append("blog_photos[image][]", photo);
         });
       }
 
       // Add existing photo updates (similar to Ruby's photos[] fields_for)
       if (isEditing && formData.blog_photos.length > 0) {
-        formData.blog_photos.forEach(photo => {
+        formData.blog_photos.forEach((photo) => {
           submitData.append(
             `blog_photos[${photo.id}][main]`,
-            photo.main.toString()
+            photo.main.toString(),
           );
         });
       }
@@ -171,10 +171,10 @@ const AdminBlogPostEditPage = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value, type } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]:
         type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
@@ -182,9 +182,9 @@ const AdminBlogPostEditPage = () => {
   };
 
   const updatePhotoMain = (photoId: number) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      blog_photos: prev.blog_photos.map(p => ({
+      blog_photos: prev.blog_photos.map((p) => ({
         ...p,
         main: p.id === photoId, // Only the selected photo is main
       })),
@@ -198,9 +198,9 @@ const AdminBlogPostEditPage = () => {
 
     try {
       await adminDeleteBlogPhoto(photoId);
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        blog_photos: prev.blog_photos.filter(p => p.id !== photoId),
+        blog_photos: prev.blog_photos.filter((p) => p.id !== photoId),
       }));
       setFlash({
         type: "success",
@@ -216,7 +216,7 @@ const AdminBlogPostEditPage = () => {
   };
 
   const removeNewPhoto = (index: number) => {
-    setNewPhotos(prev => prev.filter((_, i) => i !== index));
+    setNewPhotos((prev) => prev.filter((_, i) => i !== index));
   };
 
   const clearFlash = () => {
@@ -351,8 +351,8 @@ const AdminBlogPostEditPage = () => {
                 </label>
                 <Editor
                   value={formData.text}
-                  onEditorChange={content =>
-                    setFormData(prev => ({ ...prev, text: content }))
+                  onEditorChange={(content) =>
+                    setFormData((prev) => ({ ...prev, text: content }))
                   }
                   init={{
                     height: 500,
@@ -474,7 +474,7 @@ const AdminBlogPostEditPage = () => {
                   Current Photos
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                  {formData.blog_photos.map(photo => (
+                  {formData.blog_photos.map((photo) => (
                     <div
                       key={photo.id}
                       className="relative bg-white dark:bg-gray-800 rounded-lg shadow-md p-2"

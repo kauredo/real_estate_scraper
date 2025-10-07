@@ -29,8 +29,8 @@ export default function ComplexCard(props: Props) {
                 listing_complex.main_photo
                   ? listing_complex.main_photo.image.url
                   : listing_complex.listings.length > 0
-                  ? listing_complex.listings[0].photos[0]
-                  : ""
+                    ? listing_complex.listings[0].photos[0]
+                    : ""
               }
             />
           </div>
@@ -43,7 +43,7 @@ export default function ComplexCard(props: Props) {
                 <span>
                   {truncateText(
                     listing_complex.description,
-                    window.innerWidth / 3
+                    window.innerWidth / 3,
                   )}
                 </span>
               </p>

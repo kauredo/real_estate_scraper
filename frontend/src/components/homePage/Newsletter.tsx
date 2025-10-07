@@ -26,7 +26,7 @@ export default function Newsletter() {
           successMessage: t("notifications.messages.newsletter_subscribed"),
           errorMessage: t("notifications.messages.newsletter_error"),
           showSuccessNotification: true,
-        }
+        },
       );
 
       if (result) {
@@ -65,7 +65,7 @@ export default function Newsletter() {
               type="text"
               id="name"
               value={name}
-              onChange={e => setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
             />
             <input
               className="border-l-4 border-beige-default dark:border-beige-medium bg-white dark:bg-light focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
@@ -74,7 +74,7 @@ export default function Newsletter() {
               type="text"
               id="email"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               className="w-4/5 inline-flex text-white dark:text-dark py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-beige-default dark:bg-beige-medium cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"

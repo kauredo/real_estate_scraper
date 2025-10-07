@@ -17,7 +17,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
 }) => {
   const { t } = useTranslation();
   const [listingComplexes, setListingComplexes] = useState<ListingComplex[]>(
-    []
+    [],
   );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -95,7 +95,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {listingComplexes.map(complex => (
+        {listingComplexes.map((complex) => (
           <div
             key={complex.id}
             className="bg-white rounded-lg shadow-lg overflow-hidden"

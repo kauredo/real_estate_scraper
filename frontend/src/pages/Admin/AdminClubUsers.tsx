@@ -71,7 +71,7 @@ const AdminClubUsers = ({ clubUsers = [] }) => {
           </div>
           <div className="max-h-[300px] overflow-y-auto">
             <ul className="space-y-2">
-              {clubUsers.map(user => (
+              {clubUsers.map((user) => (
                 <li
                   key={user.id}
                   className="py-2 px-3 bg-gray-50 dark:bg-gray-800 rounded flex items-center justify-between"

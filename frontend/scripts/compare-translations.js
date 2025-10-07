@@ -21,7 +21,7 @@ function getJsonFiles(languageDir) {
   }
   return fs
     .readdirSync(languageDir)
-    .filter(file => file.endsWith(".json"))
+    .filter((file) => file.endsWith(".json"))
     .sort();
 }
 
@@ -85,16 +85,16 @@ function compareTranslationFiles() {
   const allFiles = new Set([...enFiles, ...ptFiles]);
 
   console.log(
-    `📊 Found ${enFiles.length} EN files and ${ptFiles.length} PT files\n`
+    `📊 Found ${enFiles.length} EN files and ${ptFiles.length} PT files\n`,
   );
 
   // Check for missing files
-  const missingInEn = ptFiles.filter(file => !enFiles.includes(file));
-  const missingInPt = enFiles.filter(file => !ptFiles.includes(file));
+  const missingInEn = ptFiles.filter((file) => !enFiles.includes(file));
+  const missingInPt = enFiles.filter((file) => !ptFiles.includes(file));
 
   if (missingInEn.length > 0) {
     console.log("🚨 Files missing in EN:");
-    missingInEn.forEach(file => {
+    missingInEn.forEach((file) => {
       console.log(`   - ${file}`);
       results.missingFiles.en.push(file);
     });
@@ -103,7 +103,7 @@ function compareTranslationFiles() {
 
   if (missingInPt.length > 0) {
     console.log("🚨 Files missing in PT:");
-    missingInPt.forEach(file => {
+    missingInPt.forEach((file) => {
       console.log(`   - ${file}`);
       results.missingFiles.pt.push(file);
     });
@@ -112,12 +112,12 @@ function compareTranslationFiles() {
 
   // Compare common files
   const commonFiles = [...allFiles].filter(
-    file => enFiles.includes(file) && ptFiles.includes(file)
+    (file) => enFiles.includes(file) && ptFiles.includes(file),
   );
 
   console.log(`🔄 Comparing ${commonFiles.length} common files...\n`);
 
-  commonFiles.forEach(filename => {
+  commonFiles.forEach((filename) => {
     const enPath = path.join(enDir, filename);
     const ptPath = path.join(ptDir, filename);
 
@@ -135,8 +135,8 @@ function compareTranslationFiles() {
     const enKeySet = new Set(enKeys);
     const ptKeySet = new Set(ptKeys);
 
-    const missingInPt = enKeys.filter(key => !ptKeySet.has(key));
-    const missingInEn = ptKeys.filter(key => !enKeySet.has(key));
+    const missingInPt = enKeys.filter((key) => !ptKeySet.has(key));
+    const missingInEn = ptKeys.filter((key) => !enKeySet.has(key));
 
     const fileComparison = {
       filename,
@@ -154,7 +154,7 @@ function compareTranslationFiles() {
 
       if (missingInPt.length > 0) {
         console.log(`   🇵🇹 Missing in Portuguese (${missingInPt.length}):`);
-        missingInPt.forEach(key => {
+        missingInPt.forEach((key) => {
           console.log(`      - ${key}`);
           results.missingKeys.pt.push(`${filename}: ${key}`);
         });
@@ -162,7 +162,7 @@ function compareTranslationFiles() {
 
       if (missingInEn.length > 0) {
         console.log(`   🇬🇧 Missing in English (${missingInEn.length}):`);
-        missingInEn.forEach(key => {
+        missingInEn.forEach((key) => {
           console.log(`      - ${key}`);
           results.missingKeys.en.push(`${filename}: ${key}`);
         });
@@ -194,11 +194,11 @@ function generateSummaryReport(results) {
 
   const totalEnKeys = results.fileComparisons.reduce(
     (sum, comp) => sum + comp.enKeys,
-    0
+    0,
   );
   const totalPtKeys = results.fileComparisons.reduce(
     (sum, comp) => sum + comp.ptKeys,
-    0
+    0,
   );
 
   console.log(`\n📊 Statistics:`);
@@ -207,11 +207,11 @@ function generateSummaryReport(results) {
   console.log(`   • Difference: ${Math.abs(totalEnKeys - totalPtKeys)} keys`);
 
   const filesWithIssues = results.fileComparisons.filter(
-    comp => comp.missingInEn.length > 0 || comp.missingInPt.length > 0
+    (comp) => comp.missingInEn.length > 0 || comp.missingInPt.length > 0,
   );
 
   console.log(
-    `   • Files with translation gaps: ${filesWithIssues.length}/${results.fileComparisons.length}`
+    `   • Files with translation gaps: ${filesWithIssues.length}/${results.fileComparisons.length}`,
   );
 
   if (
@@ -246,7 +246,7 @@ Generated on: ${new Date().toISOString()}
 
   if (results.missingFiles.en.length > 0) {
     report += `## Missing Files in English\n\n`;
-    results.missingFiles.en.forEach(file => {
+    results.missingFiles.en.forEach((file) => {
       report += `- \`${file}\`\n`;
     });
     report += "\n";
@@ -254,7 +254,7 @@ Generated on: ${new Date().toISOString()}
 
   if (results.missingFiles.pt.length > 0) {
     report += `## Missing Files in Portuguese\n\n`;
-    results.missingFiles.pt.forEach(file => {
+    results.missingFiles.pt.forEach((file) => {
       report += `- \`${file}\`\n`;
     });
     report += "\n";
@@ -262,7 +262,7 @@ Generated on: ${new Date().toISOString()}
 
   if (results.missingKeys.pt.length > 0) {
     report += `## Missing Portuguese Translations\n\n`;
-    results.missingKeys.pt.forEach(key => {
+    results.missingKeys.pt.forEach((key) => {
       report += `- \`${key}\`\n`;
     });
     report += "\n";
@@ -270,14 +270,14 @@ Generated on: ${new Date().toISOString()}
 
   if (results.missingKeys.en.length > 0) {
     report += `## Missing English Translations\n\n`;
-    results.missingKeys.en.forEach(key => {
+    results.missingKeys.en.forEach((key) => {
       report += `- \`${key}\`\n`;
     });
     report += "\n";
   }
 
   report += `## File-by-File Breakdown\n\n`;
-  results.fileComparisons.forEach(comp => {
+  results.fileComparisons.forEach((comp) => {
     const status =
       comp.missingInEn.length === 0 && comp.missingInPt.length === 0
         ? "✅"

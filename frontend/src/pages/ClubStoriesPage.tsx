@@ -97,7 +97,7 @@ export default function ClubStoriesPage({ isBackoffice = false }) {
               <>
                 {stories.length === 1 && (
                   <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-                    {stories.map(story => (
+                    {stories.map((story) => (
                       <div className="w-full" key={story.id}>
                         <ClubStoryCard
                           story={story}
@@ -109,7 +109,7 @@ export default function ClubStoriesPage({ isBackoffice = false }) {
                 )}
                 {stories.length === 2 && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {stories.map(story => (
+                    {stories.map((story) => (
                       <div className="w-full" key={story.id}>
                         <ClubStoryCard
                           story={story}
@@ -126,7 +126,7 @@ export default function ClubStoriesPage({ isBackoffice = false }) {
                       onPageChange={handlePageChange}
                     />
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {stories.map(story => (
+                      {stories.map((story) => (
                         <div className="w-full" key={story.id}>
                           <ClubStoryCard
                             story={story}

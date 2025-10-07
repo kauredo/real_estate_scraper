@@ -31,12 +31,12 @@ export const routeMappings = {
 export const translateRoute = (segment: string, toEnglish: boolean): string => {
   if (toEnglish) {
     const entry = Object.entries(routeMappings).find(
-      ([pt, _]) => pt === segment
+      ([pt, _]) => pt === segment,
     );
     return entry ? entry[1] : segment;
   } else {
     const entry = Object.entries(routeMappings).find(
-      ([_, en]) => en === segment
+      ([_, en]) => en === segment,
     );
     return entry ? entry[0] : segment;
   }
@@ -53,8 +53,8 @@ export const getLocalizedRoute = (route: string): string => {
   const segments = route.split("/").filter(Boolean);
 
   if (language === "en") {
-    const translatedSegments = segments.map(segment =>
-      translateRoute(segment, true)
+    const translatedSegments = segments.map((segment) =>
+      translateRoute(segment, true),
     );
     return `/${language}/${translatedSegments.join("/")}`;
   }
@@ -64,7 +64,7 @@ export const getLocalizedRoute = (route: string): string => {
   const portugueseSegments = withoutPrefix
     .split("/")
     .filter(Boolean)
-    .map(segment => translateRoute(segment, false));
+    .map((segment) => translateRoute(segment, false));
   return `/${portugueseSegments.join("/")}`;
 };
 
@@ -84,7 +84,7 @@ const createLocalizedRouteFn = (fn: RouteFn): RouteFn => {
 
 // Create a proxy to automatically localize all routes
 const createLocalizedRoutes = <T extends Record<string, unknown>>(
-  routes: T
+  routes: T,
 ): T => {
   return new Proxy(routes, {
     get: (target: T, prop: string | symbol): unknown => {

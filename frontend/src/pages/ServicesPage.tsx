@@ -110,7 +110,7 @@ const ServicesPage = () => {
               }}
             />
             {Object.entries(
-              t("services.for_sellers.list", { returnObjects: true })
+              t("services.for_sellers.list", { returnObjects: true }),
             ).map(([key, service]: [string, any]) => (
               <div className="mt-6" key={key}>
                 <h3 className="text-2xl font-semibold">{service.title}:</h3>
@@ -134,7 +134,7 @@ const ServicesPage = () => {
               }}
             />
             {Object.entries(
-              t("services.for_buyers.list", { returnObjects: true })
+              t("services.for_buyers.list", { returnObjects: true }),
             ).map(([key, service]: [string, any]) => (
               <div className="mt-6" key={key}>
                 <h3 className="text-2xl font-semibold">{service.title}:</h3>

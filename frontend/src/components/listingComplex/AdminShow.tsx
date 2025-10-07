@@ -20,7 +20,7 @@ export default function AdminShow(props: Props) {
 
   // Collect all unique photos from all listings
   const allPhotos = complex.listings.reduce((photos: string[], listing) => {
-    listing.photos.forEach(photo => {
+    listing.photos.forEach((photo) => {
       if (!photos.includes(photo)) {
         photos.push(photo);
       }

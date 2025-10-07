@@ -23,7 +23,7 @@ const ListingsPage = () => {
   });
   const [statsKeys, setStatsKeys] = useState<string[]>([]);
   const [kinds, setKinds] = useState<Array<{ kind: string; index: number }>>(
-    []
+    [],
   );
   const [objectives, setObjectives] = useState<
     Array<{ objective: string; index: number }>

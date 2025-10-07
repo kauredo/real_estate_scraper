@@ -10,7 +10,7 @@ export default function Testimonials(props: Props) {
   const { t } = useTranslation();
   const { testimonials } = props;
 
-  const testimonialItems = testimonials.map(testimonial => (
+  const testimonialItems = testimonials.map((testimonial) => (
     <div key={`${testimonial.name}--testimonial`}>
       <div className="mx-2 p-6 text-left bg-white dark:bg-dark-default rounded-lg shadow-md max-w-2xl">
         <p className="whitespace-pre-line text-dark dark:text-light mb-4">

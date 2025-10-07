@@ -26,7 +26,7 @@ export default function Pagination({
 
   const handlePageClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    page: number
+    page: number,
   ) => {
     if (onPageChange) {
       e.preventDefault();
@@ -46,7 +46,7 @@ export default function Pagination({
             <>
               <a
                 href={createPageUrl(pagination.current_page - 1)}
-                onClick={e => handlePageClick(e, pagination.current_page - 1)}
+                onClick={(e) => handlePageClick(e, pagination.current_page - 1)}
               >
                 <svg
                   width="14"
@@ -80,7 +80,7 @@ export default function Pagination({
               </a>
               <a
                 href={createPageUrl(pagination.current_page - 1)}
-                onClick={e => handlePageClick(e, pagination.current_page - 1)}
+                onClick={(e) => handlePageClick(e, pagination.current_page - 1)}
               >
                 <p className="text-sm ml-3 font-medium leading-none">
                   {t("pagination.previous")}
@@ -91,7 +91,7 @@ export default function Pagination({
         </div>
         <div className="sm:flex hidden">
           {Array.from({ length: pagination.total_pages }, (_, i) => i + 1).map(
-            page => {
+            (page) => {
               const isCurrentPage = pagination.current_page === page;
               let classes =
                 "text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium border-t border-transparent hover:border-beige-default dark:hover:border-beige-medium pt-3 mr-4 px-2";
@@ -105,12 +105,12 @@ export default function Pagination({
                 <a
                   key={`page-${page}`}
                   href={createPageUrl(page)}
-                  onClick={e => handlePageClick(e, page)}
+                  onClick={(e) => handlePageClick(e, page)}
                 >
                   <p className={classes}>{page}</p>
                 </a>
               );
-            }
+            },
           )}
         </div>
         <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
@@ -118,7 +118,7 @@ export default function Pagination({
             <>
               <a
                 href={createPageUrl(pagination.current_page + 1)}
-                onClick={e => handlePageClick(e, pagination.current_page + 1)}
+                onClick={(e) => handlePageClick(e, pagination.current_page + 1)}
               >
                 <p className="text-sm font-medium leading-none mr-3">
                   {t("pagination.next")}
@@ -126,7 +126,7 @@ export default function Pagination({
               </a>
               <a
                 href={createPageUrl(pagination.current_page + 1)}
-                onClick={e => handlePageClick(e, pagination.current_page + 1)}
+                onClick={(e) => handlePageClick(e, pagination.current_page + 1)}
               >
                 <svg
                   width="14"

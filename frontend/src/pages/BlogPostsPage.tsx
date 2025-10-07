@@ -73,7 +73,7 @@ const BlogPostsPage = () => {
               </div>
             ) : blogPosts.length === 2 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {blogPosts.map(blogPost => (
+                {blogPosts.map((blogPost) => (
                   <BlogCard key={blogPost.id} blogPost={blogPost} />
                 ))}
               </div>
@@ -84,7 +84,7 @@ const BlogPostsPage = () => {
                   onPageChange={handlePageChange}
                 />
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {blogPosts.map(blogPost => (
+                  {blogPosts.map((blogPost) => (
                     <BlogCard key={blogPost.id} blogPost={blogPost} />
                   ))}
                 </div>

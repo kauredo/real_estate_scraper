@@ -65,7 +65,7 @@ export default function ClubJoinForm() {
       </p>
       <form
         ref={form}
-        onSubmit={e => validateUser(e)}
+        onSubmit={(e) => validateUser(e)}
         action={apiRoutes.clubJoin}
         method="post"
         className="space-y-6"
@@ -75,7 +75,7 @@ export default function ClubJoinForm() {
             type="text"
             placeholder={t("club.form.fields.name")}
             name="name"
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             className="w-full rounded-lg py-3 px-4 text-base bg-white dark:bg-light text-gray-700 border border-gray-200 outline-none focus:border-beige-default dark:focus:border-beige-medium focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20 transition-colors"
           />
         </div>
@@ -84,7 +84,7 @@ export default function ClubJoinForm() {
             type="tel"
             placeholder={t("club.form.fields.phone")}
             name="phone"
-            onChange={e => setPhone(e.target.value)}
+            onChange={(e) => setPhone(e.target.value)}
             className="w-full rounded-lg py-3 px-4 text-base bg-white dark:bg-light text-gray-700 border border-gray-200 outline-none focus:border-beige-default dark:focus:border-beige-medium focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20 transition-colors"
           />
         </div>
@@ -93,7 +93,7 @@ export default function ClubJoinForm() {
             type="email"
             placeholder={t("club.form.fields.email")}
             name="email"
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full rounded-lg py-3 px-4 text-base bg-white dark:bg-light text-gray-700 border border-gray-200 outline-none focus:border-beige-default dark:focus:border-beige-medium focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20 transition-colors"
           />
         </div>
@@ -103,7 +103,7 @@ export default function ClubJoinForm() {
               type="checkbox"
               name="terms_accepted"
               checked={termsAccepted}
-              onChange={e => setTermsAccepted(e.target.checked)}
+              onChange={(e) => setTermsAccepted(e.target.checked)}
               className="w-4 h-4 text-beige-default dark:text-beige-medium border-gray-300 rounded focus:ring-beige-default dark:focus:ring-beige-medium"
             />
             <span className="text-base text-gray-700 dark:text-gray-200">

@@ -154,7 +154,7 @@ const AboutPage = () => {
                 {Object.entries(
                   t("about.kw_partnership.principles.list", {
                     returnObjects: true,
-                  })
+                  }),
                 ).map(([_, object]) =>
                   Object.entries(object).map(([key, value]) => (
                     <li
@@ -163,7 +163,7 @@ const AboutPage = () => {
                     >
                       {String(key)}: {String(value)}
                     </li>
-                  ))
+                  )),
                 )}
               </ul>
             </div>

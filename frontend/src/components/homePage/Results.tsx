@@ -13,9 +13,9 @@ interface Props {
 export default function Results({ results, testimonials }: Props) {
   const { variables } = results;
   const volume = variables.filter(
-    vari =>
+    (vari) =>
       vari.name.toLowerCase().includes("negócios") ||
-      vari.name.toLowerCase().includes("business")
+      vari.name.toLowerCase().includes("business"),
   )[0];
 
   const { ref, inView } = useInView({
@@ -29,7 +29,7 @@ export default function Results({ results, testimonials }: Props) {
       className="container mx-auto flex flex-col justify-between items-center min-h-[30vh] md:py-8 text-dark dark:text-light"
     >
       <div className="text-center w-full container mx-auto text-2xl flex flex-col sm:flex-row justify-center items-center flex-wrap pb-0 sm:pb-6 p-6 pt-6 sm:pt-2 gap-2">
-        {variables?.map(variable => {
+        {variables?.map((variable) => {
           const iconName = variable.icon.replace("fas fa-", "") as IconName;
           return (
             <div

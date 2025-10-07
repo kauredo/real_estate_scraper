@@ -41,7 +41,7 @@ const AdminDashboard: React.FC = () => {
         {/* Tab Navigation */}
         <div className="border-b border-gray-200 mb-8">
           <nav className="-mb-px flex space-x-8">
-            {tabs.map(tab => (
+            {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as ActiveTab)}
@@ -59,7 +59,7 @@ const AdminDashboard: React.FC = () => {
 
         {/* Tab Content */}
         <div className="bg-white rounded-lg shadow p-6">
-          {tabs.find(tab => tab.id === activeTab)?.component}
+          {tabs.find((tab) => tab.id === activeTab)?.component}
         </div>
       </div>
     </div>

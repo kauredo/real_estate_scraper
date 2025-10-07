@@ -1,9 +1,6 @@
 {
   "plural": {
-    "keys": [
-      "one",
-      "other"
-    ]
+    "keys": ["one", "other"]
   },
   "transliterate": {
     "rule": {

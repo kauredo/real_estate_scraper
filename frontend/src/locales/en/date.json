@@ -1,13 +1,5 @@
 {
-  "abbr_day_names": [
-    "Sun",
-    "Mon",
-    "Tue",
-    "Wed",
-    "Thu",
-    "Fri",
-    "Sat"
-  ],
+  "abbr_day_names": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
   "abbr_month_names": [
     null,
     "Jan",
@@ -52,9 +44,5 @@
     "November",
     "December"
   ],
-  "order": [
-    "year",
-    "month",
-    "day"
-  ]
+  "order": ["year", "month", "day"]
 }

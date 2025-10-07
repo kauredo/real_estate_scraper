@@ -24,7 +24,7 @@ interface NotificationContextProps {
 }
 
 const NotificationContext = createContext<NotificationContextProps | undefined>(
-  undefined
+  undefined,
 );
 
 interface NotificationProviderProps {
@@ -47,7 +47,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
       ...notification,
     };
 
-    setNotifications(prev => [...prev, newNotification]);
+    setNotifications((prev) => [...prev, newNotification]);
 
     // Auto-hide notification unless it's persistent
     if (!newNotification.persistent && newNotification.duration! > 0) {
@@ -59,7 +59,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
 
   const showSuccess = (
     message: string,
-    options: Partial<Notification> = {}
+    options: Partial<Notification> = {},
   ) => {
     showNotification({
       type: "success",
@@ -81,7 +81,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
 
   const showWarning = (
     message: string,
-    options: Partial<Notification> = {}
+    options: Partial<Notification> = {},
   ) => {
     showNotification({
       type: "warning",
@@ -101,8 +101,8 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
   };
 
   const hideNotification = (id: string) => {
-    setNotifications(prev =>
-      prev.filter(notification => notification.id !== id)
+    setNotifications((prev) =>
+      prev.filter((notification) => notification.id !== id),
     );
   };
 
@@ -132,7 +132,7 @@ export const useNotifications = () => {
   const context = useContext(NotificationContext);
   if (context === undefined) {
     throw new Error(
-      "useNotifications must be used within a NotificationProvider"
+      "useNotifications must be used within a NotificationProvider",
     );
   }
   return context;

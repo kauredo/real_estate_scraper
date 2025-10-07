@@ -76,7 +76,7 @@ const PhotosManagement: React.FC = () => {
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {photos.map(photo => (
+        {photos.map((photo) => (
           <div
             key={photo.id}
             className="bg-white rounded-lg shadow overflow-hidden"

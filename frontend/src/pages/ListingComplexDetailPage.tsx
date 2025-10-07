@@ -9,7 +9,7 @@ import { MetaTags } from "../components/shared/MetaTags";
 const ListingComplexDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const [listingComplex, setListingComplex] = useState<ListingComplex | null>(
-    null
+    null,
   );
   const [loading, setLoading] = useState(true);
 

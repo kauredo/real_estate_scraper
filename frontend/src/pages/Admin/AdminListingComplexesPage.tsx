@@ -12,7 +12,7 @@ interface PaginationState {
 
 const AdminListingComplexesPage = () => {
   const [listingComplexes, setListingComplexes] = useState<ListingComplex[]>(
-    []
+    [],
   );
   const [pagination, setPagination] = useState<PaginationState>({
     current_page: 1,
@@ -97,7 +97,7 @@ const AdminListingComplexesPage = () => {
 
       {/* Listing Complexes Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        {listingComplexes.map(complex => (
+        {listingComplexes.map((complex) => (
           <div
             key={complex.id}
             className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg overflow-hidden"

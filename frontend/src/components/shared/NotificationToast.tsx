@@ -93,7 +93,7 @@ const Toast: React.FC<ToastProps> = ({ notification }) => {
           onClick={handleClose}
           className={`${textColor} hover:${textColor.replace(
             "700",
-            "900"
+            "900",
           )} ml-2 flex-shrink-0`}
           aria-label="Close notification"
         >
@@ -122,7 +122,7 @@ const NotificationToastContainer: React.FC = () => {
 
   return (
     <div className="fixed top-4 right-4 z-50 space-y-3">
-      {notifications.map(notification => (
+      {notifications.map((notification) => (
         <Toast key={notification.id} notification={notification} />
       ))}
     </div>

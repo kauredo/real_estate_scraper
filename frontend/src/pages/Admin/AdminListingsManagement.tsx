@@ -10,7 +10,7 @@ const AdminListingsManagement = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
 
-  const handleListingSubmit = async e => {
+  const handleListingSubmit = async (e) => {
     e.preventDefault();
 
     if (!listingUrl.startsWith("https://www.kwportugal.pt/")) {
@@ -40,7 +40,7 @@ const AdminListingsManagement = () => {
     }
   };
 
-  const handleComplexSubmit = async e => {
+  const handleComplexSubmit = async (e) => {
     e.preventDefault();
 
     if (!complexUrl.startsWith("https://www.kwportugal.pt/")) {
@@ -105,7 +105,7 @@ const AdminListingsManagement = () => {
               <input
                 type="text"
                 value={listingUrl}
-                onChange={e => setListingUrl(e.target.value)}
+                onChange={(e) => setListingUrl(e.target.value)}
                 placeholder="url"
                 className="flex-1 bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
               />
@@ -135,7 +135,7 @@ const AdminListingsManagement = () => {
               <input
                 type="text"
                 value={complexUrl}
-                onChange={e => setComplexUrl(e.target.value)}
+                onChange={(e) => setComplexUrl(e.target.value)}
                 placeholder="url"
                 className="flex-1 bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
               />

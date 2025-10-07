@@ -55,7 +55,7 @@ export default function Carousel({
     const activeSlides = containerRef.current.querySelectorAll(".slick-active");
     if (activeSlides.length > 0) {
       let maxHeight = 0;
-      activeSlides.forEach(slide => {
+      activeSlides.forEach((slide) => {
         const content = slide.querySelector("[data-slide-content]");
         if (content) {
           const height = content.getBoundingClientRect().height;
@@ -65,7 +65,7 @@ export default function Carousel({
 
       if (maxHeight > 0) {
         const slickList = containerRef.current.querySelector(
-          ".slick-list"
+          ".slick-list",
         ) as HTMLElement;
         if (slickList) {
           slickList.style.height = `${maxHeight}px`;

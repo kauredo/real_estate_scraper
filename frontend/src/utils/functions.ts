@@ -31,8 +31,8 @@ export const changeLocale = (i18n: I18nType) => {
   const segments = pathWithoutLang.split("/").filter(Boolean);
 
   // Translate the path segments
-  const translatedSegments = segments.map(segment =>
-    translateRoute(segment, newLanguage === "en")
+  const translatedSegments = segments.map((segment) =>
+    translateRoute(segment, newLanguage === "en"),
   );
 
   const newPath = `/${translatedSegments.join("/")}`;
@@ -42,7 +42,7 @@ export const changeLocale = (i18n: I18nType) => {
 export const navbarItemClass = (
   path: string,
   isMobile: boolean,
-  children: string[] = []
+  children: string[] = [],
 ): string => {
   const base =
     "whitespace-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase ";
@@ -53,8 +53,8 @@ export const navbarItemClass = (
     "bg-beige-default dark:bg-beige-medium text-white dark:text-dark ";
 
   const isCurrentPath = window.location.pathname.includes(path);
-  const hasActiveChild = children.some(childPath =>
-    window.location.pathname.includes(childPath)
+  const hasActiveChild = children.some((childPath) =>
+    window.location.pathname.includes(childPath),
   );
   const isActive = isCurrentPath || hasActiveChild;
 
@@ -82,7 +82,7 @@ export function isDarkModeActive(): boolean {
 
 export const scrollToSection = (
   e: React.MouseEvent<HTMLAnchorElement>,
-  id: string
+  id: string,
 ) => {
   e.preventDefault();
   const element = document.getElementById(id);

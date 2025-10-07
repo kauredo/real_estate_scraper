@@ -59,7 +59,7 @@ export const Analytics = () => {
         window,
         document,
         "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
+        "https://connect.facebook.net/en_US/fbevents.js",
       );
       window.fbq("init", FB_PIXEL_ID);
       window.fbq("track", "PageView");

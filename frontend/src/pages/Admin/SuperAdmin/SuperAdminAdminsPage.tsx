@@ -169,7 +169,9 @@ const SuperAdminAdminsPage = () => {
 
       {/* Table */}
       {loading ? (
-        <div className="text-center py-8 dark:text-white">{t("common.loading")}</div>
+        <div className="text-center py-8 dark:text-white">
+          {t("common.loading")}
+        </div>
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white dark:bg-gray-800 border dark:border-gray-700">

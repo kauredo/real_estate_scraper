@@ -89,8 +89,7 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
       onClose();
     } catch (error: any) {
       setErrors([
-        error.response?.data?.error ||
-          t("super_admin.admins.errors.generic"),
+        error.response?.data?.error || t("super_admin.admins.errors.generic"),
       ]);
     } finally {
       setLoading(false);
@@ -167,7 +166,7 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
               value={tenantId === null ? 0 : tenantId}
               onChange={(e) =>
                 setTenantId(
-                  e.target.value === "0" ? null : Number(e.target.value)
+                  e.target.value === "0" ? null : Number(e.target.value),
                 )
               }
               className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"

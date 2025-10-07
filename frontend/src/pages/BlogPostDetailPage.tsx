@@ -95,7 +95,7 @@ const BlogPostDetailPage = () => {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
-                }
+                },
               )}
             </p>
           </div>

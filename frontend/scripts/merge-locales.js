@@ -30,10 +30,10 @@ function mergeLocaleFiles(language) {
   // Read all JSON files in the language directory (except index.js)
   const files = fs
     .readdirSync(languageDir)
-    .filter(file => file.endsWith(".json"))
+    .filter((file) => file.endsWith(".json"))
     .sort(); // Sort for consistent ordering
 
-  files.forEach(file => {
+  files.forEach((file) => {
     const filePath = path.join(languageDir, file);
     const key = path.basename(file, ".json");
 
@@ -72,12 +72,12 @@ function compareFiles(language) {
   const originalKeys = new Set(Object.keys(original));
   const mergedKeys = new Set(Object.keys(merged));
 
-  const missingKeys = [...originalKeys].filter(key => !mergedKeys.has(key));
-  const extraKeys = [...mergedKeys].filter(key => !originalKeys.has(key));
+  const missingKeys = [...originalKeys].filter((key) => !mergedKeys.has(key));
+  const extraKeys = [...mergedKeys].filter((key) => !originalKeys.has(key));
 
   if (missingKeys.length === 0 && extraKeys.length === 0) {
     console.log(
-      `✅ ${language}: All keys match between original and merged files`
+      `✅ ${language}: All keys match between original and merged files`,
     );
   } else {
     console.log(`⚠️  ${language}: Key differences found:`);
@@ -97,14 +97,14 @@ function main() {
   console.log("🔄 Starting locale files merging process...\n");
 
   // Merge each language
-  LANGUAGES.forEach(language => {
+  LANGUAGES.forEach((language) => {
     mergeLocaleFiles(language);
     compareFiles(language);
   });
 
   console.log("\n✅ Merging complete! Check .merged.json files for results.");
   console.log(
-    "\n💡 Tip: Use this to verify the split/merge process worked correctly."
+    "\n💡 Tip: Use this to verify the split/merge process worked correctly.",
   );
 }
 

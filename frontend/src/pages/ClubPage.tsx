@@ -67,7 +67,7 @@ export default function ClubPage() {
                     </h2>
                     {recentStories.length === 1 && (
                       <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-                        {recentStories.map(story => (
+                        {recentStories.map((story) => (
                           <div className="w-full" key={story.id}>
                             <ClubStoryCard story={story} />
                           </div>
@@ -76,7 +76,7 @@ export default function ClubPage() {
                     )}
                     {recentStories.length === 2 && (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {recentStories.map(story => (
+                        {recentStories.map((story) => (
                           <div className="w-full" key={story.id}>
                             <ClubStoryCard story={story} />
                           </div>
@@ -85,7 +85,7 @@ export default function ClubPage() {
                     )}
                     {recentStories.length >= 3 && (
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {recentStories.map(story => (
+                        {recentStories.map((story) => (
                           <div className="w-full" key={story.id}>
                             <ClubStoryCard story={story} />
                           </div>
@@ -114,7 +114,7 @@ export default function ClubPage() {
                     {t("club.home.contribute.value_description")}
                   </p>
                   <p className="text-xl font-bold text-beige-default dark:text-beige-medium underline">
-                    <a href="#join" onClick={e => scrollToSection(e, "join")}>
+                    <a href="#join" onClick={(e) => scrollToSection(e, "join")}>
                       {t("club.home.contribute.cta")}
                     </a>
                   </p>

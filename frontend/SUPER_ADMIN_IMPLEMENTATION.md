@@ -165,10 +165,18 @@ const SuperAdminAdminsPage = () => {
           <table className="min-w-full bg-white border">
             <thead className="bg-gray-100">
               <tr>
-                <th className="px-6 py-3 text-left">{t("super_admin.admins.email")}</th>
-                <th className="px-6 py-3 text-left">{t("super_admin.admins.tenant")}</th>
-                <th className="px-6 py-3 text-left">{t("super_admin.admins.status")}</th>
-                <th className="px-6 py-3 text-left">{t("super_admin.admins.created_at")}</th>
+                <th className="px-6 py-3 text-left">
+                  {t("super_admin.admins.email")}
+                </th>
+                <th className="px-6 py-3 text-left">
+                  {t("super_admin.admins.tenant")}
+                </th>
+                <th className="px-6 py-3 text-left">
+                  {t("super_admin.admins.status")}
+                </th>
+                <th className="px-6 py-3 text-left">
+                  {t("super_admin.admins.created_at")}
+                </th>
                 <th className="px-6 py-3 text-left">{t("common.actions")}</th>
               </tr>
             </thead>
@@ -177,7 +185,9 @@ const SuperAdminAdminsPage = () => {
                 <tr key={admin.id} className="border-t hover:bg-gray-50">
                   <td className="px-6 py-4">{admin.email}</td>
                   <td className="px-6 py-4">
-                    {admin.tenant ? admin.tenant.name : (
+                    {admin.tenant ? (
+                      admin.tenant.name
+                    ) : (
                       <span className="text-purple-600 font-semibold">
                         {t("super_admin.admins.super_admin")}
                       </span>
@@ -236,10 +246,7 @@ const SuperAdminAdminsPage = () => {
       )}
 
       {isModalOpen && (
-        <AdminFormModal
-          admin={editingAdmin}
-          onClose={handleModalClose}
-        />
+        <AdminFormModal admin={editingAdmin} onClose={handleModalClose} />
       )}
     </div>
   );
@@ -309,7 +316,8 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
     // Validation
     const newErrors: string[] = [];
     if (!email) newErrors.push(t("super_admin.admins.errors.email_required"));
-    if (!admin && !password) newErrors.push(t("super_admin.admins.errors.password_required"));
+    if (!admin && !password)
+      newErrors.push(t("super_admin.admins.errors.password_required"));
     if (password && password !== passwordConfirmation) {
       newErrors.push(t("super_admin.admins.errors.password_mismatch"));
     }
@@ -382,7 +390,11 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2">
               {t("super_admin.admins.password")}
-              {admin && <span className="text-gray-500 text-xs ml-2">({t("super_admin.admins.leave_blank")})</span>}
+              {admin && (
+                <span className="text-gray-500 text-xs ml-2">
+                  ({t("super_admin.admins.leave_blank")})
+                </span>
+              )}
             </label>
             <input
               type="password"
@@ -412,7 +424,11 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
             </label>
             <select
               value={tenantId === null ? 0 : tenantId}
-              onChange={(e) => setTenantId(e.target.value === "0" ? null : Number(e.target.value))}
+              onChange={(e) =>
+                setTenantId(
+                  e.target.value === "0" ? null : Number(e.target.value),
+                )
+              }
               className="w-full border rounded px-3 py-2"
             >
               <option value="0">{t("super_admin.admins.super_admin")}</option>
@@ -432,7 +448,9 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
                 onChange={(e) => setConfirmed(e.target.checked)}
                 className="mr-2"
               />
-              <span className="text-sm">{t("super_admin.admins.confirmed")}</span>
+              <span className="text-sm">
+                {t("super_admin.admins.confirmed")}
+              </span>
             </label>
           </div>
 
@@ -470,11 +488,14 @@ Find the admin routes section and add super admin routes:
 import SuperAdminAdminsPage from "./pages/Admin/SuperAdminAdminsPage";
 
 // Add these routes in the admin section
-<Route path="/backoffice/super-admin/admins" element={
-  <SuperAdminRoute>
-    <SuperAdminAdminsPage />
-  </SuperAdminRoute>
-} />
+<Route
+  path="/backoffice/super-admin/admins"
+  element={
+    <SuperAdminRoute>
+      <SuperAdminAdminsPage />
+    </SuperAdminRoute>
+  }
+/>;
 ```
 
 ### 4. Create SuperAdminRoute Protection Component
@@ -517,19 +538,21 @@ import { useAuth } from "../context/AuthContext";
 const { currentAdmin } = useAuth();
 
 // Add this section in your nav:
-{currentAdmin?.isSuperAdmin && (
-  <div className="mt-4 pt-4 border-t">
-    <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">
-      {t("super_admin.title")}
-    </h3>
-    <Link
-      to="/backoffice/super-admin/admins"
-      className="block px-4 py-2 hover:bg-gray-100"
-    >
-      {t("super_admin.admins.title")}
-    </Link>
-  </div>
-)}
+{
+  currentAdmin?.isSuperAdmin && (
+    <div className="mt-4 pt-4 border-t">
+      <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">
+        {t("super_admin.title")}
+      </h3>
+      <Link
+        to="/backoffice/super-admin/admins"
+        className="block px-4 py-2 hover:bg-gray-100"
+      >
+        {t("super_admin.admins.title")}
+      </Link>
+    </div>
+  );
+}
 ```
 
 ### 6. Add Translations
@@ -537,6 +560,7 @@ const { currentAdmin } = useAuth();
 Add to your translation files:
 
 **English (`src/locales/en.json`):**
+
 ```json
 {
   "super_admin": {
@@ -584,6 +608,7 @@ Add to your translation files:
 ```
 
 **Portuguese (`src/locales/pt.json`):**
+
 ```json
 {
   "super_admin": {
