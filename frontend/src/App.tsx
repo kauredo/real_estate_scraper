@@ -55,6 +55,7 @@ import AdminTestimonialNewPage from "./pages/Admin/AdminTestimonialNewPage";
 import AdminTestimonialEditPage from "./pages/Admin/AdminTestimonialEditPage";
 import AdminTestimonialDetailPage from "./pages/Admin/AdminTestimonialDetailPage";
 import SuperAdminAdminsPage from "./pages/Admin/SuperAdmin/SuperAdminAdminsPage";
+import SuperAdminTenantsPage from "./pages/Admin/SuperAdmin/SuperAdminTenantsPage";
 import SuperAdminRoute from "./components/SuperAdminRoute";
 
 // Scroll to top on route change
@@ -187,6 +188,14 @@ function AppContent() {
                     element={
                       <SuperAdminRoute>
                         <SuperAdminAdminsPage />
+                      </SuperAdminRoute>
+                    }
+                  />
+                  <Route
+                    path="super_admin/tenants"
+                    element={
+                      <SuperAdminRoute>
+                        <SuperAdminTenantsPage />
                       </SuperAdminRoute>
                     }
                   />

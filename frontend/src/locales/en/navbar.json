@@ -19,5 +19,7 @@
   "sell": "Sell",
   "services": "Services",
   "super_admin": "Super Admin",
+  "super_admin_admins": "Admins",
+  "super_admin_tenants": "Tenants",
   "testimonies": "Testimonies"
 }

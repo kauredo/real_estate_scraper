@@ -1288,5 +1288,21 @@ pt:
       cannot_delete_self: Não pode eliminar a si próprio
       cannot_unconfirm_self: Não pode desconfirmar a si próprio
 
+  tenants:
+    create:
+      success: Tenant criado com sucesso
+    update:
+      success: Tenant atualizado com sucesso
+    destroy:
+      success: Tenant removido com sucesso
+      has_data: Não é possível eliminar tenant com dados existentes (anúncios, posts de blog, administradores, etc.)
+    toggle_active:
+      activated: Tenant ativado com sucesso
+      deactivated: Tenant desativado com sucesso
+    rotate_api_key:
+      success: Chave de API rotacionada com sucesso
+    update_features:
+      success: Funcionalidades do tenant atualizadas com sucesso
+
   general:
     read_more: Ler mais

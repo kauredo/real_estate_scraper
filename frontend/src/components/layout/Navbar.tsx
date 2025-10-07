@@ -121,11 +121,15 @@ export default function Navbar(props: Props) {
     },
   ];
 
-  // Add super admin menu item if user is super admin
+  // Add super admin menu items if user is super admin
   if (currentAdmin?.isSuperAdmin) {
     backofficeNavItems.push({
       routeName: "backoffice_super_admin_admins_path",
-      title: t("navbar.super_admin"),
+      title: t("navbar.super_admin_admins"),
+    });
+    backofficeNavItems.push({
+      routeName: "backoffice_super_admin_tenants_path",
+      title: t("navbar.super_admin_tenants"),
     });
   }
 

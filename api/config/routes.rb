@@ -21,7 +21,13 @@ Rails.application.routes.draw do
             post :reset_password
           end
         end
-        resources :tenants, only: [:index]
+        resources :tenants do
+          member do
+            post :toggle_active
+            post :rotate_api_key
+            patch :update_features
+          end
+        end
       end
 
       # Admin API endpoints

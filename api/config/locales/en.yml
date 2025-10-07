@@ -1274,5 +1274,21 @@ en:
       cannot_delete_self: Cannot delete yourself
       cannot_unconfirm_self: Cannot unconfirm yourself
 
+  tenants:
+    create:
+      success: Tenant created successfully
+    update:
+      success: Tenant updated successfully
+    destroy:
+      success: Tenant deleted successfully
+      has_data: Cannot delete tenant with existing data (listings, blog posts, admins, etc.)
+    toggle_active:
+      activated: Tenant activated successfully
+      deactivated: Tenant deactivated successfully
+    rotate_api_key:
+      success: API key rotated successfully
+    update_features:
+      success: Tenant features updated successfully
+
   general:
     read_more: Read more

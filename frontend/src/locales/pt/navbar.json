@@ -19,5 +19,7 @@
   "sell": "Vender",
   "services": "Serviços",
   "super_admin": "Super Admin",
+  "super_admin_admins": "Administradores",
+  "super_admin_tenants": "Tenants",
   "testimonies": "Testemunhos"
 }

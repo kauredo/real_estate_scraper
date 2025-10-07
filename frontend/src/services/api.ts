@@ -365,7 +365,21 @@ export const superAdminResetAdminPassword = (
     password_confirmation: passwordConfirmation,
   });
 
-// Super Admin - Tenants API functions
+// Super Admin - Tenants Management API functions
 export const superAdminGetTenants = () => api.get(apiRoutes.superAdmin.tenants);
+export const superAdminGetTenant = (id) =>
+  api.get(apiRoutes.superAdmin.tenant(id));
+export const superAdminCreateTenant = (data) =>
+  api.post(apiRoutes.superAdmin.tenants, { tenant: data });
+export const superAdminUpdateTenant = (id, data) =>
+  api.put(apiRoutes.superAdmin.tenant(id), { tenant: data });
+export const superAdminDeleteTenant = (id) =>
+  api.delete(apiRoutes.superAdmin.tenant(id));
+export const superAdminToggleActiveTenant = (id) =>
+  api.post(apiRoutes.superAdmin.toggleActiveTenant(id));
+export const superAdminRotateApiKey = (id) =>
+  api.post(apiRoutes.superAdmin.rotateApiKeyTenant(id));
+export const superAdminUpdateTenantFeatures = (id, features) =>
+  api.patch(apiRoutes.superAdmin.updateFeaturesTenant(id), { features });
 
 export default api;

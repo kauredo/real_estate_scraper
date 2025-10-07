@@ -197,6 +197,7 @@ const baseAppRoutes = {
     // Super Admin
     superAdmin: {
       admins: "/backoffice/super_admin/admins",
+      tenants: "/backoffice/super_admin/tenants",
     },
   },
 
@@ -357,8 +358,16 @@ const baseApiRoutes = {
     resetPasswordAdmin: (id: string | number): string =>
       `${API_BASE_URL}/super_admin/admins/${id}/reset_password`,
 
-    // Tenants
+    // Tenants management
     tenants: `${API_BASE_URL}/super_admin/tenants`,
+    tenant: (id: string | number): string =>
+      `${API_BASE_URL}/super_admin/tenants/${id}`,
+    toggleActiveTenant: (id: string | number): string =>
+      `${API_BASE_URL}/super_admin/tenants/${id}/toggle_active`,
+    rotateApiKeyTenant: (id: string | number): string =>
+      `${API_BASE_URL}/super_admin/tenants/${id}/rotate_api_key`,
+    updateFeaturesTenant: (id: string | number): string =>
+      `${API_BASE_URL}/super_admin/tenants/${id}/update_features`,
   },
 };
 
@@ -446,6 +455,7 @@ export const Routes = createLocalizedRoutes({
 
   // Super Admin
   backoffice_super_admin_admins_path: appRoutes.backoffice.superAdmin.admins,
+  backoffice_super_admin_tenants_path: appRoutes.backoffice.superAdmin.tenants,
 
   // Authentication
   new_admin_session_path: appRoutes.adminSignIn,
