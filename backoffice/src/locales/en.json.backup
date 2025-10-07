@@ -1,0 +1,2094 @@
+{
+  "about": {
+    "header": "About Us",
+    "history_and_values": {
+      "content": {
+        "first_paragraph": "Founded by Sofia Galvão, Sofia Galvão Group was born out of a passion for offering quality real estate solutions. With extensive experience in the sector, our team is committed to providing a personalised and transparent consultancy service. We believe that every property transaction is an opportunity to build lasting relationships and help our clients achieve their goals.",
+        "second_paragraph": "Since 2022, we have been part of KW Portugal's Top 20 of the most productive consultants in the whole country, and we are in the top 3 at KW Lead Santos, thus making us part of the Associate Leadership Council (ALC), a committee of consultants that supports business strategy at a local level.",
+        "third_paragraph": "We are part of the 3rd most successful market centre in Portugal. Here we help clients get the home they dream of, we help homeowners find the best business solution and we help consultants get the career they're looking for!"
+      },
+      "title": "Our History and Our Values"
+    },
+    "kw_luxury": {
+      "content": "As part of an exclusive network of international KW Luxury agents, Sofia Galvão Group specialises in the promotion and sale of high-end real estate. We offer a service of excellence, focusing on the needs of the most demanding clients. Our experience and worldwide network allow us to offer a personalised approach and a high level of service, ensuring that each luxury property receives the upscale prominence it deserves.",
+      "subtitle": "Luxury Property Specialists",
+      "title": "We are Agent KW Luxury"
+    },
+    "kw_partnership": {
+      "international_network": {
+        "content": "Sofia Galvão Group is part of KW, a global network of property consultants, present on 5 continents and in more than 50 regions. As a world leader in real estate brokerage, KW offers access to an extensive network and unrivalled resources.",
+        "title": "International framework"
+      },
+      "national_network": {
+        "content": "In Portugal, KW has 23 representations and more than 2,800 consultants and associates, providing comprehensive reach and high-quality service throughout the country. This vast network allows us to offer our customers a superior buying and selling experience.",
+        "title": "National framework"
+      },
+      "principles": {
+        "list": [
+          {
+            "WIN-WIN": "Or no deal."
+          },
+          {
+            "INTEGRITY": "Do the right thing."
+          },
+          {
+            "CUSTOMERS": "Always come first."
+          },
+          {
+            "COMMITMENT": "In all things."
+          },
+          {
+            "COMMUNICATION": "Seek first to understand."
+          },
+          {
+            "CREATIVITY": "Ideas before results."
+          },
+          {
+            "TEAMWORK": "Together everyone achieves more."
+          },
+          {
+            "TRUST": "Starts with honesty."
+          },
+          {
+            "EQUITY": "Opportunities for all."
+          },
+          {
+            "SUCCESS": "Results through people."
+          }
+        ],
+        "title": "KW Principles"
+      },
+      "title": "Partnership with Keller Williams"
+    },
+    "meta_description": "Sofia Galvão Group, a dedicated and demanding team that motivated by the best customer service grows and goes further every day.",
+    "mission": {
+      "sub1": "To be by your side in the real estate world to make the big \"changes\" in your life happy!",
+      "title": "Mission"
+    },
+    "mission_and_vision": {
+      "content": "Our mission is to be the number one choice for high quality real estate services throughout the country. We devotedly work to ensure that each client receives a personalised service focused on their unique needs. Our vision is to set a standard of excellence in the real estate market by offering innovative solutions and an unrivalled customer experience.",
+      "title": "Mission and Vision"
+    },
+    "profile": {
+      "description": "I'm a marketer by training and a value creator by passion. I've worked with brands and products for years, aiming to better serve customers and offer them not only what they needed but also what best fulfilled their aspirations. I focused on people and their full potential, earning a Master's degree in Neuro-Linguistic Programming. I believe in empowering people to achieve their goals and fulfill their life purposes. I have dedicated myself to the real estate sector, applying my skills to discovering unique assets: the house, the client, the transaction, and the service. At KW, I found the right structure to develop the Sofia Galvão Group's real estate consultancy with high standards, responsibility, professionalism, and confidence. I have the market know-how to provide my clients with the best deals, the ones that make them the happiest!",
+      "slogan": "Together we create Happy Homes!"
+    },
+    "results": {
+      "title": "Results"
+    },
+    "team": {
+      "content": "Our team gathers highly qualified and experienced professionals who specialise in various market segments. We work with a network of trusted partners to provide a complete service, including legal support and financial advice. Our aim is to ensure that every client feels supported and confident throughout the buying or selling process.",
+      "title": "Our Team"
+    },
+    "testimonies": {
+      "title": "Testimonies"
+    },
+    "vision": {
+      "sub1": "To be the preferred team for clients who want to buy or sell property in the Lisbon and Porto areas, thanks to our professionalism, our capacity to generate good business and the values we profess on a daily basis.",
+      "sub2": "Together we create Happy Homes!",
+      "title": "Vision"
+    },
+    "who": {
+      "sub1": "A dedicated and demanding team that, motivated by the best customer service, grows and goes further every day.",
+      "sub2": "Focused on the professionalisation of the sector, we provide real estate consultancy with credibility, excellence and relevance.",
+      "title": "Who are we?"
+    }
+  },
+  "activerecord": {
+    "errors": {
+      "messages": {
+        "record_invalid": "Validation failed: %{errors}",
+        "restrict_dependent_destroy": {
+          "has_many": "Cannot delete record because dependent %{record} exist",
+          "has_one": "Cannot delete record because a dependent %{record} exists"
+        }
+      }
+    }
+  },
+  "backoffice": {
+    "blog_posts": {
+      "view_post": "View Post"
+    },
+    "club_stories": {
+      "view_story": "View Story"
+    },
+    "common": {
+      "confirm_delete": "Are you sure you want to delete this item?",
+      "create": "Create",
+      "delete_confirm": "Are you sure you want to delete this item?",
+      "delete_photo_confirm": "Are you sure you want to delete this photo?",
+      "edit": "Edit",
+      "hidden_hint": "The content will only be visible on the site if this option is NOT checked (only visible in backoffice)",
+      "main_photo": "Main photo?",
+      "photos": "Photos",
+      "seo_description_hint": "This is the description that will appear on search engines 👇",
+      "seo_section": "SEO",
+      "seo_title_hint": "This is the title that will appear on search engines 👇",
+      "update": "Update",
+      "view": "View"
+    }
+  },
+  "blog_posts": {
+    "empty": "New posts coming soon...",
+    "header": "Blog Posts",
+    "meta_description": "Learn more about real estate and the best tips on where to live in Lisbon with Sofia Galvão Group.",
+    "resource": "Post",
+    "subheader": "Our blog is a source of knowledge for buyers and sellers. We include articles on best practices in the real estate market, market trends and advice for those looking to buy or sell a property. Stay informed and make safe, sound decisions by taking our content into account."
+  },
+  "buy": {
+    "header": "Buy"
+  },
+  "club": {
+    "flash": {
+      "join": {
+        "thanks": "Thank you for your interest in joining SGG Club. We will contact you soon!"
+      }
+    },
+    "form": {
+      "consent": "By contacting us you're allowing Sofia Galvão Group to store your data for club membership purposes.",
+      "error": "Please fill in all required fields correctly",
+      "fields": {
+        "email": "Email",
+        "name": "Name",
+        "phone": "Phone",
+        "send": "Join Club",
+        "terms_link": "SGG Club Regulations",
+        "terms_prefix": "I declare that I have read and accept the terms presented in the"
+      },
+      "titles": {
+        "main": "Fill in the form to refer a member:"
+      }
+    },
+    "home": {
+      "contribute": {
+        "cta": "Start making a difference now.",
+        "description": "By referring someone who wants to buy or sell a home, you’re kickstarting real change. Every closed deal generates a direct contribution to the mission of SGG Club, helping transform houses into dignified homes for those in need.\n",
+        "subtitle": "A simple referral from you can change lives.",
+        "title": "Contribute to the next story",
+        "value_description": "This way, you create value on two fronts: you offer the people you refer top-quality real estate support, while also changing the lives of families who need your help.\n"
+      },
+      "dignity": {
+        "description": "Everyone deserves a place to live with dignity, safety, and comfort. The SGG Club was created with the mission of rebuilding lives by improving the housing conditions of those who need it most.\n",
+        "title": "A decent home shouldn’t be a dream - it should be reality"
+      },
+      "header": "SGG Club",
+      "impact": {
+        "subtitle": "See our impact",
+        "title": "Story of impact generated so far"
+      },
+      "join": {
+        "cta": "Send WhatsApp",
+        "description": "Know someone looking to buy or sell a home? Refer them to us. With this simple gesture, you’re ensuring they get top-notch real estate service, while also helping provide a dignified home to someone who really needs it.\n",
+        "impact": "Your referral can change lives.",
+        "mission": "Together, we will turn houses into homes and rebuild lives",
+        "subtitle": "Become a member of SGG Club today",
+        "title": "Take the first step to change a life",
+        "whatsapp": "Send us a WhatsApp to start contributing."
+      },
+      "know_more": {
+        "cta": "Send WhatsApp",
+        "help_description": "Refer other members so we can make an even bigger impact together!\n",
+        "help_question": "Do you know someone who could contribute to the cause?",
+        "help_title": "Help us to grow!",
+        "rules": "Read the SGG Club Regulation here",
+        "whatsapp": "Send us a WhatsApp to refer members to the club."
+      },
+      "meta_description": "Discover SGG Club by Sofia Galvão Group - where real estate excellence meets exclusive benefits.",
+      "partners": {
+        "conclusion_html": "<strong>Your referral could change a life. Get in touch and be part of this change.</strong>\n",
+        "cta": "Send WhatsApp",
+        "description": "SGG Club’s mission is only possible thanks to the essential collaboration of our members and ambassadors, who bring life to the impact we want to achieve.\n",
+        "dynamic": "Not just through referrals in real estate, but also by identifying people and stories in urgent need of support.\n",
+        "second_title": "Do you know someone we could help?",
+        "situations": "We’re always looking for real-life situations where our support can make a difference.",
+        "someone": "If you know someone going through hardship who could benefit from our help, reach out to us.",
+        "subtitle": "Together, we can create stories that change lives.",
+        "title": "Help us make change happen"
+      },
+      "subtitle": "Buy and sell houses, rebuild lives",
+      "title": "SGG Club"
+    },
+    "mailer": {
+      "new_join_request": {
+        "subject": "Welcome to SGG Club, %{name}!"
+      }
+    },
+    "recent_stories": {
+      "description": "Discover our latest member stories and experiences",
+      "title": "Recent Stories"
+    },
+    "rules": {
+      "clarity": "We believe that only with clarity can we create real, lasting impact.",
+      "content": "<p>SGG Club is an exclusive program designed to provide additional benefits to our clients...</p> <p>Check here for all participation rules and conditions.</p>\n",
+      "header": "SGG Club Regulations",
+      "intro": "The SGG Club’s regulations establish clear rules for how we operate, defining the rights and responsibilities of members, the criteria for supporting families, and the principles that ensure a transparent and accountable use of funds.\n",
+      "introduction": "SGG Club Regulations",
+      "meta_description": "Rules and guidelines for SGG Club.",
+      "read_below": "Below you’ll find the full regulation that guides all our activity.",
+      "sections": {
+        "criteria": {
+          "criteria": {
+            "list": {
+              "1": "Current housing conditions and urgency of the situation;",
+              "2": "The impact the intervention could have on the family's quality of life."
+            },
+            "title": "4.3. Support will be granted based on the following criteria:"
+          },
+          "decisions": "4.4. Support decisions are made by a group of club members, ensuring transparency and fairness in the selection of beneficiaries.",
+          "decisions_html": "4.4. Support decisions are made by a group of club members, ensuring <strong>transparency and fairness</strong> in the selection of beneficiaries.",
+          "families": "4.1. SGG Club support is intended for vulnerable families, elderly people, and individuals experiencing homelessness who need housing improvements.",
+          "families_html": "4.1. SGG Club support is intended for <strong>vulnerable families, elderly people, and individuals experiencing homelessness who</strong> need housing improvements.",
+          "submited_by": {
+            "list": {
+              "1": "The families and individuals themselves;",
+              "2": "Social organisations or partner entities that identify cases of need.",
+              "3": "Members and ambassadors of SGG Club."
+            },
+            "title": "4.2. Applications for support can be submitted by:"
+          },
+          "title": "4. Criteria for Supporting Families"
+        },
+        "events": {
+          "description": "5.1. SGG Club regularly promotes events aimed at:",
+          "incentives": "5.2. All ambassadors are encouraged to participate in events and contribute to expanding the club’s impact.",
+          "list": {
+            "1": "Generating referrals and mobilising resources;",
+            "2": "Raising awareness about the issue of dignified housing;",
+            "3": "Celebrating completed projects and sharing testimonies."
+          },
+          "title": "5. Club Events and Initiatives"
+        },
+        "final": {
+          "1": "7.1. These regulations may be adjusted as needed, with the approval of the club’s leadership.",
+          "2": "7.2. All actions by SGG Club must align with its values and mission, always ensuring that the impact on the community is positive and meaningful.",
+          "second_html": "7.2. All actions by SGG Club must align with its values and mission, always ensuring that the impact on the community is always <strong>positive and meaningful.</strong>",
+          "title": "7. Final Provisions"
+        },
+        "financial_model": {
+          "application": {
+            "intro": "Funds from SGG Club are used for:",
+            "list_html": {
+              "1": "<strong>Home renovations and repairs</strong> for people in need;",
+              "4": "<strong>Development of new initiatives and partnerships</strong> to expand the club’s impact.",
+              "2": "<strong>Purchase of furniture and essential equipment</strong> to improve living conditions;",
+              "3": "<strong>Support to improve necessary conditions</strong> to turn a house into a home;"
+            },
+            "title": "3.2. Use of Funds"
+          },
+          "sources": {
+            "description_html": "SGG Club funds its actions through real estate referrals – When a member refers someone looking to buy or sell a home, part of the transaction commission goes toward housing support for people in need.",
+            "intro": "SGG Club funds its actions through:",
+            "title": "3.1. Sources of funding"
+          },
+          "title": "3. Support and Funding Model"
+        },
+        "general": {
+          "definition": "These regulations define the club’s operating rules, the rights and duties of members, and the criteria for supporting beneficiaries.\n",
+          "mission_html": "The mission of SGG Club is to <strong>positively contribute to improving housing conditions for those most in need</strong>, by mobilising resources and people to create dignified homes.\n",
+          "title": "1. General Provisions",
+          "values_html": "The club operates based on the values of <strong>dignity, solidarity, value creation, and sharing</strong>.\n"
+        },
+        "members": {
+          "duties": {
+            "intro": "SGG Club members commit to:",
+            "list": {
+              "1": "Respect the club's values and principles;",
+              "4": "Identify people or situations that may benefit from the club’s support.",
+              "2": "Contribute actively within their means, whether through referrals or volunteering;",
+              "3": "Act with transparency and ethics in all interactions related to the club;"
+            },
+            "title": "2.3. Members' Duties"
+          },
+          "members_or_ambassadors": {
+            "ambassadors": {
+              "additional": "Additional responsibilities of Ambassadors:",
+              "choice": {
+                "description": "Ambassadors are chosen directly by those in charge of the SGG Club, based on their involvement and active contribution.\n",
+                "subtitle": "Choosing Ambassadors:"
+              },
+              "description": "Ambassadors are characterised by their active involvement, regular commitment, and initiative in helping grow the club - mainly through the continuous referral of real estate deals and identification of situations that may require the club’s intervention. They are members who consistently propose and develop new ideas and actions, taking greater responsibility in achieving the club’s mission.\n",
+              "list": {
+                "1": "Regular participation in meetings and initiatives;",
+                "2": "Proposing new ideas and actions to enhance the club’s impact;",
+                "3": "Supporting the club’s leaders in promoting its mission and values."
+              },
+              "loss_of_status": {
+                "description": "An ambassador may be reinstated if he or she moves significantly away from the core of the club's involvement, subject to a decision by those responsible.\n",
+                "subtitle": "Loss of Status:"
+              },
+              "title": "Ambassadors"
+            },
+            "members": {
+              "description": "Members are individuals selected to be part of SGG Club, but whose participation is not yet fully active. They are in a pre-membership phase and, once they identify or refer a viable real estate opportunity, they will become ambassadors.\n",
+              "title": "Members"
+            },
+            "title": "2.4. Distinction between Members and Ambassadors"
+          },
+          "rights": {
+            "intro": "SGG Club members have the right to:",
+            "list": {
+              "1": "Take part in initiatives promoted by the club;",
+              "4": "Receive regular updates about the club’s activities and development.",
+              "2": "Follow the supported projects and the impact generated;",
+              "3": "Propose new actions and initiatives aligned with the club’s mission;"
+            },
+            "title": "2.2. Members' Rights"
+          },
+          "title": "2. Club Members",
+          "who_can": {
+            "intro": "Anyone can become a member of SGG Club:",
+            "list": {
+              "1": "Individuals who want to support the cause by referring real estate purchase or sale deals;",
+              "2": "Companies and professionals in the real estate, construction or home services sectors who wish to contribute or partner;",
+              "3": "Anyone who identifies with the club’s values and wants to support its mission."
+            },
+            "title": "2.1. Who can be a member"
+          }
+        },
+        "transparency": {
+          "description": "6.1. SGG Club commits to maintaining full transparency in the management of funds and in all actions carried out.",
+          "description_html": "6.1. SGG Club commits to maintaining <strong>full transparency in the management of funds and in all actions carried out.</strong>",
+          "reports": {
+            "description": "6.2. An accountability report will be published regularly, including:",
+            "list": {
+              "1": "Amounts raised through real estate referrals and partnerships;",
+              "2": "Funded projects and the impact generated;",
+              "3": "Progress reports and future planning."
+            }
+          },
+          "title": "6. Transparency and Accountability"
+        }
+      },
+      "title": "SGG Club Regulations",
+      "transparency": "Transparency and commitment are the foundation of our mission."
+    },
+    "rules_description": "Learn about SGG Club terms and conditions.",
+    "sections": {
+      "benefits": "Member Benefits",
+      "partners": "Our Partners"
+    },
+    "stories": {
+      "empty": "New stories coming soon...",
+      "explore_stories": "Explore Our Stories",
+      "header": "Club Stories",
+      "impact_description": "Discover real stories from those directly impacted by the mission of SGG Club. Each story is living proof of how your support can change lives — by providing dignified housing and turning dreams into reality.\n",
+      "meta_description": "Inspiring stories and success cases from SGG Club members.",
+      "real_people": "Behind every project, there are real people with inspiring stories",
+      "stories_description": "Discover below emotional and inspiring stories where the support of SGG Club made all the difference.\n",
+      "subheader": "Discover unique experiences and success stories from our members.",
+      "title": "Stories",
+      "transformed_life": "Every Story Is a Life Transformed"
+    },
+    "stories_description": "Inspiring stories and success cases from our members."
+  },
+  "club_stories": {
+    "resource": "Story"
+  },
+  "contacts": {
+    "contact_us": "Contact us",
+    "cta": "GET IN TOUCH WITH US",
+    "form": {
+      "consent": "By contacting us you're allowing Sofia Galvão Group to store your data to later inform you about business opportunities, as stated in the Privacy Policy.",
+      "error": "Please try again with valid values",
+      "fields": {
+        "email": "Email",
+        "message": "Message",
+        "name": "Name",
+        "phone": "Phone",
+        "send": "Send"
+      },
+      "titles": {
+        "main": "Fill in the form and we will get in touch with you:",
+        "visit": "Need more information? Want to schedule a visit? Get in touch with us!"
+      }
+    },
+    "header": "Contacts",
+    "meta_description": "Contact Sofia Galvão Group."
+  },
+  "date": {
+    "abbr_day_names": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "abbr_month_names": [
+      null,
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "day_names": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "formats": {
+      "default": "%Y-%m-%d",
+      "long": "%B %d, %Y",
+      "short": "%b %d"
+    },
+    "month_names": [
+      null,
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "order": ["year", "month", "day"]
+  },
+  "datetime": {
+    "distance_in_words": {
+      "about_x_hours": {
+        "one": "about 1 hour",
+        "other": "about %{count} hours"
+      },
+      "about_x_months": {
+        "one": "about 1 month",
+        "other": "about %{count} months"
+      },
+      "about_x_years": {
+        "one": "about 1 year",
+        "other": "about %{count} years"
+      },
+      "almost_x_years": {
+        "one": "almost 1 year",
+        "other": "almost %{count} years"
+      },
+      "half_a_minute": "half a minute",
+      "less_than_x_minutes": {
+        "one": "less than a minute",
+        "other": "less than %{count} minutes"
+      },
+      "less_than_x_seconds": {
+        "one": "less than 1 second",
+        "other": "less than %{count} seconds"
+      },
+      "over_x_years": {
+        "one": "over 1 year",
+        "other": "over %{count} years"
+      },
+      "x_days": {
+        "one": "1 day",
+        "other": "%{count} days"
+      },
+      "x_minutes": {
+        "one": "1 minute",
+        "other": "%{count} minutes"
+      },
+      "x_months": {
+        "one": "1 month",
+        "other": "%{count} months"
+      },
+      "x_seconds": {
+        "one": "1 second",
+        "other": "%{count} seconds"
+      },
+      "x_years": {
+        "one": "1 year",
+        "other": "%{count} years"
+      }
+    },
+    "prompts": {
+      "day": "Day",
+      "hour": "Hour",
+      "minute": "Minute",
+      "month": "Month",
+      "2": "2",
+      "year": "Year"
+    }
+  },
+  "devise": {
+    "confirmations": {
+      "confirmed": "Your email address has been successfully confirmed.",
+      "send_instructions": "You will receive an email with instructions for how to confirm your email address in a few minutes.",
+      "send_paranoid_instructions": "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+    },
+    "failure": {
+      "already_authenticated": "You are already signed in.",
+      "inactive": "Your account is not activated yet.",
+      "invalid": "Invalid %{authentication_keys} or password.",
+      "last_attempt": "You have one more attempt before your account is locked.",
+      "locked": "Your account is locked.",
+      "not_found_in_database": "Invalid %{authentication_keys} or password.",
+      "timeout": "Your session expired. Please sign in again to continue.",
+      "unauthenticated": "You need to sign in or sign up before continuing.",
+      "unconfirmed": "You have to confirm your email address before continuing."
+    },
+    "mailer": {
+      "confirmation_instructions": {
+        "subject": "Confirmation instructions"
+      },
+      "email_changed": {
+        "subject": "Email Changed"
+      },
+      "password_change": {
+        "subject": "Password Changed"
+      },
+      "reset_password_instructions": {
+        "subject": "Reset password instructions"
+      },
+      "unlock_instructions": {
+        "subject": "Unlock instructions"
+      }
+    },
+    "omniauth_callbacks": {
+      "failure": "Could not authenticate you from %{kind} because \"%{reason}\".",
+      "success": "Successfully authenticated from %{kind} account."
+    },
+    "passwords": {
+      "no_token": "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.",
+      "send_instructions": "You will receive an email with instructions on how to reset your password in a few minutes.",
+      "send_paranoid_instructions": "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.",
+      "updated": "Your password has been changed successfully. You are now signed in.",
+      "updated_not_active": "Your password has been changed successfully."
+    },
+    "registrations": {
+      "destroyed": "Bye! Your account has been successfully cancelled. We hope to see you again soon.",
+      "signed_up": "Welcome! You have signed up successfully.",
+      "signed_up_but_inactive": "You have signed up successfully. However, we could not sign you in because your account is not yet activated.",
+      "signed_up_but_locked": "You have signed up successfully. However, we could not sign you in because your account is locked.",
+      "signed_up_but_unconfirmed": "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.",
+      "update_needs_confirmation": "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address.",
+      "updated": "Your account has been updated successfully.",
+      "updated_but_not_signed_in": "Your account has been updated successfully, but since your password was changed, you need to sign in again."
+    },
+    "sessions": {
+      "already_signed_out": "Signed out successfully.",
+      "signed_in": "Signed in successfully.",
+      "signed_out": "Signed out successfully."
+    },
+    "unlocks": {
+      "send_instructions": "You will receive an email with instructions for how to unlock your account in a few minutes.",
+      "send_paranoid_instructions": "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.",
+      "unlocked": "Your account has been unlocked successfully. Please sign in to continue."
+    }
+  },
+  "enterprises": {
+    "header": "Developments",
+    "list": {
+      "invest": {
+        "description": "The possibility of making payments available according to the stages of development and construction.",
+        "title": "Phased investment"
+      },
+      "own": {
+        "description": "Buying at the planning stage gives you the guarantee that the property is delivered pristine and never-used, and the certainty that you will be the first owner.",
+        "title": "You'll be the first owner of your new home"
+      },
+      "perspective": {
+        "description": "When you buy a house on the drawing board, the investment you make is usually less than the investment you would have to make if it had already been completed. This means that your house, from the moment it is ready, already maximises your investment.",
+        "title": "Expectation on better return on investment"
+      },
+      "warranty": {
+        "description": "A new property comes with a construction warranty, ensuring no need for improvements in the coming years.",
+        "title": "Construction warranty"
+      },
+      "yours": {
+        "description": "Buying at the planning stage grants the future owner the chance to make changes to materials and sometimes to the layout, so that their future home matches their needs and preferences.",
+        "title": "Customised property by your standards"
+      }
+    },
+    "meta_description": "The best developments in Portugal to buy with Sofia Galvão Group.",
+    "resource": "Enterprise",
+    "show": {
+      "bedrooms": "Bedrooms",
+      "built": "Built Area",
+      "living": "Living Area",
+      "more": "See More",
+      "parking": "Parking",
+      "price": "Price",
+      "type": "Type"
+    },
+    "subheader": "Why to buy at <span class=\"underline decoration-beige-default dark:decoration-beige-medium\">the Planning Stage?</span>",
+    "subtitle": {
+      "description": "Discover our real estate development projects, offering unique investment opportunities. With buy-at-the-planning-stage options, you can personalize your property and invest in properties with high potential for capital appreciation. Our team provides detailed information on each development, including location, payment plans, and return potential.",
+      "title": "Investment Opportunities"
+    }
+  },
+  "errors": {
+    "404": {
+      "button": "Go Back",
+      "text_1": "The page you're looking for isn't available.",
+      "text_2": "Try searching again or use the Go Back button below.",
+      "title": "You seem to be lost!"
+    },
+    "500": {
+      "text_1": "We're trying our best to fix it.",
+      "text_2": "Please try again in a few minutes.",
+      "title": "Server is down!"
+    },
+    "connection_refused": "Oops! Failed to connect to the Web Console middleware.\nPlease make sure a rails development server is running.\n",
+    "email": {
+      "invalid": "is not a valid email"
+    },
+    "format": "%{attribute} %{message}",
+    "messages": {
+      "accepted": "must be accepted",
+      "already_confirmed": "was already confirmed, please try signing in",
+      "blank": "can't be blank",
+      "carrierwave_download_error": "could not be downloaded",
+      "carrierwave_integrity_error": "is not of an allowed file type",
+      "carrierwave_processing_error": "failed to be processed",
+      "confirmation": "doesn't match %{attribute}",
+      "confirmation_period_expired": "needs to be confirmed within %{period}, please request a new one",
+      "content_type_allowlist_error": "You are not allowed to upload %{content_type} files, allowed types: %{allowed_types}",
+      "content_type_denylist_error": "You are not allowed to upload %{content_type} files",
+      "empty": "can't be empty",
+      "equal_to": "must be equal to %{count}",
+      "even": "must be even",
+      "exclusion": "is reserved",
+      "expired": "has expired, please request a new one",
+      "extension_allowlist_error": "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}",
+      "extension_denylist_error": "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}",
+      "greater_than": "must be greater than %{count}",
+      "greater_than_or_equal_to": "must be greater than or equal to %{count}",
+      "in": "must be in %{count}",
+      "inclusion": "is not included in the list",
+      "invalid": "is invalid",
+      "invalid_currency": "has invalid format (must be '100', '5%{decimal}24', or '123%{thousands}456%{decimal}78'). Got %{currency}",
+      "less_than": "must be less than %{count}",
+      "less_than_or_equal_to": "must be less than or equal to %{count}",
+      "max_height_error": "Image height should be less than %{max_height}px",
+      "max_size_error": "File size should be less than %{max_size}",
+      "max_width_error": "Image width should be less than %{max_width}px",
+      "min_height_error": "Image height should be greater than %{min_height}px",
+      "min_size_error": "File size should be greater than %{min_size}",
+      "min_width_error": "Image width should be greater than %{min_width}px",
+      "model_invalid": "Validation failed: %{errors}",
+      "not_a_number": "is not a number",
+      "not_an_integer": "must be an integer",
+      "not_found": "not found",
+      "not_locked": "was not locked",
+      "not_saved": {
+        "one": "1 error prohibited this %{resource} from being saved:",
+        "other": "%{count} errors prohibited this %{resource} from being saved:"
+      },
+      "odd": "must be odd",
+      "other_than": "must be other than %{count}",
+      "password_too_long": "is too long",
+      "present": "must be blank",
+      "processing_error": "Failed to manipulate, maybe it is not an image?",
+      "required": "must exist",
+      "taken": "has already been taken",
+      "too_long": {
+        "one": "is too long (maximum is 1 character)",
+        "other": "is too long (maximum is %{count} characters)"
+      },
+      "too_short": {
+        "one": "is too short (minimum is 1 character)",
+        "other": "is too short (minimum is %{count} characters)"
+      },
+      "wrong_length": {
+        "one": "is the wrong length (should be 1 character)",
+        "other": "is the wrong length (should be %{count} characters)"
+      }
+    },
+    "presence": "cannot be empty",
+    "template": {
+      "body": "There were problems with the following fields:",
+      "header": {
+        "one": "1 error prohibited this %{model} from being saved",
+        "other": "%{count} errors prohibited this %{model} from being saved"
+      }
+    },
+    "unacceptable_request": "A supported version is expected in the Accept header.\n",
+    "unavailable_session": "Session %{id} is no longer available in memory.\n\nIf you happen to run on a multi-process server (like Unicorn or Puma) the process\nthis request hit doesn't store %{id} in memory. Consider turning the number of\nprocesses/workers to one (1) or using a different server in development.\n"
+  },
+  "faq": {
+    "description": "We answer the most frequently asked questions about the process of buying and selling real estate, including doubts about financing, necessary documentation and the stages of the process. We provide clear and practical guidance to help clear up any doubts and ensure an informed and safe experience.",
+    "header": "FAQ (Frequently Asked Questions)",
+    "meta_description": "Frequently asked questions about real estate and the services provided by Sofia Galvão Group.",
+    "reason": {
+      "answers": {
+        "5": {
+          "description": "We use marketing strategies that maximise the exposure of your property, ensuring that it reaches the right buyers or tenants.",
+          "title": "Effective Marketing"
+        },
+        "1": {
+          "description": "Years of experience in the real estate market, with dozens of successfully closed deals.",
+          "title": "Experience"
+        },
+        "4": {
+          "description": "We guarantee that all legal issues are handled safely and accurately.",
+          "title": "Legal Support"
+        },
+        "2": {
+          "description": "We monitor every stage of the process, ensuring that everything is done correctly and efficiently.",
+          "title": "Complete Service"
+        },
+        "3": {
+          "description": "Our clients trust our ability to close deals quickly, at the best price and in the right way for all parties.",
+          "title": "Proven results"
+        }
+      },
+      "title": "Why should I choose Sofia Galvão Group?"
+    },
+    "sections": {
+      "1": {
+        "questions": {
+          "5": {
+            "answer": "Yes. In addition to taxes, such as the Property Acquisition Tax (IMT) and the Stamp Duty, there are also costs for the final deed and the land registry. Our commission is competitive and transparent, covering all the services involved in promoting, monitoring, and managing the sales process.",
+            "title": "Are there any costs associated with selling?"
+          },
+          "1": {
+            "answer": "Selling a property is a process that requires knowledge of the market, promotion strategies and attention to legal and bureaucratic details. The Sofia Galvão Group offers a complete service, from the accurate assessment of the property's value to the final negotiation, ensuring that the client gets the best price and a quick and smooth sale. With extensive experience and a solid network of contacts, we maximise your chances of success.",
+            "title": "Why to hire Sofia Galvão Group to sell my house?"
+          },
+          "4": {
+            "answer": "We combine digital marketing, state of the art property platforms, home staging, professional photography and virtual tours. These techniques maximise your property's exposure to the right buyers, resulting in more interest and generally faster sales.",
+            "title": "How does Sofia Galvão Group promote my property?"
+          },
+          "2": {
+            "answer": "The first step is to ensure that all the property's documentation is in order. This includes documents such as the land registry certificate, the permanent certificate, and the energy certificate. The Sofia Galvão Group will help you ensure that everything is correct and prepare a detailed evaluation to define the appropriate sale price.",
+            "title": "What are the first steps to selling my house?"
+          },
+          "3": {
+            "answer": "The time it takes to sell a house depends on various factors, such as the state of the market and the price of the property. However, with a personalised approach and advanced marketing strategies, many properties are sold in less time than the market average.",
+            "title": "How long does the selling process take?"
+          }
+        },
+        "title": "Selling a property"
+      },
+      "4": {
+        "questions": {
+          "5": {
+            "answer": "Yes. Our team is with you every step of the way, from finding or searching for properties, negotiating offers and even signing the deed or lease. This way we guarantee total support from the first minute to the last!",
+            "title": "Will the property consultant accompany me to the end of the process?"
+          },
+          "1": {
+            "answer": "Exclusivity means that Sofia Galvão Group will be the only company responsible for promoting your property, but we do not operate exclusively to make the sale. In order to find the best solutions for our clients, we work in partnership with all the real estate agents who have a valid brokerage license (AMI) and who may have a client interested in your property. This ensures that your property can be bought by any client looking for a home directly or who is being represented by a real estate consultant. However, the exclusive promotion allows us to devote more resources and attention to your property, guaranteeing a more efficient service and personalised follow-up until the end of the process.",
+            "title": "What is exclusivity in property brokerage?"
+          },
+          "4": {
+            "answer": "Times vary according to the type of transaction and market conditions. However, with Sofia Galvão Group's personalised approach, many of our clients are able to close deals in less time than the market average.",
+            "title": "How long does the whole selling, buying or letting process take?"
+          },
+          "2": {
+            "answer": "Sure! Our team is able to manage simultaneous sale and purchase processes, ensuring that the transition between properties is smooth and uncomplicated. We facilitate both processes, offering integrated solutions.",
+            "title": "Can I sell and buy at the same time?"
+          },
+          "3": {
+            "answer": "Home staging is the preparation of a property to make it more attractive to potential buyers or tenants. It involves tidiness, decoration and small details that allow your property to stand out both in photos and during visits. With home staging, your property stands out on the market, increases its attractiveness and is generally sold or rented out more quickly.",
+            "title": "What is home staging and why is it important?"
+          }
+        },
+        "title": "Frequently Asked Questions"
+      },
+      "2": {
+        "questions": {
+          "5": {
+            "answer": "Sure! We have partnerships with several banks and can help you find the best financing conditions for your purchase.",
+            "title": "Can I get help with bank finance?"
+          },
+          "1": {
+            "answer": "Buying a house is one of the most important financial decisions, and Sofia Galvão Group will ensure that you make the right choice. We have access to a vast network of properties, including exclusive ones that are not advertised on real estate portals. We offer support at every stage, from the search to the final negotiation and the signing of the final deed.",
+            "title": "Why to choose Sofia Galvão Group to buy a house?"
+          },
+          "4": {
+            "answer": "In addition to the price of the property, there are costs such as the Property Acquisition Tax (IMT), the Stamp Duty, the final deed, and the land registry. The Sofia Galvão Group helps you calculate all these costs to ensure you are aware of all the amounts involved.",
+            "title": "What are the costs involved in buying a house?"
+          },
+          "2": {
+            "answer": "The first step is to identify your needs and define your budget. Based on this, our team will help you narrow down to a suitable property shortlist. Once you've chosen a house, we'll guide you through the process of checking the documentation and preparing the offer.",
+            "title": "What is the first step in buying a house?"
+          },
+          "3": {
+            "answer": "We make a detailed assessment of the market, comparing similar properties in the same area. We also analyse the condition of the property to ensure that the asking price reflects the reality of the market.",
+            "title": "How do I know if a property is fairly priced?"
+          }
+        },
+        "title": "Buying a property"
+      },
+      "3": {
+        "questions": {
+          "5": {
+            "answer": "For the tenant, the costs usually include two months' rent and one month's security deposit.",
+            "title": "What are the costs associated with renting?"
+          },
+          "1": {
+            "answer": "Whether you're a tenant or a landlord, Sofia Galvão Group makes the leasing process easier, safer and more efficient. For landlords, we promote the property effectively, helping to find the right tenant. For tenants, we ensure that the letting process is simple and that the property complies with all legal obligations.",
+            "title": "Why to choose Sofia Galvão Group to rent a house or to find tenants?"
+          },
+          "4": {
+            "answer": "It's not always necessary, but in some cases the landlord may require a guarantor as an additional guarantee. This requirement varies from contract to contract.",
+            "title": "Do I need a guarantor to rent a house?"
+          },
+          "2": {
+            "answer": "In the case of tenants, documents such as proof of income, ID and, in some cases, a guarantor are required. In the case of landlords, it is important to ensure that the property has up-to-date documentation, including the energy certificate and the mandatory insurance.",
+            "title": "What documents are needed to rent a property?"
+          },
+          "3": {
+            "answer": "The rent is set on the basis of a market appraisal, considering the location of the property and comparing it with other similar rentals in the area. Based on this assessment, we help you to define a fair and competitive value.",
+            "title": "How is the rent determined?"
+          }
+        },
+        "title": "Renting a property"
+      }
+    },
+    "subheader": "Guide for buyers and sellers:"
+  },
+  "flash": {
+    "actions": {
+      "create": {
+        "notice": "%{resource_name} was successfully created."
+      },
+      "destroy": {
+        "alert": "%{resource_name} could not be destroyed.",
+        "notice": "%{resource_name} was successfully destroyed."
+      },
+      "update": {
+        "notice": "%{resource_name} was successfully updated."
+      }
+    },
+    "contact": {
+      "thanks": "Thank you for your message, we will contact you as soon as possible"
+    },
+    "join": {
+      "thanks": "Thank you for your interest in joining SGG Club. We will contact you soon!"
+    },
+    "newsletters": {
+      "confirm": "Subscription is now active, thank you for your trust!",
+      "error": "Error subscribing to the newsletter, please try again",
+      "repeat": "You're already subscribed to our newsletter, thank you for your trust!",
+      "subscribe": "Please confirm your subscription through the link in your email"
+    }
+  },
+  "footer": {
+    "about": "about us",
+    "contacts": "contacts",
+    "privacy": "privacy policy",
+    "terms": "terms and conditions"
+  },
+  "general": {
+    "read_more": "Read more"
+  },
+  "good_job": {
+    "actions": {
+      "destroy": "Destroy",
+      "discard": "Discard",
+      "force_discard": "Force discard",
+      "inspect": "Inspect",
+      "reschedule": "Reschedule",
+      "retry": "Retry"
+    },
+    "batches": {
+      "actions": {
+        "confirm_retry": "Are you sure you want to retry this batch?",
+        "retry": "Retry"
+      },
+      "index": {
+        "older_batches": "Older batches",
+        "title": "Batches"
+      },
+      "jobs": {
+        "actions": {
+          "confirm_destroy": "Are you sure you want to destroy this job?",
+          "confirm_discard": "Are you sure you want to discard this job?",
+          "confirm_reschedule": "Are you sure you want to reschedule this job?",
+          "confirm_retry": "Are you sure you want to retry this job?",
+          "destroy": "Destroy Job",
+          "discard": "Discard Job",
+          "reschedule": "Reschedule Job",
+          "retry": "Retry Job",
+          "title": "Actions"
+        },
+        "no_jobs_found": "No jobs found."
+      },
+      "retry": {
+        "notice": "Batch has been retried"
+      },
+      "show": {
+        "attributes": "Attributes",
+        "batched_jobs": "Batched Jobs",
+        "callback_jobs": "Callback Jobs"
+      },
+      "table": {
+        "no_batches_found": "No batches found."
+      }
+    },
+    "cleaner": {
+      "index": {
+        "all": "All",
+        "class": "Class",
+        "exception": "Exception",
+        "grouped_by_class": "Discards grouped by Class",
+        "grouped_by_exception": "Discards grouped by Exception",
+        "last_1_hour": "Last 1 hour",
+        "last_24_hours": "Last 24 hours",
+        "last_3_days": "Last 3 days",
+        "last_3_hours": "Last 3 hours",
+        "last_7_days": "Last 7 days",
+        "title": "Discard Cleaner",
+        "total": "Total"
+      }
+    },
+    "cron_entries": {
+      "actions": {
+        "confirm_disable": "Are you sure you want to disable this cron entry?",
+        "confirm_enable": "Are you sure you want to enable this cron entry?",
+        "confirm_enqueue": "Are you sure you want to enqueue this cron entry?",
+        "disable": "Disable cron entry",
+        "enable": "Enable cron entry",
+        "enqueue": "Enqueue cron entry now"
+      },
+      "disable": {
+        "notice": "Cron entry has been disabled."
+      },
+      "enable": {
+        "notice": "Cron entry has been enabled."
+      },
+      "enqueue": {
+        "notice": "Cron entry has been enqueued."
+      },
+      "index": {
+        "no_cron_schedules_found": "No cron schedules found.",
+        "title": "Cron Schedules"
+      },
+      "show": {
+        "cron_entry_key": "Cron Entry Key"
+      }
+    },
+    "datetime": {
+      "distance_in_words": {
+        "about_x_hours": {
+          "one": "about 1 hour",
+          "other": "about %{count} hours"
+        },
+        "about_x_months": {
+          "one": "about 1 month",
+          "other": "about %{count} months"
+        },
+        "about_x_years": {
+          "one": "about 1 year",
+          "other": "about %{count} years"
+        },
+        "almost_x_years": {
+          "one": "almost 1 year",
+          "other": "almost %{count} years"
+        },
+        "half_a_minute": "half a minute",
+        "less_than_x_minutes": {
+          "one": "less than a minute",
+          "other": "less than %{count} minutes"
+        },
+        "less_than_x_seconds": {
+          "one": "less than 1 second",
+          "other": "less than %{count} seconds"
+        },
+        "over_x_years": {
+          "one": "over 1 year",
+          "other": "over %{count} years"
+        },
+        "x_days": {
+          "one": "1 day",
+          "other": "%{count} days"
+        },
+        "x_minutes": {
+          "one": "1 minute",
+          "other": "%{count} minutes"
+        },
+        "x_months": {
+          "one": "1 month",
+          "other": "%{count} months"
+        },
+        "x_seconds": {
+          "one": "1 second",
+          "other": "%{count} seconds"
+        },
+        "x_years": {
+          "one": "1 year",
+          "other": "%{count} years"
+        }
+      }
+    },
+    "duration": {
+      "hours": "%{hour}h %{min}m",
+      "less_than_10_seconds": "%{sec}s",
+      "milliseconds": "%{ms}ms",
+      "minutes": "%{min}m %{sec}s",
+      "seconds": "%{sec}s"
+    },
+    "error_event": {
+      "discarded": "Discarded",
+      "handled": "Handled",
+      "interrupted": "Interrupted",
+      "retried": "Retried",
+      "retry_stopped": "Retry stopped",
+      "unhandled": "Unhandled"
+    },
+    "helpers": {
+      "relative_time": {
+        "future": "in %{time}",
+        "past": "%{time} ago"
+      }
+    },
+    "jobs": {
+      "actions": {
+        "confirm_destroy": "Are you sure you want to destroy the job?",
+        "confirm_discard": "Are you sure you want to discard the job?",
+        "confirm_force_discard": "Are you sure you want to force discard this job? The job will be marked as discarded but the running job will not be stopped - it will, however, not be retried on failures.",
+        "confirm_reschedule": "Are you sure you want to reschedule the job?",
+        "confirm_retry": "Are you sure you want to retry the job?",
+        "destroy": "Destroy job",
+        "discard": "Discard job",
+        "force_discard": "Force discard job",
+        "reschedule": "Reschedule job",
+        "retry": "Retry job"
+      },
+      "destroy": {
+        "notice": "Job has been destroyed"
+      },
+      "discard": {
+        "notice": "Job has been discarded"
+      },
+      "executions": {
+        "application_trace": "Application Trace",
+        "full_trace": "Full Trace",
+        "in_queue": "in queue",
+        "runtime": "runtime",
+        "title": "Executions"
+      },
+      "force_discard": {
+        "notice": "Job has been force discarded. It will continue to run but it will not be retried on failures"
+      },
+      "index": {
+        "job_pagination": "Job pagination",
+        "older_jobs": "Older jobs"
+      },
+      "reschedule": {
+        "notice": "Job has been rescheduled"
+      },
+      "retry": {
+        "notice": "Job has been retried"
+      },
+      "show": {
+        "jobs": "Jobs"
+      },
+      "table": {
+        "actions": {
+          "apply_to_all": {
+            "one": "Apply to all 1 job.",
+            "other": "Apply to all %{count} jobs."
+          },
+          "confirm_destroy_all": "Are you sure you want to destroy the selected jobs?",
+          "confirm_discard_all": "Are you sure you want to discard the selected jobs?",
+          "confirm_reschedule_all": "Are you sure you want to reschedule the selected jobs?",
+          "confirm_retry_all": "Are you sure you want to retry the selected jobs?",
+          "destroy_all": "Destroy all",
+          "discard_all": "Discard all",
+          "reschedule_all": "Reschedule all",
+          "retry_all": "Retry all",
+          "title": "Actions"
+        },
+        "no_jobs_found": "No jobs found.",
+        "toggle_actions": "Toggle Actions",
+        "toggle_all_jobs": "Toggle all jobs"
+      }
+    },
+    "models": {
+      "batch": {
+        "created": "Created",
+        "created_at": "Created at",
+        "discarded": "Discarded",
+        "discarded_at": "Discarded at",
+        "enqueued": "Enqueued",
+        "enqueued_at": "Enqueued at",
+        "finished": "Finished",
+        "finished_at": "Finished at",
+        "jobs": "Jobs",
+        "name": "Name"
+      },
+      "cron": {
+        "class": "Class",
+        "last_run": "Last run",
+        "next_scheduled": "Next scheduled",
+        "schedule": "Schedule"
+      },
+      "job": {
+        "arguments": "Arguments",
+        "attempts": "Attempts",
+        "labels": "Labels",
+        "priority": "Priority",
+        "queue": "Queue"
+      }
+    },
+    "number": {
+      "format": {
+        "delimiter": ",",
+        "separator": "."
+      },
+      "human": {
+        "decimal_units": {
+          "delimiter": ",",
+          "format": "%n%u",
+          "precision": 3,
+          "separator": ".",
+          "units": {
+            "billion": "B",
+            "million": "M",
+            "quadrillion": "Q",
+            "thousand": "K",
+            "trillion": "T",
+            "unit": ""
+          }
+        }
+      }
+    },
+    "pauses": {
+      "index": {
+        "confirm_pause": "Are you sure you want to pause %{value}?",
+        "confirm_unpause": "Are you sure you want to resume %{value}?",
+        "disabled": "GoodJob's experimental Pauses feature is disabled by default because it may degrade performance. Configure to enable",
+        "job_class": "Job Class",
+        "label": "Label",
+        "pause": "Pause",
+        "queue": "Queue",
+        "title": "Pauses",
+        "type": "Pause Type",
+        "unpause": "Resume",
+        "value": "Value"
+      }
+    },
+    "performance": {
+      "index": {
+        "average_duration": "Average duration",
+        "chart_title": "Total job execution time in seconds",
+        "executions": "Executions",
+        "job_class": "Job class",
+        "maximum_duration": "Maximum duration",
+        "minimum_duration": "Minimum duration",
+        "queue_name": "Queue name",
+        "title": "Performance"
+      },
+      "show": {
+        "slow": "Slow",
+        "title": "Performance"
+      }
+    },
+    "processes": {
+      "index": {
+        "cron_enabled": "Cron enabled",
+        "no_good_job_processes_found": "No GoodJob processes found.",
+        "process": "Process",
+        "schedulers": "Schedulers",
+        "started": "Started",
+        "title": "Processes",
+        "updated": "Updated"
+      }
+    },
+    "shared": {
+      "boolean": {
+        "false": "No",
+        "true": "Yes"
+      },
+      "error": "Error",
+      "filter": {
+        "all": "All",
+        "all_jobs": "All jobs",
+        "all_queues": "All queues",
+        "clear": "Clear",
+        "job_name": "Job name",
+        "placeholder": "Search by class, job id, job params, and error text.",
+        "queue_name": "Queue name",
+        "search": "Search"
+      },
+      "navbar": {
+        "batches": "Batches",
+        "cleaner": "Discard Cleaner",
+        "cron_schedules": "Cron",
+        "jobs": "Jobs",
+        "live_poll": "Live Poll",
+        "name": "GoodJob 👍",
+        "pauses": "Pauses",
+        "performance": "Performance",
+        "processes": "Processes",
+        "theme": {
+          "auto": "Auto",
+          "dark": "Dark",
+          "light": "Light",
+          "theme": "Theme"
+        }
+      },
+      "pending_migrations": "GoodJob has pending database migrations.",
+      "secondary_navbar": {
+        "inspiration": "Remember, you're doing a Good Job too!",
+        "last_updated": "Last updated"
+      }
+    },
+    "status": {
+      "discarded": "Discarded",
+      "queued": "Queued",
+      "retried": "Retried",
+      "running": "Running",
+      "scheduled": "Scheduled",
+      "succeeded": "Succeeded"
+    }
+  },
+  "helpers": {
+    "select": {
+      "prompt": "Please select"
+    },
+    "submit": {
+      "create": "Create %{model}",
+      "submit": "Save %{model}",
+      "update": "Update %{model}"
+    }
+  },
+  "home": {
+    "cta": {
+      "contact": "Talk to us",
+      "long": "Evaluate your home",
+      "short": "Evaluate home"
+    },
+    "newsletter": {
+      "form": {
+        "errors": {
+          "email": "Please insert a valid email",
+          "name": "Please insert a valid name"
+        },
+        "fields": {
+          "email": "Email",
+          "name": "Name",
+          "subscribe": "Subscribe"
+        }
+      },
+      "subtitle": "Subscribe to our newsletter and stay updated with the latest opportunities, news, and market tips.",
+      "terms": "By contacting us, you're allowing Sofia Galvão Group to store your data to inform you about business opportunities, as stated in the Privacy Policy.",
+      "title": "Get the latest Market news"
+    },
+    "slogan": {
+      "bottom": "Happy Homes!",
+      "middle": "create",
+      "top": "Together we"
+    }
+  },
+  "listing": {
+    "advanced_search": "Advanced Search",
+    "characteristics": "Property Characteristics",
+    "create": {
+      "error": "Error: the link must start with 'https://www.kwportugal.pt/'",
+      "notice": "Property added, please wait a moment and it will appear on the platform"
+    },
+    "destroy": {
+      "error": "Error: unable to delete the property",
+      "notice": "Property deleted successfully"
+    },
+    "details": "Property Details",
+    "header": "Buy",
+    "kind": {
+      "apartment": "Apartment",
+      "garage": "Garage",
+      "house": "House",
+      "land": "Land",
+      "office": "Office",
+      "other": "Other",
+      "parking": "Parking",
+      "storage": "Storage",
+      "store": "Store",
+      "title": "Property Type",
+      "warehouse": "Warehouse"
+    },
+    "no_listings": "No properties found with the selected criteria",
+    "objective": {
+      "other": "Other",
+      "rent": "Rent",
+      "sale": "Sale",
+      "title": "Sale / Rent"
+    },
+    "open_tour": "Open Virtual Tour 🏠",
+    "price": "Price",
+    "recover": {
+      "error": "Error: unable to recover the property",
+      "notice": "Property recovered successfully, please wait a moment to update the data."
+    },
+    "reset_filters": "Clear Filters",
+    "resource": "Property",
+    "search": {
+      "address": "Address",
+      "address_placeholder": "Lisbon, Porto, Algarve, etc.",
+      "any": "Any",
+      "filters_applied": "filters applied",
+      "name": "Address, Location, Type, etc.",
+      "name_placeholder": "3-bedroom apartment, House, Land, etc.",
+      "price": "Price",
+      "status": {
+        "agreed": "Reserved",
+        "all": "All",
+        "closed": "Closed",
+        "recent": "New",
+        "rented": "Rented",
+        "sold": "Sold",
+        "standard": "Listed",
+        "title": "Status"
+      },
+      "submit": "Search",
+      "title": "Search Properties"
+    },
+    "stats": {
+      "ano de construção": "Year of Construction",
+      "casa de banho social": "Guest Bathroom",
+      "casas de banho": "Bathrooms",
+      "city tax": "City Tax",
+      "common area ownership (coop)": "Common Area Ownership (Coop)",
+      "cozinhas": "Kitchens",
+      "dining rooms": "Dining Rooms",
+      "estacionamentos": "Parking Spaces",
+      "furnished": "Furnished",
+      "garagens": "Garages",
+      "kitchens": "Kitchens",
+      "land tax": "Land Tax",
+      "piso": "Floor",
+      "pisos": "Floors",
+      "quartos": "Bedrooms",
+      "salas": "Rooms",
+      "salas de refeição": "Dining Rooms",
+      "support staff accommodations": "Staff Accommodations",
+      "área bruta (cp)": "Gross Area (CP)",
+      "área do terreno": "Land Area",
+      "área útil": "Usable Area"
+    },
+    "status": {
+      "agreed": "Reserved",
+      "closed": "Closed",
+      "recent": "New",
+      "rented": "Rented",
+      "sold": "Sold",
+      "standard": ""
+    },
+    "text": {
+      "less": " show less",
+      "more": "... read more"
+    },
+    "update": {
+      "notice": "Property edited successfully"
+    },
+    "update_all": {
+      "notice": "All properties will be updated within minutes, please wait before trying again"
+    },
+    "update_details": {
+      "notice": "The property will be updated within minutes, please wait before trying again"
+    },
+    "watch_video": "Watch Video 📹"
+  },
+  "i18n": {
+    "plural": {
+      "keys": ["one", "other"]
+    }
+  },
+  "meta": {
+    "home": {
+      "title": "Sofia Galvão Group - Luxury Real Estate",
+      "description": "Discover luxury properties in Portugal with Sofia Galvão Group. Specialized real estate services for discerning clients."
+    },
+    "listings": {
+      "title": "Properties - Sofia Galvão Group",
+      "description": "Explore our exclusive collection of luxury properties in Portugal. Find your dream home with Sofia Galvão Group."
+    },
+    "blog": {
+      "title": "Real Estate Blog - Sofia Galvão Group",
+      "description": "Stay informed with our real estate insights, market trends, and expert advice. Discover valuable information about the Portuguese real estate market.",
+      "post_not_found": "Blog post not found",
+      "date_locale": "en-US",
+      "fetch_error": "Error loading blog post. Please try again."
+    },
+    "about": {
+      "title": "About Us - Sofia Galvão Group",
+      "description": "Learn about Sofia Galvão Group's experience in luxury real estate and our commitment to exceptional service."
+    },
+    "contact": {
+      "title": "Contact Us - Sofia Galvão Group",
+      "description": "Get in touch with Sofia Galvão Group. We're here to help you find your perfect property in Portugal."
+    },
+    "club": {
+      "title": "SGG Club - Sofia Galvão Group",
+      "description": "Discover SGG Club by Sofia Galvão Group - where real estate excellence meets exclusive benefits."
+    },
+    "club_stories": {
+      "title": "Club Stories - Sofia Galvão Group",
+      "description": "Inspiring stories and success cases from SGG Club members."
+    },
+    "club_rules": {
+      "title": "Club Regulations - Sofia Galvão Group",
+      "description": "Rules and guidelines for SGG Club."
+    },
+    "enterprises": {
+      "title": "Developments - Sofia Galvão Group",
+      "description": "The best developments in Portugal to buy with Sofia Galvão Group."
+    },
+    "faq": {
+      "title": "FAQ - Sofia Galvão Group",
+      "description": "Frequently asked questions about real estate and the services provided by Sofia Galvão Group."
+    },
+    "services": {
+      "title": "Services - Sofia Galvão Group",
+      "description": "As professionals in the real estate market, get to know Sofia Galvão Group's services here."
+    },
+    "sell": {
+      "title": "Sell Property - Sofia Galvão Group",
+      "description": "Sell properties in Portugal with real estate consultant Sofia Galvão from Sofia Galvão Group."
+    },
+    "kw": {
+      "title": "KW Portugal Partnership - Sofia Galvão Group",
+      "description": "Sofia Galvão Group in partnership with Kw Portugal."
+    },
+    "privacy": {
+      "title": "Privacy Policy - Sofia Galvão Group",
+      "description": "Privacy policy and data protection information for Sofia Galvão Group website."
+    },
+    "terms": {
+      "title": "Terms & Conditions - Sofia Galvão Group",
+      "description": "Terms and conditions for Sofia Galvão Group services and website usage."
+    },
+    "error": {
+      "title": "Page Not Found - Sofia Galvão Group",
+      "description": "The page you are looking for cannot be found. Return to our homepage to continue exploring luxury properties in Portugal."
+    }
+  },
+  "kw": {
+    "beliefs": {
+      "local": "We believe that property brokerage is a local business driven by property consultants.",
+      "partners": "We believe that our real estate consultants should be treated as business partners.",
+      "people": "We believe that being in business with the right people makes a difference.",
+      "profit": "We believe that making a profit is paramount.",
+      "reputation": "We believe that no transaction can jeopardise our reputation.",
+      "title": "Beliefs"
+    },
+    "first_paragraph": {
+      "bottom": "KW has a total of <span class=\"font-bold text-dark dark:text-light\">23 representations</span> and more than <span class=\"font-bold text-dark dark:text-light\">2,000 consultants and associates</span> in Portugal.",
+      "middle": "Today, around the world more than <span class=\"font-bold text-dark dark:text-light\">165,000 consultants</span> and more than <span class=\"font-bold text-dark dark:text-light\">1,000 Market Centers</span> are KW affiliates.",
+      "top": "KW operates on the principle that if you focus all your resources on building your consultants' businesses, they will, in return, help build a company that exceeds all expectations. With this philosophy in practice, we are transforming the real estate landscape."
+    },
+    "header": "KW Portugal",
+    "meta_description": "Sofia Galvão Group in partnership with Kw Portugal.",
+    "more": "Find out more about KW Portugal",
+    "perspectives": {
+      "agent": "Keller Williams thinks like a success agent, acts like a consultant/trainer providing models/systems, technology, products and services that enhance productivity and profitability.",
+      "brand": "We support the agent to develop their brand and not the opposite.",
+      "consulting": "We are a company built by Consultants, for Consultants.",
+      "growth": "We believe that we will grow as a company the more we are able to promote the growth of the people who work with us.",
+      "learn": "At Keller Williams we believe in learning for results and not in learning for learning's sake.",
+      "people": "What will make Keller Williams better in the long run is the way people think.",
+      "tech": "We are a Technology-driven Consulting and Training company dedicated to the real estate brokerage business.",
+      "title": "Perspectives"
+    },
+    "principle": "Principles - WI4C2TES",
+    "subheader": "A company made up of consultants for consultants!"
+  },
+  "listing_complex": {
+    "create": {
+      "error": "Error: the link must start with 'https://www.kwportugal.pt/'",
+      "notice": "Development added, wait a little and it will appear on the platform"
+    },
+    "update_details": {
+      "notice": "Development will be updated shortly, please wait and check in a few minutes"
+    }
+  },
+  "number": {
+    "currency": {
+      "format": {
+        "delimiter": ",",
+        "format": "%u%n",
+        "negative_format": "-%u%n",
+        "precision": 2,
+        "separator": ".",
+        "significant": false,
+        "strip_insignificant_zeros": false,
+        "unit": "$"
+      }
+    },
+    "format": {
+      "delimiter": ",",
+      "precision": 3,
+      "round_mode": "default",
+      "separator": ".",
+      "significant": false,
+      "strip_insignificant_zeros": false
+    },
+    "human": {
+      "decimal_units": {
+        "format": "%n %u",
+        "units": {
+          "billion": "Billion",
+          "million": "Million",
+          "quadrillion": "Quadrillion",
+          "thousand": "Thousand",
+          "trillion": "Trillion",
+          "unit": ""
+        }
+      },
+      "format": {
+        "delimiter": "",
+        "precision": 3,
+        "significant": true,
+        "strip_insignificant_zeros": true
+      },
+      "storage_units": {
+        "format": "%n %u",
+        "units": {
+          "byte": {
+            "one": "Byte",
+            "other": "Bytes"
+          },
+          "eb": "EB",
+          "gb": "GB",
+          "kb": "KB",
+          "mb": "MB",
+          "pb": "PB",
+          "tb": "TB",
+          "zb": "ZB"
+        }
+      }
+    },
+    "nth": {},
+    "percentage": {
+      "format": {
+        "delimiter": "",
+        "format": "%n%"
+      }
+    },
+    "precision": {
+      "format": {
+        "delimiter": ""
+      }
+    }
+  },
+  "pagination": {
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "privacy": {
+    "header": "Privacy Policy"
+  },
+  "ransack": {
+    "all": "all",
+    "and": "and",
+    "any": "any",
+    "asc": "ascending",
+    "attribute": "attribute",
+    "combinator": "combinator",
+    "condition": "condition",
+    "desc": "descending",
+    "or": "or",
+    "predicate": "predicate",
+    "predicates": {
+      "blank": "is blank",
+      "cont": "contains",
+      "cont_all": "contains all",
+      "cont_any": "contains any",
+      "does_not_match": "doesn't match",
+      "does_not_match_all": "doesn't match all",
+      "does_not_match_any": "doesn't match any",
+      "end": "ends with",
+      "end_all": "ends with all",
+      "end_any": "ends with any",
+      "eq": "equals",
+      "eq_all": "equals all",
+      "eq_any": "equals any",
+      "false": "is false",
+      "gt": "greater than",
+      "gt_all": "greater than all",
+      "gt_any": "greater than any",
+      "gteq": "greater than or equal to",
+      "gteq_all": "greater than or equal to all",
+      "gteq_any": "greater than or equal to any",
+      "in": "in",
+      "in_all": "in all",
+      "in_any": "in any",
+      "lt": "less than",
+      "lt_all": "less than all",
+      "lt_any": "less than any",
+      "lteq": "less than or equal to",
+      "lteq_all": "less than or equal to all",
+      "lteq_any": "less than or equal to any",
+      "matches": "matches",
+      "matches_all": "matches all",
+      "matches_any": "matches any",
+      "not_cont": "doesn't contain",
+      "not_cont_all": "doesn't contain all",
+      "not_cont_any": "doesn't contain any",
+      "not_end": "doesn't end with",
+      "not_end_all": "doesn't end with all",
+      "not_end_any": "doesn't end with any",
+      "not_eq": "not equal to",
+      "not_eq_all": "not equal to all",
+      "not_eq_any": "not equal to any",
+      "not_in": "not in",
+      "not_in_all": "not in all",
+      "not_in_any": "not in any",
+      "not_null": "is not null",
+      "not_start": "doesn't start with",
+      "not_start_all": "doesn't start with all",
+      "not_start_any": "doesn't start with any",
+      "null": "is null",
+      "present": "is present",
+      "start": "starts with",
+      "start_all": "starts with all",
+      "start_any": "starts with any",
+      "true": "is true"
+    },
+    "search": "search",
+    "sort": "sort",
+    "value": "value"
+  },
+  "sell": {
+    "exclusive": "We work on your home with exclusivity and dedication, and we perform close monitoring throughout the entire process.",
+    "header": "Sell",
+    "list": {
+      "agencies": "Sharing the sale with all agencies in the market.",
+      "eval": "Certified evaluation of the property.",
+      "feedback": "Detailed and regular feedback.",
+      "flyer": "Outreach actions: Flyers; brochures; newsletters.",
+      "kw": "Exclusive access to the entire KW PT network.",
+      "market": "Market research - preparation of comparative market analyses and characterisation reports of the area under consideration.",
+      "media": "Multimedia Production: Photo&video coverage.",
+      "open": "Open House.",
+      "portal": "Diffusion on the most important national and international real estate portals.",
+      "promo": "Use of promo boards.",
+      "socials": "Social Media Promotion.",
+      "warranty": "Guaranteed implementation of industry regulated processes and procedures."
+    },
+    "meta_description": "Sell properties in Portugal with real estate consultant Sofia Galvão from Sofia Galvão Group.",
+    "paragraph": {
+      "bottom": "Our aim is to find you the best Client in the shortest amount of time, and for that purpose we offer:",
+      "middle": "We offer a consultancy service tailored to your needs, focusing on promotion strategy, publicity, and the best negotiation.",
+      "top": "We guarantee the best deal for the sale of your home."
+    },
+    "subheader": "Find out how much your home is worth."
+  },
+  "services": {
+    "for_buyers": {
+      "list": {
+        "legal_financial_support": {
+          "description": "We recommend advisory services on financing options and legal assistance, certifying that all legal and bureaucratic issues are handled competently. Our network of trusted partners is readily available to ensure security in all transactions.",
+          "title": "Legal and Financial Assistance"
+        },
+        "market_analysis": {
+          "description": "We carry out detailed market analyses to ensure that our clients make informed purchases at fair prices. We specialise in negotiations and work to ensure that you get the best possible conditions",
+          "title": "Market Analysis and Negotiation"
+        },
+        "personalized_consulting": {
+          "description": "We’ve acknowledged that each buyer is unique. That's why we offer personalised consultancy tailored to your specific objectives. Whether you're looking for your first home, a second home or an investment, we provide the support you need to make informed decisions. From choosing the location to negotiating the price, we're with you every step of the way",
+          "title": "Personalised Consultancy"
+        },
+        "post_purchase_support": {
+          "description": "Our service doesn't end with the purchase. We offer ongoing support after the transaction, helping with the move, setting up the property and any other needs that may arise. We are here to ensure that the transition to your new home is smooth and hassle-free.",
+          "title": "Post-purchase follow-up"
+        },
+        "property_variety": {
+          "description": "Explore a wide range of options, from urban flats to luxury villas, as well as commercial properties and investment opportunities, and find the property that matches your needs and preferences. Our team will help you identify opportunities and seal the best deal.",
+          "title": "Variety of Properties"
+        },
+        "virtual_tours_visits": {
+          "description": "We offer detailed virtual tours and organise face-to-face visits so that you can explore the properties in detail. Our team is always available to answer any questions and provide additional information.",
+          "title": "Virtual Tours and Visits"
+        }
+      },
+      "subtitle": "Personalised Support for Real Estate Purchases",
+      "title": "For Buyers"
+    },
+    "for_sellers": {
+      "list": {
+        "accurate_evaluation": {
+          "description": "We carry out detailed evaluations and develop a personalised sales strategy tailored to the unique characteristics of each property. We use an approach based on market data and comparative analyses to ensure that the value of your property is maximised and can attract buyers.",
+          "title": "Accurate Evaluation and Sales Strategy"
+        },
+        "full_service": {
+          "description": "Selling a property can be a complex process, but at Sofia Galvão Group, we simplify every stage. We offer a complete sales service, from property evaluation and marketing strategy to formalisation of the sale and completion of the deed, ensuring that your property is sold in the simplest, fastest way and at the best price.",
+          "title": "Complete Follow-Up"
+        },
+        "home_staging": {
+          "description": "We offer home staging services to prepare your property for the market. This includes advice on decoration, tidiness and showcasing to maximise the property's visual appeal. Proper preparation can make a significant difference to buyer perception and the final sale price.",
+          "title": "Home Staging and Preparation"
+        },
+        "marketing": {
+          "description": "To promote our clients' properties, we use a comprehensive marketing strategy that includes professional multimedia reporting, virtual tours, digital campaigns on various platforms, social media outreach and proximity marketing (flyers; newsletter; outdoors advertisement plaque). We have a vast network of contacts at both national and international levels, as well as a presence on the world's main real estate portals. This approach aims to increase the visibility of our properties and attract qualified buyers, guaranteeing a quick and efficient sale.",
+          "title": "Effective Property Marketing"
+        },
+        "negotiation_legal_support": {
+          "description": "With an experienced negotiating team, we ensure that each transaction is carried out under the best conditions. In addition, we recommend full legal support to guarantee that all legal aspects are handled with due diligence.",
+          "title": "Negotiation and legal support"
+        },
+        "post_sale_support": {
+          "description": "Our service doesn't end with the sale. We offer ongoing support after the transaction, helping to clarify any doubts or questions that may arise. We are here to ensure that the sale of your home is smooth and hassle-free.",
+          "title": "After-sales follow-up"
+        },
+        "visits_qualification": {
+          "description": "We have a vast network of national and international contacts to ensure that potential buyers get to know their home. We organise visits in such a way that they don't interfere with your routine and we carry out a rigorous qualification service of interested parties to ensure that they meet all the conditions which enable you to get the best deal on the sale of your property.",
+          "title": "Visits and Client Qualification"
+        }
+      },
+      "subtitle": "Complete Sales Service",
+      "title": "For Sellers"
+    },
+    "header": "Services",
+    "list": {
+      "house_lens": {
+        "description": "We carry out professional and detailed evaluations to determine the fair market value of your property. We use a data-driven approach, including analysing market matchings and current trends. This service is essential for owners looking to sell or rent out their property, as well as for buyers looking to ensure they are making the right investment.",
+        "title": "Property evaluations"
+      },
+      "house_trees": {
+        "description": "At Sofia Galvão Group, we offer a full range of real estate consultancy services, including buying, selling and renting properties. Our service begins with a detailed analysis of the market, followed by a personalised strategy for each client. Our team specialises in identifying opportunities in the market and negotiating the best conditions, ensuring that clients get maximum value from every transaction.",
+        "title": "Real Estate Management and Consultancy"
+      }
+    },
+    "meta_description": "As professionals in the real estate market, get to know Sofia Galvão Group's services here.",
+    "tailor_house": {
+      "description": "We offer personalised solutions for all your real estate needs, guaranteeing a premium, high-quality service. From energy certification, architecture, construction, refurbishing, to professional cleaning, efficient moving process, gardening and interior design, we provide a complete and integrated service. We work with trusted partners to ensure that every detail is handled with care and excellence, providing an unrivalled real estate experience.",
+      "subtitle": "Personalised Solutions for Every Real Estate Need",
+      "title": "Tailor House | Home 360º"
+    },
+    "text": {
+      "bottom": "Get to know some of them. <br> If you would like to know more, please",
+      "link": "contact us.",
+      "top": "As professionals in the real estate market, all the services related to real estate mediation and consultancy are within the scope of our activity for your benefit."
+    }
+  },
+  "shareIcons": {
+    "copied": "Link copied to clipboard!",
+    "copy": "Copy Link",
+    "email": "Share by Email",
+    "facebook": "Share on Facebook",
+    "messenger": "Share on Messenger",
+    "telegram": "Share on Telegram",
+    "title": "Share",
+    "twitter": "Share on Twitter",
+    "whatsapp": "Share on WhatsApp"
+  },
+  "support": {
+    "array": {
+      "last_word_connector": ", and ",
+      "two_words_connector": " and ",
+      "words_connector": ", "
+    }
+  },
+  "tasks": {
+    "scrape": {
+      "awaiting": "Updating Results",
+      "see_other": "See more Listings",
+      "unavailable": "is no longer available on our website"
+    }
+  },
+  "terms": {
+    "header": "Terms and Conditions",
+    "sections": {
+      "terms": {
+        "title": "1. Terms",
+        "content": "By accessing the <a class=\"text-beige-default dark:text-beige-medium underline\" href=\"https://sofiagalvaogroup.com/\">Sofia Galvão Group</a> website, you agree to comply with these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law."
+      },
+      "license": {
+        "title": "2. Use License",
+        "content": "Permission is granted to temporarily download one copy of the materials (information or software) on Sofia Galvão Group's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:",
+        "restrictions": [
+          "Modify or copy the materials;",
+          "Use the materials for any commercial purpose, or for any public display (commercial or non-commercial);",
+          "Attempt to decompile or reverse engineer any software contained on Sofia Galvão Group's website;",
+          "Remove any copyright or other proprietary notations from the materials; or",
+          "Transfer the materials to another person or 'mirror' the materials on any other server."
+        ],
+        "termination": "This license shall automatically terminate if you violate any of these restrictions and may be terminated by Sofia Galvão Group at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format."
+      },
+      "disclaimer": {
+        "title": "3. Disclaimer",
+        "points": [
+          "The materials on Sofia Galvão Group's website are provided on an 'as is' basis. Sofia Galvão Group makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.",
+          "Further, Sofia Galvão Group does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site."
+        ]
+      },
+      "limitations": {
+        "title": "4. Limitations",
+        "content": "In no event shall Sofia Galvão Group or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Sofia Galvão Group's website, even if Sofia Galvão Group or a Sofia Galvão Group authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you."
+      },
+      "accuracy": {
+        "title": "5. Accuracy of materials",
+        "content": "The materials appearing on Sofia Galvão Group's website could include technical, typographical, or photographic errors. Sofia Galvão Group does not warrant that any of the materials on its website are accurate, complete or current. Sofia Galvão Group may make changes to the materials contained on its website at any time without notice. However Sofia Galvão Group does not make any commitment to update the materials."
+      },
+      "links": {
+        "title": "6. Links",
+        "content": "Sofia Galvão Group has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Sofia Galvão Group of the site. Use of any such linked website is at the user's own risk."
+      },
+      "modifications": {
+        "title": "Modifications",
+        "content": "Sofia Galvão Group may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service."
+      },
+      "law": {
+        "title": "Governing Law",
+        "content": "These terms and conditions are governed by and construed in accordance with the laws of Sofia Galvão Group and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location."
+      }
+    }
+  },
+  "time": {
+    "am": "am",
+    "formats": {
+      "default": "%a, %d %b %Y %H:%M:%S %z",
+      "long": "%B %d, %Y %H:%M",
+      "short": "%d %b %H:%M",
+      "us": "%m/%d/%Y %I:%M %p"
+    },
+    "pm": "pm"
+  },
+  "listingComplex": {
+    "watchVideo": "Watch Video",
+    "about": "About",
+    "gallery": "Gallery",
+    "features": "Features",
+    "quickInfo": "Quick Info",
+    "priceFrom": "Starting from",
+    "availableUnits": "Available Units",
+    "contactDescription": "Interested in this development? Contact us for more information.",
+    "details": "Details"
+  },
+  "contact": {
+    "title": "Contact Us"
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "loading": "Signing in...",
+      "submit": "Sign In"
+    }
+  },
+  "share": {
+    "title": "Share",
+    "copied": "Link copied to clipboard!",
+    "whatsapp": "Share on WhatsApp",
+    "messenger": "Share on Messenger",
+    "telegram": "Share on Telegram",
+    "facebook": "Share on Facebook",
+    "twitter": "Share on Twitter",
+    "email": "Share via Email",
+    "copy": "Copy Link"
+  },
+  "navbar": {
+    "about": "About Us",
+    "backoffice": "Backoffice",
+    "blog_posts": "Blog",
+    "buy": "Buy",
+    "change_language": "Mudar site para Português",
+    "club": "SGG Club",
+    "club_rules": "Regulation",
+    "club_stories": "SGG Club Stories",
+    "contacts": "Contacts",
+    "dark_mode": "Dark Mode",
+    "enterprises": "Developments",
+    "faq": "FAQ",
+    "flipper": "Features",
+    "light_mode": "Light Mode",
+    "listings": "Listings",
+    "more": "More",
+    "other_language": "Português",
+    "sell": "Sell",
+    "services": "Services",
+    "testimonies": "Testimonies"
+  },
+  "admin": {
+    "dashboard": "Administrative Panel",
+    "nav": {
+      "blog_posts": "Blog Posts",
+      "club_stories": "Club Stories",
+      "listing_complexes": "Developments",
+      "listings": "Properties",
+      "testimonials": "Testimonials",
+      "variables": "Variables"
+    },
+    "common": {
+      "content_section": "Content Information",
+      "delete_photo_confirm": "Are you sure you want to delete this photo?",
+      "delete": "Delete",
+      "dropzone": "Drag and drop files here, or click to select",
+      "edit": "Edit",
+      "loading": "Loading...",
+      "main_photo": "Main Photo",
+      "media_section": "Media & Photos",
+      "new": "New",
+      "readMore": "Read More",
+      "save": "Save",
+      "saving": "Saving...",
+      "seo_section": "SEO Information",
+      "total": "Total",
+      "view": "View"
+    },
+    "blog_posts": {
+      "title": "Blog Posts",
+      "new": "New Post",
+      "edit": "Edit Post",
+      "delete": "Delete Post",
+      "meta_title": "SEO Title",
+      "meta_description": "SEO Description",
+      "title": "Title",
+      "small_description": "Short Description",
+      "content": "Content",
+      "video_link": "Video Link",
+      "hidden": "Hidden from site",
+      "totalCount": "Total {{count}} posts",
+      "not_found": "Post not found",
+      "title": "Title",
+      "small_description": "Short Description",
+      "content": "Content",
+      "video_link": "Video Link",
+      "meta_title": "SEO Title",
+      "meta_description": "SEO Description",
+      "hidden": "Hidden from site",
+      "edit": "Edit Blog Post",
+      "new": "New Blog Post",
+      "create_success": "Blog post created successfully!",
+      "update_success": "Blog post updated successfully!",
+      "create_error": "Error creating blog post. Please try again.",
+      "update_error": "Error updating blog post. Please try again.",
+      "fetch_error": "Error loading blog post. Please try again.",
+      "photo_delete_success": "Photo deleted successfully!",
+      "photo_delete_error": "Error deleting photo. Please try again."
+    },
+    "clubStories": {
+      "title": "Club Stories",
+      "new": "New Story",
+      "edit": "Edit Story",
+      "delete": "Delete Story",
+      "totalCount": "Total {{count}} stories",
+      "noStories": "No stories found",
+      "create_success": "Club story created successfully!",
+      "update_success": "Club story updated successfully!",
+      "create_error": "Error creating club story. Please try again.",
+      "update_error": "Error updating club story. Please try again.",
+      "fetch_error": "Error loading club story. Please try again."
+    },
+    "listings": {
+      "updating": "Updating...",
+      "update_success": "All listings updated successfully!",
+      "update_error": "Error updating listings. Please try again.",
+      "fetch_error": "Error loading listings. Please try again.",
+      "title": "Listings Management",
+      "new": "New Property",
+      "edit": "Edit Property",
+      "delete": "Delete Property",
+      "notFound": "Property not found",
+      "totalCount": "Total {{count}} properties",
+      "itemsRange": "Properties {{from}}-{{to}} of {{total}} total",
+      "updateAll": "Fetch missing properties from KW site",
+      "updating": "Fetching...",
+      "confirmUpdateAll": "Are you sure you want to fetch missing properties?",
+      "noPhoto": "No photo",
+      "view": "View",
+      "fields": {
+        "title": "Title",
+        "description": "Description",
+        "price": "Price",
+        "location": "Location",
+        "propertyType": "Property Type",
+        "status": "Status"
+      },
+      "order": {
+        "normal": "Normal order",
+        "recent": "Most recent",
+        "deleted": "Include deleted",
+        "deletedOnly": "Deleted only"
+      }
+    },
+    "listingComplexes": {
+      "title": "Development Management",
+      "new": "New Development",
+      "edit": "Edit Development",
+      "delete": "Delete Development",
+      "totalCount": "{{count}} developments total",
+      "loading": "Loading developments...",
+      "errorLoading": "Error loading developments",
+      "errorDeleting": "Error deleting development",
+      "confirmDelete": "Are you sure you want to delete this development?",
+      "empty": "No developments found",
+      "previewDescription": "This is how the development will appear to visitors",
+      "details": {
+        "photos": "Photos",
+        "listings": "Properties"
+      }
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "managementTitle": "Testimonials Management",
+      "new": "New Testimonial",
+      "edit": "Edit Testimonial",
+      "delete": "Delete Testimonial",
+      "totalCount": "{{count}} testimonials total",
+      "loading": "Loading testimonials...",
+      "errorLoading": "Error loading testimonials",
+      "errorDeleting": "Error deleting testimonial",
+      "errorSaving": "Error saving testimonial",
+      "create_success": "Testimonial created successfully!",
+      "update_success": "Testimonial updated successfully!",
+      "create_error": "Error creating testimonial. Please try again.",
+      "update_error": "Error updating testimonial. Please try again.",
+      "fetch_error": "Error loading testimonial. Please try again.",
+      "table": {
+        "id": "ID",
+        "name": "Name",
+        "testimonial": "Testimonial",
+        "actions": "Actions"
+      },
+      "form": {
+        "name": "Name",
+        "testimonial": "Testimonial",
+        "update": "Update",
+        "create": "Create",
+        "cancel": "Cancel",
+        "metadata": "Metadata"
+      },
+      "empty": "No testimonials found."
+    },
+    "photos": {
+      "title": "Photos Management",
+      "totalCount": "{{count}} photos total",
+      "loading": "Loading photos...",
+      "errorLoading": "Error loading photos",
+      "errorDeleting": "Error deleting photo",
+      "confirmDelete": "Are you sure you want to delete this photo?",
+      "empty": "No photos found",
+      "order": "Order",
+      "main": "Main",
+      "listingComplexId": "Development ID"
+    },
+    "confirmDelete": "Are you sure you want to delete this item?",
+    "confirmDeletePhoto": "Are you sure you want to delete this photo?",
+    "previewMode": "Preview Mode",
+    "view": "View",
+    "edit": "Edit"
+  },
+  "notifications": {
+    "success": {
+      "title": "Success"
+    },
+    "error": {
+      "title": "Error"
+    },
+    "warning": {
+      "title": "Warning"
+    },
+    "info": {
+      "title": "Information"
+    },
+    "messages": {
+      "contact_sent": "Your message has been sent successfully. We will get back to you soon!",
+      "contact_error": "There was an error sending your message. Please try again.",
+      "newsletter_subscribed": "Successfully subscribed to our newsletter!",
+      "newsletter_error": "There was an error subscribing to the newsletter. Please try again.",
+      "data_load_error": "There was an error loading the data. Please refresh the page.",
+      "network_error": "Network connection error. Please check your internet connection.",
+      "server_error": "Server error. Please try again later."
+    }
+  }
+}

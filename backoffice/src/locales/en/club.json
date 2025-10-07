@@ -1,0 +1,249 @@
+{
+  "flash": {
+    "join": {
+      "thanks": "Thank you for your interest in joining SGG Club. We will contact you soon!"
+    }
+  },
+  "form": {
+    "consent": "By contacting us you're allowing Sofia Galvão Group to store your data for club membership purposes.",
+    "error": "Please fill in all required fields correctly",
+    "error": {
+      "generic": "Please fill in all required fields correctly",
+      "terms_required": "Please accept the SGG Club terms and conditions"
+    },
+    "fields": {
+      "email": "Email",
+      "name": "Name",
+      "phone": "Phone",
+      "send": "Join Club",
+      "terms_link": "SGG Club Regulations",
+      "terms_prefix": "I declare that I have read and accept the terms presented in the"
+    },
+    "titles": {
+      "main": "Fill in the form to refer a member:"
+    }
+  },
+  "home": {
+    "contribute": {
+      "cta": "Start making a difference now.",
+      "description": "By referring someone who wants to buy or sell a home, you’re kickstarting real change. Every closed deal generates a direct contribution to the mission of SGG Club, helping transform houses into dignified homes for those in need.\n",
+      "subtitle": "A simple referral from you can change lives.",
+      "title": "Contribute to the next story",
+      "value_description": "This way, you create value on two fronts: you offer the people you refer top-quality real estate support, while also changing the lives of families who need your help.\n"
+    },
+    "dignity": {
+      "description": "Everyone deserves a place to live with dignity, safety, and comfort. The SGG Club was created with the mission of rebuilding lives by improving the housing conditions of those who need it most.\n",
+      "title": "A decent home shouldn’t be a dream - it should be reality"
+    },
+    "header": "SGG Club",
+    "impact": {
+      "subtitle": "See our impact",
+      "title": "Story of impact generated so far"
+    },
+    "join": {
+      "cta": "Send WhatsApp",
+      "description": "Know someone looking to buy or sell a home? Refer them to us. With this simple gesture, you’re ensuring they get top-notch real estate service, while also helping provide a dignified home to someone who really needs it.\n",
+      "impact": "Your referral can change lives.",
+      "mission": "Together, we will turn houses into homes and rebuild lives",
+      "subtitle": "Become a member of SGG Club today",
+      "title": "Take the first step to change a life",
+      "whatsapp": "Send us a WhatsApp to start contributing."
+    },
+    "know_more": {
+      "cta": "Send WhatsApp",
+      "help_description": "Refer other members so we can make an even bigger impact together!\n",
+      "help_question": "Do you know someone who could contribute to the cause?",
+      "help_title": "Help us to grow!",
+      "rules": "Read the SGG Club Regulation here",
+      "whatsapp": "Send us a WhatsApp to refer members to the club."
+    },
+    "meta_description": "Discover SGG Club by Sofia Galvão Group - where real estate excellence meets exclusive benefits.",
+    "partners": {
+      "conclusion_html": "<strong>Your referral could change a life. Get in touch and be part of this change.</strong>\n",
+      "cta": "Send WhatsApp",
+      "description": "SGG Club’s mission is only possible thanks to the essential collaboration of our members and ambassadors, who bring life to the impact we want to achieve.\n",
+      "dynamic": "Not just through referrals in real estate, but also by identifying people and stories in urgent need of support.\n",
+      "second_title": "Do you know someone we could help?",
+      "situations": "We’re always looking for real-life situations where our support can make a difference.",
+      "someone": "If you know someone going through hardship who could benefit from our help, reach out to us.",
+      "subtitle": "Together, we can create stories that change lives.",
+      "title": "Help us make change happen"
+    },
+    "subtitle": "Buy and sell houses, rebuild lives",
+    "title": "SGG Club"
+  },
+  "mailer": {
+    "new_join_request": {
+      "subject": "Welcome to SGG Club, %{name}!"
+    }
+  },
+  "recent_stories": {
+    "description": "Discover our latest member stories and experiences",
+    "title": "Recent Stories"
+  },
+  "rules": {
+    "clarity": "We believe that only with clarity can we create real, lasting impact.",
+    "content": "<p>SGG Club is an exclusive program designed to provide additional benefits to our clients...</p> <p>Check here for all participation rules and conditions.</p>\n",
+    "header": "SGG Club Regulations",
+    "intro": "The SGG Club’s regulations establish clear rules for how we operate, defining the rights and responsibilities of members, the criteria for supporting families, and the principles that ensure a transparent and accountable use of funds.\n",
+    "introduction": "SGG Club Regulations",
+    "meta_description": "Rules and guidelines for SGG Club.",
+    "read_below": "Below you’ll find the full regulation that guides all our activity.",
+    "sections": {
+      "criteria": {
+        "criteria": {
+          "list": {
+            "1": "Current housing conditions and urgency of the situation;",
+            "2": "The impact the intervention could have on the family's quality of life."
+          },
+          "title": "4.3. Support will be granted based on the following criteria:"
+        },
+        "decisions": "4.4. Support decisions are made by a group of club members, ensuring transparency and fairness in the selection of beneficiaries.",
+        "decisions_html": "4.4. Support decisions are made by a group of club members, ensuring <strong>transparency and fairness</strong> in the selection of beneficiaries.",
+        "families": "4.1. SGG Club support is intended for vulnerable families, elderly people, and individuals experiencing homelessness who need housing improvements.",
+        "families_html": "4.1. SGG Club support is intended for <strong>vulnerable families, elderly people, and individuals experiencing homelessness who</strong> need housing improvements.",
+        "submited_by": {
+          "list": {
+            "1": "The families and individuals themselves;",
+            "2": "Social organisations or partner entities that identify cases of need.",
+            "3": "Members and ambassadors of SGG Club."
+          },
+          "title": "4.2. Applications for support can be submitted by:"
+        },
+        "title": "4. Criteria for Supporting Families"
+      },
+      "events": {
+        "description": "5.1. SGG Club regularly promotes events aimed at:",
+        "incentives": "5.2. All ambassadors are encouraged to participate in events and contribute to expanding the club’s impact.",
+        "list": {
+          "1": "Generating referrals and mobilising resources;",
+          "2": "Raising awareness about the issue of dignified housing;",
+          "3": "Celebrating completed projects and sharing testimonies."
+        },
+        "title": "5. Club Events and Initiatives"
+      },
+      "final": {
+        "1": "7.1. These regulations may be adjusted as needed, with the approval of the club's leadership.",
+        "2": "7.2. All actions by SGG Club must align with its values and mission, always ensuring that the impact on the community is positive and meaningful.",
+        "2_html": "7.2. All actions by SGG Club must align with its values and mission, always ensuring that the impact on the community is <strong>positive and meaningful.</strong>",
+        "second_html": "7.2. All actions by SGG Club must align with its values and mission, always ensuring that the impact on the community is always <strong>positive and meaningful.</strong>",
+        "title": "7. Final Provisions"
+      },
+      "financial_model": {
+        "application": {
+          "intro": "Funds from SGG Club are used for:",
+          "list_html": {
+            "1": "<strong>Home renovations and repairs</strong> for people in need;",
+            "2": "<strong>Purchase of furniture and essential equipment</strong> to improve living conditions;",
+            "3": "<strong>Support to improve necessary conditions</strong> to turn a house into a home;",
+            "4": "<strong>Development of new initiatives and partnerships</strong> to expand the club’s impact."
+          },
+          "title": "3.2. Use of Funds"
+        },
+        "sources": {
+          "description_html": "SGG Club funds its actions through real estate referrals – When a member refers someone looking to buy or sell a home, part of the transaction commission goes toward housing support for people in need.",
+          "intro": "SGG Club funds its actions through:",
+          "title": "3.1. Sources of funding"
+        },
+        "title": "3. Support and Funding Model"
+      },
+      "general": {
+        "definition": "These regulations define the club’s operating rules, the rights and duties of members, and the criteria for supporting beneficiaries.\n",
+        "mission_html": "The mission of SGG Club is to <strong>positively contribute to improving housing conditions for those most in need</strong>, by mobilising resources and people to create dignified homes.\n",
+        "title": "1. General Provisions",
+        "values_html": "The club operates based on the values of <strong>dignity, solidarity, value creation, and sharing</strong>.\n"
+      },
+      "members": {
+        "duties": {
+          "intro": "SGG Club members commit to:",
+          "list": {
+            "1": "Respect the club's values and principles;",
+            "2": "Contribute actively within their means, whether through referrals or volunteering;",
+            "3": "Act with transparency and ethics in all interactions related to the club;",
+            "4": "Identify people or situations that may benefit from the club’s support."
+          },
+          "title": "2.3. Members' Duties"
+        },
+        "members_or_ambassadors": {
+          "ambassadors": {
+            "additional": "Additional responsibilities of Ambassadors:",
+            "choice": {
+              "description": "Ambassadors are chosen directly by those in charge of the SGG Club, based on their involvement and active contribution.\n",
+              "subtitle": "Choosing Ambassadors:"
+            },
+            "description": "Ambassadors are characterised by their active involvement, regular commitment, and initiative in helping grow the club - mainly through the continuous referral of real estate deals and identification of situations that may require the club’s intervention. They are members who consistently propose and develop new ideas and actions, taking greater responsibility in achieving the club’s mission.\n",
+            "list": {
+              "1": "Regular participation in meetings and initiatives;",
+              "2": "Proposing new ideas and actions to enhance the club’s impact;",
+              "3": "Supporting the club’s leaders in promoting its mission and values."
+            },
+            "loss_of_status": {
+              "description": "An ambassador may be reinstated if he or she moves significantly away from the core of the club's involvement, subject to a decision by those responsible.\n",
+              "subtitle": "Loss of Status:"
+            },
+            "title": "Ambassadors"
+          },
+          "members": {
+            "description": "Members are individuals selected to be part of SGG Club, but whose participation is not yet fully active. They are in a pre-membership phase and, once they identify or refer a viable real estate opportunity, they will become ambassadors.\n",
+            "title": "Members"
+          },
+          "title": "2.4. Distinction between Members and Ambassadors"
+        },
+        "rights": {
+          "intro": "SGG Club members have the right to:",
+          "list": {
+            "1": "Take part in initiatives promoted by the club;",
+            "2": "Follow the supported projects and the impact generated;",
+            "3": "Propose new actions and initiatives aligned with the club’s mission;",
+            "4": "Receive regular updates about the club’s activities and development."
+          },
+          "title": "2.2. Members' Rights"
+        },
+        "title": "2. Club Members",
+        "who_can": {
+          "intro": "Anyone can become a member of SGG Club:",
+          "list": {
+            "1": "Individuals who want to support the cause by referring real estate purchase or sale deals;",
+            "2": "Companies and professionals in the real estate, construction or home services sectors who wish to contribute or partner;",
+            "3": "Anyone who identifies with the club’s values and wants to support its mission."
+          },
+          "title": "2.1. Who can be a member"
+        }
+      },
+      "transparency": {
+        "description": "6.1. SGG Club commits to maintaining full transparency in the management of funds and in all actions carried out.",
+        "description_html": "6.1. SGG Club commits to maintaining <strong>full transparency in the management of funds and in all actions carried out.</strong>",
+        "reports": {
+          "description": "6.2. An accountability report will be published regularly, including:",
+          "list": {
+            "1": "Amounts raised through real estate referrals and partnerships;",
+            "2": "Funded projects and the impact generated;",
+            "3": "Progress reports and future planning."
+          }
+        },
+        "title": "6. Transparency and Accountability"
+      }
+    },
+    "title": "SGG Club Regulations",
+    "transparency": "Transparency and commitment are the foundation of our mission."
+  },
+  "rules_description": "Learn about SGG Club terms and conditions.",
+  "sections": {
+    "benefits": "Member Benefits",
+    "partners": "Our Partners"
+  },
+  "stories": {
+    "empty": "New stories coming soon...",
+    "explore_stories": "Explore Our Stories",
+    "header": "Club Stories",
+    "impact_description": "Discover real stories from those directly impacted by the mission of SGG Club. Each story is living proof of how your support can change lives — by providing dignified housing and turning dreams into reality.\n",
+    "intro": "Discover unique experiences from our community",
+    "meta_description": "Inspiring stories and success cases from SGG Club members.",
+    "real_people": "Behind every project, there are real people with inspiring stories",
+    "stories_description": "Discover below emotional and inspiring stories where the support of SGG Club made all the difference.\n",
+    "subheader": "Discover unique experiences and success stories from our members.",
+    "title": "Stories",
+    "transformed_life": "Every Story Is a Life Transformed"
+  },
+  "stories_description": "Inspiring stories and success cases from our members."
+}

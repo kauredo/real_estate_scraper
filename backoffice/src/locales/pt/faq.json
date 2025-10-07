@@ -1,0 +1,133 @@
+{
+  "description": "Respondemos às perguntas mais frequentes sobre o processo de compra e venda de imóveis, incluindo dúvidas sobre financiamento, documentação necessária e etapas do processo. Fornecemos orientação clara e prática para ajudar a esclarecer todas as dúvidas e garantir uma experiência informada e segura.",
+  "header": "FAQ (Perguntas Frequentes)",
+  "reason": {
+    "answers": {
+      "1": {
+        "description": "Anos de atuação no mercado imobiliário, com dezenas de negócios fechados com sucesso.",
+        "title": "Experiência"
+      },
+      "2": {
+        "description": "Acompanhamos cada etapa do processo, garantindo que tudo é feito de forma correta e eficiente.",
+        "title": "Serviço Completo"
+      },
+      "3": {
+        "description": "Os nossos clientes confiam na nossa capacidade de fechar negócios rapidamente, ao melhor preço e da forma correta para todas as partes.",
+        "title": "Resultados Comprovados"
+      },
+      "4": {
+        "description": "Garantimos que todas as questões legais são tratadas de forma segura e precisa.",
+        "title": "Suporte Jurídico"
+      },
+      "5": {
+        "description": "Utilizamos estratégias de marketing que maximizam a exposição do seu imóvel, garantindo que chega aos compradores ou inquilinos certos.",
+        "title": "Marketing Eficaz"
+      }
+    },
+    "title": "Por que razão devo escolher o Sofia Galvão Group?"
+  },
+  "sections": {
+    "1": {
+      "questions": {
+        "1": {
+          "answer": "Vender um imóvel é um processo que exige conhecimento do mercado, estratégias de promoção e atenção a detalhes jurídicos e burocráticos. O Sofia Galvão Group oferece um serviço completo, desde a avaliação precisa do valor do imóvel até à negociação final, assegurando que o cliente obtém o melhor preço e uma venda rápida e tranquila. Com uma vasta experiência e uma rede de contactos sólida, maximizamos as suas oportunidades de sucesso.",
+          "title": "Porquê contratar o Sofia Galvão Group para vender a minha casa?"
+        },
+        "2": {
+          "answer": "O primeiro passo é assegurar que toda a documentação do imóvel está em ordem. Isso inclui documentos como a caderneta predial, a certidão permanente e o certificado energético. O Sofia Galvão Group ajuda-o a garantir que tudo está correto e prepara uma avaliação detalhada para definir o preço de venda adequado.",
+          "title": "Quais são os primeiros passos para vender a minha casa?"
+        },
+        "3": {
+          "answer": "O tempo necessário para vender uma casa depende de vários fatores, como o estado do mercado e o preço do imóvel. No entanto, com uma abordagem personalizada e estratégias de marketing avançadas, muitos imóveis são vendidos num espaço de tempo inferior à média do mercado.",
+          "title": "Quanto tempo demora o processo de venda?"
+        },
+        "4": {
+          "answer": "Combinamos marketing digital, plataformas imobiliárias de referência, home staging, fotografia profissional e visitas virtuais. Estas técnicas maximizam a exposição do seu imóvel aos compradores certos, resultando em mais interesse e, geralmente, em vendas mais rápidas.",
+          "title": "Como é que o Sofia Galvão Group promove o meu imóvel?"
+        },
+        "5": {
+          "answer": "Sim. Além de impostos, como o IMT e o Imposto de Selo, há a considerar os custos da escritura e registo predial. A nossa comissão é competitiva e transparente, e cobre todos os serviços de promoção, acompanhamento e gestão do processo de venda.",
+          "title": "Existem custos associados à venda?"
+        }
+      },
+      "title": "Vender um imóvel"
+    },
+    "2": {
+      "questions": {
+        "1": {
+          "answer": "Comprar uma casa é uma das decisões financeiras mais importantes, e o Sofia Galvão Group assegura que fará a escolha certa. Temos acesso a uma vasta rede de propriedades, incluindo imóveis exclusivos que não estão publicitados nos portais imobiliários. Oferecemos suporte em todas as etapas, desde a pesquisa até à negociação final e à assinatura da escritura.",
+          "title": "Porquê escolher o Sofia Galvão Group para comprar uma casa?"
+        },
+        "2": {
+          "answer": "O primeiro passo é identificar as suas necessidades e definir o budget. Com base nisso, a nossa equipa ajudará a encontrar as propriedades mais adequadas. Uma vez escolhida a casa, orientamos no processo de verificação da documentação e na preparação da proposta.",
+          "title": "Qual é o primeiro passo para comprar uma casa?"
+        },
+        "3": {
+          "answer": "Fazemos uma avaliação detalhada do mercado, comparando imóveis semelhantes na mesma área. Também analisamos as condições do imóvel para garantir que o valor pedido reflete a realidade do mercado.",
+          "title": "Como saber se o preço de um imóvel é justo?"
+        },
+        "4": {
+          "answer": "Além do preço do imóvel, há a considerar custos como o IMT (Imposto Municipal sobre Transmissões Onerosas de Imóveis), Imposto de Selo, escritura e registo. O Sofia Galvão Group ajuda a calcular todos estes valores, de forma a garantir que tem conhecimento de todos os valores envolvidos.",
+          "title": "Quais são os custos envolvidos na compra de uma casa?"
+        },
+        "5": {
+          "answer": "Sim! Temos parcerias com vários bancos e podemos ajudá-lo a encontrar as melhores condições de financiamento para a sua compra.",
+          "title": "Posso obter ajuda com financiamento bancário?"
+        }
+      },
+      "title": "Comprar um imóvel"
+    },
+    "3": {
+      "questions": {
+        "1": {
+          "answer": "Seja inquilino ou senhorio, o Sofia Galvão Group facilita o processo de arrendamento, tornando-o mais seguro e eficiente. Para senhorios, promovemos o imóvel de forma eficaz, ajudando a encontrar o inquilino certo. Para inquilinos, garantimos que o processo de arrendamento é simples e que o imóvel está em conformidade com todas as obrigações legais.",
+          "title": "Porquê escolher o Sofia Galvão Group para arrendar uma casa ou encontrar inquilinos?"
+        },
+        "2": {
+          "answer": "No caso dos inquilinos, são necessários documentos como o comprovativo de rendimentos, o documento de identificação e, em alguns casos, um fiador. No caso dos senhorios, é importante garantir que o imóvel tem a documentação em dia, incluindo o certificado energético e o seguro obrigatório.",
+          "title": "Que documentos são necessários para arrendar um imóvel?"
+        },
+        "3": {
+          "answer": "O valor da renda é definido com base numa avaliação de mercado, considerando a localização do imóvel e comparando-o com outros arrendamentos semelhantes na área. Com base nesta avaliação, ajudamo-lo a definir um valor justo e competitivo.",
+          "title": "Como é definido o valor da renda?"
+        },
+        "4": {
+          "answer": "Nem sempre é necessário, mas em alguns casos o senhorio pode exigir um fiador como garantia adicional. Este requisito varia de contrato para contrato.",
+          "title": "Preciso de um fiador para arrendar uma casa?"
+        },
+        "5": {
+          "answer": "Para o inquilino, os custos incluem, normalmente, o pagamento de dois meses de renda e um mês de caução.",
+          "title": "Quais são os custos associados ao arrendamento?"
+        }
+      },
+      "title": "Arrendar um imóvel"
+    },
+    "4": {
+      "questions": {
+        "1": {
+          "answer": "A exclusividade significa que o Sofia Galvão Group será a única empresa responsável pela promoção do seu imóvel, mas não operamos em exclusivo para fazer a venda. Para encontrar as melhores soluções para os nossos clientes fazemos parcerias com todas as agências imobiliárias com AMI válido e que possam ter um cliente interessado no seu imóvel. Assim, garantimos que o seu imóvel possa ser comprado por qualquer cliente que procure casa diretamente ou que esteja a ser representado por um consultor imobiliário. Contudo, o exclusivo na promoção permite-nos dedicar mais recursos e atenção ao seu imóvel, garantindo um serviço mais eficiente e um acompanhamento personalizado até ao final do processo.",
+          "title": "O que é a exclusividade na mediação imobiliária?"
+        },
+        "2": {
+          "answer": "Sim! A nossa equipa está capacitada para gerir processos simultâneos de venda e compra, garantindo que a transição entre propriedades seja suave e sem complicações. Facilitamos ambos os processos, oferecendo soluções integradas.",
+          "title": "Posso vender e comprar ao mesmo tempo?"
+        },
+        "3": {
+          "answer": "Home staging é a preparação do imóvel para torná-lo mais atrativo para potenciais compradores ou inquilinos. Envolve a organização, a decoração e pequenos pormenores que permitem que o seu imóvel se destaque nas fotos e nas visitas. Com home staging, o seu imóvel destaca-se no mercado, aumenta a atratividade e, geralmente, é vendido ou arrendado mais rapidamente.",
+          "title": "O que é o home staging e por que é importante?"
+        },
+        "4": {
+          "answer": "Os tempos variam de acordo com o tipo de transação e as condições do mercado. No entanto, com a abordagem personalizada do Sofia Galvão Group, muitos dos nossos clientes conseguem fechar negócios em prazos inferiores à média do mercado.",
+          "title": "Quanto tempo demora todo o processo de venda, compra ou arrendamento?"
+        },
+        "5": {
+          "answer": "Sim. A nossa equipa está consigo em todas as etapas, desde a angariação ou procura de imóveis, na negociação de propostas e até à assinatura da escritura ou contrato de arrendamento. Garantimos, desta forma, acompanhamento total desde o primeiro ao último minuto!",
+          "title": "O consultor imobiliário acompanha-me até ao final do processo?"
+        }
+      },
+      "title": "Perguntas Frequentes"
+    }
+  },
+  "subheader": "Guia para Compradores e Vendedores:",
+  "meta_description": "Perguntas frequentes sobre imobiliário e os serviços prestados pelo Sofia Galvão Group."
+}

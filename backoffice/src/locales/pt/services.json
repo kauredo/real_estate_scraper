@@ -1,0 +1,88 @@
+{
+  "for_buyers": {
+    "list": {
+      "legal_financial_support": {
+        "description": "Recomendamos serviços de consultoria sobre opções de financiamento e assistência jurídica, garantindo que todas as questões legais e burocráticas sejam tratadas com competência. A nossa rede de parceiros de confiança está à disposição para proporcionar segurança em todas as transações.",
+        "title": "Assistência Jurídica e Financeira"
+      },
+      "market_analysis": {
+        "description": "Realizamos análises de mercado detalhadas para garantir que os nossos clientes façam compras informadas e a preços justos. Somos especialistas em negociações e trabalhamos para garantir que obtenha as melhores condições possíveis",
+        "title": "Análise de Mercado e Negociação"
+      },
+      "personalized_consulting": {
+        "description": "Entendemos que cada comprador é único. Por isso, oferecemos uma consultoria personalizada, adaptada aos seus objetivos específicos. Se está à procura da sua primeira casa, uma segunda residência ou um investimento, fornecemos o suporte necessário para tomar decisões informadas. Desde a escolha da localização até a negociação do preço, estamos ao seu lado em todas as etapas",
+        "title": "Consultoria Personalizada"
+      },
+      "post_purchase_support": {
+        "description": "O nosso serviço não termina com a compra. Oferecemos suporte contínuo após a transação, ajudando com a mudança, configuração do imóvel e quaisquer outras necessidades que possam surgir. Estamos aqui para garantir que a sua transição para o novo lar seja suave e sem complicações.",
+        "title": "Acompanhamento Pós-Compra"
+      },
+      "property_variety": {
+        "description": "Explore uma vasta gama de opções, desde apartamentos urbanos a moradias de luxo, passando por propriedades comerciais e oportunidades de investimento e encontre o imóvel que corresponde às suas necessidades e preferências. A nossa equipa ajuda a identificar oportunidades e a concretizar o melhor negócio.",
+        "title": "Variedade de Imóveis"
+      },
+      "virtual_tours_visits": {
+        "description": "Oferecemos tours virtuais detalhados e organizamos visitas presenciais para que possa explorar as propriedades de forma detalhada. A nossa equipa está sempre disponível para responder a quaisquer questões e fornecer informações adicionais.",
+        "title": "Tours Virtuais e Visitas"
+      }
+    },
+    "subtitle": "Apoio Personalizado na Compra de Imóveis",
+    "title": "Para Compradores"
+  },
+  "for_sellers": {
+    "list": {
+      "accurate_evaluation": {
+        "description": "Realizamos avaliações detalhadas e desenvolvemos uma estratégia de venda personalizada, ajustada às características únicas de cada imóvel. Utilizamos uma abordagem baseada em dados de mercado e análises comparativas para garantir que o valor do seu imóvel é maximizado e possa atrair compradores.",
+        "title": "Avaliação Precisa e Estratégia de Venda"
+      },
+      "full_service": {
+        "description": "Vender um imóvel pode ser um processo complexo, mas no Sofia Galvão Group, simplificamos cada etapa. Oferecemos um serviço de venda completo, desde a avaliação, estratégia de marketing, formalização da venda até à realização da escritura, garantindo que o seu imóvel seja vendido da forma mais simples, rápida e ao melhor preço.",
+        "title": "Acompanhamento Completo"
+      },
+      "home_staging": {
+        "description": "Oferecemos serviços de home staging para preparar o seu imóvel para o mercado. Isto inclui aconselhamento sobre decoração, organização e apresentação para maximizar o apelo visual do imóvel. A preparação adequada pode fazer uma diferença significativa na percepção do comprador e no preço final de venda.",
+        "title": "Home Staging e Preparação"
+      },
+      "marketing": {
+        "description": "Para promover os imóveis dos nossos clientes, utilizamos uma estratégia de marketing abrangente que inclui reportagem multimédia profissional, tours virtuais, campanhas digitais em diversas plataformas, divulgação nas redes Sociais e marketing de proximidade (flyers; newsletter; placa). Contamos com uma vasta rede de contactos a nível nacional e Internacional bem como presença nos principais portais do setor imobiliário a nível mundial. Esta abordagem visa aumentar a visibilidade dos imóveis e atrair compradores qualificados, garantindo uma venda rápida e eficiente.",
+        "title": "Marketing Imobiliário Eficaz"
+      },
+      "negotiation_legal_support": {
+        "description": "Com uma equipa experiente em negociações, garantimos que cada transação seja realizada nas melhores condições. Além disso, recomendamos suporte jurídico completo para assegurar que todos os aspectos legais sejam tratados com a devida diligência.",
+        "title": "Negociação e Suporte Jurídico"
+      },
+      "post_sale_support": {
+        "description": "O nosso serviço não termina com a venda. Oferecemos suporte contínuo após a transação, ajudando a esclarecer todas as dúvidas ou questões que possam surgir. Estamos aqui para garantir que a venda da sua casa seja suave e sem complicações.",
+        "title": "Acompanhamento Pós-Venda"
+      },
+      "visits_qualification": {
+        "description": "Dispomos de uma vasta rede de contactos nacionais e internacionais para assegurar que os potenciais compradores conheçam a sua casa. Organizamos as visitas de forma a não prejudicarem a sua rotina e realizamos um serviço de qualificação rigorosa de interessados de forma a assegurar que reúnem todas as condições para lhe proporcionar o melhor negócio na venda do seu imóvel.",
+        "title": "Visitas e Qualificação de Clientes"
+      }
+    },
+    "subtitle": "Serviço Completo de Venda",
+    "title": "Para Vendedores"
+  },
+  "header": "Serviços",
+  "list": {
+    "house_lens": {
+      "description": "Realizamos avaliações profissionais e detalhadas para determinar o valor justo de mercado do seu imóvel. Utilizamos uma abordagem baseada em dados, incluindo a análise de comparativos de mercado e tendências atuais. Este serviço é essencial para proprietários que desejam vender ou arrendar seus imóveis, bem como para compradores que procuram garantir que estão a fazer um investimento acertado.",
+      "title": "Avaliação de Imóveis"
+    },
+    "house_trees": {
+      "description": "No Sofia Galvão Group, oferecemos uma gama completa de serviços de consultoria imobiliária, incluindo a compra, venda e arrendamento de imóveis. O nosso serviço começa com uma análise detalhada do mercado, seguida de uma estratégia personalizada para cada cliente. A nossa equipa é especializada em identificar oportunidades no mercado e em negociar as melhores condições, garantindo que os clientes obtenham o máximo valor em cada transação.",
+      "title": "Consultoria Imobiliária"
+    }
+  },
+  "tailor_house": {
+    "description": "Oferecemos soluções personalizadas para todas as suas necessidades imobiliárias, garantindo um serviço premium e de alta qualidade. Desde certificação energética, arquitetura, construção, remodelações, até limpeza profissional, mudanças seguras, jardinagem, e design de interiores, proporcionamos um atendimento completo e integrado. Trabalhamos com parceiros de confiança para assegurar que cada detalhe seja tratado com cuidado e excelência proporcionando uma experiência imobiliária sem igual.",
+    "subtitle": "Soluções Personalizadas para Todas as Necessidades Imobiliárias",
+    "title": "Tailor House | Casa 360º"
+  },
+  "text": {
+    "bottom": "Fique a conhecer alguns deles. <br> Se pretender saber mais, entre em contacto",
+    "link": "connosco.",
+    "top": "Enquanto profissionais do mercado imobiliário, todos os serviços ligados à mediação e consultoria imobiliária estão no âmbito da nossa actividade para seu benefício."
+  },
+  "meta_description": "Como profissionais do mercado imobiliário, conheça aqui os serviços do Sofia Galvão Group."
+}

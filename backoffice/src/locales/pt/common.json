@@ -1,0 +1,20 @@
+{
+  "actions": "Ações",
+  "edit": "Editar",
+  "delete": "Eliminar",
+  "readMore": "Ler Mais",
+  "total": "Total",
+  "loading": "A carregar...",
+  "view": "Ver",
+  "new": "Novo",
+  "back": "Voltar",
+  "save": "Guardar",
+  "saving": "A guardar...",
+  "cancel": "Cancelar",
+  "close": "Fechar",
+  "select": "Selecionar",
+  "status": {
+    "active": "Ativo",
+    "inactive": "Inativo"
+  }
+}

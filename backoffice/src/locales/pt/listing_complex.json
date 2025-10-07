@@ -1,0 +1,11 @@
+{
+  "create": {
+    "error": "Erro: o link deve começar com 'https://www.kwportugal.pt/'",
+    "notice": "Empreendimento adicionado, aguarde um pouco e já vai aparecer na plataforma"
+  },
+  "no_results": "Nenhum empreendimento encontrado",
+  "price_from": "A partir de {{price}}",
+  "update_details": {
+    "notice": "O empreendimento será atualizado em breve, aguarde alguns minutos e verifique novamente"
+  }
+}

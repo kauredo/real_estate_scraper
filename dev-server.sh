@@ -28,10 +28,15 @@ if [ $? != 0 ]; then
     # Configure first window (Rails API Server)
     tmux send-keys -t "${SESSION_NAME}:Rails API" "cd api && bundle exec rails s -b 0.0.0.0" Enter
 
-    # Frontend development server
+    # Frontend development server (Public Site)
     tmux new-window -t $SESSION_NAME -n "Frontend"
     tmux send-keys -t "${SESSION_NAME}:Frontend" "$NVM_SETUP" Enter
     tmux send-keys -t "${SESSION_NAME}:Frontend" "cd frontend && npm run dev" Enter
+
+    # Backoffice development server (Admin CMS)
+    tmux new-window -t $SESSION_NAME -n "Backoffice"
+    tmux send-keys -t "${SESSION_NAME}:Backoffice" "$NVM_SETUP" Enter
+    tmux send-keys -t "${SESSION_NAME}:Backoffice" "cd backoffice && npm run dev" Enter
 
     # Good Job worker for background jobs
     tmux new-window -t $SESSION_NAME -n "Background Jobs"
