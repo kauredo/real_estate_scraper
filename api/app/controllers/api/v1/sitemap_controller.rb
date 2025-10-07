@@ -3,8 +3,6 @@
 module Api
   module V1
     class SitemapController < BaseController
-      skip_before_action :authenticate_request, only: [:index]
-
       def index
         @listings = Listing.all.order(updated_at: :desc)
         @blog_posts = BlogPost.visible.order(updated_at: :desc)
