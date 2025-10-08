@@ -155,7 +155,7 @@ const AdminListingsPage = () => {
       </div>
 
       {/* Header */}
-      <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
+      <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto">
         {t("admin.listings.title")}
       </h2>
       <p className="text-center text-gray-600 max-w-none">
@@ -180,7 +180,11 @@ const AdminListingsPage = () => {
             key={listing.id}
             title={listing.title}
             subtitle={`${listing.address} • €${listing.price}`}
-            image={listing.photos && listing.photos.length > 0 ? listing.photos[0] : undefined}
+            image={
+              listing.photos && listing.photos.length > 0
+                ? listing.photos[0]
+                : undefined
+            }
             status={
               listing.status === "sold"
                 ? { label: listing.status, variant: "error" }

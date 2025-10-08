@@ -54,7 +54,7 @@ const BlogPostsPage = () => {
 
       <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
         <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
-          <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
+          <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto">
             {t("blog_posts.header")}
           </h1>
           <p className="mx-auto text-gray-500 dark:text-light text-lg mt-2">

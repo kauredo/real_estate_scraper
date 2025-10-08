@@ -155,5 +155,59 @@
   "confirmDeletePhoto": "Are you sure you want to delete this photo?",
   "previewMode": "Preview Mode",
   "view": "View",
-  "edit": "Edit"
+  "edit": "Edit",
+  "dashboard": {
+    "welcome": "Welcome to Backoffice",
+    "subtitle": "Manage your content and settings from this central dashboard",
+    "total_listings": "Total Listings",
+    "total_blog_posts": "Total Blog Posts",
+    "total_testimonials": "Total Testimonials",
+    "total_club_members": "Total Club Members",
+    "total_newsletter_subs": "Newsletter Subscribers",
+    "quick_actions": "Quick Actions",
+    "add_listing": "Add Listing by URL",
+    "add_listing_note": "Add properties from colleagues or fetch latest data for existing properties",
+    "add_complex": "Add Development by URL",
+    "add_complex_note": "Add developments from Sofia or colleagues",
+    "invalid_listing_url": "URL must start with https://www.kwportugal.pt/",
+    "invalid_complex_url": "URL must start with https://www.kwportugal.pt/",
+    "listing_added": "Listing added to processing queue. Data will be updated shortly.",
+    "listing_error": "Error adding listing",
+    "complex_added": "Development added to processing queue. Data will be updated shortly.",
+    "complex_error": "Error adding development"
+  },
+  "variables": {
+    "title": "System Variables",
+    "name": "Name",
+    "value": "Value",
+    "icon": "Icon",
+    "note": "Copy icons from",
+    "create_new": "Create New Variable",
+    "name_placeholder": "variable",
+    "value_placeholder": "value",
+    "icon_placeholder": "icon",
+    "empty": "No variables found"
+  },
+  "newsletter": {
+    "title": "Newsletter Subscriptions",
+    "name": "Name",
+    "email": "Email",
+    "subscribed_at": "Subscribed At",
+    "export_csv": "Export CSV",
+    "empty": "No subscriptions found"
+  },
+  "club_users": {
+    "title": "SGG Club Members",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "status": "Status",
+    "joined_at": "Joined At",
+    "all_statuses": "All Statuses",
+    "approved": "Approved",
+    "pending": "Pending",
+    "export_csv": "Export CSV",
+    "exporting": "Exporting...",
+    "empty": "No members found"
+  }
 }

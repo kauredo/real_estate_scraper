@@ -63,7 +63,7 @@ const AdminListingComplexesPage = () => {
         </Link>
       </div>
 
-      <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
+      <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto">
         Empreendimentos
       </h2>
       <p className="text-center text-gray-600 max-w-none">

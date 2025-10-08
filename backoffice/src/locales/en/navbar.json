@@ -1,12 +1,14 @@
 {
   "about": "About Us",
-  "backoffice": "Backoffice",
+  "backoffice": "Dashboard",
+  "backoffice_title": "Backoffice",
   "blog_posts": "Blog",
   "buy": "Buy",
   "change_language": "Mudar site para Português",
   "club": "SGG Club",
   "club_rules": "Regulation",
   "club_stories": "SGG Club Stories",
+  "club_users": "Club Members",
   "contacts": "Contacts",
   "dark_mode": "Dark Mode",
   "enterprises": "Developments",
@@ -14,12 +16,15 @@
   "flipper": "Features",
   "light_mode": "Light Mode",
   "listings": "Listings",
+  "logout": "Logout",
   "more": "More",
+  "newsletter": "Newsletter",
   "other_language": "Português",
   "sell": "Sell",
   "services": "Services",
   "super_admin": "Super Admin",
   "super_admin_admins": "Admins",
   "super_admin_tenants": "Tenants",
-  "testimonies": "Testimonies"
+  "testimonies": "Testimonies",
+  "variables": "Variables"
 }

@@ -1,12 +1,14 @@
 {
   "about": "Sobre Nós",
-  "backoffice": "Backoffice",
+  "backoffice": "Dashboard",
+  "backoffice_title": "Backoffice",
   "blog_posts": "Blog",
   "buy": "Comprar",
   "change_language": "Change site to English",
   "club": "Clube SGG",
   "club_rules": "Regulamento",
   "club_stories": "Histórias",
+  "club_users": "Membros do Clube",
   "contacts": "Contactos",
   "dark_mode": "Modo Escuro",
   "enterprises": "Empreendimentos",
@@ -14,12 +16,15 @@
   "flipper": "Features",
   "light_mode": "Modo Claro",
   "listings": "Imóveis",
+  "logout": "Sair",
   "more": "Saber mais",
+  "newsletter": "Newsletter",
   "other_language": "English",
   "sell": "Vender",
   "services": "Serviços",
   "super_admin": "Super Admin",
   "super_admin_admins": "Administradores",
   "super_admin_tenants": "Tenants",
-  "testimonies": "Testemunhos"
+  "testimonies": "Testemunhos",
+  "variables": "Variáveis"
 }

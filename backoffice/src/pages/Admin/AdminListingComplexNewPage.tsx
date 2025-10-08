@@ -54,7 +54,7 @@ const AdminListingComplexNewPage = () => {
           </button>
         </div>
 
-        <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mb-6">
+        <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto mb-6">
           {t("admin.listingComplexes.new")}
         </h1>
 

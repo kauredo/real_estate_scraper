@@ -45,6 +45,15 @@ import AdminTestimonialNewPage from "./pages/Admin/AdminTestimonialNewPage";
 import AdminTestimonialEditPage from "./pages/Admin/AdminTestimonialEditPage";
 import AdminTestimonialDetailPage from "./pages/Admin/AdminTestimonialDetailPage";
 
+// Variables
+import AdminVariablesPage from "./pages/Admin/AdminVariablesPage";
+
+// Newsletter
+import AdminNewsletterSubscriptionsPage from "./pages/Admin/AdminNewsletterSubscriptionsPage";
+
+// Club Users
+import AdminClubUsersPage from "./pages/Admin/AdminClubUsersPage";
+
 // Super Admin
 import SuperAdminAdminsPage from "./pages/Admin/SuperAdmin/SuperAdminAdminsPage";
 import SuperAdminTenantsPage from "./pages/Admin/SuperAdmin/SuperAdminTenantsPage";
@@ -167,6 +176,18 @@ function AppContent() {
                   path="/testimonials/:id"
                   element={<AdminTestimonialDetailPage />}
                 />
+
+                {/* Variables */}
+                <Route path="/variables" element={<AdminVariablesPage />} />
+
+                {/* Newsletter */}
+                <Route
+                  path="/newsletter"
+                  element={<AdminNewsletterSubscriptionsPage />}
+                />
+
+                {/* Club Users */}
+                <Route path="/club_users" element={<AdminClubUsersPage />} />
 
                 {/* Super Admin Routes */}
                 <Route

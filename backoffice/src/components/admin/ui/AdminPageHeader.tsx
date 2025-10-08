@@ -35,11 +35,11 @@ const AdminPageHeader: React.FC<AdminPageHeaderProps> = ({
 
       {/* Title and Count */}
       <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mx-auto">
           {title}
         </h1>
         {count !== undefined && countLabel && (
-          <p className="mt-2 text-gray-600 dark:text-gray-400">
+          <p className="mt-2 text-gray-600 dark:text-gray-400 mx-auto">
             {countLabel.replace("{count}", count.toString())}
           </p>
         )}

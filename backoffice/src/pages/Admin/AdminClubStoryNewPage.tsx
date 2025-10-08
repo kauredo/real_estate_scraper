@@ -87,7 +87,7 @@ const AdminClubStoryNewPage = () => {
         />
       )}
 
-      <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl">
+      <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto">
         {t("club.stories.new")}
       </h2>
       <form onSubmit={handleSubmit} className="my-6">

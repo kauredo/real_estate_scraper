@@ -185,6 +185,12 @@ const baseAppRoutes = {
       `/testimonials/${id}/edit`,
     showTestimonial: (id: string | number): string => `/testimonials/${id}`,
 
+    // Newsletter
+    newsletter: "/newsletter",
+
+    // Club Users
+    clubUsers: "/club_users",
+
     // Super Admin
     superAdmin: {
       admins: "/super_admin/admins",
@@ -440,6 +446,12 @@ export const Routes = createLocalizedRoutes({
   new_backoffice_testimonial_path: appRoutes.backoffice.newTestimonial,
   edit_backoffice_testimonial_path: appRoutes.backoffice.editTestimonial,
   backoffice_testimonial_path: appRoutes.backoffice.showTestimonial,
+
+  // Newsletter
+  backoffice_newsletter_path: appRoutes.backoffice.newsletter,
+
+  // Club Users
+  backoffice_club_users_path: appRoutes.backoffice.clubUsers,
 
   // Super Admin
   backoffice_super_admin_admins_path: appRoutes.backoffice.superAdmin.admins,

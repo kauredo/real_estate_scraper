@@ -155,5 +155,59 @@
   "confirmDeletePhoto": "Tem certeza que deseja apagar esta foto?",
   "previewMode": "Modo de Pré-visualização",
   "view": "Ver",
-  "edit": "Editar"
+  "edit": "Editar",
+  "dashboard": {
+    "welcome": "Bem-vindo ao Backoffice",
+    "subtitle": "Gira o teu conteúdo e configurações a partir deste painel central",
+    "total_listings": "Total de Imóveis",
+    "total_blog_posts": "Total de Posts",
+    "total_testimonials": "Total de Testemunhos",
+    "total_club_members": "Total de Membros",
+    "total_newsletter_subs": "Subscritores Newsletter",
+    "quick_actions": "Ações Rápidas",
+    "add_listing": "Adicionar Imóvel por URL",
+    "add_listing_note": "Adicionar imóveis de colegas ou ir buscar a informação mais recente de qualquer imóvel já na plataforma",
+    "add_complex": "Adicionar Empreendimento por URL",
+    "add_complex_note": "Adicionar empreendimentos da Sofia ou de colegas",
+    "invalid_listing_url": "A URL deve começar com https://www.kwportugal.pt/",
+    "invalid_complex_url": "A URL deve começar com https://www.kwportugal.pt/",
+    "listing_added": "Imóvel adicionado à fila de processamento. Os dados serão atualizados em breve.",
+    "listing_error": "Erro ao adicionar imóvel",
+    "complex_added": "Empreendimento adicionado à fila de processamento. Os dados serão atualizados em breve.",
+    "complex_error": "Erro ao adicionar empreendimento"
+  },
+  "variables": {
+    "title": "Variáveis do Sistema",
+    "name": "Nome",
+    "value": "Valor",
+    "icon": "Ícone",
+    "note": "Copiar ícones do",
+    "create_new": "Criar Nova Variável",
+    "name_placeholder": "variável",
+    "value_placeholder": "valor",
+    "icon_placeholder": "ícone",
+    "empty": "Nenhuma variável encontrada"
+  },
+  "newsletter": {
+    "title": "Subscrições Newsletter",
+    "name": "Nome",
+    "email": "Email",
+    "subscribed_at": "Subscrito Em",
+    "export_csv": "Exportar CSV",
+    "empty": "Nenhuma subscrição encontrada"
+  },
+  "club_users": {
+    "title": "Membros do Clube SGG",
+    "name": "Nome",
+    "email": "Email",
+    "phone": "Telefone",
+    "status": "Estado",
+    "joined_at": "Aderiu Em",
+    "all_statuses": "Todos os Estados",
+    "approved": "Aprovado",
+    "pending": "Pendente",
+    "export_csv": "Exportar CSV",
+    "exporting": "A exportar...",
+    "empty": "Nenhum membro encontrado"
+  }
 }

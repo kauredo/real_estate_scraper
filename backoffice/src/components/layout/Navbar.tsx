@@ -46,6 +46,18 @@ export default function Navbar(props: Props) {
       routeName: "backoffice_club_stories_path",
       title: t("navbar.club_stories"),
     },
+    {
+      routeName: "backoffice_club_users_path",
+      title: t("navbar.club_users"),
+    },
+    {
+      routeName: "backoffice_newsletter_path",
+      title: t("navbar.newsletter"),
+    },
+    {
+      routeName: "backoffice_variables_path",
+      title: t("navbar.variables"),
+    },
   ];
 
   // Add super admin menu items if user is super admin
