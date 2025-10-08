@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { i18n as I18nType } from "i18next";
-import { translateRoute } from "./routes";
 
 export function truncateText(title: string, length: number): string {
   if (title && title.length > length) {
@@ -22,21 +21,7 @@ export const changeLocale = (i18n: I18nType) => {
   const newLanguage = i18n.language === "pt" ? "en" : "pt";
   localStorage.setItem("language", newLanguage);
   i18n.changeLanguage(newLanguage);
-
-  const currentPath = window.location.pathname;
-  const searchParams = window.location.search;
-
-  // Remove language prefix if it exists
-  const pathWithoutLang = currentPath.replace(/^\/(en|pt)\//, "/");
-  const segments = pathWithoutLang.split("/").filter(Boolean);
-
-  // Translate the path segments
-  const translatedSegments = segments.map((segment) =>
-    translateRoute(segment, newLanguage === "en"),
-  );
-
-  const newPath = `/${translatedSegments.join("/")}`;
-  return newLanguage === "pt" ? newPath : `/en${newPath}${searchParams}`;
+  // For backoffice, we don't need SEO-friendly URLs, just switch language in place
 };
 
 export const navbarItemClass = (

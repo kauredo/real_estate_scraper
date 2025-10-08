@@ -157,13 +157,6 @@ const AdminBackofficePage = () => {
       link: "/backoffice/club_users",
       color: "bg-purple-500",
     },
-    {
-      title: t("admin.dashboard.total_newsletter_subs"),
-      count: stats.newsletterSubs,
-      icon: "fas fa-envelope",
-      link: "/backoffice/newsletter",
-      color: "bg-pink-500",
-    },
   ];
 
   return (
@@ -179,7 +172,7 @@ const AdminBackofficePage = () => {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {statCards.map((card) => (
           <Link
             key={card.title}

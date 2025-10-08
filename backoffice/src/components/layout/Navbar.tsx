@@ -35,8 +35,7 @@ export default function Navbar(props: Props) {
       {
         title: t("navbar.other_language"),
         onClick: () => {
-          const newUrl = changeLocale(i18n);
-          window.location.href = newUrl;
+          changeLocale(i18n);
         },
         img: (
           <img
