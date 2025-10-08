@@ -14,15 +14,13 @@ export default function AppLayout({ children }: AppLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 overflow-hidden">
       <Navbar onToggleSidebar={toggleSidebar} />
       <Sidebar isOpen={sidebarOpen} onToggle={toggleSidebar} />
 
       {/* Main content area with left margin for sidebar on desktop */}
       <main className="lg:ml-64 pt-16">
-        <div className="container mx-auto px-4 py-6">
-          {children}
-        </div>
+        <div className="container mx-auto px-4 py-6">{children}</div>
       </main>
     </div>
   );

@@ -41,7 +41,7 @@ const AdminTable: React.FC<AdminTableProps> = ({
               className={
                 index % 2 === 0
                   ? "bg-white dark:bg-gray-800"
-                  : "bg-gray-50 dark:bg-gray-750"
+                  : "bg-gray-50 dark:bg-gray-900"
               }
             >
               {columns.map((column) => (

@@ -45,7 +45,7 @@ export const navbarItemClass = (
   children: string[] = [],
 ): string => {
   const base =
-    "whitespace-nowrap hover:bg-primary-600 dark:hover:bg-primary-700 hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase ";
+    "whitespace-nowrap hover:bg-primary-600 dark:hover:bg-primary-700 hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase items-center flex justify-end ";
   const mobile = "block text-base relative z-3 ";
   const desktop = " ";
   const inactive = "text-dark dark:text-light";

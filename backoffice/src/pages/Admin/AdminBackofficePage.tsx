@@ -54,8 +54,7 @@ const AdminBackofficePage = () => {
           blogPosts: blogPosts.data.pagination?.total_count || 0,
           testimonials: testimonials.data.pagination?.total_count || 0,
           clubUsers: clubUsers.data.club_users?.length || 0,
-          newsletterSubs:
-            newsletter.data.newsletter_subscriptions?.length || 0,
+          newsletterSubs: newsletter.data.newsletter_subscriptions?.length || 0,
         });
       } catch (error) {
         console.error("Error fetching stats:", error);
@@ -133,35 +132,35 @@ const AdminBackofficePage = () => {
     {
       title: t("admin.dashboard.total_listings"),
       count: stats.listings,
-      icon: "🏠",
+      icon: "fas fa-building",
       link: appRoutes.backoffice.listings,
       color: "bg-blue-500",
     },
     {
       title: t("admin.dashboard.total_blog_posts"),
       count: stats.blogPosts,
-      icon: "📝",
+      icon: "fas fa-newspaper",
       link: appRoutes.backoffice.blogPosts,
       color: "bg-green-500",
     },
     {
       title: t("admin.dashboard.total_testimonials"),
       count: stats.testimonials,
-      icon: "⭐",
+      icon: "fas fa-quote-left",
       link: appRoutes.backoffice.testimonials,
       color: "bg-yellow-500",
     },
     {
       title: t("admin.dashboard.total_club_members"),
       count: stats.clubUsers,
-      icon: "👥",
+      icon: "fas fa-users",
       link: "/backoffice/club_users",
       color: "bg-purple-500",
     },
     {
       title: t("admin.dashboard.total_newsletter_subs"),
       count: stats.newsletterSubs,
-      icon: "📧",
+      icon: "fas fa-envelope",
       link: "/backoffice/newsletter",
       color: "bg-pink-500",
     },
@@ -196,8 +195,10 @@ const AdminBackofficePage = () => {
                   {card.count}
                 </p>
               </div>
-              <div className={`text-4xl ${card.color} bg-opacity-20 p-3 rounded-lg`}>
-                {card.icon}
+              <div
+                className={`${card.color} bg-opacity-20 p-4 rounded-lg w-14 h-14 flex items-center justify-center`}
+              >
+                <i className={`${card.icon} text-3xl text-white`} />
               </div>
             </div>
           </Link>
@@ -238,7 +239,10 @@ const AdminBackofficePage = () => {
             <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
               {t("admin.dashboard.add_listing_note")}
             </p>
-            <form onSubmit={handleListingSubmit} className="flex gap-3">
+            <form
+              onSubmit={handleListingSubmit}
+              className="flex gap-3 flex-wrap"
+            >
               <input
                 type="text"
                 value={listingUrl}
@@ -264,7 +268,10 @@ const AdminBackofficePage = () => {
             <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
               {t("admin.dashboard.add_complex_note")}
             </p>
-            <form onSubmit={handleComplexSubmit} className="flex gap-3">
+            <form
+              onSubmit={handleComplexSubmit}
+              className="flex gap-3 flex-wrap"
+            >
               <input
                 type="text"
                 value={complexUrl}

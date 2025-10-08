@@ -20,7 +20,6 @@ export default function Navbar(props: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-
   const otherImg = i18n.language === "pt" ? "uk" : "pt";
   const img = i18n.language === "pt" ? "pt" : "uk";
 
@@ -42,7 +41,7 @@ export default function Navbar(props: Props) {
         img: (
           <img
             loading="lazy"
-            className="h-5 inline-block mb-[2px] pl-1"
+            className="h-5 inline-block pl-3"
             src={`https://hatscripts.github.io/circle-flags/flags/${otherImg}.svg`}
             style={{ maxWidth: "none" }}
           />
@@ -56,7 +55,7 @@ export default function Navbar(props: Props) {
     img: (
       <img
         loading="lazy"
-        className="h-5 inline-block mb-[3px] pl-1"
+        className="h-5 inline-block pl-1"
         src={`https://hatscripts.github.io/circle-flags/flags/${img}.svg`}
         style={{ maxWidth: "none" }}
       />
@@ -125,7 +124,7 @@ export default function Navbar(props: Props) {
             </div>
           </div>
 
-          <div className="-mr-2 flex justify-end tablet:hidden">
+          <div className="flex justify-end tablet:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
