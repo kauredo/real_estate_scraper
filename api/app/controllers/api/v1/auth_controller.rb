@@ -12,7 +12,8 @@ module Api
           token = JsonWebToken.encode(
             admin_id: admin.id,
             email: admin.email,
-            tenant_id: admin.tenant_id
+            tenant_id: admin.tenant_id,
+            super_admin: admin.super_admin?
           )
           time = Time.zone.now + 24.hours.to_i
 

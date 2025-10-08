@@ -8,6 +8,7 @@ import NavbarItem from "../shared/NavbarItem";
 import DropdownLink from "../shared/DropdownLink";
 import Routes from "../../utils/routes";
 import { useAuth } from "../../context/AuthContext";
+import TenantSelector from "./TenantSelector";
 
 interface Props {
   onToggleSidebar?: () => void;
@@ -98,6 +99,9 @@ export default function Navbar(props: Props) {
                 </h1>
               </a>
             </div>
+
+            {/* Tenant Selector for Super Admins */}
+            <TenantSelector />
           </div>
 
           <div className="flex items-center">

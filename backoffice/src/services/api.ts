@@ -21,13 +21,26 @@ export const setNotificationContext = (context: typeof notificationContext) => {
   notificationContext = context;
 };
 
-// Request interceptor for adding auth token
+// Store selected tenant ID for super admin filtering
+let selectedTenantId: number | null = null;
+
+export const setSelectedTenantId = (tenantId: number | null) => {
+  selectedTenantId = tenantId;
+};
+
+// Request interceptor for adding auth token and tenant filter
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
+
+    // Add tenant filter header for super admins
+    if (selectedTenantId !== null) {
+      config.headers["X-Tenant-Filter"] = selectedTenantId.toString();
+    }
+
     return config;
   },
   (error) => Promise.reject(error),
@@ -139,8 +152,7 @@ export const getCurrentUser = () => {
     return {
       id: payload.admin_id || payload.user_id,
       email: payload.email,
-      isSuperAdmin:
-        payload.tenant_id === null || payload.tenant_id === undefined,
+      isSuperAdmin: payload.super_admin === true,
       tenantId: payload.tenant_id,
       isAuthenticated: true,
     };
@@ -152,6 +164,10 @@ export const getCurrentUser = () => {
 
 export const getCurrentTenant = async () => {
   return api.get(apiRoutes.currentTenant);
+};
+
+export const getTenants = async () => {
+  return api.get(apiRoutes.tenants);
 };
 
 // API Documentation

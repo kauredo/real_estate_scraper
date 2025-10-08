@@ -22,9 +22,13 @@ module Api
 
         @current_admin = Admin.find(decoded[:admin_id])
 
-        # Set Current.tenant from admin's tenant if not already set by API key
-        # This allows JWT-based authentication (backoffice) to work alongside API key authentication (public frontend)
-        if Current.tenant.nil? && @current_admin.tenant_id.present?
+        # Handle super admin tenant filtering via X-Tenant-Filter header
+        if @current_admin.super_admin? && request.headers['X-Tenant-Filter'].present?
+          tenant_filter_id = request.headers['X-Tenant-Filter'].to_i
+          Current.tenant = Tenant.find(tenant_filter_id)
+        elsif Current.tenant.nil? && @current_admin.tenant_id.present?
+          # Set Current.tenant from admin's tenant if not already set by API key
+          # This allows JWT-based authentication (backoffice) to work alongside API key authentication (public frontend)
           Current.tenant = Tenant.find(@current_admin.tenant_id)
         end
 

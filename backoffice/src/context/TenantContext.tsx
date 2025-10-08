@@ -5,7 +5,11 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import { getCurrentTenant } from "../services/api";
+import {
+  getCurrentTenant,
+  getTenants,
+  setSelectedTenantId as setApiTenantId,
+} from "../services/api";
 import { useAuth } from "./AuthContext";
 
 interface TenantFeatures {
@@ -24,19 +28,60 @@ interface CurrentTenant {
   features: TenantFeatures;
 }
 
+interface TenantOption {
+  id: number;
+  name: string;
+  slug: string;
+  domain: string;
+}
+
 interface TenantContextType {
   tenant: CurrentTenant | null;
   features: TenantFeatures | null;
   isLoading: boolean;
   refreshTenant: () => Promise<void>;
+  // Super admin tenant filtering
+  availableTenants: TenantOption[];
+  selectedTenantId: number | null; // null means "All Tenants"
+  setSelectedTenantId: (tenantId: number | null) => void;
+  isSuperAdmin: boolean;
 }
 
 const TenantContext = createContext<TenantContextType | null>(null);
 
 export const TenantProvider = ({ children }: { children: ReactNode }) => {
-  const { isAuthenticated, isLoading: authLoading } = useAuth();
+  const { isAuthenticated, isLoading: authLoading, currentAdmin } = useAuth();
   const [tenant, setTenant] = useState<CurrentTenant | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [availableTenants, setAvailableTenants] = useState<TenantOption[]>([]);
+
+  // Load selected tenant from localStorage on mount
+  const [selectedTenantId, setSelectedTenantId] = useState<number | null>(() => {
+    const stored = localStorage.getItem("selectedTenantId");
+    return stored ? parseInt(stored) : null;
+  });
+
+  const isSuperAdmin = currentAdmin?.isSuperAdmin === true;
+
+  // Sync selected tenant ID with API and localStorage
+  const handleSetSelectedTenantId = (tenantId: number | null) => {
+    setSelectedTenantId(tenantId);
+    setApiTenantId(tenantId);
+
+    // Persist to localStorage
+    if (tenantId === null) {
+      localStorage.removeItem("selectedTenantId");
+    } else {
+      localStorage.setItem("selectedTenantId", tenantId.toString());
+    }
+  };
+
+  // Set API tenant ID on mount if exists
+  useEffect(() => {
+    if (selectedTenantId !== null) {
+      setApiTenantId(selectedTenantId);
+    }
+  }, []);
 
   const fetchTenant = async () => {
     if (!isAuthenticated) {
@@ -49,6 +94,16 @@ export const TenantProvider = ({ children }: { children: ReactNode }) => {
       setIsLoading(true);
       const response = await getCurrentTenant();
       setTenant(response.data.tenant);
+
+      // If super admin, fetch all tenants for filtering
+      if (isSuperAdmin) {
+        try {
+          const tenantsResponse = await getTenants();
+          setAvailableTenants(tenantsResponse.data.tenants);
+        } catch (error) {
+          console.error("Failed to fetch tenants:", error);
+        }
+      }
     } catch (error) {
       console.error("Failed to fetch tenant:", error);
       setTenant(null);
@@ -70,6 +125,10 @@ export const TenantProvider = ({ children }: { children: ReactNode }) => {
         features: tenant?.features || null,
         isLoading,
         refreshTenant: fetchTenant,
+        availableTenants,
+        selectedTenantId,
+        setSelectedTenantId: handleSetSelectedTenantId,
+        isSuperAdmin,
       }}
     >
       {children}

@@ -212,5 +212,8 @@
     "exporting": "A exportar...",
     "empty": "Nenhum membro encontrado",
     "totalCount": "{{count}} membros no total"
+  },
+  "tenant_selector": {
+    "all_tenants": "Todos os Tenants"
   }
 }

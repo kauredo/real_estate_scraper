@@ -4,6 +4,22 @@ module Api
   module V1
     class TenantsController < Api::V1::BaseController
       before_action :authenticate_admin!
+      before_action :require_super_admin!, only: [:index]
+
+      # GET /api/v1/tenants
+      def index
+        tenants = Tenant.all.order(:name)
+        render json: {
+          tenants: tenants.map do |tenant|
+            {
+              id: tenant.id,
+              name: tenant.name,
+              slug: tenant.slug,
+              domain: tenant.domain
+            }
+          end
+        }, status: :ok
+      end
 
       # GET /api/v1/tenant/current
       def current
@@ -41,6 +57,14 @@ module Api
           }, status: :ok
         else
           render json: { error: 'No tenant found' }, status: :not_found
+        end
+      end
+
+      private
+
+      def require_super_admin!
+        unless current_admin.super_admin?
+          render json: { error: 'Unauthorized - super admin required' }, status: :forbidden
         end
       end
     end

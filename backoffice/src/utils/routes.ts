@@ -228,6 +228,7 @@ const baseApiRoutes = {
   auth: `${API_BASE_URL}/auth/login`,
 
   // Tenant
+  tenants: `${API_BASE_URL}/tenants`,
   currentTenant: `${API_BASE_URL}/tenant/current`,
 
   // Documentation
