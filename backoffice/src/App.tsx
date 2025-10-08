@@ -7,7 +7,7 @@ import {
 } from "./context/NotificationContext";
 import { setNotificationContext } from "./services/api";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Navbar from "./components/layout/Navbar";
+import AppLayout from "./components/layout/AppLayout";
 import NotificationToastContainer from "./components/shared/NotificationToast";
 import LoginPage from "./pages/Auth/LoginPage";
 
@@ -80,7 +80,6 @@ function AppContent() {
   return (
     <>
       <ScrollToTop />
-      <Navbar backoffice={true} />
       <NotificationToastContainer />
 
       <Routes>
@@ -92,7 +91,8 @@ function AppContent() {
           path="/*"
           element={
             <ProtectedRoute>
-              <Routes>
+              <AppLayout>
+                <Routes>
                 <Route path="/" element={<AdminBackofficePage />} />
                 <Route path="/dashboard" element={<AdminDashboard />} />
 
@@ -206,7 +206,8 @@ function AppContent() {
                     </SuperAdminRoute>
                   }
                 />
-              </Routes>
+                </Routes>
+              </AppLayout>
             </ProtectedRoute>
           }
         />

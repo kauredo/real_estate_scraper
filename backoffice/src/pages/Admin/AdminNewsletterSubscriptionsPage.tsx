@@ -95,7 +95,7 @@ const AdminNewsletterSubscriptionsPage = () => {
       <AdminPageHeader
         title={t("admin.newsletter.title")}
         count={subscriptions.length}
-        countLabel={t("common.total")}
+        countLabel={t("admin.newsletter.totalCount", { count: subscriptions.length })}
       >
         <button
           onClick={handleExportCSV}

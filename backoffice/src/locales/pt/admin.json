@@ -158,7 +158,7 @@
   "edit": "Editar",
   "dashboard": {
     "welcome": "Bem-vindo ao Backoffice",
-    "subtitle": "Gira o teu conteúdo e configurações a partir deste painel central",
+    "subtitle": "Gira o seu conteúdo e configurações a partir deste painel central",
     "total_listings": "Total de Imóveis",
     "total_blog_posts": "Total de Posts",
     "total_testimonials": "Total de Testemunhos",
@@ -186,7 +186,8 @@
     "name_placeholder": "variável",
     "value_placeholder": "valor",
     "icon_placeholder": "ícone",
-    "empty": "Nenhuma variável encontrada"
+    "empty": "Nenhuma variável encontrada",
+    "totalCount": "{{count}} variáveis no total"
   },
   "newsletter": {
     "title": "Subscrições Newsletter",
@@ -194,7 +195,8 @@
     "email": "Email",
     "subscribed_at": "Subscrito Em",
     "export_csv": "Exportar CSV",
-    "empty": "Nenhuma subscrição encontrada"
+    "empty": "Nenhuma subscrição encontrada",
+    "totalCount": "{{count}} subscritores no total"
   },
   "club_users": {
     "title": "Membros do Clube SGG",
@@ -208,6 +210,7 @@
     "pending": "Pendente",
     "export_csv": "Exportar CSV",
     "exporting": "A exportar...",
-    "empty": "Nenhum membro encontrado"
+    "empty": "Nenhum membro encontrado",
+    "totalCount": "{{count}} membros no total"
   }
 }

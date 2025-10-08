@@ -186,7 +186,8 @@
     "name_placeholder": "variable",
     "value_placeholder": "value",
     "icon_placeholder": "icon",
-    "empty": "No variables found"
+    "empty": "No variables found",
+    "totalCount": "{{count}} variables total"
   },
   "newsletter": {
     "title": "Newsletter Subscriptions",
@@ -194,7 +195,8 @@
     "email": "Email",
     "subscribed_at": "Subscribed At",
     "export_csv": "Export CSV",
-    "empty": "No subscriptions found"
+    "empty": "No subscriptions found",
+    "totalCount": "{{count}} subscribers total"
   },
   "club_users": {
     "title": "SGG Club Members",
@@ -208,6 +210,7 @@
     "pending": "Pending",
     "export_csv": "Export CSV",
     "exporting": "Exporting...",
-    "empty": "No members found"
+    "empty": "No members found",
+    "totalCount": "{{count}} members total"
   }
 }

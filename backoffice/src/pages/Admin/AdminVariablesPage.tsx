@@ -172,7 +172,7 @@ const AdminVariablesPage = () => {
       <AdminPageHeader
         title={t("admin.variables.title")}
         count={variables.length}
-        countLabel={t("common.total")}
+        countLabel={t("admin.variables.totalCount", { count: variables.length })}
       >
         <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
           {t("admin.variables.note")}{" "}

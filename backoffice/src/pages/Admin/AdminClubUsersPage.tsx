@@ -116,7 +116,7 @@ const AdminClubUsersPage = () => {
       <AdminPageHeader
         title={t("admin.club_users.title")}
         count={filteredUsers.length}
-        countLabel={t("common.total")}
+        countLabel={t("admin.club_users.totalCount", { count: filteredUsers.length })}
       >
         <div className="flex gap-3 mt-4">
           <select
