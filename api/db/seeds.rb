@@ -122,8 +122,19 @@ puts "\n#{Time.current} - Cleaning up database..."
  Testimonial, Variable, User].each do |model|
   print "  • Cleaning #{model.name}... "
   count = model.without_tenant.count
-  model.without_tenant.destroy_all
-  puts "#{count} records removed"
+
+  # Special handling for models with acts_as_paranoid (Listing)
+  # We need to permanently delete these to avoid orphaned records without translations
+  if model == Listing
+    # First get all listings (including soft-deleted ones)
+    all_count = model.without_tenant.unscoped.count
+    # Permanently delete all listings including soft-deleted ones
+    model.without_tenant.unscoped.delete_all
+    puts "#{all_count} records permanently removed (including #{all_count - count} soft-deleted)"
+  else
+    model.without_tenant.destroy_all
+    puts "#{count} records removed"
+  end
 end
 
 # Download images locally instead of using remote_image_url
@@ -230,10 +241,10 @@ puts "\n#{Time.current} - Creating listing complexes..."
     listing = Listing.new(
       listing_complex: complex,
       stats: {
-        bedrooms: rand(1..6),
-        bathrooms: rand(1..4),
-        parking: rand(0..3),
-        area: rand(50..500)
+        "Quartos" => rand(1..6).to_s,
+        "Casas de Banho" => rand(1..4).to_s,
+        "Estacionamentos" => rand(0..3).to_s,
+        "Área útil" => "#{rand(50..500)} m²"
       },
       address: Faker::Address.full_address,
       features: content[:pt][:features],
