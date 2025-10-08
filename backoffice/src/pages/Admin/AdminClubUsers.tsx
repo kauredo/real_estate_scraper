@@ -63,7 +63,7 @@ const AdminClubUsers = ({ clubUsers = [] }) => {
             <button
               onClick={handleExportCSV}
               disabled={loading}
-              className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded flex items-center gap-2"
+              className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark px-4 py-2 rounded flex items-center gap-2"
             >
               <i className="fas fa-file-export"></i>
               <span>Exportar CSV</span>

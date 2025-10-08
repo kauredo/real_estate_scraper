@@ -112,7 +112,7 @@ const AdminTestimonialNewPage = () => {
             <button
               type="submit"
               disabled={loading}
-              className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+              className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
             >
               {loading ? t("common.saving") : t("common.save")}
             </button>

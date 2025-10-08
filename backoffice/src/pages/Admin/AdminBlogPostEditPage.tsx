@@ -226,7 +226,7 @@ const AdminBlogPostEditPage = () => {
   if (loading) {
     return (
       <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-beige-default border-t-transparent"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary-600 border-t-transparent"></div>
       </div>
     );
   }
@@ -492,7 +492,7 @@ const AdminBlogPostEditPage = () => {
                             id={`main-${photo.id}`}
                             checked={photo.main}
                             onChange={() => updatePhotoMain(photo.id)}
-                            className="form-checkbox h-4 w-4 text-beige-default rounded border-gray-300 focus:ring-beige-medium"
+                            className="form-checkbox h-4 w-4 text-primary-600 rounded border-gray-300 focus:ring-beige-medium"
                           />
                           <label
                             htmlFor={`main-${photo.id}`}
@@ -528,7 +528,7 @@ const AdminBlogPostEditPage = () => {
             <button
               type="submit"
               disabled={saving}
-              className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-beige-default hover:bg-beige-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-beige-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-beige-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {saving ? t("admin.common.saving") : t("admin.common.save")}
             </button>

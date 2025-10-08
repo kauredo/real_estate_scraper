@@ -42,7 +42,7 @@ const AdminListingComplexDetailPage = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-beige-default"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div>
       </div>
     );
   }
@@ -57,7 +57,7 @@ const AdminListingComplexDetailPage = () => {
           <p className="text-gray-600 mb-4">{error || t("errors.generic")}</p>
           <button
             onClick={() => navigate(appRoutes.backoffice.listingComplexes)}
-            className="bg-beige-default hover:bg-beige-medium text-white font-bold py-2 px-4 rounded"
+            className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded"
           >
             {t("common.back")}
           </button>

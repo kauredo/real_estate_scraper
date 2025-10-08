@@ -33,7 +33,7 @@ const CustomDots: React.FC<CustomDotsProps> = ({ dots, dotWidth = 30 }) => {
               <button
                 onClick={handleClick}
                 className={`custom-dot transition-all duration-300 ease-in-out cursor-pointer block ${
-                  isActive ? "bg-beige-default" : "bg-gray-200"
+                  isActive ? "bg-primary-600" : "bg-gray-200"
                 }`}
                 style={{
                   width: `${dotWidth}px`,

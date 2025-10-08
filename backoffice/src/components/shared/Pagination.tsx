@@ -40,8 +40,8 @@ export default function Pagination({
 
   return (
     <div className="flex items-center justify-center py-4 md:py-10 sm:px-6 px-4 container mx-auto">
-      <div className="w-full flex items-center justify-between border-t border-gray-200 dark:border-beige-medium">
-        <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
+      <div className="w-full flex items-center justify-between border-t border-gray-200 dark:border-primary-500">
+        <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-primary-600 dark:hover:text-beige-medium cursor-pointer">
           {pagination.current_page > 1 && (
             <>
               <a
@@ -94,11 +94,11 @@ export default function Pagination({
             (page) => {
               const isCurrentPage = pagination.current_page === page;
               let classes =
-                "text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium border-t border-transparent hover:border-beige-default dark:hover:border-beige-medium pt-3 mr-4 px-2";
+                "text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-light hover:text-primary-600 dark:hover:text-beige-medium border-t border-transparent hover:border-primary-600 dark:hover:border-beige-medium pt-3 mr-4 px-2";
 
               if (isCurrentPage) {
                 classes +=
-                  " !text-beige-default dark:!text-beige-medium !border-beige-default dark:!border-beige-medium";
+                  " !text-primary-600 dark:!text-beige-medium !border-primary-600 dark:!border-beige-medium";
               }
 
               return (
@@ -113,7 +113,7 @@ export default function Pagination({
             },
           )}
         </div>
-        <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium cursor-pointer">
+        <div className="w-20 flex items-center pt-3 text-gray-600 dark:text-light hover:text-primary-600 dark:hover:text-beige-medium cursor-pointer">
           {pagination.current_page < pagination.total_pages && (
             <>
               <a

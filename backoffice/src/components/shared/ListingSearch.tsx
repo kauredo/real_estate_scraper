@@ -180,7 +180,7 @@ export default function ListingSearch(props: Props) {
         <button
           type="button"
           onClick={handleReset}
-          className="text-beige-default dark:text-beige-medium font-bold underline"
+          className="text-primary-600 dark:text-beige-medium font-bold underline"
         >
           {t("listing.reset_filters")}
         </button>
@@ -307,7 +307,7 @@ export default function ListingSearch(props: Props) {
         <div className="flex items-center flex-wrap gap-4">
           <button
             type="submit"
-            className="bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-6 rounded w-full md:w-auto hover:bg-beige-dark transition-colors"
+            className="bg-primary-600 dark:bg-primary-500 text-white dark:text-dark font-bold py-2 px-6 rounded w-full md:w-auto hover:bg-beige-dark transition-colors"
           >
             {t("listing.search.submit")}
           </button>

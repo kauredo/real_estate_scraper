@@ -112,7 +112,7 @@ const AdminListingsManagement = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded"
+                className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark px-4 py-2 rounded"
               >
                 {loading ? "A processar..." : "Adicionar à Fila"}
               </button>
@@ -142,7 +142,7 @@ const AdminListingsManagement = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded"
+                className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark px-4 py-2 rounded"
               >
                 {loading ? "A processar..." : "Adicionar à Fila"}
               </button>

@@ -46,7 +46,7 @@ const AdminListingComplexesPage = () => {
   if (loading) {
     return (
       <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-beige-default border-t-transparent"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary-600 border-t-transparent"></div>
       </div>
     );
   }
@@ -57,7 +57,7 @@ const AdminListingComplexesPage = () => {
       <div className="mb-6">
         <Link
           to="/backoffice/listing_complexes/new"
-          className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Novo Empreendimento
         </Link>
@@ -148,7 +148,7 @@ const AdminListingComplexesPage = () => {
               <div className="flex flex-wrap gap-2">
                 <a
                   href={`/backoffice/listing_complexes/${complex.id}`}
-                  className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-1 px-3 rounded text-sm"
+                  className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-1 px-3 rounded text-sm"
                 >
                   Ver
                 </a>

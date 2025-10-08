@@ -262,7 +262,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: Props) => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           {isSubmitting ? t("admin.common.saving") : t("admin.common.save")}
         </button>

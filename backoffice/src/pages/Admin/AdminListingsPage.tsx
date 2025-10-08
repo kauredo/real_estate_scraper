@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { Listing } from "../../utils/interfaces";
 import { adminGetListings, adminUpdateAllListings } from "../../services/api";
 import Flashes from "../../components/shared/Flashes";
+import {
+  LoadingSpinner,
+  AdminCard,
+  Pagination,
+} from "../../components/admin/ui";
+import { appRoutes } from "../../utils/routes";
 
 interface PaginationState {
   current_page: number;
@@ -108,11 +114,7 @@ const AdminListingsPage = () => {
   }, []); // Remove order dependency
 
   if (loading) {
-    return (
-      <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-beige-default border-t-transparent"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   return (
@@ -131,7 +133,7 @@ const AdminListingsPage = () => {
         <button
           onClick={handleUpdateAll}
           disabled={updating}
-          className="cursor-pointer bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+          className="cursor-pointer bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
         >
           {updating
             ? t("admin.listings.updating")
@@ -141,7 +143,7 @@ const AdminListingsPage = () => {
         <select
           value={order}
           onChange={(e) => handleOrderChange(e.target.value)}
-          className="block w-full sm:w-auto p-2 border rounded focus:border-blue-500 dark:bg-beige-medium"
+          className="block w-full sm:w-auto p-2 border rounded focus:border-blue-500 dark:bg-primary-500"
         >
           <option value="order">{t("admin.listings.order.normal")}</option>
           <option value="recent">{t("admin.listings.order.recent")}</option>
@@ -164,141 +166,63 @@ const AdminListingsPage = () => {
         })}
       </p>
 
-      {/* Pagination */}
-      {pagination.total_pages > 1 && (
-        <div className="flex justify-center items-center space-x-2 my-6">
-          <button
-            onClick={() => handlePageChange(pagination.current_page - 1)}
-            disabled={pagination.current_page === 1}
-            className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
-          >
-            {t("pagination.previous")}
-          </button>
-
-          <span className="px-3 py-1">
-            {t("pagination.page", {
-              current: pagination.current_page,
-              total: pagination.total_pages,
-            })}
-          </span>
-
-          <button
-            onClick={() => handlePageChange(pagination.current_page + 1)}
-            disabled={pagination.current_page === pagination.total_pages}
-            className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
-          >
-            {t("pagination.next")}
-          </button>
-        </div>
-      )}
+      <Pagination
+        currentPage={pagination.current_page}
+        totalPages={pagination.total_pages}
+        onPageChange={handlePageChange}
+        className="my-6"
+      />
 
       {/* Listings Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {listings.map((listing) => (
-          <div
+          <AdminCard
             key={listing.id}
-            className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg"
-          >
-            {/* Image */}
-            <div className="w-full h-48 bg-gray-200 rounded-t-lg overflow-hidden">
-              {listing.photos && listing.photos.length > 0 ? (
-                <img
-                  src={listing.photos[0]}
-                  alt={listing.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500">
-                    {t("admin.listings.noPhoto")}
-                  </span>
-                </div>
-              )}
-            </div>
-
-            {/* Content */}
-            <div className="p-4">
-              <h5 className="text-gray-900 dark:text-light font-bold text-lg mb-2 line-clamp-2">
-                {listing.title}
-              </h5>
-
-              <p className="text-gray-700 dark:text-light text-sm mb-2">
-                {listing.address}
-              </p>
-
-              <p className="text-gray-900 dark:text-light font-bold text-lg mb-3">
-                €{listing.price}
-              </p>
-
-              {/* Stats */}
-              {listing.stats && (
-                <div className="flex flex-wrap gap-2 text-xs text-gray-600 dark:text-light mb-3">
-                  <span>🛏️ {listing.stats.bedrooms}</span>
-                  <span>🚿 {listing.stats.bathrooms}</span>
-                  <span>🚗 {listing.stats.parking}</span>
-                  <span>📐 {listing.stats.area}m²</span>
-                </div>
-              )}
-
-              {/* Actions */}
+            title={listing.title}
+            subtitle={`${listing.address} • €${listing.price}`}
+            image={listing.photos && listing.photos.length > 0 ? listing.photos[0] : undefined}
+            status={
+              listing.status === "sold"
+                ? { label: listing.status, variant: "error" }
+                : listing.status === "rented"
+                  ? { label: listing.status, variant: "warning" }
+                  : { label: listing.status, variant: "success" }
+            }
+            actions={
               <div className="flex flex-wrap gap-2">
                 <a
                   href={`/backoffice/listings/${listing.id}`}
-                  className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-1 px-3 rounded text-sm"
+                  className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
                 >
                   {t("common.view")}
                 </a>
-                <a
-                  href={`/backoffice/listings/${listing.id}/edit`}
-                  className="bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-1 px-3 rounded text-sm"
+                <Link
+                  to={appRoutes.backoffice.editListing(listing.id)}
+                  className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   {t("common.edit")}
-                </a>
-                <span
-                  className={`px-2 py-1 rounded text-xs font-semibold ${
-                    listing.status === "sold"
-                      ? "bg-red-100 text-red-800"
-                      : listing.status === "rented"
-                        ? "bg-yellow-100 text-yellow-800"
-                        : "bg-green-100 text-green-800"
-                  }`}
-                >
-                  {listing.status}
-                </span>
+                </Link>
               </div>
-            </div>
-          </div>
+            }
+          >
+            {listing.stats && (
+              <div className="flex flex-wrap gap-2 text-xs text-gray-600 dark:text-gray-400 mt-2">
+                <span>🛏️ {listing.stats.bedrooms}</span>
+                <span>🚿 {listing.stats.bathrooms}</span>
+                <span>🚗 {listing.stats.parking}</span>
+                <span>📐 {listing.stats.area}m²</span>
+              </div>
+            )}
+          </AdminCard>
         ))}
       </div>
 
-      {/* Bottom Pagination */}
-      {pagination.total_pages > 1 && (
-        <div className="flex justify-center items-center space-x-2 mt-6">
-          <button
-            onClick={() => handlePageChange(pagination.current_page - 1)}
-            disabled={pagination.current_page === 1}
-            className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
-          >
-            {t("pagination.previous")}
-          </button>
-
-          <span className="px-3 py-1">
-            {t("pagination.page", {
-              current: pagination.current_page,
-              total: pagination.total_pages,
-            })}
-          </span>
-
-          <button
-            onClick={() => handlePageChange(pagination.current_page + 1)}
-            disabled={pagination.current_page === pagination.total_pages}
-            className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
-          >
-            {t("pagination.next")}
-          </button>
-        </div>
-      )}
+      <Pagination
+        currentPage={pagination.current_page}
+        totalPages={pagination.total_pages}
+        onPageChange={handlePageChange}
+        className="mt-6"
+      />
     </div>
   );
 };

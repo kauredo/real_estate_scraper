@@ -50,7 +50,7 @@ const BlogPostCard = ({
           {onView && (
             <button
               onClick={() => onView(post.id)}
-              className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               {t("admin.view")}
             </button>
@@ -58,7 +58,7 @@ const BlogPostCard = ({
           {onEdit && (
             <button
               onClick={() => onEdit(post.id)}
-              className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               {t("admin.edit")}
             </button>

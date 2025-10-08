@@ -53,7 +53,7 @@ export default function AdvancedSearch({
     <div className="flex flex-col">
       <button
         onClick={toggleAdvancedSearch}
-        className="text-beige-default dark:text-beige-medium text-lg font-bold underline text-left mb-2"
+        className="text-primary-600 dark:text-beige-medium text-lg font-bold underline text-left mb-2"
       >
         {t("listing.advanced_search")} {showAdvancedSearch ? "▲" : "▼"}
       </button>

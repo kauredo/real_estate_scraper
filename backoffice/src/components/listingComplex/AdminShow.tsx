@@ -72,7 +72,7 @@ export default function AdminShow(props: Props) {
                 onClick={() =>
                   navigate(appRoutes.backoffice.editListingComplex(complex.id))
                 }
-                className="bg-beige-default hover:bg-beige-medium text-white font-bold py-2 px-4 rounded text-sm"
+                className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded text-sm"
               >
                 {t("common.edit")}
               </button>
@@ -89,7 +89,7 @@ export default function AdminShow(props: Props) {
 
       {complex.video_link && isVideoOpen ? (
         <section
-          className="modal bg-beige-default dark:bg-beige-medium fixed top-0 bottom-0 w-full h-full"
+          className="modal bg-primary-600 dark:bg-primary-500 fixed top-0 bottom-0 w-full h-full"
           style={{ zIndex: 100 }}
         >
           <div
@@ -147,7 +147,7 @@ export default function AdminShow(props: Props) {
               <div className="mb-8">
                 <button
                   onClick={() => setIsVideoOpen(true)}
-                  className="bg-beige-default hover:bg-beige-medium text-white font-bold py-3 px-6 rounded-lg flex items-center"
+                  className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg flex items-center"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
@@ -209,7 +209,7 @@ export default function AdminShow(props: Props) {
                     <span className="font-medium text-gray-900 dark:text-gray-100">
                       {t("listingComplex.priceFrom")}:
                     </span>
-                    <span className="ml-2 text-lg font-bold text-beige-default">
+                    <span className="ml-2 text-lg font-bold text-primary-600">
                       €{complex.price_from.toLocaleString()}
                     </span>
                   </div>

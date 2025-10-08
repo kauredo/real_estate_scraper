@@ -105,7 +105,7 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
           <p className="text-gray-500 dark:text-light mb-6">
             Nota: copiar ícones do site{" "}
             <a
-              className="text-beige-default dark:text-beige-medium underline"
+              className="text-primary-600 dark:text-beige-medium underline"
               href="https://fontawesome.com/v5/search?m=free"
               target="_blank"
               rel="noopener noreferrer"
@@ -142,7 +142,7 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
                   <button
                     onClick={() => handleVariableUpdate(variable.id, variable)}
                     disabled={loading}
-                    className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded"
+                    className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark px-4 py-2 rounded"
                   >
                     Atualizar
                   </button>
@@ -189,7 +189,7 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark px-4 py-2 rounded"
+                  className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark px-4 py-2 rounded"
                 >
                   Criar
                 </button>

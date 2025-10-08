@@ -28,8 +28,8 @@ export default function ObjectiveTabs({
             onClick={() => setObjective(index)}
             className={`py-2 px-4 rounded-lg font-bold w-[calc(50%-0.25rem)] ${
               objective === index
-                ? "bg-beige-default dark:bg-beige-medium text-white dark:text-dark"
-                : "bg-transparent text-beige-default dark:text-beige-medium border border-beige-default dark:border-beige-medium"
+                ? "bg-primary-600 dark:bg-primary-500 text-white dark:text-dark"
+                : "bg-transparent text-primary-600 dark:text-beige-medium border border-primary-600 dark:border-primary-500"
             }`}
           >
             {t(`listing.objective.${obj}`)}

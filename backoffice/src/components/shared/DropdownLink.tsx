@@ -57,7 +57,7 @@ const DropdownLink = (props: DropdownProps) => {
         href="#"
         ref={dropdownLinkRef}
         onClick={handleLinkClick}
-        className={`${className} flex items-center gap-2 hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark p-2 rounded-md font-medium`}
+        className={`${className} flex items-center gap-2 hover:bg-primary-600 dark:hover:bg-primary-700 hover:text-white dark:hover:text-dark p-2 rounded-md font-medium`}
       >
         <span className="flex items-center gap-2">
           {title}

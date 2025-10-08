@@ -29,8 +29,8 @@ export default function SubNavbar({ items }: Props) {
                 className={`py-2 px-2 transition-colors duration-200 text-sm md:text-base flex-shrink-0
                   ${
                     isActive
-                      ? "text-beige-default dark:text-beige-medium border-b-2 border-beige-default dark:border-beige-medium"
-                      : "text-dark dark:text-light hover:text-beige-default dark:hover:text-beige-medium"
+                      ? "text-primary-600 dark:text-beige-medium border-b-2 border-primary-600 dark:border-primary-500"
+                      : "text-dark dark:text-light hover:text-primary-600 dark:hover:text-beige-medium"
                   }`}
                 data-turbo="true"
               >

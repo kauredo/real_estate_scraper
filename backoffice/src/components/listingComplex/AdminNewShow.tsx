@@ -62,7 +62,7 @@ export default function AdminNewShow(props: Props) {
                 onClick={() =>
                   navigate(appRoutes.backoffice.editListingComplex(complex.id))
                 }
-                className="bg-beige-default hover:bg-beige-medium text-white font-bold py-2 px-4 rounded text-sm"
+                className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded text-sm"
               >
                 {t("common.edit")}
               </button>
@@ -80,7 +80,7 @@ export default function AdminNewShow(props: Props) {
       {/* Video Modal */}
       {complex.video_link && isVideoOpen ? (
         <section
-          className="modal bg-beige-default dark:bg-beige-medium fixed top-0 bottom-0 w-full h-full"
+          className="modal bg-primary-600 dark:bg-primary-500 fixed top-0 bottom-0 w-full h-full"
           style={{ zIndex: 100 }}
         >
           <div
@@ -136,7 +136,7 @@ export default function AdminNewShow(props: Props) {
             {complex.video_link && (
               <button
                 onClick={() => setIsVideoOpen(true)}
-                className="bg-beige-default hover:bg-beige-medium text-white font-bold py-4 px-8 rounded-lg flex items-center mx-auto"
+                className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-lg flex items-center mx-auto"
               >
                 <svg
                   className="w-6 h-6 mr-3"
@@ -202,7 +202,7 @@ export default function AdminNewShow(props: Props) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {complex.features.map((feature, index) => (
                     <div key={index} className="flex items-center">
-                      <div className="w-2 h-2 bg-beige-default rounded-full mr-3"></div>
+                      <div className="w-2 h-2 bg-primary-600 rounded-full mr-3"></div>
                       <span className="text-gray-700 dark:text-gray-300">
                         {feature}
                       </span>
@@ -234,7 +234,7 @@ export default function AdminNewShow(props: Props) {
                   <div className="mb-4 pb-4 border-b border-gray-200 dark:border-gray-700">
                     <div className="flex items-center">
                       <svg
-                        className="w-5 h-5 text-beige-default mr-2"
+                        className="w-5 h-5 text-primary-600 mr-2"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -257,7 +257,7 @@ export default function AdminNewShow(props: Props) {
                       <span className="text-sm text-gray-600 dark:text-gray-400 block">
                         {t("listingComplex.priceFrom")}
                       </span>
-                      <span className="text-3xl font-bold text-beige-default">
+                      <span className="text-3xl font-bold text-primary-600">
                         €{complex.price_from.toLocaleString()}
                       </span>
                     </div>
@@ -270,7 +270,7 @@ export default function AdminNewShow(props: Props) {
                       <span className="font-medium text-gray-900 dark:text-gray-100">
                         {t("listingComplex.availableUnits")}
                       </span>
-                      <span className="text-beige-default font-bold">
+                      <span className="text-primary-600 font-bold">
                         {complex.listings.length}
                       </span>
                     </div>
@@ -280,7 +280,7 @@ export default function AdminNewShow(props: Props) {
 
               {/* Contact Section - Only show in non-admin mode */}
               {!isAdmin && (
-                <div className="bg-beige-default dark:bg-beige-medium text-white p-6 rounded-lg">
+                <div className="bg-primary-600 dark:bg-primary-500 text-white p-6 rounded-lg">
                   <h3 className="text-xl font-bold mb-4">
                     {t("contact.title")}
                   </h3>

@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import { adminGetClubStories, adminDeleteClubStory } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import { ClubStory } from "../../utils/interfaces";
+import {
+  LoadingSpinner,
+  AdminPageHeader,
+  AdminCard,
+  Pagination,
+  EmptyState,
+} from "../../components/admin/ui";
 
 interface PaginationState {
   current_page: number;
@@ -47,7 +54,7 @@ const AdminClubStoriesPage = () => {
 
     try {
       await adminDeleteClubStory(id);
-      fetchClubStories(); // Refresh the list
+      fetchClubStories(pagination.current_page);
     } catch (error) {
       console.error("Error deleting club story:", error);
     }
@@ -58,44 +65,36 @@ const AdminClubStoriesPage = () => {
   }, []);
 
   if (loading) {
-    return (
-      <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-beige-default border-t-transparent"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   return (
     <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
-      <div className="mb-6 flex justify-between items-center">
-        <Link
-          to={appRoutes.backoffice.newClubStory}
-          className="bg-beige-default text-white px-4 py-2 rounded hover:bg-beige-dark transition-colors"
-        >
-          {t("admin.clubStories.new")}
-        </Link>
-        <div className="flex items-center space-x-2">
-          <span className="text-gray-600">
-            {t("common.total")}: {pagination.total_count}
-          </span>
-        </div>
-      </div>
+      <AdminPageHeader
+        title={t("admin.clubStories.title")}
+        count={pagination.total_count}
+        countLabel={t("common.total")}
+        actionButton={{
+          label: t("admin.clubStories.new"),
+          href: appRoutes.backoffice.newClubStory,
+        }}
+      />
 
       {clubStories.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {clubStories.map((story) => (
-            <div
+            <AdminCard
               key={story.id}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
-            >
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                  {story.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
-                  {story.small_description}
-                </p>
+              title={story.title}
+              subtitle={story.small_description}
+              actions={
                 <div className="flex justify-end space-x-2">
+                  <Link
+                    to={appRoutes.backoffice.showClubStory(story.id)}
+                    className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
+                  >
+                    {t("common.view")}
+                  </Link>
                   <Link
                     to={appRoutes.backoffice.editClubStory(story.id)}
                     className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
@@ -108,42 +107,21 @@ const AdminClubStoriesPage = () => {
                   >
                     {t("common.delete")}
                   </button>
-                  <Link
-                    to={appRoutes.backoffice.showClubStory(story.id)}
-                    className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
-                  >
-                    {t("common.view")}
-                  </Link>
                 </div>
-              </div>
-            </div>
+              }
+            />
           ))}
         </div>
       ) : (
-        <div className="text-center py-8 text-gray-500">
-          {t("admin.clubStories.noStories")}
-        </div>
+        <EmptyState message={t("admin.clubStories.noStories")} />
       )}
 
-      {pagination.total_pages > 1 && (
-        <div className="mt-4 flex justify-center">
-          <nav className="flex items-center">
-            {[...Array(pagination.total_pages)].map((_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => fetchClubStories(index + 1)}
-                className={`mx-1 px-3 py-1 rounded ${
-                  pagination.current_page === index + 1
-                    ? "bg-beige-default text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                }`}
-              >
-                {index + 1}
-              </button>
-            ))}
-          </nav>
-        </div>
-      )}
+      <Pagination
+        currentPage={pagination.current_page}
+        totalPages={pagination.total_pages}
+        onPageChange={fetchClubStories}
+        className="mt-6"
+      />
     </div>
   );
 };

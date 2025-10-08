@@ -45,12 +45,12 @@ export const navbarItemClass = (
   children: string[] = [],
 ): string => {
   const base =
-    "whitespace-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase ";
+    "whitespace-nowrap hover:bg-primary-600 dark:hover:bg-primary-700 hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase ";
   const mobile = "block text-base relative z-3 ";
   const desktop = " ";
   const inactive = "text-dark dark:text-light";
   const active =
-    "bg-beige-default dark:bg-beige-medium text-white dark:text-dark ";
+    "bg-primary-600 dark:bg-primary-500 text-white dark:text-dark ";
 
   const isCurrentPath = window.location.pathname.includes(path);
   const hasActiveChild = children.some((childPath) =>
