@@ -50,10 +50,6 @@ api.interceptors.response.use(
 
       if (url.includes("/contact")) {
         notificationContext.showSuccess("notifications.messages.contact_sent");
-      } else if (url.includes("/newsletter_subscriptions")) {
-        notificationContext.showSuccess(
-          "notifications.messages.newsletter_subscribed",
-        );
       }
       // Add more specific success messages as needed
     }
@@ -300,14 +296,6 @@ export const adminUploadClubStoryPhoto = (clubStoryId, formData) =>
   });
 export const adminDeleteClubStoryPhoto = (id) =>
   api.delete(apiRoutes.admin.clubStoryPhoto(id));
-
-// Newsletter API functions
-export const subscribeToNewsletter = (data) =>
-  api.post(apiRoutes.newsletterSubscriptions, { newsletter: data });
-export const unsubscribeFromNewsletter = (id) =>
-  api.delete(apiRoutes.newsletterSubscription(id));
-export const confirmNewsletterSubscription = (id, token) =>
-  api.get(apiRoutes.confirmNewsletterSubscription(id, token));
 
 // Admin - Newsletter Subscriptions API functions
 export const adminGetNewsletterSubscriptions = () =>

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { adminGetClubStories, adminDeleteClubStory } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import { ClubStory } from "../../utils/interfaces";
-import ClubStoryCard from "../../components/club/ClubStoryCard";
 
 interface PaginationState {
   current_page: number;

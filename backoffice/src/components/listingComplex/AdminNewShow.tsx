@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { adminDeleteListingComplex } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import type { ListingComplex } from "../../utils/interfaces";
-import ShareIcons from "../shared/ShareIcons";
 
 interface Props {
   complex: ListingComplex;
@@ -277,11 +276,6 @@ export default function AdminNewShow(props: Props) {
                     </div>
                   </div>
                 )}
-              </div>
-
-              {/* Share Section */}
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                <ShareIcons title={complex.name} />
               </div>
 
               {/* Contact Section - Only show in non-admin mode */}

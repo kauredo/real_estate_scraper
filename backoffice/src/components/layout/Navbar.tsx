@@ -1,98 +1,25 @@
 import React, { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
-import { changeLocale, isDarkModeActive } from "../../utils/functions";
+import { changeLocale } from "../../utils/functions";
 import { NavbarItemProps, SubNavItem } from "../../utils/interfaces";
-import Socials from "../shared/Socials";
 import DarkModeToggle from "../shared/DarkModeToggle";
 import SubNavbar from "../shared/SubNavbar";
 import NavbarItem from "../shared/NavbarItem";
 import DropdownLink from "../shared/DropdownLink";
 import Routes from "../../utils/routes";
-import mainWhiteLogo from "../../assets/logos/main_white.webp";
-import mainLogo from "../../assets/logos/main.webp";
 import { useAuth } from "../../context/AuthContext";
 
 interface Props {
   backoffice?: boolean;
-  admin?: boolean;
 }
 
 export default function Navbar(props: Props) {
   const { t, i18n } = useTranslation();
-  const { backoffice, admin } = props;
-  const { currentAdmin } = useAuth();
+  const { backoffice } = props;
+  const { currentAdmin, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-
-  // const moreDropdown: NavbarItemProps = {
-  //   title: `${t("navbar.more")}`,
-  //   items: [
-  //     {
-  //       title: `${t("navbar.about")}`,
-  //       turbo: "true",
-  //       url: Routes.about_path,
-  //     },
-  //     {
-  //       title: `${t("navbar.services")}`,
-  //       turbo: "true",
-  //       url: Routes.services_path,
-  //     },
-  //     {
-  //       title: `${t("navbar.contacts")}`,
-  //       turbo: "true",
-  //       url: Routes.contact_path,
-  //     },
-  //   ],
-  // };
-
-  const items: NavbarItemProps[] = [
-    {
-      title: `${t("navbar.buy")}`,
-      turbo: "true",
-      url: Routes.buy_path,
-    },
-    {
-      title: `${t("navbar.sell")}`,
-      turbo: "true",
-      url: Routes.sell_path,
-    },
-    {
-      title: `${t("navbar.enterprises")}`,
-      turbo: "true",
-      url: Routes.listing_complexes_path,
-    },
-    {
-      title: `${t("navbar.club")}`,
-      url: Routes.club_path,
-      turbo: "true",
-    },
-    {
-      title: `${t("navbar.blog_posts")}`,
-      turbo: "true",
-      url: Routes.blog_path,
-    },
-    {
-      title: `${t("navbar.about")}`,
-      turbo: "true",
-      url: Routes.about_path,
-    },
-    {
-      title: `${t("navbar.services")}`,
-      turbo: "true",
-      url: Routes.services_path,
-    },
-    {
-      title: `${t("navbar.contacts")}`,
-      turbo: "true",
-      url: Routes.contact_path,
-    },
-    {
-      title: `${t("navbar.faq")}`,
-      turbo: "true",
-      url: Routes.faq_path,
-    },
-  ];
 
   const backofficeNavItems: SubNavItem[] = [
     {
@@ -133,17 +60,13 @@ export default function Navbar(props: Props) {
     });
   }
 
-  const middleItems = items;
-
   const otherImg = i18n.language === "pt" ? "uk" : "pt";
   const img = i18n.language === "pt" ? "pt" : "uk";
 
   const rightItems: NavbarItemProps[] = [];
 
-  const mobileItems: NavbarItemProps[] = middleItems.slice();
-
   rightItems.push({
-    title: "",
+    title: currentAdmin?.email || "Admin",
     items: [
       {
         title: "",
@@ -164,6 +87,10 @@ export default function Navbar(props: Props) {
           />
         ),
       },
+      {
+        title: t("navbar.logout"),
+        onClick: () => logout(),
+      },
     ],
     img: (
       <img
@@ -175,81 +102,27 @@ export default function Navbar(props: Props) {
     ),
   });
 
-  mobileItems.push(...rightItems);
-
-  if (admin && rightItems[0] && rightItems[0].items) {
-    if (!backoffice) {
-      rightItems[0].items.unshift({
-        title: "Backoffice",
-        url: Routes.backoffice_path,
-        turbo: "true",
-      });
-    }
-
-    rightItems[0].items.push({
-      title: "Log out",
-      url: Routes.destroy_admin_session_path,
-      method: "delete",
-      turbo: "false",
-    });
-  }
-
-  const ctaBtn = Routes.sell_path !== window.location.pathname && (
-    <a href={Routes.sell_path} data-turbo={false}>
-      <div className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark mr-4">
-        <p>{t("home.cta.long")}</p>
-      </div>
-    </a>
-  );
+  const mobileItems: NavbarItemProps[] = [...rightItems];
 
   return (
     <div>
-      <nav className="bg-white dark:bg-dark container mx-auto">
+      <nav className="bg-white dark:bg-dark border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div>
             <div className="flex items-center justify-between min-h-[4rem]">
               <div className="flex items-center">
-                <div className="flex-shrink-0 relative">
-                  <a data-turbo="true" href={Routes.root_path}>
-                    <img
-                      loading="lazy"
-                      className="w-[6rem] relative z-10"
-                      id="nav-logo"
-                      src={isDarkModeActive() ? mainWhiteLogo : mainLogo}
-                      alt="Sofia Galvão Group Logo"
-                    />
+                <div className="flex-shrink-0">
+                  <a href={Routes.backoffice_path}>
+                    <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
+                      {t("navbar.backoffice_title")}
+                    </h1>
                   </a>
                 </div>
               </div>
-              <div className="flex items-center">
-                <div className="hidden tablet:block">
-                  <div className="ml-4 flex items-baseline flex-wrap justify-center gap-1">
-                    {middleItems?.map((item) => {
-                      if (item.items?.length && item.items.length > 0) {
-                        return (
-                          <DropdownLink
-                            key={`${item.title}_middle`}
-                            title={item.title}
-                            items={item.items}
-                            img={item.img}
-                          />
-                        );
-                      } else {
-                        return (
-                          <NavbarItem
-                            key={`${item.title}_middle`}
-                            item={item}
-                          />
-                        );
-                      }
-                    })}
-                  </div>
-                </div>
-              </div>
+
               <div className="flex items-center">
                 <div className="hidden tablet:block">
                   <div className="ml-4 flex items-baseline">
-                    {!backoffice && <Socials small />}
                     {rightItems?.map((item) => {
                       if (item.items?.length && item.items.length > 0) {
                         return (
@@ -269,8 +142,8 @@ export default function Navbar(props: Props) {
                   </div>
                 </div>
               </div>
-              <div className="-mr-2 flex justify-end tablet:hidden relative">
-                {ctaBtn}
+
+              <div className="-mr-2 flex justify-end tablet:hidden">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
                   type="button"
@@ -315,11 +188,6 @@ export default function Navbar(props: Props) {
                 </button>
               </div>
             </div>
-            {!backoffice && (
-              <div className="tablet:hidden">
-                <Socials small />
-              </div>
-            )}
           </div>
         </div>
 

@@ -3,23 +3,6 @@
 @import "tailwindcss/utilities";
 @import "./tinymce.css";
 
-/* FONTS */
-@font-face {
-  font-family: "Exter";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("./assets/fonts/exter-ultra-bold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Apparat";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("./assets/fonts/Apparat-Light.otf") format("truetype");
-}
-
 /* BASE STYLES */
 html {
   scroll-behavior: smooth;
@@ -28,7 +11,7 @@ html {
 body {
   overflow-x: hidden;
   background-color: theme("colors.white");
-  font-family: "Apparat", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 body.dark {
@@ -36,60 +19,17 @@ body.dark {
 }
 
 /* TYPOGRAPHY */
-h1,
-h2,
-#main-title {
-  font-family: "Exter";
-}
-
-#main-title::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  height: 75%;
-  aspect-ratio: 1;
-  border: 2px solid #000;
-  right: 100%;
-  bottom: 0;
-  border-bottom-right-radius: 100%;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.dark #main-title::before {
-  border-color: theme("colors.light");
-}
-
-h3,
-h4,
-h5 {
-  font-family: "Exter";
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
   max-width: 60ch;
 }
 
-p,
-.standard {
-  font-family: "Apparat";
+p {
   max-width: 60ch;
 }
 
 strong {
-  font-family: "Exter";
-  font-weight: 100;
-}
-
-/* ANIMATIONS */
-@keyframes door {
-  0% {
-    transform: rotate(0deg);
-  }
-  80% {
-    transform: rotate(90deg);
-  }
-  100% {
-    transform: rotate(90deg);
-  }
+  font-weight: 600;
 }
 
 /* LAYOUT & COMPONENTS */
@@ -97,54 +37,8 @@ strong {
   height: calc(100vh - 4rem);
 }
 
-.quarter {
-  position: relative;
-  z-index: 1;
-  background-position: top;
-  background-size: cover;
-  border-top-right-radius: 100%;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-width: 0;
-  height: 50vh;
-  width: 50vh;
-  aspect-ratio: 1;
-}
-
-.quarter ~ * {
-  position: relative;
-  z-index: 3;
-}
-
-.quarter.moving::after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  height: 101%;
-  width: 101%;
-  background-color: theme("colors.white");
-  right: 100.25%;
-  bottom: -0.25%;
-  transform-origin: bottom right;
-  transition: all 300ms 0s ease-in-out;
-  animation: door 800ms ease-in-out 2 alternate;
-}
-
-.dark .quarter.moving::after {
-  background-color: theme("colors.dark");
-}
-
 .center {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.center-hero {
-  height: calc(100% - 4rem);
-  display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
 }
@@ -210,13 +104,13 @@ strong {
 .slick-prev:before,
 .slick-next:before {
   font-size: 40px;
-  color: theme("colors.beige.default");
+  color: theme("colors.primary.500");
   opacity: 0.75;
 }
 
 .dark .slick-prev:before,
 .dark .slick-next:before {
-  color: theme("colors.beige.medium");
+  color: theme("colors.primary.400");
 }
 
 /* Custom Dots styles */
@@ -231,12 +125,12 @@ strong {
 .custom-dots {
   display: flex;
   justify-content: center;
-  -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
-  scrollbar-width: none; /* Hide scrollbar Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .custom-dots::-webkit-scrollbar {
-  display: none; /* Hide scrollbar Chrome, Safari and Opera */
+  display: none;
 }
 
 .custom-dots li {
@@ -319,7 +213,7 @@ strong {
   left: 0;
   height: 4px;
   border-radius: 6px;
-  background-color: #e9dbc6;
+  background-color: theme("colors.primary.500");
 }
 
 .rc-slider .rc-slider-step {
@@ -338,35 +232,35 @@ strong {
   margin-top: -5px;
   cursor: grab;
   border-radius: 50%;
-  border: solid 2px theme("colors.beige.default");
+  border: solid 2px theme("colors.primary.500");
   background-color: theme("colors.white");
   touch-action: pan-x;
 }
 
 .rc-slider .rc-slider-handle:active {
-  border-color: theme("colors.beige.default");
-  box-shadow: 0 0 5px theme("colors.beige.default");
+  border-color: theme("colors.primary.600");
+  box-shadow: 0 0 5px theme("colors.primary.500");
 }
 
 .rc-slider .rc-slider-handle:focus {
-  border-color: theme("colors.beige.default");
-  box-shadow: 0 0 0 5px theme("colors.beige.default");
+  border-color: theme("colors.primary.600");
+  box-shadow: 0 0 0 5px theme("colors.primary.100");
   outline: none;
 }
 
 .rc-slider .rc-slider-handle-click-focused {
-  border-color: theme("colors.beige.default");
-  box-shadow: 0 0 0 5px theme("colors.beige.default");
+  border-color: theme("colors.primary.600");
+  box-shadow: 0 0 0 5px theme("colors.primary.100");
 }
 
 .rc-slider .rc-slider-handle:hover {
-  border-color: theme("colors.beige.default");
+  border-color: theme("colors.primary.600");
 }
 
 .rc-slider
   .rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
-  border-color: theme("colors.beige.default");
-  box-shadow: 0 0 5px theme("colors.beige.default");
+  border-color: theme("colors.primary.600");
+  box-shadow: 0 0 5px theme("colors.primary.500");
   cursor: grabbing;
 }
 
@@ -419,7 +313,7 @@ strong {
   bottom: 0;
   transition: 0.3s;
   cursor: pointer;
-  background: theme("colors.beige.dark");
+  background: theme("colors.gray.400");
   border-radius: 20px;
 }
 
@@ -436,7 +330,7 @@ strong {
 }
 
 .toggler input:checked + .toggle {
-  background-color: theme("colors.beige.default");
+  background-color: theme("colors.primary.500");
 }
 
 .toggler input:checked + .toggle:before {
@@ -444,35 +338,7 @@ strong {
 }
 
 /* RESPONSIVE STYLES */
-@media screen and (max-width: 1340px) {
-  .center-hero {
-    flex-direction: column;
-    align-items: start;
-    width: fit-content;
-    margin: auto;
-  }
-
-  .quarter {
-    margin-left: 3rem;
-    height: 30vh;
-    width: 30vh;
-  }
-}
-
 @media screen and (max-width: 768px) {
-  .center-hero {
-    flex-direction: column;
-    align-items: start;
-    width: auto;
-  }
-
-  .quarter {
-    margin-left: 0;
-    max-width: 30vh;
-    width: 100%;
-    height: auto;
-  }
-
   .carousel-container .slick-prev {
     left: 15px;
   }

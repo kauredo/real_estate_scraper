@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { adminDeleteListingComplex } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import type { ListingComplex } from "../../utils/interfaces";
-import ShareIcons from "../shared/ShareIcons";
 import Carousel from "../shared/Carousel";
 
 interface Props {
@@ -226,10 +225,6 @@ export default function AdminShow(props: Props) {
                     </span>
                   </div>
                 )}
-              </div>
-
-              <div className="mb-6">
-                <ShareIcons title={complex.name} />
               </div>
 
               {!isAdmin && (

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import ShareIcons from "../../components/shared/ShareIcons";
 import { BlogPost } from "../../utils/interfaces";
 import { adminGetBlogPost, adminDeleteBlogPost } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
@@ -101,7 +100,6 @@ const AdminBlogPostDetailPage = () => {
             <h1>{blogPost.title}</h1>
             <p>{new Date(blogPost.created_at).toLocaleDateString()}</p>
           </div>
-          <ShareIcons title={blogPost.meta_title || blogPost.title} />
 
           <div
             className="blog-content"

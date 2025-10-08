@@ -212,9 +212,6 @@ const baseAppRoutes = {
 
   // Good Job dashboard
   goodJob: "/good_job",
-
-  // Sitemap
-  sitemap: "/sitemap",
 };
 
 export const appRoutes = createLocalizedRoutes(baseAppRoutes);
@@ -467,9 +464,6 @@ export const Routes = createLocalizedRoutes({
 
   // Good Job dashboard
   good_job_path: appRoutes.goodJob,
-
-  // Sitemap
-  sitemap_path: appRoutes.sitemap,
 });
 
 export default Routes;
