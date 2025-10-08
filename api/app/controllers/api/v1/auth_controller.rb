@@ -3,6 +3,8 @@
 module Api
   module V1
     class AuthController < Api::V1::BaseController
+      skip_before_action :verify_tenant, only: [:login, :logout]
+
       def login
         admin = ::Admin.find_by(email: params[:email])
 

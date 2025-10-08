@@ -22,6 +22,12 @@ module Api
 
         @current_admin = Admin.find(decoded[:admin_id])
 
+        # Set Current.tenant from admin's tenant if not already set by API key
+        # This allows JWT-based authentication (backoffice) to work alongside API key authentication (public frontend)
+        if Current.tenant.nil? && @current_admin.tenant_id.present?
+          Current.tenant = Tenant.find(@current_admin.tenant_id)
+        end
+
         # Verify admin belongs to current tenant (unless super admin)
         return render json: { error: 'Unauthorized - tenant mismatch' }, status: :unauthorized unless @current_admin.super_admin? || @current_admin.tenant_id == Current.tenant&.id
       rescue JWT::DecodeError, ActiveRecord::RecordNotFound
@@ -40,6 +46,10 @@ module Api
     attr_reader :current_admin
 
     def verify_tenant
+      # Skip verification if Authorization header is present (JWT authentication)
+      # The tenant will be set from the admin's tenant in authenticate_admin!
+      return if request.headers['Authorization'].present?
+
       return if Current.tenant
 
       render json: { error: 'Invalid or missing API key' }, status: :unauthorized

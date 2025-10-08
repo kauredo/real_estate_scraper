@@ -12,6 +12,7 @@ import {
 } from "../../services/api";
 import { LoadingSpinner } from "../../components/admin/ui";
 import { appRoutes } from "../../utils/routes";
+import { useTenant } from "../../context/TenantContext";
 
 interface Stats {
   listings: number;
@@ -23,6 +24,7 @@ interface Stats {
 
 const AdminBackofficePage = () => {
   const { t } = useTranslation();
+  const { features } = useTenant();
   const [stats, setStats] = useState<Stats>({
     listings: 0,
     blogPosts: 0,
@@ -128,13 +130,14 @@ const AdminBackofficePage = () => {
     return <LoadingSpinner />;
   }
 
-  const statCards = [
+  const allStatCards = [
     {
       title: t("admin.dashboard.total_listings"),
       count: stats.listings,
       icon: "fas fa-building",
       link: appRoutes.backoffice.listings,
       color: "bg-blue-500",
+      requiredFeature: null, // Always show
     },
     {
       title: t("admin.dashboard.total_blog_posts"),
@@ -142,6 +145,7 @@ const AdminBackofficePage = () => {
       icon: "fas fa-newspaper",
       link: appRoutes.backoffice.blogPosts,
       color: "bg-green-500",
+      requiredFeature: "blog_enabled",
     },
     {
       title: t("admin.dashboard.total_testimonials"),
@@ -149,6 +153,7 @@ const AdminBackofficePage = () => {
       icon: "fas fa-quote-left",
       link: appRoutes.backoffice.testimonials,
       color: "bg-yellow-500",
+      requiredFeature: "testimonials_enabled",
     },
     {
       title: t("admin.dashboard.total_club_members"),
@@ -156,8 +161,24 @@ const AdminBackofficePage = () => {
       icon: "fas fa-users",
       link: "/backoffice/club_users",
       color: "bg-purple-500",
+      requiredFeature: "club_enabled",
+    },
+    {
+      title: t("admin.dashboard.total_newsletter_subs"),
+      count: stats.newsletterSubs,
+      icon: "fas fa-envelope",
+      link: "/backoffice/newsletter",
+      color: "bg-pink-500",
+      requiredFeature: "newsletter_enabled",
     },
   ];
+
+  // Filter stat cards based on tenant features
+  const statCards = allStatCards.filter((card) => {
+    if (!card.requiredFeature) return true;
+    if (!features) return false;
+    return features[card.requiredFeature as keyof typeof features] === true;
+  });
 
   return (
     <div className="container mx-auto px-4 py-6 space-y-8">

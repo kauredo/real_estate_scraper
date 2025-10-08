@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
+import { TenantProvider } from "./context/TenantContext";
 import {
   NotificationProvider,
   useNotifications,
@@ -220,9 +221,11 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <NotificationProvider>
-          <AppContent />
-        </NotificationProvider>
+        <TenantProvider>
+          <NotificationProvider>
+            <AppContent />
+          </NotificationProvider>
+        </TenantProvider>
       </AuthProvider>
     </BrowserRouter>
   );

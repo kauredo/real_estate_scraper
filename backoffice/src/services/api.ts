@@ -2,11 +2,11 @@ import axios from "axios";
 import { apiRoutes } from "../utils/routes";
 
 // Create axios instance with default config
+// Note: Backoffice uses JWT authentication, not API keys
 const api = axios.create({
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
-    "X-API-Key": import.meta.env.VITE_API_KEY || "",
   },
   withCredentials: true, // Important for cookies/sessions if needed
 });
@@ -148,6 +148,10 @@ export const getCurrentUser = () => {
     localStorage.removeItem("token");
     return null;
   }
+};
+
+export const getCurrentTenant = async () => {
+  return api.get(apiRoutes.currentTenant);
 };
 
 // API Documentation

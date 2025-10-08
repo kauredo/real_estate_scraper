@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       delete '/auth/logout', to: 'auth#logout'
       post '/toggle_dark_mode', to: 'base#toggle_dark_mode'
 
+      # Current tenant
+      get '/tenant/current', to: 'tenants#current'
+
       # Super Admin API endpoints
       namespace :super_admin do
         resources :admins do
