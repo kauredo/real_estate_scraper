@@ -8,6 +8,7 @@ import BlogPostForm, {
   BlogPostFormData,
 } from "../../components/admin/forms/BlogPostForm";
 import { Button, LoadingSpinner } from "../../components/admin/ui";
+import PreviewButton from "../../components/admin/PreviewButton";
 
 interface FlashMessage {
   type: string;
@@ -152,12 +153,15 @@ const AdminBlogPostEditPage = () => {
               {t("admin.blog_posts.edit")}
             </h1>
           </div>
-          <Button
-            onClick={() => navigate(appRoutes.backoffice.blogPosts)}
-            variant="secondary"
-          >
-            {t("common.back")}
-          </Button>
+          <div className="flex gap-2">
+            <PreviewButton contentType="blog_post" contentId={parseInt(id!)} />
+            <Button
+              onClick={() => navigate(appRoutes.backoffice.blogPosts)}
+              variant="secondary"
+            >
+              {t("common.back")}
+            </Button>
+          </div>
         </div>
 
         <BlogPostForm

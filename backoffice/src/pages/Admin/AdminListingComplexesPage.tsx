@@ -138,9 +138,7 @@ const AdminListingComplexesPage = () => {
           >
             <div className="flex flex-wrap gap-2 text-xs text-gray-600 dark:text-gray-400 mt-2">
               <span>📷 {complex.photos?.length || 0} fotos</span>
-              <span>
-                🏠 {complex.listing_prices?.[1]?.length || 0} imóveis
-              </span>
+              <span>🏠 {complex.listings_count || 0} imóveis</span>
             </div>
           </AdminCard>
         ))}

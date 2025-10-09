@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Editor } from "@tinymce/tinymce-react";
-import { useDropzone } from "react-dropzone";
 import { adminDeleteBlogPhoto } from "../../../services/api";
 import { isDarkModeActive } from "../../../utils/functions";
-import { Input, Textarea, Button } from "../ui";
+import { Input, Textarea, Button, PhotoManagementSection } from "../ui";
 
 interface BlogPhoto {
   id: number;
@@ -56,15 +55,6 @@ const BlogPostForm = ({
     }
   }, [initialData]);
 
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: {
-      "image/*": [".png", ".jpg", ".jpeg", ".webp"],
-    },
-    onDrop: (acceptedFiles) => {
-      setNewPhotos((prev) => [...prev, ...acceptedFiles]);
-    },
-  });
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await onSubmit(formData, newPhotos);
@@ -81,7 +71,7 @@ const BlogPostForm = ({
     }));
   };
 
-  const updatePhotoMain = (photoId: number) => {
+  const handleSetMainPhoto = (photoId: number) => {
     setFormData((prev) => ({
       ...prev,
       blog_photos: prev.blog_photos.map((p) => ({
@@ -91,11 +81,7 @@ const BlogPostForm = ({
     }));
   };
 
-  const deletePhoto = async (photoId: number) => {
-    if (!confirm(t("admin.common.delete_photo_confirm"))) {
-      return;
-    }
-
+  const handleDeletePhoto = async (photoId: number) => {
     try {
       await adminDeleteBlogPhoto(photoId);
       setFormData((prev) => ({
@@ -107,7 +93,11 @@ const BlogPostForm = ({
     }
   };
 
-  const removeNewPhoto = (index: number) => {
+  const handleUploadPhotos = (files: File[]) => {
+    setNewPhotos((prev) => [...prev, ...files]);
+  };
+
+  const handleRemoveNewPhoto = (index: number) => {
     setNewPhotos((prev) => prev.filter((_, i) => i !== index));
   };
 
@@ -241,98 +231,16 @@ const BlogPostForm = ({
       </div>
 
       {/* Media Section */}
-      <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
-        <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
-          <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {t("admin.common.media_section")}
-          </h2>
-        </div>
-
-        {/* Existing Photos */}
-        {formData.blog_photos && formData.blog_photos.length > 0 && (
-          <div>
-            <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-              {t("admin.common.existing_photos")}
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {formData.blog_photos.map((photo) => (
-                <div
-                  key={photo.id}
-                  className="relative group border rounded-lg overflow-hidden"
-                >
-                  <img
-                    src={photo.image.url}
-                    alt="Blog photo"
-                    className="w-full h-40 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-2">
-                    <button
-                      type="button"
-                      onClick={() => updatePhotoMain(photo.id)}
-                      className={`px-3 py-1 text-xs rounded ${
-                        photo.main
-                          ? "bg-green-500 text-white"
-                          : "bg-white text-gray-700"
-                      }`}
-                    >
-                      {photo.main
-                        ? t("admin.common.main_photo")
-                        : t("admin.common.set_main")}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => deletePhoto(photo.id)}
-                      className="px-3 py-1 text-xs bg-red-500 text-white rounded hover:bg-red-600"
-                    >
-                      {t("common.delete")}
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* New Photos */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            {t("admin.common.add_photos")}
-          </label>
-          <div
-            {...getRootProps()}
-            className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center cursor-pointer hover:border-primary-500 transition-colors"
-          >
-            <input {...getInputProps()} />
-            <p className="text-gray-600 dark:text-gray-400">
-              {t("admin.common.dropzone")}
-            </p>
-          </div>
-
-          {newPhotos.length > 0 && (
-            <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {newPhotos.map((file, index) => (
-                <div
-                  key={index}
-                  className="relative border rounded-lg overflow-hidden"
-                >
-                  <img
-                    src={URL.createObjectURL(file)}
-                    alt={`New photo ${index + 1}`}
-                    className="w-full h-40 object-cover"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => removeNewPhoto(index)}
-                    className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600"
-                  >
-                    ×
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
+      <PhotoManagementSection
+        photos={formData.blog_photos}
+        newPhotos={newPhotos}
+        onSetMain={handleSetMainPhoto}
+        onDelete={handleDeletePhoto}
+        onUpload={handleUploadPhotos}
+        onRemoveNewPhoto={handleRemoveNewPhoto}
+        showUpload={true}
+        mode="create"
+      />
 
       {/* Submit Button */}
       <div className="flex justify-end">

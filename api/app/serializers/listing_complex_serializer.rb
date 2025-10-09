@@ -3,7 +3,8 @@
 class ListingComplexSerializer < ActiveModel::Serializer
   attributes :id, :name, :slug, :description, :subtext, :final_text, :order,
              :url, :video_link, :new_format, :hidden, :created_at, :updated_at,
-             :main_photo, :main_photo_thumb, :main_photo_medium, :thumbnail_url, :listing_prices
+             :main_photo, :main_photo_thumb, :main_photo_medium, :thumbnail_url, :listing_prices,
+             :listings_count
 
   has_many :photos, serializer: PhotoSerializer
   has_many :listings, serializer: ListingSerializer, if: :include_listings?
@@ -38,6 +39,10 @@ class ListingComplexSerializer < ActiveModel::Serializer
 
   def thumbnail_url
     main_photo_thumb
+  end
+
+  def listings_count
+    object.listings.count
   end
 
   def include_listings?

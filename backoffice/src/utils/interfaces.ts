@@ -39,6 +39,7 @@ export interface ListingComplex {
   price_from: number;
   features: string[];
   listings: Listing[];
+  listings_count?: number;
   main_photo: Photo;
   main_photo_thumb?: string;
   main_photo_medium?: string;

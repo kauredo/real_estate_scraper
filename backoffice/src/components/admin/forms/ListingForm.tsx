@@ -1,36 +1,57 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Input, Textarea, Select, Button } from "../ui";
+import {
+  Input,
+  Textarea,
+  Select,
+  Button,
+  TagInput,
+  MultiSelectOption,
+} from "../ui";
 
 export interface ListingFormData {
   title: string;
   description: string;
-  price: string;
-  location: string;
-  property_type: string;
+  address: string;
+  price_cents: string;
+  features: string[];
   status: string;
+  kind: string;
+  objective: string;
+  order: string;
+  video_link: string;
+  virtual_tour_url: string;
+  listing_complex_id: string;
 }
 
 interface ListingFormProps {
   initialData?: ListingFormData;
   onSubmit: (data: ListingFormData) => Promise<void>;
   isSubmitting: boolean;
+  availableListingComplexes?: MultiSelectOption[];
 }
 
 const ListingForm = ({
   initialData,
   onSubmit,
   isSubmitting,
+  availableListingComplexes = [],
 }: ListingFormProps) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState<ListingFormData>(
     initialData || {
       title: "",
       description: "",
-      price: "",
-      location: "",
-      property_type: "",
-      status: "active",
+      address: "",
+      price_cents: "",
+      features: [],
+      status: "0",
+      kind: "0",
+      objective: "1",
+      order: "",
+      video_link: "",
+      virtual_tour_url: "",
+      listing_complex_id: "",
     },
   );
 
@@ -52,6 +73,10 @@ const ListingForm = ({
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFeaturesChange = (features: string[]) => {
+    setFormData((prev) => ({ ...prev, features }));
   };
 
   return (
@@ -83,35 +108,68 @@ const ListingForm = ({
           />
 
           <Input
-            type="number"
-            name="price"
-            label={t("admin.listings.fields.price")}
-            value={formData.price}
+            type="text"
+            name="address"
+            label={t("admin.listings.fields.address")}
+            value={formData.address}
             onChange={handleChange}
           />
 
           <Input
-            type="text"
-            name="location"
-            label={t("admin.listings.fields.location")}
-            value={formData.location}
+            type="number"
+            name="price_cents"
+            label={t("admin.listings.fields.price")}
+            value={formData.price_cents}
             onChange={handleChange}
+            description={t("admin.listings.fields.priceDescription")}
           />
 
+          <TagInput
+            label={t("admin.listings.fields.features")}
+            tags={formData.features}
+            onChange={handleFeaturesChange}
+            placeholder={t("admin.listings.fields.featuresPlaceholder")}
+            description={t("admin.listings.fields.featuresDescription")}
+          />
+        </div>
+      </div>
+
+      {/* Classification Section */}
+      <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
+        <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
+          <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+            {t("admin.listings.classification")}
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Select
-            name="property_type"
-            label={t("admin.listings.fields.propertyType")}
-            value={formData.property_type}
+            name="kind"
+            label={t("admin.listings.fields.kind")}
+            value={formData.kind}
             onChange={handleChange}
           >
-            <option value="">{t("common.select")}</option>
-            <option value="apartment">
-              {t("listings.propertyTypes.apartment")}
-            </option>
-            <option value="house">{t("listings.propertyTypes.house")}</option>
-            <option value="commercial">
-              {t("listings.propertyTypes.commercial")}
-            </option>
+            <option value="0">{t("admin.listings.kinds.other")}</option>
+            <option value="1">{t("admin.listings.kinds.apartment")}</option>
+            <option value="2">{t("admin.listings.kinds.house")}</option>
+            <option value="3">{t("admin.listings.kinds.land")}</option>
+            <option value="4">{t("admin.listings.kinds.office")}</option>
+            <option value="5">{t("admin.listings.kinds.garage")}</option>
+            <option value="6">{t("admin.listings.kinds.parking")}</option>
+            <option value="7">{t("admin.listings.kinds.store")}</option>
+            <option value="8">{t("admin.listings.kinds.storage")}</option>
+            <option value="9">{t("admin.listings.kinds.warehouse")}</option>
+          </Select>
+
+          <Select
+            name="objective"
+            label={t("admin.listings.fields.objective")}
+            value={formData.objective}
+            onChange={handleChange}
+          >
+            <option value="0">{t("admin.listings.objectives.other")}</option>
+            <option value="1">{t("admin.listings.objectives.sale")}</option>
+            <option value="2">{t("admin.listings.objectives.rent")}</option>
           </Select>
 
           <Select
@@ -120,9 +178,67 @@ const ListingForm = ({
             value={formData.status}
             onChange={handleChange}
           >
-            <option value="active">{t("common.status.active")}</option>
-            <option value="inactive">{t("common.status.inactive")}</option>
+            <option value="0">{t("admin.listings.statuses.recent")}</option>
+            <option value="1">{t("admin.listings.statuses.standard")}</option>
+            <option value="2">{t("admin.listings.statuses.agreed")}</option>
+            <option value="3">{t("admin.listings.statuses.sold")}</option>
+            <option value="4">{t("admin.listings.statuses.rented")}</option>
+            <option value="5">{t("admin.listings.statuses.closed")}</option>
           </Select>
+
+          {availableListingComplexes.length > 0 && (
+            <Select
+              name="listing_complex_id"
+              label={t("admin.listings.fields.listingComplex")}
+              value={formData.listing_complex_id}
+              onChange={handleChange}
+            >
+              <option value="">{t("common.select")}</option>
+              {availableListingComplexes.map((complex) => (
+                <option key={complex.value} value={complex.value}>
+                  {complex.label}
+                </option>
+              ))}
+            </Select>
+          )}
+        </div>
+      </div>
+
+      {/* Additional Information Section */}
+      <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
+        <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
+          <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+            {t("admin.listings.additionalInfo")}
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6">
+          <Input
+            type="url"
+            name="video_link"
+            label={t("admin.listings.fields.videoLink")}
+            value={formData.video_link}
+            onChange={handleChange}
+            placeholder="https://youtube.com/..."
+          />
+
+          <Input
+            type="url"
+            name="virtual_tour_url"
+            label={t("admin.listings.fields.virtualTourUrl")}
+            value={formData.virtual_tour_url}
+            onChange={handleChange}
+            placeholder="https://..."
+          />
+
+          <Input
+            type="number"
+            name="order"
+            label={t("admin.listings.fields.order")}
+            value={formData.order}
+            onChange={handleChange}
+            description={t("admin.listings.fields.orderDescription")}
+          />
         </div>
       </div>
 

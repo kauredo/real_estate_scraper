@@ -267,6 +267,12 @@ export const adminUpdateListingComplexDetails = (id) =>
   api.post(apiRoutes.admin.updateDetailsListingComplex(id));
 export const adminUpdateListingComplexPhotos = (id, data) =>
   api.patch(apiRoutes.admin.photosListingComplex(id), data);
+export const adminUploadListingComplexPhotos = (id, formData) =>
+  api.post(apiRoutes.admin.photosListingComplex(id), formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 export const adminDeleteListingComplexPhoto = (id) =>
   api.delete(apiRoutes.admin.deletePhotoListingComplex(id));
 export const adminFetchListingComplex = (data) =>

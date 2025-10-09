@@ -25,8 +25,15 @@ export type { TextareaVariant, TextareaSize } from "./Textarea";
 export { default as Select } from "./Select";
 export type { SelectVariant, SelectSize, SelectOption } from "./Select";
 
+export { default as Checkbox } from "./Checkbox";
+export { default as TagInput } from "./TagInput";
+export { default as MultiSelect } from "./MultiSelect";
+export type { MultiSelectOption } from "./MultiSelect";
+
 export { default as Tabs } from "./Tabs";
 export type { Tab, TabVariant } from "./Tabs";
 
 export { default as Breadcrumbs } from "./Breadcrumbs";
 export type { BreadcrumbItem } from "./Breadcrumbs";
+
+export { default as PhotoManagementSection } from "./PhotoManagementSection";

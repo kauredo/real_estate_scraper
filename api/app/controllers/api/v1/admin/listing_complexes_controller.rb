@@ -142,7 +142,7 @@ module Api
         def listing_complex_params
           params.require(:listing_complex).permit(
             :name, :description, :subtext, :final_text, :url, :video_link,
-            :new_format, :hidden, :order
+            :new_format, :hidden, :order, listing_ids: []
           )
         end
 

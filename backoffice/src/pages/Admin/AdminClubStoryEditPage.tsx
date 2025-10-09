@@ -12,6 +12,7 @@ import ClubStoryForm, {
   ClubStoryFormData,
 } from "../../components/admin/forms/ClubStoryForm";
 import { Button, LoadingSpinner } from "../../components/admin/ui";
+import PreviewButton from "../../components/admin/PreviewButton";
 
 interface FlashMessage {
   type: string;
@@ -160,15 +161,18 @@ const AdminClubStoryEditPage = () => {
         <div className="mb-8 flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-              {t("club.stories.edit")}
+              {t("admin.clubStories.edit")}
             </h1>
           </div>
-          <Button
-            onClick={() => navigate(appRoutes.backoffice.clubStories)}
-            variant="secondary"
-          >
-            {t("common.back")}
-          </Button>
+          <div className="flex gap-2">
+            <PreviewButton contentType="club_story" contentId={parseInt(id!)} />
+            <Button
+              onClick={() => navigate(appRoutes.backoffice.clubStories)}
+              variant="secondary"
+            >
+              {t("common.back")}
+            </Button>
+          </div>
         </div>
 
         <ClubStoryForm

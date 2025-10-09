@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Editor } from "@tinymce/tinymce-react";
-import { useDropzone } from "react-dropzone";
 import { adminDeleteClubStoryPhoto } from "../../../services/api";
 import { isDarkModeActive } from "../../../utils/functions";
-import { Input, Textarea, Button } from "../ui";
+import { Input, Textarea, Button, PhotoManagementSection } from "../ui";
 
 interface ClubStoryPhoto {
   id: number;
@@ -59,27 +58,6 @@ const ClubStoryForm = ({
     }
   }, [initialData]);
 
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: {
-      "image/*": [".png", ".jpg", ".jpeg", ".webp"],
-    },
-    onDrop: async (acceptedFiles) => {
-      if (onUploadPhoto && showPhotoUpload) {
-        // For edit mode, upload immediately
-        try {
-          for (const file of acceptedFiles) {
-            await onUploadPhoto(file);
-          }
-        } catch (error) {
-          console.error("Error uploading photos:", error);
-        }
-      } else {
-        // For new mode, store for later
-        setNewPhotos((prev) => [...prev, ...acceptedFiles]);
-      }
-    },
-  });
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await onSubmit(formData, newPhotos);
@@ -96,7 +74,7 @@ const ClubStoryForm = ({
     }));
   };
 
-  const updatePhotoMain = (photoId: number) => {
+  const handleSetMainPhoto = (photoId: number) => {
     setFormData((prev) => ({
       ...prev,
       club_story_photos: prev.club_story_photos?.map((p) => ({
@@ -106,11 +84,7 @@ const ClubStoryForm = ({
     }));
   };
 
-  const deletePhoto = async (photoId: number) => {
-    if (!confirm(t("admin.common.delete_photo_confirm"))) {
-      return;
-    }
-
+  const handleDeletePhoto = async (photoId: number) => {
     try {
       await adminDeleteClubStoryPhoto(photoId);
       setFormData((prev) => ({
@@ -124,7 +98,23 @@ const ClubStoryForm = ({
     }
   };
 
-  const removeNewPhoto = (index: number) => {
+  const handleUploadPhotos = async (files: File[]) => {
+    if (onUploadPhoto && showPhotoUpload) {
+      // For edit mode, upload immediately
+      try {
+        for (const file of files) {
+          await onUploadPhoto(file);
+        }
+      } catch (error) {
+        console.error("Error uploading photos:", error);
+      }
+    } else {
+      // For create mode, store for later
+      setNewPhotos((prev) => [...prev, ...files]);
+    }
+  };
+
+  const handleRemoveNewPhoto = (index: number) => {
     setNewPhotos((prev) => prev.filter((_, i) => i !== index));
   };
 
@@ -257,108 +247,17 @@ const ClubStoryForm = ({
         </div>
       </div>
 
-      {/* Media Section - Only show in edit mode */}
-      {showPhotoUpload && (
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
-          <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
-            <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
-              {t("admin.common.media_section")}
-            </h2>
-          </div>
-
-          {/* Existing Photos */}
-          {formData.club_story_photos &&
-            formData.club_story_photos.length > 0 && (
-              <div>
-                <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-                  {t("admin.common.existing_photos")}
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {formData.club_story_photos.map((photo) => (
-                    <div
-                      key={photo.id}
-                      className="relative group border rounded-lg overflow-hidden"
-                    >
-                      <img
-                        src={photo.image.url}
-                        alt="Club story photo"
-                        className="w-full h-40 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-2">
-                        <button
-                          type="button"
-                          onClick={() => updatePhotoMain(photo.id)}
-                          className={`px-3 py-1 text-xs rounded ${
-                            photo.main
-                              ? "bg-green-500 text-white"
-                              : "bg-white text-gray-700"
-                          }`}
-                        >
-                          {photo.main
-                            ? t("admin.common.main_photo")
-                            : t("admin.common.set_main")}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => deletePhoto(photo.id)}
-                          className="px-3 py-1 text-xs bg-red-500 text-white rounded hover:bg-red-600"
-                        >
-                          {t("common.delete")}
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-          {/* Upload new photos */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              {t("admin.common.add_photos")}
-            </label>
-            <div
-              {...getRootProps()}
-              className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center cursor-pointer hover:border-primary-500 transition-colors"
-            >
-              <input {...getInputProps()} />
-              <p className="text-gray-600 dark:text-gray-400">
-                {t("admin.common.dropzone")}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* New photos preview (for create mode) */}
-      {!showPhotoUpload && newPhotos.length > 0 && (
-        <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
-          <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300">
-            {t("admin.common.new_photos")} ({newPhotos.length})
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {newPhotos.map((file, index) => (
-              <div
-                key={index}
-                className="relative border rounded-lg overflow-hidden"
-              >
-                <img
-                  src={URL.createObjectURL(file)}
-                  alt={`New photo ${index + 1}`}
-                  className="w-full h-40 object-cover"
-                />
-                <button
-                  type="button"
-                  onClick={() => removeNewPhoto(index)}
-                  className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600"
-                >
-                  ×
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Media Section */}
+      <PhotoManagementSection
+        photos={formData.club_story_photos}
+        newPhotos={newPhotos}
+        onSetMain={handleSetMainPhoto}
+        onDelete={handleDeletePhoto}
+        onUpload={handleUploadPhotos}
+        onRemoveNewPhoto={handleRemoveNewPhoto}
+        showUpload={true}
+        mode={showPhotoUpload ? 'edit' : 'create'}
+      />
 
       {/* Submit Button */}
       <div className="flex justify-end">

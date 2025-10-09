@@ -1,27 +1,56 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Input, Textarea, Button } from "../ui";
+import {
+  Input,
+  Textarea,
+  Button,
+  Checkbox,
+  MultiSelect,
+  MultiSelectOption,
+  PhotoManagementSection,
+} from "../ui";
 
 export interface ListingComplexFormData {
   name: string;
   description: string;
   subtext: string;
   final_text: string;
-  location: string;
-  price_from: string;
   video_link: string;
+  hidden: boolean;
+  new_format: boolean;
+  order: string;
+  listing_ids?: number[];
+}
+
+interface Photo {
+  id: number;
+  image: { url: string };
+  image_url?: string;
+  main: boolean;
 }
 
 interface ListingComplexFormProps {
   initialData?: ListingComplexFormData;
   onSubmit: (data: ListingComplexFormData) => Promise<void>;
   isSubmitting: boolean;
+  availableListings?: MultiSelectOption[];
+  photos?: Photo[];
+  onSetMainPhoto?: (photoId: number) => void;
+  onDeletePhoto?: (photoId: number) => Promise<void>;
+  onUploadPhotos?: (files: File[]) => void;
+  showPhotoManagement?: boolean;
 }
 
 const ListingComplexForm = ({
   initialData,
   onSubmit,
   isSubmitting,
+  availableListings = [],
+  photos = [],
+  onSetMainPhoto,
+  onDeletePhoto,
+  onUploadPhotos,
+  showPhotoManagement = false,
 }: ListingComplexFormProps) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState<ListingComplexFormData>(
@@ -30,9 +59,11 @@ const ListingComplexForm = ({
       description: "",
       subtext: "",
       final_text: "",
-      location: "",
-      price_from: "",
       video_link: "",
+      hidden: false,
+      new_format: false,
+      order: "",
+      listing_ids: [],
     },
   );
 
@@ -52,6 +83,15 @@ const ListingComplexForm = ({
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: checked }));
+  };
+
+  const handleListingsChange = (values: (string | number)[]) => {
+    setFormData((prev) => ({ ...prev, listing_ids: values as number[] }));
   };
 
   return (
@@ -99,22 +139,6 @@ const ListingComplexForm = ({
           />
 
           <Input
-            type="text"
-            name="location"
-            label={t("admin.listingComplexes.fields.location")}
-            value={formData.location}
-            onChange={handleChange}
-          />
-
-          <Input
-            type="number"
-            name="price_from"
-            label={t("admin.listingComplexes.fields.priceFrom")}
-            value={formData.price_from}
-            onChange={handleChange}
-          />
-
-          <Input
             type="url"
             name="video_link"
             label={t("admin.listingComplexes.fields.videoLink")}
@@ -122,8 +146,82 @@ const ListingComplexForm = ({
             onChange={handleChange}
             placeholder="https://youtube.com/..."
           />
+
+          <Input
+            type="number"
+            name="order"
+            label={t("admin.listingComplexes.fields.order")}
+            value={formData.order}
+            onChange={handleChange}
+            description={t("admin.listingComplexes.fields.orderDescription")}
+          />
         </div>
       </div>
+
+      {/* Settings Section */}
+      <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
+        <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
+          <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+            {t("admin.common.settings")}
+          </h2>
+        </div>
+
+        <div className="space-y-4">
+          <Checkbox
+            name="hidden"
+            label={t("admin.listingComplexes.fields.hidden")}
+            checked={formData.hidden}
+            onChange={handleCheckboxChange}
+            description={t("admin.listingComplexes.fields.hiddenDescription")}
+          />
+
+          <Checkbox
+            name="new_format"
+            label={t("admin.listingComplexes.fields.newFormat")}
+            checked={formData.new_format}
+            onChange={handleCheckboxChange}
+            description={t(
+              "admin.listingComplexes.fields.newFormatDescription",
+            )}
+          />
+        </div>
+      </div>
+
+      {/* Listings Section */}
+      {availableListings.length > 0 && (
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
+          <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
+            <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+              {t("admin.listingComplexes.listings")}
+            </h2>
+          </div>
+
+          <MultiSelect
+            label={t("admin.listingComplexes.fields.listings")}
+            options={availableListings}
+            selectedValues={formData.listing_ids || []}
+            onChange={handleListingsChange}
+            placeholder={t(
+              "admin.listingComplexes.fields.listingsPlaceholder",
+            )}
+            description={t(
+              "admin.listingComplexes.fields.listingsDescription",
+            )}
+          />
+        </div>
+      )}
+
+      {/* Photo Management */}
+      {showPhotoManagement && (
+        <PhotoManagementSection
+          photos={photos}
+          onSetMain={onSetMainPhoto}
+          onDelete={onDeletePhoto}
+          onUpload={onUploadPhotos}
+          showUpload={true}
+          mode="edit"
+        />
+      )}
 
       {/* Submit Button */}
       <div className="flex justify-end">
