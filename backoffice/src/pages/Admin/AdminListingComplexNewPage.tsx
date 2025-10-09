@@ -3,7 +3,9 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { adminCreateListingComplex } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
-import ListingComplexForm, { ListingComplexFormData } from "../../components/admin/forms/ListingComplexForm";
+import ListingComplexForm, {
+  ListingComplexFormData,
+} from "../../components/admin/forms/ListingComplexForm";
 import { Button } from "../../components/admin/ui";
 
 const AdminListingComplexNewPage = () => {

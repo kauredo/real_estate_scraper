@@ -7,7 +7,12 @@ import {
 } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import { Testimonial } from "../../utils/interfaces";
-import { Input, Textarea, Button, LoadingSpinner } from "../../components/admin/ui";
+import {
+  Input,
+  Textarea,
+  Button,
+  LoadingSpinner,
+} from "../../components/admin/ui";
 
 const AdminTestimonialEditPage = () => {
   const { t } = useTranslation();
@@ -120,11 +125,7 @@ const AdminTestimonialEditPage = () => {
           />
 
           <div className="flex items-center justify-between pt-2">
-            <Button
-              type="submit"
-              isLoading={saving}
-              variant="primary"
-            >
+            <Button type="submit" isLoading={saving} variant="primary">
               {t("common.save")}
             </Button>
             <Button

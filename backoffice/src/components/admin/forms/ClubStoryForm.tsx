@@ -50,7 +50,7 @@ const ClubStoryForm = ({
       meta_description: "",
       video_link: "",
       club_story_photos: [],
-    }
+    },
   );
 
   useEffect(() => {
@@ -86,7 +86,7 @@ const ClubStoryForm = ({
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value, type } = e.target;
     setFormData((prev) => ({
@@ -115,7 +115,9 @@ const ClubStoryForm = ({
       await adminDeleteClubStoryPhoto(photoId);
       setFormData((prev) => ({
         ...prev,
-        club_story_photos: prev.club_story_photos?.filter((p) => p.id !== photoId),
+        club_story_photos: prev.club_story_photos?.filter(
+          (p) => p.id !== photoId,
+        ),
       }));
     } catch (error) {
       console.error("Error deleting photo:", error);
@@ -265,49 +267,50 @@ const ClubStoryForm = ({
           </div>
 
           {/* Existing Photos */}
-          {formData.club_story_photos && formData.club_story_photos.length > 0 && (
-            <div>
-              <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-                {t("admin.common.existing_photos")}
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {formData.club_story_photos.map((photo) => (
-                  <div
-                    key={photo.id}
-                    className="relative group border rounded-lg overflow-hidden"
-                  >
-                    <img
-                      src={photo.image.url}
-                      alt="Club story photo"
-                      className="w-full h-40 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-2">
-                      <button
-                        type="button"
-                        onClick={() => updatePhotoMain(photo.id)}
-                        className={`px-3 py-1 text-xs rounded ${
-                          photo.main
-                            ? "bg-green-500 text-white"
-                            : "bg-white text-gray-700"
-                        }`}
-                      >
-                        {photo.main
-                          ? t("admin.common.main_photo")
-                          : t("admin.common.set_main")}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => deletePhoto(photo.id)}
-                        className="px-3 py-1 text-xs bg-red-500 text-white rounded hover:bg-red-600"
-                      >
-                        {t("common.delete")}
-                      </button>
+          {formData.club_story_photos &&
+            formData.club_story_photos.length > 0 && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                  {t("admin.common.existing_photos")}
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {formData.club_story_photos.map((photo) => (
+                    <div
+                      key={photo.id}
+                      className="relative group border rounded-lg overflow-hidden"
+                    >
+                      <img
+                        src={photo.image.url}
+                        alt="Club story photo"
+                        className="w-full h-40 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-2">
+                        <button
+                          type="button"
+                          onClick={() => updatePhotoMain(photo.id)}
+                          className={`px-3 py-1 text-xs rounded ${
+                            photo.main
+                              ? "bg-green-500 text-white"
+                              : "bg-white text-gray-700"
+                          }`}
+                        >
+                          {photo.main
+                            ? t("admin.common.main_photo")
+                            : t("admin.common.set_main")}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => deletePhoto(photo.id)}
+                          className="px-3 py-1 text-xs bg-red-500 text-white rounded hover:bg-red-600"
+                        >
+                          {t("common.delete")}
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
           {/* Upload new photos */}
           <div>

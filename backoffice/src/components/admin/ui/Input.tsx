@@ -27,7 +27,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled,
       ...props
     },
-    ref
+    ref,
   ) => {
     const baseStyles =
       "w-full rounded-lg border transition-colors focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed bg-white dark:bg-gray-800";
@@ -47,11 +47,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       lg: "px-5 py-3 text-lg",
     };
 
-    const paddingWithIcons = leftIcon
-      ? "pl-10"
-      : rightIcon
-        ? "pr-10"
-        : "";
+    const paddingWithIcons = leftIcon ? "pl-10" : rightIcon ? "pr-10" : "";
 
     const displayVariant = errorMessage ? "error" : variant;
 
@@ -97,7 +93,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 Input.displayName = "Input";

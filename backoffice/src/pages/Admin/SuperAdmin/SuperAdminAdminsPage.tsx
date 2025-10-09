@@ -8,7 +8,13 @@ import {
   superAdminGetTenants,
 } from "../../../services/api";
 import AdminFormModal from "../../../components/SuperAdmin/AdminFormModal";
-import { LoadingSpinner, AdminTable, Input, Select, Button } from "../../../components/admin/ui";
+import {
+  LoadingSpinner,
+  AdminTable,
+  Input,
+  Select,
+  Button,
+} from "../../../components/admin/ui";
 
 interface Admin {
   id: number;

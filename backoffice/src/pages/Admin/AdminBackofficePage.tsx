@@ -265,10 +265,7 @@ const AdminBackofficePage = () => {
                 placeholder="https://www.kwportugal.pt/..."
                 className="flex-1"
               />
-              <Button
-                type="submit"
-                isLoading={submitting}
-              >
+              <Button type="submit" isLoading={submitting}>
                 {t("common.add")}
               </Button>
             </form>
@@ -293,10 +290,7 @@ const AdminBackofficePage = () => {
                 placeholder="https://www.kwportugal.pt/..."
                 className="flex-1"
               />
-              <Button
-                type="submit"
-                isLoading={submitting}
-              >
+              <Button type="submit" isLoading={submitting}>
                 {t("common.add")}
               </Button>
             </form>

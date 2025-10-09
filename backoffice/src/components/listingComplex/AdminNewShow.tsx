@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { adminDeleteListingComplex } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import type { ListingComplex } from "../../utils/interfaces";
+import { Button } from "../admin/ui";
 
 interface Props {
   complex: ListingComplex;
@@ -52,26 +53,29 @@ export default function AdminNewShow(props: Props) {
               </span>
             </div>
             <div className="flex space-x-2">
-              <button
+              <Button
                 onClick={() => navigate(appRoutes.backoffice.listingComplexes)}
-                className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded text-sm"
+                variant="secondary"
+                size="sm"
+                className="bg-gray-500 hover:bg-gray-600"
               >
                 {t("common.back")}
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() =>
                   navigate(appRoutes.backoffice.editListingComplex(complex.id))
                 }
-                className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded text-sm"
+                size="sm"
               >
                 {t("common.edit")}
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={handleDelete}
-                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded text-sm"
+                size="sm"
+                className="bg-red-500 hover:bg-red-600"
               >
                 {t("common.delete")}
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -97,12 +101,13 @@ export default function AdminNewShow(props: Props) {
                   allow="autoplay"
                   allowFullScreen
                 />
-                <button
+                <Button
+                  variant="link"
                   className="absolute top-2 right-2 bg-white dark:bg-dark text-black dark:text-white rounded-full w-8 h-8 flex items-center justify-center"
                   onClick={() => setIsVideoOpen(false)}
                 >
                   ✕
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -134,9 +139,9 @@ export default function AdminNewShow(props: Props) {
             )}
 
             {complex.video_link && (
-              <button
+              <Button
                 onClick={() => setIsVideoOpen(true)}
-                className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-lg flex items-center mx-auto"
+                className="flex items-center py-4 px-8 mx-auto"
               >
                 <svg
                   className="w-6 h-6 mr-3"
@@ -146,7 +151,7 @@ export default function AdminNewShow(props: Props) {
                   <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                 </svg>
                 {t("listingComplex.watchVideo")}
-              </button>
+              </Button>
             )}
           </div>
         </div>

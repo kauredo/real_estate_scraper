@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ListingComplex } from "../../utils/interfaces";
 import { adminGetListingComplexes } from "../../services/api";
-import {
-  LoadingSpinner,
-  Button,
-  Pagination,
-} from "../../components/admin/ui";
+import { LoadingSpinner, Button, Pagination } from "../../components/admin/ui";
 
 interface PaginationState {
   current_page: number;
@@ -56,10 +52,7 @@ const AdminListingComplexesPage = () => {
     <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
       {/* Header */}
       <div className="mb-6">
-        <Button
-          as={Link}
-          to="/backoffice/listing_complexes/new"
-        >
+        <Button as={Link} to="/backoffice/listing_complexes/new">
           Novo Empreendimento
         </Button>
       </div>

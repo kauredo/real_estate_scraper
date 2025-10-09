@@ -5,6 +5,7 @@ import { adminDeleteListingComplex } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import type { ListingComplex } from "../../utils/interfaces";
 import Carousel from "../shared/Carousel";
+import { Button } from "../admin/ui";
 
 interface Props {
   complex: ListingComplex;
@@ -62,26 +63,29 @@ export default function AdminShow(props: Props) {
               </span>
             </div>
             <div className="flex space-x-2">
-              <button
+              <Button
                 onClick={() => navigate(appRoutes.backoffice.listingComplexes)}
-                className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded text-sm"
+                variant="secondary"
+                size="sm"
+                className="bg-gray-500 hover:bg-gray-600"
               >
                 {t("common.back")}
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() =>
                   navigate(appRoutes.backoffice.editListingComplex(complex.id))
                 }
-                className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded text-sm"
+                size="sm"
               >
                 {t("common.edit")}
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={handleDelete}
-                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded text-sm"
+                size="sm"
+                className="bg-red-500 hover:bg-red-600"
               >
                 {t("common.delete")}
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -106,12 +110,13 @@ export default function AdminShow(props: Props) {
                   allow="autoplay"
                   allowFullScreen
                 />
-                <button
+                <Button
+                  variant="link"
                   className="absolute top-2 right-2 bg-white dark:bg-dark text-black dark:text-white rounded-full w-8 h-8 flex items-center justify-center"
                   onClick={() => setIsVideoOpen(false)}
                 >
                   ✕
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -145,9 +150,9 @@ export default function AdminShow(props: Props) {
 
             {complex.video_link && (
               <div className="mb-8">
-                <button
+                <Button
                   onClick={() => setIsVideoOpen(true)}
-                  className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 rounded-lg flex items-center"
+                  className="flex items-center py-3 px-6"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
@@ -157,7 +162,7 @@ export default function AdminShow(props: Props) {
                     <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                   </svg>
                   {t("listingComplex.watchVideo")}
-                </button>
+                </Button>
               </div>
             )}
 

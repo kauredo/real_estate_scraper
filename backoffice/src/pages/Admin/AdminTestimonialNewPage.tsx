@@ -100,11 +100,7 @@ const AdminTestimonialNewPage = () => {
           />
 
           <div className="flex items-center justify-between pt-2">
-            <Button
-              type="submit"
-              isLoading={loading}
-              variant="primary"
-            >
+            <Button type="submit" isLoading={loading} variant="primary">
               {t("common.save")}
             </Button>
             <Button

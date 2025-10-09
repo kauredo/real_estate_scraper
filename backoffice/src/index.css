@@ -11,7 +11,9 @@ html {
 body {
   overflow-x: hidden;
   background-color: theme("colors.white");
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
 }
 
 body.dark {
@@ -19,7 +21,11 @@ body.dark {
 }
 
 /* TYPOGRAPHY */
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-weight: 600;
   max-width: 60ch;
 }

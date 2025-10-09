@@ -10,13 +10,14 @@ export interface SelectOption {
 }
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  label?: string;
+  label?: string | React.ReactNode;
   helperText?: string;
   errorMessage?: string;
   variant?: SelectVariant;
   selectSize?: SelectSize;
-  options: SelectOption[];
+  options?: SelectOption[];
   placeholder?: string;
+  children?: React.ReactNode;
 }
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
@@ -31,9 +32,10 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
       placeholder,
       className = "",
       disabled,
+      children,
       ...props
     },
-    ref
+    ref,
   ) => {
     const baseStyles =
       "w-full rounded-lg border transition-colors focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed bg-white dark:bg-gray-800 appearance-none";
@@ -75,15 +77,17 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 {placeholder}
               </option>
             )}
-            {options.map((option) => (
-              <option
-                key={option.value}
-                value={option.value}
-                disabled={option.disabled}
-              >
-                {option.label}
-              </option>
-            ))}
+            {options
+              ? options.map((option) => (
+                  <option
+                    key={option.value}
+                    value={option.value}
+                    disabled={option.disabled}
+                  >
+                    {option.label}
+                  </option>
+                ))
+              : children}
           </select>
 
           {/* Custom dropdown arrow */}
@@ -117,7 +121,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 Select.displayName = "Select";

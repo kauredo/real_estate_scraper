@@ -3,6 +3,7 @@ import ListingsTable from "../../components/admin/ListingsTable";
 import ListingComplexesTable from "../../components/admin/ListingComplexesTable";
 import TestimonialsManagement from "../../components/admin/TestimonialsManagement";
 import PhotosManagement from "../../components/admin/PhotosManagement";
+import { Button } from "../../components/admin/ui";
 
 type ActiveTab = "listings" | "complexes" | "testimonials" | "photos";
 
@@ -42,9 +43,10 @@ const AdminDashboard: React.FC = () => {
         <div className="border-b border-gray-200 mb-8">
           <nav className="-mb-px flex space-x-8">
             {tabs.map((tab) => (
-              <button
+              <Button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as ActiveTab)}
+                variant="link"
                 className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
                   activeTab === tab.id
                     ? "border-blue-500 text-blue-600"
@@ -52,7 +54,7 @@ const AdminDashboard: React.FC = () => {
                 }`}
               >
                 {tab.label}
-              </button>
+              </Button>
             ))}
           </nav>
         </div>

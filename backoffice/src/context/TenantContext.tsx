@@ -56,10 +56,12 @@ export const TenantProvider = ({ children }: { children: ReactNode }) => {
   const [availableTenants, setAvailableTenants] = useState<TenantOption[]>([]);
 
   // Load selected tenant from localStorage on mount
-  const [selectedTenantId, setSelectedTenantId] = useState<number | null>(() => {
-    const stored = localStorage.getItem("selectedTenantId");
-    return stored ? parseInt(stored) : null;
-  });
+  const [selectedTenantId, setSelectedTenantId] = useState<number | null>(
+    () => {
+      const stored = localStorage.getItem("selectedTenantId");
+      return stored ? parseInt(stored) : null;
+    },
+  );
 
   const isSuperAdmin = currentAdmin?.isSuperAdmin === true;
 

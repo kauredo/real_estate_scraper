@@ -9,6 +9,7 @@ import DropdownLink from "../shared/DropdownLink";
 import Routes from "../../utils/routes";
 import { useAuth } from "../../context/AuthContext";
 import TenantSelector from "./TenantSelector";
+import { Button } from "../admin/ui";
 
 interface Props {
   onToggleSidebar?: () => void;
@@ -71,8 +72,9 @@ export default function Navbar(props: Props) {
           <div className="flex items-center gap-4">
             {/* Hamburger menu button */}
             {onToggleSidebar && (
-              <button
+              <Button
                 onClick={onToggleSidebar}
+                variant="link"
                 className="lg:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 aria-label="Toggle sidebar"
               >
@@ -89,7 +91,7 @@ export default function Navbar(props: Props) {
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
-              </button>
+              </Button>
             )}
 
             <div className="flex-shrink-0">
@@ -128,9 +130,9 @@ export default function Navbar(props: Props) {
           </div>
 
           <div className="flex justify-end tablet:hidden">
-            <button
+            <Button
               onClick={() => setIsOpen(!isOpen)}
-              type="button"
+              variant="link"
               className="bg-white dark:bg-dark inline-flex items-center justify-center p-2 rounded-md text-dark dark:text-light"
               aria-controls="mobile-menu"
               aria-expanded="false"
@@ -169,7 +171,7 @@ export default function Navbar(props: Props) {
                   />
                 </svg>
               )}
-            </button>
+            </Button>
           </div>
         </div>
       </div>

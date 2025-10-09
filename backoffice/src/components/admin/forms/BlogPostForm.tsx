@@ -30,7 +30,11 @@ interface BlogPostFormProps {
   isSubmitting: boolean;
 }
 
-const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: BlogPostFormProps) => {
+const BlogPostForm = ({
+  initialData,
+  onSubmit,
+  isSubmitting,
+}: BlogPostFormProps) => {
   const { t } = useTranslation();
   const [newPhotos, setNewPhotos] = useState<File[]>([]);
   const [formData, setFormData] = useState<BlogPostFormData>(
@@ -43,7 +47,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: BlogPostFormProps
       meta_description: "",
       video_link: "",
       blog_photos: [],
-    }
+    },
   );
 
   useEffect(() => {
@@ -67,7 +71,7 @@ const BlogPostForm = ({ initialData, onSubmit, isSubmitting }: BlogPostFormProps
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value, type } = e.target;
     setFormData((prev) => ({

@@ -9,7 +9,11 @@ interface EmptyStateProps {
   };
 }
 
-const EmptyState: React.FC<EmptyStateProps> = ({ message, icon = "📭", action }) => {
+const EmptyState: React.FC<EmptyStateProps> = ({
+  message,
+  icon = "📭",
+  action,
+}) => {
   return (
     <div className="text-center py-12">
       <div className="text-6xl mb-4">{icon}</div>

@@ -7,7 +7,7 @@ interface LoadingSpinnerProps {
 
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   size = "md",
-  text
+  text,
 }) => {
   const sizeClasses = {
     sm: "h-8 w-8 border-2",
@@ -20,9 +20,7 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
       <div
         className={`animate-spin rounded-full ${sizeClasses[size]} border-primary-600 border-t-transparent`}
       />
-      {text && (
-        <p className="mt-4 text-gray-600 dark:text-gray-400">{text}</p>
-      )}
+      {text && <p className="mt-4 text-gray-600 dark:text-gray-400">{text}</p>}
     </div>
   );
 };

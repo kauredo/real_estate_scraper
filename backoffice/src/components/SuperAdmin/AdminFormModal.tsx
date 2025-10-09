@@ -5,6 +5,7 @@ import {
   superAdminUpdateAdmin,
   superAdminGetTenants,
 } from "../../services/api";
+import { Modal, Input, Select, Button } from "../admin/ui";
 
 interface Tenant {
   id: number;
@@ -97,122 +98,105 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
-        <h2 className="text-2xl font-bold mb-4 dark:text-white">
-          {admin
-            ? t("super_admin.admins.edit_admin")
-            : t("super_admin.admins.create_admin")}
-        </h2>
+    <Modal
+      isOpen={true}
+      onClose={onClose}
+      title={
+        admin
+          ? t("super_admin.admins.edit_admin")
+          : t("super_admin.admins.create_admin")
+      }
+    >
+      {errors.length > 0 && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+          {errors.map((error, index) => (
+            <p key={index}>{error}</p>
+          ))}
+        </div>
+      )}
 
-        {errors.length > 0 && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-            {errors.map((error, index) => (
-              <p key={index}>{error}</p>
-            ))}
-          </div>
-        )}
+      <form onSubmit={handleSubmit}>
+        <Input
+          type="email"
+          label={t("super_admin.admins.email")}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="mb-4"
+        />
 
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2 dark:text-white">
-              {t("super_admin.admins.email")}
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2 dark:text-white">
+        <Input
+          type="password"
+          label={
+            <>
               {t("super_admin.admins.password")}
               {admin && (
                 <span className="text-gray-500 dark:text-gray-400 text-xs ml-2">
                   ({t("super_admin.admins.leave_blank")})
                 </span>
               )}
-            </label>
+            </>
+          }
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required={!admin}
+          className="mb-4"
+        />
+
+        <Input
+          type="password"
+          label={t("super_admin.admins.password_confirmation")}
+          value={passwordConfirmation}
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
+          required={!!password}
+          className="mb-4"
+        />
+
+        <Select
+          label={t("super_admin.admins.tenant")}
+          value={tenantId === null ? 0 : tenantId}
+          onChange={(e) =>
+            setTenantId(e.target.value === "0" ? null : Number(e.target.value))
+          }
+          className="mb-4"
+        >
+          <option value="0">{t("super_admin.admins.super_admin")}</option>
+          {tenants.map((tenant) => (
+            <option key={tenant.id} value={tenant.id}>
+              {tenant.name}
+            </option>
+          ))}
+        </Select>
+
+        <div className="mb-6">
+          <label className="flex items-center">
             <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              required={!admin}
+              type="checkbox"
+              checked={confirmed}
+              onChange={(e) => setConfirmed(e.target.checked)}
+              className="mr-2"
             />
-          </div>
+            <span className="text-sm dark:text-white">
+              {t("super_admin.admins.confirmed")}
+            </span>
+          </label>
+        </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2 dark:text-white">
-              {t("super_admin.admins.password_confirmation")}
-            </label>
-            <input
-              type="password"
-              value={passwordConfirmation}
-              onChange={(e) => setPasswordConfirmation(e.target.value)}
-              className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              required={!!password}
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2 dark:text-white">
-              {t("super_admin.admins.tenant")}
-            </label>
-            <select
-              value={tenantId === null ? 0 : tenantId}
-              onChange={(e) =>
-                setTenantId(
-                  e.target.value === "0" ? null : Number(e.target.value),
-                )
-              }
-              className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-            >
-              <option value="0">{t("super_admin.admins.super_admin")}</option>
-              {tenants.map((tenant) => (
-                <option key={tenant.id} value={tenant.id}>
-                  {tenant.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="mb-6">
-            <label className="flex items-center">
-              <input
-                type="checkbox"
-                checked={confirmed}
-                onChange={(e) => setConfirmed(e.target.checked)}
-                className="mr-2"
-              />
-              <span className="text-sm dark:text-white">
-                {t("super_admin.admins.confirmed")}
-              </span>
-            </label>
-          </div>
-
-          <div className="flex gap-2">
-            <button
-              type="submit"
-              disabled={loading}
-              className="flex-1 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
-            >
-              {loading ? t("common.saving") : t("common.save")}
-            </button>
-            <button
-              type="button"
-              onClick={onClose}
-              className="flex-1 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-500"
-            >
-              {t("common.cancel")}
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+        <div className="flex gap-2">
+          <Button type="submit" isLoading={loading} className="flex-1">
+            {t("common.save")}
+          </Button>
+          <Button
+            type="button"
+            onClick={onClose}
+            variant="secondary"
+            className="flex-1"
+          >
+            {t("common.cancel")}
+          </Button>
+        </div>
+      </form>
+    </Modal>
   );
 };
 

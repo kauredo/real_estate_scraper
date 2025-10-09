@@ -132,10 +132,7 @@ const AdminListingsPage = () => {
 
       {/* Controls */}
       <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap mb-6 gap-4">
-        <Button
-          onClick={handleUpdateAll}
-          isLoading={updating}
-        >
+        <Button onClick={handleUpdateAll} isLoading={updating}>
           {t("admin.listings.updateAll")}
         </Button>
 

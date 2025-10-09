@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "../admin/ui";
 
 interface Props {
   type: string;
@@ -70,8 +71,9 @@ export default function Flashes(props: Props): React.JSX.Element {
     >
       <div className="flex items-start justify-between">
         <span className="block pr-8">{message}</span>
-        <button
+        <Button
           onClick={handleClose}
+          variant="link"
           className="flex-shrink-0 ml-2 p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
         >
           <svg
@@ -82,7 +84,7 @@ export default function Flashes(props: Props): React.JSX.Element {
           >
             <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
           </svg>
-        </button>
+        </Button>
       </div>
     </div>
   );

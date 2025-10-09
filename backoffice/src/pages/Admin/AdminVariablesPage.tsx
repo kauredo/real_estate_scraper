@@ -174,7 +174,9 @@ const AdminVariablesPage = () => {
       <AdminPageHeader
         title={t("admin.variables.title")}
         count={variables.length}
-        countLabel={t("admin.variables.totalCount", { count: variables.length })}
+        countLabel={t("admin.variables.totalCount", {
+          count: variables.length,
+        })}
       >
         <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
           {t("admin.variables.note")}{" "}
@@ -222,10 +224,7 @@ const AdminVariablesPage = () => {
             placeholder={t("admin.variables.icon_placeholder")}
             required
           />
-          <Button
-            type="submit"
-            isLoading={submitting}
-          >
+          <Button type="submit" isLoading={submitting}>
             {t("common.create")}
           </Button>
         </div>

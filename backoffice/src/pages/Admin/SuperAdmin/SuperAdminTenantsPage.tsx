@@ -7,7 +7,13 @@ import {
   superAdminRotateApiKey,
 } from "../../../services/api";
 import TenantFormModal from "../../../components/SuperAdmin/TenantFormModal";
-import { LoadingSpinner, AdminTable, Input, Select, Button } from "../../../components/admin/ui";
+import {
+  LoadingSpinner,
+  AdminTable,
+  Input,
+  Select,
+  Button,
+} from "../../../components/admin/ui";
 
 interface Tenant {
   id: number;

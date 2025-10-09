@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  adminGetBlogPost,
-  adminUpdateBlogPost,
-} from "../../services/api";
+import { adminGetBlogPost, adminUpdateBlogPost } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import Flashes from "../../components/shared/Flashes";
-import BlogPostForm, { BlogPostFormData } from "../../components/admin/forms/BlogPostForm";
+import BlogPostForm, {
+  BlogPostFormData,
+} from "../../components/admin/forms/BlogPostForm";
 import { Button, LoadingSpinner } from "../../components/admin/ui";
 
 interface FlashMessage {
@@ -60,7 +59,10 @@ const AdminBlogPostEditPage = () => {
     fetchBlogPost();
   }, [id]);
 
-  const handleSubmit = async (formData: BlogPostFormData, newPhotos: File[]) => {
+  const handleSubmit = async (
+    formData: BlogPostFormData,
+    newPhotos: File[],
+  ) => {
     setSaving(true);
     setFlash(null);
 
@@ -90,7 +92,7 @@ const AdminBlogPostEditPage = () => {
         formData.blog_photos.forEach((photo) => {
           submitData.append(
             `blog_photos[${photo.id}][main]`,
-            photo.main.toString()
+            photo.main.toString(),
           );
         });
       }

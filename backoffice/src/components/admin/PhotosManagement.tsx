@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { adminGetPhotos, adminDeletePhoto } from "../../services/api";
 import { Photo } from "../../utils/interfaces";
+import { Button, Pagination, LoadingSpinner } from "../admin/ui";
 
 const PhotosManagement: React.FC = () => {
   const { t } = useTranslation();
@@ -53,11 +54,7 @@ const PhotosManagement: React.FC = () => {
   };
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="text-lg">{t("admin.photos.loading")}</div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   return (
@@ -114,12 +111,14 @@ const PhotosManagement: React.FC = () => {
               </div>
 
               <div className="flex justify-end">
-                <button
+                <Button
                   onClick={() => handleDelete(photo.id)}
-                  className="text-red-600 hover:text-red-900 text-sm font-medium"
+                  variant="link"
+                  size="sm"
+                  className="text-red-600 hover:text-red-900"
                 >
                   {t("common.delete")}
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -134,30 +133,11 @@ const PhotosManagement: React.FC = () => {
 
       {/* Pagination */}
       {pagination.total_pages > 1 && (
-        <div className="flex justify-center space-x-2">
-          <button
-            onClick={() => handlePageChange(pagination.current_page - 1)}
-            disabled={pagination.current_page === 1}
-            className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {t("pagination.previous")}
-          </button>
-
-          <span className="px-3 py-1">
-            {t("pagination.page", {
-              current: pagination.current_page,
-              total: pagination.total_pages,
-            })}
-          </span>
-
-          <button
-            onClick={() => handlePageChange(pagination.current_page + 1)}
-            disabled={pagination.current_page === pagination.total_pages}
-            className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {t("pagination.next")}
-          </button>
-        </div>
+        <Pagination
+          currentPage={pagination.current_page}
+          totalPages={pagination.total_pages}
+          onPageChange={handlePageChange}
+        />
       )}
     </div>
   );

@@ -6,7 +6,9 @@ import {
   adminUpdateListingComplex,
 } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
-import ListingComplexForm, { ListingComplexFormData } from "../../components/admin/forms/ListingComplexForm";
+import ListingComplexForm, {
+  ListingComplexFormData,
+} from "../../components/admin/forms/ListingComplexForm";
 import { Button, LoadingSpinner } from "../../components/admin/ui";
 
 const AdminListingComplexEditPage = () => {
@@ -15,7 +17,9 @@ const AdminListingComplexEditPage = () => {
   const { id } = useParams<{ id: string }>();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [initialData, setInitialData] = useState<ListingComplexFormData | null>(null);
+  const [initialData, setInitialData] = useState<ListingComplexFormData | null>(
+    null,
+  );
 
   useEffect(() => {
     const fetchListingComplex = async () => {

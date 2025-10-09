@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { adminCreateClubStory } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import Flashes from "../../components/shared/Flashes";
-import ClubStoryForm, { ClubStoryFormData } from "../../components/admin/forms/ClubStoryForm";
+import ClubStoryForm, {
+  ClubStoryFormData,
+} from "../../components/admin/forms/ClubStoryForm";
 import { Button } from "../../components/admin/ui";
 
 interface FlashMessage {
@@ -18,7 +20,10 @@ const AdminClubStoryNewPage = () => {
   const [saving, setSaving] = useState(false);
   const [flash, setFlash] = useState<FlashMessage | null>(null);
 
-  const handleSubmit = async (formData: ClubStoryFormData, newPhotos?: File[]) => {
+  const handleSubmit = async (
+    formData: ClubStoryFormData,
+    newPhotos?: File[],
+  ) => {
     setSaving(true);
     setFlash(null);
 
@@ -49,7 +54,13 @@ const AdminClubStoryNewPage = () => {
         message: t("admin.clubStories.create_success"),
       });
       // Navigate to edit page after creation
-      setTimeout(() => navigate(appRoutes.backoffice.editClubStory(response.data.club_story.id)), 1500);
+      setTimeout(
+        () =>
+          navigate(
+            appRoutes.backoffice.editClubStory(response.data.club_story.id),
+          ),
+        1500,
+      );
     } catch (error) {
       console.error("Error creating club story:", error);
       setFlash({

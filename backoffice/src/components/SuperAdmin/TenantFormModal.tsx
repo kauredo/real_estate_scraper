@@ -155,10 +155,7 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
             </p>
           </div>
 
-          <Button
-            onClick={handleCloseWithApiKey}
-            fullWidth
-          >
+          <Button onClick={handleCloseWithApiKey} fullWidth>
             {t("common.close")}
           </Button>
         </div>
@@ -323,11 +320,7 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
           </div>
 
           <div className="flex gap-2">
-            <Button
-              type="submit"
-              isLoading={loading}
-              className="flex-1"
-            >
+            <Button type="submit" isLoading={loading} className="flex-1">
               {t("common.save")}
             </Button>
             <Button

@@ -53,7 +53,9 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                 to={item.path}
                 className="flex items-center gap-1.5 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
               >
-                {item.icon && <span className="flex-shrink-0">{item.icon}</span>}
+                {item.icon && (
+                  <span className="flex-shrink-0">{item.icon}</span>
+                )}
                 <span>{item.label}</span>
               </Link>
             ) : (
@@ -64,7 +66,9 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                     : "text-gray-600 dark:text-gray-400"
                 }`}
               >
-                {item.icon && <span className="flex-shrink-0">{item.icon}</span>}
+                {item.icon && (
+                  <span className="flex-shrink-0">{item.icon}</span>
+                )}
                 <span>{item.label}</span>
               </span>
             )}

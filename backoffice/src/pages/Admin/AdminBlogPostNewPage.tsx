@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { adminCreateBlogPost } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import Flashes from "../../components/shared/Flashes";
-import BlogPostForm, { BlogPostFormData } from "../../components/admin/forms/BlogPostForm";
+import BlogPostForm, {
+  BlogPostFormData,
+} from "../../components/admin/forms/BlogPostForm";
 import { Button } from "../../components/admin/ui";
 
 interface FlashMessage {
@@ -18,7 +20,10 @@ const AdminBlogPostNewPage = () => {
   const [saving, setSaving] = useState(false);
   const [flash, setFlash] = useState<FlashMessage | null>(null);
 
-  const handleSubmit = async (formData: BlogPostFormData, newPhotos: File[]) => {
+  const handleSubmit = async (
+    formData: BlogPostFormData,
+    newPhotos: File[],
+  ) => {
     setSaving(true);
     setFlash(null);
 
@@ -49,7 +54,13 @@ const AdminBlogPostNewPage = () => {
         message: t("admin.blog_posts.create_success"),
       });
       // Navigate to edit page after creation
-      setTimeout(() => navigate(appRoutes.backoffice.editBlogPost(response.data.blog_post.id)), 1500);
+      setTimeout(
+        () =>
+          navigate(
+            appRoutes.backoffice.editBlogPost(response.data.blog_post.id),
+          ),
+        1500,
+      );
     } catch (error) {
       console.error("Error creating blog post:", error);
       setFlash({

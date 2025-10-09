@@ -93,7 +93,7 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
         title: t("navbar.super_admin_tenants"),
         icon: "fas fa-database",
         requiredFeature: null,
-      }
+      },
     );
   }
 

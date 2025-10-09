@@ -94,119 +94,122 @@ function AppContent() {
             <ProtectedRoute>
               <AppLayout>
                 <Routes>
-                <Route path="/" element={<AdminBackofficePage />} />
-                <Route path="/dashboard" element={<AdminDashboard />} />
+                  <Route path="/" element={<AdminBackofficePage />} />
+                  <Route path="/dashboard" element={<AdminDashboard />} />
 
-                {/* Blog Posts */}
-                <Route path="/blog_posts" element={<AdminBlogPostsPage />} />
-                <Route
-                  path="/blog_posts/new"
-                  element={<AdminBlogPostNewPage />}
-                />
-                <Route
-                  path="/blog_posts/:id/edit"
-                  element={<AdminBlogPostEditPage />}
-                />
-                <Route
-                  path="/blog_posts/:id"
-                  element={<AdminBlogPostDetailPage />}
-                />
+                  {/* Blog Posts */}
+                  <Route path="/blog_posts" element={<AdminBlogPostsPage />} />
+                  <Route
+                    path="/blog_posts/new"
+                    element={<AdminBlogPostNewPage />}
+                  />
+                  <Route
+                    path="/blog_posts/:id/edit"
+                    element={<AdminBlogPostEditPage />}
+                  />
+                  <Route
+                    path="/blog_posts/:id"
+                    element={<AdminBlogPostDetailPage />}
+                  />
 
-                {/* Club Stories */}
-                <Route
-                  path="/club_stories"
-                  element={<AdminClubStoriesPage />}
-                />
-                <Route
-                  path="/club_stories/new"
-                  element={<AdminClubStoryNewPage />}
-                />
-                <Route
-                  path="/club_stories/:id/edit"
-                  element={<AdminClubStoryEditPage />}
-                />
-                <Route
-                  path="/club_stories/:id"
-                  element={<AdminClubStoryDetailPage />}
-                />
+                  {/* Club Stories */}
+                  <Route
+                    path="/club_stories"
+                    element={<AdminClubStoriesPage />}
+                  />
+                  <Route
+                    path="/club_stories/new"
+                    element={<AdminClubStoryNewPage />}
+                  />
+                  <Route
+                    path="/club_stories/:id/edit"
+                    element={<AdminClubStoryEditPage />}
+                  />
+                  <Route
+                    path="/club_stories/:id"
+                    element={<AdminClubStoryDetailPage />}
+                  />
 
-                {/* Listings */}
-                <Route path="/listings" element={<AdminListingsPage />} />
-                <Route path="/listings/new" element={<AdminListingNewPage />} />
-                <Route
-                  path="/listings/:id/edit"
-                  element={<AdminListingEditPage />}
-                />
-                <Route
-                  path="/listings/:id"
-                  element={<AdminListingDetailPage />}
-                />
+                  {/* Listings */}
+                  <Route path="/listings" element={<AdminListingsPage />} />
+                  <Route
+                    path="/listings/new"
+                    element={<AdminListingNewPage />}
+                  />
+                  <Route
+                    path="/listings/:id/edit"
+                    element={<AdminListingEditPage />}
+                  />
+                  <Route
+                    path="/listings/:id"
+                    element={<AdminListingDetailPage />}
+                  />
 
-                {/* Listing Complexes */}
-                <Route
-                  path="/listing_complexes"
-                  element={<AdminListingComplexesPage />}
-                />
-                <Route
-                  path="/listing_complexes/new"
-                  element={<AdminListingComplexNewPage />}
-                />
-                <Route
-                  path="/listing_complexes/:id/edit"
-                  element={<AdminListingComplexEditPage />}
-                />
-                <Route
-                  path="/listing_complexes/:id"
-                  element={<AdminListingComplexDetailPage />}
-                />
+                  {/* Listing Complexes */}
+                  <Route
+                    path="/listing_complexes"
+                    element={<AdminListingComplexesPage />}
+                  />
+                  <Route
+                    path="/listing_complexes/new"
+                    element={<AdminListingComplexNewPage />}
+                  />
+                  <Route
+                    path="/listing_complexes/:id/edit"
+                    element={<AdminListingComplexEditPage />}
+                  />
+                  <Route
+                    path="/listing_complexes/:id"
+                    element={<AdminListingComplexDetailPage />}
+                  />
 
-                {/* Testimonials */}
-                <Route
-                  path="/testimonials"
-                  element={<AdminTestimonialsPage />}
-                />
-                <Route
-                  path="/testimonials/new"
-                  element={<AdminTestimonialNewPage />}
-                />
-                <Route
-                  path="/testimonials/:id/edit"
-                  element={<AdminTestimonialEditPage />}
-                />
-                <Route
-                  path="/testimonials/:id"
-                  element={<AdminTestimonialDetailPage />}
-                />
+                  {/* Testimonials */}
+                  <Route
+                    path="/testimonials"
+                    element={<AdminTestimonialsPage />}
+                  />
+                  <Route
+                    path="/testimonials/new"
+                    element={<AdminTestimonialNewPage />}
+                  />
+                  <Route
+                    path="/testimonials/:id/edit"
+                    element={<AdminTestimonialEditPage />}
+                  />
+                  <Route
+                    path="/testimonials/:id"
+                    element={<AdminTestimonialDetailPage />}
+                  />
 
-                {/* Variables */}
-                <Route path="/variables" element={<AdminVariablesPage />} />
+                  {/* Variables */}
+                  <Route path="/variables" element={<AdminVariablesPage />} />
 
-                {/* Newsletter */}
-                <Route
-                  path="/newsletter"
-                  element={<AdminNewsletterSubscriptionsPage />}
-                />
+                  {/* Newsletter */}
+                  <Route
+                    path="/newsletter"
+                    element={<AdminNewsletterSubscriptionsPage />}
+                  />
 
-                {/* Club Users */}
-                <Route path="/club_users" element={<AdminClubUsersPage />} />
+                  {/* Club Users */}
+                  <Route path="/club_users" element={<AdminClubUsersPage />} />
 
-                {/* Super Admin Routes */}
-                <Route
-                  path="/super_admin/admins"
-                  element={
-                    <SuperAdminRoute>
-                      <SuperAdminAdminsPage />
-                    </SuperAdminRoute>
-                  }
-                />
-                <Route
-                  path="/super_admin/tenants"
-                  element={
-                    <SuperAdminRoute>
-                      <SuperAdminTenantsPage />
-                    </SuperAdminRoute>
-                  }
-                />
+                  {/* Super Admin Routes */}
+                  <Route
+                    path="/super_admin/admins"
+                    element={
+                      <SuperAdminRoute>
+                        <SuperAdminAdminsPage />
+                      </SuperAdminRoute>
+                    }
+                  />
+                  <Route
+                    path="/super_admin/tenants"
+                    element={
+                      <SuperAdminRoute>
+                        <SuperAdminTenantsPage />
+                      </SuperAdminRoute>
+                    }
+                  />
                 </Routes>
               </AppLayout>
             </ProtectedRoute>

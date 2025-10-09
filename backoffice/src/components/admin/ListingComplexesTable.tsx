@@ -5,6 +5,7 @@ import {
   adminDeleteListingComplex,
 } from "../../services/api";
 import { ListingComplex } from "../../utils/interfaces";
+import { Button, Pagination, LoadingSpinner } from "../admin/ui";
 
 interface ListingComplexesTableProps {
   onEdit?: (listingComplex: ListingComplex) => void;
@@ -66,11 +67,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
   };
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="text-lg">{t("admin.listingComplexes.loading")}</div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (error) {
@@ -143,27 +140,33 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
 
               <div className="flex justify-end space-x-2">
                 {onView && (
-                  <button
+                  <Button
                     onClick={() => onView(complex)}
-                    className="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
+                    variant="link"
+                    size="sm"
+                    className="text-indigo-600 hover:text-indigo-900"
                   >
                     {t("common.view")}
-                  </button>
+                  </Button>
                 )}
                 {onEdit && (
-                  <button
+                  <Button
                     onClick={() => onEdit(complex)}
-                    className="text-blue-600 hover:text-blue-900 text-sm font-medium"
+                    variant="link"
+                    size="sm"
+                    className="text-blue-600 hover:text-blue-900"
                   >
                     {t("common.edit")}
-                  </button>
+                  </Button>
                 )}
-                <button
+                <Button
                   onClick={() => handleDelete(complex.id)}
-                  className="text-red-600 hover:text-red-900 text-sm font-medium"
+                  variant="link"
+                  size="sm"
+                  className="text-red-600 hover:text-red-900"
                 >
                   {t("common.delete")}
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -178,30 +181,12 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
 
       {/* Pagination */}
       {pagination.total_pages > 1 && (
-        <div className="flex justify-center space-x-2 mt-8">
-          <button
-            onClick={() => handlePageChange(pagination.current_page - 1)}
-            disabled={pagination.current_page === 1}
-            className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {t("pagination.previous")}
-          </button>
-
-          <span className="px-3 py-1">
-            {t("pagination.page", {
-              current: pagination.current_page,
-              total: pagination.total_pages,
-            })}
-          </span>
-
-          <button
-            onClick={() => handlePageChange(pagination.current_page + 1)}
-            disabled={pagination.current_page === pagination.total_pages}
-            className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {t("pagination.next")}
-          </button>
-        </div>
+        <Pagination
+          currentPage={pagination.current_page}
+          totalPages={pagination.total_pages}
+          onPageChange={handlePageChange}
+          className="mt-8"
+        />
       )}
     </div>
   );

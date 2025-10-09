@@ -71,11 +71,7 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <Button
-              type="submit"
-              isLoading={isLoading}
-              fullWidth
-            >
+            <Button type="submit" isLoading={isLoading} fullWidth>
               {t("auth.login.submit")}
             </Button>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { adminGetListings, adminDeleteListing } from "../../services/api";
 import { Listing } from "../../utils/interfaces";
+import { Button, Pagination, LoadingSpinner } from "../admin/ui";
 
 interface ListingsTableProps {
   onEdit?: (listing: Listing) => void;
@@ -63,11 +64,7 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit, onView }) => {
   };
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="text-lg">A carregar imóveis...</div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (error) {
@@ -146,27 +143,33 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit, onView }) => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                   {onView && (
-                    <button
+                    <Button
                       onClick={() => onView(listing)}
+                      variant="link"
+                      size="sm"
                       className="text-indigo-600 hover:text-indigo-900"
                     >
                       Ver
-                    </button>
+                    </Button>
                   )}
                   {onEdit && (
-                    <button
+                    <Button
                       onClick={() => onEdit(listing)}
+                      variant="link"
+                      size="sm"
                       className="text-blue-600 hover:text-blue-900"
                     >
                       Editar
-                    </button>
+                    </Button>
                   )}
-                  <button
+                  <Button
                     onClick={() => handleDelete(listing.id)}
+                    variant="link"
+                    size="sm"
                     className="text-red-600 hover:text-red-900"
                   >
                     Eliminar
-                  </button>
+                  </Button>
                 </td>
               </tr>
             ))}
@@ -176,27 +179,11 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit, onView }) => {
 
       {/* Pagination */}
       {pagination.total_pages > 1 && (
-        <div className="flex justify-center space-x-2">
-          <button
-            onClick={() => handlePageChange(pagination.current_page - 1)}
-            disabled={pagination.current_page === 1}
-            className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Anterior
-          </button>
-
-          <span className="px-3 py-1">
-            Página {pagination.current_page} de {pagination.total_pages}
-          </span>
-
-          <button
-            onClick={() => handlePageChange(pagination.current_page + 1)}
-            disabled={pagination.current_page === pagination.total_pages}
-            className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Próxima
-          </button>
-        </div>
+        <Pagination
+          currentPage={pagination.current_page}
+          totalPages={pagination.total_pages}
+          onPageChange={handlePageChange}
+        />
       )}
     </div>
   );

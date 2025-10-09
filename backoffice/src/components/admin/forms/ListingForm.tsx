@@ -17,7 +17,11 @@ interface ListingFormProps {
   isSubmitting: boolean;
 }
 
-const ListingForm = ({ initialData, onSubmit, isSubmitting }: ListingFormProps) => {
+const ListingForm = ({
+  initialData,
+  onSubmit,
+  isSubmitting,
+}: ListingFormProps) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState<ListingFormData>(
     initialData || {
@@ -27,7 +31,7 @@ const ListingForm = ({ initialData, onSubmit, isSubmitting }: ListingFormProps) 
       location: "",
       property_type: "",
       status: "active",
-    }
+    },
   );
 
   useEffect(() => {
@@ -42,7 +46,9 @@ const ListingForm = ({ initialData, onSubmit, isSubmitting }: ListingFormProps) 
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));

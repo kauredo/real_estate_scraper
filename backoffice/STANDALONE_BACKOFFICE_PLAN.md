@@ -5,6 +5,7 @@
 Transform the current tightly-coupled backoffice into a standalone, universal CMS that works for all tenants, with live preview functionality and modern UI/UX.
 
 ### Current State
+
 - **47 total pages**: 20 public + 27 admin pages
 - **Tightly coupled**: Backoffice at `/backoffice/*` in same app
 - **Brand-specific colors**: Beige theme (#d3af79) tied to Sofia Galvão Group
@@ -12,6 +13,7 @@ Transform the current tightly-coupled backoffice into a standalone, universal CM
 - **No preview**: Admins can't see how content looks on public site
 
 ### Target Architecture
+
 ```
 /api                      (Port 3000)
 ├── Shared Rails API
@@ -31,6 +33,7 @@ Transform the current tightly-coupled backoffice into a standalone, universal CM
 ```
 
 ### Deployment Model
+
 ```
 Production:
 ├── admin.yoursaas.com       → Backoffice (single deployment)
@@ -45,10 +48,13 @@ Production:
 ## 📋 PHASE 1: Tenant Management ✅ COMPLETED
 
 ### Priority: HIGHEST
+
 ### Status: ✅ Completed
+
 ### Time Taken: 1 day
 
 ### Overview
+
 Enable super admins to fully manage tenants (create agencies, control features, manage API keys).
 
 ### 1.1 Backend - Tenant CRUD Controller
@@ -56,6 +62,7 @@ Enable super admins to fully manage tenants (create agencies, control features, 
 **File:** `api/app/controllers/api/v1/super_admin/tenants_controller.rb`
 
 **Actions Implemented:**
+
 - ✅ `index` - List all tenants with search/filter
 - ✅ `show` - Get single tenant details
 - ✅ `create` - Create new tenant
@@ -66,12 +73,14 @@ Enable super admins to fully manage tenants (create agencies, control features, 
 - ✅ `update_features` - Enable/disable features
 
 **Safety Checks:**
+
 - Cannot delete tenant with existing data (listings, blog posts, etc.)
 - Deletion requires typing tenant name exactly
 - API key rotation sends notification
 - Deactivation preserves data
 
 **Strong Parameters:**
+
 ```ruby
 def tenant_params
   params.require(:tenant).permit(
@@ -117,10 +126,12 @@ end
 ### 1.3 Backend - Translations
 
 **Files:**
+
 - `api/config/locales/en.yml`
 - `api/config/locales/pt.yml`
 
 **English:**
+
 ```yaml
 super_admin:
   tenants:
@@ -137,6 +148,7 @@ super_admin:
 ```
 
 **Portuguese:**
+
 ```yaml
 super_admin:
   tenants:
@@ -157,6 +169,7 @@ super_admin:
 **File:** `frontend/src/pages/Admin/SuperAdmin/SuperAdminTenantsPage.tsx`
 
 **Features:**
+
 - Table displaying:
   - Name
   - Slug
@@ -182,6 +195,7 @@ super_admin:
 **Form Sections:**
 
 **Basic Information:**
+
 - Name (required, unique)
 - Slug (auto-generated from name, editable)
 - Domain (optional, e.g., `sofiagalvaogroup.com`)
@@ -189,6 +203,7 @@ super_admin:
 - Active toggle
 
 **Feature Toggles:**
+
 - ☑ Blog enabled
 - ☐ Club enabled (default off - SGG specific)
 - ☑ Testimonials enabled
@@ -196,9 +211,11 @@ super_admin:
 - ☑ Listing complexes enabled
 
 **Advanced (Collapsible):**
+
 - Metadata JSON editor (optional)
 
 **Validation:**
+
 - Name: Required, must be unique
 - Slug: Required, unique, format: `^[a-z0-9-]+$`
 - Email: Valid email format (if provided)
@@ -209,6 +226,7 @@ super_admin:
 **File:** `frontend/src/services/api.ts`
 
 Add these functions:
+
 ```typescript
 // Tenants Management
 export const superAdminGetTenants = (params = {}) =>
@@ -225,7 +243,7 @@ export const superAdminUpdateTenant = (id, data) =>
 
 export const superAdminDeleteTenant = (id, confirmName) =>
   api.delete(apiRoutes.superAdmin.tenant(id), {
-    data: { confirm_name: confirmName }
+    data: { confirm_name: confirmName },
   });
 
 export const superAdminToggleActiveTenant = (id) =>
@@ -243,6 +261,7 @@ export const superAdminUpdateFeatures = (id, features) =>
 **File:** `frontend/src/utils/routes.ts`
 
 Add to `superAdmin` section:
+
 ```typescript
 superAdmin: {
   admins: `${API_BASE_URL}/super_admin/admins`,
@@ -265,6 +284,7 @@ superAdmin: {
 **File:** `frontend/src/App.tsx`
 
 Add route in Super Admin section:
+
 ```tsx
 {/* Super Admin Routes */}
 <Route
@@ -290,6 +310,7 @@ Add route in Super Admin section:
 **File:** `frontend/src/components/layout/Navbar.tsx`
 
 Update super admin menu items:
+
 ```typescript
 if (currentAdmin?.isSuperAdmin) {
   backofficeNavItems.push(
@@ -300,7 +321,7 @@ if (currentAdmin?.isSuperAdmin) {
     {
       routeName: "backoffice_super_admin_tenants_path",
       title: t("navbar.super_admin_tenants"),
-    }
+    },
   );
 }
 ```
@@ -308,15 +329,19 @@ if (currentAdmin?.isSuperAdmin) {
 ### 1.10 Frontend - Translations
 
 **Files:**
+
 - `frontend/src/locales/en/super_admin.json`
 - `frontend/src/locales/pt/super_admin.json`
 - `frontend/src/locales/en/navbar.json`
 - `frontend/src/locales/pt/navbar.json`
 
 **super_admin.json (English):**
+
 ```json
 {
-  "admins": { /* existing admin translations */ },
+  "admins": {
+    /* existing admin translations */
+  },
   "tenants": {
     "title": "Manage Tenants",
     "create_new": "Create New Tenant",
@@ -370,9 +395,12 @@ if (currentAdmin?.isSuperAdmin) {
 ```
 
 **super_admin.json (Portuguese):**
+
 ```json
 {
-  "admins": { /* existing admin translations */ },
+  "admins": {
+    /* existing admin translations */
+  },
   "tenants": {
     "title": "Gerir Tenants",
     "create_new": "Criar Novo Tenant",
@@ -426,6 +454,7 @@ if (currentAdmin?.isSuperAdmin) {
 ```
 
 **navbar.json (add to both en and pt):**
+
 ```json
 {
   "super_admin_admins": "Manage Admins",
@@ -438,12 +467,15 @@ if (currentAdmin?.isSuperAdmin) {
 ## 📋 PHASE 2: Create Standalone Backoffice
 
 ### Status: Planned
+
 ### Estimated Time: 1 day
 
 ### Overview
+
 Separate the backoffice into its own application, removing public pages and creating a lightweight, universal CMS.
 
 ### Implementation Steps
+
 See detailed plan in sections 2.1-2.3 above.
 
 ---
@@ -451,12 +483,15 @@ See detailed plan in sections 2.1-2.3 above.
 ## 📋 PHASE 3: Preview Functionality
 
 ### Status: Planned
+
 ### Estimated Time: 2-3 days
 
 ### Overview
+
 Enable admins to preview content before publishing, with responsive device switcher and live preview in iframe.
 
 ### Implementation Steps
+
 See detailed plan in sections 3.1-3.5 above.
 
 ---
@@ -464,12 +499,15 @@ See detailed plan in sections 3.1-3.5 above.
 ## 📋 PHASE 4: Modern UI/UX Redesign
 
 ### Status: Planned
+
 ### Estimated Time: 3-4 days
 
 ### Overview
+
 Replace brand-specific design with neutral, professional theme. Create reusable component library and implement sidebar navigation.
 
 ### Components to Create
+
 - Card
 - Button (4 variants)
 - Badge (5 variants)
@@ -481,6 +519,7 @@ Replace brand-specific design with neutral, professional theme. Create reusable 
 - Breadcrumbs
 
 ### Implementation Steps
+
 See detailed plan in sections 4.1-4.5 above.
 
 ---
@@ -488,9 +527,11 @@ See detailed plan in sections 4.1-4.5 above.
 ## 📋 PHASE 5: Testing & Deployment
 
 ### Status: Planned
+
 ### Estimated Time: 1 day
 
 ### Testing Checklist
+
 - [ ] Tenant CRUD operations
 - [ ] Preview functionality
 - [ ] Responsive design

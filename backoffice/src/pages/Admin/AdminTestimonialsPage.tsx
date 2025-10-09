@@ -104,7 +104,9 @@ const AdminTestimonialsPage = () => {
       <AdminPageHeader
         title={t("admin.testimonials.title")}
         count={pagination.total_count}
-        countLabel={t("admin.testimonials.totalCount", { count: pagination.total_count })}
+        countLabel={t("admin.testimonials.totalCount", {
+          count: pagination.total_count,
+        })}
         actionButton={{
           label: t("admin.testimonials.new"),
           href: "/backoffice/testimonials/new",

@@ -21,7 +21,9 @@ interface NewsletterSubscription {
 
 const AdminNewsletterSubscriptionsPage = () => {
   const { t } = useTranslation();
-  const [subscriptions, setSubscriptions] = useState<NewsletterSubscription[]>([]);
+  const [subscriptions, setSubscriptions] = useState<NewsletterSubscription[]>(
+    [],
+  );
   const [loading, setLoading] = useState(true);
 
   const fetchSubscriptions = async () => {
@@ -96,7 +98,9 @@ const AdminNewsletterSubscriptionsPage = () => {
       <AdminPageHeader
         title={t("admin.newsletter.title")}
         count={subscriptions.length}
-        countLabel={t("admin.newsletter.totalCount", { count: subscriptions.length })}
+        countLabel={t("admin.newsletter.totalCount", {
+          count: subscriptions.length,
+        })}
       >
         <Button
           onClick={handleExportCSV}

@@ -37,12 +37,14 @@ const AdminBlogPostsPage = () => {
       const response = await adminGetBlogPosts({ page });
       if (response.data?.blog_posts) {
         setBlogPosts(response.data.blog_posts);
-        setPagination(response.data.pagination || {
-          current_page: 1,
-          per_page: 12,
-          total_count: response.data.blog_posts.length,
-          total_pages: 1,
-        });
+        setPagination(
+          response.data.pagination || {
+            current_page: 1,
+            per_page: 12,
+            total_count: response.data.blog_posts.length,
+            total_pages: 1,
+          },
+        );
       } else {
         setBlogPosts([]);
         setPagination((prev) => ({ ...prev, total_count: 0 }));
@@ -79,7 +81,9 @@ const AdminBlogPostsPage = () => {
       <AdminPageHeader
         title={t("admin.blog_posts.title")}
         count={pagination.total_count}
-        countLabel={t("admin.blog_posts.totalCount", { count: pagination.total_count })}
+        countLabel={t("admin.blog_posts.totalCount", {
+          count: pagination.total_count,
+        })}
         actionButton={{
           label: t("admin.blog_posts.new"),
           href: appRoutes.backoffice.newBlogPost,
@@ -94,6 +98,19 @@ const AdminBlogPostsPage = () => {
               title={post.title}
               subtitle={post.small_description || post.sample_text}
               image={post.main_photo}
+              imagePlaceholder={
+                <svg
+                  className="w-16 h-16"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              }
               status={
                 post.hidden
                   ? { label: t("admin.blog_posts.hidden"), variant: "warning" }
@@ -101,17 +118,23 @@ const AdminBlogPostsPage = () => {
               }
               actions={
                 <div className="flex gap-2">
-                  <Link
-                    to={appRoutes.backoffice.showBlogPost(post.id)}
-                    className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
-                  >
-                    {t("common.view")}
+                  <Link to={appRoutes.backoffice.showBlogPost(post.id)}>
+                    <Button
+                      variant="link"
+                      size="sm"
+                      className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
+                    >
+                      {t("common.view")}
+                    </Button>
                   </Link>
-                  <Link
-                    to={appRoutes.backoffice.editBlogPost(post.id)}
-                    className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-                  >
-                    {t("common.edit")}
+                  <Link to={appRoutes.backoffice.editBlogPost(post.id)}>
+                    <Button
+                      variant="link"
+                      size="sm"
+                      className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                    >
+                      {t("common.edit")}
+                    </Button>
                   </Link>
                   <Button
                     onClick={() => handleDelete(post.id)}

@@ -7,6 +7,13 @@ import {
   adminUpdateTestimonial,
 } from "../../services/api";
 import { Testimonial } from "../../utils/interfaces";
+import {
+  Button,
+  Input,
+  Textarea,
+  Pagination,
+  LoadingSpinner,
+} from "../admin/ui";
 
 const TestimonialsManagement: React.FC = () => {
   const { t } = useTranslation();
@@ -100,11 +107,7 @@ const TestimonialsManagement: React.FC = () => {
   };
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="text-lg">{t("admin.testimonials.loading")}</div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   return (
@@ -113,12 +116,9 @@ const TestimonialsManagement: React.FC = () => {
         <h2 className="text-2xl font-bold">
           {t("admin.testimonials.managementTitle")}
         </h2>
-        <button
-          onClick={() => setShowForm(true)}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
+        <Button onClick={() => setShowForm(true)}>
           {t("admin.testimonials.new")}
-        </button>
+        </Button>
       </div>
 
       {error && (
@@ -136,60 +136,37 @@ const TestimonialsManagement: React.FC = () => {
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                {t("admin.testimonials.form.name")}
-              </label>
-              <input
-                type="text"
-                id="name"
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                required
-                className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
+            <Input
+              type="text"
+              id="name"
+              label={t("admin.testimonials.form.name")}
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+              required
+            />
 
-            <div>
-              <label
-                htmlFor="text"
-                className="block text-sm font-medium text-gray-700"
-              >
-                {t("admin.testimonials.form.testimonial")}
-              </label>
-              <textarea
-                id="text"
-                value={formData.text}
-                onChange={(e) =>
-                  setFormData({ ...formData, text: e.target.value })
-                }
-                required
-                rows={4}
-                className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
+            <Textarea
+              id="text"
+              label={t("admin.testimonials.form.testimonial")}
+              value={formData.text}
+              onChange={(e) =>
+                setFormData({ ...formData, text: e.target.value })
+              }
+              required
+              rows={4}
+            />
 
             <div className="flex space-x-4">
-              <button
-                type="submit"
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-              >
+              <Button type="submit" className="bg-green-500 hover:bg-green-700">
                 {editingTestimonial
                   ? t("admin.testimonials.form.update")
                   : t("admin.testimonials.form.create")}
-              </button>
-              <button
-                type="button"
-                onClick={handleCancel}
-                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-              >
+              </Button>
+              <Button type="button" onClick={handleCancel} variant="secondary">
                 {t("admin.testimonials.form.cancel")}
-              </button>
+              </Button>
             </div>
           </form>
         </div>
@@ -215,18 +192,22 @@ const TestimonialsManagement: React.FC = () => {
                   <p className="mt-2 text-gray-600">{testimonial.text}</p>
                 </div>
                 <div className="ml-4 space-x-2">
-                  <button
+                  <Button
                     onClick={() => handleEdit(testimonial)}
-                    className="text-blue-600 hover:text-blue-900 text-sm"
+                    variant="link"
+                    size="sm"
+                    className="text-blue-600 hover:text-blue-900"
                   >
                     {t("common.edit")}
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={() => handleDelete(testimonial.id)}
-                    className="text-red-600 hover:text-red-900 text-sm"
+                    variant="link"
+                    size="sm"
+                    className="text-red-600 hover:text-red-900"
                   >
                     {t("common.delete")}
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -236,30 +217,11 @@ const TestimonialsManagement: React.FC = () => {
 
       {/* Pagination */}
       {pagination.total_pages > 1 && (
-        <div className="flex justify-center space-x-2">
-          <button
-            onClick={() => handlePageChange(pagination.current_page - 1)}
-            disabled={pagination.current_page === 1}
-            className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {t("pagination.previous")}
-          </button>
-
-          <span className="px-3 py-1">
-            {t("pagination.page", {
-              current: pagination.current_page,
-              total: pagination.total_pages,
-            })}
-          </span>
-
-          <button
-            onClick={() => handlePageChange(pagination.current_page + 1)}
-            disabled={pagination.current_page === pagination.total_pages}
-            className="px-3 py-1 border rounded disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {t("pagination.next")}
-          </button>
-        </div>
+        <Pagination
+          currentPage={pagination.current_page}
+          totalPages={pagination.total_pages}
+          onPageChange={handlePageChange}
+        />
       )}
     </div>
   );

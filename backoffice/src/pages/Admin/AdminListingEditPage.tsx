@@ -3,7 +3,9 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { adminGetListing, adminUpdateListing } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
-import ListingForm, { ListingFormData } from "../../components/admin/forms/ListingForm";
+import ListingForm, {
+  ListingFormData,
+} from "../../components/admin/forms/ListingForm";
 import { Button, LoadingSpinner } from "../../components/admin/ui";
 
 const AdminListingEditPage = () => {

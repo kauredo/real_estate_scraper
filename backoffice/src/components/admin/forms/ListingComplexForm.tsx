@@ -18,7 +18,11 @@ interface ListingComplexFormProps {
   isSubmitting: boolean;
 }
 
-const ListingComplexForm = ({ initialData, onSubmit, isSubmitting }: ListingComplexFormProps) => {
+const ListingComplexForm = ({
+  initialData,
+  onSubmit,
+  isSubmitting,
+}: ListingComplexFormProps) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState<ListingComplexFormData>(
     initialData || {
@@ -29,7 +33,7 @@ const ListingComplexForm = ({ initialData, onSubmit, isSubmitting }: ListingComp
       location: "",
       price_from: "",
       video_link: "",
-    }
+    },
   );
 
   useEffect(() => {
@@ -44,7 +48,7 @@ const ListingComplexForm = ({ initialData, onSubmit, isSubmitting }: ListingComp
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));

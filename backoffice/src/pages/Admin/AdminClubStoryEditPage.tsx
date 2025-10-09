@@ -8,7 +8,9 @@ import {
 } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import Flashes from "../../components/shared/Flashes";
-import ClubStoryForm, { ClubStoryFormData } from "../../components/admin/forms/ClubStoryForm";
+import ClubStoryForm, {
+  ClubStoryFormData,
+} from "../../components/admin/forms/ClubStoryForm";
 import { Button, LoadingSpinner } from "../../components/admin/ui";
 
 interface FlashMessage {
@@ -24,7 +26,9 @@ const AdminClubStoryEditPage = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [flash, setFlash] = useState<FlashMessage | null>(null);
-  const [initialData, setInitialData] = useState<ClubStoryFormData | null>(null);
+  const [initialData, setInitialData] = useState<ClubStoryFormData | null>(
+    null,
+  );
 
   const fetchClubStory = async () => {
     if (!id) {
@@ -84,7 +88,7 @@ const AdminClubStoryEditPage = () => {
         formData.club_story_photos.forEach((photo) => {
           submitData.append(
             `club_story_photos[${photo.id}][main]`,
-            photo.main.toString()
+            photo.main.toString(),
           );
         });
       }

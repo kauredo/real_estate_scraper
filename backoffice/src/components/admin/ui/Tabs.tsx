@@ -26,7 +26,7 @@ const Tabs: React.FC<TabsProps> = ({
   className = "",
 }) => {
   const [activeTab, setActiveTab] = useState(
-    defaultTab || (tabs.length > 0 ? tabs[0].id : "")
+    defaultTab || (tabs.length > 0 ? tabs[0].id : ""),
   );
 
   const handleTabChange = (tabId: string) => {
