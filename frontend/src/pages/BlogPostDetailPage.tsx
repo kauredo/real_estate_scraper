@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { getBlogPost } from "../services/api";
 import ShareIcons from "../components/shared/ShareIcons";
@@ -9,6 +9,8 @@ import Flashes from "../components/shared/Flashes";
 
 const BlogPostDetailPage = () => {
   const { slug } = useParams();
+  const [searchParams] = useSearchParams();
+  const previewToken = searchParams.get("preview_token");
   const { t } = useTranslation();
   const [blogPost, setBlogPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
@@ -19,7 +21,7 @@ const BlogPostDetailPage = () => {
       try {
         setLoading(true);
         setError(null);
-        const response = await getBlogPost(slug);
+        const response = await getBlogPost(slug, previewToken || undefined);
         setBlogPost(response.data.blog_post);
       } catch (error) {
         console.error("Error fetching blog post:", error);
@@ -30,7 +32,7 @@ const BlogPostDetailPage = () => {
     };
 
     fetchBlogPost();
-  }, [slug, t]);
+  }, [slug, previewToken, t]);
 
   const clearError = () => {
     setError(null);

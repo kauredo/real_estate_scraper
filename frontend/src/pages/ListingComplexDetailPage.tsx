@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { getListingComplex } from "../services/api";
 import { ListingComplex } from "../utils/interfaces";
 import Show from "../components/listingComplex/Show";
@@ -8,6 +8,8 @@ import { MetaTags } from "../components/shared/MetaTags";
 
 const ListingComplexDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const [searchParams] = useSearchParams();
+  const previewToken = searchParams.get("preview_token");
   const [listingComplex, setListingComplex] = useState<ListingComplex | null>(
     null,
   );
@@ -17,7 +19,7 @@ const ListingComplexDetailPage = () => {
     const fetchListingComplex = async () => {
       try {
         setLoading(true);
-        const response = await getListingComplex(slug);
+        const response = await getListingComplex(slug, previewToken || undefined);
         setListingComplex(response.data.listing_complex);
       } catch (error) {
         console.error("Error fetching listing complex:", error);
@@ -29,7 +31,7 @@ const ListingComplexDetailPage = () => {
     if (slug) {
       fetchListingComplex();
     }
-  }, [slug]);
+  }, [slug, previewToken]);
 
   if (loading) {
     return (

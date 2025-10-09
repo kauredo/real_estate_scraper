@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import PhotoGallery from "../components/shared/PhotoGallery";
 import ShareIcons from "../components/shared/ShareIcons";
@@ -16,6 +16,8 @@ interface Props {
 export default function ClubStoryDetailPage({ isBackoffice = false }: Props) {
   const { t } = useTranslation();
   const { slug } = useParams();
+  const [searchParams] = useSearchParams();
+  const previewToken = searchParams.get("preview_token");
   const [clubStory, setClubStory] = useState<ClubStory | null>(null);
   const [loading, setLoading] = useState(true);
   const clubSections = useClubSections();
@@ -26,7 +28,7 @@ export default function ClubStoryDetailPage({ isBackoffice = false }: Props) {
 
       try {
         setLoading(true);
-        const response = await getClubStory(slug);
+        const response = await getClubStory(slug, previewToken || undefined);
         setClubStory(response.data.club_story);
       } catch (error) {
         console.error("Error fetching club story:", error);
@@ -36,7 +38,7 @@ export default function ClubStoryDetailPage({ isBackoffice = false }: Props) {
     };
 
     fetchStory();
-  }, [slug]);
+  }, [slug, previewToken]);
 
   if (loading) {
     return (

@@ -101,25 +101,36 @@ export const submitContactForm = (data: any) =>
 // Blog posts API functions
 export const getBlogPosts = (params = {}) =>
   api.get(apiRoutes.blogPosts, { params });
-export const getBlogPost = (slug: string) => api.get(apiRoutes.blogPost(slug));
+export const getBlogPost = (slug: string, previewToken?: string) =>
+  api.get(apiRoutes.blogPost(slug), {
+    params: previewToken ? { preview_token: previewToken } : {},
+  });
 
 // Listings API functions
 export const getListings = (params = {}) =>
   api.get(apiRoutes.listings, { params });
-export const getListing = (slug: string) => api.get(apiRoutes.listing(slug));
+export const getListing = (slug: string, previewToken?: string) =>
+  api.get(apiRoutes.listing(slug), {
+    params: previewToken ? { preview_token: previewToken } : {},
+  });
 
 // Listing complexes API functions
 export const getListingComplexes = (params = {}) =>
   api.get(apiRoutes.listingComplexes, { params });
-export const getListingComplex = (slug: string) =>
-  api.get(apiRoutes.listingComplex(slug));
+export const getListingComplex = (slug: string, previewToken?: string) =>
+  api.get(apiRoutes.listingComplex(slug), {
+    params: previewToken ? { preview_token: previewToken } : {},
+  });
 
 // Club API functions
 export const getClub = () => api.get(apiRoutes.club);
 export const getClubRules = () => api.get(apiRoutes.clubRules);
 export const getClubStories = (params = {}) =>
   api.get(apiRoutes.clubStories, { params });
-export const getClubStory = (slug) => api.get(apiRoutes.clubStory(slug));
+export const getClubStory = (slug: string, previewToken?: string) =>
+  api.get(apiRoutes.clubStory(slug), {
+    params: previewToken ? { preview_token: previewToken } : {},
+  });
 export const joinClub = (data) => api.post(apiRoutes.clubJoin, data);
 
 // Newsletter API functions

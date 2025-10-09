@@ -54,7 +54,9 @@ const Modal: React.FC<ModalProps> = ({
       />
 
       {/* Modal */}
-      <div className={`flex min-h-full items-center justify-center ${size === "full" ? "p-0" : "p-4"}`}>
+      <div
+        className={`flex min-h-full items-center justify-center ${size === "full" ? "p-0" : "p-4"}`}
+      >
         <div
           className={`relative w-full ${sizeStyles[size]} bg-white dark:bg-gray-800 rounded-lg shadow-xl ${className}`}
           onClick={(e) => e.stopPropagation()}

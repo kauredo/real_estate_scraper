@@ -57,7 +57,7 @@ export default function AdminShow(props: Props) {
     try {
       const response = await generatePreviewToken(
         "listing_complex",
-        complex.id
+        complex.id,
       );
       setPreviewUrl(response.data.preview_url);
       setIsPreviewOpen(true);

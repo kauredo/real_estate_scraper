@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { getListing } from "../services/api";
 import ShowPage from "../components/showPage/Show";
 import MetaTags from "../components/shared/MetaTags";
@@ -8,6 +8,8 @@ import { AxiosError } from "axios";
 
 const ListingDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const [searchParams] = useSearchParams();
+  const previewToken = searchParams.get("preview_token");
   const [listing, setListing] = useState<Listing | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -15,7 +17,7 @@ const ListingDetailPage = () => {
     const fetchListing = async () => {
       try {
         setLoading(true);
-        const response = await getListing(slug);
+        const response = await getListing(slug, previewToken || undefined);
         setListing(response.data.listing);
       } catch (error) {
         console.error(
@@ -30,7 +32,7 @@ const ListingDetailPage = () => {
     if (slug) {
       fetchListing();
     }
-  }, [slug]);
+  }, [slug, previewToken]);
 
   if (loading) {
     return (
