@@ -53,6 +53,7 @@
     "delete": "Delete Story",
     "totalCount": "Total {{count}} stories",
     "noStories": "No stories found",
+    "hidden": "Hidden from site",
     "create_success": "Club story created successfully!",
     "update_success": "Club story updated successfully!",
     "create_error": "Error creating club story. Please try again.",
@@ -102,6 +103,8 @@
     "confirmDelete": "Are you sure you want to delete this development?",
     "empty": "No developments found",
     "previewDescription": "This is how the development will appear to visitors",
+    "hidden": "Hidden from site",
+    "newFormat": "New format",
     "details": {
       "photos": "Photos",
       "listings": "Properties"

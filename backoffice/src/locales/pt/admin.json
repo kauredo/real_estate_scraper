@@ -53,6 +53,7 @@
     "delete": "Apagar História",
     "totalCount": "Total {{count}} histórias",
     "noStories": "Nenhuma história encontrada",
+    "hidden": "Escondido do site",
     "create_success": "História do clube criada com sucesso!",
     "update_success": "História do clube atualizada com sucesso!",
     "create_error": "Erro ao criar história do clube. Tente novamente.",
@@ -102,6 +103,8 @@
     "confirmDelete": "Tem certeza que deseja eliminar este empreendimento?",
     "empty": "Nenhum empreendimento encontrado",
     "previewDescription": "Assim é como o empreendimento aparecerá aos visitantes",
+    "hidden": "Escondido do site",
+    "newFormat": "Novo formato",
     "details": {
       "photos": "Fotos",
       "listings": "Imóveis"

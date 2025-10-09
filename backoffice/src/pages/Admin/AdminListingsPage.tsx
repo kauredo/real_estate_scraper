@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams, Link } from "react-router-dom";
 import { Listing } from "../../utils/interfaces";
-import { adminGetListings, adminUpdateAllListings } from "../../services/api";
+import {
+  adminGetListings,
+  adminUpdateAllListings,
+  generatePreviewToken,
+} from "../../services/api";
 import Flashes from "../../components/shared/Flashes";
 import {
   LoadingSpinner,
@@ -10,6 +14,7 @@ import {
   Pagination,
   Button,
   Select,
+  PreviewModal,
 } from "../../components/admin/ui";
 import { appRoutes } from "../../utils/routes";
 
@@ -42,6 +47,9 @@ const AdminListingsPage = () => {
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
   const [flash, setFlash] = useState<FlashMessage | null>(null);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
+  const [previewTitle, setPreviewTitle] = useState<string>("");
 
   const order = searchParams.get("order") || "order";
 
@@ -104,6 +112,17 @@ const AdminListingsPage = () => {
 
   const handlePageChange = (page: number) => {
     fetchListings(page);
+  };
+
+  const handlePreview = async (listing: Listing) => {
+    try {
+      const response = await generatePreviewToken("listing", listing.id);
+      setPreviewUrl(response.data.preview_url);
+      setPreviewTitle(`Preview: ${listing.title}`);
+      setIsPreviewOpen(true);
+    } catch (error) {
+      console.error("Error generating preview token:", error);
+    }
   };
 
   const clearFlash = () => {
@@ -190,12 +209,12 @@ const AdminListingsPage = () => {
             }
             actions={
               <div className="flex flex-wrap gap-2">
-                <a
-                  href={`/listings/${listing.id}`}
+                <button
+                  onClick={() => handlePreview(listing)}
                   className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
                 >
-                  {t("common.view")}
-                </a>
+                  👁️ Preview
+                </button>
                 <Link
                   to={appRoutes.backoffice.editListing(listing.id)}
                   className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
@@ -222,6 +241,13 @@ const AdminListingsPage = () => {
         totalPages={pagination.total_pages}
         onPageChange={handlePageChange}
         className="mt-6"
+      />
+
+      <PreviewModal
+        isOpen={isPreviewOpen}
+        onClose={() => setIsPreviewOpen(false)}
+        previewUrl={previewUrl}
+        title={previewTitle}
       />
     </div>
   );

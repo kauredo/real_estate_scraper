@@ -48,6 +48,7 @@ export interface ListingComplex {
   slug: string;
   listing_prices?: [string, [string[]]];
   new_format: boolean;
+  hidden?: boolean;
 }
 
 export interface Listing {
@@ -138,6 +139,7 @@ export interface ClubStory {
   updated_at: string;
   video_link?: string;
   club_story_photos?: ClubStoryPhoto[];
+  hidden?: boolean;
 }
 
 export interface ClubStoryPhoto {

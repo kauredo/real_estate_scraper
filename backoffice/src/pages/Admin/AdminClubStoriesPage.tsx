@@ -123,6 +123,11 @@ const AdminClubStoriesPage = () => {
                   />
                 </svg>
               }
+              status={
+                story.hidden
+                  ? { label: t("admin.clubStories.hidden"), variant: "warning" }
+                  : undefined
+              }
               actions={
                 <div className="flex gap-2">
                   <Button

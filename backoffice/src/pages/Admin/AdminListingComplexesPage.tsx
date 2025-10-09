@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ListingComplex } from "../../utils/interfaces";
+import { appRoutes } from "../../utils/routes";
 import {
   adminGetListingComplexes,
   generatePreviewToken,
@@ -10,6 +12,7 @@ import {
   Button,
   Pagination,
   PreviewModal,
+  AdminCard,
 } from "../../components/admin/ui";
 
 interface PaginationState {
@@ -20,6 +23,7 @@ interface PaginationState {
 }
 
 const AdminListingComplexesPage = () => {
+  const { t } = useTranslation();
   const [listingComplexes, setListingComplexes] = useState<ListingComplex[]>(
     [],
   );
@@ -100,68 +104,45 @@ const AdminListingComplexesPage = () => {
       {/* Listing Complexes Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {listingComplexes.map((complex) => (
-          <div
+          <AdminCard
             key={complex.id}
-            className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg overflow-hidden"
-          >
-            {/* Image */}
-            <div className="w-full h-48 bg-gray-200 overflow-hidden">
-              {complex.main_photo ? (
-                <img
-                  src={
-                    complex.main_photo.image?.url ||
-                    complex.main_photo.image_url
-                  }
-                  alt={complex.name}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500">Sem foto</span>
-                </div>
-              )}
-            </div>
-
-            {/* Content */}
-            <div className="p-4">
-              <h5 className="text-gray-900 dark:text-light font-bold text-lg mb-2 line-clamp-2">
-                {complex.name}
-              </h5>
-
-              <p className="text-gray-700 dark:text-light text-sm mb-3 line-clamp-3">
-                {complex.description}
-              </p>
-
-              {/* Meta info */}
-              <div className="flex flex-wrap gap-2 text-xs text-gray-600 dark:text-light mb-3">
-                <span>📷 {complex.photos?.length || 0} fotos</span>
-                <span>
-                  🏠 {complex.listing_prices?.[1]?.length || 0} imóveis
-                </span>
-                {complex.new_format && (
-                  <span className="bg-green-100 text-green-800 px-2 py-1 rounded">
-                    Novo formato
-                  </span>
-                )}
-              </div>
-
-              {/* Actions */}
+            title={complex.name}
+            subtitle={complex.description}
+            image={
+              complex.main_photo?.image?.url ||
+              complex.main_photo?.image_url
+            }
+            status={
+              complex.hidden
+                ? { label: t("admin.listingComplexes.hidden"), variant: "warning" }
+                : complex.new_format
+                  ? { label: t("admin.listingComplexes.newFormat"), variant: "success" }
+                  : undefined
+            }
+            actions={
               <div className="flex flex-wrap gap-2">
-                <Button onClick={() => handlePreview(complex)} size="sm">
-                  👁️ Preview
-                </Button>
-                <Button
-                  as="a"
-                  href={`/listing_complexes/${complex.id}/edit`}
-                  variant="secondary"
-                  size="sm"
+                <button
+                  onClick={() => handlePreview(complex)}
+                  className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
                 >
-                  Editar
-                </Button>
+                  👁️ Preview
+                </button>
+                <Link
+                  to={appRoutes.backoffice.editListingComplex(complex.id)}
+                  className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                  {t("common.edit")}
+                </Link>
               </div>
+            }
+          >
+            <div className="flex flex-wrap gap-2 text-xs text-gray-600 dark:text-gray-400 mt-2">
+              <span>📷 {complex.photos?.length || 0} fotos</span>
+              <span>
+                🏠 {complex.listing_prices?.[1]?.length || 0} imóveis
+              </span>
             </div>
-          </div>
+          </AdminCard>
         ))}
       </div>
 
