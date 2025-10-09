@@ -6,7 +6,8 @@ import {
   adminUpdateListingComplex,
 } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
-import { ListingComplex } from "../../utils/interfaces";
+import ListingComplexForm, { ListingComplexFormData } from "../../components/admin/forms/ListingComplexForm";
+import { Button, LoadingSpinner } from "../../components/admin/ui";
 
 const AdminListingComplexEditPage = () => {
   const { t } = useTranslation();
@@ -14,18 +15,7 @@ const AdminListingComplexEditPage = () => {
   const { id } = useParams<{ id: string }>();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [listingComplex, setListingComplex] = useState<ListingComplex | null>(
-    null,
-  );
-  const [formData, setFormData] = useState({
-    name: "",
-    description: "",
-    subtext: "",
-    final_text: "",
-    location: "",
-    price_from: "",
-    video_link: "",
-  });
+  const [initialData, setInitialData] = useState<ListingComplexFormData | null>(null);
 
   useEffect(() => {
     const fetchListingComplex = async () => {
@@ -36,8 +26,7 @@ const AdminListingComplexEditPage = () => {
         const response = await adminGetListingComplex(parseInt(id));
         if (response.data?.listing_complex) {
           const complexData = response.data.listing_complex;
-          setListingComplex(complexData);
-          setFormData({
+          setInitialData({
             name: complexData.name || "",
             description: complexData.description || "",
             subtext: complexData.subtext || "",
@@ -57,8 +46,7 @@ const AdminListingComplexEditPage = () => {
     fetchListingComplex();
   }, [id]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (formData: ListingComplexFormData) => {
     if (!id) return;
 
     try {
@@ -76,26 +64,15 @@ const AdminListingComplexEditPage = () => {
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
   if (loading) {
-    return (
-      <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary-600 border-t-transparent"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
-  if (!listingComplex) {
+  if (!initialData) {
     return (
-      <div className="container mx-auto flex flex-col px-4">
-        <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
-          <p className="text-center text-red-500">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-500 dark:text-red-400">
             {t("admin.listingComplexes.notFound")}
           </p>
         </div>
@@ -104,131 +81,27 @@ const AdminListingComplexEditPage = () => {
   }
 
   return (
-    <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
-      <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
-        <div className="mb-6">
-          <button
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+              {t("admin.listingComplexes.edit")}
+            </h1>
+          </div>
+          <Button
             onClick={() => navigate(appRoutes.backoffice.listingComplexes)}
-            className="bg-gray-500 hover:bg-gray-600 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-4"
+            variant="secondary"
           >
             {t("common.back")}
-          </button>
+          </Button>
         </div>
 
-        <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto mb-6">
-          {t("admin.listingComplexes.edit")} - {listingComplex.name}
-        </h1>
-
-        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.listingComplexes.fields.name")}
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.listingComplexes.fields.description")}
-            </label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              rows={4}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.listingComplexes.fields.subtext")}
-            </label>
-            <textarea
-              name="subtext"
-              value={formData.subtext}
-              onChange={handleChange}
-              rows={2}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.listingComplexes.fields.finalText")}
-            </label>
-            <textarea
-              name="final_text"
-              value={formData.final_text}
-              onChange={handleChange}
-              rows={3}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.listingComplexes.fields.location")}
-            </label>
-            <input
-              type="text"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.listingComplexes.fields.priceFrom")}
-            </label>
-            <input
-              type="number"
-              name="price_from"
-              value={formData.price_from}
-              onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-
-          <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.listingComplexes.fields.videoLink")}
-            </label>
-            <input
-              type="url"
-              name="video_link"
-              value={formData.video_link}
-              onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-
-          <div className="flex items-center justify-between">
-            <button
-              type="submit"
-              disabled={saving}
-              className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
-            >
-              {saving ? t("common.saving") : t("common.save")}
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate(appRoutes.backoffice.listingComplexes)}
-              className="bg-gray-500 hover:bg-gray-600 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              {t("common.cancel")}
-            </button>
-          </div>
-        </form>
+        <ListingComplexForm
+          initialData={initialData}
+          onSubmit={handleSubmit}
+          isSubmitting={saving}
+        />
       </div>
     </div>
   );

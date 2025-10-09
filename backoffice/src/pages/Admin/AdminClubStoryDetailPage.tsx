@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { adminGetClubStory, adminDeleteClubStory } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
+import { LoadingSpinner, Button } from "../../components/admin/ui";
 
 const AdminClubStoryDetailPage = () => {
   const { t } = useTranslation();
@@ -39,11 +40,7 @@ const AdminClubStoryDetailPage = () => {
   };
 
   if (loading) {
-    return (
-      <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary-600 border-t-transparent"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!clubStory) {
@@ -66,18 +63,19 @@ const AdminClubStoryDetailPage = () => {
             {clubStory.title}
           </h1>
           <div className="flex items-center space-x-4">
-            <Link
+            <Button
+              as={Link}
               to={appRoutes.backoffice.editClubStory(clubStory.id)}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              variant="secondary"
             >
               {t("common.edit")}
-            </Link>
-            <button
+            </Button>
+            <Button
               onClick={handleDelete}
-              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-red-500 hover:bg-red-700"
             >
               {t("common.delete")}
-            </button>
+            </Button>
           </div>
         </div>
 

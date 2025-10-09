@@ -5,6 +5,7 @@ import {
   superAdminUpdateTenant,
   superAdminUpdateTenantFeatures,
 } from "../../services/api";
+import { Input, Button } from "../admin/ui";
 
 interface Tenant {
   id: number;
@@ -154,12 +155,12 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
             </p>
           </div>
 
-          <button
+          <Button
             onClick={handleCloseWithApiKey}
-            className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+            fullWidth
           >
             {t("common.close")}
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -190,57 +191,50 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
             </h3>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-2 dark:text-white">
-                {t("super_admin.tenants.name")} *
-              </label>
-              <input
+              <Input
                 type="text"
+                label={`${t("super_admin.tenants.name")} *`}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 required
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-2 dark:text-white">
-                {t("super_admin.tenants.slug")} *
-                <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
-                  ({t("super_admin.tenants.slug_hint")})
-                </span>
-              </label>
-              <input
+              <Input
                 type="text"
+                label={
+                  <>
+                    {t("super_admin.tenants.slug")} *
+                    <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
+                      ({t("super_admin.tenants.slug_hint")})
+                    </span>
+                  </>
+                }
                 value={slug}
                 onChange={(e) => setSlug(e.target.value.toLowerCase())}
                 pattern="^[a-z0-9-]+$"
-                className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white font-mono"
+                className="font-mono"
                 required
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-2 dark:text-white">
-                {t("super_admin.tenants.domain")}
-              </label>
-              <input
+              <Input
                 type="text"
+                label={t("super_admin.tenants.domain")}
                 value={domain}
                 onChange={(e) => setDomain(e.target.value)}
                 placeholder="example.com"
-                className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-2 dark:text-white">
-                {t("super_admin.tenants.contact_email")}
-              </label>
-              <input
+              <Input
                 type="email"
+                label={t("super_admin.tenants.contact_email")}
                 value={contactEmail}
                 onChange={(e) => setContactEmail(e.target.value)}
-                className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
 
@@ -329,20 +323,21 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
           </div>
 
           <div className="flex gap-2">
-            <button
+            <Button
               type="submit"
-              disabled={loading}
-              className="flex-1 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
+              isLoading={loading}
+              className="flex-1"
             >
-              {loading ? t("common.saving") : t("common.save")}
-            </button>
-            <button
+              {t("common.save")}
+            </Button>
+            <Button
               type="button"
               onClick={onClose}
-              className="flex-1 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-500"
+              variant="secondary"
+              className="flex-1"
             >
               {t("common.cancel")}
-            </button>
+            </Button>
           </div>
         </form>
       </div>

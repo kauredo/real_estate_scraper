@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { adminCreateTestimonial } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import Flashes from "../../components/shared/Flashes";
+import { Input, Textarea, Button } from "../../components/admin/ui";
 
 interface FlashMessage {
   type: string;
@@ -67,62 +68,52 @@ const AdminTestimonialNewPage = () => {
 
       <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
         <div className="mb-6">
-          <button
+          <Button
             onClick={() => navigate(appRoutes.backoffice.testimonials)}
-            className="bg-gray-500 hover:bg-gray-600 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-4"
+            variant="secondary"
           >
             {t("common.back")}
-          </button>
+          </Button>
         </div>
 
         <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto mb-6">
           {t("admin.testimonials.new")}
         </h1>
 
-        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.testimonials.fields.name")}
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
+        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-4">
+          <Input
+            type="text"
+            name="name"
+            label={t("admin.testimonials.fields.name")}
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.testimonials.fields.text")}
-            </label>
-            <textarea
-              name="text"
-              value={formData.text}
-              onChange={handleChange}
-              rows={5}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
+          <Textarea
+            name="text"
+            label={t("admin.testimonials.fields.text")}
+            value={formData.text}
+            onChange={handleChange}
+            rows={5}
+            required
+          />
 
-          <div className="flex items-center justify-between">
-            <button
+          <div className="flex items-center justify-between pt-2">
+            <Button
               type="submit"
-              disabled={loading}
-              className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+              isLoading={loading}
+              variant="primary"
             >
-              {loading ? t("common.saving") : t("common.save")}
-            </button>
-            <button
+              {t("common.save")}
+            </Button>
+            <Button
               type="button"
               onClick={() => navigate(appRoutes.backoffice.testimonials)}
-              className="bg-gray-500 hover:bg-gray-600 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              variant="secondary"
             >
               {t("common.cancel")}
-            </button>
+            </Button>
           </div>
         </form>
       </div>

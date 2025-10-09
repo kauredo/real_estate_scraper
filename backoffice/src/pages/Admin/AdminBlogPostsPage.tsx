@@ -10,6 +10,7 @@ import {
   AdminCard,
   Pagination,
   EmptyState,
+  Button,
 } from "../../components/admin/ui";
 
 interface PaginationState {
@@ -112,12 +113,14 @@ const AdminBlogPostsPage = () => {
                   >
                     {t("common.edit")}
                   </Link>
-                  <button
+                  <Button
                     onClick={() => handleDelete(post.id)}
+                    variant="link"
+                    size="sm"
                     className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
                   >
                     {t("common.delete")}
-                  </button>
+                  </Button>
                 </div>
               }
             />

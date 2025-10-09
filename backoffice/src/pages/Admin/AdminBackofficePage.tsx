@@ -10,7 +10,7 @@ import {
   adminCreateListing,
   adminFetchListingComplex,
 } from "../../services/api";
-import { LoadingSpinner } from "../../components/admin/ui";
+import { LoadingSpinner, Input, Button } from "../../components/admin/ui";
 import { appRoutes } from "../../utils/routes";
 import { useTenant } from "../../context/TenantContext";
 
@@ -228,12 +228,13 @@ const AdminBackofficePage = () => {
               : "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
           }`}
         >
-          <button
+          <Button
             onClick={() => setMessage({ text: "", type: "" })}
+            variant="link"
             className="float-right text-xl font-bold"
           >
             ×
-          </button>
+          </Button>
           {message.text}
         </div>
       )}
@@ -257,20 +258,19 @@ const AdminBackofficePage = () => {
               onSubmit={handleListingSubmit}
               className="flex gap-3 flex-wrap"
             >
-              <input
+              <Input
                 type="text"
                 value={listingUrl}
                 onChange={(e) => setListingUrl(e.target.value)}
                 placeholder="https://www.kwportugal.pt/..."
-                className="flex-1 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-gray-900 dark:text-gray-100"
+                className="flex-1"
               />
-              <button
+              <Button
                 type="submit"
-                disabled={submitting}
-                className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded disabled:opacity-50"
+                isLoading={submitting}
               >
-                {submitting ? t("common.adding") : t("common.add")}
-              </button>
+                {t("common.add")}
+              </Button>
             </form>
           </div>
 
@@ -286,20 +286,19 @@ const AdminBackofficePage = () => {
               onSubmit={handleComplexSubmit}
               className="flex gap-3 flex-wrap"
             >
-              <input
+              <Input
                 type="text"
                 value={complexUrl}
                 onChange={(e) => setComplexUrl(e.target.value)}
                 placeholder="https://www.kwportugal.pt/..."
-                className="flex-1 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-gray-900 dark:text-gray-100"
+                className="flex-1"
               />
-              <button
+              <Button
                 type="submit"
-                disabled={submitting}
-                className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded disabled:opacity-50"
+                isLoading={submitting}
               >
-                {submitting ? t("common.adding") : t("common.add")}
-              </button>
+                {t("common.add")}
+              </Button>
             </form>
           </div>
         </div>

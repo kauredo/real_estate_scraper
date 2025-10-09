@@ -8,6 +8,8 @@ import {
   LoadingSpinner,
   AdminCard,
   Pagination,
+  Button,
+  Select,
 } from "../../components/admin/ui";
 import { appRoutes } from "../../utils/routes";
 
@@ -129,21 +131,18 @@ const AdminListingsPage = () => {
       )}
 
       {/* Controls */}
-      <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap mb-6">
-        <button
+      <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap mb-6 gap-4">
+        <Button
           onClick={handleUpdateAll}
-          disabled={updating}
-          className="cursor-pointer bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+          isLoading={updating}
         >
-          {updating
-            ? t("admin.listings.updating")
-            : t("admin.listings.updateAll")}
-        </button>
+          {t("admin.listings.updateAll")}
+        </Button>
 
-        <select
+        <Select
           value={order}
           onChange={(e) => handleOrderChange(e.target.value)}
-          className="block w-full sm:w-auto p-2 border rounded focus:border-blue-500 dark:bg-primary-500"
+          className="w-full sm:w-auto"
         >
           <option value="order">{t("admin.listings.order.normal")}</option>
           <option value="recent">{t("admin.listings.order.recent")}</option>
@@ -151,7 +150,7 @@ const AdminListingsPage = () => {
           <option value="deleted_only">
             {t("admin.listings.order.deletedOnly")}
           </option>
-        </select>
+        </Select>
       </div>
 
       {/* Header */}

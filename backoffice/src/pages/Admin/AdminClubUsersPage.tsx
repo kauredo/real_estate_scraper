@@ -6,6 +6,8 @@ import {
   AdminPageHeader,
   AdminTable,
   EmptyState,
+  Button,
+  Select,
 } from "../../components/admin/ui";
 
 interface ClubUser {
@@ -119,27 +121,23 @@ const AdminClubUsersPage = () => {
         countLabel={t("admin.club_users.totalCount", { count: filteredUsers.length })}
       >
         <div className="flex gap-3 mt-4">
-          <select
+          <Select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="border rounded px-4 py-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
           >
             <option value="">{t("admin.club_users.all_statuses")}</option>
             <option value="approved">{t("admin.club_users.approved")}</option>
             <option value="pending">{t("admin.club_users.pending")}</option>
-          </select>
-          <button
+          </Select>
+          <Button
             onClick={handleExportCSV}
-            disabled={exporting || clubUsers.length === 0}
-            className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded flex items-center gap-2 disabled:opacity-50"
+            disabled={clubUsers.length === 0}
+            isLoading={exporting}
+            className="flex items-center gap-2"
           >
             <i className="fas fa-file-export"></i>
-            <span>
-              {exporting
-                ? t("admin.club_users.exporting")
-                : t("admin.club_users.export_csv")}
-            </span>
-          </button>
+            <span>{t("admin.club_users.export_csv")}</span>
+          </Button>
         </div>
       </AdminPageHeader>
 

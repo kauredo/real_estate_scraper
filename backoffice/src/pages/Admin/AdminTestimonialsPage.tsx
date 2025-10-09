@@ -8,6 +8,7 @@ import {
   AdminTable,
   Pagination,
   EmptyState,
+  Button,
 } from "../../components/admin/ui";
 
 interface PaginationState {
@@ -75,18 +76,24 @@ const AdminTestimonialsPage = () => {
       width: "w-48",
       render: (_: any, testimonial: Testimonial) => (
         <div className="flex flex-wrap gap-2">
-          <a
+          <Button
+            as="a"
             href={`/backoffice/testimonials/${testimonial.id}`}
+            variant="link"
+            size="sm"
             className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
           >
             {t("common.view")}
-          </a>
-          <a
+          </Button>
+          <Button
+            as="a"
             href={`/backoffice/testimonials/${testimonial.id}/edit`}
+            variant="link"
+            size="sm"
             className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
           >
             {t("common.edit")}
-          </a>
+          </Button>
         </div>
       ),
     },

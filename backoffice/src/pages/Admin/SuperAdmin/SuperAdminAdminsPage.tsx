@@ -8,7 +8,7 @@ import {
   superAdminGetTenants,
 } from "../../../services/api";
 import AdminFormModal from "../../../components/SuperAdmin/AdminFormModal";
-import { LoadingSpinner, AdminTable } from "../../../components/admin/ui";
+import { LoadingSpinner, AdminTable, Input, Select, Button } from "../../../components/admin/ui";
 
 interface Admin {
   id: number;
@@ -128,27 +128,22 @@ const SuperAdminAdminsPage = () => {
         <h1 className="text-3xl font-bold dark:text-white">
           {t("super_admin.admins.title")}
         </h1>
-        <button
-          onClick={handleCreate}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
+        <Button onClick={handleCreate}>
           {t("super_admin.admins.create_new")}
-        </button>
+        </Button>
       </div>
 
       {/* Filters */}
       <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <input
+        <Input
           type="text"
           placeholder={t("super_admin.admins.search_placeholder")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border rounded px-4 py-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
         />
-        <select
+        <Select
           value={tenantFilter}
           onChange={(e) => setTenantFilter(e.target.value)}
-          className="border rounded px-4 py-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
         >
           <option value="">{t("super_admin.admins.all_tenants")}</option>
           {tenants.map((tenant) => (
@@ -156,16 +151,15 @@ const SuperAdminAdminsPage = () => {
               {tenant.name}
             </option>
           ))}
-        </select>
-        <select
+        </Select>
+        <Select
           value={confirmedFilter}
           onChange={(e) => setConfirmedFilter(e.target.value)}
-          className="border rounded px-4 py-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
         >
           <option value="">{t("super_admin.admins.all_statuses")}</option>
           <option value="true">{t("super_admin.admins.confirmed")}</option>
           <option value="false">{t("super_admin.admins.unconfirmed")}</option>
-        </select>
+        </Select>
       </div>
 
       {/* Table */}
@@ -219,33 +213,40 @@ const SuperAdminAdminsPage = () => {
               width: "w-1/6",
               render: (_: any, admin: Admin) => (
                 <div className="flex gap-2">
-                  <button
+                  <Button
                     onClick={() => handleEdit(admin)}
-                    className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                    variant="link"
+                    size="sm"
                   >
                     {t("common.edit")}
-                  </button>
+                  </Button>
                   {admin.confirmed ? (
-                    <button
+                    <Button
                       onClick={() => handleUnconfirm(admin.id)}
+                      variant="link"
+                      size="sm"
                       className="text-orange-600 hover:text-orange-800 dark:text-orange-400 dark:hover:text-orange-300"
                     >
                       {t("super_admin.admins.unconfirm")}
-                    </button>
+                    </Button>
                   ) : (
-                    <button
+                    <Button
                       onClick={() => handleConfirm(admin.id)}
+                      variant="link"
+                      size="sm"
                       className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
                     >
                       {t("super_admin.admins.confirm")}
-                    </button>
+                    </Button>
                   )}
-                  <button
+                  <Button
                     onClick={() => handleDelete(admin.id)}
+                    variant="link"
+                    size="sm"
                     className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
                   >
                     {t("common.delete")}
-                  </button>
+                  </Button>
                 </div>
               ),
             },

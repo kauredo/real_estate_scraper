@@ -6,6 +6,7 @@ import {
   AdminPageHeader,
   AdminTable,
   EmptyState,
+  Button,
 } from "../../components/admin/ui";
 
 interface NewsletterSubscription {
@@ -97,14 +98,14 @@ const AdminNewsletterSubscriptionsPage = () => {
         count={subscriptions.length}
         countLabel={t("admin.newsletter.totalCount", { count: subscriptions.length })}
       >
-        <button
+        <Button
           onClick={handleExportCSV}
           disabled={subscriptions.length === 0}
-          className="mt-4 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded flex items-center gap-2 disabled:opacity-50"
+          className="mt-4 flex items-center gap-2"
         >
           <i className="fas fa-file-export"></i>
           <span>{t("admin.newsletter.export_csv")}</span>
-        </button>
+        </Button>
       </AdminPageHeader>
 
       {subscriptions.length > 0 ? (

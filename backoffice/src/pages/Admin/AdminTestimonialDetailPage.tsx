@@ -7,6 +7,7 @@ import {
 } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import { Testimonial } from "../../utils/interfaces";
+import { LoadingSpinner, Button } from "../../components/admin/ui";
 
 const AdminTestimonialDetailPage = () => {
   const { t } = useTranslation();
@@ -47,11 +48,7 @@ const AdminTestimonialDetailPage = () => {
   };
 
   if (loading) {
-    return (
-      <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary-600 border-t-transparent"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!testimonial) {
@@ -70,27 +67,27 @@ const AdminTestimonialDetailPage = () => {
     <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
       <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
         <div className="mb-6 flex justify-between items-center">
-          <button
+          <Button
             onClick={() => navigate(appRoutes.backoffice.testimonials)}
-            className="bg-gray-500 hover:bg-gray-600 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            variant="secondary"
+            className="bg-gray-500 hover:bg-gray-600"
           >
             {t("common.back")}
-          </button>
+          </Button>
           <div className="flex space-x-2">
-            <button
+            <Button
               onClick={() =>
                 navigate(appRoutes.backoffice.editTestimonial(testimonial.id))
               }
-              className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               {t("common.edit")}
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={handleDelete}
-              className="bg-red-500 hover:bg-red-600 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-red-500 hover:bg-red-600"
             >
               {t("common.delete")}
-            </button>
+            </Button>
           </div>
         </div>
 

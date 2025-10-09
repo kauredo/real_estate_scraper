@@ -10,6 +10,7 @@ import {
   AdminCard,
   Pagination,
   EmptyState,
+  Button,
 } from "../../components/admin/ui";
 
 interface PaginationState {
@@ -73,7 +74,7 @@ const AdminClubStoriesPage = () => {
       <AdminPageHeader
         title={t("admin.clubStories.title")}
         count={pagination.total_count}
-        countLabel={t("common.total")}
+        countLabel={t("admin.clubStories.totalCount", { count: pagination.total_count })}
         actionButton={{
           label: t("admin.clubStories.new"),
           href: appRoutes.backoffice.newClubStory,
@@ -101,12 +102,14 @@ const AdminClubStoriesPage = () => {
                   >
                     {t("common.edit")}
                   </Link>
-                  <button
+                  <Button
                     onClick={() => handleDelete(story.id)}
+                    variant="link"
+                    size="sm"
                     className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
                   >
                     {t("common.delete")}
-                  </button>
+                  </Button>
                 </div>
               }
             />

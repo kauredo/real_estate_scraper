@@ -7,7 +7,7 @@ import {
   superAdminRotateApiKey,
 } from "../../../services/api";
 import TenantFormModal from "../../../components/SuperAdmin/TenantFormModal";
-import { LoadingSpinner, AdminTable } from "../../../components/admin/ui";
+import { LoadingSpinner, AdminTable, Input, Select, Button } from "../../../components/admin/ui";
 
 interface Tenant {
   id: number;
@@ -139,32 +139,27 @@ const SuperAdminTenantsPage = () => {
         <h1 className="text-3xl font-bold dark:text-white">
           {t("super_admin.tenants.title")}
         </h1>
-        <button
-          onClick={handleCreate}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
+        <Button onClick={handleCreate}>
           {t("super_admin.tenants.create_new")}
-        </button>
+        </Button>
       </div>
 
       {/* Filters */}
       <div className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
+        <Input
           type="text"
           placeholder={t("super_admin.tenants.search_placeholder")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border rounded px-4 py-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
         />
-        <select
+        <Select
           value={activeFilter}
           onChange={(e) => setActiveFilter(e.target.value)}
-          className="border rounded px-4 py-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
         >
           <option value="">{t("super_admin.tenants.all_statuses")}</option>
           <option value="true">{t("super_admin.tenants.active")}</option>
           <option value="false">{t("super_admin.tenants.inactive")}</option>
-        </select>
+        </Select>
       </div>
 
       {/* Table */}
@@ -237,39 +232,47 @@ const SuperAdminTenantsPage = () => {
               width: "w-1/6",
               render: (_: any, tenant: Tenant) => (
                 <div className="flex flex-col gap-2">
-                  <button
+                  <Button
                     onClick={() => handleEdit(tenant)}
-                    className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-left"
+                    variant="link"
+                    size="sm"
+                    className="justify-start"
                   >
                     {t("common.edit")}
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={() => handleToggleActive(tenant.id)}
+                    variant="link"
+                    size="sm"
                     className={
                       tenant.active
-                        ? "text-orange-600 hover:text-orange-800 dark:text-orange-400 dark:hover:text-orange-300 text-left"
-                        : "text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 text-left"
+                        ? "text-orange-600 hover:text-orange-800 dark:text-orange-400 dark:hover:text-orange-300 justify-start"
+                        : "text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 justify-start"
                     }
                   >
                     {tenant.active
                       ? t("super_admin.tenants.deactivate")
                       : t("super_admin.tenants.activate")}
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={() => handleRotateApiKey(tenant.id, tenant.name)}
                     disabled={rotatingApiKey === tenant.id}
-                    className="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 text-left disabled:opacity-50"
+                    variant="link"
+                    size="sm"
+                    className="text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300 justify-start"
                   >
                     {rotatingApiKey === tenant.id
                       ? t("super_admin.tenants.rotating")
                       : t("super_admin.tenants.rotate_api_key")}
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={() => handleDelete(tenant.id)}
-                    className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 text-left"
+                    variant="link"
+                    size="sm"
+                    className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 justify-start"
                   >
                     {t("common.delete")}
-                  </button>
+                  </Button>
                 </div>
               ),
             },

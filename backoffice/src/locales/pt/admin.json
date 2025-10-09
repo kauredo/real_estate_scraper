@@ -40,7 +40,7 @@
     "photo_delete_error": "Erro ao apagar foto. Tente novamente.",
     "photo_delete_success": "Foto apagada com sucesso!",
     "small_description": "Descrição Curta",
-    "title": "Título",
+    "title": "Posts do Blog",
     "totalCount": "Total {{count}} posts",
     "update_error": "Erro ao atualizar post do blog. Tente novamente.",
     "update_success": "Post do blog atualizado com sucesso!",

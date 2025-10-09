@@ -7,6 +7,7 @@ import {
 } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import { Testimonial } from "../../utils/interfaces";
+import { Input, Textarea, Button, LoadingSpinner } from "../../components/admin/ui";
 
 const AdminTestimonialEditPage = () => {
   const { t } = useTranslation();
@@ -68,11 +69,7 @@ const AdminTestimonialEditPage = () => {
   };
 
   if (loading) {
-    return (
-      <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary-600 border-t-transparent"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!testimonial) {
@@ -91,62 +88,52 @@ const AdminTestimonialEditPage = () => {
     <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
       <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
         <div className="mb-6">
-          <button
+          <Button
             onClick={() => navigate(appRoutes.backoffice.testimonials)}
-            className="bg-gray-500 hover:bg-gray-600 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-4"
+            variant="secondary"
           >
             {t("common.back")}
-          </button>
+          </Button>
         </div>
 
         <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto mb-6">
           {t("admin.testimonials.edit")} - {testimonial.name}
         </h1>
 
-        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.testimonials.fields.name")}
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
+        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-4">
+          <Input
+            type="text"
+            name="name"
+            label={t("admin.testimonials.fields.name")}
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
-              {t("admin.testimonials.fields.text")}
-            </label>
-            <textarea
-              name="text"
-              value={formData.text}
-              onChange={handleChange}
-              rows={5}
-              required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
+          <Textarea
+            name="text"
+            label={t("admin.testimonials.fields.text")}
+            value={formData.text}
+            onChange={handleChange}
+            rows={5}
+            required
+          />
 
-          <div className="flex items-center justify-between">
-            <button
+          <div className="flex items-center justify-between pt-2">
+            <Button
               type="submit"
-              disabled={saving}
-              className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+              isLoading={saving}
+              variant="primary"
             >
-              {saving ? t("common.saving") : t("common.save")}
-            </button>
-            <button
+              {t("common.save")}
+            </Button>
+            <Button
               type="button"
               onClick={() => navigate(appRoutes.backoffice.testimonials)}
-              className="bg-gray-500 hover:bg-gray-600 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              variant="secondary"
             >
               {t("common.cancel")}
-            </button>
+            </Button>
           </div>
         </form>
       </div>

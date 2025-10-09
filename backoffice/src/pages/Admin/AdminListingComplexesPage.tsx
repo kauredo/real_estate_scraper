@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ListingComplex } from "../../utils/interfaces";
 import { adminGetListingComplexes } from "../../services/api";
+import {
+  LoadingSpinner,
+  Button,
+  Pagination,
+} from "../../components/admin/ui";
 
 interface PaginationState {
   current_page: number;
@@ -44,23 +49,19 @@ const AdminListingComplexesPage = () => {
   }, []);
 
   if (loading) {
-    return (
-      <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary-600 border-t-transparent"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   return (
     <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
       {/* Header */}
       <div className="mb-6">
-        <Link
+        <Button
+          as={Link}
           to="/backoffice/listing_complexes/new"
-          className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Novo Empreendimento
-        </Link>
+        </Button>
       </div>
 
       <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto">
@@ -71,29 +72,12 @@ const AdminListingComplexesPage = () => {
       </p>
 
       {/* Pagination */}
-      {pagination.total_pages > 1 && (
-        <div className="flex justify-center items-center space-x-2 my-6">
-          <button
-            onClick={() => handlePageChange(pagination.current_page - 1)}
-            disabled={pagination.current_page === 1}
-            className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
-          >
-            Anterior
-          </button>
-
-          <span className="px-3 py-1">
-            Página {pagination.current_page} de {pagination.total_pages}
-          </span>
-
-          <button
-            onClick={() => handlePageChange(pagination.current_page + 1)}
-            disabled={pagination.current_page === pagination.total_pages}
-            className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
-          >
-            Próxima
-          </button>
-        </div>
-      )}
+      <Pagination
+        currentPage={pagination.current_page}
+        totalPages={pagination.total_pages}
+        onPageChange={handlePageChange}
+        className="my-6"
+      />
 
       {/* Listing Complexes Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
@@ -146,18 +130,21 @@ const AdminListingComplexesPage = () => {
 
               {/* Actions */}
               <div className="flex flex-wrap gap-2">
-                <a
+                <Button
+                  as="a"
                   href={`/backoffice/listing_complexes/${complex.id}`}
-                  className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark font-bold py-1 px-3 rounded text-sm"
+                  size="sm"
                 >
                   Ver
-                </a>
-                <a
+                </Button>
+                <Button
+                  as="a"
                   href={`/backoffice/listing_complexes/${complex.id}/edit`}
-                  className="bg-blue-500 hover:bg-blue-700 text-white dark:text-dark font-bold py-1 px-3 rounded text-sm"
+                  variant="secondary"
+                  size="sm"
                 >
                   Editar
-                </a>
+                </Button>
               </div>
             </div>
           </div>
@@ -165,29 +152,12 @@ const AdminListingComplexesPage = () => {
       </div>
 
       {/* Bottom Pagination */}
-      {pagination.total_pages > 1 && (
-        <div className="flex justify-center items-center space-x-2 mt-6">
-          <button
-            onClick={() => handlePageChange(pagination.current_page - 1)}
-            disabled={pagination.current_page === 1}
-            className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
-          >
-            Anterior
-          </button>
-
-          <span className="px-3 py-1">
-            Página {pagination.current_page} de {pagination.total_pages}
-          </span>
-
-          <button
-            onClick={() => handlePageChange(pagination.current_page + 1)}
-            disabled={pagination.current_page === pagination.total_pages}
-            className="px-3 py-1 bg-gray-200 text-gray-700 rounded disabled:opacity-50"
-          >
-            Próxima
-          </button>
-        </div>
-      )}
+      <Pagination
+        currentPage={pagination.current_page}
+        totalPages={pagination.total_pages}
+        onPageChange={handlePageChange}
+        className="mt-6"
+      />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { BlogPost } from "../../utils/interfaces";
 import { adminGetBlogPost, adminDeleteBlogPost } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
+import { LoadingSpinner, Button } from "../../components/admin/ui";
 
 const AdminBlogPostDetailPage = () => {
   const { t } = useTranslation();
@@ -41,11 +42,7 @@ const AdminBlogPostDetailPage = () => {
   };
 
   if (loading) {
-    return (
-      <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary-600 border-t-transparent"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!blogPost) {
@@ -64,18 +61,19 @@ const AdminBlogPostDetailPage = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="m-8 flex items-center justify-end">
         <div className="flex items-center space-x-4">
-          <Link
+          <Button
+            as={Link}
             to={appRoutes.backoffice.editBlogPost(parseInt(id!))}
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+            variant="secondary"
           >
             {t("admin.blog_posts.edit")}
-          </Link>
-          <button
+          </Button>
+          <Button
             onClick={handleDelete}
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
+            className="bg-red-600 hover:bg-red-700"
           >
             {t("admin.blog_posts.delete")}
-          </button>
+          </Button>
         </div>
       </div>
 

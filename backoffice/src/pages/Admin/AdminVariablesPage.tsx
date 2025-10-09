@@ -11,6 +11,8 @@ import {
   AdminPageHeader,
   AdminTable,
   EmptyState,
+  Input,
+  Button,
 } from "../../components/admin/ui";
 
 interface Variable {
@@ -108,11 +110,10 @@ const AdminVariablesPage = () => {
       label: t("admin.variables.name"),
       width: "w-1/4",
       render: (_: any, variable: Variable) => (
-        <input
+        <Input
           type="text"
           defaultValue={variable.name}
           onChange={(e) => (variable.name = e.target.value)}
-          className="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-gray-900 dark:text-gray-100"
         />
       ),
     },
@@ -121,11 +122,10 @@ const AdminVariablesPage = () => {
       label: t("admin.variables.value"),
       width: "w-1/3",
       render: (_: any, variable: Variable) => (
-        <input
+        <Input
           type="text"
           defaultValue={variable.value}
           onChange={(e) => (variable.value = e.target.value)}
-          className="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-gray-900 dark:text-gray-100"
         />
       ),
     },
@@ -134,11 +134,10 @@ const AdminVariablesPage = () => {
       label: t("admin.variables.icon"),
       width: "w-1/4",
       render: (_: any, variable: Variable) => (
-        <input
+        <Input
           type="text"
           defaultValue={variable.icon}
           onChange={(e) => (variable.icon = e.target.value)}
-          className="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-gray-900 dark:text-gray-100"
         />
       ),
     },
@@ -148,20 +147,23 @@ const AdminVariablesPage = () => {
       width: "w-48",
       render: (_: any, variable: Variable) => (
         <div className="flex gap-2">
-          <button
+          <Button
             onClick={() => handleUpdate(variable)}
             disabled={submitting}
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 disabled:opacity-50"
+            variant="link"
+            size="sm"
           >
             {t("common.update")}
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => handleDelete(variable.id)}
             disabled={submitting}
-            className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 disabled:opacity-50"
+            variant="link"
+            size="sm"
+            className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
           >
             {t("common.delete")}
-          </button>
+          </Button>
         </div>
       ),
     },
@@ -196,40 +198,36 @@ const AdminVariablesPage = () => {
           {t("admin.variables.create_new")}
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-          <input
+          <Input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
             placeholder={t("admin.variables.name_placeholder")}
             required
-            className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-gray-900 dark:text-gray-100"
           />
-          <input
+          <Input
             type="text"
             name="value"
             value={formData.value}
             onChange={handleInputChange}
             placeholder={t("admin.variables.value_placeholder")}
             required
-            className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-gray-900 dark:text-gray-100"
           />
-          <input
+          <Input
             type="text"
             name="icon"
             value={formData.icon}
             onChange={handleInputChange}
             placeholder={t("admin.variables.icon_placeholder")}
             required
-            className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded py-2 px-3 text-gray-900 dark:text-gray-100"
           />
-          <button
+          <Button
             type="submit"
-            disabled={submitting}
-            className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded disabled:opacity-50"
+            isLoading={submitting}
           >
-            {submitting ? t("common.creating") : t("common.create")}
-          </button>
+            {t("common.create")}
+          </Button>
         </div>
       </form>
 
