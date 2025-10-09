@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { BlogPost } from "../../utils/interfaces";
-import { adminGetBlogPosts, adminDeleteBlogPost } from "../../services/api";
+import {
+  adminGetBlogPosts,
+  adminDeleteBlogPost,
+  generatePreviewToken,
+} from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import {
   LoadingSpinner,
@@ -11,6 +15,7 @@ import {
   Pagination,
   EmptyState,
   Button,
+  PreviewModal,
 } from "../../components/admin/ui";
 
 interface PaginationState {
@@ -30,6 +35,9 @@ const AdminBlogPostsPage = () => {
     total_pages: 0,
   });
   const [loading, setLoading] = useState(true);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
+  const [previewTitle, setPreviewTitle] = useState<string>("");
 
   const fetchBlogPosts = async (page = 1) => {
     try {
@@ -65,6 +73,17 @@ const AdminBlogPostsPage = () => {
       fetchBlogPosts(pagination.current_page);
     } catch (error) {
       console.error("Error deleting blog post:", error);
+    }
+  };
+
+  const handlePreview = async (post: BlogPost) => {
+    try {
+      const response = await generatePreviewToken("blog_post", post.id);
+      setPreviewUrl(response.data.preview_url);
+      setPreviewTitle(`Preview: ${post.title}`);
+      setIsPreviewOpen(true);
+    } catch (error) {
+      console.error("Error generating preview token:", error);
     }
   };
 
@@ -118,15 +137,14 @@ const AdminBlogPostsPage = () => {
               }
               actions={
                 <div className="flex gap-2">
-                  <Link to={appRoutes.backoffice.showBlogPost(post.id)}>
-                    <Button
-                      variant="link"
-                      size="sm"
-                      className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
-                    >
-                      {t("common.view")}
-                    </Button>
-                  </Link>
+                  <Button
+                    onClick={() => handlePreview(post)}
+                    variant="link"
+                    size="sm"
+                    className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
+                  >
+                    👁️ Preview
+                  </Button>
                   <Link to={appRoutes.backoffice.editBlogPost(post.id)}>
                     <Button
                       variant="link"
@@ -158,6 +176,13 @@ const AdminBlogPostsPage = () => {
         totalPages={pagination.total_pages}
         onPageChange={fetchBlogPosts}
         className="mt-6"
+      />
+
+      <PreviewModal
+        isOpen={isPreviewOpen}
+        onClose={() => setIsPreviewOpen(false)}
+        previewUrl={previewUrl}
+        title={previewTitle}
       />
     </div>
   );

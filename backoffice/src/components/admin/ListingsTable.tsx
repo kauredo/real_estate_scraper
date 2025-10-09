@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { adminGetListings, adminDeleteListing } from "../../services/api";
+import {
+  adminGetListings,
+  adminDeleteListing,
+  generatePreviewToken,
+} from "../../services/api";
 import { Listing } from "../../utils/interfaces";
-import { Button, Pagination, LoadingSpinner } from "../admin/ui";
+import { Button, Pagination, LoadingSpinner, PreviewModal } from "../admin/ui";
 
 interface ListingsTableProps {
   onEdit?: (listing: Listing) => void;
-  onView?: (listing: Listing) => void;
 }
 
-const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit, onView }) => {
+const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -18,6 +21,9 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit, onView }) => {
     total_count: 0,
     per_page: 25,
   });
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
+  const [previewTitle, setPreviewTitle] = useState<string>("");
 
   const fetchListings = async (page = 1) => {
     try {
@@ -54,6 +60,17 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit, onView }) => {
 
   const handlePageChange = (newPage: number) => {
     fetchListings(newPage);
+  };
+
+  const handlePreview = async (listing: Listing) => {
+    try {
+      const response = await generatePreviewToken("listing", listing.id);
+      setPreviewUrl(response.data.preview_url);
+      setPreviewTitle(`Preview: ${listing.title}`);
+      setIsPreviewOpen(true);
+    } catch (error) {
+      console.error("Error generating preview token:", error);
+    }
   };
 
   const formatPrice = (price: number) => {
@@ -142,16 +159,14 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit, onView }) => {
                   {listing.listing_complex_id || "N/A"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                  {onView && (
-                    <Button
-                      onClick={() => onView(listing)}
-                      variant="link"
-                      size="sm"
-                      className="text-indigo-600 hover:text-indigo-900"
-                    >
-                      Ver
-                    </Button>
-                  )}
+                  <Button
+                    onClick={() => handlePreview(listing)}
+                    variant="link"
+                    size="sm"
+                    className="text-green-600 hover:text-green-900"
+                  >
+                    👁️ Preview
+                  </Button>
                   {onEdit && (
                     <Button
                       onClick={() => onEdit(listing)}
@@ -185,6 +200,13 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit, onView }) => {
           onPageChange={handlePageChange}
         />
       )}
+
+      <PreviewModal
+        isOpen={isPreviewOpen}
+        onClose={() => setIsPreviewOpen(false)}
+        previewUrl={previewUrl}
+        title={previewTitle}
+      />
     </div>
   );
 };

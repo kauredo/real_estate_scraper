@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ListingComplex } from "../../utils/interfaces";
-import { adminGetListingComplexes } from "../../services/api";
-import { LoadingSpinner, Button, Pagination } from "../../components/admin/ui";
+import {
+  adminGetListingComplexes,
+  generatePreviewToken,
+} from "../../services/api";
+import {
+  LoadingSpinner,
+  Button,
+  Pagination,
+  PreviewModal,
+} from "../../components/admin/ui";
 
 interface PaginationState {
   current_page: number;
@@ -22,6 +30,9 @@ const AdminListingComplexesPage = () => {
     total_pages: 0,
   });
   const [loading, setLoading] = useState(true);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
+  const [previewTitle, setPreviewTitle] = useState<string>("");
 
   const fetchListingComplexes = async (page = 1) => {
     try {
@@ -38,6 +49,20 @@ const AdminListingComplexesPage = () => {
 
   const handlePageChange = (page: number) => {
     fetchListingComplexes(page);
+  };
+
+  const handlePreview = async (complex: ListingComplex) => {
+    try {
+      const response = await generatePreviewToken(
+        "listing_complex",
+        complex.id,
+      );
+      setPreviewUrl(response.data.preview_url);
+      setPreviewTitle(`Preview: ${complex.name}`);
+      setIsPreviewOpen(true);
+    } catch (error) {
+      console.error("Error generating preview token:", error);
+    }
   };
 
   useEffect(() => {
@@ -123,12 +148,8 @@ const AdminListingComplexesPage = () => {
 
               {/* Actions */}
               <div className="flex flex-wrap gap-2">
-                <Button
-                  as="a"
-                  href={`/listing_complexes/${complex.id}`}
-                  size="sm"
-                >
-                  Ver
+                <Button onClick={() => handlePreview(complex)} size="sm">
+                  👁️ Preview
                 </Button>
                 <Button
                   as="a"
@@ -150,6 +171,13 @@ const AdminListingComplexesPage = () => {
         totalPages={pagination.total_pages}
         onPageChange={handlePageChange}
         className="mt-6"
+      />
+
+      <PreviewModal
+        isOpen={isPreviewOpen}
+        onClose={() => setIsPreviewOpen(false)}
+        previewUrl={previewUrl}
+        title={previewTitle}
       />
     </div>
   );

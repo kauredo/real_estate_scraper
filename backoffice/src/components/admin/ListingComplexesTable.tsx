@@ -3,18 +3,17 @@ import { useTranslation } from "react-i18next";
 import {
   adminGetListingComplexes,
   adminDeleteListingComplex,
+  generatePreviewToken,
 } from "../../services/api";
 import { ListingComplex } from "../../utils/interfaces";
-import { Button, Pagination, LoadingSpinner } from "../admin/ui";
+import { Button, Pagination, LoadingSpinner, PreviewModal } from "../admin/ui";
 
 interface ListingComplexesTableProps {
   onEdit?: (listingComplex: ListingComplex) => void;
-  onView?: (listingComplex: ListingComplex) => void;
 }
 
 const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
   onEdit,
-  onView,
 }) => {
   const { t } = useTranslation();
   const [listingComplexes, setListingComplexes] = useState<ListingComplex[]>(
@@ -28,6 +27,9 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
     total_count: 0,
     per_page: 25,
   });
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
+  const [previewTitle, setPreviewTitle] = useState<string>("");
 
   const fetchListingComplexes = async (page = 1) => {
     try {
@@ -64,6 +66,20 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
 
   const handlePageChange = (newPage: number) => {
     fetchListingComplexes(newPage);
+  };
+
+  const handlePreview = async (complex: ListingComplex) => {
+    try {
+      const response = await generatePreviewToken(
+        "listing_complex",
+        complex.id,
+      );
+      setPreviewUrl(response.data.preview_url);
+      setPreviewTitle(`Preview: ${complex.name}`);
+      setIsPreviewOpen(true);
+    } catch (error) {
+      console.error("Error generating preview token:", error);
+    }
   };
 
   if (loading) {
@@ -139,16 +155,14 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
               </div>
 
               <div className="flex justify-end space-x-2">
-                {onView && (
-                  <Button
-                    onClick={() => onView(complex)}
-                    variant="link"
-                    size="sm"
-                    className="text-indigo-600 hover:text-indigo-900"
-                  >
-                    {t("common.view")}
-                  </Button>
-                )}
+                <Button
+                  onClick={() => handlePreview(complex)}
+                  variant="link"
+                  size="sm"
+                  className="text-green-600 hover:text-green-900"
+                >
+                  👁️ Preview
+                </Button>
                 {onEdit && (
                   <Button
                     onClick={() => onEdit(complex)}
@@ -188,6 +202,13 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
           className="mt-8"
         />
       )}
+
+      <PreviewModal
+        isOpen={isPreviewOpen}
+        onClose={() => setIsPreviewOpen(false)}
+        previewUrl={previewUrl}
+        title={previewTitle}
+      />
     </div>
   );
 };

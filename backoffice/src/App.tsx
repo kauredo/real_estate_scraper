@@ -20,25 +20,21 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminBlogPostsPage from "./pages/Admin/AdminBlogPostsPage";
 import AdminBlogPostNewPage from "./pages/Admin/AdminBlogPostNewPage";
 import AdminBlogPostEditPage from "./pages/Admin/AdminBlogPostEditPage";
-import AdminBlogPostDetailPage from "./pages/Admin/AdminBlogPostDetailPage";
 
 // Club Stories
 import AdminClubStoriesPage from "./pages/Admin/AdminClubStoriesPage";
 import AdminClubStoryNewPage from "./pages/Admin/AdminClubStoryNewPage";
 import AdminClubStoryEditPage from "./pages/Admin/AdminClubStoryEditPage";
-import AdminClubStoryDetailPage from "./pages/Admin/AdminClubStoryDetailPage";
 
 // Listings
 import AdminListingsPage from "./pages/Admin/AdminListingsPage";
 import AdminListingNewPage from "./pages/Admin/AdminListingNewPage";
 import AdminListingEditPage from "./pages/Admin/AdminListingEditPage";
-import AdminListingDetailPage from "./pages/Admin/AdminListingDetailPage";
 
 // Listing Complexes
 import AdminListingComplexesPage from "./pages/Admin/AdminListingComplexesPage";
 import AdminListingComplexNewPage from "./pages/Admin/AdminListingComplexNewPage";
 import AdminListingComplexEditPage from "./pages/Admin/AdminListingComplexEditPage";
-import AdminListingComplexDetailPage from "./pages/Admin/AdminListingComplexDetailPage";
 
 // Testimonials
 import AdminTestimonialsPage from "./pages/Admin/AdminTestimonialsPage";
@@ -107,10 +103,6 @@ function AppContent() {
                     path="/blog_posts/:id/edit"
                     element={<AdminBlogPostEditPage />}
                   />
-                  <Route
-                    path="/blog_posts/:id"
-                    element={<AdminBlogPostDetailPage />}
-                  />
 
                   {/* Club Stories */}
                   <Route
@@ -125,10 +117,6 @@ function AppContent() {
                     path="/club_stories/:id/edit"
                     element={<AdminClubStoryEditPage />}
                   />
-                  <Route
-                    path="/club_stories/:id"
-                    element={<AdminClubStoryDetailPage />}
-                  />
 
                   {/* Listings */}
                   <Route path="/listings" element={<AdminListingsPage />} />
@@ -139,10 +127,6 @@ function AppContent() {
                   <Route
                     path="/listings/:id/edit"
                     element={<AdminListingEditPage />}
-                  />
-                  <Route
-                    path="/listings/:id"
-                    element={<AdminListingDetailPage />}
                   />
 
                   {/* Listing Complexes */}
@@ -157,10 +141,6 @@ function AppContent() {
                   <Route
                     path="/listing_complexes/:id/edit"
                     element={<AdminListingComplexEditPage />}
-                  />
-                  <Route
-                    path="/listing_complexes/:id"
-                    element={<AdminListingComplexDetailPage />}
                   />
 
                   {/* Testimonials */}

@@ -146,13 +146,11 @@ const baseAppRoutes = {
     blogPosts: "/blog_posts",
     newBlogPost: "/blog_posts/new",
     editBlogPost: (id: string | number): string => `/blog_posts/${id}/edit`,
-    showBlogPost: (id: string | number): string => `/blog_posts/${id}`,
 
     // Club stories
     clubStories: "/club_stories",
     newClubStory: "/club_stories/new",
     editClubStory: (id: string | number): string => `/club_stories/${id}/edit`,
-    showClubStory: (id: string | number): string => `/club_stories/${id}`,
 
     // Listings
     listings: "/listings",
@@ -168,8 +166,6 @@ const baseAppRoutes = {
     newListingComplex: "/listing_complexes/new",
     editListingComplex: (id: string | number): string =>
       `/listing_complexes/${id}/edit`,
-    showListingComplex: (id: string | number): string =>
-      `/listing_complexes/${id}`,
     updateDetailsListingComplex: (id: string | number): string =>
       `/listing_complexes/${id}/update_details`,
     photosListingComplex: (id: string | number): string =>
@@ -417,13 +413,11 @@ export const Routes = createLocalizedRoutes({
   backoffice_blog_posts_path: appRoutes.backoffice.blogPosts,
   new_backoffice_blog_post_path: appRoutes.backoffice.newBlogPost,
   edit_backoffice_blog_post_path: appRoutes.backoffice.editBlogPost,
-  backoffice_blog_post_path: appRoutes.backoffice.showBlogPost,
 
   // Club stories
   backoffice_club_stories_path: appRoutes.backoffice.clubStories,
   new_backoffice_club_story_path: appRoutes.backoffice.newClubStory,
   edit_backoffice_club_story_path: appRoutes.backoffice.editClubStory,
-  backoffice_club_story_path: appRoutes.backoffice.showClubStory,
 
   // Listings
   backoffice_listings_path: appRoutes.backoffice.listings,
@@ -438,7 +432,6 @@ export const Routes = createLocalizedRoutes({
   backoffice_listing_complexes_path: appRoutes.backoffice.listingComplexes,
   new_backoffice_listing_complex_path: appRoutes.backoffice.newListingComplex,
   edit_backoffice_listing_complex_path: appRoutes.backoffice.editListingComplex,
-  backoffice_listing_complex_path: appRoutes.backoffice.showListingComplex,
   update_details_backoffice_listing_complex_path:
     appRoutes.backoffice.updateDetailsListingComplex,
   photos_backoffice_listing_complex_path:

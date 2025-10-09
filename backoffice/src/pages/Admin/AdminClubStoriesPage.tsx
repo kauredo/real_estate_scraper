@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { adminGetClubStories, adminDeleteClubStory } from "../../services/api";
+import {
+  adminGetClubStories,
+  adminDeleteClubStory,
+  generatePreviewToken,
+} from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import { ClubStory } from "../../utils/interfaces";
 import {
@@ -11,6 +15,7 @@ import {
   Pagination,
   EmptyState,
   Button,
+  PreviewModal,
 } from "../../components/admin/ui";
 
 interface PaginationState {
@@ -30,6 +35,9 @@ const AdminClubStoriesPage = () => {
     total_pages: 0,
   });
   const [loading, setLoading] = useState(true);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
+  const [previewTitle, setPreviewTitle] = useState<string>("");
 
   const fetchClubStories = async (page = 1) => {
     try {
@@ -58,6 +66,17 @@ const AdminClubStoriesPage = () => {
       fetchClubStories(pagination.current_page);
     } catch (error) {
       console.error("Error deleting club story:", error);
+    }
+  };
+
+  const handlePreview = async (story: ClubStory) => {
+    try {
+      const response = await generatePreviewToken("club_story", story.id);
+      setPreviewUrl(response.data.preview_url);
+      setPreviewTitle(`Preview: ${story.title}`);
+      setIsPreviewOpen(true);
+    } catch (error) {
+      console.error("Error generating preview token:", error);
     }
   };
 
@@ -106,15 +125,14 @@ const AdminClubStoriesPage = () => {
               }
               actions={
                 <div className="flex gap-2">
-                  <Link to={appRoutes.backoffice.showClubStory(story.id)}>
-                    <Button
-                      variant="link"
-                      size="sm"
-                      className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
-                    >
-                      {t("common.view")}
-                    </Button>
-                  </Link>
+                  <Button
+                    onClick={() => handlePreview(story)}
+                    variant="link"
+                    size="sm"
+                    className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
+                  >
+                    👁️ Preview
+                  </Button>
                   <Link to={appRoutes.backoffice.editClubStory(story.id)}>
                     <Button
                       variant="link"
@@ -146,6 +164,13 @@ const AdminClubStoriesPage = () => {
         totalPages={pagination.total_pages}
         onPageChange={fetchClubStories}
         className="mt-6"
+      />
+
+      <PreviewModal
+        isOpen={isPreviewOpen}
+        onClose={() => setIsPreviewOpen(false)}
+        previewUrl={previewUrl}
+        title={previewTitle}
       />
     </div>
   );
