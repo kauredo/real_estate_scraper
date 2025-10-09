@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { adminDeleteListingComplex } from "../../services/api";
+import {
+  adminDeleteListingComplex,
+  generatePreviewToken,
+} from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import type { ListingComplex } from "../../utils/interfaces";
-import { Button } from "../admin/ui";
+import { Button, PreviewModal } from "../admin/ui";
 
 interface Props {
   complex: ListingComplex;
@@ -16,6 +19,8 @@ export default function AdminNewShow(props: Props) {
   const { complex, isAdmin = true } = props;
   const navigate = useNavigate();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
 
   // Collect all unique photos from all listings
   const allPhotos = complex.listings.reduce((photos: string[], listing) => {
@@ -35,6 +40,19 @@ export default function AdminNewShow(props: Props) {
       navigate(appRoutes.backoffice.listingComplexes);
     } catch (error) {
       console.error("Error deleting listing complex:", error);
+    }
+  };
+
+  const handlePreview = async () => {
+    try {
+      const response = await generatePreviewToken(
+        "listing_complex",
+        complex.id
+      );
+      setPreviewUrl(response.data.preview_url);
+      setIsPreviewOpen(true);
+    } catch (error) {
+      console.error("Error generating preview token:", error);
     }
   };
 
@@ -60,6 +78,14 @@ export default function AdminNewShow(props: Props) {
                 className="bg-gray-500 hover:bg-gray-600"
               >
                 {t("common.back")}
+              </Button>
+              <Button
+                onClick={handlePreview}
+                variant="secondary"
+                size="sm"
+                className="bg-green-600 hover:bg-green-700 text-white"
+              >
+                👁️ Preview
               </Button>
               <Button
                 onClick={() =>
@@ -299,6 +325,13 @@ export default function AdminNewShow(props: Props) {
           </div>
         </div>
       </div>
+
+      <PreviewModal
+        isOpen={isPreviewOpen}
+        onClose={() => setIsPreviewOpen(false)}
+        previewUrl={previewUrl}
+        title={`Preview: ${complex.name}`}
+      />
     </div>
   );
 }

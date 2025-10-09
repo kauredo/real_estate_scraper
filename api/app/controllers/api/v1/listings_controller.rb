@@ -3,6 +3,8 @@
 module Api
   module V1
     class ListingsController < Api::V1::BaseController
+      include Previewable
+
       def index
         @q = Listing.includes([:translations]).ransack(params[:q])
         listings = @q.result
@@ -44,6 +46,12 @@ module Api
 
       def sell
         render json: { message: 'Contact us to sell your property' }
+      end
+
+      private
+
+      def controller_content_type
+        'listing'
       end
     end
   end

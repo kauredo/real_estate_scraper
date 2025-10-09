@@ -6,7 +6,8 @@ interface ModalProps {
   title?: string;
   children: ReactNode;
   footer?: ReactNode;
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "sm" | "md" | "lg" | "xl" | "full";
+  className?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -16,6 +17,7 @@ const Modal: React.FC<ModalProps> = ({
   children,
   footer,
   size = "md",
+  className = "",
 }) => {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -40,6 +42,7 @@ const Modal: React.FC<ModalProps> = ({
     md: "max-w-lg",
     lg: "max-w-2xl",
     xl: "max-w-4xl",
+    full: "max-w-full w-full h-full m-0",
   };
 
   return (
@@ -51,9 +54,9 @@ const Modal: React.FC<ModalProps> = ({
       />
 
       {/* Modal */}
-      <div className="flex min-h-full items-center justify-center p-4">
+      <div className={`flex min-h-full items-center justify-center ${size === "full" ? "p-0" : "p-4"}`}>
         <div
-          className={`relative w-full ${sizeStyles[size]} bg-white dark:bg-gray-800 rounded-lg shadow-xl`}
+          className={`relative w-full ${sizeStyles[size]} bg-white dark:bg-gray-800 rounded-lg shadow-xl ${className}`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}

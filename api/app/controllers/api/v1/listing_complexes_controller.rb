@@ -4,6 +4,7 @@ module Api
   module V1
     class ListingComplexesController < Api::V1::BaseController
       include FeatureFlag
+      include Previewable
 
       before_action -> { require_feature!(:listing_complexes) }
 
@@ -20,7 +21,8 @@ module Api
       def show
         @listing_complex = ListingComplex.includes(:translations, :listings, :photos).friendly.find(params[:id])
 
-        if @listing_complex.hidden? && !current_admin&.confirmed?
+        # Allow preview mode to bypass hidden check
+        if @listing_complex.hidden? && !current_admin&.confirmed? && !preview_mode?
           render json: { error: 'Not found' }, status: :not_found
           return
         end
@@ -28,6 +30,12 @@ module Api
         render json: @listing_complex,
                serializer: ListingComplexSerializer,
                include_listings: true
+      end
+
+      private
+
+      def controller_content_type
+        'listing_complex'
       end
     end
   end

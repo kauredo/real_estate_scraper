@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
       # Admin API endpoints
       namespace :admin do
+        resources :preview_tokens, only: [:create]
         resources :blog_posts
         resources :club_stories
         resources :listing_complexes do

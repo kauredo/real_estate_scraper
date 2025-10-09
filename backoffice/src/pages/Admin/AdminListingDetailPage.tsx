@@ -1,10 +1,18 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
-import { adminGetListing, adminDeleteListing } from "../../services/api";
+import {
+  adminGetListing,
+  adminDeleteListing,
+  generatePreviewToken,
+} from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import { Listing } from "../../utils/interfaces";
-import { LoadingSpinner, Button } from "../../components/admin/ui";
+import {
+  LoadingSpinner,
+  Button,
+  PreviewModal,
+} from "../../components/admin/ui";
 
 const AdminListingDetailPage = () => {
   const { t } = useTranslation();
@@ -12,6 +20,8 @@ const AdminListingDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const [loading, setLoading] = useState(true);
   const [listing, setListing] = useState<Listing | null>(null);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -44,6 +54,17 @@ const AdminListingDetailPage = () => {
     }
   };
 
+  const handlePreview = async () => {
+    if (!id) return;
+    try {
+      const response = await generatePreviewToken("listing", parseInt(id));
+      setPreviewUrl(response.data.preview_url);
+      setIsPreviewOpen(true);
+    } catch (error) {
+      console.error("Error generating preview token:", error);
+    }
+  };
+
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -73,6 +94,13 @@ const AdminListingDetailPage = () => {
           </Button>
           <div className="flex space-x-2">
             <Button
+              onClick={handlePreview}
+              variant="secondary"
+              className="bg-green-600 hover:bg-green-700 text-white"
+            >
+              👁️ Preview
+            </Button>
+            <Button
               onClick={() =>
                 navigate(appRoutes.backoffice.editListing(listing.id))
               }
@@ -87,6 +115,13 @@ const AdminListingDetailPage = () => {
             </Button>
           </div>
         </div>
+
+        <PreviewModal
+          isOpen={isPreviewOpen}
+          onClose={() => setIsPreviewOpen(false)}
+          previewUrl={previewUrl}
+          title={`Preview: ${listing.title}`}
+        />
 
         <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto mb-6">
           {listing.title}

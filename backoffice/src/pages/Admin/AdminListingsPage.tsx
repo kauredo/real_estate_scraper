@@ -191,7 +191,7 @@ const AdminListingsPage = () => {
             actions={
               <div className="flex flex-wrap gap-2">
                 <a
-                  href={`/backoffice/listings/${listing.id}`}
+                  href={`/listings/${listing.id}`}
                   className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
                 >
                   {t("common.view")}

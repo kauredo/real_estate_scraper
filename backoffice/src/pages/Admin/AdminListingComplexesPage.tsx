@@ -52,7 +52,7 @@ const AdminListingComplexesPage = () => {
     <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
       {/* Header */}
       <div className="mb-6">
-        <Button as={Link} to="/backoffice/listing_complexes/new">
+        <Button as={Link} to="/listing_complexes/new">
           Novo Empreendimento
         </Button>
       </div>
@@ -125,14 +125,14 @@ const AdminListingComplexesPage = () => {
               <div className="flex flex-wrap gap-2">
                 <Button
                   as="a"
-                  href={`/backoffice/listing_complexes/${complex.id}`}
+                  href={`/listing_complexes/${complex.id}`}
                   size="sm"
                 >
                   Ver
                 </Button>
                 <Button
                   as="a"
-                  href={`/backoffice/listing_complexes/${complex.id}/edit`}
+                  href={`/listing_complexes/${complex.id}/edit`}
                   variant="secondary"
                   size="sm"
                 >

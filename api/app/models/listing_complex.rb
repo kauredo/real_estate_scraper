@@ -16,6 +16,7 @@ class ListingComplex < ApplicationRecord
   after_save :update_orders
 
   scope :with_order_above, ->(new_order) { where.not(order: nil).where(order: new_order..) }
+  scope :visible, -> { where.not(hidden: true) }
   scope :ordered, -> { order(order: :asc) }
 
   def main_photo

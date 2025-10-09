@@ -2,9 +2,17 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { BlogPost } from "../../utils/interfaces";
-import { adminGetBlogPost, adminDeleteBlogPost } from "../../services/api";
+import {
+  adminGetBlogPost,
+  adminDeleteBlogPost,
+  generatePreviewToken,
+} from "../../services/api";
 import { appRoutes } from "../../utils/routes";
-import { LoadingSpinner, Button } from "../../components/admin/ui";
+import {
+  LoadingSpinner,
+  Button,
+  PreviewModal,
+} from "../../components/admin/ui";
 
 const AdminBlogPostDetailPage = () => {
   const { t } = useTranslation();
@@ -12,6 +20,8 @@ const AdminBlogPostDetailPage = () => {
   const { id } = useParams();
   const [blogPost, setBlogPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
 
   useEffect(() => {
     const fetchBlogPost = async () => {
@@ -41,6 +51,16 @@ const AdminBlogPostDetailPage = () => {
     }
   };
 
+  const handlePreview = async () => {
+    try {
+      const response = await generatePreviewToken("blog_post", parseInt(id!));
+      setPreviewUrl(response.data.preview_url);
+      setIsPreviewOpen(true);
+    } catch (error) {
+      console.error("Error generating preview token:", error);
+    }
+  };
+
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -62,6 +82,13 @@ const AdminBlogPostDetailPage = () => {
       <div className="m-8 flex items-center justify-end">
         <div className="flex items-center space-x-4">
           <Button
+            onClick={handlePreview}
+            variant="secondary"
+            className="bg-green-600 hover:bg-green-700 text-white"
+          >
+            👁️ Preview
+          </Button>
+          <Button
             as={Link}
             to={appRoutes.backoffice.editBlogPost(parseInt(id!))}
             variant="secondary"
@@ -76,6 +103,13 @@ const AdminBlogPostDetailPage = () => {
           </Button>
         </div>
       </div>
+
+      <PreviewModal
+        isOpen={isPreviewOpen}
+        onClose={() => setIsPreviewOpen(false)}
+        previewUrl={previewUrl}
+        title={`Preview: ${blogPost.title}`}
+      />
 
       <div id="blog-show" className="relative">
         <header

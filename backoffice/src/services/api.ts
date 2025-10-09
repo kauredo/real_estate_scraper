@@ -390,4 +390,11 @@ export const superAdminRotateApiKey = (id) =>
 export const superAdminUpdateTenantFeatures = (id, features) =>
   api.patch(apiRoutes.superAdmin.updateFeaturesTenant(id), { features });
 
+// Preview Tokens API functions
+export const generatePreviewToken = (contentType: string, contentId: number) =>
+  api.post(apiRoutes.admin.previewTokens, {
+    content_type: contentType,
+    content_id: contentId,
+  });
+
 export default api;

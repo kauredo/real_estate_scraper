@@ -4,6 +4,7 @@ module Api
   module V1
     class ClubStoriesController < Api::V1::BaseController
       include FeatureFlag
+      include Previewable
 
       before_action -> { require_feature!(:club) }
 
@@ -18,10 +19,21 @@ module Api
       end
 
       def show
-        @club_story = ClubStory.friendly.find(params[:id])
+        @club_story = if preview_mode?
+                        ClubStory.friendly.find(params[:id])
+                      else
+                        ClubStory.visible.friendly.find(params[:id])
+                      end
+
         render json: @club_story,
                serializer: ClubStorySerializer,
                include_photos: true
+      end
+
+      private
+
+      def controller_content_type
+        'club_story'
       end
     end
   end

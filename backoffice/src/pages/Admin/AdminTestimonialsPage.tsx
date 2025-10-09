@@ -78,7 +78,7 @@ const AdminTestimonialsPage = () => {
         <div className="flex flex-wrap gap-2">
           <Button
             as="a"
-            href={`/backoffice/testimonials/${testimonial.id}`}
+            href={`/testimonials/${testimonial.id}`}
             variant="link"
             size="sm"
             className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
@@ -87,7 +87,7 @@ const AdminTestimonialsPage = () => {
           </Button>
           <Button
             as="a"
-            href={`/backoffice/testimonials/${testimonial.id}/edit`}
+            href={`/testimonials/${testimonial.id}/edit`}
             variant="link"
             size="sm"
             className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
@@ -109,7 +109,7 @@ const AdminTestimonialsPage = () => {
         })}
         actionButton={{
           label: t("admin.testimonials.new"),
-          href: "/backoffice/testimonials/new",
+          href: "/testimonials/new",
         }}
       />
 

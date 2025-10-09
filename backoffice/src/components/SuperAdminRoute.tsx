@@ -20,7 +20,7 @@ const SuperAdminRoute = ({ children }: SuperAdminRouteProps) => {
   }
 
   if (!currentAdmin?.isSuperAdmin) {
-    return <Navigate to="/backoffice" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return <>{children}</>;

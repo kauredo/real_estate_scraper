@@ -341,6 +341,9 @@ const baseApiRoutes = {
 
     // Newsletter subscriptions
     newsletterSubscriptions: `${API_BASE_URL}/admin/newsletter_subscriptions`,
+
+    // Preview tokens
+    previewTokens: `${API_BASE_URL}/admin/preview_tokens`,
   },
 
   // Super Admin API endpoints

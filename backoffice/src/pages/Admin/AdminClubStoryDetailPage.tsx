@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { adminGetClubStory, adminDeleteClubStory } from "../../services/api";
+import {
+  adminGetClubStory,
+  adminDeleteClubStory,
+  generatePreviewToken,
+} from "../../services/api";
 import { appRoutes } from "../../utils/routes";
-import { LoadingSpinner, Button } from "../../components/admin/ui";
+import {
+  LoadingSpinner,
+  Button,
+  PreviewModal,
+} from "../../components/admin/ui";
 
 const AdminClubStoryDetailPage = () => {
   const { t } = useTranslation();
@@ -11,6 +19,8 @@ const AdminClubStoryDetailPage = () => {
   const { id } = useParams();
   const [clubStory, setClubStory] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string>("");
 
   useEffect(() => {
     const fetchClubStory = async () => {
@@ -39,6 +49,16 @@ const AdminClubStoryDetailPage = () => {
     }
   };
 
+  const handlePreview = async () => {
+    try {
+      const response = await generatePreviewToken("club_story", parseInt(id!));
+      setPreviewUrl(response.data.preview_url);
+      setIsPreviewOpen(true);
+    } catch (error) {
+      console.error("Error generating preview token:", error);
+    }
+  };
+
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -64,6 +84,13 @@ const AdminClubStoryDetailPage = () => {
           </h1>
           <div className="flex items-center space-x-4">
             <Button
+              onClick={handlePreview}
+              variant="secondary"
+              className="bg-green-600 hover:bg-green-700 text-white"
+            >
+              👁️ Preview
+            </Button>
+            <Button
               as={Link}
               to={appRoutes.backoffice.editClubStory(clubStory.id)}
               variant="secondary"
@@ -78,6 +105,13 @@ const AdminClubStoryDetailPage = () => {
             </Button>
           </div>
         </div>
+
+        <PreviewModal
+          isOpen={isPreviewOpen}
+          onClose={() => setIsPreviewOpen(false)}
+          previewUrl={previewUrl}
+          title={`Preview: ${clubStory.title}`}
+        />
 
         <div className="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden">
           {clubStory.video_link ? (
