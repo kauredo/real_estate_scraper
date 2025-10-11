@@ -5,7 +5,7 @@ import {
   superAdminUpdateTenant,
   superAdminUpdateTenantFeatures,
 } from "../../services/api";
-import { Input, Button } from "../admin/ui";
+import { Input, Button, Textarea } from "../admin/ui";
 
 interface Tenant {
   id: number;
@@ -14,6 +14,10 @@ interface Tenant {
   domain: string;
   active: boolean;
   contact_email: string | null;
+  agency_name: string | null;
+  website_url: string | null;
+  phone: string | null;
+  address: string | null;
   enabled_features: string[];
 }
 
@@ -28,6 +32,10 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
   const [slug, setSlug] = useState("");
   const [domain, setDomain] = useState("");
   const [contactEmail, setContactEmail] = useState("");
+  const [agencyName, setAgencyName] = useState("");
+  const [websiteUrl, setWebsiteUrl] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
   const [active, setActive] = useState(true);
 
   // Feature flags
@@ -48,6 +56,10 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
       setSlug(tenant.slug);
       setDomain(tenant.domain || "");
       setContactEmail(tenant.contact_email || "");
+      setAgencyName(tenant.agency_name || "");
+      setWebsiteUrl(tenant.website_url || "");
+      setPhone(tenant.phone || "");
+      setAddress(tenant.address || "");
       setActive(tenant.active);
 
       // Set features
@@ -88,6 +100,10 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
         slug,
         domain: domain || null,
         contact_email: contactEmail || null,
+        agency_name: agencyName || null,
+        website_url: websiteUrl || null,
+        phone: phone || null,
+        address: address || null,
         active,
       };
 
@@ -232,6 +248,46 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
                 label={t("super_admin.tenants.contact_email")}
                 value={contactEmail}
                 onChange={(e) => setContactEmail(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-4">
+              <Input
+                type="text"
+                label={t("super_admin.tenants.agency_name")}
+                value={agencyName}
+                onChange={(e) => setAgencyName(e.target.value)}
+                placeholder="Sofia Galvão Group"
+              />
+            </div>
+
+            <div className="mb-4">
+              <Input
+                type="url"
+                label={t("super_admin.tenants.website_url")}
+                value={websiteUrl}
+                onChange={(e) => setWebsiteUrl(e.target.value)}
+                placeholder="https://sofiagalvao.pt"
+              />
+            </div>
+
+            <div className="mb-4">
+              <Input
+                type="tel"
+                label={t("super_admin.tenants.phone")}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="+351 912 345 678"
+              />
+            </div>
+
+            <div className="mb-4">
+              <Textarea
+                label={t("super_admin.tenants.address")}
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Rua Example, 123&#10;1000-001 Lisboa"
+                rows={3}
               />
             </div>
 

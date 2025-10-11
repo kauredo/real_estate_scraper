@@ -22,6 +22,10 @@ interface Tenant {
   domain: string;
   active: boolean;
   contact_email: string | null;
+  agency_name: string | null;
+  website_url: string | null;
+  phone: string | null;
+  address: string | null;
   created_at: string;
   enabled_features: string[];
 }

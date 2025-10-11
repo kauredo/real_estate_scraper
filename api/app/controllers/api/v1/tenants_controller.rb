@@ -46,6 +46,10 @@ module Api
               name: Current.tenant.name,
               slug: Current.tenant.slug,
               domain: Current.tenant.domain,
+              agency_name: Current.tenant.agency_name,
+              website_url: Current.tenant.website_url,
+              phone: Current.tenant.phone,
+              address: Current.tenant.address,
               features: {
                 blog_enabled: Current.tenant.blog_enabled,
                 club_enabled: Current.tenant.club_enabled,

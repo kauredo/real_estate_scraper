@@ -26,13 +26,17 @@ two:
 #
 #  id            :bigint           not null, primary key
 #  active        :boolean          default(TRUE), not null
+#  address       :text
+#  agency_name   :string
 #  api_key       :string           not null
 #  contact_email :string
 #  domain        :string
 #  features      :jsonb            not null
 #  metadata      :jsonb            not null
 #  name          :string           not null
+#  phone         :string
 #  slug          :string           not null
+#  website_url   :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
