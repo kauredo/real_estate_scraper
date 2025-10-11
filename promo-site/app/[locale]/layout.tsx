@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { locales } from '@/i18n/request';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { locales } from "@/i18n/request";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -18,12 +18,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "MyAgentWebsite - Professional Real Estate Websites",
-  description: "Custom-built websites and API access for real estate agents. Modern technology, professional design.",
+  description:
+    "Custom-built websites and API access for real estate agents. Modern technology, professional design.",
 };
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params: { locale },
 }: {
   children: React.ReactNode;
   params: { locale: string };
