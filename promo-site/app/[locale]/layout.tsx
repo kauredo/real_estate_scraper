@@ -30,7 +30,7 @@ export default async function LocaleLayout({
   params: { locale: string };
 }) {
   // Ensure that the incoming `locale` is valid
-  if (!locales.includes(locale as any)) {
+  if (!locales.includes(locale as (typeof locales)[number])) {
     notFound();
   }
 

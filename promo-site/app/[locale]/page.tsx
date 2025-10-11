@@ -169,7 +169,7 @@ export default function Home() {
                 <div className="relative mb-8">
                   <Quote className="h-12 w-12 text-blue-600/20 absolute -top-4 -left-4" />
                   <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 pl-8">
-                    "{t("home.caseStudy.quote")}"
+                    &ldquo;{t("home.caseStudy.quote")}&rdquo;
                   </blockquote>
                 </div>
 

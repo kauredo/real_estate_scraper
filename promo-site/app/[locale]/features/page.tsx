@@ -26,8 +26,6 @@ import {
   Settings,
   CheckCircle2,
   ArrowRight,
-  Image as ImageIcon,
-  Users,
   Search,
   Smartphone,
 } from "lucide-react";
