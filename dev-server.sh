@@ -38,6 +38,11 @@ if [ $? != 0 ]; then
     tmux send-keys -t "${SESSION_NAME}:Backoffice" "$NVM_SETUP" Enter
     tmux send-keys -t "${SESSION_NAME}:Backoffice" "cd backoffice && npm run dev" Enter
 
+    # Promo Site development server (Marketing/Promotional Site)
+    tmux new-window -t $SESSION_NAME -n "Promo Site"
+    tmux send-keys -t "${SESSION_NAME}:Promo Site" "$NVM_SETUP" Enter
+    tmux send-keys -t "${SESSION_NAME}:Promo Site" "cd promo-site && npm run dev" Enter
+
     # Good Job worker for background jobs
     tmux new-window -t $SESSION_NAME -n "Background Jobs"
     tmux send-keys -t "${SESSION_NAME}:Background Jobs" "cd api && bundle exec good_job start $GOOD_JOB_FLAGS" Enter
@@ -50,6 +55,8 @@ if [ $? != 0 ]; then
     tmux send-keys -t "${SESSION_NAME}:Logs" "echo 'Individual commands:'" Enter
     tmux send-keys -t "${SESSION_NAME}:Logs" "echo '  API: npm run api'" Enter
     tmux send-keys -t "${SESSION_NAME}:Logs" "echo '  Frontend: npm run frontend'" Enter
+    tmux send-keys -t "${SESSION_NAME}:Logs" "echo '  Backoffice: cd backoffice && npm run dev'" Enter
+    tmux send-keys -t "${SESSION_NAME}:Logs" "echo '  Promo Site: cd promo-site && npm run dev'" Enter
     tmux send-keys -t "${SESSION_NAME}:Logs" "echo '  Jobs: npm run jobs'" Enter
 
     # Select the first window
