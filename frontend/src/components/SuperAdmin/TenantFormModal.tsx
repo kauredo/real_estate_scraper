@@ -13,6 +13,7 @@ interface Tenant {
   domain: string;
   active: boolean;
   contact_email: string | null;
+  scraper_source_url: string | null;
   enabled_features: string[];
 }
 
@@ -27,6 +28,7 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
   const [slug, setSlug] = useState("");
   const [domain, setDomain] = useState("");
   const [contactEmail, setContactEmail] = useState("");
+  const [scraperSourceUrl, setScraperSourceUrl] = useState("");
   const [active, setActive] = useState(true);
 
   // Feature flags
@@ -47,6 +49,7 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
       setSlug(tenant.slug);
       setDomain(tenant.domain || "");
       setContactEmail(tenant.contact_email || "");
+      setScraperSourceUrl(tenant.scraper_source_url || "");
       setActive(tenant.active);
 
       // Set features
@@ -87,6 +90,7 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
         slug,
         domain: domain || null,
         contact_email: contactEmail || null,
+        scraper_source_url: scraperSourceUrl || null,
         active,
       };
 
@@ -240,6 +244,22 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
                 type="email"
                 value={contactEmail}
                 onChange={(e) => setContactEmail(e.target.value)}
+                className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium mb-2 dark:text-white">
+                Scraper Source URL
+                <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
+                  (URL where the scraper will find this agent's listings)
+                </span>
+              </label>
+              <input
+                type="url"
+                value={scraperSourceUrl}
+                onChange={(e) => setScraperSourceUrl(e.target.value)}
+                placeholder="https://www.kwportugal.pt/pt/agente/Name/12345"
                 className="w-full border rounded px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'task_helper'
+require 'watir'
+require 'selenium-webdriver'
 
 module ScraperHelper
   def self.scrape_one(browser, url, listing, force: false)
@@ -23,7 +25,8 @@ module ScraperHelper
           ScrapeListingDetails.scrape_language_details(browser, listing, 'English')
         end
       end
-    rescue Selenium::WebDriver::Error::UnknownError, Selenium::WebDriver::Error::TimeoutError, Selenium::WebDriver::Error::NoSuchElementError => e
+    rescue Selenium::WebDriver::Error::UnknownError, Selenium::WebDriver::Error::TimeoutError,
+           Selenium::WebDriver::Error::NoSuchElementError => e
       ScrapeListingDetails.log "[ScraperHelper] An error occurred during ScrapeHelper.scrape_one: #{e.message}"
       retry_count += 1
 
@@ -56,7 +59,8 @@ module ScraperHelper
 
   # In ScraperHelper
   def self.setup_browser(headless: true)
-    args = ['--disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess', '--window-size=1280,800', '--no-sandbox', '--incognito', '--disable-gpu']
+    args = ['--disable-dev-shm-usage', '--enable-features=NetworkService,NetworkServiceInProcess',
+            '--window-size=1280,800', '--no-sandbox', '--incognito', '--disable-gpu']
     args << '--headless=new' if headless
 
     options = Selenium::WebDriver::Chrome::Options.new(args:)

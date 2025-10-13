@@ -14,33 +14,37 @@ class ScrapeUrlJob < ApplicationJob
       block.call
     end
   rescue Timeout::Error => e
-    ScrapeListingDetails.log("[ScrapeUrlJob] Timed out after 20 minutes for #{job.arguments.first}")
+    ScrapeListingDetails.log("[ScrapeUrlJob] Timed out after 20 minutes for #{job.arguments[1]}")
     raise e
   end
 
-  def perform(url, force = false)
+  def perform(tenant_id, url, force = false)
     start_time = Time.current
-    ScrapeListingDetails.log("[ScrapeUrlJob] Starting #{url} at #{start_time}")
+    tenant = Tenant.find(tenant_id)
 
-    # Add timeout for browser creation
-    scraper_service = Timeout.timeout(2.minutes) do
-      RealEstateScraperService.new
+    ActsAsTenant.with_tenant(tenant) do
+      ScrapeListingDetails.log("[ScrapeUrlJob] Starting #{url} for tenant: #{tenant.slug} at #{start_time}")
+
+      # Add timeout for browser creation
+      scraper_service = Timeout.timeout(2.minutes) do
+        RealEstateScraperService.new(tenant:, headless: ENV.fetch('HEADFULL', '').blank?)
+      end
+      service_start = Time.current
+      ScrapeListingDetails.log("[ScrapeUrlJob] Browser created in #{service_start - start_time} seconds")
+
+      # Add timeout for the actual scraping
+      Timeout.timeout(15.minutes) do
+        scraper_service.scrape_one(url, nil, force:)
+      end
+      scrape_end = Time.current
+
+      total_time = scrape_end - start_time
+      ScrapeListingDetails.log("[ScrapeUrlJob] DONE for #{url} in #{total_time} seconds")
+    ensure
+      cleanup_start = Time.current
+      scraper_service&.destroy
+      cleanup_time = Time.current - cleanup_start
+      ScrapeListingDetails.log("[ScrapeUrlJob] Cleanup completed in #{cleanup_time} seconds")
     end
-    service_start = Time.current
-    ScrapeListingDetails.log("[ScrapeUrlJob] Browser created in #{service_start - start_time} seconds")
-
-    # Add timeout for the actual scraping
-    Timeout.timeout(15.minutes) do
-      scraper_service.scrape_one(url, nil, force:)
-    end
-    scrape_end = Time.current
-
-    total_time = scrape_end - start_time
-    ScrapeListingDetails.log("[ScrapeUrlJob] DONE for #{url} in #{total_time} seconds")
-  ensure
-    cleanup_start = Time.current
-    scraper_service&.destroy
-    cleanup_time = Time.current - cleanup_start
-    ScrapeListingDetails.log("[ScrapeUrlJob] Cleanup completed in #{cleanup_time} seconds")
   end
 end

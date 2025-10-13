@@ -24,6 +24,9 @@ class Tenant < ApplicationRecord
                    format: { with: /\A[a-z0-9-]+\z/ }
   validates :api_key, presence: true, uniqueness: true
   validates :contact_email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
+  validates :scraper_source_url,
+            format: { with: URI::DEFAULT_PARSER.make_regexp(%w[http https]) },
+            allow_blank: true
 
   # Feature flags - stored in features JSONB column
   store_accessor :features,
@@ -56,6 +59,21 @@ class Tenant < ApplicationRecord
     end
   end
 
+  # Determine the scraper platform from the URL
+  def scraper_platform
+    return nil if scraper_source_url.blank?
+
+    uri = URI.parse(scraper_source_url)
+    case uri.host
+    when /kwportugal\.pt/ then :kw_portugal
+    when /idealista\.pt/ then :idealista
+    when /century21\.pt/ then :century21
+    else :unknown
+    end
+  rescue URI::InvalidURIError
+    nil
+  end
+
   # Rotate API key (for security)
   def rotate_api_key!
     regenerate_api_key
@@ -86,21 +104,22 @@ end
 #
 # Table name: tenants
 #
-#  id            :bigint           not null, primary key
-#  active        :boolean          default(TRUE), not null
-#  address       :text
-#  agency_name   :string
-#  api_key       :string           not null
-#  contact_email :string
-#  domain        :string
-#  features      :jsonb            not null
-#  metadata      :jsonb            not null
-#  name          :string           not null
-#  phone         :string
-#  slug          :string           not null
-#  website_url   :string
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id                 :bigint           not null, primary key
+#  active             :boolean          default(TRUE), not null
+#  address            :text
+#  agency_name        :string
+#  api_key            :string           not null
+#  contact_email      :string
+#  domain             :string
+#  features           :jsonb            not null
+#  metadata           :jsonb            not null
+#  name               :string           not null
+#  phone              :string
+#  scraper_source_url :string
+#  slug               :string           not null
+#  website_url        :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
 # Indexes
 #

@@ -14,18 +14,22 @@ class ScrapeAll < ApplicationJob
     raise e # This will trigger discard_on
   end
 
-  def perform
-    ScrapeListingDetails.log '[ScrapeAll] is being performed'
+  def perform(tenant_id)
+    tenant = Tenant.find(tenant_id)
 
-    scraper_service = RealEstateScraperService.new
-    scraper_service.scrape_all
+    ActsAsTenant.with_tenant(tenant) do
+      ScrapeListingDetails.log "[ScrapeAll] Starting for tenant: #{tenant.slug}"
 
-    # Only queue follow-up jobs if scraping completed successfully
-    FixDuplicatesJob.perform_later
+      scraper_service = RealEstateScraperService.new(tenant:, headless: ENV.fetch('HEADFULL', '').blank?)
+      scraper_service.scrape_all
 
-    ScrapeListingDetails.log '[ScrapeAll] DONE'
-  ensure
-    # Always cleanup, even if job fails/times out
-    scraper_service&.destroy
+      # Only queue follow-up jobs if scraping completed successfully
+      FixDuplicatesJob.perform_later(tenant.id)
+
+      ScrapeListingDetails.log "[ScrapeAll] DONE for tenant: #{tenant.slug}"
+    ensure
+      # Always cleanup, even if job fails/times out
+      scraper_service&.destroy
+    end
   end
 end
