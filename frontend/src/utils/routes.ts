@@ -138,6 +138,7 @@ const baseAppRoutes = {
 
   // Misc
   toggleDarkMode: "/toggle_dark_mode",
+  backoffice: "/backoffice",
 
   // Good Job dashboard
   goodJob: "/good_job",
@@ -237,6 +238,7 @@ export const Routes = createLocalizedRoutes({
 
   // Misc
   toggle_dark_mode_path: appRoutes.toggleDarkMode,
+  backoffice_path: appRoutes.backoffice,
 
   // Good Job dashboard
   good_job_path: appRoutes.goodJob,

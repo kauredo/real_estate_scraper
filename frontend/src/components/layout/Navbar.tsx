@@ -116,6 +116,11 @@ export default function Navbar() {
           />
         ),
       },
+      {
+        title: t("navbar.backoffice"),
+        url: Routes.backoffice_path,
+        turbo: "false",
+      },
     ],
     img: (
       <img

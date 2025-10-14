@@ -29,6 +29,7 @@ import ClubStoriesPage from "./pages/ClubStoriesPage";
 import ClubStoryDetailPage from "./pages/ClubStoryDetailPage";
 import ListingComplexesPage from "./pages/ListingComplexesPage";
 import ListingComplexDetailPage from "./pages/ListingComplexDetailPage";
+import BackofficeRedirectPage from "./pages/BackofficeRedirectPage";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -104,6 +105,10 @@ function AppContent() {
             element={<TermsAndConditionsPage />}
           />
           <Route path="/en/privacy" element={<PrivacyPage />} />
+
+          {/* Backoffice Routes */}
+          <Route path="/backoffice" element={<BackofficeRedirectPage />} />
+          <Route path="/en/backoffice" element={<BackofficeRedirectPage />} />
 
           {/* 404 Page */}
           <Route path="*" element={<NotFoundPage />} />
