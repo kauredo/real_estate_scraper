@@ -29,24 +29,31 @@ export default function ListingSearch(props: Props) {
     onSearch,
   } = props;
 
-  // Parse URL parameters with proper fallbacks
-  const [title, setTitle] = useState(params?.title_cont || "");
-  const [status, setStatus] = useState(params?.status_eq || "");
-  const [kind, setKind] = useState(Number(params?.kind_eq) || 0);
-  const [objective, setObjective] = useState(Number(params?.objective_eq) || 1);
-  const [statsFilters, setStatsFilters] = useState<Partial<StatsFilter>>(
-    Object.fromEntries(
-      Object.entries(params || {}).filter(([key]) =>
-        statsKeys.includes(key.replace("_eq", "")),
-      ),
-    ),
-  );
+  // Parse URL parameters with proper fallbacks (URL uses Rails format: q[field_eq])
+  const [title, setTitle] = useState(params?.["q[title_cont]"] || "");
+  const [status, setStatus] = useState(params?.["q[status_eq]"] || "");
+  const [kind, setKind] = useState(Number(params?.["q[kind_eq]"]) || 0);
+  const [objective, setObjective] = useState(Number(params?.["q[objective_eq]"]) || 1);
+  const [statsFilters, setStatsFilters] = useState<Partial<StatsFilter>>(() => {
+    const filters: Partial<StatsFilter> = {};
+    Object.entries(params || {}).forEach(([key, value]) => {
+      // Match q[StatName_eq] format
+      const match = key.match(/^q\[(.+)_eq\]$/);
+      if (match) {
+        const statName = match[1];
+        if (statsKeys.includes(statName)) {
+          filters[`${statName}_eq`] = value;
+        }
+      }
+    });
+    return filters;
+  });
 
   const transformedMaxPrice = (listingMaxPrice || 0) / 100;
   const [prices, setPrices] = useState(() => {
-    const minPrice = Number(params?.price_cents_gteq || 0) / 100;
-    const maxPrice = params?.price_cents_lteq
-      ? Number(params.price_cents_lteq) / 100
+    const minPrice = Number(params?.["q[price_cents_gteq]"] || 0) / 100;
+    const maxPrice = params?.["q[price_cents_lteq]"]
+      ? Number(params["q[price_cents_lteq]"]) / 100
       : transformedMaxPrice || 0;
     return [minPrice, maxPrice];
   });
@@ -110,10 +117,8 @@ export default function ListingSearch(props: Props) {
     const searchParams = buildSearchParams();
     const urlSearchParams = new URLSearchParams(searchParams);
 
-    if (onSearch) {
-      onSearch(searchParams);
-    }
-
+    // Navigate to update URL - this will trigger the useEffect in ListingsPage
+    // which will fetch the listings (single source of truth)
     navigate({
       pathname: Routes.buy_path,
       search: `?${urlSearchParams.toString()}`,
@@ -138,40 +143,37 @@ export default function ListingSearch(props: Props) {
     setStatsFilters({});
     setPrices([0, transformedMaxPrice || 0]);
 
-    if (onSearch) {
-      onSearch({});
-    }
-
+    // Navigate to clear URL params - this will trigger fetch with no filters
     navigate(Routes.buy_path);
   };
 
   useEffect(() => {
-    const oldObjective = params?.objective_eq;
-    if (!oldObjective && objective === 1) {
+    const urlObjective = params?.["q[objective_eq]"];
+    if (!urlObjective && objective === 1) {
       return;
     }
 
     const form = document.querySelector("form");
-    if (form && oldObjective !== objective) {
+    if (form && Number(urlObjective) !== objective) {
       form.requestSubmit();
     }
-  }, [objective, params?.objective_eq]);
+  }, [objective, params]);
 
   // Update prices when max price becomes available on initial load
   useEffect(() => {
     // Only run this when transformedMaxPrice becomes available for the first time
     // and we don't have specific price parameters from URL
-    if (transformedMaxPrice > 0 && !params?.price_cents_lteq) {
+    if (transformedMaxPrice > 0 && !params?.["q[price_cents_lteq]"]) {
       setPrices((prevPrices) => {
         // Only update if the current max price is 0 (initial state)
         if (prevPrices[1] === 0) {
-          const minPrice = Number(params?.price_cents_gteq || 0) / 100;
+          const minPrice = Number(params?.["q[price_cents_gteq]"] || 0) / 100;
           return [minPrice, transformedMaxPrice];
         }
         return prevPrices;
       });
     }
-  }, [transformedMaxPrice]);
+  }, [transformedMaxPrice, params]);
 
   return (
     <div className="container mx-auto sm:px-6 px-4">

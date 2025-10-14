@@ -47,6 +47,7 @@ const ListingsPage = () => {
     }
   };
 
+  // Fetch listings whenever URL params change (single source of truth)
   useEffect(() => {
     const params: Record<string, string> = {};
     for (const [key, value] of searchParams.entries()) {
@@ -54,10 +55,6 @@ const ListingsPage = () => {
     }
     fetchListings(params);
   }, [searchParams]);
-
-  const handleSearch = (searchParams: Record<string, string>) => {
-    fetchListings(searchParams);
-  };
 
   const handlePageChange = (page: number) => {
     searchParams.set("page", page.toString());
@@ -75,7 +72,6 @@ const ListingsPage = () => {
         statsKeys={statsKeys}
         kinds={kinds}
         objectives={objectives}
-        onSearch={handleSearch}
       />
 
       {loading ? (
