@@ -73,3 +73,27 @@ export const scrollToSection = (
   const element = document.getElementById(id);
   element?.scrollIntoView({ behavior: "smooth" });
 };
+
+// Extract base domain from a scraper source URL
+export const extractScraperDomain = (scraperSourceUrl: string | null | undefined): string | null => {
+  if (!scraperSourceUrl) return null;
+
+  try {
+    const url = new URL(scraperSourceUrl);
+    return `${url.protocol}//${url.host}`;
+  } catch {
+    return null;
+  }
+};
+
+// Get a display-friendly domain name from scraper URL
+export const getScraperDisplayName = (scraperSourceUrl: string | null | undefined): string => {
+  if (!scraperSourceUrl) return "external source";
+
+  try {
+    const url = new URL(scraperSourceUrl);
+    return url.host.replace("www.", "");
+  } catch {
+    return "external source";
+  }
+};

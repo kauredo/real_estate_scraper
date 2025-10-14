@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams, Link } from "react-router-dom";
 import { Listing } from "../../utils/interfaces";
@@ -17,6 +17,7 @@ import {
   PreviewModal,
 } from "../../components/admin/ui";
 import { appRoutes } from "../../utils/routes";
+import { useTenant } from "../../context/TenantContext";
 
 interface PaginationState {
   current_page: number;
@@ -34,6 +35,8 @@ interface FlashMessage {
 
 const AdminListingsPage = () => {
   const { t } = useTranslation();
+  const { tenant, isSuperAdmin, selectedTenantId, availableTenants } =
+    useTenant();
   const [searchParams, setSearchParams] = useSearchParams();
   const [listings, setListings] = useState<Listing[]>([]);
   const [pagination, setPagination] = useState<PaginationState>({
@@ -52,6 +55,21 @@ const AdminListingsPage = () => {
   const [previewTitle, setPreviewTitle] = useState<string>("");
 
   const order = searchParams.get("order") || "order";
+
+  // Get the effective scraper URL (selected tenant for super admins, or current tenant)
+  const effectiveScraperUrl = React.useMemo(() => {
+    if (isSuperAdmin && selectedTenantId) {
+      const selected = availableTenants.find((t) => t.id === selectedTenantId);
+      return selected?.scraper_source_url;
+    }
+    return tenant?.scraper_source_url;
+  }, [isSuperAdmin, selectedTenantId, availableTenants, tenant]);
+
+  // For super admins, disable update all when "All Tenants" is selected
+  // Also disable if no scraper_source_url is configured
+  const canUpdateAll =
+    (!isSuperAdmin || selectedTenantId !== null) &&
+    effectiveScraperUrl != null;
 
   const fetchListings = async (page = 1, resetPage = false) => {
     try {
@@ -151,7 +169,18 @@ const AdminListingsPage = () => {
 
       {/* Controls */}
       <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap mb-6 gap-4">
-        <Button onClick={handleUpdateAll} isLoading={updating}>
+        <Button
+          onClick={handleUpdateAll}
+          isLoading={updating}
+          disabled={!canUpdateAll}
+          title={
+            !canUpdateAll
+              ? isSuperAdmin && selectedTenantId === null
+                ? t("admin.listings.select_tenant_first")
+                : t("admin.listings.no_scraper_configured")
+              : undefined
+          }
+        >
           {t("admin.listings.updateAll")}
         </Button>
 

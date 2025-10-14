@@ -25,6 +25,7 @@ interface CurrentTenant {
   name: string;
   slug: string;
   domain?: string;
+  scraper_source_url?: string | null;
   features: TenantFeatures;
 }
 
@@ -33,6 +34,7 @@ interface TenantOption {
   name: string;
   slug: string;
   domain: string;
+  scraper_source_url?: string | null;
 }
 
 interface TenantContextType {

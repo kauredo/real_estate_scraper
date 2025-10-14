@@ -15,7 +15,8 @@ module Api
               id: tenant.id,
               name: tenant.name,
               slug: tenant.slug,
-              domain: tenant.domain
+              domain: tenant.domain,
+              scraper_source_url: tenant.scraper_source_url
             }
           end
         }, status: :ok
@@ -30,6 +31,7 @@ module Api
               id: nil,
               name: 'Super Admin',
               slug: 'super-admin',
+              scraper_source_url: nil,
               features: {
                 blog_enabled: true,
                 club_enabled: true,
@@ -50,6 +52,7 @@ module Api
               website_url: Current.tenant.website_url,
               phone: Current.tenant.phone,
               address: Current.tenant.address,
+              scraper_source_url: Current.tenant.scraper_source_url,
               features: {
                 blog_enabled: Current.tenant.blog_enabled,
                 club_enabled: Current.tenant.club_enabled,

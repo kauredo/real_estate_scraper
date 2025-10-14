@@ -23,6 +23,35 @@ interface FlashMessage {
   message: string;
 }
 
+// Enum mappings to convert API string values to numeric indices
+const STATUS_MAP: Record<string, string> = {
+  recent: "0",
+  standard: "1",
+  agreed: "2",
+  sold: "3",
+  rented: "4",
+  closed: "5",
+};
+
+const KIND_MAP: Record<string, string> = {
+  other: "0",
+  apartment: "1",
+  house: "2",
+  land: "3",
+  office: "4",
+  garage: "5",
+  parking: "6",
+  store: "7",
+  storage: "8",
+  warehouse: "9",
+};
+
+const OBJECTIVE_MAP: Record<string, string> = {
+  other: "0",
+  sale: "1",
+  rent: "2",
+};
+
 const AdminListingEditPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -46,15 +75,41 @@ const AdminListingEditPage = () => {
         const listingResponse = await adminGetListing(parseInt(id));
         if (listingResponse.data?.listing) {
           const listingData = listingResponse.data.listing;
+
+          // Convert enum string values to numeric indices
+          const statusValue = typeof listingData.status === 'string'
+            ? STATUS_MAP[listingData.status] || "0"
+            : listingData.status?.toString() || "0";
+
+          const kindValue = typeof listingData.kind === 'string'
+            ? KIND_MAP[listingData.kind] || "0"
+            : listingData.kind?.toString() || "0";
+
+          const objectiveValue = typeof listingData.objective === 'string'
+            ? OBJECTIVE_MAP[listingData.objective] || "0"
+            : listingData.objective?.toString() || "0";
+
+          // Ensure features is an array (it might come as a string or array)
+          let featuresArray: string[] = [];
+          if (Array.isArray(listingData.features)) {
+            featuresArray = listingData.features;
+          } else if (typeof listingData.features === 'string') {
+            try {
+              featuresArray = JSON.parse(listingData.features);
+            } catch {
+              featuresArray = [];
+            }
+          }
+
           setInitialData({
             title: listingData.title || "",
             description: listingData.description || "",
             address: listingData.address || "",
             price_cents: listingData.price_cents?.toString() || "",
-            features: listingData.features || [],
-            status: listingData.status?.toString() || "0",
-            kind: listingData.kind?.toString() || "0",
-            objective: listingData.objective?.toString() || "1",
+            features: featuresArray,
+            status: statusValue,
+            kind: kindValue,
+            objective: objectiveValue,
             order: listingData.order?.toString() || "",
             video_link: listingData.video_link || "",
             virtual_tour_url: listingData.virtual_tour_url || "",
@@ -96,13 +151,19 @@ const AdminListingEditPage = () => {
       setSaving(true);
       setFlash(null);
 
+      // Parse integers safely, ensuring we never send NaN
+      const parseIntSafe = (value: string, fallback: number) => {
+        const parsed = parseInt(value);
+        return isNaN(parsed) ? fallback : parsed;
+      };
+
       const submitData = {
         ...formData,
         price_cents: formData.price_cents ? parseInt(formData.price_cents) : null,
         order: formData.order ? parseInt(formData.order) : null,
-        status: parseInt(formData.status),
-        kind: parseInt(formData.kind),
-        objective: parseInt(formData.objective),
+        status: parseIntSafe(formData.status, 0),
+        kind: parseIntSafe(formData.kind, 0),
+        objective: parseIntSafe(formData.objective, 0),
         listing_complex_id: formData.listing_complex_id
           ? parseInt(formData.listing_complex_id)
           : null,

@@ -104,31 +104,52 @@ module Api
 
         def fetch
           # Fetch complex from external URL using background job
-          if params[:listing_complex] && params[:listing_complex][:url].present? &&
-             params[:listing_complex][:url].starts_with?('https://www.kwportugal.pt/')
+          tenant = Current.tenant
 
-            url = params[:listing_complex][:url]
-            @listing_complex = ListingComplex.find_or_create_by(url:)
-
-            # Set temporary data if complex is invalid
-            unless @listing_complex.valid?
-              @listing_complex.name = 'Nome Temporário'
-              @listing_complex.description = 'Descrição Temporária'
-              @listing_complex.hidden = true
-              @listing_complex.save
-            end
-
-            ScrapeComplexJob.perform_later(@listing_complex.url)
-
-            render json: {
-              message: 'Empreendimento adicionado à fila de processamento. Os dados serão atualizados em breve.',
-              listing_complex: ListingComplexSerializer.new(@listing_complex)
-            }
-          else
-            render json: {
-              errors: ['URL inválida. A URL deve começar com https://www.kwportugal.pt/']
-            }, status: :unprocessable_entity
+          if tenant.nil?
+            render json: { errors: ['Nenhum tenant encontrado'] }, status: :unprocessable_entity
+            return
           end
+
+          if tenant.scraper_source_url.blank?
+            render json: { errors: ['Este tenant não tem scraper configurado'] }, status: :unprocessable_entity
+            return
+          end
+
+          url = params[:listing_complex]&.[](:url)
+
+          if url.blank?
+            render json: { errors: ['URL é obrigatória'] }, status: :unprocessable_entity
+            return
+          end
+
+          # Validate URL starts with tenant's scraper source
+          scraper_domain = URI.parse(tenant.scraper_source_url).host rescue nil
+          url_domain = URI.parse(url).host rescue nil
+
+          unless scraper_domain && url_domain && url_domain.include?(scraper_domain)
+            render json: {
+              errors: ["URL inválida. A URL deve ser do domínio #{scraper_domain}"]
+            }, status: :unprocessable_entity
+            return
+          end
+
+          @listing_complex = ListingComplex.find_or_create_by(url:)
+
+          # Set temporary data if complex is invalid
+          unless @listing_complex.valid?
+            @listing_complex.name = 'Nome Temporário'
+            @listing_complex.description = 'Descrição Temporária'
+            @listing_complex.hidden = true
+            @listing_complex.save
+          end
+
+          ScrapeComplexJob.perform_later(@listing_complex.url)
+
+          render json: {
+            message: 'Empreendimento adicionado à fila de processamento. Os dados serão atualizados em breve.',
+            listing_complex: ListingComplexSerializer.new(@listing_complex)
+          }
         end
 
         private

@@ -38,10 +38,31 @@ module Api
         end
 
         def create
-          # If URL is provided, use scraping logic like the old controller
-          if listing_params[:url].present? && listing_params[:url].starts_with?('https://www.kwportugal.pt/')
+          # If URL is provided, use scraping logic
+          if listing_params[:url].present?
+            tenant = Current.tenant
+
+            if tenant.nil?
+              render json: { errors: ['Nenhum tenant encontrado'] }, status: :unprocessable_entity
+              return
+            end
+
+            if tenant.scraper_source_url.blank?
+              render json: { errors: ['Este tenant não tem scraper configurado'] }, status: :unprocessable_entity
+              return
+            end
+
+            # Validate URL starts with tenant's scraper source
+            scraper_domain = URI.parse(tenant.scraper_source_url).host rescue nil
+            url_domain = URI.parse(listing_params[:url]).host rescue nil
+
+            unless scraper_domain && url_domain && url_domain.include?(scraper_domain)
+              render json: { errors: ["URL deve ser do domínio #{scraper_domain}"] }, status: :unprocessable_entity
+              return
+            end
+
             @listing = Listing.find_or_create_by(url: listing_params[:url])
-            ScrapeUrlJob.perform_later(@listing.url, true)
+            ScrapeUrlJob.perform_later(tenant.id, @listing.url, true)
 
             render json: {
               message: 'Imóvel adicionado à fila de processamento. Os dados serão atualizados em breve.',
@@ -84,7 +105,10 @@ module Api
         def recover
           if @listing.restore
             # Also trigger scraping to get latest data after recovery
-            ScrapeUrlJob.perform_later(@listing.url, true) if @listing.url.present?
+            tenant = Current.tenant
+            if @listing.url.present? && tenant&.scraper_source_url.present?
+              ScrapeUrlJob.perform_later(tenant.id, @listing.url, true)
+            end
             render json: { message: 'Listing recuperado com sucesso. Dados serão atualizados em breve.' }
           else
             render json: { errors: ['Erro ao recuperar listing'] }, status: :unprocessable_entity
@@ -93,13 +117,37 @@ module Api
 
         def update_details
           # Scrape/update details from original source
-          ScrapeUrlJob.perform_later(@listing.url, true)
+          tenant = Current.tenant
+
+          if tenant.nil?
+            render json: { errors: ['Nenhum tenant encontrado'] }, status: :unprocessable_entity
+            return
+          end
+
+          if tenant.scraper_source_url.blank?
+            render json: { errors: ['Este tenant não tem scraper configurado'] }, status: :unprocessable_entity
+            return
+          end
+
+          ScrapeUrlJob.perform_later(tenant.id, @listing.url, true)
           render json: { message: 'Atualização dos detalhes iniciada. Os dados serão atualizados em breve.' }
         end
 
         def update_all
-          # Update all listings from external source
-          ScrapeAll.perform_later
+          # Update all listings from external source for current tenant
+          tenant = Current.tenant
+
+          if tenant.nil?
+            render json: { errors: ['Nenhum tenant encontrado'] }, status: :unprocessable_entity
+            return
+          end
+
+          if tenant.scraper_source_url.blank?
+            render json: { errors: ['Este tenant não tem scraper configurado'] }, status: :unprocessable_entity
+            return
+          end
+
+          ScrapeAll.perform_later(tenant.id)
           render json: { message: 'Atualização de todos os imóveis iniciada. O processo será executado em segundo plano.' }
         end
 

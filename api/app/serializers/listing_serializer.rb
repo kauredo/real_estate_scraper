@@ -4,7 +4,7 @@ class ListingSerializer < ActiveModel::Serializer
   attributes :id, :title, :slug, :description, :address, :price, :price_cents,
              :status, :objective, :kind, :features, :stats, :url, :video_link,
              :virtual_tour_url, :photos, :listing_complex_id, :city, :created_at,
-             :updated_at
+             :updated_at, :order
 
   belongs_to :listing_complex
 
@@ -24,6 +24,7 @@ class ListingSerializer < ActiveModel::Serializer
   delegate :photos, to: :object
   delegate :listing_complex_id, to: :object
   delegate :city, to: :object
+  delegate :order, to: :object
 
   def price
     object.price&.format(symbol: nil, no_cents_if_whole: true)

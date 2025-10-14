@@ -13,6 +13,10 @@ import {
 import { LoadingSpinner, Input, Button } from "../../components/admin/ui";
 import { appRoutes } from "../../utils/routes";
 import { useTenant } from "../../context/TenantContext";
+import {
+  extractScraperDomain,
+  getScraperDisplayName,
+} from "../../utils/functions";
 
 interface Stats {
   listings: number;
@@ -24,7 +28,8 @@ interface Stats {
 
 const AdminBackofficePage = () => {
   const { t } = useTranslation();
-  const { features } = useTenant();
+  const { features, tenant, isSuperAdmin, selectedTenantId, availableTenants } =
+    useTenant();
   const [stats, setStats] = useState<Stats>({
     listings: 0,
     blogPosts: 0,
@@ -37,6 +42,20 @@ const AdminBackofficePage = () => {
   const [complexUrl, setComplexUrl] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
+
+  // Get the effective scraper URL (selected tenant for super admins, or current tenant)
+  const effectiveScraperUrl = React.useMemo(() => {
+    if (isSuperAdmin && selectedTenantId) {
+      const selected = availableTenants.find((t) => t.id === selectedTenantId);
+      return selected?.scraper_source_url;
+    }
+    return tenant?.scraper_source_url;
+  }, [isSuperAdmin, selectedTenantId, availableTenants, tenant]);
+
+  const scraperDomain = extractScraperDomain(effectiveScraperUrl);
+  const scraperDisplayName = getScraperDisplayName(effectiveScraperUrl);
+  const showQuickActions =
+    !isSuperAdmin || (isSuperAdmin && selectedTenantId !== null);
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -71,9 +90,19 @@ const AdminBackofficePage = () => {
   const handleListingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!listingUrl.startsWith("https://www.kwportugal.pt/")) {
+    if (!scraperDomain) {
       setMessage({
-        text: t("admin.dashboard.invalid_listing_url"),
+        text: t("admin.dashboard.no_scraper_configured"),
+        type: "error",
+      });
+      return;
+    }
+
+    if (!listingUrl.startsWith(scraperDomain)) {
+      setMessage({
+        text: t("admin.dashboard.invalid_listing_url", {
+          domain: scraperDisplayName,
+        }),
         type: "error",
       });
       return;
@@ -100,9 +129,19 @@ const AdminBackofficePage = () => {
   const handleComplexSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!complexUrl.startsWith("https://www.kwportugal.pt/")) {
+    if (!scraperDomain) {
       setMessage({
-        text: t("admin.dashboard.invalid_complex_url"),
+        text: t("admin.dashboard.no_scraper_configured"),
+        type: "error",
+      });
+      return;
+    }
+
+    if (!complexUrl.startsWith(scraperDomain)) {
+      setMessage({
+        text: t("admin.dashboard.invalid_complex_url", {
+          domain: scraperDisplayName,
+        }),
         type: "error",
       });
       return;
@@ -240,63 +279,88 @@ const AdminBackofficePage = () => {
       )}
 
       {/* Quick Actions */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-          {t("admin.dashboard.quick_actions")}
-        </h2>
+      {showQuickActions ? (
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+            {t("admin.dashboard.quick_actions")}
+          </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Add Listing */}
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">
-              {t("admin.dashboard.add_listing")}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-              {t("admin.dashboard.add_listing_note")}
-            </p>
-            <form
-              onSubmit={handleListingSubmit}
-              className="flex gap-3 flex-wrap"
-            >
-              <Input
-                type="text"
-                value={listingUrl}
-                onChange={(e) => setListingUrl(e.target.value)}
-                placeholder="https://www.kwportugal.pt/..."
-                className="flex-1"
-              />
-              <Button type="submit" isLoading={submitting}>
-                {t("common.add")}
-              </Button>
-            </form>
-          </div>
+          {!scraperDomain ? (
+            <div className="text-center py-8">
+              <p className="text-gray-600 dark:text-gray-400">
+                {t("admin.dashboard.no_scraper_configured")}
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Add Listing */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                  {t("admin.dashboard.add_listing")}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                  {t("admin.dashboard.add_listing_note", {
+                    source: scraperDisplayName,
+                  })}
+                </p>
+                <form
+                  onSubmit={handleListingSubmit}
+                  className="flex gap-3 flex-wrap"
+                >
+                  <Input
+                    type="text"
+                    value={listingUrl}
+                    onChange={(e) => setListingUrl(e.target.value)}
+                    placeholder={`${scraperDomain}/...`}
+                    className="flex-1"
+                  />
+                  <Button type="submit" isLoading={submitting}>
+                    {t("common.add")}
+                  </Button>
+                </form>
+              </div>
 
-          {/* Add Complex */}
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">
-              {t("admin.dashboard.add_complex")}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-              {t("admin.dashboard.add_complex_note")}
+              {/* Add Complex */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                  {t("admin.dashboard.add_complex")}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                  {t("admin.dashboard.add_complex_note", {
+                    source: scraperDisplayName,
+                  })}
+                </p>
+                <form
+                  onSubmit={handleComplexSubmit}
+                  className="flex gap-3 flex-wrap"
+                >
+                  <Input
+                    type="text"
+                    value={complexUrl}
+                    onChange={(e) => setComplexUrl(e.target.value)}
+                    placeholder={`${scraperDomain}/...`}
+                    className="flex-1"
+                  />
+                  <Button type="submit" isLoading={submitting}>
+                    {t("common.add")}
+                  </Button>
+                </form>
+              </div>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+            {t("admin.dashboard.quick_actions")}
+          </h2>
+          <div className="text-center py-8">
+            <p className="text-gray-600 dark:text-gray-400">
+              {t("admin.dashboard.select_tenant_to_add")}
             </p>
-            <form
-              onSubmit={handleComplexSubmit}
-              className="flex gap-3 flex-wrap"
-            >
-              <Input
-                type="text"
-                value={complexUrl}
-                onChange={(e) => setComplexUrl(e.target.value)}
-                placeholder="https://www.kwportugal.pt/..."
-                className="flex-1"
-              />
-              <Button type="submit" isLoading={submitting}>
-                {t("common.add")}
-              </Button>
-            </form>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
