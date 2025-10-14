@@ -20,9 +20,9 @@ module Api
 
       def show
         @club_story = if preview_mode?
-                        ClubStory.friendly.find(params[:id])
+                        ClubStory.includes(:club_story_photos).friendly.find(params[:id])
                       else
-                        ClubStory.visible.friendly.find(params[:id])
+                        ClubStory.visible.includes(:club_story_photos).friendly.find(params[:id])
                       end
 
         render json: @club_story,

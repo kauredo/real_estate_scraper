@@ -9,7 +9,7 @@ module Api
       before_action -> { require_feature!(:blog) }
 
       def index
-        @blog_posts = BlogPost.visible
+        @blog_posts = BlogPost.visible.includes(:blog_photos)
         paginated = paginate(@blog_posts, serializer: BlogPostSerializer)
 
         render json: {
@@ -20,9 +20,9 @@ module Api
 
       def show
         @blog_post = if preview_mode?
-                       BlogPost.friendly.find(params[:id])
+                       BlogPost.includes(:blog_photos).friendly.find(params[:id])
                      else
-                       BlogPost.visible.friendly.find(params[:id])
+                       BlogPost.visible.includes(:blog_photos).friendly.find(params[:id])
                      end
 
         render json: @blog_post,

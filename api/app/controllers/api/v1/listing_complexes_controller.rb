@@ -9,7 +9,7 @@ module Api
       before_action -> { require_feature!(:listing_complexes) }
 
       def index
-        listing_complexes = ListingComplex.includes(:translations, :photos).where(hidden: false)
+        listing_complexes = ListingComplex.includes(:translations, :photos, :listings).where(hidden: false)
         paginated = paginate(listing_complexes, serializer: ListingComplexSerializer)
 
         render json: {

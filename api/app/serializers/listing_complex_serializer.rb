@@ -42,7 +42,7 @@ class ListingComplexSerializer < ActiveModel::Serializer
   end
 
   def listings_count
-    object.listings.count
+    object.listings.size
   end
 
   def include_listings?

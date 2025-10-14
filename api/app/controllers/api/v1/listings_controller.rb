@@ -6,7 +6,7 @@ module Api
       include Previewable
 
       def index
-        @q = Listing.includes([:translations]).ransack(params[:q])
+        @q = Listing.includes(:translations, listing_complex: :translations).ransack(params[:q])
         listings = @q.result
 
         if params[:q].present?
