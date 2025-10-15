@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { MetaTags } from "../components/shared/MetaTags";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,44 +18,89 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Banner from "../components/shared/Banner";
 
-// Add TypeScript interface for the Casafari widget
-declare global {
-  interface Window {
-    initializeCasafariWidget?: (config: {
-      key: string;
-      startingPage: string;
-      showStartingPage: boolean;
-      operationType: string;
-      lang: string;
-    }) => void;
-  }
-}
-
 const ListingsSellPage = () => {
   const { t, i18n } = useTranslation();
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
-    // Load Casafari widget script
-    const script = document.createElement("script");
-    script.src = "https://www.casafari.com/valuation-widget/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    // Create iframe content with Casafari widget
+    const iframeContent = `
+      <!DOCTYPE html>
+      <html lang="${i18n.language}">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="https://www.casafari.com/valuation-widget/widget.js"></script>
+        <style>
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+              'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+              sans-serif;
+            overflow-x: hidden;
+          }
+          #casafari-container {
+            width: 100%;
+            min-height: 600px;
+          }
+        </style>
+      </head>
+      <body>
+        <div id="casafari-container"></div>
+        <script type="text/javascript">
+          window.addEventListener('load', function() {
+            if (window.initializeCasafariWidget) {
+              try {
+                window.initializeCasafariWidget({
+                  key: "D9557C7E502424960F866EE4286B",
+                  startingPage: "2",
+                  showStartingPage: false,
+                  operationType: "",
+                  lang: "${i18n.language}"
+                });
+                console.log("Casafari widget initialized in iframe");
+              } catch (error) {
+                console.error("Error initializing Casafari widget:", error);
+              }
+            }
+          });
+        </script>
+      </body>
+      </html>
+    `;
+
+    // Write content to iframe
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+    if (iframeDoc) {
+      iframeDoc.open();
+      iframeDoc.write(iframeContent);
+      iframeDoc.close();
+    }
+
+    // Auto-resize iframe based on content
+    const resizeIframe = () => {
+      if (iframe.contentWindow) {
+        try {
+          const contentHeight = iframe.contentWindow.document.body.scrollHeight;
+          iframe.style.height = contentHeight + "px";
+        } catch (e) {
+          // Cross-origin issue, use default height
+          iframe.style.height = "620px";
+        }
+      }
+    };
+
+    // Try to resize after content loads
+    const resizeTimer = setInterval(resizeIframe, 1000);
+    setTimeout(() => clearInterval(resizeTimer), 10000); // Stop after 10 seconds
 
     return () => {
-      document.body.removeChild(script);
+      clearInterval(resizeTimer);
     };
-  }, []);
-
-  useEffect(() => {
-    if (window.initializeCasafariWidget) {
-      window.initializeCasafariWidget({
-        key: "D9557C7E502424960F866EE4286B",
-        startingPage: "2",
-        showStartingPage: false,
-        operationType: "",
-        lang: i18n.language,
-      });
-    }
   }, [i18n.language]);
 
   const sellFeatures = [
@@ -93,6 +138,17 @@ const ListingsSellPage = () => {
               <p className="mt-2 text-3xl text-dark dark:text-light sm:text-4xl">
                 {t("sell.subheader")}
               </p>
+            </div>
+
+            {/* Casafari widget iframe */}
+            <div className="w-full">
+              <iframe
+                ref={iframeRef}
+                title="Casafari Property Valuation Widget"
+                className="w-full border-0"
+                style={{ minHeight: "620px" }}
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+              />
             </div>
 
             <div className="px-2 sm:px-0">
