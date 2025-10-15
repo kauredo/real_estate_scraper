@@ -1,0 +1,24 @@
+{
+  "common": {
+    "siteTitle": "MyAgentWebsite.com",
+    "tagline": "A plataforma de websites moderna para agentes imobiliários ambiciosos.",
+    "getStarted": "Começar",
+    "scheduleDemo": "Agendar Demonstração",
+    "viewPricing": "Ver Preços"
+  },
+  "nav": {
+    "features": "Funcionalidades",
+    "pricing": "Preços",
+    "about": "Sobre",
+    "contact": "Contacto"
+  },
+  "footer": {
+    "product": "Produto",
+    "company": "Empresa",
+    "resources": "Recursos",
+    "demo": "Pedir Demonstração",
+    "documentation": "Documentação",
+    "support": "Suporte",
+    "copyright": "© 2025 MyAgentWebsite.com. Todos os direitos reservados."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "common": {
+    "siteTitle": "MyAgentWebsite.com",
+    "tagline": "The modern website platform for ambitious real estate agents.",
+    "getStarted": "Get Started",
+    "scheduleDemo": "Schedule a Demo",
+    "viewPricing": "View Pricing"
+  },
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "footer": {
+    "product": "Product",
+    "company": "Company",
+    "resources": "Resources",
+    "demo": "Request Demo",
+    "documentation": "Documentation",
+    "support": "Support",
+    "copyright": "© 2025 MyAgentWebsite.com. All rights reserved."
+  }
+}
