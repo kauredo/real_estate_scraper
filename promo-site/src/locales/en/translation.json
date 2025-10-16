@@ -1,10 +1,13 @@
 {
   "common": {
-    "siteTitle": "MyAgentWebsite.com",
+    "siteTitle": "MyAgentWebsite",
     "tagline": "The modern website platform for ambitious real estate agents.",
     "getStarted": "Get Started",
+    "contactUs": "Contact Us",
     "scheduleDemo": "Schedule a Demo",
-    "viewPricing": "View Pricing"
+    "viewPricing": "View Pricing",
+    "viewFeatures": "View Features",
+    "learnMore": "Learn More"
   },
   "nav": {
     "features": "Features",
@@ -12,13 +15,530 @@
     "about": "About",
     "contact": "Contact"
   },
+  "home": {
+    "hero": {
+      "badge": "Professional Real Estate Websites",
+      "title": "Build your brand with",
+      "titleHighlight": "a custom real estate",
+      "titleEnd": "website",
+      "description": "Custom-built websites or API access for developers. Modern technology, professional design, and the tools you need to grow your real estate business.",
+      "benefit1": "Custom development",
+      "benefit2": "Modern technology",
+      "benefit3": "Ongoing support"
+    },
+    "valueProposition": {
+      "timeline": "2-3 Weeks",
+      "timelineDesc": "Professional setup",
+      "tech": "React + Rails",
+      "techDesc": "Modern technology",
+      "service": "Custom Built",
+      "serviceDesc": "Your unique brand"
+    },
+    "caseStudy": {
+      "badge": "Success Story",
+      "quote": "Having a professional website has completely transformed how clients perceive our agency. We're no longer just another name in the market—we have a strong brand identity.",
+      "author": "Sofia Galvão",
+      "role": "Founder, Sofia Galvão Group",
+      "stats": {
+        "stat1": {
+          "value": "300%",
+          "label": "Increase in online inquiries"
+        },
+        "stat2": {
+          "value": "2.5x",
+          "label": "More premium listings"
+        },
+        "stat3": {
+          "value": "95%",
+          "label": "Client satisfaction rate"
+        }
+      },
+      "cta": "Visit sofiagalvao.pt"
+    },
+    "benefits": {
+      "heading": "Why agents choose MyAgentWebsite",
+      "subheading": "Everything you need to establish your online presence",
+      "professional": {
+        "title": "Professional Service",
+        "description": "Custom-built websites in 2-3 weeks or API access for developers"
+      },
+      "flexible": {
+        "title": "Flexible Options",
+        "description": "From €199/month API access to €749/month full custom websites"
+      },
+      "modern": {
+        "title": "Modern Technology",
+        "description": "Built with React and Rails - fast, secure, and scalable"
+      },
+      "brand": {
+        "title": "Your Brand",
+        "description": "Build your unique brand identity, not a generic template"
+      }
+    },
+    "features": {
+      "badge": "Complete Feature Set",
+      "heading": "Everything you need to succeed online",
+      "listings": {
+        "title": "Property Listings",
+        "description": "Showcase unlimited properties with stunning galleries"
+      },
+      "blog": {
+        "title": "Blog & Content",
+        "description": "Share market insights and establish authority"
+      },
+      "testimonials": {
+        "title": "Client Testimonials",
+        "description": "Build trust with authentic reviews"
+      },
+      "newsletter": {
+        "title": "Newsletter Signup",
+        "description": "Grow your email list automatically"
+      },
+      "domain": {
+        "title": "Custom Domain",
+        "description": "Use your own domain name (yourname.com)"
+      },
+      "viewAllFeatures": "View All Features"
+    },
+    "cta": {
+      "heading": "Ready to build your brand?",
+      "description": "Schedule a demo and see how we can help grow your real estate business"
+    }
+  },
   "footer": {
     "product": "Product",
     "company": "Company",
     "resources": "Resources",
-    "demo": "Request Demo",
+    "demo": "Demo",
     "documentation": "Documentation",
     "support": "Support",
-    "copyright": "© 2025 MyAgentWebsite.com. All rights reserved."
+    "copyright": "© 2025 MyAgentWebsite. All rights reserved."
+  },
+  "features": {
+    "hero": {
+      "badge": "Complete Feature Set",
+      "title": "Everything you need to",
+      "titleHighlight": "succeed online",
+      "description": "A professional, feature-rich website platform built specifically for real estate agents. Custom development or API access for developers."
+    },
+    "core": {
+      "heading": "Core Features",
+      "subheading": "Everything included in every plan",
+      "propertyListings": {
+        "title": "Property Listings",
+        "description": "Showcase your properties with beautiful galleries, detailed descriptions, and custom fields",
+        "features": {
+          "unlimited": "Unlimited listings (Pro plan)",
+          "galleries": "Multiple photo galleries",
+          "customDetails": "Custom property details",
+          "statusTracking": "Status tracking (Active/Sold/Pending)"
+        }
+      },
+      "blogContent": {
+        "title": "Blog & Content",
+        "description": "Share market insights, neighborhood guides, and establish yourself as a local expert",
+        "features": {
+          "editor": "Easy-to-use editor",
+          "images": "Image uploads",
+          "seo": "SEO optimization",
+          "categories": "Categories and tags"
+        }
+      },
+      "testimonials": {
+        "title": "Client Testimonials",
+        "description": "Build trust with authentic reviews from satisfied clients",
+        "features": {
+          "display": "Beautiful testimonial display",
+          "photos": "Client photos and ratings",
+          "management": "Easy management",
+          "featured": "Featured testimonials"
+        }
+      },
+      "newsletter": {
+        "title": "Newsletter & Lead Capture",
+        "description": "Grow your email list and capture leads automatically",
+        "features": {
+          "signup": "Newsletter signup forms",
+          "contact": "Contact forms",
+          "notifications": "Lead notifications",
+          "export": "Export subscriber list"
+        }
+      },
+      "dashboard": {
+        "title": "Admin Dashboard",
+        "description": "Manage your entire website from one beautiful, intuitive interface",
+        "features": {
+          "interface": "Modern, clean interface",
+          "mobile": "Mobile-friendly",
+          "realtime": "Real-time updates",
+          "noTech": "No technical knowledge required"
+        }
+      },
+      "analytics": {
+        "title": "Analytics & Insights",
+        "description": "Track your website performance and understand your visitors",
+        "features": {
+          "tracking": "Visitor tracking",
+          "listings": "Popular listings",
+          "sources": "Lead sources",
+          "metrics": "Performance metrics"
+        }
+      }
+    },
+    "professional": {
+      "badge": "Professional Features",
+      "heading": "Built for Success",
+      "subheading": "Advanced features to help you stand out",
+      "modernDesign": {
+        "title": "Modern Design",
+        "description": "Beautiful, professional templates built with React and modern web technologies. Your website will be fast, responsive, and look amazing on all devices."
+      },
+      "fast": {
+        "title": "Lightning Fast",
+        "description": "Built on cutting-edge technology for incredible speed. Your visitors won't wait, and Google will love your site's performance."
+      },
+      "secure": {
+        "title": "Secure & Reliable",
+        "description": "Enterprise-grade security, automatic backups, and 99.9% uptime guarantee. Your website is always safe and accessible."
+      },
+      "seo": {
+        "title": "SEO Optimized",
+        "description": "Built-in SEO best practices help you rank higher in Google searches. Get found by more potential clients in your area."
+      },
+      "mobile": {
+        "title": "Mobile-First",
+        "description": "Your website looks perfect on phones, tablets, and desktops. Over 70% of real estate searches happen on mobile devices."
+      },
+      "custom": {
+        "title": "Custom Built",
+        "description": "Professional custom websites designed to match your brand identity. Each site is uniquely crafted for your agency."
+      }
+    },
+    "serviceOptions": {
+      "badge": "Service Options",
+      "heading": "Choose Your Solution",
+      "subheading": "From developer access to full custom websites",
+      "developer": {
+        "title": "Developer Plan",
+        "description": "Perfect for agencies with development teams",
+        "features": {
+          "api": "Full API access",
+          "backoffice": "Backoffice CMS",
+          "frontend": "Build your own frontend",
+          "unlimited": "Unlimited listings & content",
+          "docs": "API documentation"
+        },
+        "cta": "View Developer Pricing"
+      },
+      "professional": {
+        "title": "Professional Plan",
+        "description": "Complete custom website solution",
+        "features": {
+          "custom": "Custom website development",
+          "api": "API + Backoffice included",
+          "domain": "Custom domain setup",
+          "hosting": "Hosting & maintenance",
+          "support": "Ongoing updates & support"
+        },
+        "cta": "View Professional Pricing"
+      }
+    },
+    "cta": {
+      "heading": "Ready to build your brand?",
+      "description": "Schedule a demo and see how we can help elevate your real estate business"
+    }
+  },
+  "pricing": {
+    "hero": {
+      "badge": "Professional Solutions",
+      "title": "Choose the solution",
+      "titleHighlight": "that fits your agency",
+      "description": "From fully custom websites to API access for developers. Contact us for a personalized demo."
+    },
+    "plans": {
+      "developer": {
+        "name": "Developer",
+        "description": "API + Backoffice access for developers",
+        "price": "€199",
+        "billing": "per month",
+        "features": {
+          "api": "API + Backoffice access",
+          "backoffice": "Build your own frontend",
+          "frontend": "Unlimited listings",
+          "docs": "API documentation",
+          "unlimited": "Blog + testimonials + newsletter",
+          "hosting": "Multi-tenant architecture",
+          "support": "Email support"
+        },
+        "cta": "Contact Us"
+      },
+      "professional": {
+        "name": "Professional",
+        "description": "Custom website built for your agency",
+        "badge": "Most Popular",
+        "priceFrom": "Starting at €749",
+        "billing": "per month",
+        "features": {
+          "custom": "Custom website development",
+          "api": "Multi-tenant API + Backoffice",
+          "domain": "Custom domain setup",
+          "hosting": "Ongoing maintenance & updates",
+          "support": "Email support",
+          "updates": "Professional setup (2-3 weeks)",
+          "maintenance": "One-time setup fee: €2,500"
+        },
+        "cta": "Contact Us"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "For large agencies with multiple agents",
+        "price": "Custom",
+        "billing": "Contact for quote",
+        "features": {
+          "everything": "Everything in Professional",
+          "dedicated": "Multiple agency websites",
+          "sla": "White-label options",
+          "training": "Dedicated support",
+          "whitelabel": "Custom integrations",
+          "integrations": "Priority development",
+          "priority": "SLA guarantee"
+        },
+        "cta": "Contact Us"
+      }
+    },
+    "comparison": {
+      "heading": "Compare Solutions",
+      "subheading": "Find the right solution for your business",
+      "table": {
+        "feature": "Feature",
+        "rows": {
+          "api": "API Access",
+          "backoffice": "Backoffice CMS",
+          "frontend": "Custom Website",
+          "customDomain": "Custom Domain",
+          "hosting": "Hosting & Maintenance",
+          "support": "Support Level",
+          "updates": "Setup Fee",
+          "customizations": "Multiple Websites",
+          "whitelabel": "White-Label Options",
+          "sla": "Dedicated Support"
+        },
+        "support": {
+          "community": "Email",
+          "email": "Email",
+          "dedicated": "Dedicated"
+        }
+      }
+    },
+    "faq": {
+      "heading": "Frequently Asked Questions",
+      "subheading": "Everything you need to know about our pricing",
+      "questions": {
+        "0": {
+          "question": "How long does it take to launch?",
+          "answer": "Professional custom websites typically launch in 2-3 weeks. Developer plan with API access can be activated within 48 hours after contract signing."
+        },
+        "1": {
+          "question": "What's included in the setup fee?",
+          "answer": "The Professional plan setup fee (€2,500) covers custom website design, development, domain configuration, and initial content migration. Developer plan has no setup fee."
+        },
+        "2": {
+          "question": "Can I switch plans later?",
+          "answer": "Yes! You can upgrade from Developer to Professional at any time. Contact us to discuss migration options and pricing."
+        },
+        "3": {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept bank transfers and all major credit cards through our secure payment processor. Monthly billing or annual contracts available."
+        },
+        "4": {
+          "question": "Do I own the website?",
+          "answer": "With the Professional plan, you have a hosted solution with ongoing maintenance. Developer plan gives you API access to build and host your own frontend however you prefer."
+        },
+        "5": {
+          "question": "What happens if I cancel?",
+          "answer": "You can cancel anytime with 30 days notice. Your service continues until the end of your billing period. We can provide a data export if needed."
+        }
+      }
+    },
+    "cta": {
+      "heading": "Ready to elevate your agency?",
+      "description": "Contact us for a personalized demo and see how we can help grow your business.",
+      "primaryCta": "Contact Us",
+      "secondaryCta": "View Features"
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "About Us",
+      "title": "Built for agents,",
+      "titleHighlight": "by someone who gets it",
+      "description": "We believe every ambitious real estate agent deserves a professional online presence without the complexity and cost of custom development."
+    },
+    "mission": {
+      "badge": "Our Mission",
+      "heading": "Empowering agents to succeed online",
+      "paragraph1": "We created MyAgentWebsite after seeing too many talented real estate agents struggle with expensive, complicated website solutions or settle for generic marketplace profiles that don't build their personal brand.",
+      "paragraph2": "Our platform gives you the professional tools you need to establish credibility, showcase your expertise, and grow your business—all without needing technical knowledge or breaking the bank.",
+      "cta": "Join Us Today",
+      "vision": {
+        "title": "Our Vision",
+        "description": "To become the #1 website platform for independent real estate agents who want to build their own brand and succeed on their own terms."
+      },
+      "values": {
+        "title": "Our Values",
+        "description": "Simplicity, transparency, and customer success. We're here to help you win, not to complicate your life with complex tools."
+      }
+    },
+    "different": {
+      "heading": "Why we're different",
+      "subheading": "We're not just another website builder",
+      "realEstate": {
+        "title": "Built for Real Estate",
+        "description": "Unlike generic website builders, every feature is designed specifically for real estate agents. Property listings, testimonials, market insights—it's all built in."
+      },
+      "modern": {
+        "title": "Modern Technology",
+        "description": "Built with React and Rails, not outdated WordPress. Your website is fast, secure, and uses the same technology that powers modern web applications."
+      },
+      "customerFirst": {
+        "title": "Customer-First",
+        "description": "We win when you win. Our pricing is transparent, our support is responsive, and we're constantly improving based on agent feedback."
+      }
+    },
+    "story": {
+      "badge": "The Story",
+      "heading": "How MyAgentWebsite came to be",
+      "paragraph1": "MyAgentWebsite was born from a simple observation: talented real estate agents were being held back by technology.",
+      "paragraph2": "Some agents spent €5,000+ on custom websites that took months to build and were impossible to update without a developer. Others settled for generic templates or marketplace profiles that didn't reflect their unique brand.",
+      "paragraph3": "We knew there had to be a better way. A way that was:",
+      "benefits": {
+        "fast": {
+          "title": "Fast to launch",
+          "description": "2-3 weeks, not months"
+        },
+        "easy": {
+          "title": "Easy to use",
+          "description": "No technical knowledge required"
+        },
+        "affordable": {
+          "title": "Affordable",
+          "description": "Monthly subscription, not thousands upfront"
+        },
+        "professional": {
+          "title": "Professional",
+          "description": "Modern design that builds credibility"
+        }
+      },
+      "paragraph4": "Today, MyAgentWebsite helps ambitious agents establish their online presence, showcase their expertise, and grow their business—all without the complexity and cost of traditional solutions.",
+      "paragraph5": "We're just getting started, and we'd love for you to join us."
+    },
+    "stats": {
+      "launchTime": {
+        "value": "2-3 Weeks",
+        "label": "Average launch time"
+      },
+      "uptime": {
+        "value": "99.9%",
+        "label": "Uptime guarantee"
+      },
+      "support": {
+        "value": "24 Hour",
+        "label": "Support response time"
+      },
+      "technical": {
+        "value": "0",
+        "label": "Technical knowledge required"
+      }
+    },
+    "cta": {
+      "heading": "Ready to join us?",
+      "description": "Join ambitious agents who are building their brand online",
+      "primaryCta": "Contact Us",
+      "secondaryCta": "View Features"
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Get in Touch",
+      "title": "Let's get you",
+      "titleHighlight": "started today",
+      "description": "Request a demo or start your free trial. We'll get you set up and live in 2-3 weeks."
+    },
+    "form": {
+      "heading": "Start Your Free Trial",
+      "description": "Fill out the form below and we'll get back to you within 24 hours",
+      "fields": {
+        "name": {
+          "label": "Full Name",
+          "placeholder": "John Doe"
+        },
+        "email": {
+          "label": "Email Address",
+          "placeholder": "john@example.com"
+        },
+        "phone": {
+          "label": "Phone Number (Optional)",
+          "placeholder": "(555) 123-4567"
+        },
+        "company": {
+          "label": "Company/Agency (Optional)",
+          "placeholder": "Your Real Estate Agency"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us about your needs..."
+        }
+      },
+      "submitting": "Sending...",
+      "submit": "Send Message",
+      "success": {
+        "title": "Thank You!",
+        "message": "We've received your message and will get back to you within 24 hours."
+      }
+    },
+    "info": {
+      "heading": "Contact Information",
+      "description": "Prefer to reach out directly? Here's how you can contact us.",
+      "email": {
+        "title": "Email Us",
+        "description": "Get in touch via email for any questions or support"
+      },
+      "phone": {
+        "title": "Call Us",
+        "description": "We typically respond within 24 hours"
+      },
+      "location": {
+        "title": "Office Location",
+        "address": "Lisbon, Portugal"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM",
+        "weekend": "Saturday - Sunday: Closed"
+      }
+    },
+    "faq": {
+      "badge": "Quick Answers",
+      "heading": "Common Questions",
+      "subheading": "Quick answers to questions you may have",
+      "questions": {
+        "0": {
+          "question": "How quickly can I launch?",
+          "answer": "Professional custom websites typically launch in 2-3 weeks. Developer plan with API access can be activated within 48 hours."
+        },
+        "1": {
+          "question": "Do I need technical skills?",
+          "answer": "Not at all! Our platform is designed for non-technical users. If you can use email, you can manage your website."
+        },
+        "2": {
+          "question": "Can I use my own domain?",
+          "answer": "Yes! Professional plan includes custom domain support. We'll help you connect your existing domain or register a new one."
+        },
+        "3": {
+          "question": "What if I need help?",
+          "answer": "All plans include email support. Professional and Enterprise plans get priority support with faster response times."
+        }
+      }
+    }
   }
 }

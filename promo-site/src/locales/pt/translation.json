@@ -1,10 +1,13 @@
 {
   "common": {
-    "siteTitle": "MyAgentWebsite.com",
+    "siteTitle": "MyAgentWebsite",
     "tagline": "A plataforma de websites moderna para agentes imobiliários ambiciosos.",
     "getStarted": "Começar",
+    "contactUs": "Contacte-nos",
     "scheduleDemo": "Agendar Demonstração",
-    "viewPricing": "Ver Preços"
+    "viewPricing": "Ver Preços",
+    "viewFeatures": "Ver Funcionalidades",
+    "learnMore": "Saber Mais"
   },
   "nav": {
     "features": "Funcionalidades",
@@ -12,13 +15,530 @@
     "about": "Sobre",
     "contact": "Contacto"
   },
+  "home": {
+    "hero": {
+      "badge": "Websites Imobiliários Profissionais",
+      "title": "Construa a sua marca com",
+      "titleHighlight": "um website imobiliário",
+      "titleEnd": "personalizado",
+      "description": "Websites desenvolvidos à medida ou acesso API para programadores. Tecnologia moderna, design profissional e as ferramentas de que necessita para fazer crescer o seu negócio imobiliário.",
+      "benefit1": "Desenvolvimento personalizado",
+      "benefit2": "Tecnologia moderna",
+      "benefit3": "Suporte contínuo"
+    },
+    "valueProposition": {
+      "timeline": "2-3 Semanas",
+      "timelineDesc": "Configuração profissional",
+      "tech": "React + Rails",
+      "techDesc": "Tecnologia moderna",
+      "service": "Feito à Medida",
+      "serviceDesc": "A sua marca única"
+    },
+    "caseStudy": {
+      "badge": "História de Sucesso",
+      "quote": "Ter um website profissional transformou completamente a forma como os clientes percecionam a nossa agência. Deixámos de ser apenas mais um nome no mercado—temos uma identidade de marca forte.",
+      "author": "Sofia Galvão",
+      "role": "Fundadora, Sofia Galvão Group",
+      "stats": {
+        "stat1": {
+          "value": "300%",
+          "label": "Aumento em contactos online"
+        },
+        "stat2": {
+          "value": "2.5x",
+          "label": "Mais anúncios premium"
+        },
+        "stat3": {
+          "value": "95%",
+          "label": "Taxa de satisfação de clientes"
+        }
+      },
+      "cta": "Visitar sofiagalvao.pt"
+    },
+    "benefits": {
+      "heading": "Porque os agentes escolhem MyAgentWebsite",
+      "subheading": "Tudo o que precisa para estabelecer a sua presença online",
+      "professional": {
+        "title": "Serviço Profissional",
+        "description": "Websites personalizados em 2-3 semanas ou acesso API para programadores"
+      },
+      "flexible": {
+        "title": "Opções Flexíveis",
+        "description": "Desde €199/mês para acesso API até €749/mês para websites totalmente personalizados"
+      },
+      "modern": {
+        "title": "Tecnologia Moderna",
+        "description": "Construído com React e Rails - rápido, seguro e escalável"
+      },
+      "brand": {
+        "title": "A Sua Marca",
+        "description": "Construa a sua identidade de marca única, não um template genérico"
+      }
+    },
+    "features": {
+      "badge": "Conjunto Completo de Funcionalidades",
+      "heading": "Tudo o que precisa para ter sucesso online",
+      "listings": {
+        "title": "Anúncios de Imóveis",
+        "description": "Mostre imóveis ilimitados com galerias deslumbrantes"
+      },
+      "blog": {
+        "title": "Blog & Conteúdo",
+        "description": "Partilhe análises de mercado e estabeleça autoridade"
+      },
+      "testimonials": {
+        "title": "Testemunhos de Clientes",
+        "description": "Construa confiança com avaliações autênticas"
+      },
+      "newsletter": {
+        "title": "Registo de Newsletter",
+        "description": "Faça crescer a sua lista de emails automaticamente"
+      },
+      "domain": {
+        "title": "Domínio Personalizado",
+        "description": "Use o seu próprio nome de domínio (seunome.com)"
+      },
+      "viewAllFeatures": "Ver Todas as Funcionalidades"
+    },
+    "cta": {
+      "heading": "Pronto para construir a sua marca?",
+      "description": "Agende uma demonstração e veja como podemos ajudar a fazer crescer o seu negócio imobiliário"
+    }
+  },
   "footer": {
     "product": "Produto",
     "company": "Empresa",
     "resources": "Recursos",
-    "demo": "Pedir Demonstração",
+    "demo": "Demonstração",
     "documentation": "Documentação",
     "support": "Suporte",
-    "copyright": "© 2025 MyAgentWebsite.com. Todos os direitos reservados."
+    "copyright": "© 2025 MyAgentWebsite. Todos os direitos reservados."
+  },
+  "features": {
+    "hero": {
+      "badge": "Conjunto Completo de Funcionalidades",
+      "title": "Tudo o que precisa para",
+      "titleHighlight": "ter sucesso online",
+      "description": "Uma plataforma de websites profissional e repleta de funcionalidades construída especificamente para agentes imobiliários. Desenvolvimento personalizado ou acesso API para programadores."
+    },
+    "core": {
+      "heading": "Funcionalidades Principais",
+      "subheading": "Tudo incluído em cada plano",
+      "propertyListings": {
+        "title": "Anúncios de Imóveis",
+        "description": "Mostre os seus imóveis com belas galerias, descrições detalhadas e campos personalizados",
+        "features": {
+          "unlimited": "Anúncios ilimitados (plano Pro)",
+          "galleries": "Múltiplas galerias de fotos",
+          "customDetails": "Detalhes personalizados do imóvel",
+          "statusTracking": "Acompanhamento de estado (Ativo/Vendido/Pendente)"
+        }
+      },
+      "blogContent": {
+        "title": "Blog & Conteúdo",
+        "description": "Partilhe análises de mercado, guias de bairros e estabeleça-se como um especialista local",
+        "features": {
+          "editor": "Editor fácil de usar",
+          "images": "Carregamento de imagens",
+          "seo": "Otimização SEO",
+          "categories": "Categorias e etiquetas"
+        }
+      },
+      "testimonials": {
+        "title": "Testemunhos de Clientes",
+        "description": "Construa confiança com avaliações autênticas de clientes satisfeitos",
+        "features": {
+          "display": "Bela apresentação de testemunhos",
+          "photos": "Fotos de clientes e avaliações",
+          "management": "Gestão fácil",
+          "featured": "Testemunhos em destaque"
+        }
+      },
+      "newsletter": {
+        "title": "Newsletter & Captura de Leads",
+        "description": "Faça crescer a sua lista de emails e capture leads automaticamente",
+        "features": {
+          "signup": "Formulários de inscrição na newsletter",
+          "contact": "Formulários de contacto",
+          "notifications": "Notificações de leads",
+          "export": "Exportar lista de subscritores"
+        }
+      },
+      "dashboard": {
+        "title": "Painel de Administração",
+        "description": "Gira todo o seu website a partir de uma interface bonita e intuitiva",
+        "features": {
+          "interface": "Interface moderna e limpa",
+          "mobile": "Otimizado para dispositivos móveis",
+          "realtime": "Atualizações em tempo real",
+          "noTech": "Não requer conhecimento técnico"
+        }
+      },
+      "analytics": {
+        "title": "Análises & Insights",
+        "description": "Acompanhe o desempenho do seu website e compreenda os seus visitantes",
+        "features": {
+          "tracking": "Acompanhamento de visitantes",
+          "listings": "Anúncios populares",
+          "sources": "Fontes de leads",
+          "metrics": "Métricas de desempenho"
+        }
+      }
+    },
+    "professional": {
+      "badge": "Funcionalidades Profissionais",
+      "heading": "Construído para o Sucesso",
+      "subheading": "Funcionalidades avançadas para o ajudar a destacar-se",
+      "modernDesign": {
+        "title": "Design Moderno",
+        "description": "Templates bonitos e profissionais construídos com React e tecnologias web modernas. O seu website será rápido, responsivo e terá um aspeto incrível em todos os dispositivos."
+      },
+      "fast": {
+        "title": "Extremamente Rápido",
+        "description": "Construído sobre tecnologia de ponta para velocidade incrível. Os seus visitantes não esperarão, e o Google adorará o desempenho do seu site."
+      },
+      "secure": {
+        "title": "Seguro & Fiável",
+        "description": "Segurança de nível empresarial, backups automáticos e garantia de 99.9% de uptime. O seu website está sempre seguro e acessível."
+      },
+      "seo": {
+        "title": "Otimizado para SEO",
+        "description": "As melhores práticas de SEO integradas ajudam-no a posicionar-se melhor nas pesquisas do Google. Seja encontrado por mais clientes potenciais na sua área."
+      },
+      "mobile": {
+        "title": "Mobile-First",
+        "description": "O seu website fica perfeito em telemóveis, tablets e computadores. Mais de 70% das pesquisas imobiliárias acontecem em dispositivos móveis."
+      },
+      "custom": {
+        "title": "Feito à Medida",
+        "description": "Websites personalizados profissionais desenhados para corresponder à sua identidade de marca. Cada site é criado de forma única para a sua agência."
+      }
+    },
+    "serviceOptions": {
+      "badge": "Opções de Serviço",
+      "heading": "Escolha a Sua Solução",
+      "subheading": "Do acesso para programadores a websites totalmente personalizados",
+      "developer": {
+        "title": "Plano Developer",
+        "description": "Perfeito para agências com equipas de desenvolvimento",
+        "features": {
+          "api": "Acesso completo à API",
+          "backoffice": "CMS Backoffice",
+          "frontend": "Construa o seu próprio frontend",
+          "unlimited": "Anúncios e conteúdo ilimitados",
+          "docs": "Documentação da API"
+        },
+        "cta": "Ver Preços Developer"
+      },
+      "professional": {
+        "title": "Plano Professional",
+        "description": "Solução de website personalizado completa",
+        "features": {
+          "custom": "Desenvolvimento de website personalizado",
+          "api": "API + Backoffice incluídos",
+          "domain": "Configuração de domínio personalizado",
+          "hosting": "Hosting e manutenção",
+          "support": "Atualizações e suporte contínuos"
+        },
+        "cta": "Ver Preços Professional"
+      }
+    },
+    "cta": {
+      "heading": "Pronto para construir a sua marca?",
+      "description": "Agende uma demonstração e veja como podemos ajudar a elevar o seu negócio imobiliário"
+    }
+  },
+  "pricing": {
+    "hero": {
+      "badge": "Soluções Profissionais",
+      "title": "Escolha a solução",
+      "titleHighlight": "que se adequa à sua agência",
+      "description": "Desde websites totalmente personalizados a acesso API para programadores. Contacte-nos para uma demonstração personalizada."
+    },
+    "plans": {
+      "developer": {
+        "name": "Developer",
+        "description": "Acesso API + Backoffice para programadores",
+        "price": "€199",
+        "billing": "por mês",
+        "features": {
+          "api": "Acesso API + Backoffice",
+          "backoffice": "Construa o seu próprio frontend",
+          "frontend": "Anúncios ilimitados",
+          "docs": "Documentação da API",
+          "unlimited": "Blog + testemunhos + newsletter",
+          "hosting": "Arquitetura multi-tenant",
+          "support": "Suporte por email"
+        },
+        "cta": "Contacte-nos"
+      },
+      "professional": {
+        "name": "Professional",
+        "description": "Website personalizado construído para a sua agência",
+        "badge": "Mais Popular",
+        "priceFrom": "A partir de €749",
+        "billing": "por mês",
+        "features": {
+          "custom": "Desenvolvimento de website personalizado",
+          "api": "API multi-tenant + Backoffice",
+          "domain": "Configuração de domínio personalizado",
+          "hosting": "Manutenção e atualizações contínuas",
+          "support": "Suporte por email",
+          "updates": "Configuração profissional (2-3 semanas)",
+          "maintenance": "Taxa única de configuração: €2.500"
+        },
+        "cta": "Contacte-nos"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Para grandes agências com múltiplos agentes",
+        "price": "Personalizado",
+        "billing": "Contacte para orçamento",
+        "features": {
+          "everything": "Tudo no Professional",
+          "dedicated": "Múltiplos websites de agência",
+          "sla": "Opções white-label",
+          "training": "Suporte dedicado",
+          "whitelabel": "Integrações personalizadas",
+          "integrations": "Desenvolvimento prioritário",
+          "priority": "Garantia SLA"
+        },
+        "cta": "Contacte-nos"
+      }
+    },
+    "comparison": {
+      "heading": "Comparar Soluções",
+      "subheading": "Encontre a solução certa para o seu negócio",
+      "table": {
+        "feature": "Funcionalidade",
+        "rows": {
+          "api": "Acesso à API",
+          "backoffice": "CMS Backoffice",
+          "frontend": "Website Personalizado",
+          "customDomain": "Domínio Personalizado",
+          "hosting": "Hosting & Manutenção",
+          "support": "Nível de Suporte",
+          "updates": "Taxa de Configuração",
+          "customizations": "Múltiplos Websites",
+          "whitelabel": "Opções White-Label",
+          "sla": "Suporte Dedicado"
+        },
+        "support": {
+          "community": "Email",
+          "email": "Email",
+          "dedicated": "Dedicado"
+        }
+      }
+    },
+    "faq": {
+      "heading": "Perguntas Frequentes",
+      "subheading": "Tudo o que precisa de saber sobre os nossos preços",
+      "questions": {
+        "0": {
+          "question": "Quanto tempo demora para lançar?",
+          "answer": "Os websites personalizados profissionais são normalmente lançados em 2-3 semanas. O plano Developer com acesso API pode ser ativado dentro de 48 horas após assinatura do contrato."
+        },
+        "1": {
+          "question": "O que está incluído na taxa de configuração?",
+          "answer": "A taxa de configuração do plano Professional (€2.500) cobre o design personalizado do website, desenvolvimento, configuração de domínio e migração inicial de conteúdo. O plano Developer não tem taxa de configuração."
+        },
+        "2": {
+          "question": "Posso mudar de plano mais tarde?",
+          "answer": "Sim! Pode fazer upgrade de Developer para Professional a qualquer momento. Contacte-nos para discutir opções de migração e preços."
+        },
+        "3": {
+          "question": "Que métodos de pagamento aceitam?",
+          "answer": "Aceitamos transferências bancárias e todos os principais cartões de crédito através do nosso processador de pagamentos seguro. Faturação mensal ou contratos anuais disponíveis."
+        },
+        "4": {
+          "question": "Sou proprietário do website?",
+          "answer": "Com o plano Professional, tem uma solução hospedada com manutenção contínua. O plano Developer dá-lhe acesso API para construir e hospedar o seu próprio frontend como preferir."
+        },
+        "5": {
+          "question": "O que acontece se cancelar?",
+          "answer": "Pode cancelar a qualquer momento com aviso de 30 dias. O seu serviço continua até ao fim do seu período de faturação. Podemos fornecer uma exportação de dados se necessário."
+        }
+      }
+    },
+    "cta": {
+      "heading": "Pronto para elevar a sua agência?",
+      "description": "Contacte-nos para uma demonstração personalizada e veja como podemos ajudar a fazer crescer o seu negócio.",
+      "primaryCta": "Contacte-nos",
+      "secondaryCta": "Ver Funcionalidades"
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "Sobre Nós",
+      "title": "Construído para agentes,",
+      "titleHighlight": "por alguém que compreende",
+      "description": "Acreditamos que cada agente imobiliário ambicioso merece uma presença online profissional sem a complexidade e o custo do desenvolvimento personalizado."
+    },
+    "mission": {
+      "badge": "A Nossa Missão",
+      "heading": "Capacitar agentes a ter sucesso online",
+      "paragraph1": "Criámos o MyAgentWebsite depois de ver demasiados agentes imobiliários talentosos a lutar com soluções de websites caras e complicadas ou a conformarem-se com perfis genéricos de marketplace que não constroem a sua marca pessoal.",
+      "paragraph2": "A nossa plataforma dá-lhe as ferramentas profissionais de que necessita para estabelecer credibilidade, mostrar a sua experiência e fazer crescer o seu negócio—tudo sem precisar de conhecimento técnico ou gastar uma fortuna.",
+      "cta": "Junte-se a Nós Hoje",
+      "vision": {
+        "title": "A Nossa Visão",
+        "description": "Tornar-nos na plataforma de websites #1 para agentes imobiliários independentes que querem construir a sua própria marca e ter sucesso nos seus próprios termos."
+      },
+      "values": {
+        "title": "Os Nossos Valores",
+        "description": "Simplicidade, transparência e sucesso do cliente. Estamos aqui para o ajudar a vencer, não para complicar a sua vida com ferramentas complexas."
+      }
+    },
+    "different": {
+      "heading": "Porque somos diferentes",
+      "subheading": "Não somos apenas mais um construtor de websites",
+      "realEstate": {
+        "title": "Construído para Imobiliário",
+        "description": "Ao contrário de construtores de websites genéricos, cada funcionalidade é desenhada especificamente para agentes imobiliários. Anúncios de imóveis, testemunhos, análises de mercado—está tudo integrado."
+      },
+      "modern": {
+        "title": "Tecnologia Moderna",
+        "description": "Construído com React e Rails, não WordPress desatualizado. O seu website é rápido, seguro e usa a mesma tecnologia que alimenta aplicações web modernas."
+      },
+      "customerFirst": {
+        "title": "Cliente em Primeiro",
+        "description": "Vencemos quando você vence. Os nossos preços são transparentes, o nosso suporte é responsivo, e estamos constantemente a melhorar com base no feedback dos agentes."
+      }
+    },
+    "story": {
+      "badge": "A História",
+      "heading": "Como nasceu o MyAgentWebsite",
+      "paragraph1": "O MyAgentWebsite nasceu de uma observação simples: agentes imobiliários talentosos estavam a ser limitados pela tecnologia.",
+      "paragraph2": "Alguns agentes gastavam mais de €5.000 em websites personalizados que demoravam meses a construir e eram impossíveis de atualizar sem um programador. Outros conformavam-se com templates genéricos ou perfis de marketplace que não refletiam a sua marca única.",
+      "paragraph3": "Sabíamos que tinha de haver uma forma melhor. Uma forma que fosse:",
+      "benefits": {
+        "fast": {
+          "title": "Rápida de lançar",
+          "description": "2-3 semanas, não meses"
+        },
+        "easy": {
+          "title": "Fácil de usar",
+          "description": "Não requer conhecimento técnico"
+        },
+        "affordable": {
+          "title": "Acessível",
+          "description": "Subscrição mensal, não milhares adiantados"
+        },
+        "professional": {
+          "title": "Profissional",
+          "description": "Design moderno que constrói credibilidade"
+        }
+      },
+      "paragraph4": "Hoje, o MyAgentWebsite ajuda agentes ambiciosos a estabelecer a sua presença online, mostrar a sua experiência e fazer crescer o seu negócio—tudo sem a complexidade e o custo das soluções tradicionais.",
+      "paragraph5": "Estamos apenas a começar, e adoraríamos que se juntasse a nós."
+    },
+    "stats": {
+      "launchTime": {
+        "value": "2-3 Semanas",
+        "label": "Tempo médio de lançamento"
+      },
+      "uptime": {
+        "value": "99.9%",
+        "label": "Garantia de uptime"
+      },
+      "support": {
+        "value": "24 Horas",
+        "label": "Tempo de resposta do suporte"
+      },
+      "technical": {
+        "value": "0",
+        "label": "Conhecimento técnico necessário"
+      }
+    },
+    "cta": {
+      "heading": "Pronto para se juntar a nós?",
+      "description": "Junte-se a agentes ambiciosos que estão a construir a sua marca online",
+      "primaryCta": "Contacte-nos",
+      "secondaryCta": "Ver Funcionalidades"
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Entre em Contacto",
+      "title": "Vamos começar",
+      "titleHighlight": "hoje mesmo",
+      "description": "Solicite uma demonstração ou inicie o seu teste gratuito. Teremos tudo configurado e online em 2-3 semanas."
+    },
+    "form": {
+      "heading": "Inicie o Seu Teste Gratuito",
+      "description": "Preencha o formulário abaixo e entraremos em contacto dentro de 24 horas",
+      "fields": {
+        "name": {
+          "label": "Nome Completo",
+          "placeholder": "João Silva"
+        },
+        "email": {
+          "label": "Endereço de Email",
+          "placeholder": "joao@exemplo.com"
+        },
+        "phone": {
+          "label": "Número de Telefone (Opcional)",
+          "placeholder": "+351 910 000 000"
+        },
+        "company": {
+          "label": "Empresa/Agência (Opcional)",
+          "placeholder": "A Sua Agência Imobiliária"
+        },
+        "message": {
+          "label": "Mensagem",
+          "placeholder": "Conte-nos sobre as suas necessidades..."
+        }
+      },
+      "submitting": "A enviar...",
+      "submit": "Enviar Mensagem",
+      "success": {
+        "title": "Obrigado!",
+        "message": "Recebemos a sua mensagem e entraremos em contacto dentro de 24 horas."
+      }
+    },
+    "info": {
+      "heading": "Informação de Contacto",
+      "description": "Prefere contactar diretamente? Aqui está como pode contactar-nos.",
+      "email": {
+        "title": "Envie-nos um Email",
+        "description": "Entre em contacto por email para quaisquer questões ou suporte"
+      },
+      "phone": {
+        "title": "Ligue-nos",
+        "description": "Normalmente respondemos dentro de 24 horas"
+      },
+      "location": {
+        "title": "Localização do Escritório",
+        "address": "Lisboa, Portugal"
+      },
+      "hours": {
+        "title": "Horário de Atendimento",
+        "weekdays": "Segunda - Sexta: 9:00 - 18:00",
+        "weekend": "Sábado - Domingo: Fechado"
+      }
+    },
+    "faq": {
+      "badge": "Respostas Rápidas",
+      "heading": "Perguntas Comuns",
+      "subheading": "Respostas rápidas a perguntas que possa ter",
+      "questions": {
+        "0": {
+          "question": "Com que rapidez posso lançar?",
+          "answer": "Os websites personalizados profissionais são normalmente lançados em 2-3 semanas. O plano Developer com acesso API pode ser ativado dentro de 48 horas."
+        },
+        "1": {
+          "question": "Preciso de competências técnicas?",
+          "answer": "De todo! A nossa plataforma é desenhada para utilizadores não técnicos. Se consegue usar email, consegue gerir o seu website."
+        },
+        "2": {
+          "question": "Posso usar o meu próprio domínio?",
+          "answer": "Sim! O plano Professional inclui suporte para domínio personalizado. Ajudá-lo-emos a conectar o seu domínio existente ou a registar um novo."
+        },
+        "3": {
+          "question": "E se precisar de ajuda?",
+          "answer": "Todos os planos incluem suporte por email. Os planos Professional e Enterprise têm suporte prioritário com tempos de resposta mais rápidos."
+        }
+      }
+    }
   }
 }
