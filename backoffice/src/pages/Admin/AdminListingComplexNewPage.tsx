@@ -16,11 +16,7 @@ const AdminListingComplexNewPage = () => {
   const handleSubmit = async (formData: ListingComplexFormData) => {
     try {
       setLoading(true);
-      const submitData = {
-        ...formData,
-        price_from: formData.price_from ? parseFloat(formData.price_from) : 0,
-      };
-      await adminCreateListingComplex(submitData);
+      await adminCreateListingComplex(formData);
       navigate(appRoutes.backoffice.listingComplexes);
     } catch (error) {
       console.error("Error creating listing complex:", error);

@@ -127,16 +127,8 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
 
         <Input
           type="password"
-          label={
-            <>
-              {t("super_admin.admins.password")}
-              {admin && (
-                <span className="text-gray-500 dark:text-gray-400 text-xs ml-2">
-                  ({t("super_admin.admins.leave_blank")})
-                </span>
-              )}
-            </>
-          }
+          label={t("super_admin.admins.password")}
+          helperText={admin ? `(${t("super_admin.admins.leave_blank")})` : undefined}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required={!admin}

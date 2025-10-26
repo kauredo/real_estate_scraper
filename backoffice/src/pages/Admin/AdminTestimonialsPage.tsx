@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Testimonial } from "../../utils/interfaces";
 import { adminGetTestimonials } from "../../services/api";
 import {
@@ -76,24 +77,18 @@ const AdminTestimonialsPage = () => {
       width: "w-48",
       render: (_: any, testimonial: Testimonial) => (
         <div className="flex flex-wrap gap-2">
-          <Button
-            as="a"
-            href={`/testimonials/${testimonial.id}`}
-            variant="link"
-            size="sm"
-            className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
+          <Link
+            to={`/testimonials/${testimonial.id}`}
+            className="text-sm text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 underline"
           >
             {t("common.view")}
-          </Button>
-          <Button
-            as="a"
-            href={`/testimonials/${testimonial.id}/edit`}
-            variant="link"
-            size="sm"
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+          </Link>
+          <Link
+            to={`/testimonials/${testimonial.id}/edit`}
+            className="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
           >
             {t("common.edit")}
-          </Button>
+          </Link>
         </div>
       ),
     },

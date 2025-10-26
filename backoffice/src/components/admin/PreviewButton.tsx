@@ -6,7 +6,7 @@ interface PreviewButtonProps {
   contentType: "blog_post" | "club_story" | "listing" | "listing_complex";
   contentId: number;
   label?: string;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   className?: string;
 }
@@ -15,7 +15,7 @@ const PreviewButton = ({
   contentType,
   contentId,
   label = "👁️ Preview",
-  variant = "outline",
+  variant = "ghost",
   size = "md",
   className = "",
 }: PreviewButtonProps) => {

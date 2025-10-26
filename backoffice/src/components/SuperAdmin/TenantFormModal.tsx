@@ -216,14 +216,8 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
             <div className="mb-4">
               <Input
                 type="text"
-                label={
-                  <>
-                    {t("super_admin.tenants.slug")} *
-                    <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
-                      ({t("super_admin.tenants.slug_hint")})
-                    </span>
-                  </>
-                }
+                label={`${t("super_admin.tenants.slug")} *`}
+                helperText={`(${t("super_admin.tenants.slug_hint")})`}
                 value={slug}
                 onChange={(e) => setSlug(e.target.value.toLowerCase())}
                 pattern="^[a-z0-9-]+$"

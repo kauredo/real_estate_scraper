@@ -113,7 +113,7 @@ const PreviewModal: React.FC<PreviewModalProps> = ({
                 setDevice(deviceType);
                 setIsLoading(true);
               }}
-              variant={device === deviceType ? "default" : "secondary"}
+              variant={device === deviceType ? "primary" : "secondary"}
               size="sm"
               className="flex items-center gap-2"
             >

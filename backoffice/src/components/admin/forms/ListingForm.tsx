@@ -121,7 +121,7 @@ const ListingForm = ({
             label={t("admin.listings.fields.price")}
             value={formData.price_cents}
             onChange={handleChange}
-            description={t("admin.listings.fields.priceDescription")}
+            helperText={t("admin.listings.fields.priceDescription")}
           />
 
           <TagInput
@@ -237,7 +237,7 @@ const ListingForm = ({
             label={t("admin.listings.fields.order")}
             value={formData.order}
             onChange={handleChange}
-            description={t("admin.listings.fields.orderDescription")}
+            helperText={t("admin.listings.fields.orderDescription")}
           />
         </div>
       </div>

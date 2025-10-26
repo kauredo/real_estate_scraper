@@ -153,7 +153,7 @@ const ListingComplexForm = ({
             label={t("admin.listingComplexes.fields.order")}
             value={formData.order}
             onChange={handleChange}
-            description={t("admin.listingComplexes.fields.orderDescription")}
+            helperText={t("admin.listingComplexes.fields.orderDescription")}
           />
         </div>
       </div>

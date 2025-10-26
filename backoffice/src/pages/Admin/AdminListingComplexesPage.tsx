@@ -81,9 +81,11 @@ const AdminListingComplexesPage = () => {
     <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
       {/* Header */}
       <div className="mb-6">
-        <Button as={Link} to="/listing_complexes/new">
-          Novo Empreendimento
-        </Button>
+        <Link to="/listing_complexes/new">
+          <Button>
+            Novo Empreendimento
+          </Button>
+        </Link>
       </div>
 
       <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto">
