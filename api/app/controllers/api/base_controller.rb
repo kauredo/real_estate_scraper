@@ -1,0 +1,71 @@
+# frozen_string_literal: true
+
+module Api
+  class BaseController < ApplicationController
+    include ActionController::MimeResponds
+    include ApiErrorHandler
+    include ApiPagination
+
+    before_action :set_locale
+    before_action :verify_tenant
+
+    protected
+
+    def authenticate_admin!
+      header = request.headers['Authorization']
+      return render json: { error: 'No token provided' }, status: :unauthorized unless header
+
+      token = header.split.last
+      begin
+        decoded = JsonWebToken.decode(token)
+        return render json: { error: 'Invalid token' }, status: :unauthorized unless decoded
+
+        @current_admin = Admin.find(decoded[:admin_id])
+
+        # Handle super admin tenant filtering via X-Tenant-Filter header
+        if @current_admin.super_admin? && request.headers['X-Tenant-Filter'].present?
+          tenant_filter_id = request.headers['X-Tenant-Filter'].to_i
+          Current.tenant = Tenant.find(tenant_filter_id)
+        elsif Current.tenant.nil? && @current_admin.tenant_id.present?
+          # Set Current.tenant from admin's tenant if not already set by API key
+          # This allows JWT-based authentication (backoffice) to work alongside API key authentication (public frontend)
+          Current.tenant = Tenant.find(@current_admin.tenant_id)
+        end
+
+        # Verify admin belongs to current tenant (unless super admin)
+        return render json: { error: 'Unauthorized - tenant mismatch' }, status: :unauthorized unless @current_admin.super_admin? || @current_admin.tenant_id == Current.tenant&.id
+      rescue JWT::DecodeError, ActiveRecord::RecordNotFound
+        render json: { error: 'Invalid token' }, status: :unauthorized
+      end
+    end
+
+    def require_super_admin!
+      return if @current_admin&.super_admin?
+
+      render json: { error: I18n.t('super_admin.access_denied') }, status: :forbidden
+    end
+
+    private
+
+    attr_reader :current_admin
+
+    def verify_tenant
+      # Skip verification if Authorization header is present (JWT authentication)
+      # The tenant will be set from the admin's tenant in authenticate_admin!
+      return if request.headers['Authorization'].present?
+
+      return if Current.tenant
+
+      render json: { error: 'Invalid or missing API key' }, status: :unauthorized
+      false
+    end
+
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
+    end
+
+    def default_url_options
+      { host: ENV['APP_DOMAIN'] || 'localhost:3000', locale: (I18n.locale == I18n.default_locale ? nil : I18n.locale) }
+    end
+  end
+end

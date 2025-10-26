@@ -1,0 +1,19 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Build output
+dist
+build
+.vite
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Generated files
+*.min.js
+*.min.css

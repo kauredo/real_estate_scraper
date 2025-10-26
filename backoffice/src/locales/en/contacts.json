@@ -1,0 +1,21 @@
+{
+  "contact_us": "Contact us",
+  "cta": "GET IN TOUCH WITH US",
+  "form": {
+    "consent": "By contacting us you're allowing Sofia Galvão Group to store your data to later inform you about business opportunities, as stated in the Privacy Policy.",
+    "error": "Please try again with valid values",
+    "fields": {
+      "email": "Email",
+      "message": "Message",
+      "name": "Name",
+      "phone": "Phone",
+      "send": "Send"
+    },
+    "titles": {
+      "main": "Fill in the form and we will get in touch with you:",
+      "visit": "Need more information? Want to schedule a visit? Get in touch with us!"
+    }
+  },
+  "header": "Contacts",
+  "meta_description": "Contact Sofia Galvão Group."
+}

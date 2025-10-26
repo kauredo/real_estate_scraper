@@ -1,0 +1,55 @@
+one:
+  id: 1
+  name: "John Smith"
+  text: "Great experience working with the team"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+two:
+  id: 2
+  name: "Maria Silva"
+  text: "Professional service and excellent results"
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+three:
+  id: 3
+  name: "Sónia Maia "
+  text:
+    "Trabalhar com a Sofia foi uma lufada de ar fresco num mundo nem sempre
+    profissional. Assertiva, dedicada e extremamente profissional, sentimo-nos
+    acompanhados durante todo o processo. Conhecedora do mercado, e dos seus
+    clientes, todas as visitas que realizou concretizaram-se numa proposta
+    realista. Vendi numa semana! Não penso em mais ninguém quando quiser comprar
+    ou vender a minha casa! "
+
+four:
+  id: 4
+  name: " ProjetObra by Aguiar Maia Arquitectos"
+  text:
+    "A Sofia é uma profissional incansável e extremamente competente. Apresenta
+    soluções realistas e enquadradas no mercado imobiliário e com o cliente.
+    Defende os seus clientes (vendedores e compradores) sempre com o objetivo de
+    realizar um bom negocio (para todos). As visitas que realiza são estudadas e
+    assertivas, e quase sempre concretizam-se numa venda/ compra. É com certeza,
+    a nossa parceira imobiliária! "
+
+# == Schema Information
+#
+# Table name: testimonials
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  text       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  tenant_id  :bigint
+#
+# Indexes
+#
+#  index_testimonials_on_tenant_id  (tenant_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (tenant_id => tenants.id)
+#

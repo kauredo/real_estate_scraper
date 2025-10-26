@@ -1,0 +1,26 @@
+{
+  "actions": "Actions",
+  "add": "Add",
+  "adding": "Adding...",
+  "create": "Create",
+  "creating": "Creating...",
+  "edit": "Edit",
+  "delete": "Delete",
+  "readMore": "Read More",
+  "total": "Total",
+  "loading": "Loading...",
+  "update": "Update",
+  "updating": "Updating...",
+  "view": "View",
+  "new": "New",
+  "back": "Back",
+  "save": "Save",
+  "saving": "Saving...",
+  "cancel": "Cancel",
+  "close": "Close",
+  "select": "Select",
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
+  }
+}

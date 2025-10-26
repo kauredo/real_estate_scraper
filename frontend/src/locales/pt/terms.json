@@ -1,0 +1,48 @@
+{
+  "header": "Termos e Condições",
+  "sections": {
+    "terms": {
+      "title": "1. Termos",
+      "content": "Ao acessar ao site <a class=\"text-beige-default dark:text-beige-medium underline\" href=\"https://sofiagalvaogroup.com/\">Sofia Galvão Group</a>, concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com algum desses termos, está proibido de usar ou acessar este site. Os materiais contidos neste site são protegidos pelas leis de direitos autorais e marcas comerciais aplicáveis."
+    },
+    "license": {
+      "title": "2. Uso de Licença",
+      "content": "É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site Sofia Galvão Group, apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título e, sob esta licença, você não pode:",
+      "restrictions": [
+        "Modificar ou copiar os materiais;",
+        "Usar os materiais para qualquer finalidade comercial ou para exibição pública (comercial ou não comercial);",
+        "Tentar descompilar ou fazer engenharia reversa de qualquer software contido no site Sofia Galvão Group;",
+        "Remover quaisquer direitos autorais ou outras notações de propriedade dos materiais; ou",
+        "Transferir os materiais para outra pessoa ou 'espelhe' os materiais em qualquer outro servidor."
+      ],
+      "termination": "Esta licença será automaticamente rescindida se você violar alguma dessas restrições e poderá ser rescindida por Sofia Galvão Group a qualquer momento. Ao encerrar a visualização desses materiais ou após o término desta licença, você deve apagar todos os materiais baixados em sua posse, seja em formato eletrônico ou impresso."
+    },
+    "disclaimer": {
+      "title": "3. Isenção de responsabilidade",
+      "points": [
+        "Os materiais no site da Sofia Galvão Group são fornecidos 'como estão'. Sofia Galvão Group não oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.",
+        "Além disso, o Sofia Galvão Group não garante ou faz qualquer representação relativa à precisão, aos resultados prováveis ​​ou à confiabilidade do uso dos materiais em seu site ou de outra forma relacionado a esses materiais ou em sites vinculados a este site."
+      ]
+    },
+    "limitations": {
+      "title": "4. Limitações",
+      "content": "Em nenhum caso o Sofia Galvão Group ou seus fornecedores serão responsáveis ​​por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em Sofia Galvão Group, mesmo que Sofia Galvão Group ou um representante autorizado da Sofia Galvão Group tenha sido notificado oralmente ou por escrito da possibilidade de tais danos. Como algumas jurisdições não permitem limitações em garantias implícitas, ou limitações de responsabilidade por danos consequentes ou incidentais, essas limitações podem não se aplicar a você."
+    },
+    "accuracy": {
+      "title": "5. Precisão dos materiais",
+      "content": "Os materiais exibidos no site da Sofia Galvão Group podem incluir erros técnicos, tipográficos ou fotográficos. Sofia Galvão Group não garante que qualquer material em seu site seja preciso, completo ou atual. Sofia Galvão Group pode fazer alterações nos materiais contidos em seu site a qualquer momento, sem aviso prévio. No entanto, Sofia Galvão Group não se compromete a atualizar os materiais."
+    },
+    "links": {
+      "title": "6. Links",
+      "content": "O Sofia Galvão Group não analisou todos os sites vinculados ao seu site e não é responsável pelo conteúdo de nenhum site vinculado. A inclusão de qualquer link não implica endosso por Sofia Galvão Group do site. O uso de qualquer site vinculado é por conta e risco do usuário."
+    },
+    "modifications": {
+      "title": "Modificações",
+      "content": "O Sofia Galvão Group pode revisar estes termos de serviço do site a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão atual desses termos de serviço."
+    },
+    "law": {
+      "title": "Lei aplicável",
+      "content": "Estes termos e condições são regidos e interpretados de acordo com as leis do Sofia Galvão Group e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais naquele estado ou localidade."
+    }
+  }
+}

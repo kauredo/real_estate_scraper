@@ -1,0 +1,38 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  phone: MyString
+  status: 1
+  terms_accepted: false
+
+two:
+  name: MyString
+  email: MyString
+  phone: MyString
+  status: 1
+  terms_accepted: false
+
+# == Schema Information
+#
+# Table name: club_users
+#
+#  id             :bigint           not null, primary key
+#  email          :string
+#  name           :string
+#  phone          :string
+#  status         :integer
+#  terms_accepted :boolean
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  tenant_id      :bigint
+#
+# Indexes
+#
+#  index_club_users_on_tenant_id  (tenant_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (tenant_id => tenants.id)
+#

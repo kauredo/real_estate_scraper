@@ -1,0 +1,10 @@
+{
+  "am": "am",
+  "formats": {
+    "default": "%A, %d de %B de %Y, %H:%Mh",
+    "long": "%A, %d de %B de %Y, %H:%Mh",
+    "short": "%d/%m, %H:%M hs",
+    "us": "%m/%d/%Y %I:%M %p"
+  },
+  "pm": "pm"
+}

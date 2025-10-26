@@ -1,0 +1,23 @@
+{
+  "blog_posts": {
+    "view_post": "Ver Post"
+  },
+  "club_stories": {
+    "view_story": "Ver História"
+  },
+  "common": {
+    "confirm_delete": "Tem certeza que deseja apagar este item?",
+    "create": "Criar",
+    "delete_confirm": "Tem certeza que deseja apagar este item?",
+    "delete_photo_confirm": "Tem certeza que deseja apagar esta foto?",
+    "edit": "Editar",
+    "hidden_hint": "O conteúdo só será visível no site se esta opção NÃO estiver selecionada (apenas visível no backoffice)",
+    "main_photo": "Foto principal?",
+    "photos": "Fotos",
+    "seo_description_hint": "Esta é a descrição que aparecerá nos motores de busca 👇",
+    "seo_section": "SEO",
+    "seo_title_hint": "Este é o título que aparecerá nos motores de busca 👇",
+    "update": "Atualizar",
+    "view": "Ver"
+  }
+}

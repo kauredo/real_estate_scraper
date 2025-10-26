@@ -1,0 +1,365 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "./tinymce.css";
+
+/* BASE STYLES */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: theme("colors.white");
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+}
+
+body.dark {
+  background-color: theme("colors.dark");
+}
+
+/* TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 600;
+  max-width: 60ch;
+}
+
+p {
+  max-width: 60ch;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* LAYOUT & COMPONENTS */
+.max-height {
+  height: calc(100vh - 4rem);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CAROUSEL/SLIDER STYLES */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+}
+
+.slick-list {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 100% !important;
+}
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: 0;
+  display: flex !important;
+}
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: inherit !important;
+  min-height: 1px;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+
+.slick-slide img {
+  display: block;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+}
+
+.slick-prev {
+  left: 0px !important;
+}
+
+.slick-next {
+  right: 0px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 40px;
+  color: theme("colors.primary.500");
+  opacity: 0.75;
+}
+
+.dark .slick-prev:before,
+.dark .slick-next:before {
+  color: theme("colors.primary.400");
+}
+
+/* Custom Dots styles */
+.custom-dots-container {
+  position: relative !important;
+  bottom: 0 !important;
+  width: 100%;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.custom-dots {
+  display: flex;
+  justify-content: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.custom-dots::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-dots li {
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+.custom-dots li button {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.custom-dots li button:before {
+  display: none;
+}
+
+.custom-dot {
+  border-radius: 2px;
+  opacity: 1 !important;
+}
+
+.carousel-container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding-bottom: 3rem;
+}
+
+.slider-container {
+  margin-bottom: 1rem;
+}
+
+/* Generic dynamic height carousel styles */
+.dynamic-height-carousel .slick-list {
+  transition: height 0.3s ease-in-out;
+}
+
+.dynamic-height-carousel .slick-track {
+  display: flex;
+  align-items: flex-start;
+}
+
+.dynamic-height-carousel .slick-slide {
+  height: auto;
+  padding: 0 1rem;
+}
+
+.dynamic-height-carousel .carousel-slide {
+  height: 100%;
+}
+
+.dynamic-height-carousel [data-slide-content] {
+  display: block;
+  width: 100%;
+}
+
+/* RC SLIDER STYLES */
+.rc-slider {
+  position: relative;
+  height: 14px;
+  padding: 5px 0;
+  width: 100%;
+  border-radius: 6px;
+  touch-action: none;
+  box-sizing: border-box;
+}
+
+.rc-slider .rc-slider-rail {
+  position: absolute;
+  width: 100%;
+  background-color: #e9e9e9;
+  height: 4px;
+  border-radius: 6px;
+}
+
+.rc-slider .rc-slider-track {
+  position: absolute;
+  left: 0;
+  height: 4px;
+  border-radius: 6px;
+  background-color: theme("colors.primary.500");
+}
+
+.rc-slider .rc-slider-step {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+}
+
+.rc-slider .rc-slider-handle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  cursor: -webkit-grab;
+  margin-top: -5px;
+  cursor: grab;
+  border-radius: 50%;
+  border: solid 2px theme("colors.primary.500");
+  background-color: theme("colors.white");
+  touch-action: pan-x;
+}
+
+.rc-slider .rc-slider-handle:active {
+  border-color: theme("colors.primary.600");
+  box-shadow: 0 0 5px theme("colors.primary.500");
+}
+
+.rc-slider .rc-slider-handle:focus {
+  border-color: theme("colors.primary.600");
+  box-shadow: 0 0 0 5px theme("colors.primary.100");
+  outline: none;
+}
+
+.rc-slider .rc-slider-handle-click-focused {
+  border-color: theme("colors.primary.600");
+  box-shadow: 0 0 0 5px theme("colors.primary.100");
+}
+
+.rc-slider .rc-slider-handle:hover {
+  border-color: theme("colors.primary.600");
+}
+
+.rc-slider
+  .rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+  border-color: theme("colors.primary.600");
+  box-shadow: 0 0 5px theme("colors.primary.500");
+  cursor: grabbing;
+}
+
+.rc-slider .rc-slider-mark {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 100%;
+  font-size: 12px;
+}
+
+.rc-slider .rc-slider-mark-text {
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.rc-slider .rc-slider-mark-text-active {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+/* TOGGLER STYLES */
+.toggler label {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 20px;
+}
+
+.toggler input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggler .icon {
+  height: 20px;
+  line-height: 20px;
+  font-size: 20px;
+}
+
+.toggler .toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.3s;
+  cursor: pointer;
+  background: theme("colors.gray.400");
+  border-radius: 20px;
+}
+
+.toggler .toggle:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: theme("colors.white");
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggler input:checked + .toggle {
+  background-color: theme("colors.primary.500");
+}
+
+.toggler input:checked + .toggle:before {
+  transform: translateX(15px);
+}
+
+/* RESPONSIVE STYLES */
+@media screen and (max-width: 768px) {
+  .carousel-container .slick-prev {
+    left: 15px;
+  }
+
+  .carousel-container .slick-next {
+    right: 15px;
+  }
+}
+
+@media screen and (min-width: 1340px) {
+  .slick-prev {
+    left: -45px !important;
+  }
+
+  .slick-next {
+    right: -45px !important;
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "advanced_search": "Pesquisa Avançada",
+  "characteristics": "Características do Imóvel",
+  "create": {
+    "error": "Erro: o link tem que começar por 'https://www.kwportugal.pt/'",
+    "notice": "Imóvel adicionado, aguarda um pouco e já vai aparecer na plataforma"
+  },
+  "destroy": {
+    "error": "Erro: não foi possível eliminar o imóvel",
+    "notice": "Imóvel eliminado com sucesso"
+  },
+  "details": "Detalhes do Imóvel",
+  "header": "Comprar",
+  "kind": {
+    "apartment": "Apartamento",
+    "garage": "Garagem",
+    "house": "Moradia",
+    "land": "Terreno",
+    "office": "Escritório",
+    "other": "Outro",
+    "parking": "Estacionamento",
+    "storage": "Arrecadação",
+    "store": "Loja",
+    "title": "Tipo de Imóvel",
+    "warehouse": "Armazém"
+  },
+  "no_listings": "Não foram encontrados imóveis com os critérios selecionados",
+  "objective": {
+    "other": "Outro",
+    "rent": "Arrendamento",
+    "sale": "Venda",
+    "title": "Venda / Arrendamento"
+  },
+  "open_tour": "Abrir Tour Virtual 🏠",
+  "price": "Preço",
+  "recover": {
+    "error": "Erro: não foi possível recuperar o imóvel",
+    "notice": "Imóvel recuperado com sucesso, aguarde um pouco para atualizar os dados."
+  },
+  "reset_filters": "Limpar Filtros",
+  "resource": "Imóvel",
+  "search": {
+    "address": "Morada",
+    "address_placeholder": "Lisboa, Porto, Algarve, etc.",
+    "any": "Qualquer",
+    "filters_applied": "filtros aplicados",
+    "name": "Morada, Localidade, Tipologia, etc.",
+    "name_placeholder": "Apartamento T3, Moradia, Terreno, etc.",
+    "price": "Preço",
+    "status": {
+      "agreed": "Reservados",
+      "all": "Todos",
+      "closed": "Encerrados",
+      "recent": "Novos",
+      "rented": "Arrendados",
+      "sold": "Vendidos",
+      "standard": "Listados",
+      "title": "Estado"
+    },
+    "submit": "Pesquisar",
+    "title": "Pesquisar Imóveis"
+  },
+  "stats": {
+    "ano de construção": "Ano de Construção",
+    "casa de banho social": "Casa de Banho Social",
+    "casas de banho": "WCs",
+    "city tax": "Taxa de Cidade",
+    "common area ownership (coop)": "Área Comum de Propriedade (Coop)",
+    "cozinhas": "Cozinhas",
+    "dining rooms": "Salas de Jantar",
+    "estacionamentos": "Estacionamentos",
+    "furnished": "Mobilado",
+    "garagens": "Garagens",
+    "kitchens": "Cozinhas",
+    "land tax": "Taxa de Terreno",
+    "piso": "Piso",
+    "pisos": "Pisos",
+    "quartos": "Quartos",
+    "salas": "Salas",
+    "salas de refeição": "Salas de Refeição",
+    "support staff accommodations": "Apoio a Empregados",
+    "área bruta (cp)": "Área Bruta (CP)",
+    "área do terreno": "Área do Terreno",
+    "área útil": "Área Útil"
+  },
+  "status": {
+    "agreed": "Reservado",
+    "closed": "Encerrado",
+    "recent": "Novo",
+    "rented": "Arrendado",
+    "sold": "Vendido",
+    "standard": ""
+  },
+  "text": {
+    "less": " mostrar menos",
+    "more": "... ler mais"
+  },
+  "update": {
+    "notice": "Imóvel editado com sucesso"
+  },
+  "update_all": {
+    "notice": "Todos os imóveis serão atualizado dentro de minutos, espera antes de tentar novamente"
+  },
+  "update_details": {
+    "notice": "O imóvel será atualizado dentro de minutos, espera antes de tentar novamente"
+  },
+  "watch_video": "Assistir Vídeo 📹"
+}

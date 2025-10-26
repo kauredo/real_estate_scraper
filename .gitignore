@@ -6,12 +6,17 @@
 
 # Ignore bundler config.
 /.bundle
+api/.bundle
 
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+api/log/*
+api/tmp/*
+api/!/log/.keep
+api/!/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -41,10 +46,38 @@ latest.dump
 /app/javascript/routes.d.ts
 .env
 *.DS_Store
-/coverage
-.fly-pg-secrets
-client
-api
-frontend
+.env
+node_modules
+tmp
+latest.dump
 
-public/storage
+# old app
+/app
+/public
+/log
+
+# API
+/api/log/*
+/api/tmp/*
+!/api/log/.keep
+!/api/tmp/.keep
+/api/storage/*
+/api/public/assets
+/api/.bundle
+/api/coverage
+/api/app/assets/builds/*
+/api/node_modules
+/api/public/uploads/tmp
+/api/public/storage
+/api/config/master.key
+/api/latest.dump
+/api/.fly-pg-secrets
+
+# Frontend
+/frontend/node_modules
+/frontend/dist
+/frontend/coverage
+/frontend/.env.local
+/frontend/.env.*.local
+
+client

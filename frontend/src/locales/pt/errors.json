@@ -1,0 +1,89 @@
+{
+  "404": {
+    "button": "Voltar",
+    "text_1": "A página que procura não se encontra disponível.",
+    "text_2": "Tente procurar de novo ou voltar atrás no botão abaixo.",
+    "title": "Está perdido?"
+  },
+  "500": {
+    "text_1": "Estamos a fazer o nosso melhor para o resolver.",
+    "text_2": "Por favor tente novamente dentro de momentos.",
+    "title": "O servidor está em baixo!"
+  },
+  "connection_refused": "Ops! Falha ao conectar ao middleware da Consola Web.\nPor favor certifique-se de que um servidor de desenvolvimento Rails está em execução.\n",
+  "email": {
+    "invalid": "não é um email válido"
+  },
+  "format": "%{attribute} %{message}",
+  "messages": {
+    "accepted": "tem de ser aceite",
+    "already_confirmed": "já foi confirmado, por favor tente efetuar a autenticação",
+    "blank": "não pode estar em branco",
+    "carrierwave_download_error": "não pôde ser descarregado",
+    "carrierwave_integrity_error": "não é de um tipo de ficheiro permitido",
+    "carrierwave_processing_error": "falhou ao ser processado",
+    "confirmation": "não coincide com a confirmação",
+    "confirmation_period_expired": "necessitava de confirmação até %{period}, por favor faça um novo pedido",
+    "content_type_allowlist_error": "Não tem permissão para carregar ficheiros %{content_type}, tipos permitidos: %{allowed_types}",
+    "content_type_denylist_error": "Não tem permissão para carregar ficheiros %{content_type}",
+    "empty": "não pode estar vazio",
+    "equal_to": "tem de ser igual a %{count}",
+    "even": "tem de ser par",
+    "exclusion": "é reservado",
+    "expired": "expirou, por favor solicite um novo",
+    "extension_allowlist_error": "Não tem permissão para carregar ficheiros %{extension}, tipos permitidos: %{allowed_types}",
+    "extension_denylist_error": "Não tem permissão para carregar ficheiros %{extension}, tipos proibidos: %{prohibited_types}",
+    "greater_than": "tem de ser maior que %{count}",
+    "greater_than_or_equal_to": "tem de ser maior ou igual a %{count}",
+    "inclusion": "não está incluído na lista",
+    "in": "deve estar em %{count}",
+    "invalid": "é inválido",
+    "invalid_currency": "tem formato inválido (deve ser '100', '5%{decimal}24', ou '123%{thousands}456%{decimal}78'). Recebido %{currency}",
+    "less_than": "tem de ser menor que %{count}",
+    "less_than_or_equal_to": "tem de ser menor ou igual a %{count}",
+    "max_height_error": "A altura da imagem deve ser menor que %{max_height}px",
+    "max_size_error": "O tamanho do ficheiro deve ser menor que %{max_size}",
+    "max_width_error": "A largura da imagem deve ser menor que %{max_width}px",
+    "min_height_error": "A altura da imagem deve ser maior que %{min_height}px",
+    "min_size_error": "O tamanho do ficheiro deve ser maior que %{min_size}",
+    "min_width_error": "A largura da imagem deve ser maior que %{min_width}px",
+    "model_invalid": "A validação falhou: %{errors}",
+    "not_a_number": "não é um número",
+    "not_an_integer": "tem de ser um inteiro",
+    "not_found": "não foi encontrado",
+    "not_locked": "não foi bloqueado",
+    "not_saved": {
+      "one": "%{count} erro impediu %{resource} de ser gravado:",
+      "other": "%{count} erros impediram %{resource} de ser gravado:"
+    },
+    "odd": "tem de ser ímpar",
+    "other_than": "tem de ser diferente de %{count}",
+    "password_too_long": "é demasiado longa",
+    "present": "não pode estar em branco",
+    "processing_error": "Falha ao manipular, talvez não seja uma imagem?",
+    "required": "é obrigatório",
+    "taken": "não está disponível",
+    "too_long": {
+      "one": "é demasiado grande (o máximo é de 1 caractere)",
+      "other": "é demasiado grande (o máximo é de %{count} caracteres)"
+    },
+    "too_short": {
+      "one": "é demasiado pequeno (o mínimo é de 1 caractere)",
+      "other": "é demasiado pequeno (o mínimo é de %{count} caracteres)"
+    },
+    "wrong_length": {
+      "one": "comprimento errado (deve ter 1 caractere)",
+      "other": "comprimento errado (deve ter %{count} caracteres)"
+    }
+  },
+  "presence": "não pode estar vazio",
+  "template": {
+    "body": "Por favor, verifique os seguintes campos:",
+    "header": {
+      "one": "1 erro impediu guardar este %{model}",
+      "other": "%{count} erros impediram guardar este %{model}"
+    }
+  },
+  "unacceptable_request": "Uma versão suportada é esperada no cabeçalho Accept.\n",
+  "unavailable_session": "A sessão %{id} já não está disponível na memória.\n\nSe estiver a executar num servidor multi-processo (como Unicorn ou Puma) o processo\nque recebeu este pedido não armazena %{id} na memória. Considere reduzir o número de\nprocessos/workers para um (1) ou usar um servidor diferente em desenvolvimento.\n"
+}

@@ -1,0 +1,98 @@
+{
+  "header": "About Us",
+  "history_and_values": {
+    "content": {
+      "1_paragraph": "Founded by Sofia Galvão, Sofia Galvão Group was born out of a passion for offering quality real estate solutions. With extensive experience in the sector, our team is committed to providing a personalised and transparent consultancy service. We believe that every property transaction is an opportunity to build lasting relationships and help our clients achieve their goals.",
+      "2_paragraph": "Since 2022, we have been part of KW Portugal's Top 20 of the most productive consultants in the whole country, and we are in the top 3 at KW Lead Santos, thus making us part of the Associate Leadership Council (ALC), a committee of consultants that supports business strategy at a local level.",
+      "3_paragraph": "We are part of the 3rd most successful market centre in Portugal. Here we help clients get the home they dream of, we help homeowners find the best business solution and we help consultants get the career they're looking for!",
+      "first_paragraph": "Founded by Sofia Galvão, Sofia Galvão Group was born out of a passion for offering quality real estate solutions. With extensive experience in the sector, our team is committed to providing a personalised and transparent consultancy service. We believe that every property transaction is an opportunity to build lasting relationships and help our clients achieve their goals.",
+      "second_paragraph": "Since 2022, we have been part of KW Portugal's Top 20 of the most productive consultants in the whole country, and we are in the top 3 at KW Lead Santos, thus making us part of the Associate Leadership Council (ALC), a committee of consultants that supports business strategy at a local level.",
+      "third_paragraph": "We are part of the 3rd most successful market centre in Portugal. Here we help clients get the home they dream of, we help homeowners find the best business solution and we help consultants get the career they're looking for!"
+    },
+    "title": "Our History and Our Values"
+  },
+  "kw_luxury": {
+    "content": "As part of an exclusive network of international KW Luxury agents, Sofia Galvão Group specialises in the promotion and sale of high-end real estate. We offer a service of excellence, focusing on the needs of the most demanding clients. Our experience and worldwide network allow us to offer a personalised approach and a high level of service, ensuring that each luxury property receives the upscale prominence it deserves.",
+    "subtitle": "Luxury Property Specialists",
+    "title": "We are Agent KW Luxury"
+  },
+  "kw_partnership": {
+    "international_network": {
+      "content": "Sofia Galvão Group is part of KW, a global network of property consultants, present on 5 continents and in more than 50 regions. As a world leader in real estate brokerage, KW offers access to an extensive network and unrivalled resources.",
+      "title": "International framework"
+    },
+    "national_network": {
+      "content": "In Portugal, KW has 23 representations and more than 2,800 consultants and associates, providing comprehensive reach and high-quality service throughout the country. This vast network allows us to offer our customers a superior buying and selling experience.",
+      "title": "National framework"
+    },
+    "principles": {
+      "list": [
+        {
+          "WIN-WIN": "Or no deal."
+        },
+        {
+          "INTEGRITY": "Do the right thing."
+        },
+        {
+          "CUSTOMERS": "Always come first."
+        },
+        {
+          "COMMITMENT": "In all things."
+        },
+        {
+          "COMMUNICATION": "Seek first to understand."
+        },
+        {
+          "CREATIVITY": "Ideas before results."
+        },
+        {
+          "TEAMWORK": "Together everyone achieves more."
+        },
+        {
+          "TRUST": "Starts with honesty."
+        },
+        {
+          "EQUITY": "Opportunities for all."
+        },
+        {
+          "SUCCESS": "Results through people."
+        }
+      ],
+      "title": "KW Principles"
+    },
+    "title": "Partnership with Keller Williams"
+  },
+  "meta_description": "Sofia Galvão Group, a dedicated and demanding team that motivated by the best customer service grows and goes further every day.",
+  "mission": {
+    "sub1": "To be by your side in the real estate world to make the big \"changes\" in your life happy!",
+    "title": "Mission"
+  },
+  "mission_and_vision": {
+    "content": "Our mission is to be the number one choice for high quality real estate services throughout the country. We devotedly work to ensure that each client receives a personalised service focused on their unique needs. Our vision is to set a standard of excellence in the real estate market by offering innovative solutions and an unrivalled customer experience.",
+    "title": "Mission and Vision"
+  },
+  "profile": {
+    "description": "I'm a marketer by training and a value creator by passion. I've worked with brands and products for years, aiming to better serve customers and offer them not only what they needed but also what best fulfilled their aspirations. I focused on people and their full potential, earning a Master's degree in Neuro-Linguistic Programming. I believe in empowering people to achieve their goals and fulfill their life purposes. I have dedicated myself to the real estate sector, applying my skills to discovering unique assets: the house, the client, the transaction, and the service. At KW, I found the right structure to develop the Sofia Galvão Group's real estate consultancy with high standards, responsibility, professionalism, and confidence. I have the market know-how to provide my clients with the best deals, the ones that make them the happiest!",
+    "slogan": "Together we create Happy Homes!"
+  },
+  "results": {
+    "title": "Results"
+  },
+  "team": {
+    "content": "Our team gathers highly qualified and experienced professionals who specialise in various market segments. We work with a network of trusted partners to provide a complete service, including legal support and financial advice. Our aim is to ensure that every client feels supported and confident throughout the buying or selling process.",
+    "title": "Our Team"
+  },
+  "testimonies": {
+    "title": "Testimonies"
+  },
+  "vision": {
+    "sub1": "To be the preferred team for clients who want to buy or sell property in the Lisbon and Porto areas, thanks to our professionalism, our capacity to generate good business and the values we profess on a daily basis.",
+    "sub2": "Together we create Happy Homes!",
+    "title": "Vision"
+  },
+  "who": {
+    "sub1": "A dedicated and demanding team that, motivated by the best customer service, grows and goes further every day.",
+    "sub2": "Focused on the professionalisation of the sector, we provide real estate consultancy with credibility, excellence and relevance.",
+    "title": "Who are we?"
+  }
+}

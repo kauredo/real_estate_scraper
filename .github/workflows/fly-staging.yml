@@ -2,7 +2,9 @@ name: Fly Deploy
 on:
   push:
     branches:
-      - staging
+      # when you want to deploy to staging automatically, uncomment the line below
+      # - staging
+      - staging-disabled
 jobs:
   deploy:
     name: Deploy app

@@ -1,0 +1,3 @@
+# Block all search engines from indexing the backoffice
+User-agent: *
+Disallow: /
