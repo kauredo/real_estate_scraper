@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # API routes
   namespace :api do
     namespace :v1 do
+      # Health check endpoint (no authentication required)
+      get '/health', to: 'health#show'
+
       # API Documentation
       get '/docs', to: 'docs#index'
 
