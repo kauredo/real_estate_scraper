@@ -1,9 +1,9 @@
 [build]
 builder = "DOCKERFILE"
-dockerfilePath = "./Dockerfile"
+dockerfilePath = "api/Dockerfile"
 
 [deploy]
-startCommand = "./bin/rails server"
+startCommand = "api/bin/rails server"
 healthcheckPath = "/api/health"
 healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
