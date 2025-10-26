@@ -10,10 +10,10 @@ The API is configured for automatic deployment via Railway's GitHub integration.
 
    - Go to [Railway Dashboard](https://railway.app/dashboard)
    - Select your "Real Estate Scraper" project
-   - Go to Settings → GitHub
+   - Go to Settings → Service Settings
    - Connect repository: `kauredo/real_estate_scraper`
+   - Set **Root Directory**: `api`
    - Set **Branch**: `main`
-   - **Important:** Do NOT set a Root Directory - the `railway.toml` file in the repository root will configure everything
 
 2. **Configure Environment Variables** (if not already set)
 
@@ -30,7 +30,7 @@ The API is configured for automatic deployment via Railway's GitHub integration.
 
 ### Configuration File
 
-The `railway.toml` file in the repository root configures:
+The `api/railway.toml` file configures:
 
 - Dockerfile-based builds (using `api/Dockerfile`)
 - Health check endpoint at `/api/health`
@@ -38,9 +38,8 @@ The `railway.toml` file in the repository root configures:
 
 ### How It Works
 
-- Push to `main` → Railway reads `railway.toml` → Builds using `api/Dockerfile` → Deploys automatically
+- Push to `main` → Railway uses `api/` as root directory → Reads `railway.toml` → Builds using Dockerfile → Deploys automatically
 - No manual `railway up` needed
-- No Root Directory configuration needed in dashboard
 
 ## Manual Deployment (Legacy)
 
