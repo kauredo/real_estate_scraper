@@ -3,8 +3,8 @@
 module Api
   module V1
     class HealthController < ApplicationController
-      # Skip all authentication and tenant verification for health checks
-      skip_before_action :verify_authenticity_token
+      # Health check endpoint - no authentication required
+      # Inherits from ApplicationController which doesn't require auth by default
 
       def show
         # Basic health check - just return 200 OK with a simple status
