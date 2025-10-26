@@ -4,5 +4,11 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
+  "ignoreCommand": "bash -c 'if git diff HEAD^ HEAD --quiet -- frontend/; then exit 0; else exit 1; fi'"
 }

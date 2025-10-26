@@ -1,33 +1,55 @@
 # Railway Deployment Guide
 
-## Step 1: Railway Setup
+## Automated GitHub Deployment (Recommended)
 
-### Install Railway CLI
+The API is configured for automatic deployment via Railway's GitHub integration. Pushes to `main` branch that modify the `api/` directory will automatically trigger a deployment.
 
-```bash
-npm install -g @railway/cli
-railway login
-```
+### Initial Setup
 
-### Create Railway Project
+1. **Connect Repository to Railway**
+
+   - Go to [Railway Dashboard](https://railway.app/dashboard)
+   - Select your "Real Estate Scraper" project
+   - Go to Settings → GitHub
+   - Connect repository: `kauredo/real_estate_scraper`
+   - Set **Root Directory**: `/api`
+   - Set **Branch**: `main`
+   - Set **Watch Paths**: `api/**`
+
+2. **Configure Environment Variables** (if not already set)
+
+   ```bash
+   railway variables set RAILS_ENV=production
+   railway variables set RAILS_MASTER_KEY=<your_master_key>
+   railway variables set ALLOWED_HOSTS=*.railway.app,*.vercel.app
+   ```
+
+3. **Database** (if not already added)
+   ```bash
+   railway add --database postgresql
+   ```
+
+### Configuration File
+
+The `api/railway.toml` file configures:
+
+- Dockerfile-based builds
+- Watch paths for monorepo optimization
+- Health check endpoint at `/api/health`
+- Automatic restart policy
+
+### How It Works
+
+- Push to `main` → Railway detects changes in `api/` → Builds & deploys automatically
+- Changes outside `api/` directory are ignored
+- No manual `railway up` needed
+
+## Manual Deployment (Legacy)
+
+If you need to deploy manually for testing:
 
 ```bash
 cd api
-railway init
-railway add --database postgresql
-```
-
-### Set Environment Variables
-
-```bash
-railway variables set RAILS_ENV=production
-railway variables set RAILS_MASTER_KEY=$(cat config/master.key)
-railway variables set ALLOWED_HOSTS=*.railway.app,*.vercel.app
-```
-
-### Deploy
-
-```bash
 railway up
 ```
 

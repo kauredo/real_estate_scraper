@@ -1,0 +1,23 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+watchPatterns = ["api/**"]
+
+[deploy]
+startCommand = "./bin/rails server"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[[deploy.environmentVariables]]
+name = "RAILS_ENV"
+value = "production"
+
+[[deploy.environmentVariables]]
+name = "RAILS_LOG_TO_STDOUT"
+value = "1"
+
+[[deploy.environmentVariables]]
+name = "RAILS_SERVE_STATIC_FILES"
+value = "false"
