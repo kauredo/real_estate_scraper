@@ -7,6 +7,7 @@ Rails.application.configure do
   config.hosts << /.*\.vercel\.app/
   config.hosts << /.*\.netlify\.app/
   config.hosts << /.*\.sofiagalvaogroup\.com/
+  config.hosts << /.*\.myagentwebsite\.com/
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
