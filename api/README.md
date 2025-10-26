@@ -1,6 +1,6 @@
 # Sofia Galvao Group API
 
-This document provides an overview of the Sofia Galvao Group API, explaining how to use the API endpoints to interact with the application's data!
+This document provides an overview of the Sofia Galvao Group API, explaining how to use the API endpoints to interact with the application's data.
 
 ## Base URL
 
