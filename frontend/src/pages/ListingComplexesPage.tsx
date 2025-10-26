@@ -5,6 +5,9 @@ import MetaTags from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
 import Pagination from "../components/shared/Pagination";
 import ListingComplexes from "../components/listingComplex/ListingComplexes";
+import FullPageLoader from "../components/loading/FullPageLoader";
+import { useNotifications } from "../context/NotificationContext";
+import { useDelayedLoading } from "../hooks/useDelayedLoading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrophy,
@@ -16,8 +19,10 @@ import {
 
 const ListingComplexesPage = () => {
   const { t } = useTranslation();
+  const { showError } = useNotifications();
   const [listingComplexes, setListingComplexes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const showLoading = useDelayedLoading(loading);
   const [pagination, setPagination] = useState({
     current_page: 1,
     per_page: 12,
@@ -32,7 +37,7 @@ const ListingComplexesPage = () => {
       setListingComplexes(response.data.listing_complexes);
       setPagination(response.data.pagination);
     } catch (error) {
-      console.error("Error fetching listing complexes:", error);
+      showError(t("errors.fetch_listing_complexes"));
     } finally {
       setLoading(false);
     }
@@ -56,10 +61,8 @@ const ListingComplexesPage = () => {
       />
       <Banner height="20vh" blurred={true} text={t("enterprises.header")} />
 
-      {loading ? (
-        <div className="flex justify-center items-center py-8">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-        </div>
+      {showLoading ? (
+        <FullPageLoader />
       ) : (
         <>
           <Pagination pagination={pagination} onPageChange={handlePageChange} />

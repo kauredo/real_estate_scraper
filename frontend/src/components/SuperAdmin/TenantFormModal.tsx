@@ -5,6 +5,8 @@ import {
   superAdminUpdateTenant,
   superAdminUpdateTenantFeatures,
 } from "../../services/api";
+import ButtonSpinner from "../loading/ButtonSpinner";
+import { useNotifications } from "../../context/NotificationContext";
 
 interface Tenant {
   id: number;
@@ -24,6 +26,7 @@ interface TenantFormModalProps {
 
 const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
   const { t } = useTranslation();
+  const { showError, showSuccess } = useNotifications();
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
   const [domain, setDomain] = useState("");
@@ -106,6 +109,7 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
         // Update existing tenant
         await superAdminUpdateTenant(tenant.id, tenantData);
         await superAdminUpdateTenantFeatures(tenant.id, featuresData);
+        showSuccess(t("super_admin.tenants.success.updated"));
       } else {
         // Create new tenant
         const response = await superAdminCreateTenant({
@@ -117,6 +121,7 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
         if (response.data.tenant?.api_key) {
           setNewApiKey(response.data.tenant.api_key);
           setShowApiKey(true);
+          showSuccess(t("super_admin.tenants.success.created"));
           return; // Don't close yet, show API key first
         }
       }
@@ -127,6 +132,7 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
           error.response?.data?.error,
         ] || [t("super_admin.tenants.errors.generic")];
       setErrors(errorMessages);
+      showError(errorMessages[0]);
     } finally {
       setLoading(false);
     }
@@ -352,8 +358,9 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
+              className="flex-1 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400 flex items-center justify-center gap-2"
             >
+              {loading && <ButtonSpinner />}
               {loading ? t("common.saving") : t("common.save")}
             </button>
             <button

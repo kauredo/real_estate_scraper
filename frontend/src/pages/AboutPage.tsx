@@ -3,16 +3,20 @@ import MetaTags from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
 import Profile from "../components/homePage/Profile";
 import Results from "../components/homePage/Results";
+import FullPageLoader from "../components/loading/FullPageLoader";
 import { getHomePage } from "../services/api";
 import { ResultNumbers, Testimonial } from "../utils/interfaces";
 import { useState, useEffect } from "react";
+import { useNotifications } from "../context/NotificationContext";
+import { useDelayedLoading } from "../hooks/useDelayedLoading";
 
 const AboutPage = () => {
   const { t } = useTranslation();
+  const { showError } = useNotifications();
   const [results, setResults] = useState<ResultNumbers | null>(null);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const showLoading = useDelayedLoading(isLoading);
 
   useEffect(() => {
     const fetchHomeData = async () => {
@@ -31,8 +35,7 @@ const AboutPage = () => {
 
         setIsLoading(false);
       } catch (err) {
-        console.error("Error fetching home data:", err);
-        setError("Failed to load home page data");
+        showError(t("errors.fetch_about_data"));
         setIsLoading(false);
       }
     };
@@ -41,29 +44,25 @@ const AboutPage = () => {
   }, []);
 
   // Show loading state
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        Loading...
-      </div>
-    );
+  if (showLoading) {
+    return <FullPageLoader />;
   }
 
-  // Show error state
-  if (error) {
-    return (
-      <div className="flex justify-center items-center h-screen text-red-500">
-        {error}
-      </div>
-    );
-  }
-
-  // If no results data yet, show a placeholder
+  // If no results data yet, show content without results section
   if (!results) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        No data available
-      </div>
+      <>
+        <MetaTags
+          pageType="about"
+          title={t("about.header")}
+          description={t("about.meta_description")}
+          url={window.location.href}
+        />
+        <Banner height="20vh" blurred={true} text={t("about.header")} />
+        <section className="container mx-auto mt-6 mb-12 px-8">
+          <Profile />
+        </section>
+      </>
     );
   }
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import ClubStoryCard from "../components/club/ClubStoryCard";
+import FullPageLoader from "../components/loading/FullPageLoader";
 import SubNavbar from "../components/shared/SubNavbar";
 import ClubHeader from "../components/club/ClubHeader";
 import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
@@ -10,12 +11,16 @@ import { ClubStory } from "../utils/interfaces";
 import MetaTags from "../components/shared/MetaTags";
 import { getClubStories } from "../services/api";
 import Pagination from "../components/shared/Pagination";
+import { useNotifications } from "../context/NotificationContext";
+import { useDelayedLoading } from "../hooks/useDelayedLoading";
 
 export default function ClubStoriesPage({ isBackoffice = false }) {
   const { t } = useTranslation();
+  const { showError } = useNotifications();
   const [searchParams] = useSearchParams();
   const [stories, setStories] = useState<ClubStory[]>([]);
   const [loading, setLoading] = useState(true);
+  const showLoading = useDelayedLoading(loading);
   const [pagination, setPagination] = useState({
     current_page: 1,
     per_page: 12,
@@ -38,7 +43,7 @@ export default function ClubStoriesPage({ isBackoffice = false }) {
       setStories(response.data.club_stories);
       setPagination(response.data.pagination);
     } catch (error) {
-      console.error("Error fetching club stories:", error);
+      showError(t("errors.fetch_club_stories"));
     } finally {
       setLoading(false);
     }
@@ -89,10 +94,8 @@ export default function ClubStoriesPage({ isBackoffice = false }) {
           )}
 
           <div className="w-full max-w-7xl mt-16">
-            {loading ? (
-              <div className="flex justify-center items-center py-8">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-              </div>
+            {showLoading ? (
+              <FullPageLoader />
             ) : stories && stories.length > 0 ? (
               <>
                 {stories.length === 1 && (

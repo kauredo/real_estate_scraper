@@ -7,14 +7,19 @@ import Banner from "../components/shared/Banner";
 import ListingSearch from "../components/shared/ListingSearch";
 import Pagination from "../components/shared/Pagination";
 import Listings from "../components/indexPage/Listings";
+import FullPageLoader from "../components/loading/FullPageLoader";
 import { Listing } from "../utils/interfaces";
+import { useNotifications } from "../context/NotificationContext";
+import { useDelayedLoading } from "../hooks/useDelayedLoading";
 
 const ListingsPage = () => {
   const { t } = useTranslation();
+  const { showError } = useNotifications();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
+  const showLoading = useDelayedLoading(loading);
   const [pagination, setPagination] = useState({
     current_page: 1,
     per_page: 12,
@@ -41,7 +46,7 @@ const ListingsPage = () => {
       setObjectives(response.data.objectives || []);
       setMaxPrice(response.data.max_price || 0);
     } catch (error) {
-      console.error("Error fetching listings:", error);
+      showError(t("errors.fetch_listings"));
     } finally {
       setLoading(false);
     }
@@ -74,10 +79,8 @@ const ListingsPage = () => {
         objectives={objectives}
       />
 
-      {loading ? (
-        <div className="flex justify-center items-center py-8">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-        </div>
+      {showLoading ? (
+        <FullPageLoader />
       ) : (
         <>
           <Pagination pagination={pagination} onPageChange={handlePageChange} />

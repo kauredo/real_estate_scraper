@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useAsyncOperation } from "../../hooks/useAsyncOperation";
 import { submitContactForm } from "../../services/api";
 import { Listing, ListingComplex } from "../../utils/interfaces";
+import ButtonSpinner from "../loading/ButtonSpinner";
 
 interface Props {
   listing?: Listing;
@@ -145,10 +146,11 @@ export default function ContactForm(props: Props) {
             type="submit"
             disabled={isLoading}
             className={
-              "w-full font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-medium border dark:border-0 p-3 transition hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed " +
+              "w-full font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-medium border dark:border-0 p-3 transition hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 " +
               (listing || complex ? "" : "rounded")
             }
           >
+            {isLoading && <ButtonSpinner />}
             {isLoading
               ? t("common.saving") || "Sending..."
               : t("contacts.form.fields.send")}

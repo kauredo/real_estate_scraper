@@ -8,6 +8,7 @@ import Hero from "../components/shared/Hero";
 import Cards from "../components/homePage/Cards";
 import Results from "../components/homePage/Results";
 import Newsletter from "../components/homePage/Newsletter";
+import FullPageLoader from "../components/loading/FullPageLoader";
 
 export default function Home() {
   // Create state to hold the data
@@ -58,11 +59,7 @@ export default function Home() {
 
   // Show loading state
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-beige-default dark:border-beige-medium"></div>
-      </div>
-    );
+    return <FullPageLoader />;
   }
 
   return (

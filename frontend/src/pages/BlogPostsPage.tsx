@@ -2,15 +2,20 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getBlogPosts } from "../services/api";
 import BlogCard from "../components/blog/BlogCard";
+import FullPageLoader from "../components/loading/FullPageLoader";
 import Banner from "../components/shared/Banner";
 import Pagination from "../components/shared/Pagination";
 import MetaTags from "../components/shared/MetaTags";
 import { BlogPost } from "../utils/interfaces";
+import { useNotifications } from "../context/NotificationContext";
+import { useDelayedLoading } from "../hooks/useDelayedLoading";
 
 const BlogPostsPage = () => {
   const { t } = useTranslation();
+  const { showError } = useNotifications();
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const showLoading = useDelayedLoading(loading);
   const [pagination, setPagination] = useState({
     current_page: 1,
     per_page: 12,
@@ -25,7 +30,7 @@ const BlogPostsPage = () => {
       setBlogPosts(response.data.blog_posts);
       setPagination(response.data.pagination);
     } catch (error) {
-      console.error("Error fetching blog posts:", error);
+      showError(t("errors.fetch_blog_posts"));
     } finally {
       setLoading(false);
     }
@@ -38,14 +43,6 @@ const BlogPostsPage = () => {
   const handlePageChange = (page: number) => {
     fetchBlogPosts(page);
   };
-
-  if (loading) {
-    return (
-      <div className="container mx-auto p-8 flex justify-center items-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-beige-default"></div>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -63,7 +60,9 @@ const BlogPostsPage = () => {
           <br />
 
           <div className="w-full max-w-7xl mx-auto">
-            {blogPosts.length === 0 ? (
+            {showLoading ? (
+              <FullPageLoader />
+            ) : blogPosts.length === 0 ? (
               <div className="w-full text-center p-8 text-xl">
                 <h2>{t("blog_posts.empty")}</h2>
               </div>

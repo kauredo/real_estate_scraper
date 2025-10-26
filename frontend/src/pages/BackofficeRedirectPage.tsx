@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import FullPageLoader from "../components/loading/FullPageLoader";
 
 const BackofficeRedirectPage = () => {
   useEffect(() => {
@@ -7,16 +8,7 @@ const BackofficeRedirectPage = () => {
     window.location.href = backofficeUrl;
   }, []);
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dark">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-beige-default mx-auto mb-4"></div>
-        <p className="text-lg text-black dark:text-light">
-          Redirecting to backoffice...
-        </p>
-      </div>
-    </div>
-  );
+  return <FullPageLoader message="Redirecting to backoffice..." />;
 };
 
 export default BackofficeRedirectPage;

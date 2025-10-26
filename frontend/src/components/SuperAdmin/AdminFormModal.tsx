@@ -5,6 +5,8 @@ import {
   superAdminUpdateAdmin,
   superAdminGetTenants,
 } from "../../services/api";
+import ButtonSpinner from "../loading/ButtonSpinner";
+import { useNotifications } from "../../context/NotificationContext";
 
 interface Tenant {
   id: number;
@@ -20,6 +22,7 @@ interface AdminFormModalProps {
 
 const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
   const { t } = useTranslation();
+  const { showError, showSuccess } = useNotifications();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -82,15 +85,18 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
 
       if (admin) {
         await superAdminUpdateAdmin(admin.id, data);
+        showSuccess(t("super_admin.admins.success.updated"));
       } else {
         await superAdminCreateAdmin(data);
+        showSuccess(t("super_admin.admins.success.created"));
       }
 
       onClose();
     } catch (error: any) {
-      setErrors([
-        error.response?.data?.error || t("super_admin.admins.errors.generic"),
-      ]);
+      const errorMessage =
+        error.response?.data?.error || t("super_admin.admins.errors.generic");
+      setErrors([errorMessage]);
+      showError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -198,8 +204,9 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
+              className="flex-1 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400 flex items-center justify-center gap-2"
             >
+              {loading && <ButtonSpinner />}
               {loading ? t("common.saving") : t("common.save")}
             </button>
             <button

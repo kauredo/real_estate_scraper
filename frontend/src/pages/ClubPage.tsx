@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { scrollToSection } from "../utils/functions";
 import { ClubStory } from "../utils/interfaces";
 import ClubStoryCard from "../components/club/ClubStoryCard";
+import Spinner from "../components/loading/Spinner";
 import SubNavbar from "../components/shared/SubNavbar";
 import ClubHeader from "../components/club/ClubHeader";
 import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
@@ -11,9 +12,11 @@ import MetaTags from "../components/shared/MetaTags";
 import { getClub } from "../services/api";
 import togetherImage from "../assets/images/together.webp";
 import ClubJoinForm from "../components/club/ClubJoinForm";
+import { useNotifications } from "../context/NotificationContext";
 
 export default function ClubPage() {
   const { t } = useTranslation();
+  const { showError } = useNotifications();
   const [recentStories, setRecentStories] = useState<ClubStory[]>([]);
   const [loading, setLoading] = useState(true);
   const clubSections = useClubSections();
@@ -25,7 +28,7 @@ export default function ClubPage() {
         const response = await getClub();
         setRecentStories(response.data);
       } catch (error) {
-        console.error("Error fetching club data:", error);
+        showError(t("errors.fetch_club_data"));
       } finally {
         setLoading(false);
       }
@@ -56,7 +59,7 @@ export default function ClubPage() {
               {/* Recent Stories Section */}
               {loading ? (
                 <div className="flex justify-center items-center py-8">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                  <Spinner size="md" />
                 </div>
               ) : (
                 recentStories &&
