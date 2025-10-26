@@ -1,6 +1,6 @@
 # Real Estate Scraper
 
-Monorepo containing the Real Estate Scraper application.
+Monorepo containing the Real Estate Scraper application!
 
 ## Structure
 
