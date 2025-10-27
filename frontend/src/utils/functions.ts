@@ -40,9 +40,10 @@ export const changeLocale = (i18n: I18nType) => {
 };
 
 export const navbarItemClass = (
-  path: string,
+  path: string | null,
   isMobile: boolean,
   children: string[] = [],
+  currentPath?: string,
 ): string => {
   const base =
     "whitespace-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase ";
@@ -52,9 +53,10 @@ export const navbarItemClass = (
   const active =
     "bg-beige-default dark:bg-beige-medium text-white dark:text-dark ";
 
-  const isCurrentPath = window.location.pathname.includes(path);
+  const pathname = currentPath || window.location.pathname;
+  const isCurrentPath = path ? pathname.includes(path) : false;
   const hasActiveChild = children.some((childPath) =>
-    window.location.pathname.includes(childPath),
+    pathname.includes(childPath),
   );
   const isActive = isCurrentPath || hasActiveChild;
 

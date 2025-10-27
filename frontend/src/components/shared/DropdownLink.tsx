@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { navbarItemClass } from "../../utils/functions";
 import { NavbarItemProps } from "../../utils/interfaces";
@@ -12,6 +13,7 @@ export interface DropdownProps {
 
 const DropdownLink = (props: DropdownProps) => {
   const { title, items, img } = props;
+  const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
   const dropdownMenuRef = useRef<HTMLDivElement>(null);
   const dropdownLinkRef = useRef<HTMLAnchorElement>(null);
@@ -48,6 +50,7 @@ const DropdownLink = (props: DropdownProps) => {
           items
             ?.map((item) => item.url)
             .filter((url): url is string => url !== undefined),
+          location.pathname,
         )
       : "";
 

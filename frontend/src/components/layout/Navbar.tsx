@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 import { changeLocale, isDarkModeActive } from "../../utils/functions";
@@ -15,6 +15,7 @@ import mainLogo from "../../assets/logos/main.webp";
 export default function Navbar() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -126,7 +127,7 @@ export default function Navbar() {
 
   mobileItems.push(...rightItems);
 
-  const ctaBtn = Routes.sell_path !== window.location.pathname && (
+  const ctaBtn = Routes.sell_path !== location.pathname && (
     <Link to={Routes.sell_path}>
       <div className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark mr-4">
         <p>{t("home.cta.long")}</p>

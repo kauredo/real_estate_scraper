@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { truncateText } from "../../utils/functions";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
@@ -8,7 +9,7 @@ import { Listing } from "../../utils/interfaces";
 export default function Card({ listing }: { listing: Listing }) {
   return (
     <div className="card m-2 mx-auto max-w-sm flex-shrink-0 relative w-full h-full shadow-md sm:w-auto dark:opacity-80 dark:border-beige-medium dark:border-2">
-      <a href={Routes.listing_path(listing.slug)}>
+      <Link to={Routes.listing_path(listing.slug)}>
         <div
           className="ajustedBackground object-cover bg-center bg-no-repeat bg-cover object-center w-full h-2/3 min-h-[15rem] relative"
           style={{
@@ -23,7 +24,7 @@ export default function Card({ listing }: { listing: Listing }) {
           </h2>
           <ListingIcons listing={listing} />
         </div>
-      </a>
+      </Link>
     </div>
   );
 }
