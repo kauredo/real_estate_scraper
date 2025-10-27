@@ -8,7 +8,7 @@ import Hero from "../components/shared/Hero";
 import Cards from "../components/homePage/Cards";
 import Results from "../components/homePage/Results";
 import Newsletter from "../components/homePage/Newsletter";
-import FullPageLoader from "../components/loading/FullPageLoader";
+import HomePageSkeleton from "../components/loading/HomePageSkeleton";
 
 export default function Home() {
   // Create state to hold the data
@@ -59,7 +59,7 @@ export default function Home() {
 
   // Show loading state
   if (isLoading) {
-    return <FullPageLoader />;
+    return <HomePageSkeleton />;
   }
 
   return (

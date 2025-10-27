@@ -3,25 +3,20 @@ import MetaTags from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
 import Profile from "../components/homePage/Profile";
 import Results from "../components/homePage/Results";
-import FullPageLoader from "../components/loading/FullPageLoader";
 import { getHomePage } from "../services/api";
 import { ResultNumbers, Testimonial } from "../utils/interfaces";
 import { useState, useEffect } from "react";
 import { useNotifications } from "../context/NotificationContext";
-import { useDelayedLoading } from "../hooks/useDelayedLoading";
 
 const AboutPage = () => {
   const { t } = useTranslation();
   const { showError } = useNotifications();
   const [results, setResults] = useState<ResultNumbers | null>(null);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const showLoading = useDelayedLoading(isLoading);
 
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
-        setIsLoading(true);
         const response = await getHomePage();
         const data = response.data;
 
@@ -32,39 +27,13 @@ const AboutPage = () => {
         if (data.testimonials) {
           setTestimonials(data.testimonials as Testimonial[]);
         }
-
-        setIsLoading(false);
       } catch (err) {
         showError(t("errors.fetch_about_data"));
-        setIsLoading(false);
       }
     };
 
     fetchHomeData();
   }, []);
-
-  // Show loading state
-  if (showLoading) {
-    return <FullPageLoader />;
-  }
-
-  // If no results data yet, show content without results section
-  if (!results) {
-    return (
-      <>
-        <MetaTags
-          pageType="about"
-          title={t("about.header")}
-          description={t("about.meta_description")}
-          url={window.location.href}
-        />
-        <Banner height="20vh" blurred={true} text={t("about.header")} />
-        <section className="container mx-auto mt-6 mb-12 px-8">
-          <Profile />
-        </section>
-      </>
-    );
-  }
 
   return (
     <>
@@ -169,7 +138,7 @@ const AboutPage = () => {
           </div>
         </div>
 
-        <Results results={results} testimonials={testimonials} />
+        {results && <Results results={results} testimonials={testimonials} />}
       </section>
     </>
   );

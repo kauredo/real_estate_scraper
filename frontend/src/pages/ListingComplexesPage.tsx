@@ -5,9 +5,9 @@ import MetaTags from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
 import Pagination from "../components/shared/Pagination";
 import ListingComplexes from "../components/listingComplex/ListingComplexes";
-import FullPageLoader from "../components/loading/FullPageLoader";
+import ListingComplexSkeleton from "../components/loading/ListingComplexSkeleton";
+import TopProgressBar from "../components/loading/TopProgressBar";
 import { useNotifications } from "../context/NotificationContext";
-import { useDelayedLoading } from "../hooks/useDelayedLoading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrophy,
@@ -22,7 +22,7 @@ const ListingComplexesPage = () => {
   const { showError } = useNotifications();
   const [listingComplexes, setListingComplexes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const showLoading = useDelayedLoading(loading);
+  const [hasInitialData, setHasInitialData] = useState(false);
   const [pagination, setPagination] = useState({
     current_page: 1,
     per_page: 12,
@@ -36,6 +36,12 @@ const ListingComplexesPage = () => {
       const response = await getListingComplexes({ page });
       setListingComplexes(response.data.listing_complexes);
       setPagination(response.data.pagination);
+      setHasInitialData(true);
+
+      // Smooth scroll to top after data is loaded (for pagination)
+      if (hasInitialData) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     } catch (error) {
       showError(t("errors.fetch_listing_complexes"));
     } finally {
@@ -61,8 +67,17 @@ const ListingComplexesPage = () => {
       />
       <Banner height="20vh" blurred={true} text={t("enterprises.header")} />
 
-      {showLoading ? (
-        <FullPageLoader />
+      {/* Show progress bar when paginating (loading with existing data) */}
+      {loading && hasInitialData && <TopProgressBar isLoading={loading} />}
+
+      {loading && !hasInitialData ? (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <ListingComplexSkeleton key={index} />
+            ))}
+          </div>
+        </div>
       ) : (
         <>
           <Pagination pagination={pagination} onPageChange={handlePageChange} />

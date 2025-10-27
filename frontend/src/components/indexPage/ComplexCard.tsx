@@ -5,20 +5,13 @@ import Routes from "../../utils/routes";
 
 interface Props {
   listing_complex: ListingComplex;
-  backoffice?: boolean;
 }
 
 export default function ComplexCard(props: Props) {
-  const { listing_complex, backoffice } = props;
+  const { listing_complex } = props;
   return (
     <div className="w-full max-w-7xl mx-auto px-4 my-8 drop-shadow-sm hover:drop-shadow-lg">
-      <a
-        href={
-          backoffice
-            ? Routes.edit_backoffice_listing_complex_path(listing_complex.slug)
-            : Routes.listing_complex_path(listing_complex.slug)
-        }
-      >
+      <a href={Routes.listing_complex_path(listing_complex.slug)}>
         <div className="relative m-0 shadow-lg flex flex-col md:flex-row bg-white dark:bg-dark">
           <div className="flex-no-shrink w-full md:w-1/3">
             <img

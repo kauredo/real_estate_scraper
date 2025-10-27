@@ -6,12 +6,11 @@ import Routes from "../../utils/routes";
 
 interface Props {
   listings: Listing[];
-  backoffice: boolean;
 }
 
 export default function Listings(props: Props) {
   const { t } = useTranslation();
-  const { listings, backoffice } = props;
+  const { listings } = props;
 
   if (listings.length === 0) {
     return (
@@ -36,13 +35,7 @@ export default function Listings(props: Props) {
   return (
     <div className="container mx-auto flex flex-wrap" id="listings">
       {listings?.map((listing) => {
-        return (
-          <LongCard
-            backoffice={backoffice}
-            listing={listing}
-            key={listing.url}
-          />
-        );
+        return <LongCard listing={listing} key={listing.url} />;
       })}
     </div>
   );

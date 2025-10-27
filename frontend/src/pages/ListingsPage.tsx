@@ -7,10 +7,10 @@ import Banner from "../components/shared/Banner";
 import ListingSearch from "../components/shared/ListingSearch";
 import Pagination from "../components/shared/Pagination";
 import Listings from "../components/indexPage/Listings";
-import FullPageLoader from "../components/loading/FullPageLoader";
+import ListingSkeleton from "../components/loading/ListingSkeleton";
+import TopProgressBar from "../components/loading/TopProgressBar";
 import { Listing } from "../utils/interfaces";
 import { useNotifications } from "../context/NotificationContext";
-import { useDelayedLoading } from "../hooks/useDelayedLoading";
 
 const ListingsPage = () => {
   const { t } = useTranslation();
@@ -19,7 +19,7 @@ const ListingsPage = () => {
   const navigate = useNavigate();
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
-  const showLoading = useDelayedLoading(loading);
+  const [hasInitialData, setHasInitialData] = useState(false);
   const [pagination, setPagination] = useState({
     current_page: 1,
     per_page: 12,
@@ -45,6 +45,12 @@ const ListingsPage = () => {
       setKinds(response.data.kinds || []);
       setObjectives(response.data.objectives || []);
       setMaxPrice(response.data.max_price || 0);
+      setHasInitialData(true);
+
+      // Smooth scroll to top after data is loaded (for pagination)
+      if (hasInitialData) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     } catch (error) {
       showError(t("errors.fetch_listings"));
     } finally {
@@ -79,12 +85,20 @@ const ListingsPage = () => {
         objectives={objectives}
       />
 
-      {showLoading ? (
-        <FullPageLoader />
+      {/* Show progress bar when paginating (loading with existing data) */}
+      {loading && hasInitialData && <TopProgressBar isLoading={loading} />}
+
+      {/* Show skeleton loaders on initial load */}
+      {loading && !hasInitialData ? (
+        <div className="container mx-auto flex flex-wrap" id="listings">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <ListingSkeleton key={index} />
+          ))}
+        </div>
       ) : (
         <>
           <Pagination pagination={pagination} onPageChange={handlePageChange} />
-          <Listings listings={listings} backoffice={false} />
+          <Listings listings={listings} />
           <Pagination pagination={pagination} onPageChange={handlePageChange} />
         </>
       )}

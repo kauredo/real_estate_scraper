@@ -9,11 +9,9 @@ import { ClubStory } from "../utils/interfaces";
 import { MetaTags } from "../components/shared/MetaTags";
 import { getClubStory } from "../services/api";
 
-interface Props {
-  isBackoffice?: boolean;
-}
+interface Props {}
 
-export default function ClubStoryDetailPage({ isBackoffice = false }: Props) {
+export default function ClubStoryDetailPage() {
   const { t } = useTranslation();
   const { slug } = useParams();
   const [searchParams] = useSearchParams();
@@ -67,7 +65,6 @@ export default function ClubStoryDetailPage({ isBackoffice = false }: Props) {
         image={clubStory?.main_photo}
         url={window.location.href}
       />
-      {!isBackoffice && <SubNavbar items={clubSections} />}
       <div className="container mx-auto px-4 py-12">
         <article className="max-w-4xl mx-auto bg-white/50 dark:bg-dark/50 rounded-lg shadow-lg overflow-hidden">
           <header className="p-8">

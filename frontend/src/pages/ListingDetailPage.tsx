@@ -3,6 +3,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { getListing } from "../services/api";
 import ShowPage from "../components/showPage/Show";
 import MetaTags from "../components/shared/MetaTags";
+import DetailPageSkeleton from "../components/loading/DetailPageSkeleton";
 import { Listing } from "../utils/interfaces";
 import { AxiosError } from "axios";
 
@@ -35,11 +36,7 @@ const ListingDetailPage = () => {
   }, [slug, previewToken]);
 
   if (loading) {
-    return (
-      <div className="container mx-auto p-8 flex justify-center items-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-beige-default"></div>
-      </div>
-    );
+    return <DetailPageSkeleton />;
   }
 
   if (!listing) {

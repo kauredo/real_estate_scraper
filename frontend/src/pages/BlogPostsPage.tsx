@@ -2,20 +2,20 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getBlogPosts } from "../services/api";
 import BlogCard from "../components/blog/BlogCard";
-import FullPageLoader from "../components/loading/FullPageLoader";
+import BlogPostSkeleton from "../components/loading/BlogPostSkeleton";
+import TopProgressBar from "../components/loading/TopProgressBar";
 import Banner from "../components/shared/Banner";
 import Pagination from "../components/shared/Pagination";
 import MetaTags from "../components/shared/MetaTags";
 import { BlogPost } from "../utils/interfaces";
 import { useNotifications } from "../context/NotificationContext";
-import { useDelayedLoading } from "../hooks/useDelayedLoading";
 
 const BlogPostsPage = () => {
   const { t } = useTranslation();
   const { showError } = useNotifications();
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const showLoading = useDelayedLoading(loading);
+  const [hasInitialData, setHasInitialData] = useState(false);
   const [pagination, setPagination] = useState({
     current_page: 1,
     per_page: 12,
@@ -29,6 +29,12 @@ const BlogPostsPage = () => {
       const response = await getBlogPosts({ page });
       setBlogPosts(response.data.blog_posts);
       setPagination(response.data.pagination);
+      setHasInitialData(true);
+
+      // Smooth scroll to top after data is loaded (for pagination)
+      if (hasInitialData) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     } catch (error) {
       showError(t("errors.fetch_blog_posts"));
     } finally {
@@ -59,9 +65,16 @@ const BlogPostsPage = () => {
           </p>
           <br />
 
+          {/* Show progress bar when paginating (loading with existing data) */}
+          {loading && hasInitialData && <TopProgressBar isLoading={loading} />}
+
           <div className="w-full max-w-7xl mx-auto">
-            {showLoading ? (
-              <FullPageLoader />
+            {loading && !hasInitialData ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <BlogPostSkeleton key={index} />
+                ))}
+              </div>
             ) : blogPosts.length === 0 ? (
               <div className="w-full text-center p-8 text-xl">
                 <h2>{t("blog_posts.empty")}</h2>
