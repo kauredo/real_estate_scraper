@@ -16,7 +16,7 @@ export default function AdminBtns(props: Props) {
   if (!resource || !admin) return null;
 
   const resourceBtn = admin && resource && (
-    <a href={resource.path} data-turbo={false}>
+    <a href={resource.path}>
       <div className="whitespace-nowrap bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded mb-2">
         <p>Editar {resource.name} no Backoffice</p>
       </div>

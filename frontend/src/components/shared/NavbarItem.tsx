@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { navbarItemClass } from "../../utils/functions";
 import { NavbarItemProps } from "../../utils/interfaces";
 
@@ -10,7 +11,7 @@ interface Props {
 
 export default function NavbarItem(props: Props) {
   const { item, fullWidth, leftAlign } = props;
-  const { turbo, title, url, hover, img, children, method, onClick } = item;
+  const { title, url, hover, img, children, method, onClick } = item;
   const className = title.length > 0 ? navbarItemClass(url, false) : "";
   const actualMethod = method ? method : "get";
 
@@ -49,10 +50,9 @@ export default function NavbarItem(props: Props) {
     );
   } else {
     return (
-      <a
-        data-turbo={turbo}
+      <Link
         key={`${title}--desktop`}
-        href={url}
+        to={url || "/"}
         title={hover}
         className={`${className} ${
           fullWidth && "block !w-full text-right !text-lg"
@@ -60,7 +60,7 @@ export default function NavbarItem(props: Props) {
       >
         {title}
         {img}
-      </a>
+      </Link>
     );
   }
 }

@@ -31,7 +31,6 @@ const BlogCard = ({ blogPost }: { blogPost: BlogPost }) => {
         <Link
           to={`${prefix}/blog/${slug}`}
           className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          data-turbo="false"
         >
           {t("general.read_more")}
         </Link>

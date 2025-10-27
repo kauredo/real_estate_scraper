@@ -102,7 +102,6 @@ export interface Testimonial {
 export interface NavbarItemProps {
   title: string;
   url?: string;
-  turbo?: string;
   hover?: string;
   img?: any;
   items?: NavbarItemProps[];

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import QuarterCircle from "./QuarterCircle";
@@ -44,20 +45,20 @@ function Hero(props: Props) {
       </div>
       <div className="relative bottom-5 left-0 right-0 center">
         <div className="flex justify-center">
-          <a href={Routes.buy_path}>
+          <Link to={Routes.buy_path}>
             <div className="px-5 lowercase">
               <p className="text-dark dark:text-light hover:text-beige-default dark:hover:text-beige-medium">
                 {t("navbar.buy")}
               </p>
             </div>
-          </a>
-          <a href={Routes.sell_path} data-turbolinks={false}>
+          </Link>
+          <Link to={Routes.sell_path}>
             <div className="px-5 lowercase">
               <p className="text-dark dark:text-light hover:text-beige-default dark:hover:text-beige-medium">
                 {t("navbar.sell")}
               </p>
             </div>
-          </a>
+          </Link>
           <a href="#cards">
             <div className="px-5 text-dark dark:text-light hover:text-beige-default dark:hover:text-beige-medium">
               <FontAwesomeIcon icon="arrow-down" />

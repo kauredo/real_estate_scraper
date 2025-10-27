@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 import { changeLocale, isDarkModeActive } from "../../utils/functions";
@@ -13,6 +14,7 @@ import mainLogo from "../../assets/logos/main.webp";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -40,47 +42,38 @@ export default function Navbar() {
   const items: NavbarItemProps[] = [
     {
       title: `${t("navbar.buy")}`,
-      turbo: "true",
       url: Routes.buy_path,
     },
     {
       title: `${t("navbar.sell")}`,
-      turbo: "true",
       url: Routes.sell_path,
     },
     {
       title: `${t("navbar.enterprises")}`,
-      turbo: "true",
       url: Routes.listing_complexes_path,
     },
     {
       title: `${t("navbar.club")}`,
       url: Routes.club_path,
-      turbo: "true",
     },
     {
       title: `${t("navbar.blog_posts")}`,
-      turbo: "true",
       url: Routes.blog_path,
     },
     {
       title: `${t("navbar.about")}`,
-      turbo: "true",
       url: Routes.about_path,
     },
     {
       title: `${t("navbar.services")}`,
-      turbo: "true",
       url: Routes.services_path,
     },
     {
       title: `${t("navbar.contacts")}`,
-      turbo: "true",
       url: Routes.contact_path,
     },
     {
       title: `${t("navbar.faq")}`,
-      turbo: "true",
       url: Routes.faq_path,
     },
   ];
@@ -105,7 +98,7 @@ export default function Navbar() {
         title: t("navbar.other_language"),
         onClick: () => {
           const newUrl = changeLocale(i18n);
-          window.location.href = newUrl;
+          navigate(newUrl);
         },
         img: (
           <img
@@ -119,7 +112,6 @@ export default function Navbar() {
       {
         title: t("navbar.backoffice"),
         url: Routes.backoffice_path,
-        turbo: "false",
       },
     ],
     img: (
@@ -135,11 +127,11 @@ export default function Navbar() {
   mobileItems.push(...rightItems);
 
   const ctaBtn = Routes.sell_path !== window.location.pathname && (
-    <a href={Routes.sell_path} data-turbo={false}>
+    <Link to={Routes.sell_path}>
       <div className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark mr-4">
         <p>{t("home.cta.long")}</p>
       </div>
-    </a>
+    </Link>
   );
 
   return (
@@ -150,7 +142,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between min-h-[4rem]">
               <div className="flex items-center">
                 <div className="flex-shrink-0 relative">
-                  <a data-turbo="true" href={Routes.root_path}>
+                  <Link to={Routes.root_path}>
                     <img
                       loading="lazy"
                       className="w-[6rem] relative z-10"
@@ -158,7 +150,7 @@ export default function Navbar() {
                       src={isDarkModeActive() ? mainWhiteLogo : mainLogo}
                       alt="Sofia Galvão Group Logo"
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="flex items-center">
