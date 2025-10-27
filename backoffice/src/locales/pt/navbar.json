@@ -25,7 +25,7 @@
   "super_admin": "Super Admin",
   "super_admin_admins": "Administradores",
   "super_admin_tenants": "Tenants",
-  "super_admin_jobs": "Trabalhos em Segundo Plano",
+  "super_admin_jobs": "Background Jobs",
   "testimonies": "Testemunhos",
   "variables": "Variáveis"
 }
