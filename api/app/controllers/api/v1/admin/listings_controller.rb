@@ -10,13 +10,13 @@ module Api
         def index
           listings = case params[:order]
                      when 'recent'
-                       Listing.includes(:translations, listing_complex: [:translations, :listings]).reorder(created_at: :desc)
+                       Listing.includes(:translations, listing_complex: %i[translations listings]).reorder(created_at: :desc)
                      when 'deleted'
-                       Listing.with_deleted_ordered.includes(:translations, listing_complex: [:translations, :listings]).where(id: Listing.ids_with_title)
+                       Listing.with_deleted_ordered.includes(:translations, listing_complex: %i[translations listings]).where(id: Listing.ids_with_title)
                      when 'deleted_only'
-                       Listing.only_deleted.includes(:translations, listing_complex: [:translations, :listings]).where(id: Listing.ids_with_title)
+                       Listing.only_deleted.includes(:translations, listing_complex: %i[translations listings]).where(id: Listing.ids_with_title)
                      else
-                       Listing.includes(:translations, listing_complex: [:translations, :listings])
+                       Listing.includes(:translations, listing_complex: %i[translations listings])
                      end
 
           result = paginate(listings, serializer: ListingSerializer)
@@ -53,8 +53,16 @@ module Api
             end
 
             # Validate URL starts with tenant's scraper source
-            scraper_domain = URI.parse(tenant.scraper_source_url).host rescue nil
-            url_domain = URI.parse(listing_params[:url]).host rescue nil
+            scraper_domain = begin
+              URI.parse(tenant.scraper_source_url).host
+            rescue StandardError
+              nil
+            end
+            url_domain = begin
+              URI.parse(listing_params[:url]).host
+            rescue StandardError
+              nil
+            end
 
             unless scraper_domain && url_domain && url_domain.include?(scraper_domain)
               render json: { errors: ["URL deve ser do domínio #{scraper_domain}"] }, status: :unprocessable_entity
@@ -106,9 +114,7 @@ module Api
           if @listing.restore
             # Also trigger scraping to get latest data after recovery
             tenant = Current.tenant
-            if @listing.url.present? && tenant&.scraper_source_url.present?
-              ScrapeUrlJob.perform_later(tenant.id, @listing.url, true)
-            end
+            ScrapeUrlJob.perform_later(tenant.id, @listing.url, true) if @listing.url.present? && tenant&.scraper_source_url.present?
             render json: { message: 'Listing recuperado com sucesso. Dados serão atualizados em breve.' }
           else
             render json: { errors: ['Erro ao recuperar listing'] }, status: :unprocessable_entity
@@ -154,7 +160,7 @@ module Api
         private
 
         def find_listing
-          @listing = Listing.with_deleted.friendly.find(params[:id])
+          @listing = Listing.with_deleted.includes(:translations, listing_complex: :translations).friendly.find(params[:id])
         rescue ActiveRecord::RecordNotFound
           render json: { errors: ['Listing não encontrado'] }, status: :not_found
         end

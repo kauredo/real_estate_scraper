@@ -1,17 +1,29 @@
 one:
-  id: 4
-  email: vasco.kf@gmail.com
+  id: 1
+  email: admin@test.com
   confirmed: true
+  tenant_id: 1
+  encrypted_password: <%= Devise::Encryptor.digest(Admin, 'password123') %>
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 two:
-  id: 5
-  email: sofia.galvao@kwportugal.pt
+  id: 2
+  email: admin2@test.com
   confirmed: true
+  tenant_id: 2
+  encrypted_password: <%= Devise::Encryptor.digest(Admin, 'password123') %>
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 three:
-  id: 6
-  email: sofiagalvaogroup@gmail.com
+  id: 3
+  email: superadmin@test.com
   confirmed: true
+  tenant_id:
+  encrypted_password: <%= Devise::Encryptor.digest(Admin, 'password123') %>
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 # == Schema Information
 #

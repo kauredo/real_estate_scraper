@@ -124,8 +124,16 @@ module Api
           end
 
           # Validate URL starts with tenant's scraper source
-          scraper_domain = URI.parse(tenant.scraper_source_url).host rescue nil
-          url_domain = URI.parse(url).host rescue nil
+          scraper_domain = begin
+            URI.parse(tenant.scraper_source_url).host
+          rescue StandardError
+            nil
+          end
+          url_domain = begin
+            URI.parse(url).host
+          rescue StandardError
+            nil
+          end
 
           unless scraper_domain && url_domain && url_domain.include?(scraper_domain)
             render json: {
@@ -155,7 +163,7 @@ module Api
         private
 
         def find_listing_complex
-          @listing_complex = ListingComplex.friendly.find(params[:id])
+          @listing_complex = ListingComplex.includes(:translations, :photos, listings: :translations).friendly.find(params[:id])
         rescue ActiveRecord::RecordNotFound
           render json: { errors: ['Complexo não encontrado'] }, status: :not_found
         end

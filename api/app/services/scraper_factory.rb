@@ -13,13 +13,9 @@ class ScraperFactory
   def self.create(browser:, tenant:)
     platform = tenant.scraper_platform
 
-    if platform.nil?
-      raise UnsupportedPlatformError, "No scraper_source_url set for tenant #{tenant.slug}"
-    end
+    raise UnsupportedPlatformError, "No scraper_source_url set for tenant #{tenant.slug}" if platform.nil?
 
-    unless ADAPTERS.key?(platform)
-      raise UnsupportedPlatformError, "Unsupported platform: #{platform} for tenant #{tenant.slug}"
-    end
+    raise UnsupportedPlatformError, "Unsupported platform: #{platform} for tenant #{tenant.slug}" unless ADAPTERS.key?(platform)
 
     adapter_class = ADAPTERS[platform]
     adapter_class.new(browser:, tenant:)

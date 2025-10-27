@@ -30,3 +30,6 @@ Metrics/BlockLength:
 
 Metrics/ClassLength:
   Enabled: false
+
+Rails/FilePath:
+  Enabled: false

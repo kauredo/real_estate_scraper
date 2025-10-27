@@ -1,24 +1,43 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  slug: MyString
-  api_key: MyString
-  features: 
-  metadata: 
-  domain: MyString
-  contact_email: MyString
-  active: false
+  id: 1
+  name: Test Real Estate Agency
+  slug: test-agency
+  api_key: test_api_key_123
+  features:
+    blog_enabled: true
+    testimonials_enabled: true
+    listing_complexes_enabled: true
+    newsletter_enabled: true
+    club_enabled: false
+  metadata: {}
+  domain: test.example.com
+  contact_email: test@example.com
+  active: true
+  agency_name: Test Agency
+  scraper_source_url: https://www.kwportugal.pt
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 two:
-  name: MyString
-  slug: MyString
-  api_key: MyString
-  features: 
-  metadata: 
-  domain: MyString
-  contact_email: MyString
-  active: false
+  id: 2
+  name: Another Agency
+  slug: another-agency
+  api_key: another_api_key_456
+  features:
+    blog_enabled: true
+    testimonials_enabled: true
+    listing_complexes_enabled: false
+    newsletter_enabled: true
+    club_enabled: false
+  metadata: {}
+  domain: another.example.com
+  contact_email: another@example.com
+  active: true
+  agency_name: Another Agency
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
 
 # == Schema Information
 #

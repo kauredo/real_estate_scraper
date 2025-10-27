@@ -7,6 +7,8 @@ one:
   features: []
   url: "https://www.kwportugal.pt/Apartamento-Venda-Ajuda-1217-2456"
   description: ""
+  tenant_id: 1
+  listing_complex_id: 1
   photos:
     - https://repstaticneu.azureedge.net/images/2001/L/WM/Large/12f618ad-fe49-47de-8c93-40c6b5fe0ada-12041f25-8ca7-4c9e-88a5-aff4ba51608c.jpg
     - https://repstaticneu.azureedge.net/images/2001/L/WM/Large/12f618ad-fe49-47de-8c93-40c6b5fe0ada-21b9f911-db1b-4f28-a6cf-d2e62fec9254.jpg
@@ -64,6 +66,8 @@ two:
   features: []
   url: "https://www.kwportugal.pt/Apartamento-Venda-Campolide-1217-2466"
   description: ""
+  tenant_id: 1
+  listing_complex_id: 2
   photos:
     - https://repstaticneu.azureedge.net/images/2001/L/WM/Large/afb7ebe5-a04f-446b-8b81-f1752034be86-8a34c735-9810-4d81-b345-33d71e2b0ca5.jpg
     - https://repstaticneu.azureedge.net/images/2001/L/WM/Large/afb7ebe5-a04f-446b-8b81-f1752034be86-57b3f7ac-ba9c-4f20-ab96-09dd0c42112b.jpg

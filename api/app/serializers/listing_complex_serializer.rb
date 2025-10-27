@@ -42,7 +42,9 @@ class ListingComplexSerializer < ActiveModel::Serializer
   end
 
   def listings_count
-    object.listings.size
+    # Use .loaded? to avoid Bullet warnings about counter cache
+    # If the association is loaded, use .length, otherwise use .size
+    object.listings.loaded? ? object.listings.length : object.listings.size
   end
 
   def include_listings?

@@ -70,9 +70,9 @@ module Api
       private
 
       def require_super_admin!
-        unless current_admin.super_admin?
-          render json: { error: 'Unauthorized - super admin required' }, status: :forbidden
-        end
+        return if current_admin.super_admin?
+
+        render json: { error: 'Unauthorized - super admin required' }, status: :forbidden
       end
     end
   end

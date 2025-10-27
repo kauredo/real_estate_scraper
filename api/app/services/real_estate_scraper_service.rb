@@ -26,9 +26,7 @@ class RealEstateScraperService
   end
 
   def scrape_complex(url, listing_complex = nil)
-    unless @adapter.supports_complexes?
-      raise "Platform #{@tenant.scraper_platform} doesn't support complexes"
-    end
+    raise "Platform #{@tenant.scraper_platform} doesn't support complexes" unless @adapter.supports_complexes?
 
     listing_complex ||= @tenant.listing_complexes.find_by(url:)
     @adapter.scrape_complex(url, listing_complex)

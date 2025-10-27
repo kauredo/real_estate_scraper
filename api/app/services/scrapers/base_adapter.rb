@@ -40,7 +40,7 @@ module Scrapers
     # Optional: Override if platform supports complexes
     # @param url [String] the URL of the complex to scrape
     # @param listing_complex [ListingComplex] the complex object to update
-    def scrape_complex(url, listing_complex)
+    def scrape_complex(_url, _listing_complex)
       raise NotImplementedError, "#{self.class} does not support complexes" unless supports_complexes?
     end
 

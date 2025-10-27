@@ -50,7 +50,7 @@ namespace :scraper do
   end
 
   desc 'Scrape one specific listing (foreground)'
-  task :one, [:tenant_slug, :url, :force] => :environment do |_t, arguments|
+  task :one, %i[tenant_slug url force] => :environment do |_t, arguments|
     tenant_slug = arguments.tenant_slug || 'sgg'
     url = arguments.url
     force = arguments.force.to_s == 'true'
@@ -77,7 +77,7 @@ namespace :scraper do
   # ==============================================================================
 
   desc 'Run scrapers for all active tenants (background jobs)'
-  task :all => :environment do
+  task all: :environment do
     tenants = Tenant.active.where.not(scraper_source_url: nil)
 
     puts "Starting scrape for #{tenants.count} tenants"

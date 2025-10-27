@@ -12,7 +12,7 @@ class BlogPostSerializer < ActiveModel::Serializer
   delegate :main_photo, to: :object
 
   def main_photo_thumb
-    return object.main_photo unless object.blog_photos.present?
+    return object.main_photo if object.blog_photos.blank?
 
     main_blog_photo = object.blog_photos.select(&:main).first || object.blog_photos.first
     main_blog_photo.image.thumb.url
@@ -21,7 +21,7 @@ class BlogPostSerializer < ActiveModel::Serializer
   end
 
   def main_photo_medium
-    return object.main_photo unless object.blog_photos.present?
+    return object.main_photo if object.blog_photos.blank?
 
     main_blog_photo = object.blog_photos.select(&:main).first || object.blog_photos.first
     main_blog_photo.image.medium.url

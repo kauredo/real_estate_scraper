@@ -13,6 +13,14 @@ class AdminSerializer < ActiveModel::Serializer
     instance_options[:include_details]
   end
 
+  def last_sign_in_at
+    object.respond_to?(:last_sign_in_at) ? object.last_sign_in_at : nil
+  end
+
+  def sign_in_count
+    object.respond_to?(:sign_in_count) ? object.sign_in_count : nil
+  end
+
   def tenant
     return nil if object.tenant_id.nil?
 

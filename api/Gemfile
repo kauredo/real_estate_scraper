@@ -53,8 +53,8 @@ gem 'sib-api-v3-sdk', '~> 9.1'
 
 # Tests / Scrape
 gem 'selenium-webdriver'
-gem 'watir'
 gem 'simplecov', require: false
+gem 'watir'
 
 group :development, :test do
   gem 'bullet'

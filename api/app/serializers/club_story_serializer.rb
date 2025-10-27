@@ -20,7 +20,7 @@ class ClubStorySerializer < ActiveModel::Serializer
   delegate :main_photo, to: :object
 
   def main_photo_thumb
-    return object.main_photo unless object.club_story_photos.present?
+    return object.main_photo if object.club_story_photos.blank?
 
     main_club_photo = object.club_story_photos.select(&:main).first || object.club_story_photos.first
     main_club_photo.image.thumb.url
@@ -29,7 +29,7 @@ class ClubStorySerializer < ActiveModel::Serializer
   end
 
   def main_photo_medium
-    return object.main_photo unless object.club_story_photos.present?
+    return object.main_photo if object.club_story_photos.blank?
 
     main_club_photo = object.club_story_photos.select(&:main).first || object.club_story_photos.first
     main_club_photo.image.medium.url

@@ -9,38 +9,30 @@ module Api
           content_type = params[:content_type]
           content_id = params[:content_id]
 
-          unless valid_content_type?(content_type)
-            return render json: { error: 'Invalid content type' }, status: :unprocessable_entity
-          end
+          return render json: { error: 'Invalid content type' }, status: :unprocessable_entity unless valid_content_type?(content_type)
 
-          unless content_id.present?
-            return render json: { error: 'Content ID is required' }, status: :unprocessable_entity
-          end
+          return render json: { error: 'Content ID is required' }, status: :unprocessable_entity if content_id.blank?
 
           # Find the content to get its tenant_id
           content = find_content(content_type, content_id)
-          unless content
-            return render json: { error: 'Content not found' }, status: :not_found
-          end
+          return render json: { error: 'Content not found' }, status: :not_found unless content
 
           # Verify admin has access to this content's tenant
-          unless @current_admin.super_admin? || @current_admin.tenant_id == content.tenant_id
-            return render json: { error: 'Unauthorized' }, status: :forbidden
-          end
+          return render json: { error: 'Unauthorized' }, status: :forbidden unless @current_admin.super_admin? || @current_admin.tenant_id == content.tenant_id
 
           # Generate JWT token that expires in 1 hour, using the content's tenant_id
           token = generate_preview_token(
             tenant_id: content.tenant_id,
-            content_type: content_type,
-            content_id: content_id
+            content_type:,
+            content_id:
           )
 
           # Construct preview URL
           preview_url = build_preview_url(content_type, content_id, token, content.tenant_id)
 
           render json: {
-            token: token,
-            preview_url: preview_url,
+            token:,
+            preview_url:,
             expires_at: 1.hour.from_now
           }, status: :created
         end
@@ -64,9 +56,9 @@ module Api
 
         def generate_preview_token(tenant_id:, content_type:, content_id:)
           payload = {
-            tenant_id: tenant_id,
-            content_type: content_type,
-            content_id: content_id,
+            tenant_id:,
+            content_type:,
+            content_id:,
             exp: 1.hour.from_now.to_i
           }
 

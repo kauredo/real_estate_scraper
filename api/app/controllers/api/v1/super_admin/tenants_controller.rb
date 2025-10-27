@@ -7,13 +7,13 @@ module Api
         skip_before_action :verify_tenant
         before_action :authenticate_admin!
         before_action :require_super_admin!
-        before_action :set_tenant, only: [:show, :update, :destroy, :toggle_active, :rotate_api_key]
+        before_action :set_tenant, only: %i[show update destroy toggle_active rotate_api_key]
 
         def index
           tenants = ::Tenant.order(:name)
           render json: {
             tenants: tenants.as_json(
-              only: [:id, :name, :slug, :domain, :active, :contact_email, :agency_name, :website_url, :phone, :address, :scraper_source_url, :created_at],
+              only: %i[id name slug domain active contact_email agency_name website_url phone address scraper_source_url created_at],
               methods: [:enabled_features]
             )
           }
@@ -22,7 +22,7 @@ module Api
         def show
           render json: {
             tenant: @tenant.as_json(
-              only: [:id, :name, :slug, :domain, :active, :contact_email, :agency_name, :website_url, :phone, :address, :scraper_source_url, :created_at, :updated_at],
+              only: %i[id name slug domain active contact_email agency_name website_url phone address scraper_source_url created_at updated_at],
               methods: [:enabled_features]
             )
           }
@@ -34,7 +34,7 @@ module Api
           if tenant.save
             render json: {
               tenant: tenant.as_json(
-                only: [:id, :name, :slug, :domain, :active, :contact_email, :agency_name, :website_url, :phone, :address, :scraper_source_url, :api_key, :created_at],
+                only: %i[id name slug domain active contact_email agency_name website_url phone address scraper_source_url api_key created_at],
                 methods: [:enabled_features]
               ),
               message: I18n.t('tenants.create.success')
@@ -48,7 +48,7 @@ module Api
           if @tenant.update(tenant_params)
             render json: {
               tenant: @tenant.as_json(
-                only: [:id, :name, :slug, :domain, :active, :contact_email, :agency_name, :website_url, :phone, :address, :scraper_source_url, :created_at, :updated_at],
+                only: %i[id name slug domain active contact_email agency_name website_url phone address scraper_source_url created_at updated_at],
                 methods: [:enabled_features]
               ),
               message: I18n.t('tenants.update.success')
@@ -72,7 +72,7 @@ module Api
           @tenant.update!(active: !@tenant.active)
           render json: {
             tenant: @tenant.as_json(
-              only: [:id, :name, :slug, :domain, :active, :contact_email, :agency_name, :website_url, :phone, :address, :scraper_source_url, :created_at, :updated_at],
+              only: %i[id name slug domain active contact_email agency_name website_url phone address scraper_source_url created_at updated_at],
               methods: [:enabled_features]
             ),
             message: I18n.t("tenants.toggle_active.#{@tenant.active? ? 'activated' : 'deactivated'}")
@@ -101,7 +101,7 @@ module Api
           if tenant.save
             render json: {
               tenant: tenant.as_json(
-                only: [:id, :name, :slug, :domain, :active, :contact_email, :agency_name, :website_url, :phone, :address, :scraper_source_url, :created_at, :updated_at],
+                only: %i[id name slug domain active contact_email agency_name website_url phone address scraper_source_url created_at updated_at],
                 methods: [:enabled_features]
               ),
               message: I18n.t('tenants.update_features.success')

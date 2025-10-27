@@ -19,13 +19,17 @@ module Api
       end
 
       def show
-        @listing_complex = ListingComplex.includes(:translations, :listings, :photos).friendly.find(params[:id])
+        # First, find the record without eager loading to check if it's hidden
+        @listing_complex = ListingComplex.friendly.find(params[:id])
 
         # Allow preview mode to bypass hidden check
         if @listing_complex.hidden? && !current_admin&.confirmed? && !preview_mode?
           render json: { error: 'Not found' }, status: :not_found
           return
         end
+
+        # Now eager load associations since we know we'll need them
+        @listing_complex = ListingComplex.includes(:translations, :listings, :photos).friendly.find(params[:id])
 
         render json: @listing_complex,
                serializer: ListingComplexSerializer,
