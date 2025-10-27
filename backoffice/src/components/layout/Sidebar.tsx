@@ -94,6 +94,12 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
         icon: "fas fa-database",
         requiredFeature: null,
       },
+      {
+        routeName: "backoffice_super_admin_jobs_path",
+        title: t("navbar.super_admin_jobs"),
+        icon: "fas fa-tasks",
+        requiredFeature: null,
+      },
     );
   }
 

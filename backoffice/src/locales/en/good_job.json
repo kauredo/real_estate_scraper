@@ -1,4 +1,7 @@
 {
+  "title": "Background Jobs",
+  "subtitle": "Monitor and manage background jobs, cron schedules, and job performance",
+  "no_auth": "Unable to load GoodJob dashboard. Please ensure you are authenticated.",
   "actions": {
     "destroy": "Destroy",
     "discard": "Discard",

@@ -1,4 +1,7 @@
 {
+  "title": "Tarefas em Segundo Plano",
+  "subtitle": "Monitorar e gerir tarefas em segundo plano, agendamentos cron e desempenho das tarefas",
+  "no_auth": "Não foi possível carregar o painel GoodJob. Por favor, certifique-se de que está autenticado.",
   "actions": {
     "destroy": "Destroy",
     "discard": "Discard",

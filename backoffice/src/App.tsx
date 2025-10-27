@@ -54,6 +54,7 @@ import AdminClubUsersPage from "./pages/Admin/AdminClubUsersPage";
 // Super Admin
 import SuperAdminAdminsPage from "./pages/Admin/SuperAdmin/SuperAdminAdminsPage";
 import SuperAdminTenantsPage from "./pages/Admin/SuperAdmin/SuperAdminTenantsPage";
+import GoodJobDashboardPage from "./pages/Admin/SuperAdmin/GoodJobDashboardPage";
 import SuperAdminRoute from "./components/SuperAdminRoute";
 
 // Scroll to top on route change
@@ -187,6 +188,14 @@ function AppContent() {
                     element={
                       <SuperAdminRoute>
                         <SuperAdminTenantsPage />
+                      </SuperAdminRoute>
+                    }
+                  />
+                  <Route
+                    path="/super_admin/jobs"
+                    element={
+                      <SuperAdminRoute>
+                        <GoodJobDashboardPage />
                       </SuperAdminRoute>
                     }
                   />

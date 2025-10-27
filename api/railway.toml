@@ -1,3 +1,9 @@
+# This configuration is for the WEB service
+# For the WORKER service, create a separate Railway service with:
+#   - Same repository and Dockerfile
+#   - Start command: bundle exec good_job start
+#   - Environment variable: GOOD_JOB_EXECUTION_MODE=external (set this on web service too)
+
 [build]
 builder = "DOCKERFILE"
 dockerfilePath = "api/Dockerfile"

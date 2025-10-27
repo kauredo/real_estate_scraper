@@ -2,6 +2,8 @@
 import i18n from "../i18n";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "/api/v1";
+// Extract the API domain (without /api/v1) for non-API routes like GoodJob dashboard
+const API_DOMAIN = API_BASE_URL.replace(/\/api\/v1$/, '');
 
 // Route translations between Portuguese and English
 export const routeMappings = {
@@ -191,6 +193,7 @@ const baseAppRoutes = {
     superAdmin: {
       admins: "/super_admin/admins",
       tenants: "/super_admin/tenants",
+      jobs: "/super_admin/jobs",
     },
   },
 
@@ -211,9 +214,6 @@ const baseAppRoutes = {
 
   // Misc
   toggleDarkMode: "/toggle_dark_mode",
-
-  // Good Job dashboard
-  goodJob: "/good_job",
 };
 
 export const appRoutes = createLocalizedRoutes(baseAppRoutes);
@@ -456,6 +456,7 @@ export const Routes = createLocalizedRoutes({
   // Super Admin
   backoffice_super_admin_admins_path: appRoutes.backoffice.superAdmin.admins,
   backoffice_super_admin_tenants_path: appRoutes.backoffice.superAdmin.tenants,
+  backoffice_super_admin_jobs_path: appRoutes.backoffice.superAdmin.jobs,
 
   // Authentication
   new_admin_session_path: appRoutes.adminSignIn,
@@ -473,9 +474,6 @@ export const Routes = createLocalizedRoutes({
 
   // Misc
   toggle_dark_mode_path: appRoutes.toggleDarkMode,
-
-  // Good Job dashboard
-  good_job_path: appRoutes.goodJob,
 });
 
 export default Routes;

@@ -25,6 +25,7 @@
   "super_admin": "Super Admin",
   "super_admin_admins": "Admins",
   "super_admin_tenants": "Tenants",
+  "super_admin_jobs": "Background Jobs",
   "testimonies": "Testimonies",
   "variables": "Variables"
 }

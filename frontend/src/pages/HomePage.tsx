@@ -35,8 +35,6 @@ export default function Home() {
       if (result) {
         // Extract data from the response
         if (result.listings_by_geography) {
-          console.log("Listings by geography:", result.listings_by_geography);
-          // Keep the listings grouped by geography
           setListings(result.listings_by_geography);
         }
 

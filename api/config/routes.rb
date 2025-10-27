@@ -103,6 +103,10 @@ Rails.application.routes.draw do
   # Sitemap at root level (for SEO tools that expect it at /sitemap.xml)
   get '/sitemap.xml', to: redirect('/api/v1/sitemap.xml')
 
+  # GoodJob dashboard - accessible only to super admins
+  # Authentication is handled in the GoodJob initializer via before_action
+  mount GoodJob::Engine => '/good_job'
+
   # Redirect root to API documentation
   root to: redirect('/api/v1/docs')
 end

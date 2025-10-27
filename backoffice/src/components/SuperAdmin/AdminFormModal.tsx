@@ -42,7 +42,6 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
   const fetchTenants = async () => {
     try {
       const response = await superAdminGetTenants();
-      console.log("Tenants response:", response.data);
       setTenants(response.data.tenants || []);
     } catch (error) {
       console.error("Failed to fetch tenants:", error);
@@ -128,7 +127,9 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
         <Input
           type="password"
           label={t("super_admin.admins.password")}
-          helperText={admin ? `(${t("super_admin.admins.leave_blank")})` : undefined}
+          helperText={
+            admin ? `(${t("super_admin.admins.leave_blank")})` : undefined
+          }
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required={!admin}
