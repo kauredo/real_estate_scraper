@@ -5,6 +5,7 @@ one:
   email: john.doe@example.com
   confirmed_email: true
   phone: "+351912345678"
+  tenant_id: 1
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
 
@@ -15,6 +16,7 @@ two:
   email: jane.smith@example.com
   confirmed_email: false
   phone: "+351923456789"
+  tenant_id: 1
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
 

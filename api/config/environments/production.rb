@@ -69,12 +69,14 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
 
-  config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN'], protocol: 'https' }
+  # NOTE: Multi-tenant mailers use tenant.frontend_url via MailerUrlHelper
+  # This default is for any mailers that might use Rails URL helpers
+  config.action_mailer.default_url_options = { host: ENV.fetch('API_DOMAIN', ENV['APP_DOMAIN']), protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp-relay.brevo.com',
     port: 587,
-    domain: ENV['APP_DOMAIN'],
+    domain: ENV.fetch('API_DOMAIN', ENV['APP_DOMAIN']), # SMTP HELO domain (your API domain)
     user_name: ENV['BREVO_SMTP_LOGIN'],
     password: ENV['BREVO_SMTP_KEY'],
     authentication: 'login',

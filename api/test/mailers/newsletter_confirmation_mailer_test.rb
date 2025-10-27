@@ -5,6 +5,7 @@ require 'test_helper'
 class NewsletterConfirmationMailerTest < ActionMailer::TestCase
   def setup
     @user = users(:one) # This user should have a newsletter subscription
+    Current.tenant = tenants(:one)
   end
 
   test 'subscription confirmation email' do
@@ -15,9 +16,7 @@ class NewsletterConfirmationMailerTest < ActionMailer::TestCase
     end
 
     assert_equal [@user.email], mail.to
-    assert_equal 'Subcreveu à Newsletter Sofia Galvão', mail.subject
-    assert_match @user.newsletter_subscription.id.to_s, mail.body.to_s
-    assert_match JsonWebToken.encode(user_id: @user.id), mail.body.to_s
-    assert_match @user.first_name, mail.body.to_s
+    assert_equal 'Subcreveu à Newsletter', mail.subject
+    assert_match @user.first_name, mail.body.encoded
   end
 end

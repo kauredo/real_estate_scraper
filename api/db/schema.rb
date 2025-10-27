@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_10_11_142304) do
+ActiveRecord::Schema[7.1].define(version: 2025_10_27_173655) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -365,6 +365,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_11_142304) do
     t.string "phone"
     t.text "address"
     t.string "scraper_source_url"
+    t.string "frontend_url"
+    t.string "from_email"
+    t.string "reply_to_email"
+    t.jsonb "email_branding", default: {}, null: false
     t.index ["active"], name: "index_tenants_on_active"
     t.index ["api_key"], name: "index_tenants_on_api_key", unique: true
     t.index ["domain"], name: "index_tenants_on_domain"

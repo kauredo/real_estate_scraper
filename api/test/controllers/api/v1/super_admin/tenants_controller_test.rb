@@ -51,8 +51,15 @@ module Api
         end
 
         test 'should destroy tenant as super admin' do
+          # Create a new tenant without any associations
+          tenant_to_delete = Tenant.create!(
+            name: 'Tenant to Delete',
+            slug: 'tenant-to-delete',
+            api_key: 'delete_api_key_123'
+          )
+
           assert_difference('Tenant.count', -1) do
-            delete_as_admin api_v1_super_admin_tenant_path(@tenant), @super_admin
+            delete_as_admin api_v1_super_admin_tenant_path(tenant_to_delete), @super_admin
           end
           assert_response :success
         end

@@ -4,6 +4,7 @@ require 'test_helper'
 
 class PhotoTest < ActiveSupport::TestCase
   def setup
+    Current.tenant = tenants(:one)
     @listing_complex = listing_complexes(:one)
     @photo = @listing_complex.photos.create(image: "#{fixture_path}files/photo.webp")
   end

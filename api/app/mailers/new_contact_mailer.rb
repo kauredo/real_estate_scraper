@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class NewContactMailer < ApplicationMailer
+class NewContactMailer < TenantMailer
   def new_contact
     contact = params[:contact]
     @name = contact[:name]
@@ -18,6 +18,7 @@ class NewContactMailer < ApplicationMailer
                 "Novo contacto Site - #{@name}"
               end
 
-    mail(to: ENV.fetch('GMAIL_EMAIL', nil), subject:)
+    recipient = Current.tenant&.reply_to_email || Current.tenant&.from_email || ENV.fetch('GMAIL_EMAIL', 'noreply@example.com')
+    mail(to: recipient, subject:)
   end
 end

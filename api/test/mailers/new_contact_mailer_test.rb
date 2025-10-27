@@ -4,6 +4,7 @@ require 'test_helper'
 
 class NewContactMailerTest < ActionMailer::TestCase
   def setup
+    Current.tenant = tenants(:one)
     @user = users(:one)
     @listing = listings(:one)
     @complex = listing_complexes(:one)
@@ -24,7 +25,7 @@ class NewContactMailerTest < ActionMailer::TestCase
       mail.deliver_now
     end
 
-    assert_equal [ENV.fetch('GMAIL_EMAIL', nil)], mail.to
+    assert_equal ['test@example.com'], mail.to
     assert_equal "Novo contacto Site - #{@user.name}", mail.subject
     assert_match 'Hello, I am interested in your site', mail.body.encoded
   end
@@ -44,7 +45,7 @@ class NewContactMailerTest < ActionMailer::TestCase
       mail.deliver_now
     end
 
-    assert_equal [ENV.fetch('GMAIL_EMAIL', nil)], mail.to
+    assert_equal ['test@example.com'], mail.to
     assert_equal "Novo contacto para imóvel - #{@user.name}", mail.subject
     assert_match 'Hello, I am interested in your listing', mail.body.encoded
     assert_match @listing.title, mail.body.encoded
@@ -65,7 +66,7 @@ class NewContactMailerTest < ActionMailer::TestCase
       mail.deliver_now
     end
 
-    assert_equal [ENV.fetch('GMAIL_EMAIL', nil)], mail.to
+    assert_equal ['test@example.com'], mail.to
     assert_equal "Novo contacto para empreendimento - #{@user.name}", mail.subject
     assert_match 'Hello, I am interested in your complex', mail.body.encoded
     assert_match @complex.name, mail.body.encoded

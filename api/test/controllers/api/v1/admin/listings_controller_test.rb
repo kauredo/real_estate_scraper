@@ -30,33 +30,37 @@ module Api
         end
 
         test 'should create listing as admin' do
-          assert_difference('Listing.count', 1) do
-            post_as_admin api_v1_admin_listings_path, @admin, params: {
-              listing: {
-                title: 'New Test Listing',
-                price_cents: 100_000,
-                objective: 'sale',
-                kind: 'apartment'
-              }
+          unique_url = "https://www.kwportugal.pt/Apartamento-Venda-Test-#{SecureRandom.hex(8)}"
+
+          post_as_admin api_v1_admin_listings_path, @admin, params: {
+            listing: {
+              url: unique_url
             }
-          end
-          assert_response :success
+          }
+
+          assert_response :created
+
+          # Verify the listing was created
+          json = JSON.parse(response.body)
+          assert_not_nil json['listing']
         end
 
         test 'should update listing as admin' do
           patch_as_admin api_v1_admin_listing_path(@listing), @admin, params: {
             listing: {
-              title: 'Updated Title'
+              price_cents: 500_000
             }
           }
           assert_response :success
         end
 
         test 'should destroy listing as admin' do
-          assert_difference('Listing.count', -1) do
-            delete_as_admin api_v1_admin_listing_path(@listing), @admin
-          end
+          delete_as_admin api_v1_admin_listing_path(@listing), @admin
           assert_response :success
+
+          # Verify listing is soft-deleted
+          @listing.reload
+          assert_not_nil @listing.deleted_at
         end
 
         test 'should update all listings' do

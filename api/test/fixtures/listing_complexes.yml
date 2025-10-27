@@ -28,6 +28,21 @@ two:
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
 
+three:
+  id: 3
+  name: "Parque das Nações"
+  description: "Modern complex near the river"
+  video_link: ""
+  order: 3
+  subtext: "Contemporary living"
+  final_text: "Quality construction"
+  new_format: false
+  hidden: false
+  slug: parque-das-nacoes
+  tenant_id: 1
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
 # == Schema Information
 #
 # Table name: listing_complexes

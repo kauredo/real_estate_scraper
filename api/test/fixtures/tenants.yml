@@ -12,8 +12,12 @@ one:
     newsletter_enabled: true
     club_enabled: false
   metadata: {}
+  email_branding: {}
   domain: test.example.com
   contact_email: test@example.com
+  frontend_url: http://localhost:3001
+  from_email: noreply@test.example.com
+  reply_to_email: test@example.com
   active: true
   agency_name: Test Agency
   scraper_source_url: https://www.kwportugal.pt
@@ -50,10 +54,14 @@ two:
 #  api_key            :string           not null
 #  contact_email      :string
 #  domain             :string
+#  email_branding     :jsonb            not null
 #  features           :jsonb            not null
+#  from_email         :string
+#  frontend_url       :string
 #  metadata           :jsonb            not null
 #  name               :string           not null
 #  phone              :string
+#  reply_to_email     :string
 #  scraper_source_url :string
 #  slug               :string           not null
 #  website_url        :string

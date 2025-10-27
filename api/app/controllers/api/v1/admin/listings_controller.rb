@@ -160,7 +160,7 @@ module Api
         private
 
         def find_listing
-          @listing = Listing.with_deleted.includes(:translations, listing_complex: :translations).friendly.find(params[:id])
+          @listing = Listing.with_deleted.includes(:translations).friendly.find(params[:id])
         rescue ActiveRecord::RecordNotFound
           render json: { errors: ['Listing não encontrado'] }, status: :not_found
         end

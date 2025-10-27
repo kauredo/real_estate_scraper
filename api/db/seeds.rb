@@ -21,6 +21,14 @@ if sgg_tenant
     domain: 'sofiagalvaogroup.com',
     contact_email: 'info@sofiagalvaogroup.com',
     active: true,
+    frontend_url: ENV.fetch('SGG_FRONTEND_URL', 'http://localhost:3001'),
+    from_email: 'geral@sofiagalvaogroup.com',
+    reply_to_email: 'geral@sofiagalvaogroup.com',
+    email_branding: {
+      logo_url: nil,
+      primary_color: '#d3af79',
+      secondary_color: '#1a1a1a'
+    },
     features: {
       blog_enabled: true,
       club_enabled: true,
@@ -42,6 +50,14 @@ else
     domain: 'sofiagalvaogroup.com',
     contact_email: 'info@sofiagalvaogroup.com',
     active: true,
+    frontend_url: ENV.fetch('SGG_FRONTEND_URL', 'http://localhost:3001'),
+    from_email: 'geral@sofiagalvaogroup.com',
+    reply_to_email: 'geral@sofiagalvaogroup.com',
+    email_branding: {
+      logo_url: nil,
+      primary_color: '#d3af79',
+      secondary_color: '#1a1a1a'
+    },
     features: {
       blog_enabled: true,
       club_enabled: true,
@@ -66,6 +82,14 @@ if test_tenant
     domain: 'test-agency.example.com',
     contact_email: 'test@example.com',
     active: true,
+    frontend_url: ENV.fetch('TEST_FRONTEND_URL', 'http://localhost:3002'),
+    from_email: 'noreply@test-agency.example.com',
+    reply_to_email: 'info@test-agency.example.com',
+    email_branding: {
+      logo_url: nil,
+      primary_color: '#007bff',
+      secondary_color: '#6c757d'
+    },
     features: {
       blog_enabled: true,
       club_enabled: false,  # Club is SGG-specific
@@ -87,6 +111,14 @@ else
     domain: 'test-agency.example.com',
     contact_email: 'test@example.com',
     active: true,
+    frontend_url: ENV.fetch('TEST_FRONTEND_URL', 'http://localhost:3002'),
+    from_email: 'noreply@test-agency.example.com',
+    reply_to_email: 'info@test-agency.example.com',
+    email_branding: {
+      logo_url: nil,
+      primary_color: '#007bff',
+      secondary_color: '#6c757d'
+    },
     features: {
       blog_enabled: true,
       club_enabled: false,  # Club is SGG-specific

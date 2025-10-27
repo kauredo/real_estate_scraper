@@ -1,0 +1,7 @@
+Bem-vindo(a), <%= @user.first_name %>!
+
+Obrigado por subscrever à newsletter. Para começar a receber as nossas atualizações, confirme a sua subscrição através do seguinte link:
+
+<%= confirm_newsletter_subscription_url(@user.newsletter_subscription, @token) %>
+
+Newsletter

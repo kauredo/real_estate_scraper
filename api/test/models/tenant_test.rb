@@ -19,10 +19,14 @@ end
 #  api_key            :string           not null
 #  contact_email      :string
 #  domain             :string
+#  email_branding     :jsonb            not null
 #  features           :jsonb            not null
+#  from_email         :string
+#  frontend_url       :string
 #  metadata           :jsonb            not null
 #  name               :string           not null
 #  phone              :string
+#  reply_to_email     :string
 #  scraper_source_url :string
 #  slug               :string           not null
 #  website_url        :string

@@ -3,6 +3,10 @@
 require 'test_helper'
 
 class TestimonialTest < ActiveSupport::TestCase
+  def setup
+    Current.tenant = tenants(:one)
+  end
+
   test 'should not save testimonial without name' do
     testimonial = Testimonial.new(text: 'This is a testimonial')
     assert_not testimonial.save, 'Saved the testimonial without a name'

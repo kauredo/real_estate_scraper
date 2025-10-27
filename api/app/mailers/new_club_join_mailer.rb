@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class NewClubJoinMailer < ApplicationMailer
+class NewClubJoinMailer < TenantMailer
   def new_join_request
     @name = params[:name]
     @email = params[:email]

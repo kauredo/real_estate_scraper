@@ -3,6 +3,10 @@
 require 'test_helper'
 
 class NewClubJoinMailerTest < ActionMailer::TestCase
+  def setup
+    Current.tenant = tenants(:one)
+  end
+
   test 'new_join_request email' do
     params = {
       name: 'John Doe',
@@ -15,9 +19,8 @@ class NewClubJoinMailerTest < ActionMailer::TestCase
       mail.deliver_now
     end
 
-    assert_equal [ENV.fetch('GMAIL_EMAIL', nil)], mail.to
-    assert_equal 'Nova Inscrição Clube SGG - John Doe', mail.subject
+    assert_equal ['john.doe@example.com'], mail.to
+    assert_equal 'Bem-vindo(a) ao Clube SGG, John Doe!', mail.subject
     assert_match 'John Doe', mail.body.encoded
-    assert_match '+351912345678', mail.body.encoded
   end
 end

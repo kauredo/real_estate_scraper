@@ -29,11 +29,11 @@ module Api
             post_as_admin api_v1_admin_testimonials_path, @admin, params: {
               testimonial: {
                 name: 'Test Person',
-                content: 'Test testimonial'
+                text: 'Test testimonial'
               }
             }
           end
-          assert_response :success
+          assert_response :created
         end
       end
     end

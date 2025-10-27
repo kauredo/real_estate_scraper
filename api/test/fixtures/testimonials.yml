@@ -2,6 +2,7 @@ one:
   id: 1
   name: "John Smith"
   text: "Great experience working with the team"
+  tenant_id: 1
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
 
@@ -9,6 +10,7 @@ two:
   id: 2
   name: "Maria Silva"
   text: "Professional service and excellent results"
+  tenant_id: 1
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
 
@@ -22,6 +24,7 @@ three:
     clientes, todas as visitas que realizou concretizaram-se numa proposta
     realista. Vendi numa semana! Não penso em mais ninguém quando quiser comprar
     ou vender a minha casa! "
+  tenant_id: 1
 
 four:
   id: 4
@@ -33,6 +36,7 @@ four:
     realizar um bom negocio (para todos). As visitas que realiza são estudadas e
     assertivas, e quase sempre concretizam-se numa venda/ compra. É com certeza,
     a nossa parceira imobiliária! "
+  tenant_id: 1
 
 # == Schema Information
 #

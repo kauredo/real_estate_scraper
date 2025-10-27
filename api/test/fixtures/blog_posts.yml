@@ -8,6 +8,7 @@ one:
   small_description: "A comprehensive look at market trends"
   video_link: "https://youtube.com/example"
   slug: real-estate-market-trends
+  tenant_id: 1
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>
 
