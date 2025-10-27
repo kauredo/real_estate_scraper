@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 interface AdminPageHeaderProps {
   title: string;
+  subtitle?: string;
   count?: number;
   countLabel?: string;
   actionButton?: {
@@ -14,6 +15,7 @@ interface AdminPageHeaderProps {
 
 const AdminPageHeader: React.FC<AdminPageHeaderProps> = ({
   title,
+  subtitle,
   count,
   countLabel,
   actionButton,
@@ -38,6 +40,11 @@ const AdminPageHeader: React.FC<AdminPageHeaderProps> = ({
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mx-auto">
           {title}
         </h1>
+        {subtitle && (
+          <p className="mt-1 text-gray-600 dark:text-gray-400 mx-auto">
+            {subtitle}
+          </p>
+        )}
         {count !== undefined && countLabel && (
           <p className="mt-2 text-gray-600 dark:text-gray-400 mx-auto">
             {countLabel.replace("{count}", count.toString())}
