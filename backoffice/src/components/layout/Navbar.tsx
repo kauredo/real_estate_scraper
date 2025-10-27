@@ -95,7 +95,12 @@ export default function Navbar(props: Props) {
             )}
 
             <div className="flex-shrink-0">
-              <a href={Routes.backoffice_path}>
+              <a href={Routes.backoffice_path} className="flex items-center gap-3">
+                <img
+                  src="/logo-40.png"
+                  alt="MyAgentWebsite"
+                  className="h-8 w-8 object-contain"
+                />
                 <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                   {t("navbar.backoffice_title")}
                 </h1>

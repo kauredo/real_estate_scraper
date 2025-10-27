@@ -261,7 +261,7 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
                 label={t("super_admin.tenants.website_url")}
                 value={websiteUrl}
                 onChange={(e) => setWebsiteUrl(e.target.value)}
-                placeholder="https://sofiagalvao.pt"
+                placeholder="https://sofiagalvaogroup.com"
               />
             </div>
 

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Globe } from "lucide-react";
 import { Button } from "../ui/Button";
 import { LanguageSwitcher } from "../LanguageSwitcher";
 
@@ -12,7 +11,11 @@ export function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <Globe className="h-8 w-8 text-blue-600" />
+            <img
+              src="/logo-200.png"
+              alt="MyAgentWebsite Logo"
+              className="h-8 w-8 object-contain"
+            />
             <span className="font-bold text-xl">{t("common.siteTitle")}</span>
           </Link>
           <div className="hidden md:flex items-center space-x-8">

@@ -176,7 +176,7 @@ export default function Home() {
 
                 <div className="text-center">
                   <a
-                    href="https://sofiagalvao.pt"
+                    href="https://sofiagalvaogroup.com"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

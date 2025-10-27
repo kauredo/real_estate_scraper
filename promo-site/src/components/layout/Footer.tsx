@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Globe } from "lucide-react";
 
 export function Footer() {
   const { t } = useTranslation();
@@ -11,7 +10,11 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Globe className="h-6 w-6 text-blue-600" />
+              <img
+                src="/logo-200.png"
+                alt="MyAgentWebsite Logo"
+                className="h-6 w-6 object-contain"
+              />
               <span className="font-bold">{t("common.siteTitle")}</span>
             </div>
             <p className="text-gray-600 text-sm">{t("common.tagline")}</p>
