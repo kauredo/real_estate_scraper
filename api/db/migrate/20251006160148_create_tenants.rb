@@ -1,5 +1,7 @@
 class CreateTenants < ActiveRecord::Migration[7.1]
   def change
+    return if table_exists? :tenants
+
     create_table :tenants do |t|
       t.string :name, null: false
       t.string :slug, null: false
