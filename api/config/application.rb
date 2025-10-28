@@ -26,6 +26,10 @@ module SofiaGalvao
     config.middleware.use ActionDispatch::Session::CookieStore
     config.middleware.use ActionDispatch::Flash
 
+    # Add method override middleware for GoodJob dashboard forms
+    # This allows POST requests with _method parameter to be converted to PUT/PATCH/DELETE
+    config.middleware.use Rack::MethodOverride
+
     # Add tenant middleware for multi-tenancy
     config.middleware.use TenantMiddleware
 

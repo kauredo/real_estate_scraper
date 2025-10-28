@@ -62,8 +62,8 @@ Rails.application.config.to_prepare do
     before_action :authenticate_super_admin!
     after_action :remove_frame_options_for_iframe
 
-    # Skip default frame options for GoodJob controllers
-    skip_before_action :protect_against_forgery, raise: false
+    # Skip CSRF protection for iframe embedding since we have custom auth
+    skip_before_action :verify_authenticity_token
 
     private
 
