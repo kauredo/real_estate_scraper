@@ -2,14 +2,13 @@
 # For the WORKER service, create a separate Railway service with:
 #   - Same repository and Dockerfile
 #   - Start command: bundle exec good_job start
-#   - Environment variable: GOOD_JOB_EXECUTION_MODE=external (set this on web service too)
+#   - Environment variable: GOOD_JOB_EXECUTION_MODE=external (set this on BOTH web and worker services)
 
 [build]
 builder = "DOCKERFILE"
 dockerfilePath = "api/Dockerfile"
 
 [deploy]
-startCommand = "./bin/rails server"
 healthcheckPath = "/api/v1/health"
 healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
