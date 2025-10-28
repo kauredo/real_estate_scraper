@@ -24,10 +24,9 @@ Rails.application.configure do
   # Safe because access is restricted by authentication below
   require Rails.root.join('app/middleware/good_job_iframe_middleware')
 
-  # Add to both the main app middleware (to catch Rails defaults)
-  # and GoodJob engine middleware (to catch GoodJob's own headers)
-  Rails.application.config.middleware.use GoodJobIframeMiddleware
-  GoodJob::Engine.middleware.use GoodJobIframeMiddleware
+  # Add middleware to the main app stack
+  # This will run after other middleware and can override their headers
+  config.middleware.use GoodJobIframeMiddleware
 
   # Maximum number of threads for async mode (default: 5)
   # Ignored in external mode (worker process will use its own configuration)
@@ -40,12 +39,31 @@ Rails.application.configure do
   config.good_job.on_thread_error = ->(exception) { Rails.logger.error(exception) }
 end
 
+# Configure Rails to not set default frame options for our app
+# This allows our middleware to have full control over frame embedding
+Rails.application.config.after_initialize do
+  # Disable Rails' default X-Frame-Options header
+  # We handle this in our custom middleware for GoodJob routes
+  Rails.application.config.force_ssl = false if Rails.env.development?
+end
+
 # Add authentication to GoodJob dashboard
 # This runs after the engine is loaded
 Rails.application.config.to_prepare do
+  # Also add the middleware to GoodJob engine after it's loaded
+  begin
+    GoodJob::Engine.middleware.use GoodJobIframeMiddleware
+  rescue StandardError => e
+    Rails.logger.debug("Could not add middleware to GoodJob engine: #{e.message}")
+  end
+
   # Add authentication before_action to all GoodJob controllers
   GoodJob::ApplicationController.class_eval do
     before_action :authenticate_super_admin!
+    after_action :remove_frame_options_for_iframe
+
+    # Skip default frame options for GoodJob controllers
+    skip_before_action :protect_against_forgery, raise: false
 
     private
 
@@ -72,6 +90,27 @@ Rails.application.config.to_prepare do
         Rails.logger.error("GoodJob authentication failed: #{e.message}")
         render plain: 'Unauthorized - Invalid authentication token', status: :unauthorized
       end
+    end
+
+    def remove_frame_options_for_iframe
+      # Remove X-Frame-Options header to allow iframe embedding
+      response.headers.delete('X-Frame-Options')
+      response.headers.delete('x-frame-options')
+      response.headers.delete('X-FRAME-OPTIONS')
+
+      # Set iframe-friendly CSP
+      cors_origins = ENV.fetch('CORS_ORIGINS', 'http://localhost:5173')
+                       .split(',')
+                       .map(&:strip)
+                       .reject(&:empty?)
+
+      allowed_origins = (cors_origins + ['https://app.myagentwebsite.com']).uniq
+      frame_ancestors = allowed_origins.join(' ')
+
+      response.headers['Content-Security-Policy'] =
+        "frame-ancestors 'self' #{frame_ancestors}; default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; connect-src 'self' #{allowed_origins.join(' ')};"
+
+      Rails.logger.debug("GoodJob: Removed X-Frame-Options and set CSP for #{request.method} #{request.path}")
     end
 
     def extract_token_from_request

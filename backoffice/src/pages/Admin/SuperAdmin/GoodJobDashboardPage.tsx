@@ -58,7 +58,7 @@ const GoodJobDashboardPage = () => {
               className="w-full h-full min-h-[calc(100vh-12rem)]"
               title="GoodJob Dashboard"
               onError={handleIframeError}
-              sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-top-navigation-by-user-activation"
+              sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-top-navigation allow-top-navigation-by-user-activation"
               style={{ border: "none" }}
             />
           ) : (

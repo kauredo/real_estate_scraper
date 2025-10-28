@@ -14,12 +14,17 @@ class GoodJobIframeMiddleware
 
     status, headers, response = @app.call(env)
 
-    # Allow iframe embedding for GoodJob dashboard routes
+    # Allow iframe embedding for GoodJob dashboard routes (all HTTP methods)
     if is_good_job_route
+      Rails.logger.debug("GoodJobIframeMiddleware: Processing #{env['REQUEST_METHOD']} #{env['PATH_INFO']}")
+
       # Remove ALL frame-related headers that might block embedding
-      headers.delete('X-Frame-Options')
-      headers.delete('x-frame-options')
-      headers.delete('X-FRAME-OPTIONS')
+      # Use case-insensitive removal to catch all variants
+      headers_to_remove = ['X-Frame-Options', 'x-frame-options', 'X-FRAME-OPTIONS']
+      headers_to_remove.each do |header|
+        headers.delete(header)
+        Rails.logger.debug("GoodJobIframeMiddleware: Removed header #{header}") if headers.key?(header)
+      end
 
       # Set Content-Security-Policy to allow specific origins to embed
       # Get allowed origins from CORS_ORIGINS env variable
@@ -36,12 +41,15 @@ class GoodJobIframeMiddleware
       # Build CSP frame-ancestors directive
       frame_ancestors = allowed_origins.uniq.join(' ')
 
-      # Override any existing CSP header
-      headers['Content-Security-Policy'] = "frame-ancestors 'self' #{frame_ancestors}"
+      # Set a permissive CSP for iframe embedding while maintaining security
+      csp_value = "frame-ancestors 'self' #{frame_ancestors}; default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; connect-src 'self' #{frame_ancestors};"
+      headers['Content-Security-Policy'] = csp_value
 
-      # Also set X-Frame-Options to allow from our origins
-      # Note: X-Frame-Options doesn't support multiple origins, so we remove it
-      # and rely on CSP frame-ancestors instead
+      Rails.logger.debug("GoodJobIframeMiddleware: Set CSP to: #{csp_value}")
+
+      # Explicitly ensure no X-Frame-Options header is set
+      # This is critical for iframe embedding to work
+      headers.delete('X-Frame-Options')
     end
 
     [status, headers, response]
