@@ -9,7 +9,7 @@ class Listing < ApplicationRecord
   monetize :price_cents, as: :price, allow_nil: true
 
   translates :title, :description, :features, :slug
-  friendly_id :title, use: %i[mobility history]
+  friendly_id :title, use: [:mobility, :history]
 
   acts_as_paranoid
   after_save :update_orders
@@ -17,7 +17,7 @@ class Listing < ApplicationRecord
   after_destroy :expire_listings_cache
 
   CITIES = {
-    north: %w[porto braga],
+    north: ['porto', 'braga'],
     south: ['lisboa', 'oeiras', 'santarém', 'cascais', 'carcavelos', 'faro', 'alcochete',
             'almada', 'amadora', 'barreiro', 'loures', 'mafra', 'moita', 'montijo',
             'odivelas', 'palmela', 'seixal', 'sesimbra', 'setúbal', 'sintra',
@@ -31,12 +31,13 @@ class Listing < ApplicationRecord
 
   enum :status, { recent: 0, standard: 1, agreed: 2, sold: 3, rented: 4, closed: 5 }
   enum :objective, { other: 0, sale: 1, rent: 2 }, prefix: true
-  enum :kind, { other: 0, apartment: 1, house: 2, land: 3, office: 4, garage: 5, parking: 6, store: 7, storage: 8, warehouse: 9 }, prefix: true
+  enum :kind,
+       { other: 0, apartment: 1, house: 2, land: 3, office: 4, garage: 5, parking: 6, store: 7, storage: 8, warehouse: 9 }, prefix: true
   belongs_to :listing_complex, optional: true
   has_one :translation, class_name: 'Listing::Translation', dependent: :destroy
 
   default_scope { with_locale_translations.default_order }
-  scope :default_order, -> { order(order: :asc, status: :asc, created_at: :desc) }
+  scope :default_order, -> { order(order: :asc, status: :asc, created_at: :desc, id: :asc) }
   scope :with_locale_translations,
         lambda {
           includes(:translations).joins(Arel.sql("LEFT JOIN listing_translations ON listing_translations.listing_id = listings.id AND listing_translations.locale = '#{I18n.locale}'"))
@@ -51,8 +52,8 @@ class Listing < ApplicationRecord
 
   def self.with_deleted_ordered(additional_order = {})
     scope = unscoped
-            .joins(Arel.sql("LEFT JOIN listing_translations ON listing_translations.listing_id = listings.id AND listing_translations.locale = '#{I18n.locale}'"))
-            .order(Arel.sql('CASE WHEN "listings".deleted_at IS NULL THEN 0 ELSE 1 END'))
+              .joins(Arel.sql("LEFT JOIN listing_translations ON listing_translations.listing_id = listings.id AND listing_translations.locale = '#{I18n.locale}'"))
+              .order(Arel.sql('CASE WHEN "listings".deleted_at IS NULL THEN 0 ELSE 1 END'))
 
     if additional_order.present?
       scope.order(additional_order)
@@ -66,11 +67,11 @@ class Listing < ApplicationRecord
   end
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[title address status price_cents features kind objective]
+    ['title', 'address', 'status', 'price_cents', 'features', 'kind', 'objective']
   end
 
   def self.ransackable_associations(_auth_object = nil)
-    %w[listing_complex slugs translation translations]
+    ['listing_complex', 'slugs', 'translation', 'translations']
   end
 
   def self.possible_stats_keys
@@ -166,7 +167,7 @@ class Listing < ApplicationRecord
 
   def update_orders
     deleted_with_order = Listing.unscoped.where.not(deleted_at: nil).where.not(order: nil)
-    deleted_with_order.update_all(order: nil) if deleted_with_order.any? # rubocop:disable Rails/SkipsModelValidations
+    deleted_with_order.update_all(order: nil) if deleted_with_order.any?
 
     return unless saved_change_to_order? && Listing.where(order:).count > 1
 

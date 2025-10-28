@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       # API Documentation
       get '/docs', to: 'docs#index'
 
+      # Translations
+      get '/translations/slug', to: 'translations#slug'
+
       # Authentication
       post '/auth/login', to: 'auth#login'
       delete '/auth/logout', to: 'auth#logout'

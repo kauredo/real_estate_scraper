@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { getListings } from "../services/api";
 import MetaTags from "../components/shared/MetaTags";
 import Banner from "../components/shared/Banner";
@@ -13,10 +13,9 @@ import { Listing } from "../utils/interfaces";
 import { useNotifications } from "../context/NotificationContext";
 
 const ListingsPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { showError } = useNotifications();
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
   const [hasInitialData, setHasInitialData] = useState(false);
@@ -58,14 +57,14 @@ const ListingsPage = () => {
     }
   };
 
-  // Fetch listings whenever URL params change (single source of truth)
+  // Fetch listings whenever URL params or locale changes
   useEffect(() => {
     const params: Record<string, string> = {};
     for (const [key, value] of searchParams.entries()) {
       params[key] = value;
     }
     fetchListings(params);
-  }, [searchParams]);
+  }, [searchParams, i18n.language]);
 
   const handlePageChange = (page: number) => {
     searchParams.set("page", page.toString());

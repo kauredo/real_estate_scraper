@@ -97,8 +97,8 @@ export default function Navbar() {
       },
       {
         title: t("navbar.other_language"),
-        onClick: () => {
-          const newUrl = changeLocale(i18n);
+        onClick: async () => {
+          const newUrl = await changeLocale(i18n);
           navigate(newUrl);
         },
         img: (
