@@ -97,6 +97,13 @@ Rails.application.routes.draw do
 
       # Sitemap
       get '/sitemap', to: 'sitemap#index', defaults: { format: 'xml' }
+
+      # Structured Data (JSON-LD for SEO)
+      get '/structured_data/organization', to: 'structured_data#organization'
+      get '/structured_data/listing/:id', to: 'structured_data#listing'
+      get '/structured_data/blog_post/:id', to: 'structured_data#blog_post'
+      get '/structured_data/breadcrumbs', to: 'structured_data#breadcrumbs'
+      get '/structured_data/listings_collection', to: 'structured_data#listings_collection'
     end
   end
 
