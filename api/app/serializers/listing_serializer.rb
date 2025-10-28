@@ -21,10 +21,14 @@ class ListingSerializer < ActiveModel::Serializer
   delegate :url, to: :object
   delegate :video_link, to: :object
   delegate :virtual_tour_url, to: :object
-  delegate :photos, to: :object
   delegate :listing_complex_id, to: :object
   delegate :city, to: :object
   delegate :order, to: :object
+
+  # Return optimized photos via Cloudinary fetch for better performance
+  def photos
+    object.optimized_photos
+  end
 
   def price
     object.price&.format(symbol: nil, no_cents_if_whole: true)

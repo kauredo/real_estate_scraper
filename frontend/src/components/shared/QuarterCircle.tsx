@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import sofiaImage from "../../assets/images/sofia.jpg";
+import { optimizeCloudinaryUrl, preloadImages } from "../../utils/imageOptimization";
 
 interface Props {
   photos: string[];
@@ -9,17 +10,48 @@ export default function QuarterCircle(props: Props) {
   const { photos } = props;
   const doorRef = useRef<HTMLDivElement | null>(null);
 
+  // Preload optimized images for better performance
+  useEffect(() => {
+    if (photos && photos.length > 0) {
+      const optimizedPhotos = photos.map((url) =>
+        optimizeCloudinaryUrl(url, {
+          width: 800,
+          height: 800,
+          quality: "auto",
+          format: "auto",
+        })
+      );
+      preloadImages(optimizedPhotos, 5);
+    }
+  }, [photos]);
+
   const changeImage = (e: React.AnimationEvent<HTMLDivElement>) => {
     e.preventDefault();
 
+    if (!photos || photos.length === 0) return;
+
     let random_photo = photos[Math.floor(Math.random() * photos.length)];
+    let optimized_photo = optimizeCloudinaryUrl(random_photo, {
+      width: 800,
+      height: 800,
+      quality: "auto",
+      format: "auto",
+    });
 
     if (!doorRef.current) {
       return;
     }
 
-    while (doorRef.current.style.backgroundImage === `url(${random_photo})`) {
+    while (
+      doorRef.current.style.backgroundImage === `url(${optimized_photo})`
+    ) {
       random_photo = photos[Math.floor(Math.random() * photos.length)];
+      optimized_photo = optimizeCloudinaryUrl(random_photo, {
+        width: 800,
+        height: 800,
+        quality: "auto",
+        format: "auto",
+      });
     }
 
     setTimeout(() => {
@@ -27,7 +59,7 @@ export default function QuarterCircle(props: Props) {
         return;
       }
 
-      doorRef.current.style.backgroundImage = `url(${random_photo})`;
+      doorRef.current.style.backgroundImage = `url(${optimized_photo})`;
     }, 600);
   };
 

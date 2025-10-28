@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Listing } from "../../utils/interfaces";
 import { truncateText } from "../../utils/functions";
+import { optimizeCloudinaryUrl } from "../../utils/imageOptimization";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
 import Routes from "../../utils/routes";
@@ -26,7 +27,14 @@ export default function LongCard(props: Props) {
     listingRef.current?.offsetWidth,
   );
 
-  const photo = listing.photos ? listing.photos[0] : "";
+  const photo = listing.photos
+    ? optimizeCloudinaryUrl(listing.photos[0], {
+        width: 800,
+        height: 600,
+        quality: "auto",
+        format: "auto",
+      })
+    : "";
 
   const slugOrId = listing.slug || listing.id;
 
@@ -92,6 +100,7 @@ export default function LongCard(props: Props) {
             <div className="w-full md:w-128 h-full block mx-auto relative">
               <img
                 loading="lazy"
+                decoding="async"
                 alt={listing.title}
                 className="w-full md:w-128 h-56 max-h-full md:h-full block mx-auto object-cover"
                 src={photo}

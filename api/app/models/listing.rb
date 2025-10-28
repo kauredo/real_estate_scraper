@@ -2,6 +2,7 @@
 
 class Listing < ApplicationRecord
   include ActsAsTenant
+  include OptimizableImages
 
   extend Mobility
   extend FriendlyId
