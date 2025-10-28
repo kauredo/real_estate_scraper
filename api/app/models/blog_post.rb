@@ -69,8 +69,10 @@ end
 #
 # Indexes
 #
-#  index_blog_posts_on_slug       (slug) UNIQUE
-#  index_blog_posts_on_tenant_id  (tenant_id)
+#  index_blog_posts_on_slug            (slug) UNIQUE
+#  index_blog_posts_on_tenant_created  (tenant_id,created_at DESC)
+#  index_blog_posts_on_tenant_hidden   (tenant_id,hidden)
+#  index_blog_posts_on_tenant_id       (tenant_id)
 #
 # Foreign Keys
 #

@@ -29,6 +29,7 @@ end
 # Indexes
 #
 #  index_club_story_photos_on_club_story_id  (club_story_id)
+#  index_club_story_photos_on_story_main     (club_story_id,main) WHERE (main = true)
 #  index_club_story_photos_on_tenant_id      (tenant_id)
 #
 # Foreign Keys

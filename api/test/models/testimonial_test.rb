@@ -51,7 +51,8 @@ end
 #
 # Indexes
 #
-#  index_testimonials_on_tenant_id  (tenant_id)
+#  index_testimonials_on_tenant_created  (tenant_id,created_at DESC)
+#  index_testimonials_on_tenant_id       (tenant_id)
 #
 # Foreign Keys
 #

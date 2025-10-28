@@ -25,6 +25,7 @@ end
 # Indexes
 #
 #  index_blog_photos_on_blog_post_id  (blog_post_id)
+#  index_blog_photos_on_post_main     (blog_post_id,main) WHERE (main = true)
 #  index_blog_photos_on_tenant_id     (tenant_id)
 #
 # Foreign Keys

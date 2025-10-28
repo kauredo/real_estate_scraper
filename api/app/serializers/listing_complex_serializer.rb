@@ -73,8 +73,10 @@ end
 #
 # Indexes
 #
-#  index_listing_complexes_on_slug       (slug) UNIQUE
-#  index_listing_complexes_on_tenant_id  (tenant_id)
+#  index_listing_complexes_on_slug           (slug) UNIQUE
+#  index_listing_complexes_on_tenant_hidden  (tenant_id,hidden)
+#  index_listing_complexes_on_tenant_id      (tenant_id)
+#  index_listing_complexes_on_tenant_order   (tenant_id,order)
 #
 # Foreign Keys
 #

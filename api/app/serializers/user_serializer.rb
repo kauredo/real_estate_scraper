@@ -29,7 +29,8 @@ end
 #
 # Indexes
 #
-#  index_users_on_tenant_id  (tenant_id)
+#  index_users_on_tenant_email  (tenant_id,email)
+#  index_users_on_tenant_id     (tenant_id)
 #
 # Foreign Keys
 #

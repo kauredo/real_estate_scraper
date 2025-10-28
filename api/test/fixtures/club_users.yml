@@ -30,7 +30,9 @@ two:
 #
 # Indexes
 #
-#  index_club_users_on_tenant_id  (tenant_id)
+#  index_club_users_on_tenant_email   (tenant_id,email)
+#  index_club_users_on_tenant_id      (tenant_id)
+#  index_club_users_on_tenant_status  (tenant_id,status)
 #
 # Foreign Keys
 #

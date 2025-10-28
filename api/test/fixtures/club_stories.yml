@@ -30,8 +30,9 @@ one:
 #
 # Indexes
 #
-#  index_club_stories_on_slug       (slug) UNIQUE
-#  index_club_stories_on_tenant_id  (tenant_id)
+#  index_club_stories_on_slug           (slug) UNIQUE
+#  index_club_stories_on_tenant_hidden  (tenant_id,hidden)
+#  index_club_stories_on_tenant_id      (tenant_id)
 #
 # Foreign Keys
 #

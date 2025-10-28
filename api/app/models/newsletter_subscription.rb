@@ -17,6 +17,7 @@ end
 #
 # Indexes
 #
+#  index_newsletter_subs_on_tenant_created      (tenant_id,created_at DESC)
 #  index_newsletter_subscriptions_on_tenant_id  (tenant_id)
 #  index_newsletter_subscriptions_on_user_id    (user_id)
 #

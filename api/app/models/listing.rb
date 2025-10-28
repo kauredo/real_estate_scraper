@@ -211,6 +211,9 @@ end
 #  index_listings_on_tenant_id                 (tenant_id)
 #  index_listings_on_tenant_id_and_created_at  (tenant_id,created_at)
 #  index_listings_on_tenant_id_and_status      (tenant_id,status)
+#  index_listings_on_tenant_kind               (tenant_id,kind)
+#  index_listings_on_tenant_status_created     (tenant_id,status,created_at)
+#  index_listings_on_tenant_status_objective   (tenant_id,status,objective)
 #
 # Foreign Keys
 #

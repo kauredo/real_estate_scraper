@@ -46,6 +46,7 @@ end
 #
 # Indexes
 #
+#  index_photos_on_complex_main        (listing_complex_id,main) WHERE (main = true)
 #  index_photos_on_listing_complex_id  (listing_complex_id)
 #  index_photos_on_original_url        (original_url) UNIQUE WHERE (original_url IS NOT NULL)
 #  index_photos_on_tenant_id           (tenant_id)
