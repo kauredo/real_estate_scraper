@@ -29,6 +29,9 @@ module SofiaGalvao
     # Add tenant middleware for multi-tenancy
     config.middleware.use TenantMiddleware
 
+    # Add rate limiting middleware (after tenant middleware)
+    config.middleware.use Rack::Attack
+
     # Replace the default ErrorsController with a JSON error handler
     config.exceptions_app = lambda { |env|
       Api::V1::ErrorsController.action(:show).call(env)

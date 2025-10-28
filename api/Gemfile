@@ -29,6 +29,7 @@ gem 'bootsnap', require: false
 gem 'active_model_serializers'
 gem 'jbuilder'
 gem 'jwt'
+gem 'rack-attack'
 gem 'rack-cors'
 
 # Other gems here

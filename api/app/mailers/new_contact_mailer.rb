@@ -18,7 +18,7 @@ class NewContactMailer < TenantMailer
                 "Novo contacto Site - #{@name}"
               end
 
-    recipient = Current.tenant&.reply_to_email || Current.tenant&.from_email || ENV.fetch('GMAIL_EMAIL', 'noreply@example.com')
+    recipient = Current.tenant&.reply_to_email || Current.tenant&.from_email || ENV.fetch('MAILER_FROM', 'noreply@sofiagalvaogroup.com')
     mail(to: recipient, subject:)
   end
 end
