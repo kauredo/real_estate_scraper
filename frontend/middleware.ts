@@ -47,25 +47,36 @@ function isCrawler(userAgent: string): boolean {
 }
 
 /**
+ * Detects language from URL pathname
+ */
+function detectLanguage(pathname: string): 'pt' | 'en' {
+  return pathname.startsWith('/en/') ? 'en' : 'pt';
+}
+
+/**
  * Parses URL to extract content type and slug
  */
 function parseContentUrl(pathname: string): {
-  type: 'listing' | 'blog' | 'complex' | null;
+  type: 'listing' | 'blog' | 'complex' | 'club_story' | null;
   slug: string | null;
+  language: 'pt' | 'en';
 } {
+  // Detect language first
+  const language = detectLanguage(pathname);
+
   // Remove language prefix if exists (e.g., /en/)
   const cleanPath = pathname.replace(/^\/(?:en|pt)\//, '/');
 
   // Match listing URL: /comprar/:slug or /buy/:slug
   const listingMatch = cleanPath.match(/^\/(?:comprar|buy)\/([^\/]+)$/);
   if (listingMatch) {
-    return { type: 'listing', slug: listingMatch[1] };
+    return { type: 'listing', slug: listingMatch[1], language };
   }
 
   // Match blog post URL: /blog/:slug
   const blogMatch = cleanPath.match(/^\/blog\/([^\/]+)$/);
   if (blogMatch) {
-    return { type: 'blog', slug: blogMatch[1] };
+    return { type: 'blog', slug: blogMatch[1], language };
   }
 
   // Match listing complex URL: /empreendimentos/:slug or /enterprises/:slug
@@ -73,17 +84,25 @@ function parseContentUrl(pathname: string): {
     /^\/(?:empreendimentos|enterprises)\/([^\/]+)$/
   );
   if (complexMatch) {
-    return { type: 'complex', slug: complexMatch[1] };
+    return { type: 'complex', slug: complexMatch[1], language };
   }
 
-  return { type: null, slug: null };
+  // Match club story URL: /clube-sgg/historias/:slug or /club/stories/:slug
+  const clubStoryMatch = cleanPath.match(
+    /^\/(?:clube-sgg\/historias|club\/stories)\/([^\/]+)$/
+  );
+  if (clubStoryMatch) {
+    return { type: 'club_story', slug: clubStoryMatch[1], language };
+  }
+
+  return { type: null, slug: null, language };
 }
 
 /**
  * Fetches content data from the Rails API
  */
 async function fetchContentData(
-  type: 'listing' | 'blog' | 'complex',
+  type: 'listing' | 'blog' | 'complex' | 'club_story',
   slug: string
 ): Promise<any> {
   let endpoint = '';
@@ -97,6 +116,9 @@ async function fetchContentData(
       break;
     case 'complex':
       endpoint = `${API_BASE_URL}/listing_complexes/${slug}`;
+      break;
+    case 'club_story':
+      endpoint = `${API_BASE_URL}/club_stories/${slug}`;
       break;
   }
 
@@ -128,6 +150,8 @@ async function fetchContentData(
       return data.blog_post || data;
     } else if (type === 'complex') {
       return data.listing_complex || data;
+    } else if (type === 'club_story') {
+      return data.club_story || data;
     }
 
     return data;
@@ -198,8 +222,8 @@ export default async function middleware(request: Request) {
 
   console.log(`[Crawler detected] ${userAgent} - ${pathname}`);
 
-  // Parse URL to get content type and slug
-  const { type, slug } = parseContentUrl(pathname);
+  // Parse URL to get content type, slug, and language
+  const { type, slug, language } = parseContentUrl(pathname);
 
   // If not a content page, continue
   if (!type || !slug) {
@@ -207,7 +231,7 @@ export default async function middleware(request: Request) {
     return;
   }
 
-  console.log(`[Crawler] Fetching ${type} data for slug: ${slug}`);
+  console.log(`[Crawler] Fetching ${type} data for slug: ${slug} (lang: ${language})`);
 
   // Fetch content data from API
   const contentData = await fetchContentData(type, slug);
@@ -219,7 +243,7 @@ export default async function middleware(request: Request) {
 
   // Generate meta tags HTML
   const fullUrl = request.url;
-  const metaTagsHtml = generateMetaTags(contentData, fullUrl);
+  const metaTagsHtml = generateMetaTags(contentData, fullUrl, language);
 
   // Fetch the original HTML from the index.html
   const origin = url.origin;

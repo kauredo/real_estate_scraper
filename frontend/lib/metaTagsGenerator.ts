@@ -25,7 +25,13 @@ interface ListingComplexData {
   photos?: string[];
 }
 
-type ContentData = ListingData | BlogPostData | ListingComplexData;
+interface ClubStoryData {
+  title: string;
+  description?: string;
+  featured_image?: string;
+}
+
+type ContentData = ListingData | BlogPostData | ListingComplexData | ClubStoryData;
 
 /**
  * Extracts a clean description (max 160 chars for OG)
@@ -64,11 +70,19 @@ function isListingComplex(data: ContentData): data is ListingComplexData {
 }
 
 /**
+ * Checks if data is a club story
+ */
+function isClubStory(data: ContentData): data is ClubStoryData {
+  return 'featured_image' in data && !('meta_title' in data) && !('photos' in data);
+}
+
+/**
  * Generates meta tags HTML from content data
  */
 export function generateMetaTags(
   data: ContentData,
   url: string,
+  language: 'pt' | 'en' = 'pt',
   defaultImageUrl: string = 'https://sofiagalvaogroup.com/images/default-og-image.jpg'
 ): string {
   let title = '';
@@ -80,6 +94,12 @@ export function generateMetaTags(
     // Blog post
     title = data.meta_title || data.title;
     description = getCleanDescription(data.meta_description || data.description);
+    image = data.featured_image || defaultImageUrl;
+    type = 'article';
+  } else if (isClubStory(data)) {
+    // Club story
+    title = data.title;
+    description = getCleanDescription(data.description);
     image = data.featured_image || defaultImageUrl;
     type = 'article';
   } else if (isListingComplex(data)) {
@@ -101,6 +121,9 @@ export function generateMetaTags(
     ? title
     : `${title} | Sofia Galvão Group`;
 
+  // Set locale based on language
+  const locale = language === 'en' ? 'en_US' : 'pt_PT';
+
   return `
     <title>${escapeHtml(fullTitle)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
@@ -111,7 +134,7 @@ export function generateMetaTags(
     <meta property="og:title" content="${escapeHtml(fullTitle)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:image" content="${escapeHtml(image)}" />
-    <meta property="og:locale" content="pt_PT" />
+    <meta property="og:locale" content="${locale}" />
     <meta property="og:site_name" content="Sofia Galvão Group" />
 
     <!-- Twitter -->
