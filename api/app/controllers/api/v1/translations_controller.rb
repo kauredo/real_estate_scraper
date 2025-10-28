@@ -3,8 +3,6 @@
 module Api
   module V1
     class TranslationsController < Api::V1::BaseController
-      skip_before_action :authenticate_request!, only: [:slug]
-
       # GET /api/v1/translations/slug?resource_type=listing&slug=apartment-t2-lisbon&locale=pt
       def slug
         resource_type = params[:resource_type]
