@@ -9,6 +9,7 @@ import Pagination from "../components/shared/Pagination";
 import Listings from "../components/indexPage/Listings";
 import ListingSkeleton from "../components/loading/ListingSkeleton";
 import TopProgressBar from "../components/loading/TopProgressBar";
+import ListingsLoadingOverlay from "../components/loading/ListingsLoadingOverlay";
 import { Listing } from "../utils/interfaces";
 import { useNotifications } from "../context/NotificationContext";
 
@@ -84,9 +85,6 @@ const ListingsPage = () => {
         objectives={objectives}
       />
 
-      {/* Show progress bar when paginating (loading with existing data) */}
-      {loading && hasInitialData && <TopProgressBar isLoading={loading} />}
-
       {/* Show skeleton loaders on initial load */}
       {loading && !hasInitialData ? (
         <div className="container mx-auto flex flex-wrap" id="listings">
@@ -97,7 +95,10 @@ const ListingsPage = () => {
       ) : (
         <>
           <Pagination pagination={pagination} onPageChange={handlePageChange} />
-          <Listings listings={listings} />
+          <div className="relative">
+            <ListingsLoadingOverlay isLoading={loading && hasInitialData} />
+            <Listings listings={listings} />
+          </div>
           <Pagination pagination={pagination} onPageChange={handlePageChange} />
         </>
       )}
