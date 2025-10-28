@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 // Get analytics IDs from environment variables
-const GA_TRACKING_ID = import.meta.env.VITE_GA_TRACKING_ID || "";
-const FB_PIXEL_ID = import.meta.env.VITE_FB_PIXEL_ID || "";
+const GA_TRACKING_ID = import.meta.env.VITE_GOOGLE_TAG_ID || "";
+const FB_PIXEL_ID = import.meta.env.VITE_FACEBOOK_PIXEL_ID || "";
 
 // Declare gtag and fbq on window
 declare global {
