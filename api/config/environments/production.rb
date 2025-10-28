@@ -59,8 +59,12 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
 
-  # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  # Use Redis cache store in production for caching and rate limiting
+  config.cache_store = :redis_cache_store, {
+    url: ENV.fetch('REDIS_URL', 'redis://localhost:6379/0'),
+    namespace: 'cache',
+    expires_in: 90.minutes
+  }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   config.active_job.queue_adapter = :good_job
@@ -71,14 +75,15 @@ Rails.application.configure do
 
   # NOTE: Multi-tenant mailers use tenant.frontend_url via MailerUrlHelper
   # This default is for any mailers that might use Rails URL helpers
-  config.action_mailer.default_url_options = { host: ENV.fetch('API_DOMAIN', ENV['APP_DOMAIN']), protocol: 'https' }
+  config.action_mailer.default_url_options = { host: ENV.fetch('API_DOMAIN', ENV.fetch('APP_DOMAIN', nil)),
+                                               protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp-relay.brevo.com',
     port: 587,
-    domain: ENV.fetch('API_DOMAIN', ENV['APP_DOMAIN']), # SMTP HELO domain (your API domain)
-    user_name: ENV['BREVO_SMTP_LOGIN'],
-    password: ENV['BREVO_SMTP_KEY'],
+    domain: ENV.fetch('API_DOMAIN', ENV.fetch('APP_DOMAIN', nil)), # SMTP HELO domain (your API domain)
+    user_name: ENV.fetch('BREVO_SMTP_LOGIN', nil),
+    password: ENV.fetch('BREVO_SMTP_KEY', nil),
     authentication: 'login',
     enable_starttls_auto: true
   }
@@ -94,7 +99,7 @@ Rails.application.configure do
   config.active_support.report_deprecations = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = Logger::Formatter.new
 
   # Use a different logger for distributed setups.
   # require "syslog/logger"
