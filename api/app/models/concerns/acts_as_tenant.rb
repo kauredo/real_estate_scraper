@@ -18,6 +18,15 @@ module ActsAsTenant
     before_update :prevent_tenant_change
   end
 
+  # Module-level method to execute block with a specific tenant context
+  def self.with_tenant(tenant)
+    previous_tenant = Current.tenant
+    Current.tenant = tenant
+    yield
+  ensure
+    Current.tenant = previous_tenant
+  end
+
   class_methods do
     # Use unscoped to bypass tenant filtering (admin/system tasks only)
     def without_tenant
@@ -34,13 +43,9 @@ module ActsAsTenant
       unscoped
     end
 
-    # Execute block with a specific tenant context
-    def with_tenant(tenant)
-      previous_tenant = Current.tenant
-      Current.tenant = tenant
-      yield
-    ensure
-      Current.tenant = previous_tenant
+    # Execute block with a specific tenant context (delegated to module method)
+    def with_tenant(tenant, &block)
+      ActsAsTenant.with_tenant(tenant, &block)
     end
   end
 
