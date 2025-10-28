@@ -41,6 +41,24 @@ function ScrollToTop() {
 
   return null;
 }
+
+// Sync locale with URL path
+function LocaleSync() {
+  const { pathname } = useLocation();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const urlLocale = pathname.startsWith("/en") ? "en" : "pt";
+
+    // Only update if locale has changed
+    if (i18n.language !== urlLocale) {
+      i18n.changeLanguage(urlLocale);
+      localStorage.setItem("language", urlLocale);
+    }
+  }, [pathname, i18n]);
+
+  return null;
+}
 function AppContent() {
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-dark text-black dark:text-light">
@@ -123,8 +141,20 @@ function App() {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    const currentLanguage = localStorage.getItem("language") || "pt";
-    i18n.changeLanguage(currentLanguage);
+    // Detect locale from URL path first, then fall back to localStorage
+    const pathname = window.location.pathname;
+    const urlLocale = pathname.startsWith("/en") ? "en" : "pt";
+    const storedLanguage = localStorage.getItem("language");
+
+    // If URL locale differs from stored locale, sync to URL locale
+    if (urlLocale !== storedLanguage) {
+      localStorage.setItem("language", urlLocale);
+      i18n.changeLanguage(urlLocale);
+    } else {
+      // Otherwise use stored language
+      const currentLanguage = storedLanguage || "pt";
+      i18n.changeLanguage(currentLanguage);
+    }
   }, [i18n]);
 
   return (
@@ -132,6 +162,7 @@ function App() {
       <BrowserRouter>
         <Analytics />
         <NotificationHandler />
+        <LocaleSync />
         <ScrollToTop />
         <AppContent />
         <NotificationToastContainer />

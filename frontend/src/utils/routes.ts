@@ -49,21 +49,22 @@ export const getLocalizedRoute = (route: string): string => {
   }
 
   const language = i18n.language;
-  const segments = route.split("/").filter(Boolean);
+
+  // Always strip any existing locale prefix first to avoid duplication
+  const withoutLocalePrefix = route.replace(/^\/(en|pt)\//, "/");
+  const segments = withoutLocalePrefix.split("/").filter(Boolean);
 
   if (language === "en") {
     const translatedSegments = segments.map((segment) =>
       translateRoute(segment, true),
     );
-    return `/${language}/${translatedSegments.join("/")}`;
+    return `/en/${translatedSegments.join("/")}`;
   }
 
-  // Remove 'en' prefix if present and translate to Portuguese
-  const withoutPrefix = route.replace(/^\/en\//, "");
-  const portugueseSegments = withoutPrefix
-    .split("/")
-    .filter(Boolean)
-    .map((segment) => translateRoute(segment, false));
+  // For Portuguese, translate segments without adding prefix
+  const portugueseSegments = segments.map((segment) =>
+    translateRoute(segment, false),
+  );
   return `/${portugueseSegments.join("/")}`;
 };
 
