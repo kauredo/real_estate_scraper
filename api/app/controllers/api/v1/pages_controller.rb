@@ -3,7 +3,12 @@
 module Api
   module V1
     class PagesController < Api::V1::BaseController
+      include Cacheable
+
       def home
+        # Set HTTP cache headers (5 minutes)
+        set_cache_headers(max_age: 5.minutes)
+
         listings = Listing.all.includes([:translations])
         listings_by_geography = listings.by_geography
 
@@ -19,6 +24,9 @@ module Api
       end
 
       def about
+        # Set HTTP cache headers (10 minutes - about page changes less frequently)
+        set_cache_headers(max_age: 10.minutes)
+
         render json: {
           stats: {
             listing_count: Listing.all.count,

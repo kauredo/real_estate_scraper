@@ -13,6 +13,8 @@ class Listing < ApplicationRecord
 
   acts_as_paranoid
   after_save :update_orders
+  after_save :expire_listings_cache
+  after_destroy :expire_listings_cache
 
   CITIES = {
     north: %w[porto braga],
@@ -157,6 +159,10 @@ class Listing < ApplicationRecord
   end
 
   private
+
+  def expire_listings_cache
+    Rails.cache.delete("tenant_#{tenant_id}/listings_metadata")
+  end
 
   def update_orders
     deleted_with_order = Listing.unscoped.where.not(deleted_at: nil).where.not(order: nil)

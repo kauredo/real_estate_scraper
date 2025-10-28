@@ -4,8 +4,11 @@ module Api
   module V1
     class ListingsController < Api::V1::BaseController
       include Previewable
+      include Cacheable
 
       def index
+        # Set HTTP cache headers (5 minutes)
+        set_cache_headers(max_age: 5.minutes)
         @q = Listing.includes(:translations, listing_complex: :translations).ransack(params[:q])
         listings = @q.result
 
@@ -24,18 +27,33 @@ module Api
 
         paginated = paginate(listings, serializer: ListingSerializer)
 
+        # Cache expensive metadata queries (expires in 1 hour)
+        metadata = Rails.cache.fetch("tenant_#{Current.tenant.id}/listings_metadata", expires_in: 1.hour) do
+          {
+            max_price: Listing.maximum(:price_cents) || 0,
+            stats_keys: Listing.unscoped.possible_stats_keys,
+            kinds: Listing.kinds.except('other').map { |kind, index| { kind:, index: } },
+            objectives: Listing.objectives.except('other').map { |objective, index| { objective:, index: } }
+          }
+        end
+
         render json: {
           listings: paginated[:data],
           pagination: paginated[:pagination],
-          max_price: Listing.all.pluck(:price_cents).uniq.compact_blank.map(&:to_i).max,
-          stats_keys: Listing.unscoped.possible_stats_keys,
-          kinds: Listing.kinds.except('other').map { |kind, index| { kind:, index: } },
-          objectives: Listing.objectives.except('other').map { |objective, index| { objective:, index: } }
+          **metadata
         }
       end
 
       def show
         @listing = Listing.friendly.find(params[:id])
+
+        # Set ETag and Last-Modified headers for conditional GET
+        fresh_when(
+          etag: [@listing, Current.tenant],
+          last_modified: @listing.updated_at,
+          public: true
+        )
+
         render json: @listing,
                serializer: ListingSerializer
       end

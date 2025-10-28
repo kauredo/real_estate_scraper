@@ -5,10 +5,14 @@ module Api
     class ListingComplexesController < Api::V1::BaseController
       include FeatureFlag
       include Previewable
+      include Cacheable
 
       before_action -> { require_feature!(:listing_complexes) }
 
       def index
+        # Set HTTP cache headers (5 minutes)
+        set_cache_headers(max_age: 5.minutes)
+
         listing_complexes = ListingComplex.includes(:translations, :photos, :listings).where(hidden: false)
         paginated = paginate(listing_complexes, serializer: ListingComplexSerializer)
 
@@ -30,6 +34,15 @@ module Api
 
         # Now eager load associations since we know we'll need them
         @listing_complex = ListingComplex.includes(:translations, :listings, :photos).friendly.find(params[:id])
+
+        # Set ETag and Last-Modified headers for conditional GET (skip in preview mode)
+        unless preview_mode?
+          fresh_when(
+            etag: [@listing_complex, Current.tenant],
+            last_modified: @listing_complex.updated_at,
+            public: true
+          )
+        end
 
         render json: @listing_complex,
                serializer: ListingComplexSerializer,
