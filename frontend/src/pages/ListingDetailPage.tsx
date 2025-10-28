@@ -3,6 +3,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { getListing } from "../services/api";
 import ShowPage from "../components/showPage/Show";
 import MetaTags from "../components/shared/MetaTags";
+import StructuredData from "../components/shared/StructuredData";
 import DetailPageSkeleton from "../components/loading/DetailPageSkeleton";
 import { Listing } from "../utils/interfaces";
 import { AxiosError } from "axios";
@@ -59,6 +60,8 @@ const ListingDetailPage = () => {
         type="article"
         url={window.location.href}
       />
+      <StructuredData type="listing" id={slug} />
+      <StructuredData type="breadcrumbs" />
       <ShowPage listing={listing} />
     </div>
   );

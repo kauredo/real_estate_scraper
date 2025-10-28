@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { getBlogPost } from "../services/api";
 import ShareIcons from "../components/shared/ShareIcons";
 import MetaTags from "../components/shared/MetaTags";
+import StructuredData from "../components/shared/StructuredData";
 import { BlogPost } from "../utils/interfaces";
 import Flashes from "../components/shared/Flashes";
 
@@ -68,6 +69,8 @@ const BlogPostDetailPage = () => {
         type="article"
         url={window.location.href}
       />
+      <StructuredData type="blog_post" id={slug} />
+      <StructuredData type="breadcrumbs" />
 
       {error && <Flashes type="error" message={error} onClose={clearError} />}
 

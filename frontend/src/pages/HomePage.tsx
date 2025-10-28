@@ -4,6 +4,7 @@ import { getHomePage } from "../services/api";
 import { useAsyncOperation } from "../hooks/useAsyncOperation";
 import { useTranslation } from "react-i18next";
 import { MetaTags } from "../components/shared/MetaTags";
+import StructuredData from "../components/shared/StructuredData";
 import Hero from "../components/shared/Hero";
 import Cards from "../components/homePage/Cards";
 import Results from "../components/homePage/Results";
@@ -63,6 +64,8 @@ export default function Home() {
   return (
     <>
       <MetaTags pageType="home" image={photos[0]} url={window.location.href} />
+      <StructuredData type="organization" />
+      <StructuredData type="listings_collection" />
       <Hero photos={photos} />
       <Cards listings={listings} />
       {results && <Results results={results} testimonials={testimonials} />}
