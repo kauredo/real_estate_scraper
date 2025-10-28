@@ -33,6 +33,15 @@ module ActsAsTenant
     def across_all_tenants
       unscoped
     end
+
+    # Execute block with a specific tenant context
+    def with_tenant(tenant)
+      previous_tenant = Current.tenant
+      Current.tenant = tenant
+      yield
+    ensure
+      Current.tenant = previous_tenant
+    end
   end
 
   private
