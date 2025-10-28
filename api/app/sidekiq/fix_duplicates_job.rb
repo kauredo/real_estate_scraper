@@ -3,7 +3,7 @@
 class FixDuplicatesJob < ApplicationJob
   require 'rake'
 
-  def perform
+  def perform(tenant_id)
     ScrapeListingDetails.log '[FixDuplicatesJob] is being performed'
     Rails.application.load_tasks
 
