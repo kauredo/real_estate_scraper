@@ -17,6 +17,8 @@ const ListingDetailPage = () => {
 
   useEffect(() => {
     const fetchListing = async () => {
+      if (!slug) return;
+
       try {
         setLoading(true);
         const response = await getListing(slug, previewToken || undefined);
@@ -31,9 +33,7 @@ const ListingDetailPage = () => {
       }
     };
 
-    if (slug) {
-      fetchListing();
-    }
+    fetchListing();
   }, [slug, previewToken]);
 
   if (loading) {
