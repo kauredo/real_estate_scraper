@@ -1,5 +1,6 @@
 import axios from "axios";
 import { apiRoutes } from "../utils/routes";
+import i18n from "../i18n";
 
 // Create axios instance with default config
 const api = axios.create({
@@ -10,6 +11,25 @@ const api = axios.create({
   },
   withCredentials: true, // Important for cookies/sessions if needed
 });
+
+// Request interceptor to add locale parameter to all requests
+api.interceptors.request.use(
+  (config) => {
+    // Get current locale from i18n
+    const currentLocale = i18n.language || "pt";
+
+    // Add locale to query parameters
+    if (!config.params) {
+      config.params = {};
+    }
+    config.params.locale = currentLocale;
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
 // We'll store notification functions that will be injected from the component tree
 let notificationContext: {
@@ -131,14 +151,14 @@ export const getClubStory = (slug: string, previewToken?: string) =>
   api.get(apiRoutes.clubStory(slug), {
     params: previewToken ? { preview_token: previewToken } : {},
   });
-export const joinClub = (data) => api.post(apiRoutes.clubJoin, data);
+export const joinClub = (data: any) => api.post(apiRoutes.clubJoin, data);
 
 // Newsletter API functions
-export const subscribeToNewsletter = (data) =>
+export const subscribeToNewsletter = (data: any) =>
   api.post(apiRoutes.newsletterSubscriptions, { newsletter: data });
-export const unsubscribeFromNewsletter = (id) =>
+export const unsubscribeFromNewsletter = (id: string) =>
   api.delete(apiRoutes.newsletterSubscription(id));
-export const confirmNewsletterSubscription = (id, token) =>
+export const confirmNewsletterSubscription = (id: string, token: string) =>
   api.get(apiRoutes.confirmNewsletterSubscription(id, token));
 
 // Testimonials API functions
