@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
 import { Badge } from "../components/ui/Badge";
+import { SEO } from "../components/SEO";
 import {
   Card,
   CardContent,
@@ -30,7 +31,14 @@ export default function Features() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <>
+      <SEO
+        title="Features - Professional Real Estate Website Platform"
+        description="Discover all the features of MyAgentWebsite: property listings, testimonials, lead capture forms, custom domains, mobile-responsive design, SEO optimization, and more."
+        canonical="/features"
+        keywords="real estate features, property listings, testimonials, lead capture, custom domain, SEO optimization, mobile responsive"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
@@ -537,5 +545,6 @@ export default function Features() {
         </div>
       </section>
     </div>
+    </>
   );
 }

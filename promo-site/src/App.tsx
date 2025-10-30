@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
+import { CookieConsent } from "./components/CookieConsent";
 import Home from "./pages/Home";
 import Features from "./pages/Features";
 import Pricing from "./pages/Pricing";
@@ -26,6 +27,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <CookieConsent />
       </div>
     </BrowserRouter>
   );

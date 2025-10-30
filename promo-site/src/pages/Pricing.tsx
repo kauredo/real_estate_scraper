@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
 import { Badge } from "../components/ui/Badge";
+import { SEO } from "../components/SEO";
 import {
   Card,
   CardContent,
@@ -29,7 +30,14 @@ export default function Pricing() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <>
+      <SEO
+        title="Pricing - Affordable Plans for Real Estate Agents"
+        description="Simple, transparent pricing for MyAgentWebsite. Choose from Starter (€49/month), Professional (€99/month), or Enterprise plans. 14-day free trial, no credit card required."
+        canonical="/pricing"
+        keywords="real estate website pricing, agent website cost, affordable website builder, monthly subscription, free trial"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
@@ -537,5 +545,6 @@ export default function Pricing() {
         </div>
       </section>
     </div>
+    </>
   );
 }

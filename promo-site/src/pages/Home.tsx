@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
 import { Badge } from "../components/ui/Badge";
 import { Card, CardContent } from "../components/ui/Card";
+import { SEO } from "../components/SEO";
 import {
   CheckCircle2,
   Zap,
@@ -21,7 +22,14 @@ export default function Home() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <>
+      <SEO
+        title="Real Estate Agent Websites Made Simple"
+        description="Create your professional real estate website in minutes. Showcase properties, manage listings, capture leads, and grow your business with MyAgentWebsite."
+        canonical="/"
+        keywords="real estate website, agent website builder, property listings, real estate platform, agent website"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
@@ -414,5 +422,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }

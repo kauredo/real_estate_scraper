@@ -11,6 +11,7 @@ import {
 import { Input } from "../components/ui/Input";
 import { Textarea } from "../components/ui/Textarea";
 import { Label } from "../components/ui/Label";
+import { SEO } from "../components/SEO";
 import {
   Mail,
   Phone,
@@ -66,7 +67,14 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <>
+      <SEO
+        title="Contact Us - Get in Touch with MyAgentWebsite"
+        description="Have questions? Want to schedule a demo? Contact MyAgentWebsite team. We're here to help real estate agents succeed online."
+        canonical="/contact"
+        keywords="contact myagentwebsite, schedule demo, customer support, get in touch"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
@@ -395,5 +403,6 @@ export default function Contact() {
         </div>
       </section>
     </div>
+    </>
   );
 }

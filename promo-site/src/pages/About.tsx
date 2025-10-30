@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "../components/ui/Button";
 import { Badge } from "../components/ui/Badge";
 import { Card, CardContent } from "../components/ui/Card";
+import { SEO } from "../components/SEO";
 import {
   Target,
   Users,
@@ -17,7 +18,14 @@ export default function About() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <>
+      <SEO
+        title="About Us - Built by Real Estate Technology Experts"
+        description="Learn about MyAgentWebsite - the platform empowering real estate agents to own their digital presence. Purpose-built for agents, easy to use, and affordable."
+        canonical="/about"
+        keywords="about myagentwebsite, real estate technology, agent platform, company mission"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
@@ -307,5 +315,6 @@ export default function About() {
         </div>
       </section>
     </div>
+    </>
   );
 }

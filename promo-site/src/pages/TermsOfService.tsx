@@ -1,10 +1,17 @@
 import { useTranslation } from 'react-i18next';
+import { SEO } from '../components/SEO';
 
 export default function TermsOfService() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <>
+      <SEO
+        title="Terms of Service - Service Agreement & Guidelines"
+        description="Read MyAgentWebsite Terms of Service. Learn about our subscription plans, user responsibilities, refund policy, and service guidelines for real estate agents."
+        canonical="/terms-of-service"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         {/* Header */}
         <div className="mb-12">
@@ -308,5 +315,6 @@ export default function TermsOfService() {
         </div>
       </div>
     </div>
+    </>
   );
 }
