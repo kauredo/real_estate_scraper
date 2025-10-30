@@ -3,6 +3,7 @@ import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { CookieConsent } from "./components/CookieConsent";
 import { LocalizedRouter } from "./components/LocalizedRouter";
+import { ScrollToTop } from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Features from "./pages/Features";
 import Pricing from "./pages/Pricing";
@@ -16,6 +17,7 @@ import Help from "./pages/Help";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <LocalizedRouter>
         <div className="min-h-screen flex flex-col">
           <Navbar />
