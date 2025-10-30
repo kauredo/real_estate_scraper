@@ -1,8 +1,8 @@
 # Promo Site Improvements & Requirements
 
-**Last Updated:** October 28, 2025
+**Last Updated:** October 30, 2025
 **Application:** Marketing/Promotional Website (`/promo-site`)
-**Current Status:** EXISTS but needs to be built for MyAgentWebsite.com
+**Current Status:** Core pages built, needs Phase 1 & 2 completion (NO blog/newsletter features)
 **Tech Stack:** Vite + React + TypeScript + Tailwind CSS
 **Purpose:** SaaS product marketing website for MyAgentWebsite.com
 
@@ -55,9 +55,9 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
 
 - [ ] **Feature Highlights** (top 6 features)
   - Property listings management
-  - Built-in blog
+  - Testimonials & reviews
   - Lead capture forms
-  - Newsletter system
+  - Custom domain support
   - Mobile-responsive
   - SEO optimized
 
@@ -103,20 +103,15 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
     - Property complexes/developments
     - Advanced search & filters
     - Interactive maps
-
-  - **Content Creation**
-    - Built-in blog editor
-    - Rich text formatting
-    - SEO optimization tools
-    - Media library
+    - Testimonials & reviews showcase
     - Multi-language support (PT/EN)
 
   - **Lead Generation**
     - Contact forms
     - Property inquiry forms
-    - Newsletter signup
     - Lead notifications
     - Email integration
+    - Call-to-action buttons
 
   - **Marketing Tools**
     - SEO-optimized pages
@@ -159,9 +154,8 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
   **Starter - €49/month**
   - Your professional website
   - Up to 100 active listings
-  - Blog (10 posts)
   - Testimonials & reviews
-  - Newsletter signup
+  - Contact forms & lead capture
   - Email support
   - Subdomain (yourname.myagentwebsite.com)
   - Mobile responsive
@@ -170,7 +164,6 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
   **Professional - €99/month** ⭐ MOST POPULAR
   - Everything in Starter
   - Unlimited listings
-  - Unlimited blog posts
   - Custom domain (yourname.com)
   - Priority email support
   - Advanced analytics
@@ -324,39 +317,7 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
   - Link to FAQ
   - Link to help center
 
-### 7. Resources / Blog
-
-**Purpose:** SEO, thought leadership, education
-
-**Sections:**
-- [ ] **Blog List View**
-  - Featured post (large card)
-  - Recent posts (grid)
-  - Categories sidebar
-  - Search functionality
-  - Pagination
-
-- [ ] **Blog Post Detail**
-  - Hero image
-  - Publish date and reading time
-  - Author info
-  - Content (well-formatted)
-  - Related posts
-  - Social sharing buttons
-  - Newsletter signup CTA
-
-- [ ] **Content Ideas:**
-  - "How to create a real estate website in 2025"
-  - "10 ways to get more real estate leads online"
-  - "SEO tips for real estate agents"
-  - "Why agents need their own website (not just marketplace profiles)"
-  - "How to write property descriptions that convert"
-  - "Real estate photography tips"
-  - "Building your personal brand as an agent"
-  - Case studies and success stories
-  - Product updates and feature announcements
-
-### 8. Documentation / Help Center
+### 7. Documentation / Help Center
 
 **Purpose:** Self-service support, reduce support burden
 
@@ -364,7 +325,6 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
 - [ ] **Categories**
   - Getting Started
   - Managing Listings
-  - Blog & Content
   - Settings & Customization
   - Billing & Account
   - Troubleshooting
@@ -394,7 +354,7 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
   - Examples
   - SDKs
 
-### 9. Legal Pages
+### 8. Legal Pages
 
 **Required for compliance:**
 
@@ -466,7 +426,6 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
   - Links to all main pages
   - Social media links
   - Contact information
-  - Newsletter signup
   - Legal links
   - Copyright notice
 
@@ -491,7 +450,7 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
   - Feature cards
   - Pricing cards
   - Testimonial cards
-  - Blog post cards
+  - Case study cards
 
 - [ ] **Icons**
   - Consistent icon set (FontAwesome, Heroicons, or custom)
@@ -557,16 +516,9 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
 - [ ] **Forms**
   - Contact form with email delivery
   - Demo request form
-  - Newsletter signup
   - Form validation
   - CAPTCHA (spam prevention)
   - Success/error handling
-
-- [ ] **Newsletter**
-  - Email service integration (Mailchimp, ConvertKit, etc.)
-  - Double opt-in
-  - Welcome email
-  - Unsubscribe link
 
 - [ ] **Cookie Consent**
   - Cookie banner (GDPR compliance)
@@ -589,7 +541,7 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
 
 - [ ] **Email Service**
   - Transactional emails (SendGrid, Resend)
-  - Marketing emails (Mailchimp, ConvertKit)
+  - Contact form email delivery
 
 - [ ] **CRM** (optional)
   - Send leads to CRM
@@ -629,7 +581,7 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
   - Pricing: "Choose Plan" buttons
   - Features: "Request Demo"
   - Contact: Full contact form
-  - Blog: Newsletter signup
+  - Case Studies: "Schedule Demo"
 
 - [ ] **Exit Intent Popup** (optional)
   - Trigger when user moves to leave
@@ -657,26 +609,6 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
   - "1,234 websites created"
   - "10,000 listings managed"
   - Real-time counter for credibility
-
-### Content Marketing
-
-- [ ] **SEO-Optimized Blog**
-  - Target keywords
-  - Internal linking
-  - Share buttons
-  - Related posts
-
-- [ ] **Lead Magnets**
-  - Free guide: "The Real Estate Agent's Guide to Building an Online Presence"
-  - Checklist: "Launch Your Website in 7 Days"
-  - Template: "Property Description Template"
-
-- [ ] **Email Sequences**
-  - Welcome sequence (3-5 emails)
-  - Onboarding tips
-  - Feature highlights
-  - Success stories
-  - Abandoned cart (if applicable)
 
 ### Conversion Optimization
 
@@ -791,26 +723,25 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
 **Content:**
 - [ ] Record 3-minute demo video
 - [ ] Collect 3-5 testimonials
-- [ ] Write 3 blog posts
+- [ ] Create platform demo screenshots/walkthrough
 
 **Technical:**
 - [ ] Add structured data
 - [ ] Optimize performance (Lighthouse 90+)
-- [ ] Add newsletter signup integration
+- [ ] Integrate demo booking system (Calendly/Cal.com)
 
-### Phase 3: Scale & Optimize (Week 4+)
+### Phase 3: Scale & Optimize (OUT OF SCOPE - Future)
+
+**Note:** These items are deferred for future consideration
 
 **Pages:**
-- [ ] Blog with 5-10 articles
-- [ ] Full documentation site
-- [ ] Comparison pages
+- [ ] Full documentation site expansion
+- [ ] Comparison pages (vs competitors)
 - [ ] Partner program page
 
 **Marketing:**
-- [ ] Set up email sequences
 - [ ] Implement A/B testing
 - [ ] Add heatmaps/session recording
-- [ ] Create lead magnets
 
 **Technical:**
 - [ ] Implement live chat
@@ -834,13 +765,12 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
 - [ ] Pages per session
 - [ ] Scroll depth
 - [ ] Video views
-- [ ] Blog readership
+- [ ] Documentation page views
 
 **Conversions:**
 - [ ] Demo requests
 - [ ] Trial signups
 - [ ] Contact form submissions
-- [ ] Newsletter signups
 - [ ] Conversion rate (visitor to lead)
 
 **Sales:**
