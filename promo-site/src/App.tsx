@@ -10,6 +10,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import CaseStudies from "./pages/CaseStudies";
+import Help from "./pages/Help";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/help" element={<Help />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
 
@@ -34,6 +38,8 @@ function App() {
               <Route path="/pt/pricing" element={<Pricing />} />
               <Route path="/pt/about" element={<About />} />
               <Route path="/pt/contact" element={<Contact />} />
+              <Route path="/pt/case-studies" element={<CaseStudies />} />
+              <Route path="/pt/help" element={<Help />} />
               <Route path="/pt/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/pt/terms-of-service" element={<TermsOfService />} />
             </Routes>

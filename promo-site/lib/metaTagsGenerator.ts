@@ -28,6 +28,8 @@ const PATH_TO_KEY_MAP: Record<string, string> = {
   '/pricing': 'pricing',
   '/about': 'about',
   '/contact': 'contact',
+  '/case-studies': 'caseStudies',
+  '/help': 'help',
   '/privacy-policy': 'privacy',
   '/terms-of-service': 'terms',
 };
@@ -39,6 +41,8 @@ const KEY_TO_TYPE_MAP: Record<string, string> = {
   'pricing': 'website',
   'about': 'website',
   'contact': 'website',
+  'caseStudies': 'website',
+  'help': 'website',
   'privacy': 'article',
   'terms': 'article',
 };

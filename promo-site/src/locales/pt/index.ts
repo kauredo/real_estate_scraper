@@ -3,6 +3,8 @@ import privacy from './privacy.json';
 import terms from './terms.json';
 import cookies from './cookies.json';
 import seo from './seo.json';
+import caseStudies from './caseStudies.json';
+import help from './help.json';
 
 export default {
   ...translation,
@@ -10,4 +12,6 @@ export default {
   ...terms,
   ...cookies,
   ...seo,
+  ...caseStudies,
+  ...help,
 };

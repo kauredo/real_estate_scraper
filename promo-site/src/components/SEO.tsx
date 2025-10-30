@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
-  page: 'home' | 'features' | 'pricing' | 'about' | 'contact' | 'privacy' | 'terms';
+  page: 'home' | 'features' | 'pricing' | 'about' | 'contact' | 'privacy' | 'terms' | 'caseStudies' | 'help';
   ogImage?: string;
   ogType?: string;
 }

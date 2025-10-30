@@ -1,0 +1,56 @@
+{
+  "caseStudies": {
+    "hero": {
+      "badge": "Histórias de Sucesso",
+      "title": "Agentes Reais, Resultados Reais",
+      "subtitle": "Veja como profissionais imobiliários estão a fazer crescer o seu negócio com MyAgentWebsite"
+    },
+    "featured": {
+      "label": "Caso de Estudo em Destaque",
+      "client": "Sofia Galvão Group",
+      "location": "Porto, Portugal",
+      "type": "Agência Imobiliária Boutique",
+      "challenge": {
+        "title": "O Desafio",
+        "description": "O Sofia Galvão Group precisava de um website profissional rapidamente para estabelecer a sua presença online e mostrar o seu portfólio de imóveis premium. As agências de desenvolvimento web tradicionais cotaram mais de 3 meses e mais de €10.000."
+      },
+      "solution": {
+        "title": "A Solução",
+        "description": "Usando o MyAgentWebsite, lançaram um website imobiliário completo com anúncios de imóveis, testemunhos e captura de leads em apenas 2 semanas."
+      },
+      "results": {
+        "title": "Os Resultados",
+        "metrics": [
+          {
+            "value": "2 semanas",
+            "label": "Tempo de Lançamento",
+            "description": "vs 3+ meses estimados"
+          },
+          {
+            "value": "€10.000+",
+            "label": "Poupança de Custos",
+            "description": "Comparado com desenvolvimento personalizado"
+          },
+          {
+            "value": "Profissional",
+            "label": "Presença de Marca",
+            "description": "Credibilidade estabelecida online"
+          }
+        ]
+      },
+      "quote": "O MyAgentWebsite permitiu-nos lançar a nossa presença online de forma rápida e profissional. A plataforma é intuitiva e conseguimos gerir tudo sozinhos sem precisar de conhecimentos técnicos.",
+      "quoteName": "Sofia Galvão",
+      "quoteRole": "Fundadora, Sofia Galvão Group",
+      "visitWebsite": "Visitar Website"
+    },
+    "moreStories": {
+      "title": "Mais Histórias de Sucesso",
+      "subtitle": "Junte-se a centenas de agentes a fazer crescer o seu negócio online"
+    },
+    "cta": {
+      "title": "Pronto para Escrever a Sua História de Sucesso?",
+      "subtitle": "Junte-se a agentes de sucesso que transformaram o seu negócio com MyAgentWebsite",
+      "button": "Começar Teste Gratuito"
+    }
+  }
+}

@@ -12,8 +12,12 @@
   "nav": {
     "features": "Funcionalidades",
     "pricing": "Preços",
+    "caseStudies": "Casos de Estudo",
+    "help": "Ajuda",
     "about": "Sobre",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "menu": "Menu",
+    "close": "Fechar"
   },
   "home": {
     "hero": {
@@ -109,9 +113,11 @@
     "product": "Produto",
     "company": "Empresa",
     "resources": "Recursos",
-    "demo": "Demonstração",
+    "caseStudies": "Casos de Estudo",
+    "help": "Ajuda",
     "documentation": "Documentação",
-    "support": "Suporte",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço",
     "copyright": "© 2025 MyAgentWebsite. Todos os direitos reservados."
   },
   "features": {

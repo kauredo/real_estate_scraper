@@ -1,0 +1,50 @@
+{
+  "help": {
+    "hero": {
+      "badge": "Help Center",
+      "title": "How Can We Help You?",
+      "subtitle": "Find answers, tutorials, and guides for MyAgentWebsite"
+    },
+    "documentation": {
+      "title": "Documentation",
+      "description": "Complete guides and tutorials for using MyAgentWebsite",
+      "button": "View Documentation",
+      "url": "https://www.notion.so/29853081375781e5a730c36cebc01950"
+    },
+    "categories": {
+      "title": "Browse by Category",
+      "items": [
+        {
+          "title": "Getting Started",
+          "description": "Learn the basics of setting up your MyAgentWebsite account and creating your first listing"
+        },
+        {
+          "title": "Managing Properties",
+          "description": "Add, edit, and organize your property listings with ease"
+        },
+        {
+          "title": "Customization",
+          "description": "Personalize your website with custom colors, logos, and branding"
+        },
+        {
+          "title": "Billing & Account",
+          "description": "Manage your subscription, payments, and account settings"
+        }
+      ]
+    },
+    "support": {
+      "title": "Need More Help?",
+      "subtitle": "Our support team is here to assist you",
+      "email": {
+        "title": "Email Support",
+        "description": "Get help via email",
+        "contact": "support@myagentwebsite.com"
+      },
+      "contact": {
+        "title": "Contact Us",
+        "description": "Fill out our contact form for assistance",
+        "button": "Contact Support"
+      }
+    }
+  }
+}

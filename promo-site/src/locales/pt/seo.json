@@ -34,6 +34,16 @@
       "title": "Termos de Serviço - Acordo de Utilizador",
       "description": "Leia os nossos termos de serviço para entender as regras e diretrizes para usar o MyAgentWebsite. Termos claros e transparentes para todos os utilizadores.",
       "keywords": "termos de serviço, acordo de utilizador, termos e condições, legal"
+    },
+    "caseStudies": {
+      "title": "Histórias de Sucesso - Agentes Reais, Resultados Reais",
+      "description": "Veja como profissionais imobiliários estão a fazer crescer o seu negócio com MyAgentWebsite. Leia histórias de sucesso de agentes como Sofia Galvão Group e mais.",
+      "keywords": "casos de estudo, histórias de sucesso, testemunhos, sucesso imobiliário, testemunhos de agentes"
+    },
+    "help": {
+      "title": "Centro de Ajuda - Obtenha Suporte e Documentação",
+      "description": "Encontre respostas, tutoriais e guias para MyAgentWebsite. Obtenha ajuda com configuração, gestão de imóveis, personalização e mais.",
+      "keywords": "centro de ajuda, suporte, documentação, tutoriais, guias, FAQ"
     }
   }
 }

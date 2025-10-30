@@ -12,8 +12,12 @@
   "nav": {
     "features": "Features",
     "pricing": "Pricing",
+    "caseStudies": "Case Studies",
+    "help": "Help",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close"
   },
   "home": {
     "hero": {
@@ -109,9 +113,11 @@
     "product": "Product",
     "company": "Company",
     "resources": "Resources",
-    "demo": "Demo",
+    "caseStudies": "Case Studies",
+    "help": "Help",
     "documentation": "Documentation",
-    "support": "Support",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
     "copyright": "© 2025 MyAgentWebsite. All rights reserved."
   },
   "features": {

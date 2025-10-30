@@ -41,14 +41,6 @@ export function Footer() {
                   {t("nav.pricing")}
                 </Link>
               </li>
-              <li>
-                <Link
-                  to={localizedPath("/contact")}
-                  className="hover:text-gray-900"
-                >
-                  {t("footer.demo")}
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -61,6 +53,14 @@ export function Footer() {
                   className="hover:text-gray-900"
                 >
                   {t("nav.about")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={localizedPath("/case-studies")}
+                  className="hover:text-gray-900"
+                >
+                  {t("footer.caseStudies")}
                 </Link>
               </li>
               <li>
@@ -78,6 +78,14 @@ export function Footer() {
             <h3 className="font-semibold mb-4">{t("footer.resources")}</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
+                <Link
+                  to={localizedPath("/help")}
+                  className="hover:text-gray-900"
+                >
+                  {t("footer.help")}
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://www.notion.so/29853081375781e5a730c36cebc01950"
                   className="hover:text-gray-900"
@@ -85,14 +93,6 @@ export function Footer() {
                   rel="noopener noreferrer"
                 >
                   {t("footer.documentation")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:support@myagentwebsite.com"
-                  className="hover:text-gray-900"
-                >
-                  {t("footer.support")}
                 </a>
               </li>
             </ul>
@@ -107,13 +107,13 @@ export function Footer() {
                 to={localizedPath("/privacy-policy")}
                 className="hover:text-gray-900"
               >
-                Privacy Policy
+                {t("footer.privacyPolicy")}
               </Link>
               <Link
                 to={localizedPath("/terms-of-service")}
                 className="hover:text-gray-900"
               >
-                Terms of Service
+                {t("footer.termsOfService")}
               </Link>
             </div>
           </div>

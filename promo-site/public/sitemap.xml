@@ -101,6 +101,46 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/contact" />
   </url>
 
+  <!-- English Case Studies -->
+  <url>
+    <loc>https://myagentwebsite.com/case-studies</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/case-studies" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/case-studies" />
+  </url>
+
+  <!-- Portuguese Case Studies -->
+  <url>
+    <loc>https://myagentwebsite.com/pt/case-studies</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/case-studies" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/case-studies" />
+  </url>
+
+  <!-- English Help -->
+  <url>
+    <loc>https://myagentwebsite.com/help</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/help" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/help" />
+  </url>
+
+  <!-- Portuguese Help -->
+  <url>
+    <loc>https://myagentwebsite.com/pt/help</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/help" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/help" />
+  </url>
+
   <!-- English Privacy Policy -->
   <url>
     <loc>https://myagentwebsite.com/privacy-policy</loc>

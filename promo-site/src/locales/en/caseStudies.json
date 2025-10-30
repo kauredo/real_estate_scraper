@@ -1,0 +1,56 @@
+{
+  "caseStudies": {
+    "hero": {
+      "badge": "Success Stories",
+      "title": "Real Agents, Real Results",
+      "subtitle": "See how real estate professionals are growing their business with MyAgentWebsite"
+    },
+    "featured": {
+      "label": "Featured Case Study",
+      "client": "Sofia Galvão Group",
+      "location": "Porto, Portugal",
+      "type": "Boutique Real Estate Agency",
+      "challenge": {
+        "title": "The Challenge",
+        "description": "Sofia Galvão Group needed a professional website quickly to establish their online presence and showcase their premium property portfolio. Traditional web development agencies quoted 3+ months and €10,000+."
+      },
+      "solution": {
+        "title": "The Solution",
+        "description": "Using MyAgentWebsite, they launched a fully-featured real estate website with property listings, testimonials, and lead capture in just 2 weeks."
+      },
+      "results": {
+        "title": "The Results",
+        "metrics": [
+          {
+            "value": "2 weeks",
+            "label": "Time to Launch",
+            "description": "vs 3+ months estimated"
+          },
+          {
+            "value": "€10,000+",
+            "label": "Cost Savings",
+            "description": "Compared to custom development"
+          },
+          {
+            "value": "Professional",
+            "label": "Brand Presence",
+            "description": "Established credibility online"
+          }
+        ]
+      },
+      "quote": "MyAgentWebsite allowed us to launch our online presence quickly and professionally. The platform is intuitive, and we can manage everything ourselves without needing technical expertise.",
+      "quoteName": "Sofia Galvão",
+      "quoteRole": "Founder, Sofia Galvão Group",
+      "visitWebsite": "Visit Website"
+    },
+    "moreStories": {
+      "title": "More Success Stories",
+      "subtitle": "Join hundreds of agents growing their business online"
+    },
+    "cta": {
+      "title": "Ready to Write Your Success Story?",
+      "subtitle": "Join successful agents who have transformed their business with MyAgentWebsite",
+      "button": "Start Free Trial"
+    }
+  }
+}

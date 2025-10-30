@@ -34,6 +34,16 @@
       "title": "Terms of Service - User Agreement",
       "description": "Read our terms of service to understand the rules and guidelines for using MyAgentWebsite. Clear, transparent terms for all users.",
       "keywords": "terms of service, user agreement, terms and conditions, legal"
+    },
+    "caseStudies": {
+      "title": "Success Stories - Real Agents, Real Results",
+      "description": "See how real estate professionals are growing their business with MyAgentWebsite. Read success stories from agents like Sofia Galvão Group and more.",
+      "keywords": "case studies, success stories, testimonials, real estate success, agent testimonials"
+    },
+    "help": {
+      "title": "Help Center - Get Support & Documentation",
+      "description": "Find answers, tutorials, and guides for MyAgentWebsite. Get help with setup, managing properties, customization, and more.",
+      "keywords": "help center, support, documentation, tutorials, guides, FAQ"
     }
   }
 }

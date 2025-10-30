@@ -1,0 +1,50 @@
+{
+  "help": {
+    "hero": {
+      "badge": "Centro de Ajuda",
+      "title": "Como Podemos Ajudar?",
+      "subtitle": "Encontre respostas, tutoriais e guias para MyAgentWebsite"
+    },
+    "documentation": {
+      "title": "Documentação",
+      "description": "Guias completos e tutoriais para usar MyAgentWebsite",
+      "button": "Ver Documentação",
+      "url": "https://www.notion.so/29853081375781e5a730c36cebc01950"
+    },
+    "categories": {
+      "title": "Navegar por Categoria",
+      "items": [
+        {
+          "title": "Começar",
+          "description": "Aprenda o básico sobre como configurar sua conta MyAgentWebsite e criar sua primeira listagem"
+        },
+        {
+          "title": "Gerir Propriedades",
+          "description": "Adicione, edite e organize suas listagens de propriedades com facilidade"
+        },
+        {
+          "title": "Personalização",
+          "description": "Personalize seu website com cores personalizadas, logotipos e marca"
+        },
+        {
+          "title": "Faturação e Conta",
+          "description": "Gerir sua subscrição, pagamentos e configurações de conta"
+        }
+      ]
+    },
+    "support": {
+      "title": "Precisa de Mais Ajuda?",
+      "subtitle": "Nossa equipa de suporte está aqui para ajudá-lo",
+      "email": {
+        "title": "Suporte por Email",
+        "description": "Obtenha ajuda por email",
+        "contact": "support@myagentwebsite.com"
+      },
+      "contact": {
+        "title": "Contacte-nos",
+        "description": "Preencha nosso formulário de contacto para assistência",
+        "button": "Contactar Suporte"
+      }
+    }
+  }
+}
