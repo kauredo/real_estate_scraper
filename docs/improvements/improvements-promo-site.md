@@ -6,6 +6,127 @@
 **Tech Stack:** Vite + React + TypeScript + Tailwind CSS
 **Purpose:** SaaS product marketing website for MyAgentWebsite.com
 
+### ✅ Completed So Far
+- ✅ All core pages: Home, Features, Pricing, About, Contact, Privacy Policy, Terms of Service
+- ✅ Full internationalization (EN/PT) with modular translation structure
+- ✅ SEO optimization with Edge Middleware for social media crawlers
+- ✅ Cookie consent banner (GDPR compliant)
+- ✅ Sitemap.xml and robots.txt
+- ✅ Legal pages with proper translations
+- ✅ Footer with legal links
+
+### 🚧 Next Steps
+- Case Studies page (Sofia Galvão Group)
+- Documentation/Help Center pages
+- Demo booking integration (UI only)
+
+---
+
+## 🔧 DEVELOPMENT PATTERNS & STANDARDS
+
+### Adding New Pages
+
+When adding new pages to the promo-site, follow this pattern:
+
+#### 1. Create Page Component
+Create the React component in `/promo-site/src/pages/{PageName}.tsx`
+
+#### 2. Add Translations
+- Create `/promo-site/src/locales/en/{page_name}.json` with English translations
+- Create `/promo-site/src/locales/pt/{page_name}.json` with Portuguese translations
+- Update `/promo-site/src/locales/en/index.ts` to import and spread the new translation file:
+  ```typescript
+  import pageName from './page_name.json';
+
+  export default {
+    ...translation,
+    ...pageName, // Add this line
+  };
+  ```
+- Update `/promo-site/src/locales/pt/index.ts` the same way
+- Use translation keys in the component: `t('pageKey.sectionKey.textKey')`
+
+#### 3. Add SEO for Social Media Crawlers
+- Update `/promo-site/lib/metaTagsGenerator.ts` to add the new page's meta data:
+  ```typescript
+  const PAGE_META_DATA: Record<string, PageMetaData> = {
+    '/new-page': {
+      title: 'Page Title',
+      description: 'Page description for social sharing',
+      keywords: 'relevant, keywords, here',
+      type: 'website', // or 'article'
+    },
+    // ... other pages
+  };
+  ```
+- This ensures proper Open Graph tags for Facebook, Twitter, LinkedIn, WhatsApp, etc.
+- The Edge Middleware automatically injects these tags for social media crawlers
+
+#### 4. Add Client-Side SEO (Optional but Recommended)
+- Import and use the SEO component in the page:
+  ```typescript
+  import { SEO } from '../components/SEO';
+
+  return (
+    <>
+      <SEO
+        title="Page Title"
+        description="Page description"
+        canonical="/page-path"
+        keywords="keywords"
+      />
+      {/* Page content */}
+    </>
+  );
+  ```
+- This updates meta tags for regular users (not needed for crawlers since middleware handles it)
+
+#### 5. Add Route
+- Update `/promo-site/src/App.tsx` to add the new route
+
+#### 6. Update Sitemap
+- Add the new page to `/promo-site/public/sitemap.xml`
+
+### Current SEO Architecture
+
+**Two-Layer Approach:**
+
+1. **Server-Side (Edge Middleware)** - `/promo-site/middleware.ts`
+   - Detects social media crawlers (Facebook, Twitter, LinkedIn, WhatsApp, etc.)
+   - Injects meta tags from `metaTagsGenerator.ts` before HTML is sent
+   - Ensures proper social sharing with Open Graph and Twitter Cards
+   - Zero performance impact for regular users
+
+2. **Client-Side (SEO Component)** - `/promo-site/src/components/SEO.tsx`
+   - Updates meta tags via JavaScript for regular users
+   - Useful for user experience and non-crawler scenarios
+   - Works with SPA routing
+
+### Translation Structure
+
+```
+/promo-site/src/locales/
+├── en/
+│   ├── index.ts          # Exports all English translations
+│   ├── translation.json  # Main site translations
+│   ├── privacy.json      # Privacy Policy page
+│   ├── terms.json        # Terms of Service page
+│   ├── cookies.json      # Cookie consent banner
+│   └── {page}.json       # Additional pages
+└── pt/
+    ├── index.ts          # Exports all Portuguese translations
+    ├── translation.json  # Main site translations
+    ├── privacy.json      # Privacy Policy page
+    ├── terms.json        # Terms of Service page
+    ├── cookies.json      # Cookie consent banner
+    └── {page}.json       # Additional pages
+```
+
+**Benefits of this structure:**
+- Maintainable: Each page/feature has its own translation file
+- Scalable: Easy to add new pages without bloating a single file
+- Organized: Clear separation of concerns
+
 ---
 
 ## 🎯 PURPOSE & GOALS
@@ -693,31 +814,42 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
 ### Phase 1: MVP (Week 1-2)
 
 **Pages:**
-- [ ] Homepage (complete with all sections)
-- [ ] Pricing page
-- [ ] Contact/Demo request page
-- [ ] Privacy Policy
-- [ ] Terms of Service
+- [x] Homepage (complete with all sections) ✅
+- [x] Pricing page ✅
+- [x] Contact/Demo request page ✅
+- [x] Privacy Policy ✅
+- [x] Terms of Service ✅
 
 **Technical:**
 - [ ] Deploy to Vercel
 - [ ] Set up custom domain
-- [ ] Configure Google Analytics
-- [ ] Set up contact form email delivery
-- [ ] Add basic SEO (meta tags, sitemap)
+- [ ] Configure Google Analytics (DEFERRED - no external integrations for now)
+- [ ] Set up contact form email delivery (DEFERRED - no external integrations for now)
+- [x] Add basic SEO (meta tags, sitemap) ✅
+  - [x] Created sitemap.xml ✅
+  - [x] Created robots.txt ✅
+  - [x] Added Edge Middleware for social media crawlers ✅
+  - [x] Added client-side SEO component ✅
+  - [x] Added meta tags to all pages ✅
+
+**Additional Completed:**
+- [x] Cookie consent banner (GDPR compliance) ✅
+- [x] Translation system (PT/EN) for all pages ✅
+- [x] Legal pages translations ✅
+- [x] Footer with legal links ✅
 
 **Design:**
-- [ ] Finalize brand colors and fonts
-- [ ] Create logo
+- [x] Finalize brand colors and fonts ✅
+- [x] Create logo ✅
 - [ ] Take 10 critical screenshots
 - [ ] Write all copy
 
 ### Phase 2: Content & Credibility (Week 3)
 
 **Pages:**
-- [ ] Features page (detailed)
-- [ ] About page
-- [ ] Case study page (Sofia Galvão Group)
+- [x] Features page (detailed) ✅
+- [x] About page ✅
+- [ ] Case study page (Sofia Galvão Group) - **IN PROGRESS**
 - [ ] Documentation (getting started guide)
 
 **Content:**
@@ -728,7 +860,7 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
 **Technical:**
 - [ ] Add structured data
 - [ ] Optimize performance (Lighthouse 90+)
-- [ ] Integrate demo booking system (Calendly/Cal.com)
+- [ ] Integrate demo booking system (Calendly/Cal.com) - UI only, no actual integration
 
 ### Phase 3: Scale & Optimize (OUT OF SCOPE - Future)
 
