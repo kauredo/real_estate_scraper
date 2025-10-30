@@ -1,0 +1,164 @@
+{
+  "terms": {
+    "title": "Termos de Serviço",
+    "lastUpdated": "Última atualização: 30 de outubro de 2025",
+    "agreement": {
+      "title": "Acordo com os Termos",
+      "p1": "Estes Termos de Serviço (\"Termos\") regem o seu acesso e uso do MyAgentWebsite.com (o \"Serviço\"), operado por MyAgentWebsite.com (\"nós\", \"nosso\" ou \"nos\").",
+      "p2": "Ao aceder ou usar o Serviço, concorda em estar vinculado a estes Termos. Se discordar de qualquer parte destes Termos, não pode aceder ao Serviço."
+    },
+    "description": {
+      "title": "Descrição do Serviço",
+      "intro": "MyAgentWebsite.com fornece uma plataforma de criação de websites especificamente projetada para agentes e agências imobiliárias. O Serviço permite aos utilizadores:",
+      "features": [
+        "Criar e gerir websites imobiliários profissionais",
+        "Publicar anúncios de propriedades",
+        "Exibir testemunhos e avaliações",
+        "Capturar leads através de formulários de contacto",
+        "Personalizar aparência e conteúdo do website",
+        "Conectar domínios personalizados"
+      ]
+    },
+    "account": {
+      "title": "Registo de Conta",
+      "requirements": {
+        "title": "Requisitos da Conta",
+        "intro": "Para usar o Serviço, deve:",
+        "items": [
+          "Ter pelo menos 18 anos de idade",
+          "Fornecer informação de registo precisa e completa",
+          "Manter a segurança das suas credenciais de conta",
+          "Aceitar responsabilidade por todas as atividades na sua conta"
+        ]
+      },
+      "security": {
+        "title": "Segurança da Conta",
+        "content": "É responsável por manter a confidencialidade da sua senha de conta e por todas as atividades que ocorram na sua conta. Deve notificar-nos imediatamente de qualquer uso não autorizado da sua conta."
+      }
+    },
+    "payment": {
+      "title": "Planos de Subscrição e Pagamento",
+      "pricing": {
+        "title": "Preços",
+        "intro": "Oferecemos múltiplos planos de subscrição com diferentes funcionalidades e níveis de preço:",
+        "plans": [
+          "Plano Starter: €49/mês",
+          "Plano Profissional: €99/mês",
+          "Plano Enterprise: Preço personalizado"
+        ],
+        "changes": "Os preços estão sujeitos a alteração com aviso de 30 dias. Os subscritores atuais serão notificados antes de qualquer alteração de preço entrar em vigor."
+      },
+      "terms": {
+        "title": "Termos de Pagamento",
+        "content": "As subscrições são faturadas mensalmente ou anualmente com antecedência. O pagamento deve ser feito por cartão de crédito ou outros métodos de pagamento aceites. Ao fornecer informação de pagamento, autoriza-nos a cobrar as taxas aplicáveis ao seu método de pagamento."
+      },
+      "trial": {
+        "title": "Período de Teste Gratuito",
+        "content": "Podemos oferecer um período de teste gratuito de 14 dias. No final do período de teste, a sua subscrição será automaticamente convertida numa subscrição paga, a menos que cancele antes do fim do teste."
+      },
+      "refunds": {
+        "title": "Reembolsos",
+        "content": "Oferecemos uma garantia de devolução de dinheiro de 14 dias para novas subscrições. Os pedidos de reembolso devem ser feitos no prazo de 14 dias da compra inicial. Os reembolsos não estão disponíveis para renovações."
+      }
+    },
+    "cancellation": {
+      "title": "Cancelamento e Rescisão",
+      "byUser": {
+        "title": "Cancelamento pelo Utilizador",
+        "content": "Pode cancelar a sua subscrição a qualquer momento através das configurações da sua conta. O cancelamento entrará em vigor no final do seu período de faturação atual. Continuará a ter acesso ao Serviço até ao final do período pago."
+      },
+      "byUs": {
+        "title": "Rescisão por Nós",
+        "intro": "Reservamo-nos o direito de suspender ou rescindir a sua conta se:",
+        "reasons": [
+          "Violar estes Termos de Serviço",
+          "Se envolver em atividades fraudulentas ou ilegais",
+          "Não pagar as taxas de subscrição",
+          "Abusar ou usar indevidamente o Serviço"
+        ]
+      },
+      "data": {
+        "title": "Dados Após Rescisão",
+        "content": "Após a rescisão, os seus dados serão retidos por 30 dias, após os quais serão permanentemente eliminados. É responsável por exportar quaisquer dados que deseje manter antes da rescisão."
+      }
+    },
+    "content": {
+      "title": "Conteúdo do Utilizador e Propriedade",
+      "yours": {
+        "title": "O Seu Conteúdo",
+        "content": "Mantém todos os direitos de propriedade sobre o conteúdo que carrega para o Serviço, incluindo anúncios de propriedades, imagens, texto e outros materiais (\"Conteúdo do Utilizador\")."
+      },
+      "license": {
+        "title": "Licença para Nós",
+        "content": "Ao carregar Conteúdo do Utilizador, concede-nos uma licença limitada e não exclusiva para usar, armazenar e exibir o seu conteúdo apenas com o propósito de fornecer o Serviço."
+      },
+      "responsibility": {
+        "title": "Responsabilidade pelo Conteúdo",
+        "content": "É o único responsável pelo seu Conteúdo do Utilizador e deve garantir que possui todos os direitos e permissões necessários. Concorda em não carregar conteúdo que seja ilegal, infrator, difamatório, obsceno ou de outra forma objetável."
+      }
+    },
+    "acceptable": {
+      "title": "Política de Uso Aceitável",
+      "intro": "Concorda em não usar o Serviço para:",
+      "prohibitions": [
+        "Violar quaisquer leis ou regulamentos",
+        "Infringir direitos de propriedade intelectual",
+        "Transmitir vírus, malware ou código prejudicial",
+        "Envolver-se em spam ou marketing não solicitado",
+        "Assediar, abusar ou prejudicar outros",
+        "Fazer-se passar por outra pessoa ou entidade",
+        "Tentar obter acesso não autorizado a sistemas",
+        "Interferir com o funcionamento adequado do Serviço",
+        "Usar sistemas automatizados para raspar ou colher dados"
+      ]
+    },
+    "intellectual": {
+      "title": "Propriedade Intelectual",
+      "p1": "O Serviço, incluindo o seu conteúdo original, funcionalidades e funcionalidade, é propriedade da MyAgentWebsite.com e protegido por leis internacionais de direitos de autor, marcas registadas e outras leis de propriedade intelectual.",
+      "p2": "As nossas marcas registadas, logótipos e marcas de serviço não podem ser usados sem a nossa permissão prévia por escrito."
+    },
+    "liability": {
+      "title": "Limitação de Responsabilidade",
+      "content": "NA MÁXIMA EXTENSÃO PERMITIDA POR LEI, A MYAGENTWEBSITE.COM NÃO SERÁ RESPONSÁVEL POR QUAISQUER DANOS INDIRETOS, INCIDENTAIS, ESPECIAIS, CONSEQUENCIAIS OU PUNITIVOS, OU QUALQUER PERDA DE LUCROS OU RECEITAS, QUER INCORRIDOS DIRETAMENTE OU INDIRETAMENTE, OU QUALQUER PERDA DE DADOS, USO, BOA VONTADE OU OUTRAS PERDAS INTANGÍVEIS. A NOSSA RESPONSABILIDADE TOTAL NÃO EXCEDERÁ O MONTANTE QUE NOS PAGOU NOS 12 MESES ANTERIORES À RECLAMAÇÃO."
+    },
+    "warranties": {
+      "title": "Isenção de Garantias",
+      "content": "O SERVIÇO É FORNECIDO \"TAL COMO ESTÁ\" E \"CONFORME DISPONÍVEL\" SEM GARANTIAS DE QUALQUER TIPO, EXPRESSAS OU IMPLÍCITAS, INCLUINDO MAS NÃO LIMITADO A GARANTIAS IMPLÍCITAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UM PROPÓSITO PARTICULAR E NÃO INFRAÇÃO. NÃO GARANTIMOS QUE O SERVIÇO SERÁ ININTERRUPTO, SEGURO OU LIVRE DE ERROS."
+    },
+    "indemnification": {
+      "title": "Indemnização",
+      "content": "Concorda em indemnizar e isentar de responsabilidade a MyAgentWebsite.com e os seus diretores, administradores, funcionários e agentes de quaisquer reclamações, danos, perdas, responsabilidades e despesas (incluindo honorários legais) decorrentes do seu uso do Serviço ou violação destes Termos."
+    },
+    "disputes": {
+      "title": "Resolução de Disputas",
+      "governing": {
+        "title": "Lei Aplicável",
+        "content": "Estes Termos serão regidos e interpretados de acordo com as leis de Portugal, sem considerar as suas disposições sobre conflito de leis."
+      },
+      "resolution": {
+        "title": "Processo de Resolução de Disputas",
+        "content": "No caso de qualquer disputa, concorda em primeiro contactar-nos para procurar resolução informal. Se a disputa não puder ser resolvida informalmente, será resolvida através de arbitragem vinculativa ou nos tribunais de Portugal."
+      }
+    },
+    "changes": {
+      "title": "Alterações aos Termos",
+      "content": "Reservamo-nos o direito de modificar estes Termos a qualquer momento. Iremos notificá-lo de alterações materiais por email ou através do Serviço. O seu uso continuado do Serviço após tais modificações constitui aceitação dos Termos atualizados."
+    },
+    "severability": {
+      "title": "Divisibilidade",
+      "content": "Se qualquer disposição destes Termos for considerada inexequível ou inválida, essa disposição será limitada ou eliminada na medida mínima necessária, e as disposições restantes permanecerão em pleno vigor e efeito."
+    },
+    "entire": {
+      "title": "Acordo Completo",
+      "content": "Estes Termos constituem o acordo completo entre si e a MyAgentWebsite.com relativamente ao Serviço e substituem todos os acordos e entendimentos anteriores."
+    },
+    "contact": {
+      "title": "Contacte-nos",
+      "intro": "Se tiver alguma questão sobre estes Termos de Serviço, por favor contacte-nos:",
+      "email": "Email",
+      "website": "Website",
+      "address": "Morada",
+      "addressValue": "[Morada da Sua Empresa]"
+    }
+  }
+}

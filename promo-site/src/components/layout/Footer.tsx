@@ -82,8 +82,18 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t mt-8 pt-8 text-center text-sm text-gray-600">
-          <p>{t("footer.copyright")}</p>
+        <div className="border-t mt-8 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+            <p>{t("footer.copyright")}</p>
+            <div className="flex gap-6">
+              <Link to="/privacy-policy" className="hover:text-gray-900">
+                Privacy Policy
+              </Link>
+              <Link to="/terms-of-service" className="hover:text-gray-900">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

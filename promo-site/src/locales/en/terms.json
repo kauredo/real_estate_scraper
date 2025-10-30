@@ -1,0 +1,164 @@
+{
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: October 30, 2025",
+    "agreement": {
+      "title": "Agreement to Terms",
+      "p1": "These Terms of Service (\"Terms\") govern your access to and use of MyAgentWebsite.com (the \"Service\"), operated by MyAgentWebsite.com (\"we\", \"us\", or \"our\").",
+      "p2": "By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of these Terms, you may not access the Service."
+    },
+    "description": {
+      "title": "Description of Service",
+      "intro": "MyAgentWebsite.com provides a website building platform specifically designed for real estate agents and agencies. The Service allows users to:",
+      "features": [
+        "Create and manage professional real estate websites",
+        "Publish property listings",
+        "Display testimonials and reviews",
+        "Capture leads through contact forms",
+        "Customize website appearance and content",
+        "Connect custom domains"
+      ]
+    },
+    "account": {
+      "title": "Account Registration",
+      "requirements": {
+        "title": "Account Requirements",
+        "intro": "To use the Service, you must:",
+        "items": [
+          "Be at least 18 years old",
+          "Provide accurate and complete registration information",
+          "Maintain the security of your account credentials",
+          "Accept responsibility for all activities under your account"
+        ]
+      },
+      "security": {
+        "title": "Account Security",
+        "content": "You are responsible for maintaining the confidentiality of your account password and for all activities that occur under your account. You must immediately notify us of any unauthorized use of your account."
+      }
+    },
+    "payment": {
+      "title": "Subscription Plans and Payment",
+      "pricing": {
+        "title": "Pricing",
+        "intro": "We offer multiple subscription plans with different features and pricing tiers:",
+        "plans": [
+          "Starter Plan: €49/month",
+          "Professional Plan: €99/month",
+          "Enterprise Plan: Custom pricing"
+        ],
+        "changes": "Pricing is subject to change with 30 days' notice. Current subscribers will be notified before any price changes take effect."
+      },
+      "terms": {
+        "title": "Payment Terms",
+        "content": "Subscriptions are billed monthly or annually in advance. Payment must be made by credit card or other accepted payment methods. By providing payment information, you authorize us to charge the applicable fees to your payment method."
+      },
+      "trial": {
+        "title": "Free Trial",
+        "content": "We may offer a 14-day free trial. At the end of the trial period, your subscription will automatically convert to a paid subscription unless you cancel before the trial ends."
+      },
+      "refunds": {
+        "title": "Refunds",
+        "content": "We offer a 14-day money-back guarantee for new subscriptions. Refund requests must be made within 14 days of the initial purchase. Refunds are not available for renewals."
+      }
+    },
+    "cancellation": {
+      "title": "Cancellation and Termination",
+      "byUser": {
+        "title": "Cancellation by User",
+        "content": "You may cancel your subscription at any time through your account settings. Cancellation will take effect at the end of your current billing period. You will continue to have access to the Service until the end of the paid period."
+      },
+      "byUs": {
+        "title": "Termination by Us",
+        "intro": "We reserve the right to suspend or terminate your account if you:",
+        "reasons": [
+          "Violate these Terms of Service",
+          "Engage in fraudulent or illegal activities",
+          "Fail to pay subscription fees",
+          "Abuse or misuse the Service"
+        ]
+      },
+      "data": {
+        "title": "Data After Termination",
+        "content": "Upon termination, your data will be retained for 30 days, after which it will be permanently deleted. You are responsible for exporting any data you wish to retain before termination."
+      }
+    },
+    "content": {
+      "title": "User Content and Ownership",
+      "yours": {
+        "title": "Your Content",
+        "content": "You retain all ownership rights to the content you upload to the Service, including property listings, images, text, and other materials (\"User Content\")."
+      },
+      "license": {
+        "title": "License to Us",
+        "content": "By uploading User Content, you grant us a limited, non-exclusive license to use, store, and display your content solely for the purpose of providing the Service."
+      },
+      "responsibility": {
+        "title": "Content Responsibility",
+        "content": "You are solely responsible for your User Content and must ensure you have all necessary rights and permissions. You agree not to upload content that is illegal, infringing, defamatory, obscene, or otherwise objectionable."
+      }
+    },
+    "acceptable": {
+      "title": "Acceptable Use Policy",
+      "intro": "You agree not to use the Service to:",
+      "prohibitions": [
+        "Violate any laws or regulations",
+        "Infringe on intellectual property rights",
+        "Transmit viruses, malware, or harmful code",
+        "Engage in spam or unsolicited marketing",
+        "Harass, abuse, or harm others",
+        "Impersonate another person or entity",
+        "Attempt to gain unauthorized access to systems",
+        "Interfere with the proper functioning of the Service",
+        "Use automated systems to scrape or harvest data"
+      ]
+    },
+    "intellectual": {
+      "title": "Intellectual Property",
+      "p1": "The Service, including its original content, features, and functionality, is owned by MyAgentWebsite.com and protected by international copyright, trademark, and other intellectual property laws.",
+      "p2": "Our trademarks, logos, and service marks may not be used without our prior written permission."
+    },
+    "liability": {
+      "title": "Limitation of Liability",
+      "content": "TO THE MAXIMUM EXTENT PERMITTED BY LAW, MYAGENTWEBSITE.COM SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES. OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE 12 MONTHS PRECEDING THE CLAIM."
+    },
+    "warranties": {
+      "title": "Disclaimer of Warranties",
+      "content": "THE SERVICE IS PROVIDED \"AS IS\" AND \"AS AVAILABLE\" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT GUARANTEE THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE."
+    },
+    "indemnification": {
+      "title": "Indemnification",
+      "content": "You agree to indemnify and hold harmless MyAgentWebsite.com and its officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from your use of the Service or violation of these Terms."
+    },
+    "disputes": {
+      "title": "Dispute Resolution",
+      "governing": {
+        "title": "Governing Law",
+        "content": "These Terms shall be governed by and construed in accordance with the laws of Portugal, without regard to its conflict of law provisions."
+      },
+      "resolution": {
+        "title": "Dispute Resolution Process",
+        "content": "In the event of any dispute, you agree to first contact us to seek resolution informally. If the dispute cannot be resolved informally, it shall be resolved through binding arbitration or in the courts of Portugal."
+      }
+    },
+    "changes": {
+      "title": "Changes to Terms",
+      "content": "We reserve the right to modify these Terms at any time. We will notify you of material changes by email or through the Service. Your continued use of the Service after such modifications constitutes acceptance of the updated Terms."
+    },
+    "severability": {
+      "title": "Severability",
+      "content": "If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect."
+    },
+    "entire": {
+      "title": "Entire Agreement",
+      "content": "These Terms constitute the entire agreement between you and MyAgentWebsite.com regarding the Service and supersede all prior agreements and understandings."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "intro": "If you have any questions about these Terms of Service, please contact us:",
+      "email": "Email",
+      "website": "Website",
+      "address": "Address",
+      "addressValue": "[Your Company Address]"
+    }
+  }
+}

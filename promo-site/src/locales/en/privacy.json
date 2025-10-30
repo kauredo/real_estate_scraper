@@ -1,0 +1,174 @@
+{
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: October 30, 2025",
+    "intro": {
+      "title": "Introduction",
+      "p1": "MyAgentWebsite.com (\"we\", \"our\", or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.",
+      "p2": "Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use our services."
+    },
+    "collection": {
+      "title": "Information We Collect",
+      "personal": {
+        "title": "Personal Information",
+        "intro": "We collect information that you voluntarily provide to us when you:",
+        "items": [
+          "Register for an account",
+          "Fill out a contact form",
+          "Request a demo",
+          "Subscribe to our services",
+          "Communicate with us"
+        ],
+        "types": "This information may include:",
+        "typesList": [
+          "Name and contact information (email address, phone number)",
+          "Company/Agency name",
+          "Payment information (processed securely through third-party payment processors)",
+          "Profile information and preferences"
+        ]
+      },
+      "automatic": {
+        "title": "Automatically Collected Information",
+        "intro": "When you visit our website, we automatically collect certain information about your device, including:",
+        "items": [
+          "IP address",
+          "Browser type and version",
+          "Operating system",
+          "Pages visited and time spent on pages",
+          "Referring website addresses",
+          "Device information"
+        ]
+      }
+    },
+    "usage": {
+      "title": "How We Use Your Information",
+      "intro": "We use the information we collect for various purposes, including:",
+      "items": [
+        "Providing, operating, and maintaining our services",
+        "Processing your transactions and managing your account",
+        "Responding to your inquiries and providing customer support",
+        "Sending you administrative information and updates",
+        "Improving our website and services",
+        "Analyzing usage patterns and trends",
+        "Detecting and preventing fraud and abuse",
+        "Complying with legal obligations"
+      ]
+    },
+    "cookies": {
+      "title": "Cookies and Tracking Technologies",
+      "intro": "We use cookies and similar tracking technologies to track activity on our website and store certain information. Cookies are files with a small amount of data that are sent to your browser from a website and stored on your device.",
+      "types": {
+        "title": "Types of Cookies We Use",
+        "items": [
+          {
+            "name": "Essential Cookies",
+            "desc": "Required for the website to function properly"
+          },
+          {
+            "name": "Analytics Cookies",
+            "desc": "Help us understand how visitors use our website"
+          },
+          {
+            "name": "Preference Cookies",
+            "desc": "Remember your settings and preferences"
+          }
+        ]
+      },
+      "control": "You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service."
+    },
+    "thirdParty": {
+      "title": "Third-Party Services",
+      "intro": "We may use third-party service providers to help us operate our business and website or administer activities on our behalf. These third parties include:",
+      "services": [
+        {
+          "name": "Google Analytics",
+          "purpose": "For website analytics"
+        },
+        {
+          "name": "Payment Processors",
+          "purpose": "For processing payments (Stripe)"
+        },
+        {
+          "name": "Email Service Providers",
+          "purpose": "For sending transactional emails"
+        },
+        {
+          "name": "Hosting Providers",
+          "purpose": "For website hosting (Vercel)"
+        }
+      ],
+      "note": "These third parties have access to your information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose."
+    },
+    "security": {
+      "title": "Data Security",
+      "intro": "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:",
+      "measures": [
+        "SSL/TLS encryption for data transmission",
+        "Secure servers and databases",
+        "Regular security audits",
+        "Access controls and authentication",
+        "Employee training on data protection"
+      ],
+      "disclaimer": "However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your information, we cannot guarantee its absolute security."
+    },
+    "retention": {
+      "title": "Data Retention",
+      "content": "We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. When we no longer need your information, we will securely delete or anonymize it."
+    },
+    "rights": {
+      "title": "Your Rights Under GDPR",
+      "intro": "If you are a resident of the European Economic Area (EEA), you have certain data protection rights:",
+      "items": [
+        {
+          "name": "Right to Access",
+          "desc": "Request copies of your personal data"
+        },
+        {
+          "name": "Right to Rectification",
+          "desc": "Request correction of inaccurate information"
+        },
+        {
+          "name": "Right to Erasure",
+          "desc": "Request deletion of your personal data"
+        },
+        {
+          "name": "Right to Restrict Processing",
+          "desc": "Request limitation of processing"
+        },
+        {
+          "name": "Right to Data Portability",
+          "desc": "Request transfer of your data"
+        },
+        {
+          "name": "Right to Object",
+          "desc": "Object to processing of your data"
+        },
+        {
+          "name": "Right to Withdraw Consent",
+          "desc": "Withdraw consent at any time"
+        }
+      ],
+      "exercise": "To exercise any of these rights, please contact us at the email address provided below."
+    },
+    "children": {
+      "title": "Children's Privacy",
+      "content": "Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately."
+    },
+    "international": {
+      "title": "International Data Transfers",
+      "content": "Your information may be transferred to and maintained on servers located outside of your country where data protection laws may differ. We ensure appropriate safeguards are in place to protect your information in accordance with this Privacy Policy and applicable laws."
+    },
+    "changes": {
+      "title": "Changes to This Privacy Policy",
+      "content": "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last updated\" date. You are advised to review this Privacy Policy periodically for any changes."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "intro": "If you have any questions about this Privacy Policy or our data practices, please contact us:",
+      "email": "Email",
+      "website": "Website",
+      "address": "Address",
+      "addressValue": "[Your Company Address]"
+    }
+  }
+}

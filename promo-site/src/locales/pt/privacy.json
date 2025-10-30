@@ -1,0 +1,174 @@
+{
+  "privacy": {
+    "title": "Política de Privacidade",
+    "lastUpdated": "Última atualização: 30 de outubro de 2025",
+    "intro": {
+      "title": "Introdução",
+      "p1": "MyAgentWebsite.com (\"nós\", \"nosso\" ou \"nos\") está comprometido em proteger a sua privacidade. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos as suas informações quando visita o nosso website e utiliza os nossos serviços.",
+      "p2": "Por favor, leia esta política de privacidade cuidadosamente. Se não concordar com os termos desta política de privacidade, por favor não aceda ao site ou utilize os nossos serviços."
+    },
+    "collection": {
+      "title": "Informação que Coletamos",
+      "personal": {
+        "title": "Informação Pessoal",
+        "intro": "Coletamos informação que nos fornece voluntariamente quando:",
+        "items": [
+          "Regista uma conta",
+          "Preenche um formulário de contacto",
+          "Solicita uma demonstração",
+          "Subscreve aos nossos serviços",
+          "Comunica connosco"
+        ],
+        "types": "Esta informação pode incluir:",
+        "typesList": [
+          "Nome e informação de contacto (endereço de email, número de telefone)",
+          "Nome da empresa/agência",
+          "Informação de pagamento (processada com segurança através de processadores de pagamento terceiros)",
+          "Informação e preferências de perfil"
+        ]
+      },
+      "automatic": {
+        "title": "Informação Coletada Automaticamente",
+        "intro": "Quando visita o nosso website, coletamos automaticamente certas informações sobre o seu dispositivo, incluindo:",
+        "items": [
+          "Endereço IP",
+          "Tipo e versão do navegador",
+          "Sistema operativo",
+          "Páginas visitadas e tempo gasto nas páginas",
+          "Endereços de websites de referência",
+          "Informação do dispositivo"
+        ]
+      }
+    },
+    "usage": {
+      "title": "Como Usamos a Sua Informação",
+      "intro": "Usamos a informação que coletamos para vários propósitos, incluindo:",
+      "items": [
+        "Fornecer, operar e manter os nossos serviços",
+        "Processar as suas transações e gerir a sua conta",
+        "Responder às suas questões e fornecer suporte ao cliente",
+        "Enviar-lhe informação administrativa e atualizações",
+        "Melhorar o nosso website e serviços",
+        "Analisar padrões e tendências de uso",
+        "Detetar e prevenir fraude e abuso",
+        "Cumprir obrigações legais"
+      ]
+    },
+    "cookies": {
+      "title": "Cookies e Tecnologias de Rastreamento",
+      "intro": "Usamos cookies e tecnologias de rastreamento semelhantes para rastrear atividade no nosso website e armazenar certas informações. Cookies são ficheiros com uma pequena quantidade de dados que são enviados para o seu navegador a partir de um website e armazenados no seu dispositivo.",
+      "types": {
+        "title": "Tipos de Cookies que Usamos",
+        "items": [
+          {
+            "name": "Cookies Essenciais",
+            "desc": "Necessários para o website funcionar corretamente"
+          },
+          {
+            "name": "Cookies de Análise",
+            "desc": "Ajudam-nos a entender como os visitantes usam o nosso website"
+          },
+          {
+            "name": "Cookies de Preferência",
+            "desc": "Lembram as suas configurações e preferências"
+          }
+        ]
+      },
+      "control": "Pode instruir o seu navegador para recusar todos os cookies ou para indicar quando um cookie está a ser enviado. No entanto, se não aceitar cookies, pode não conseguir usar algumas partes do nosso serviço."
+    },
+    "thirdParty": {
+      "title": "Serviços de Terceiros",
+      "intro": "Podemos usar fornecedores de serviços terceiros para nos ajudar a operar o nosso negócio e website ou administrar atividades em nosso nome. Estes terceiros incluem:",
+      "services": [
+        {
+          "name": "Google Analytics",
+          "purpose": "Para análise do website"
+        },
+        {
+          "name": "Processadores de Pagamento",
+          "purpose": "Para processar pagamentos (Stripe)"
+        },
+        {
+          "name": "Fornecedores de Serviço de Email",
+          "purpose": "Para enviar emails transacionais"
+        },
+        {
+          "name": "Fornecedores de Alojamento",
+          "purpose": "Para alojamento do website (Vercel)"
+        }
+      ],
+      "note": "Estes terceiros têm acesso à sua informação apenas para realizar estas tarefas em nosso nome e são obrigados a não divulgar ou usar para qualquer outro propósito."
+    },
+    "security": {
+      "title": "Segurança de Dados",
+      "intro": "Implementamos medidas de segurança técnicas e organizacionais apropriadas para proteger a sua informação pessoal contra acesso não autorizado, alteração, divulgação ou destruição. Estas medidas incluem:",
+      "measures": [
+        "Encriptação SSL/TLS para transmissão de dados",
+        "Servidores e bases de dados seguros",
+        "Auditorias de segurança regulares",
+        "Controlos de acesso e autenticação",
+        "Formação de funcionários em proteção de dados"
+      ],
+      "disclaimer": "No entanto, nenhum método de transmissão pela Internet ou armazenamento eletrónico é 100% seguro. Embora nos esforcemos para usar meios comercialmente aceitáveis para proteger a sua informação, não podemos garantir a sua segurança absoluta."
+    },
+    "retention": {
+      "title": "Retenção de Dados",
+      "content": "Retemos a sua informação pessoal apenas pelo tempo necessário para cumprir os propósitos descritos nesta Política de Privacidade, a menos que um período de retenção mais longo seja exigido ou permitido por lei. Quando já não precisamos da sua informação, iremos eliminá-la ou anonimizá-la de forma segura."
+    },
+    "rights": {
+      "title": "Os Seus Direitos ao Abrigo do RGPD",
+      "intro": "Se é residente no Espaço Económico Europeu (EEE), tem certos direitos de proteção de dados:",
+      "items": [
+        {
+          "name": "Direito de Acesso",
+          "desc": "Solicitar cópias dos seus dados pessoais"
+        },
+        {
+          "name": "Direito de Retificação",
+          "desc": "Solicitar correção de informação incorreta"
+        },
+        {
+          "name": "Direito ao Apagamento",
+          "desc": "Solicitar eliminação dos seus dados pessoais"
+        },
+        {
+          "name": "Direito de Limitação do Tratamento",
+          "desc": "Solicitar limitação do processamento"
+        },
+        {
+          "name": "Direito à Portabilidade dos Dados",
+          "desc": "Solicitar transferência dos seus dados"
+        },
+        {
+          "name": "Direito de Oposição",
+          "desc": "Opor-se ao processamento dos seus dados"
+        },
+        {
+          "name": "Direito de Retirar o Consentimento",
+          "desc": "Retirar consentimento a qualquer momento"
+        }
+      ],
+      "exercise": "Para exercer qualquer um destes direitos, por favor contacte-nos no endereço de email fornecido abaixo."
+    },
+    "children": {
+      "title": "Privacidade de Crianças",
+      "content": "Os nossos serviços não se destinam a indivíduos com menos de 18 anos. Não coletamos intencionalmente informação pessoal de crianças. Se é pai ou tutor e acredita que o seu filho nos forneceu informação pessoal, por favor contacte-nos imediatamente."
+    },
+    "international": {
+      "title": "Transferências Internacionais de Dados",
+      "content": "A sua informação pode ser transferida e mantida em servidores localizados fora do seu país onde as leis de proteção de dados podem diferir. Garantimos que salvaguardas apropriadas estão implementadas para proteger a sua informação de acordo com esta Política de Privacidade e leis aplicáveis."
+    },
+    "changes": {
+      "title": "Alterações a Esta Política de Privacidade",
+      "content": "Podemos atualizar a nossa Política de Privacidade periodicamente. Iremos notificá-lo de quaisquer alterações publicando a nova Política de Privacidade nesta página e atualizando a data de \"Última atualização\". Aconselhamos a rever esta Política de Privacidade periodicamente para quaisquer alterações."
+    },
+    "contact": {
+      "title": "Contacte-nos",
+      "intro": "Se tiver alguma questão sobre esta Política de Privacidade ou as nossas práticas de dados, por favor contacte-nos:",
+      "email": "Email",
+      "website": "Website",
+      "address": "Morada",
+      "addressValue": "[Morada da Sua Empresa]"
+    }
+  }
+}
