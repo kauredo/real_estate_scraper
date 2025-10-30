@@ -93,6 +93,17 @@ export default function Footer() {
             <p className="text-sm text-white dark:text-light">
               Agent Centric Mediação Imobiliária, Lda - AMI 12518
             </p>
+            <p className="text-xs text-white dark:text-light opacity-60 mt-2">
+              Website by{" "}
+              <a
+                href="https://myagentwebsite.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline hover:opacity-100"
+              >
+                MyAgentWebsite.com
+              </a>
+            </p>
           </div>
           <div className="flex mt-4 space-x-4 sm:justify-center sm:mt-0">
             {items?.map((item) => {
