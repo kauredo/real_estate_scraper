@@ -32,12 +32,7 @@ export default function Features() {
 
   return (
     <>
-      <SEO
-        title="Features - Professional Real Estate Website Platform"
-        description="Discover all the features of MyAgentWebsite: property listings, testimonials, lead capture forms, custom domains, mobile-responsive design, SEO optimization, and more."
-        canonical="/features"
-        keywords="real estate features, property listings, testimonials, lead capture, custom domain, SEO optimization, mobile responsive"
-      />
+      <SEO page="features" />
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">

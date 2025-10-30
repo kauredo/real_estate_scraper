@@ -6,11 +6,7 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-      <SEO
-        title="Privacy Policy - How We Protect Your Data"
-        description="Learn how MyAgentWebsite collects, uses, and protects your personal information. GDPR compliant privacy policy for real estate agents."
-        canonical="/privacy-policy"
-      />
+      <SEO page="privacy" ogType="article" />
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         {/* Header */}

@@ -68,12 +68,7 @@ export default function Contact() {
 
   return (
     <>
-      <SEO
-        title="Contact Us - Get in Touch with MyAgentWebsite"
-        description="Have questions? Want to schedule a demo? Contact MyAgentWebsite team. We're here to help real estate agents succeed online."
-        canonical="/contact"
-        keywords="contact myagentwebsite, schedule demo, customer support, get in touch"
-      />
+      <SEO page="contact" />
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">

@@ -23,12 +23,7 @@ export default function Home() {
 
   return (
     <>
-      <SEO
-        title="Real Estate Agent Websites Made Simple"
-        description="Create your professional real estate website in minutes. Showcase properties, manage listings, capture leads, and grow your business with MyAgentWebsite."
-        canonical="/"
-        keywords="real estate website, agent website builder, property listings, real estate platform, agent website"
-      />
+      <SEO page="home" />
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">

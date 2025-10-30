@@ -3,7 +3,12 @@
  *
  * Generates HTML meta tags for social media crawlers based on page URL.
  * Used by Vercel Edge Middleware to inject static meta tags before serving HTML.
+ *
+ * Loads translation data dynamically based on language.
  */
+
+import enTranslations from '../src/locales/en/seo.json';
+import ptTranslations from '../src/locales/pt/seo.json';
 
 interface PageMetaData {
   title: string;
@@ -16,51 +21,43 @@ interface PageMetaData {
 // Default OG image
 const DEFAULT_OG_IMAGE = 'https://myagentwebsite.com/logo-200.png';
 
-// Static meta data for each page
-const PAGE_META_DATA: Record<string, PageMetaData> = {
-  '/': {
-    title: 'Real Estate Agent Websites Made Simple',
-    description: 'Create your professional real estate website in minutes. Showcase properties, manage listings, and grow your business with MyAgentWebsite.',
-    keywords: 'real estate website, agent website builder, property listings, real estate marketing',
-    type: 'website',
-  },
-  '/features': {
-    title: 'Features - Everything You Need to Succeed',
-    description: 'Discover powerful features designed for real estate agents: property showcases, lead capture, mobile optimization, SEO tools, and more.',
-    keywords: 'real estate features, property management, lead generation, mobile website, SEO',
-    type: 'website',
-  },
-  '/pricing': {
-    title: 'Pricing - Simple, Transparent Plans',
-    description: 'Choose the perfect plan for your real estate business. Start free, upgrade as you grow. No hidden fees, cancel anytime.',
-    keywords: 'real estate pricing, website plans, affordable website, subscription',
-    type: 'website',
-  },
-  '/about': {
-    title: 'About Us - Building Success for Real Estate Agents',
-    description: 'Learn about MyAgentWebsite and our mission to empower real estate agents with professional, easy-to-use websites.',
-    keywords: 'about myagentwebsite, real estate technology, agent tools',
-    type: 'website',
-  },
-  '/contact': {
-    title: 'Contact Us - Get in Touch',
-    description: 'Have questions? Contact our team for support, demos, or partnership opportunities. We\'re here to help you succeed.',
-    keywords: 'contact, support, real estate help, customer service',
-    type: 'website',
-  },
-  '/privacy-policy': {
-    title: 'Privacy Policy - How We Protect Your Data',
-    description: 'Learn how MyAgentWebsite collects, uses, and protects your personal information. We are committed to your privacy and data security.',
-    keywords: 'privacy policy, data protection, GDPR, personal information',
-    type: 'article',
-  },
-  '/terms-of-service': {
-    title: 'Terms of Service - User Agreement',
-    description: 'Read our terms of service to understand the rules and guidelines for using MyAgentWebsite. Clear, transparent terms for all users.',
-    keywords: 'terms of service, user agreement, terms and conditions, legal',
-    type: 'article',
-  },
+// Map of paths to translation keys
+const PATH_TO_KEY_MAP: Record<string, string> = {
+  '/': 'home',
+  '/features': 'features',
+  '/pricing': 'pricing',
+  '/about': 'about',
+  '/contact': 'contact',
+  '/privacy-policy': 'privacy',
+  '/terms-of-service': 'terms',
 };
+
+// Map of keys to type
+const KEY_TO_TYPE_MAP: Record<string, string> = {
+  'home': 'website',
+  'features': 'website',
+  'pricing': 'website',
+  'about': 'website',
+  'contact': 'website',
+  'privacy': 'article',
+  'terms': 'article',
+};
+
+/**
+ * Gets meta data for a page from translations
+ */
+function getPageMetaData(path: string, language: 'pt' | 'en'): PageMetaData {
+  const key = PATH_TO_KEY_MAP[path] || 'home';
+  const translations = language === 'pt' ? ptTranslations : enTranslations;
+  const seoData = translations.seo[key as keyof typeof translations.seo];
+
+  return {
+    title: seoData.title,
+    description: seoData.description,
+    keywords: seoData.keywords,
+    type: KEY_TO_TYPE_MAP[key] || 'website',
+  };
+}
 
 /**
  * Generates meta tags HTML from page URL
@@ -74,8 +71,8 @@ export function generateMetaTags(
   let normalizedPath = pathname.replace(/\/$/, '') || '/';
   normalizedPath = normalizedPath.replace(/^\/(en|pt)/, '') || '/';
 
-  // Get meta data for the page
-  const metaData = PAGE_META_DATA[normalizedPath] || PAGE_META_DATA['/'];
+  // Get meta data for the page from translations
+  const metaData = getPageMetaData(normalizedPath, language);
 
   const { title, description, keywords, type = 'website', image = DEFAULT_OG_IMAGE } = metaData;
 

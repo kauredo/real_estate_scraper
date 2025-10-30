@@ -19,12 +19,7 @@ export default function About() {
 
   return (
     <>
-      <SEO
-        title="About Us - Built by Real Estate Technology Experts"
-        description="Learn about MyAgentWebsite - the platform empowering real estate agents to own their digital presence. Purpose-built for agents, easy to use, and affordable."
-        canonical="/about"
-        keywords="about myagentwebsite, real estate technology, agent platform, company mission"
-      />
+      <SEO page="about" />
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">

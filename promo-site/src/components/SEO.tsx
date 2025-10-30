@@ -3,34 +3,33 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
-  title: string;
-  description: string;
-  canonical?: string;
+  page: 'home' | 'features' | 'pricing' | 'about' | 'contact' | 'privacy' | 'terms';
   ogImage?: string;
   ogType?: string;
-  keywords?: string;
 }
 
 export function SEO({
-  title,
-  description,
-  canonical,
+  page,
   ogImage = '/logo-200.png',
   ogType = 'website',
-  keywords,
 }: SEOProps) {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const location = useLocation();
+
+  // Get SEO data from translations
+  const title = t(`seo.${page}.title`);
+  const description = t(`seo.${page}.description`);
+  const keywords = t(`seo.${page}.keywords`);
+
   const fullTitle = `${title} | MyAgentWebsite`;
   const siteUrl = 'https://myagentwebsite.com';
 
   // Get the base path without language prefix
   const basePath = location.pathname.replace(/^\/(en|pt)(\/|$)/, '/');
-  const canonicalPath = canonical || basePath;
 
   // Generate URLs for both languages
-  const enUrl = `${siteUrl}${canonicalPath}`;
-  const ptUrl = `${siteUrl}/pt${canonicalPath}`;
+  const enUrl = `${siteUrl}${basePath}`;
+  const ptUrl = `${siteUrl}/pt${basePath}`;
   const currentUrl = i18n.language === 'pt' ? ptUrl : enUrl;
 
   useEffect(() => {

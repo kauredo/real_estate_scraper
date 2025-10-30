@@ -1,0 +1,39 @@
+{
+  "seo": {
+    "home": {
+      "title": "Websites para Agentes Imobiliários Simplificados",
+      "description": "Crie o seu website imobiliário profissional em minutos. Mostre imóveis, gira anúncios e faça crescer o seu negócio com MyAgentWebsite.",
+      "keywords": "website imobiliário, criador de sites para agentes, anúncios de imóveis, marketing imobiliário"
+    },
+    "features": {
+      "title": "Funcionalidades - Tudo o Que Precisa para Ter Sucesso",
+      "description": "Descubra funcionalidades poderosas desenhadas para agentes imobiliários: showcases de imóveis, captura de leads, otimização móvel, ferramentas SEO e mais.",
+      "keywords": "funcionalidades imobiliárias, gestão de imóveis, geração de leads, website móvel, SEO"
+    },
+    "pricing": {
+      "title": "Preços - Planos Simples e Transparentes",
+      "description": "Escolha o plano perfeito para o seu negócio imobiliário. Comece grátis, faça upgrade conforme cresce. Sem taxas escondidas, cancele a qualquer momento.",
+      "keywords": "preços imobiliários, planos de website, website acessível, subscrição"
+    },
+    "about": {
+      "title": "Sobre Nós - Construindo Sucesso para Agentes Imobiliários",
+      "description": "Conheça o MyAgentWebsite e a nossa missão de capacitar agentes imobiliários com websites profissionais e fáceis de usar.",
+      "keywords": "sobre myagentwebsite, tecnologia imobiliária, ferramentas para agentes"
+    },
+    "contact": {
+      "title": "Contacte-nos - Entre em Contacto",
+      "description": "Tem questões? Contacte a nossa equipa para suporte, demos ou oportunidades de parceria. Estamos aqui para o ajudar a ter sucesso.",
+      "keywords": "contacto, suporte, ajuda imobiliária, serviço ao cliente"
+    },
+    "privacy": {
+      "title": "Política de Privacidade - Como Protegemos os Seus Dados",
+      "description": "Saiba como o MyAgentWebsite recolhe, usa e protege as suas informações pessoais. Estamos comprometidos com a sua privacidade e segurança de dados.",
+      "keywords": "política de privacidade, proteção de dados, RGPD, informação pessoal"
+    },
+    "terms": {
+      "title": "Termos de Serviço - Acordo de Utilizador",
+      "description": "Leia os nossos termos de serviço para entender as regras e diretrizes para usar o MyAgentWebsite. Termos claros e transparentes para todos os utilizadores.",
+      "keywords": "termos de serviço, acordo de utilizador, termos e condições, legal"
+    }
+  }
+}

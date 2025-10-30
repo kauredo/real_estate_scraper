@@ -6,11 +6,7 @@ export default function TermsOfService() {
 
   return (
     <>
-      <SEO
-        title="Terms of Service - Service Agreement & Guidelines"
-        description="Read MyAgentWebsite Terms of Service. Learn about our subscription plans, user responsibilities, refund policy, and service guidelines for real estate agents."
-        canonical="/terms-of-service"
-      />
+      <SEO page="terms" ogType="article" />
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         {/* Header */}
