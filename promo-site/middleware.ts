@@ -43,9 +43,14 @@ function isCrawler(userAgent: string): boolean {
 
 /**
  * Detects language from URL pathname
+ * - /pt or /pt/* → Portuguese
+ * - All other paths → English (default)
  */
 function detectLanguage(pathname: string): 'pt' | 'en' {
-  return pathname.startsWith('/en/') ? 'en' : 'pt';
+  if (pathname.startsWith('/pt/') || pathname === '/pt') {
+    return 'pt';
+  }
+  return 'en';
 }
 
 /**
@@ -63,21 +68,27 @@ function injectMetaTags(html: string, metaTagsHtml: string): string {
   // Remove existing dynamic meta tags to avoid duplicates
   const existingMetaRegex =
     /<meta\s+(?:name|property)=["'](?:description|keywords|og:|twitter:)[^>]*>/gi;
-  const cleanedHtml = html.replace(existingMetaRegex, '');
+  let cleanedHtml = html.replace(existingMetaRegex, '');
 
-  // Also remove existing title if we're injecting a new one
+  // Remove existing title if we're injecting a new one
   const titleRegex = /<title>[^<]*<\/title>/i;
-  const htmlWithoutTitle = cleanedHtml.replace(titleRegex, '');
+  cleanedHtml = cleanedHtml.replace(titleRegex, '');
+
+  // Remove existing canonical and hreflang links
+  const canonicalRegex = /<link\s+rel=["']canonical["'][^>]*>/gi;
+  const hreflangRegex = /<link\s+rel=["']alternate["'][^>]*hreflang=["'][^"']+["'][^>]*>/gi;
+  cleanedHtml = cleanedHtml.replace(canonicalRegex, '');
+  cleanedHtml = cleanedHtml.replace(hreflangRegex, '');
 
   // Find the new head close position after cleaning
-  const newHeadCloseIndex = htmlWithoutTitle.indexOf('</head>');
+  const newHeadCloseIndex = cleanedHtml.indexOf('</head>');
 
   return (
-    htmlWithoutTitle.slice(0, newHeadCloseIndex) +
+    cleanedHtml.slice(0, newHeadCloseIndex) +
     '\n    ' +
     metaTagsHtml +
     '\n  ' +
-    htmlWithoutTitle.slice(newHeadCloseIndex)
+    cleanedHtml.slice(newHeadCloseIndex)
   );
 }
 

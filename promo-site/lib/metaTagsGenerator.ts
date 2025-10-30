@@ -85,6 +85,12 @@ export function generateMetaTags(
   // Set locale based on language
   const locale = language === 'en' ? 'en_US' : 'pt_PT';
 
+  // Generate URLs for both languages (for hreflang)
+  const siteUrl = 'https://myagentwebsite.com';
+  const enUrl = `${siteUrl}${normalizedPath}`;
+  const ptUrl = `${siteUrl}/pt${normalizedPath}`;
+  const currentUrl = language === 'pt' ? ptUrl : enUrl;
+
   // Build meta tags HTML
   const metaTags = [
     `<title>${escapeHtml(fullTitle)}</title>`,
@@ -96,10 +102,20 @@ export function generateMetaTags(
     metaTags.push(`<meta name="keywords" content="${escapeHtml(keywords)}" />`);
   }
 
+  // Canonical link
+  metaTags.push(`<link rel="canonical" href="${escapeHtml(currentUrl)}" />`);
+
+  // Hreflang links for international SEO
+  metaTags.push(
+    `<link rel="alternate" hreflang="en" href="${escapeHtml(enUrl)}" />`,
+    `<link rel="alternate" hreflang="pt" href="${escapeHtml(ptUrl)}" />`,
+    `<link rel="alternate" hreflang="x-default" href="${escapeHtml(enUrl)}" />`
+  );
+
   // Open Graph / Facebook
   metaTags.push(
     `<meta property="og:type" content="${type}" />`,
-    `<meta property="og:url" content="${escapeHtml(url)}" />`,
+    `<meta property="og:url" content="${escapeHtml(currentUrl)}" />`,
     `<meta property="og:title" content="${escapeHtml(fullTitle)}" />`,
     `<meta property="og:description" content="${escapeHtml(description)}" />`,
     `<meta property="og:image" content="${escapeHtml(image)}" />`,
@@ -110,7 +126,7 @@ export function generateMetaTags(
   // Twitter
   metaTags.push(
     `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="twitter:url" content="${escapeHtml(url)}" />`,
+    `<meta name="twitter:url" content="${escapeHtml(currentUrl)}" />`,
     `<meta name="twitter:title" content="${escapeHtml(fullTitle)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
     `<meta name="twitter:image" content="${escapeHtml(image)}" />`

@@ -1,45 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- English Home -->
   <url>
     <loc>https://myagentwebsite.com/</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt" />
   </url>
+
+  <!-- Portuguese Home -->
+  <url>
+    <loc>https://myagentwebsite.com/pt</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt" />
+  </url>
+
+  <!-- English Features -->
   <url>
     <loc>https://myagentwebsite.com/features</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/features" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/features" />
   </url>
+
+  <!-- Portuguese Features -->
+  <url>
+    <loc>https://myagentwebsite.com/pt/features</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/features" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/features" />
+  </url>
+
+  <!-- English Pricing -->
   <url>
     <loc>https://myagentwebsite.com/pricing</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/pricing" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/pricing" />
   </url>
+
+  <!-- Portuguese Pricing -->
+  <url>
+    <loc>https://myagentwebsite.com/pt/pricing</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/pricing" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/pricing" />
+  </url>
+
+  <!-- English About -->
   <url>
     <loc>https://myagentwebsite.com/about</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/about" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/about" />
   </url>
+
+  <!-- Portuguese About -->
+  <url>
+    <loc>https://myagentwebsite.com/pt/about</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/about" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/about" />
+  </url>
+
+  <!-- English Contact -->
   <url>
     <loc>https://myagentwebsite.com/contact</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/contact" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/contact" />
   </url>
+
+  <!-- Portuguese Contact -->
+  <url>
+    <loc>https://myagentwebsite.com/pt/contact</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/contact" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/contact" />
+  </url>
+
+  <!-- English Privacy Policy -->
   <url>
     <loc>https://myagentwebsite.com/privacy-policy</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/privacy-policy" />
   </url>
+
+  <!-- Portuguese Privacy Policy -->
+  <url>
+    <loc>https://myagentwebsite.com/pt/privacy-policy</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/privacy-policy" />
+  </url>
+
+  <!-- English Terms of Service -->
   <url>
     <loc>https://myagentwebsite.com/terms-of-service</loc>
     <lastmod>2025-10-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/terms-of-service" />
+  </url>
+
+  <!-- Portuguese Terms of Service -->
+  <url>
+    <loc>https://myagentwebsite.com/pt/terms-of-service</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://myagentwebsite.com/pt/terms-of-service" />
   </url>
 </urlset>

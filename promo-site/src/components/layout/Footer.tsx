@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "../../hooks/useLocalizedPath";
 
 export function Footer() {
   const { t } = useTranslation();
+  const localizedPath = useLocalizedPath();
 
   return (
     <footer className="border-t bg-white py-12 px-4">
@@ -24,17 +26,17 @@ export function Footer() {
             <h3 className="font-semibold mb-4">{t("footer.product")}</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link to="/features" className="hover:text-gray-900">
+                <Link to={localizedPath("/features")} className="hover:text-gray-900">
                   {t("nav.features")}
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="hover:text-gray-900">
+                <Link to={localizedPath("/pricing")} className="hover:text-gray-900">
                   {t("nav.pricing")}
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-gray-900">
+                <Link to={localizedPath("/contact")} className="hover:text-gray-900">
                   {t("footer.demo")}
                 </Link>
               </li>
@@ -45,12 +47,12 @@ export function Footer() {
             <h3 className="font-semibold mb-4">{t("footer.company")}</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link to="/about" className="hover:text-gray-900">
+                <Link to={localizedPath("/about")} className="hover:text-gray-900">
                   {t("nav.about")}
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-gray-900">
+                <Link to={localizedPath("/contact")} className="hover:text-gray-900">
                   {t("nav.contact")}
                 </Link>
               </li>
@@ -86,10 +88,10 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
             <p>{t("footer.copyright")}</p>
             <div className="flex gap-6">
-              <Link to="/privacy-policy" className="hover:text-gray-900">
+              <Link to={localizedPath("/privacy-policy")} className="hover:text-gray-900">
                 Privacy Policy
               </Link>
-              <Link to="/terms-of-service" className="hover:text-gray-900">
+              <Link to={localizedPath("/terms-of-service")} className="hover:text-gray-900">
                 Terms of Service
               </Link>
             </div>

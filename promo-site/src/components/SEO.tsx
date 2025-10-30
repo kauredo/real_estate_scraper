@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
   title: string;
@@ -17,9 +19,19 @@ export function SEO({
   ogType = 'website',
   keywords,
 }: SEOProps) {
+  const { i18n } = useTranslation();
+  const location = useLocation();
   const fullTitle = `${title} | MyAgentWebsite`;
   const siteUrl = 'https://myagentwebsite.com';
-  const canonicalUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
+
+  // Get the base path without language prefix
+  const basePath = location.pathname.replace(/^\/(en|pt)(\/|$)/, '/');
+  const canonicalPath = canonical || basePath;
+
+  // Generate URLs for both languages
+  const enUrl = `${siteUrl}${canonicalPath}`;
+  const ptUrl = `${siteUrl}/pt${canonicalPath}`;
+  const currentUrl = i18n.language === 'pt' ? ptUrl : enUrl;
 
   useEffect(() => {
     // Update document title
@@ -40,6 +52,23 @@ export function SEO({
       element.setAttribute(attribute, content);
     };
 
+    // Helper function to update or create link tag
+    const updateLink = (rel: string, href: string, hreflang?: string) => {
+      const selector = hreflang
+        ? `link[rel="${rel}"][hreflang="${hreflang}"]`
+        : `link[rel="${rel}"]`;
+      let element = document.querySelector(selector) as HTMLLinkElement;
+      if (!element) {
+        element = document.createElement('link');
+        element.rel = rel;
+        if (hreflang) {
+          element.hreflang = hreflang;
+        }
+        document.head.appendChild(element);
+      }
+      element.href = href;
+    };
+
     // Update basic meta tags
     updateMeta('meta[name="description"]', 'content', description);
     if (keywords) {
@@ -50,8 +79,9 @@ export function SEO({
     updateMeta('meta[property="og:title"]', 'content', fullTitle);
     updateMeta('meta[property="og:description"]', 'content', description);
     updateMeta('meta[property="og:type"]', 'content', ogType);
-    updateMeta('meta[property="og:url"]', 'content', canonicalUrl);
+    updateMeta('meta[property="og:url"]', 'content', currentUrl);
     updateMeta('meta[property="og:image"]', 'content', `${siteUrl}${ogImage}`);
+    updateMeta('meta[property="og:locale"]', 'content', i18n.language === 'pt' ? 'pt_PT' : 'en_US');
 
     // Update Twitter Card tags
     updateMeta('meta[name="twitter:card"]', 'content', 'summary_large_image');
@@ -59,15 +89,14 @@ export function SEO({
     updateMeta('meta[name="twitter:description"]', 'content', description);
     updateMeta('meta[name="twitter:image"]', 'content', `${siteUrl}${ogImage}`);
 
-    // Update or create canonical link
-    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.rel = 'canonical';
-      document.head.appendChild(canonicalLink);
-    }
-    canonicalLink.href = canonicalUrl;
-  }, [fullTitle, description, canonicalUrl, ogImage, ogType, keywords]);
+    // Update canonical link
+    updateLink('canonical', currentUrl);
+
+    // Add hreflang links for international SEO
+    updateLink('alternate', enUrl, 'en');
+    updateLink('alternate', ptUrl, 'pt');
+    updateLink('alternate', enUrl, 'x-default'); // Default to English
+  }, [fullTitle, description, currentUrl, enUrl, ptUrl, ogImage, ogType, keywords, i18n.language]);
 
   return null;
 }
