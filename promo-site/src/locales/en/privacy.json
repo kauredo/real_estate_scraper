@@ -1,7 +1,7 @@
 {
   "privacy": {
     "title": "Privacy Policy",
-    "lastUpdated": "Last updated: October 30, 2025",
+    "lastUpdated": "Last updated: October 31, 2025",
     "intro": {
       "title": "Introduction",
       "p1": "MyAgentWebsite.com (\"we\", \"our\", or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.",
@@ -13,18 +13,24 @@
         "title": "Personal Information",
         "intro": "We collect information that you voluntarily provide to us when you:",
         "items": [
-          "Register for an account",
-          "Fill out a contact form",
-          "Request a demo",
-          "Subscribe to our services",
-          "Communicate with us"
+          "Register for an account and access our backoffice",
+          "Create and manage property listings",
+          "Upload photos to your photo library",
+          "Subscribe to newsletter services",
+          "Fill out contact forms or request demos",
+          "Use our API for custom integrations",
+          "Communicate with us via email or support channels"
         ],
         "types": "This information may include:",
         "typesList": [
-          "Name and contact information (email address, phone number)",
-          "Company/Agency name",
-          "Payment information (processed securely through third-party payment processors)",
-          "Profile information and preferences"
+          "Name, email address, and phone number",
+          "Real estate agency name and business information",
+          "Property listing data (addresses, descriptions, prices, photos)",
+          "Client testimonials and reviews you choose to display",
+          "Newsletter subscriber information (names, email addresses)",
+          "Payment information (processed securely through Stripe)",
+          "API keys and authentication credentials",
+          "Profile information, preferences, and account settings"
         ]
       },
       "automatic": {
@@ -44,14 +50,19 @@
       "title": "How We Use Your Information",
       "intro": "We use the information we collect for various purposes, including:",
       "items": [
-        "Providing, operating, and maintaining our services",
-        "Processing your transactions and managing your account",
-        "Responding to your inquiries and providing customer support",
-        "Sending you administrative information and updates",
-        "Improving our website and services",
-        "Analyzing usage patterns and trends",
-        "Detecting and preventing fraud and abuse",
-        "Complying with legal obligations"
+        "Providing, operating, and maintaining our real estate website platform and API",
+        "Managing your backoffice access and property listings",
+        "Storing and organizing your photo library",
+        "Managing newsletter subscribers and enabling CSV exports",
+        "Generating preview mode links for quality control",
+        "Processing your transactions and managing your subscription",
+        "Responding to inquiries and providing priority or email support",
+        "Hosting and maintaining your website (Professional plan)",
+        "Sending administrative emails, security updates, and service notifications",
+        "Improving our platform, backoffice, and API services",
+        "Analyzing usage patterns to enhance features",
+        "Detecting and preventing fraud, abuse, and unauthorized access",
+        "Complying with legal obligations and data protection regulations"
       ]
     },
     "cookies": {
@@ -78,42 +89,55 @@
     },
     "thirdParty": {
       "title": "Third-Party Services",
-      "intro": "We may use third-party service providers to help us operate our business and website or administer activities on our behalf. These third parties include:",
+      "intro": "We use third-party service providers to help us operate our platform and deliver our services. These third parties include:",
       "services": [
         {
-          "name": "Google Analytics",
-          "purpose": "For website analytics"
+          "name": "Stripe",
+          "purpose": "Secure payment processing for subscriptions and one-time services"
         },
         {
-          "name": "Payment Processors",
-          "purpose": "For processing payments (Stripe)"
+          "name": "Railway / Vercel",
+          "purpose": "Cloud hosting for backend API and frontend applications"
+        },
+        {
+          "name": "Cloudflare",
+          "purpose": "Content delivery network (CDN), DNS management, and security"
+        },
+        {
+          "name": "Image Hosting Services",
+          "purpose": "Storing and optimizing property photos in your photo library"
         },
         {
           "name": "Email Service Providers",
-          "purpose": "For sending transactional emails"
+          "purpose": "Sending transactional emails, password resets, and notifications"
         },
         {
-          "name": "Hosting Providers",
-          "purpose": "For website hosting (Vercel)"
+          "name": "Analytics Services",
+          "purpose": "Understanding website usage to improve our platform"
         }
       ],
-      "note": "These third parties have access to your information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose."
+      "note": "These third parties have access to your information only to perform specific tasks on our behalf and are contractually obligated not to disclose or use it for any other purpose. We carefully vet all third-party providers to ensure they meet our security and privacy standards."
     },
     "security": {
       "title": "Data Security",
       "intro": "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:",
       "measures": [
-        "SSL/TLS encryption for data transmission",
-        "Secure servers and databases",
-        "Regular security audits",
-        "Access controls and authentication",
-        "Employee training on data protection"
+        "SSL/TLS encryption (HTTPS) for all data transmission",
+        "Secure authentication and password hashing for backoffice access",
+        "API key authentication for developer integrations",
+        "Secure token generation for preview mode links with time-based expiration",
+        "Regular security updates and patches",
+        "Database encryption and access controls",
+        "Secure file storage for photos and media in your photo library",
+        "Cloudflare WAF (Web Application Firewall) protection",
+        "Regular backups and disaster recovery procedures",
+        "Employee and contractor training on data protection and privacy"
       ],
-      "disclaimer": "However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your information, we cannot guarantee its absolute security."
+      "disclaimer": "However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your information, we cannot guarantee its absolute security. We recommend using strong passwords and not sharing your backoffice credentials."
     },
     "retention": {
       "title": "Data Retention",
-      "content": "We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. When we no longer need your information, we will securely delete or anonymize it."
+      "content": "We retain your personal information for as long as your account is active or as needed to provide you services. Property listings, photos in your photo library, and content you create remain available while your subscription is active. Newsletter subscriber data is retained until you request deletion or export it. After account cancellation, we retain certain information for legal and tax purposes (typically 7 years for financial records). Backups may retain data for up to 90 days. You can request deletion of your data at any time by contacting us, subject to our legal obligations."
     },
     "rights": {
       "title": "Your Rights Under GDPR",
@@ -164,11 +188,11 @@
     },
     "contact": {
       "title": "Contact Us",
-      "intro": "If you have any questions about this Privacy Policy or our data practices, please contact us:",
+      "intro": "If you have any questions about this Privacy Policy, want to exercise your data rights, or have concerns about our data practices, please contact us:",
       "email": "Email",
       "website": "Website",
-      "address": "Address",
-      "addressValue": "[Your Company Address]"
+      "address": "Data Protection Officer",
+      "addressValue": "For data protection inquiries: privacy@myagentwebsite.com"
     }
   }
 }

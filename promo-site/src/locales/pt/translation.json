@@ -103,6 +103,10 @@
         "title": "Anúncios de Imóveis",
         "description": "Mostre imóveis ilimitados com galerias deslumbrantes"
       },
+      "developments": {
+        "title": "Empreendimentos Imobiliários",
+        "description": "Gerencie empreendimentos completos e complexos multi-propriedade"
+      },
       "blog": {
         "title": "Blog & Conteúdo",
         "description": "Partilhe análises de mercado e estabeleça autoridade"
@@ -206,6 +210,36 @@
           "sources": "Fontes de leads",
           "metrics": "Métricas de desempenho"
         }
+      },
+      "developments": {
+        "title": "Empreendimentos Imobiliários",
+        "description": "Apresente empreendimentos residenciais ou comerciais completos com páginas e gestão dedicadas",
+        "features": {
+          "multiProperty": "Complexos multi-propriedade",
+          "showcase": "Apresente empreendimentos completos",
+          "units": "Gerencie unidades individuais",
+          "dedicated": "Páginas dedicadas para empreendimentos"
+        }
+      },
+      "photoManagement": {
+        "title": "Gestão de Fotos",
+        "description": "Biblioteca de fotos centralizada para organizar e reutilizar imagens profissionais em todo o seu website",
+        "features": {
+          "library": "Biblioteca de fotos centralizada",
+          "reusable": "Reutilize fotos em vários anúncios",
+          "organized": "Mantenha as fotos organizadas",
+          "professional": "Gestão profissional de ativos"
+        }
+      },
+      "previewMode": {
+        "title": "Modo de Pré-visualização",
+        "description": "Pré-visualize alterações antes de publicar para garantir que tudo fica perfeito",
+        "features": {
+          "beforePublish": "Pré-visualize antes de publicar",
+          "qualityControl": "Fluxo de controlo de qualidade",
+          "clientApproval": "Processo de aprovação do cliente",
+          "secure": "Links de pré-visualização seguros"
+        }
       }
     },
     "professional": {
@@ -266,6 +300,105 @@
         "cta": "Ver Preços Professional"
       }
     },
+    "adminInterface": {
+      "badge": "Fácil de Usar",
+      "heading": "Interface Admin Bonita",
+      "subheading": "Gerencie o seu website com um painel poderoso e intuitivo",
+      "dashboard": {
+        "title": "Painel de Visão Geral",
+        "description": "Obtenha uma visão completa do seu website num relance. Veja todos os seus imóveis, posts de blog, testemunhos e subscritores num só lugar.",
+        "features": {
+          "metrics": "Métricas e estatísticas em tempo real",
+          "quickAccess": "Acesso rápido a todas as funcionalidades",
+          "mobile": "Interface otimizada para mobile"
+        }
+      },
+      "blogEditor": {
+        "title": "Editor de Blog",
+        "description": "Escreva e publique posts de blog com facilidade. O nosso editor intuitivo torna a criação de conteúdo simples, mesmo que não seja técnico.",
+        "features": {
+          "wysiwyg": "Editor visual WYSIWYG",
+          "seo": "Otimização SEO incorporada",
+          "preview": "Pré-visualização ao vivo antes de publicar"
+        }
+      },
+      "propertyManagement": {
+        "title": "Gestão de Imóveis",
+        "description": "Adicione, edite e organize os seus anúncios de imóveis com ferramentas de gestão poderosas desenhadas para eficiência.",
+        "features": {
+          "bulkActions": "Editar múltiplos imóveis em massa",
+          "filters": "Pesquisa avançada e filtros",
+          "import": "Importar de plataformas terceiras"
+        }
+      }
+    },
+    "liveExamples": {
+      "badge": "Resultados Reais",
+      "heading": "Veja em Ação",
+      "subheading": "Websites reais construídos com a plataforma MyAgentWebsite",
+      "example1": {
+        "badge": "Website de Cliente",
+        "title": "Páginas Sobre Profissionais",
+        "description": "Construa confiança com páginas lindamente desenhadas que mostram a sua história, valores e equipa.",
+        "features": {
+          "design": "Design personalizado adaptado à sua marca",
+          "responsive": "Perfeito em todos os dispositivos",
+          "seo": "Otimizado para motores de busca"
+        }
+      },
+      "example2": {
+        "badge": "Website de Cliente",
+        "title": "Design de Homepage Envolvente",
+        "description": "Crie primeiras impressões impressionantes com secções hero, imóveis em destaque e conteúdo convincente.",
+        "features": {
+          "hero": "Secções hero que captam atenção",
+          "content": "Posicionamento estratégico de conteúdo",
+          "cta": "Chamadas à ação claras"
+        }
+      },
+      "example3": {
+        "badge": "Em Breve",
+        "title": "Mais Exemplos em Breve",
+        "description": "Estamos a trabalhar com mais agências para mostrar os seus websites bonitos. Volte em breve!",
+        "features": {
+          "feature1": "Exemplos adicionais de websites",
+          "feature2": "Diferentes estilos de design",
+          "feature3": "Vários tipos de agências"
+        }
+      }
+    },
+    "advancedFeatures": {
+      "badge": "Capacidades Avançadas",
+      "heading": "Ferramentas Profissionais para Agentes Sérios",
+      "subheading": "Leve o seu negócio imobiliário para o próximo nível com funcionalidades poderosas",
+      "developments": {
+        "title": "Empreendimentos Imobiliários",
+        "description": "Apresente empreendimentos residenciais ou comerciais completos com páginas dedicadas, gestão de unidades e detalhes abrangentes.",
+        "features": {
+          "showcase": "Páginas dedicadas para cada empreendimento",
+          "management": "Gerencie unidades individuais dentro de complexos",
+          "units": "Acompanhe disponibilidade e preços por unidade"
+        }
+      },
+      "photoManagement": {
+        "title": "Gestão de Biblioteca de Fotos",
+        "description": "Gestão profissional de ativos para todas as suas fotos de imóveis. Organize, etiquete e reutilize imagens em múltiplos anúncios.",
+        "features": {
+          "library": "Biblioteca de fotos centralizada com pesquisa",
+          "reusable": "Reutilize fotos em múltiplos anúncios",
+          "organized": "Etiquete e organize por imóvel ou categoria"
+        }
+      },
+      "newsletter": {
+        "title": "Gestão de Newsletter",
+        "description": "Gestão completa de subscritores com capacidades de exportação. Construa a sua lista de emails e integre com as suas ferramentas de marketing preferidas.",
+        "features": {
+          "management": "Visualize e gerencie todos os subscritores",
+          "export": "Exporte para CSV para campanhas de email",
+          "integration": "Integre com plataformas de email marketing"
+        }
+      }
+    },
     "cta": {
       "heading": "Pronto para construir a sua marca?",
       "description": "Agende uma demonstração e veja como podemos ajudar a elevar o seu negócio imobiliário"
@@ -288,8 +421,11 @@
           "api": "Acesso completo à API + Backoffice",
           "frontend": "Construa o seu próprio frontend",
           "unlimited": "Anúncios e conteúdo ilimitados",
+          "developments": "Empreendimentos imobiliários incluídos",
           "docs": "Documentação completa da API",
           "blog": "Blog + testemunhos + newsletter",
+          "photoLibrary": "Acesso à biblioteca de fotos",
+          "preview": "Modo de pré-visualização",
           "hosting": "Hospeda o seu próprio frontend",
           "support": "Suporte por email"
         },
@@ -305,6 +441,10 @@
           "hosting": "Hosting completo do website",
           "maintenance": "Manutenção e atualizações contínuas",
           "api": "API + Backoffice incluído",
+          "developments": "Empreendimentos imobiliários",
+          "photoManagement": "Gestão de biblioteca de fotos",
+          "preview": "Modo de pré-visualização com links seguros",
+          "newsletter": "Exportação de newsletter para CSV",
           "domain": "Gestão de domínio personalizado",
           "support": "Suporte prioritário por email",
           "monitoring": "Monitorização de desempenho",
@@ -439,6 +579,26 @@
         "6": {
           "question": "O que acontece se cancelar o meu plano mensal?",
           "answer": "Pode cancelar a qualquer momento com aviso de 30 dias. O seu serviço continua até ao fim do seu período de faturação. Se pagou por design/desenvolvimento, esse trabalho é seu para manter."
+        },
+        "7": {
+          "question": "O que são Empreendimentos Imobiliários e como funcionam?",
+          "answer": "Os Empreendimentos Imobiliários permitem-lhe apresentar complexos residenciais ou comerciais completos com páginas dedicadas. Pode gerir várias unidades dentro de um empreendimento, controlar disponibilidade, preços por unidade, e apresentar todo o projeto com detalhes completos. Perfeito para projetos de nova construção ou grandes listagens multi-propriedade."
+        },
+        "8": {
+          "question": "Como funciona a Gestão de Biblioteca de Fotos?",
+          "answer": "A nossa biblioteca de fotos centralizada permite-lhe carregar, organizar e marcar todas as suas fotos profissionais de propriedades num só lugar. Pode depois reutilizar estas fotos em várias listagens, pesquisar por tags ou propriedade, e manter uma biblioteca de recursos profissional. Isto poupa tempo e garante consistência no seu website."
+        },
+        "9": {
+          "question": "Posso exportar os meus subscritores de newsletter?",
+          "answer": "Sim! Com o plano Professional, pode exportar todos os seus subscritores de newsletter para formato CSV a qualquer momento. Isto permite-lhe integrar com a sua plataforma de email marketing preferida (MailChimp, SendGrid, etc.) ou importar para o seu CRM para campanhas de marketing."
+        },
+        "10": {
+          "question": "O que é o Modo de Pré-visualização e porquê usá-lo?",
+          "answer": "O Modo de Pré-visualização permite-lhe rever alterações a listagens ou páginas antes de ficarem visíveis no seu website público. Pode gerar links de pré-visualização seguros para partilhar com clientes para aprovação, garantindo que tudo está perfeito antes de publicar. É um workflow de controlo de qualidade que protege a sua imagem profissional."
+        },
+        "11": {
+          "question": "Preciso de competências técnicas para usar o backoffice?",
+          "answer": "Não são necessárias competências técnicas! O nosso backoffice foi desenhado para agentes imobiliários, não para programadores. Pode gerir listagens, carregar fotos, escrever posts de blog e atualizar conteúdo através de uma interface intuitiva. Fornecemos formação e documentação, mais suporte por email se precisar de ajuda."
         }
       }
     },

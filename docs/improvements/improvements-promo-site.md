@@ -21,6 +21,127 @@
 - ✅ Footer with legal links
 - ✅ Localized routing (/en/ and /pt/) with proper SEO
 
+---
+
+## 📸 Latest Updates (October 31, 2025)
+
+### NEW: Platform Features Analysis & Integration
+
+Added missing features discovered from actual platform codebase to promo site:
+
+**Three Major Features Added:**
+
+1. **Property Developments (Listing Complexes)**
+   - Feature for managing entire residential/commercial developments
+   - Multi-property complexes with individual unit management
+   - Dedicated development pages on frontend
+   - Added to Features page Core Features section
+   - Added to Home page Features Overview
+   - Added to both Developer and Professional pricing tiers
+   - Translations: EN/PT complete
+
+2. **Photo Management**
+   - Centralized photo library for professional asset management
+   - Reusable photos across listings
+   - Organized photo storage separate from individual listings
+   - Added to Features page Core Features section
+   - Added to both Developer and Professional pricing tiers
+   - Translations: EN/PT complete
+
+3. **Preview Mode**
+   - Preview changes before publishing
+   - Quality control workflow
+   - Client approval process with secure links
+   - Added to Features page Core Features section
+   - Added to both Developer and Professional pricing tiers
+   - Translations: EN/PT complete
+
+**Enhanced Existing Feature:**
+- Newsletter feature now explicitly mentions "Export to CSV" capability
+- Added to Professional plan feature list
+
+**Files Modified:**
+- `/promo-site/src/pages/Features.tsx` - Added 3 new feature cards with icons (Building2, Image, Eye)
+- `/promo-site/src/pages/Home.tsx` - Added Property Developments to Features Overview
+- `/promo-site/src/locales/en/translation.json` - Added all feature translations and pricing updates
+- `/promo-site/src/locales/pt/translation.json` - Added Portuguese translations
+- `/docs/improvements/platform-features-analysis.md` - Created comprehensive analysis document
+
+**Icons Added:**
+- Building2 (teal) for Property Developments
+- Image (pink) for Photo Management
+- Eye (cyan) for Preview Mode
+
+**What's Still Not Added:**
+- Club membership program (Sofia Galvão specific, not standard feature)
+- Multi-tenant system (internal infrastructure, not client-facing)
+- Background job monitoring (technical feature, not marketing material)
+- System settings (already covered under dashboard management)
+
+---
+
+### Features Page Enhancements
+
+**Added Visual Sections with Screenshots:**
+
+1. **Admin Interface Showcase Section**
+   - Added after Core Features section
+   - Shows actual admin interface screenshots
+   - 3 subsections with alternating layouts:
+     - **Dashboard Overview**: Shows admin-dashboard.webp (135KB)
+     - **Blog Editor**: Shows admin-blog-edit.webp (169KB)
+     - **Property Management**: Placeholder for admin-property-management.webp
+   - Each section includes:
+     - Icon with colored background
+     - Title and description
+     - 3 feature bullet points
+     - Screenshot with fallback gradient
+   - Translations added for EN/PT
+
+2. **Live Examples Section**
+   - Added after Professional Features section
+   - Shows actual client websites built with the platform
+   - 3 subsections with alternating layouts:
+     - **Example 1**: Professional About Pages (sofia-galvao-about.webp - 281KB)
+     - **Example 2**: Homepage Design (sofia-galvao-website.webp - 351KB)
+     - **Example 3**: Placeholder for additional client example (example-website-3.webp)
+   - Each example includes:
+     - Colored badge (blue/purple/green)
+     - Title and description
+     - 3 feature highlights
+     - Screenshot with fallback gradient
+   - Translations added for EN/PT
+
+3. **Image Placeholders Created**
+   - `/public/images/admin-property-management.webp` - Property management detailed view
+   - `/public/images/example-website-3.webp` - Additional client website
+   - Both use fallback gradient system with instructions
+   - TODO comments added in code for future screenshots
+
+**Technical Implementation:**
+- Used same pattern as Home page Platform Features section
+- Image error handlers with fallback gradients
+- Responsive lg:grid-cols-2 layouts with order classes
+- Border and shadow styling for professional look
+- Icon library: Lucide React (BarChart3, FileText, Home, Layout)
+
+**Files Modified:**
+- `/promo-site/src/pages/Features.tsx` - Added 2 new sections with 6 visual showcases
+- `/promo-site/src/locales/en/translation.json` - Added adminInterface and liveExamples keys
+- `/promo-site/src/locales/pt/translation.json` - Added Portuguese translations
+
+**Images Reused:**
+- admin-dashboard.webp (135KB) - Already used on Home page, now also on Features
+- admin-blog-edit.webp (169KB) - Already used on Home page, now also on Features
+- sofia-galvao-about.webp (281KB) - Previously unused, now showcased
+- sofia-galvao-website.webp (351KB) - Previously unused, now showcased
+
+**Images Still Available:**
+- admin-listings.webp (571KB) - Currently used on Home page only
+- sofia-galvao-listings.webp (270KB) - Currently used on Home page only
+- sofia-galvao-homepage-hero.webp (128KB) - Source file
+- sofia-galvao-homepage-content.webp (351KB) - Source file
+
 ### 🚧 Next Steps
 - **PRIORITY**: Add actual screenshots/images (simple drop-in replacement)
   - Hero section: `/public/images/hero-platform-screenshot.png`

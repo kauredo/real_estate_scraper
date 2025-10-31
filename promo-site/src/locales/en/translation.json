@@ -103,6 +103,10 @@
         "title": "Property Listings",
         "description": "Showcase unlimited properties with stunning galleries"
       },
+      "developments": {
+        "title": "Property Developments",
+        "description": "Manage entire developments and multi-property complexes"
+      },
       "blog": {
         "title": "Blog & Content",
         "description": "Share market insights and establish authority"
@@ -206,6 +210,36 @@
           "sources": "Lead sources",
           "metrics": "Performance metrics"
         }
+      },
+      "developments": {
+        "title": "Property Developments",
+        "description": "Showcase entire residential or commercial developments with dedicated pages and management",
+        "features": {
+          "multiProperty": "Multi-property complexes",
+          "showcase": "Showcase entire developments",
+          "units": "Manage individual units",
+          "dedicated": "Dedicated development pages"
+        }
+      },
+      "photoManagement": {
+        "title": "Photo Management",
+        "description": "Centralized photo library for organizing and reusing professional images across your website",
+        "features": {
+          "library": "Centralized photo library",
+          "reusable": "Reuse photos across listings",
+          "organized": "Keep photos organized",
+          "professional": "Professional asset management"
+        }
+      },
+      "previewMode": {
+        "title": "Preview Mode",
+        "description": "Preview changes before publishing to ensure everything looks perfect",
+        "features": {
+          "beforePublish": "Preview before publishing",
+          "qualityControl": "Quality control workflow",
+          "clientApproval": "Client approval process",
+          "secure": "Secure preview links"
+        }
       }
     },
     "professional": {
@@ -266,6 +300,105 @@
         "cta": "View Professional Pricing"
       }
     },
+    "adminInterface": {
+      "badge": "Easy to Use",
+      "heading": "Beautiful Admin Interface",
+      "subheading": "Manage your website with a powerful, intuitive dashboard",
+      "dashboard": {
+        "title": "Overview Dashboard",
+        "description": "Get a complete overview of your website at a glance. See all your properties, blog posts, testimonials, and subscribers in one place.",
+        "features": {
+          "metrics": "Real-time metrics and statistics",
+          "quickAccess": "Quick access to all features",
+          "mobile": "Mobile-friendly interface"
+        }
+      },
+      "blogEditor": {
+        "title": "Blog Editor",
+        "description": "Write and publish blog posts with ease. Our intuitive editor makes content creation simple, even if you're not technical.",
+        "features": {
+          "wysiwyg": "What-you-see-is-what-you-get editor",
+          "seo": "Built-in SEO optimization",
+          "preview": "Live preview before publishing"
+        }
+      },
+      "propertyManagement": {
+        "title": "Property Management",
+        "description": "Add, edit, and organize your property listings with powerful management tools designed for efficiency.",
+        "features": {
+          "bulkActions": "Bulk edit multiple properties",
+          "filters": "Advanced search and filters",
+          "import": "Import from third-party platforms"
+        }
+      }
+    },
+    "liveExamples": {
+      "badge": "Real Results",
+      "heading": "See It In Action",
+      "subheading": "Real websites built with MyAgentWebsite platform",
+      "example1": {
+        "badge": "Client Website",
+        "title": "Professional About Pages",
+        "description": "Build trust with beautifully designed pages that showcase your story, values, and team.",
+        "features": {
+          "design": "Custom design tailored to your brand",
+          "responsive": "Perfect on all devices",
+          "seo": "Optimized for search engines"
+        }
+      },
+      "example2": {
+        "badge": "Client Website",
+        "title": "Engaging Homepage Design",
+        "description": "Create stunning first impressions with hero sections, featured properties, and compelling content.",
+        "features": {
+          "hero": "Eye-catching hero sections",
+          "content": "Strategic content placement",
+          "cta": "Clear calls-to-action"
+        }
+      },
+      "example3": {
+        "badge": "Coming Soon",
+        "title": "More Examples Coming",
+        "description": "We're working with more agencies to showcase their beautiful websites. Check back soon!",
+        "features": {
+          "feature1": "Additional website examples",
+          "feature2": "Different design styles",
+          "feature3": "Various agency types"
+        }
+      }
+    },
+    "advancedFeatures": {
+      "badge": "Advanced Capabilities",
+      "heading": "Professional Tools for Serious Agents",
+      "subheading": "Take your real estate business to the next level with powerful features",
+      "developments": {
+        "title": "Property Developments",
+        "description": "Showcase entire residential or commercial developments with dedicated pages, unit management, and comprehensive details.",
+        "features": {
+          "showcase": "Dedicated pages for each development",
+          "management": "Manage individual units within complexes",
+          "units": "Track availability and pricing per unit"
+        }
+      },
+      "photoManagement": {
+        "title": "Photo Library Management",
+        "description": "Professional asset management for all your property photos. Organize, tag, and reuse images across multiple listings.",
+        "features": {
+          "library": "Centralized photo library with search",
+          "reusable": "Reuse photos across multiple listings",
+          "organized": "Tag and organize by property or category"
+        }
+      },
+      "newsletter": {
+        "title": "Newsletter Management",
+        "description": "Complete subscriber management with export capabilities. Build your email list and integrate with your preferred marketing tools.",
+        "features": {
+          "management": "View and manage all subscribers",
+          "export": "Export to CSV for email campaigns",
+          "integration": "Integrate with email marketing platforms"
+        }
+      }
+    },
     "cta": {
       "heading": "Ready to build your brand?",
       "description": "Schedule a demo and see how we can help elevate your real estate business"
@@ -288,8 +421,11 @@
           "api": "Full API + Backoffice access",
           "frontend": "Build your own frontend",
           "unlimited": "Unlimited listings & content",
+          "developments": "Property developments included",
           "docs": "Complete API documentation",
           "blog": "Blog + testimonials + newsletter",
+          "photoLibrary": "Photo library access",
+          "preview": "Preview mode",
           "hosting": "You host your own frontend",
           "support": "Email support"
         },
@@ -305,6 +441,10 @@
           "hosting": "Full website hosting",
           "maintenance": "Ongoing maintenance & updates",
           "api": "API + Backoffice included",
+          "developments": "Property developments",
+          "photoManagement": "Photo library management",
+          "preview": "Preview mode with secure links",
+          "newsletter": "Newsletter export to CSV",
           "domain": "Custom domain management",
           "support": "Priority email support",
           "monitoring": "Performance monitoring",
@@ -439,6 +579,26 @@
         "6": {
           "question": "What happens if I cancel my monthly plan?",
           "answer": "You can cancel anytime with 30 days notice. Your service continues until the end of your billing period. If you paid for design/build, that work is yours to keep."
+        },
+        "7": {
+          "question": "What are Property Developments and how do they work?",
+          "answer": "Property Developments let you showcase entire residential or commercial complexes with dedicated pages. You can manage multiple units within a development, track availability, pricing per unit, and present the entire project with comprehensive details. Perfect for new construction projects or large multi-property listings."
+        },
+        "8": {
+          "question": "How does Photo Library Management work?",
+          "answer": "Our centralized photo library lets you upload, organize, and tag all your professional property photos in one place. You can then reuse these photos across multiple listings, search by tags or property, and maintain a professional asset library. This saves time and ensures consistency across your website."
+        },
+        "9": {
+          "question": "Can I export my newsletter subscribers?",
+          "answer": "Yes! With the Professional plan, you can export all your newsletter subscribers to CSV format at any time. This lets you integrate with your preferred email marketing platform (MailChimp, SendGrid, etc.) or import into your CRM for marketing campaigns."
+        },
+        "10": {
+          "question": "What is Preview Mode and why would I use it?",
+          "answer": "Preview Mode lets you review changes to listings or pages before they go live on your public website. You can generate secure preview links to share with clients for approval, ensuring everything looks perfect before publishing. It's a quality control workflow that protects your professional image."
+        },
+        "11": {
+          "question": "Do I need technical skills to use the backoffice?",
+          "answer": "No technical skills required! Our backoffice is designed for real estate agents, not developers. You can manage listings, upload photos, write blog posts, and update content through an intuitive interface. We provide training and documentation, plus email support if you need help."
         }
       }
     },

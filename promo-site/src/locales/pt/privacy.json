@@ -1,7 +1,7 @@
 {
   "privacy": {
     "title": "Política de Privacidade",
-    "lastUpdated": "Última atualização: 30 de outubro de 2025",
+    "lastUpdated": "Última atualização: 31 de outubro de 2025",
     "intro": {
       "title": "Introdução",
       "p1": "MyAgentWebsite.com (\"nós\", \"nosso\" ou \"nos\") está comprometido em proteger a sua privacidade. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos as suas informações quando visita o nosso website e utiliza os nossos serviços.",
@@ -13,18 +13,24 @@
         "title": "Informação Pessoal",
         "intro": "Coletamos informação que nos fornece voluntariamente quando:",
         "items": [
-          "Regista uma conta",
-          "Preenche um formulário de contacto",
-          "Solicita uma demonstração",
-          "Subscreve aos nossos serviços",
-          "Comunica connosco"
+          "Regista uma conta e acede ao nosso backoffice",
+          "Cria e gere anúncios de propriedades",
+          "Carrega fotos para a sua biblioteca de fotos",
+          "Subscreve serviços de newsletter",
+          "Preenche formulários de contacto ou solicita demonstrações",
+          "Utiliza a nossa API para integrações personalizadas",
+          "Comunica connosco via email ou canais de suporte"
         ],
         "types": "Esta informação pode incluir:",
         "typesList": [
-          "Nome e informação de contacto (endereço de email, número de telefone)",
-          "Nome da empresa/agência",
-          "Informação de pagamento (processada com segurança através de processadores de pagamento terceiros)",
-          "Informação e preferências de perfil"
+          "Nome, endereço de email e número de telefone",
+          "Nome da agência imobiliária e informação empresarial",
+          "Dados de anúncios de propriedades (moradas, descrições, preços, fotos)",
+          "Testemunhos e avaliações de clientes que escolhe exibir",
+          "Informação de subscritores de newsletter (nomes, endereços de email)",
+          "Informação de pagamento (processada com segurança através do Stripe)",
+          "Chaves de API e credenciais de autenticação",
+          "Informação de perfil, preferências e definições de conta"
         ]
       },
       "automatic": {
@@ -44,14 +50,19 @@
       "title": "Como Usamos a Sua Informação",
       "intro": "Usamos a informação que coletamos para vários propósitos, incluindo:",
       "items": [
-        "Fornecer, operar e manter os nossos serviços",
-        "Processar as suas transações e gerir a sua conta",
-        "Responder às suas questões e fornecer suporte ao cliente",
-        "Enviar-lhe informação administrativa e atualizações",
-        "Melhorar o nosso website e serviços",
-        "Analisar padrões e tendências de uso",
-        "Detetar e prevenir fraude e abuso",
-        "Cumprir obrigações legais"
+        "Fornecer, operar e manter a nossa plataforma de websites imobiliários e API",
+        "Gerir o seu acesso ao backoffice e anúncios de propriedades",
+        "Armazenar e organizar a sua biblioteca de fotos",
+        "Gerir subscritores de newsletter e permitir exportações CSV",
+        "Gerar links de modo de pré-visualização para controlo de qualidade",
+        "Processar as suas transações e gerir a sua subscrição",
+        "Responder a questões e fornecer suporte prioritário ou por email",
+        "Hospedar e manter o seu website (plano Professional)",
+        "Enviar emails administrativos, atualizações de segurança e notificações de serviço",
+        "Melhorar a nossa plataforma, backoffice e serviços de API",
+        "Analisar padrões de uso para melhorar funcionalidades",
+        "Detetar e prevenir fraude, abuso e acesso não autorizado",
+        "Cumprir obrigações legais e regulamentos de proteção de dados"
       ]
     },
     "cookies": {
@@ -78,42 +89,55 @@
     },
     "thirdParty": {
       "title": "Serviços de Terceiros",
-      "intro": "Podemos usar fornecedores de serviços terceiros para nos ajudar a operar o nosso negócio e website ou administrar atividades em nosso nome. Estes terceiros incluem:",
+      "intro": "Usamos fornecedores de serviços terceiros para nos ajudar a operar a nossa plataforma e entregar os nossos serviços. Estes terceiros incluem:",
       "services": [
         {
-          "name": "Google Analytics",
-          "purpose": "Para análise do website"
+          "name": "Stripe",
+          "purpose": "Processamento seguro de pagamentos para subscrições e serviços únicos"
         },
         {
-          "name": "Processadores de Pagamento",
-          "purpose": "Para processar pagamentos (Stripe)"
+          "name": "Railway / Vercel",
+          "purpose": "Alojamento cloud para API backend e aplicações frontend"
+        },
+        {
+          "name": "Cloudflare",
+          "purpose": "Rede de distribuição de conteúdo (CDN), gestão de DNS e segurança"
+        },
+        {
+          "name": "Serviços de Alojamento de Imagens",
+          "purpose": "Armazenar e otimizar fotos de propriedades na sua biblioteca de fotos"
         },
         {
           "name": "Fornecedores de Serviço de Email",
-          "purpose": "Para enviar emails transacionais"
+          "purpose": "Enviar emails transacionais, redefinições de senha e notificações"
         },
         {
-          "name": "Fornecedores de Alojamento",
-          "purpose": "Para alojamento do website (Vercel)"
+          "name": "Serviços de Análise",
+          "purpose": "Compreender o uso do website para melhorar a nossa plataforma"
         }
       ],
-      "note": "Estes terceiros têm acesso à sua informação apenas para realizar estas tarefas em nosso nome e são obrigados a não divulgar ou usar para qualquer outro propósito."
+      "note": "Estes terceiros têm acesso à sua informação apenas para realizar tarefas específicas em nosso nome e são contratualmente obrigados a não divulgar ou usar para qualquer outro propósito. Verificamos cuidadosamente todos os fornecedores terceiros para garantir que cumprem os nossos padrões de segurança e privacidade."
     },
     "security": {
       "title": "Segurança de Dados",
       "intro": "Implementamos medidas de segurança técnicas e organizacionais apropriadas para proteger a sua informação pessoal contra acesso não autorizado, alteração, divulgação ou destruição. Estas medidas incluem:",
       "measures": [
-        "Encriptação SSL/TLS para transmissão de dados",
-        "Servidores e bases de dados seguros",
-        "Auditorias de segurança regulares",
-        "Controlos de acesso e autenticação",
-        "Formação de funcionários em proteção de dados"
+        "Encriptação SSL/TLS (HTTPS) para toda a transmissão de dados",
+        "Autenticação segura e hashing de senhas para acesso ao backoffice",
+        "Autenticação por chave de API para integrações de programadores",
+        "Geração segura de tokens para links de modo de pré-visualização com expiração temporal",
+        "Atualizações e patches de segurança regulares",
+        "Encriptação de base de dados e controlos de acesso",
+        "Armazenamento seguro de ficheiros para fotos e media na sua biblioteca de fotos",
+        "Proteção WAF (Web Application Firewall) da Cloudflare",
+        "Backups regulares e procedimentos de recuperação de desastres",
+        "Formação de funcionários e contratados em proteção de dados e privacidade"
       ],
-      "disclaimer": "No entanto, nenhum método de transmissão pela Internet ou armazenamento eletrónico é 100% seguro. Embora nos esforcemos para usar meios comercialmente aceitáveis para proteger a sua informação, não podemos garantir a sua segurança absoluta."
+      "disclaimer": "No entanto, nenhum método de transmissão pela Internet ou armazenamento eletrónico é 100% seguro. Embora nos esforcemos para usar meios comercialmente aceitáveis para proteger a sua informação, não podemos garantir a sua segurança absoluta. Recomendamos usar senhas fortes e não partilhar as suas credenciais do backoffice."
     },
     "retention": {
       "title": "Retenção de Dados",
-      "content": "Retemos a sua informação pessoal apenas pelo tempo necessário para cumprir os propósitos descritos nesta Política de Privacidade, a menos que um período de retenção mais longo seja exigido ou permitido por lei. Quando já não precisamos da sua informação, iremos eliminá-la ou anonimizá-la de forma segura."
+      "content": "Retemos a sua informação pessoal enquanto a sua conta estiver ativa ou conforme necessário para fornecer os serviços. Anúncios de propriedades, fotos na sua biblioteca de fotos e conteúdo que cria permanecem disponíveis enquanto a sua subscrição estiver ativa. Dados de subscritores de newsletter são retidos até solicitar eliminação ou exportá-los. Após o cancelamento da conta, retemos certas informações para fins legais e fiscais (tipicamente 7 anos para registos financeiros). Os backups podem reter dados até 90 dias. Pode solicitar a eliminação dos seus dados a qualquer momento contactando-nos, sujeito às nossas obrigações legais."
     },
     "rights": {
       "title": "Os Seus Direitos ao Abrigo do RGPD",
@@ -164,11 +188,11 @@
     },
     "contact": {
       "title": "Contacte-nos",
-      "intro": "Se tiver alguma questão sobre esta Política de Privacidade ou as nossas práticas de dados, por favor contacte-nos:",
+      "intro": "Se tiver alguma questão sobre esta Política de Privacidade, quiser exercer os seus direitos de dados ou tiver preocupações sobre as nossas práticas de dados, por favor contacte-nos:",
       "email": "Email",
       "website": "Website",
-      "address": "Morada",
-      "addressValue": "[Morada da Sua Empresa]"
+      "address": "Responsável pela Proteção de Dados",
+      "addressValue": "Para questões de proteção de dados: privacy@myagentwebsite.com"
     }
   }
 }

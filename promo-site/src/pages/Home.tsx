@@ -535,6 +535,17 @@ export default function Home() {
                     <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold mb-1">
+                        {t("home.features.developments.title")}
+                      </h3>
+                      <p className="text-gray-600">
+                        {t("home.features.developments.description")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold mb-1">
                         {t("home.features.blog.title")}
                       </h3>
                       <p className="text-gray-600">

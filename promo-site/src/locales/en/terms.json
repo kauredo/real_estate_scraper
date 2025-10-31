@@ -1,7 +1,7 @@
 {
   "terms": {
     "title": "Terms of Service",
-    "lastUpdated": "Last updated: October 30, 2025",
+    "lastUpdated": "Last updated: October 31, 2025",
     "agreement": {
       "title": "Agreement to Terms",
       "p1": "These Terms of Service (\"Terms\") govern your access to and use of MyAgentWebsite.com (the \"Service\"), operated by MyAgentWebsite.com (\"we\", \"us\", or \"our\").",
@@ -9,14 +9,20 @@
     },
     "description": {
       "title": "Description of Service",
-      "intro": "MyAgentWebsite.com provides a website building platform specifically designed for real estate agents and agencies. The Service allows users to:",
+      "intro": "MyAgentWebsite.com provides a comprehensive website building platform and API specifically designed for real estate agents and agencies. The Service allows users to:",
       "features": [
         "Create and manage professional real estate websites",
-        "Publish property listings",
-        "Display testimonials and reviews",
-        "Capture leads through contact forms",
-        "Customize website appearance and content",
-        "Connect custom domains"
+        "Access a backoffice admin panel for content management",
+        "Publish individual property listings and entire property developments",
+        "Manage a centralized photo library for property images",
+        "Display client testimonials and reviews",
+        "Collect and manage newsletter subscribers with CSV export",
+        "Use preview mode to review changes before publishing",
+        "Capture leads through contact forms and newsletter signups",
+        "Write and publish blog posts",
+        "Access a full REST API for custom integrations (Developer plan)",
+        "Connect custom domains (Professional and Enterprise plans)",
+        "Receive hosting, maintenance, and support (Professional and Enterprise plans)"
       ]
     },
     "account": {
@@ -33,24 +39,25 @@
       },
       "security": {
         "title": "Account Security",
-        "content": "You are responsible for maintaining the confidentiality of your account password and for all activities that occur under your account. You must immediately notify us of any unauthorized use of your account."
+        "content": "You are responsible for maintaining the confidentiality of your account password, backoffice credentials, and API keys (if applicable). You must not share your credentials with unauthorized parties. You are fully responsible for all activities that occur under your account. You must immediately notify us of any unauthorized use of your account or security breach."
       }
     },
     "payment": {
       "title": "Subscription Plans and Payment",
       "pricing": {
         "title": "Pricing",
-        "intro": "We offer multiple subscription plans with different features and pricing tiers:",
+        "intro": "We offer multiple subscription plans and one-time services with different features and pricing:",
         "plans": [
-          "Starter Plan: €49/month",
-          "Professional Plan: €99/month",
-          "Enterprise Plan: Custom pricing"
+          "Developer Plan: €199/month - Full API and backoffice access (you host your own frontend)",
+          "Professional Plan: €499/month - Complete managed solution with hosting, maintenance, and support",
+          "Enterprise Plan: Custom pricing - Multiple websites, white-label options, and dedicated support",
+          "One-Time Design + Build Services: Starting at €2,000 for design or €3,500 for build (separate from monthly subscriptions)"
         ],
-        "changes": "Pricing is subject to change with 30 days' notice. Current subscribers will be notified before any price changes take effect."
+        "changes": "Pricing is subject to change with 30 days' notice to current subscribers. One-time service pricing may change without notice for new customers."
       },
       "terms": {
         "title": "Payment Terms",
-        "content": "Subscriptions are billed monthly or annually in advance. Payment must be made by credit card or other accepted payment methods. By providing payment information, you authorize us to charge the applicable fees to your payment method."
+        "content": "Monthly subscriptions are billed in advance on a recurring basis. One-time design and build services require 50% payment upfront and 50% upon completion. Payment must be made by credit card, bank transfer, or other accepted payment methods. By providing payment information, you authorize us to charge the applicable fees. All payments are processed securely through Stripe."
       },
       "trial": {
         "title": "Free Trial",
@@ -58,14 +65,14 @@
       },
       "refunds": {
         "title": "Refunds",
-        "content": "We offer a 14-day money-back guarantee for new subscriptions. Refund requests must be made within 14 days of the initial purchase. Refunds are not available for renewals."
+        "content": "We offer a 14-day money-back guarantee for new monthly subscriptions. Refund requests must be made within 14 days of the initial purchase. Refunds are not available for subscription renewals or one-time design/build services after work has commenced. If you paid for design/build services, the completed work remains your property even if you cancel your monthly subscription."
       }
     },
     "cancellation": {
       "title": "Cancellation and Termination",
       "byUser": {
         "title": "Cancellation by User",
-        "content": "You may cancel your subscription at any time through your account settings. Cancellation will take effect at the end of your current billing period. You will continue to have access to the Service until the end of the paid period."
+        "content": "You may cancel your monthly subscription at any time by providing 30 days' notice through your account settings or by contacting us. Cancellation will take effect at the end of your current billing period after the 30-day notice. You will continue to have access to the Service until the end of the paid period. We recommend exporting your newsletter subscribers (CSV), property data, and downloading photos from your photo library before cancellation."
       },
       "byUs": {
         "title": "Termination by Us",
@@ -79,37 +86,40 @@
       },
       "data": {
         "title": "Data After Termination",
-        "content": "Upon termination, your data will be retained for 30 days, after which it will be permanently deleted. You are responsible for exporting any data you wish to retain before termination."
+        "content": "Upon termination, your property listings, photo library, blog posts, testimonials, and newsletter subscribers will be retained for 30 days to allow for potential account reactivation. After 30 days, all data will be permanently deleted from our systems (backups may retain data for up to 90 days). You are responsible for exporting all data you wish to retain, including newsletter subscribers (CSV export), property listings, and photos, before the 30-day retention period expires. If you purchased design/build services, you retain ownership of that work regardless of subscription status."
       }
     },
     "content": {
       "title": "User Content and Ownership",
       "yours": {
         "title": "Your Content",
-        "content": "You retain all ownership rights to the content you upload to the Service, including property listings, images, text, and other materials (\"User Content\")."
+        "content": "You retain all ownership rights to the content you upload to the Service, including property listings, property developments, photos in your photo library, blog posts, testimonials, newsletter subscriber data, and any other materials (\"User Content\"). If you purchased design/build services, you own the resulting website design and code."
       },
       "license": {
         "title": "License to Us",
-        "content": "By uploading User Content, you grant us a limited, non-exclusive license to use, store, and display your content solely for the purpose of providing the Service."
+        "content": "By uploading User Content, you grant us a limited, non-exclusive, worldwide license to use, store, display, and transmit your content solely for the purpose of providing the Service. This includes displaying your property listings on your website, storing photos in your photo library, managing newsletter subscribers, and generating preview mode links. This license terminates when you delete the content or terminate your account."
       },
       "responsibility": {
         "title": "Content Responsibility",
-        "content": "You are solely responsible for your User Content and must ensure you have all necessary rights and permissions. You agree not to upload content that is illegal, infringing, defamatory, obscene, or otherwise objectionable."
+        "content": "You are solely responsible for your User Content and must ensure you have all necessary rights, licenses, and permissions, including rights to property photos and testimonials. You represent that you have proper authorization to list properties and use associated images. You agree not to upload content that is illegal, infringing, defamatory, obscene, misleading, or otherwise objectionable."
       }
     },
     "acceptable": {
       "title": "Acceptable Use Policy",
-      "intro": "You agree not to use the Service to:",
+      "intro": "You agree not to use the Service, backoffice, or API to:",
       "prohibitions": [
         "Violate any laws or regulations",
         "Infringe on intellectual property rights",
         "Transmit viruses, malware, or harmful code",
-        "Engage in spam or unsolicited marketing",
+        "Engage in spam or unsolicited marketing via newsletter features",
         "Harass, abuse, or harm others",
-        "Impersonate another person or entity",
-        "Attempt to gain unauthorized access to systems",
-        "Interfere with the proper functioning of the Service",
-        "Use automated systems to scrape or harvest data"
+        "Impersonate another person, entity, or real estate agency",
+        "Upload false or misleading property listings",
+        "Attempt to gain unauthorized access to systems, accounts, or API endpoints",
+        "Interfere with the proper functioning of the Service or exceed API rate limits",
+        "Use automated systems to scrape or harvest data beyond normal API usage",
+        "Share your backoffice credentials or API keys with unauthorized parties",
+        "Resell or redistribute the Service without authorization (Enterprise white-label excepted)"
       ]
     },
     "intellectual": {
@@ -154,11 +164,11 @@
     },
     "contact": {
       "title": "Contact Us",
-      "intro": "If you have any questions about these Terms of Service, please contact us:",
+      "intro": "If you have any questions about these Terms of Service, billing inquiries, or need support, please contact us:",
       "email": "Email",
       "website": "Website",
-      "address": "Address",
-      "addressValue": "[Your Company Address]"
+      "address": "Support",
+      "addressValue": "For general inquiries: support@myagentwebsite.com"
     }
   }
 }

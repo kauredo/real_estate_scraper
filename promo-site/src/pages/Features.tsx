@@ -25,6 +25,9 @@ import {
   ArrowRight,
   Search,
   Smartphone,
+  Building2,
+  Image,
+  Eye,
 } from "lucide-react";
 
 export default function Features() {
@@ -261,6 +264,296 @@ export default function Features() {
                 </ul>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="mb-4 bg-teal-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <Building2 className="h-6 w-6 text-teal-600" />
+                </div>
+                <CardTitle>{t("features.core.developments.title")}</CardTitle>
+                <CardDescription>
+                  {t("features.core.developments.description")}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.developments.features.multiProperty")}
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.developments.features.showcase")}
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.developments.features.units")}
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.developments.features.dedicated")}
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="mb-4 bg-pink-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <Image className="h-6 w-6 text-pink-600" />
+                </div>
+                <CardTitle>{t("features.core.photoManagement.title")}</CardTitle>
+                <CardDescription>
+                  {t("features.core.photoManagement.description")}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.photoManagement.features.library")}
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.photoManagement.features.reusable")}
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.photoManagement.features.organized")}
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.photoManagement.features.professional")}
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="mb-4 bg-cyan-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <Eye className="h-6 w-6 text-cyan-600" />
+                </div>
+                <CardTitle>{t("features.core.previewMode.title")}</CardTitle>
+                <CardDescription>
+                  {t("features.core.previewMode.description")}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.previewMode.features.beforePublish")}
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.previewMode.features.qualityControl")}
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.previewMode.features.clientApproval")}
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    {t("features.core.previewMode.features.secure")}
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Admin Interface Showcase */}
+      <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4">
+              {t("features.adminInterface.badge")}
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t("features.adminInterface.heading")}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {t("features.adminInterface.subheading")}
+            </p>
+          </div>
+
+          <div className="space-y-20">
+            {/* Dashboard Screenshot */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100">
+                    <BarChart3 className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-3xl font-bold">
+                    {t("features.adminInterface.dashboard.title")}
+                  </h3>
+                  <p className="text-lg text-gray-600">
+                    {t("features.adminInterface.dashboard.description")}
+                  </p>
+                  <ul className="space-y-3 pt-4">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.adminInterface.dashboard.features.metrics")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.adminInterface.dashboard.features.quickAccess")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.adminInterface.dashboard.features.mobile")}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                  <img
+                    src="/images/admin-dashboard.webp"
+                    alt="MyAgentWebsite Admin Dashboard Interface"
+                    className="w-full h-auto"
+                    onError={e => {
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="aspect-[16/10] bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 hidden items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <Layout className="h-20 w-20 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-semibold opacity-75">Dashboard Screenshot</p>
+                      <p className="text-sm opacity-50 mt-2">/public/images/admin-dashboard.webp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Blog Editor Screenshot */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-2">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-purple-100">
+                    <FileText className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <h3 className="text-3xl font-bold">
+                    {t("features.adminInterface.blogEditor.title")}
+                  </h3>
+                  <p className="text-lg text-gray-600">
+                    {t("features.adminInterface.blogEditor.description")}
+                  </p>
+                  <ul className="space-y-3 pt-4">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.adminInterface.blogEditor.features.wysiwyg")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.adminInterface.blogEditor.features.seo")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.adminInterface.blogEditor.features.preview")}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-1">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                  <img
+                    src="/images/admin-blog-edit.webp"
+                    alt="MyAgentWebsite Blog Editor Interface"
+                    className="w-full h-auto"
+                    onError={e => {
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="aspect-[16/10] bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 hidden items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <FileText className="h-20 w-20 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-semibold opacity-75">Blog Editor Screenshot</p>
+                      <p className="text-sm opacity-50 mt-2">/public/images/admin-blog-edit.webp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Property Management Screenshot - PLACEHOLDER */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-green-100">
+                    <Home className="h-6 w-6 text-green-600" />
+                  </div>
+                  <h3 className="text-3xl font-bold">
+                    {t("features.adminInterface.propertyManagement.title")}
+                  </h3>
+                  <p className="text-lg text-gray-600">
+                    {t("features.adminInterface.propertyManagement.description")}
+                  </p>
+                  <ul className="space-y-3 pt-4">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.adminInterface.propertyManagement.features.bulkActions")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.adminInterface.propertyManagement.features.filters")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.adminInterface.propertyManagement.features.import")}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                  {/* TODO: Add admin property management detailed view screenshot */}
+                  <img
+                    src="/images/admin-property-management.webp"
+                    alt="MyAgentWebsite Property Management Interface"
+                    className="w-full h-auto"
+                    onError={e => {
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="aspect-[16/10] bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 flex items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <Home className="h-20 w-20 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-semibold opacity-75">Property Management Screenshot</p>
+                      <p className="text-sm opacity-50 mt-2">/public/images/admin-property-management.webp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -362,6 +655,396 @@ export default function Features() {
                 <p className="text-gray-600">
                   {t("features.professional.custom.description")}
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live Examples */}
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4">
+              {t("features.liveExamples.badge")}
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t("features.liveExamples.heading")}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {t("features.liveExamples.subheading")}
+            </p>
+          </div>
+
+          <div className="space-y-20">
+            {/* Example Website 1 - About Page */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="space-y-4">
+                  <Badge className="bg-blue-600 text-white mb-2">
+                    {t("features.liveExamples.example1.badge")}
+                  </Badge>
+                  <h3 className="text-3xl font-bold">
+                    {t("features.liveExamples.example1.title")}
+                  </h3>
+                  <p className="text-lg text-gray-600">
+                    {t("features.liveExamples.example1.description")}
+                  </p>
+                  <ul className="space-y-3 pt-4">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.liveExamples.example1.features.design")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.liveExamples.example1.features.responsive")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.liveExamples.example1.features.seo")}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                  <img
+                    src="/images/sofia-galvao-about.webp"
+                    alt="Sofia Galvão Group - About Page Example"
+                    className="w-full h-auto"
+                    onError={e => {
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="aspect-[16/10] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hidden items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <Layout className="h-20 w-20 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-semibold opacity-75">Website Example Screenshot</p>
+                      <p className="text-sm opacity-50 mt-2">/public/images/sofia-galvao-about.webp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Example Website 2 - Homepage */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-2">
+                <div className="space-y-4">
+                  <Badge className="bg-purple-600 text-white mb-2">
+                    {t("features.liveExamples.example2.badge")}
+                  </Badge>
+                  <h3 className="text-3xl font-bold">
+                    {t("features.liveExamples.example2.title")}
+                  </h3>
+                  <p className="text-lg text-gray-600">
+                    {t("features.liveExamples.example2.description")}
+                  </p>
+                  <ul className="space-y-3 pt-4">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.liveExamples.example2.features.hero")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.liveExamples.example2.features.content")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.liveExamples.example2.features.cta")}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-1">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                  <img
+                    src="/images/sofia-galvao-website.webp"
+                    alt="Sofia Galvão Group - Homepage Content Example"
+                    className="w-full h-auto"
+                    onError={e => {
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="aspect-[16/10] bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 hidden items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <Layout className="h-20 w-20 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-semibold opacity-75">Website Content Screenshot</p>
+                      <p className="text-sm opacity-50 mt-2">/public/images/sofia-galvao-website.webp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Example Website 3 - PLACEHOLDER for additional client */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="space-y-4">
+                  <Badge className="bg-green-600 text-white mb-2">
+                    {t("features.liveExamples.example3.badge")}
+                  </Badge>
+                  <h3 className="text-3xl font-bold">
+                    {t("features.liveExamples.example3.title")}
+                  </h3>
+                  <p className="text-lg text-gray-600">
+                    {t("features.liveExamples.example3.description")}
+                  </p>
+                  <ul className="space-y-3 pt-4">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.liveExamples.example3.features.feature1")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.liveExamples.example3.features.feature2")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.liveExamples.example3.features.feature3")}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                  {/* TODO: Add additional client website screenshot */}
+                  <img
+                    src="/images/example-website-3.webp"
+                    alt="Client Website Example"
+                    className="w-full h-auto"
+                    onError={e => {
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="aspect-[16/10] bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 flex items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <Layout className="h-20 w-20 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-semibold opacity-75">Additional Client Example</p>
+                      <p className="text-sm opacity-50 mt-2">/public/images/example-website-3.webp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Advanced Features Showcase */}
+      <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4">
+              {t("features.advancedFeatures.badge")}
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t("features.advancedFeatures.heading")}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {t("features.advancedFeatures.subheading")}
+            </p>
+          </div>
+
+          <div className="space-y-20">
+            {/* Property Developments Showcase */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-teal-100">
+                    <Building2 className="h-6 w-6 text-teal-600" />
+                  </div>
+                  <h3 className="text-3xl font-bold">
+                    {t("features.advancedFeatures.developments.title")}
+                  </h3>
+                  <p className="text-lg text-gray-600">
+                    {t("features.advancedFeatures.developments.description")}
+                  </p>
+                  <ul className="space-y-3 pt-4">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.advancedFeatures.developments.features.showcase")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.advancedFeatures.developments.features.management")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.advancedFeatures.developments.features.units")}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                  {/* TODO: Add development detail page screenshot */}
+                  <img
+                    src="/images/development-detail-page.webp"
+                    alt="Property Development Detail Page"
+                    className="w-full h-auto"
+                    onError={e => {
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="aspect-[16/10] bg-gradient-to-br from-teal-500 via-cyan-500 to-blue-500 flex items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <Building2 className="h-20 w-20 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-semibold opacity-75">Development Detail Page</p>
+                      <p className="text-sm opacity-50 mt-2">/public/images/development-detail-page.webp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Photo Management Showcase */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-2">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-pink-100">
+                    <Image className="h-6 w-6 text-pink-600" />
+                  </div>
+                  <h3 className="text-3xl font-bold">
+                    {t("features.advancedFeatures.photoManagement.title")}
+                  </h3>
+                  <p className="text-lg text-gray-600">
+                    {t("features.advancedFeatures.photoManagement.description")}
+                  </p>
+                  <ul className="space-y-3 pt-4">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.advancedFeatures.photoManagement.features.library")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.advancedFeatures.photoManagement.features.reusable")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.advancedFeatures.photoManagement.features.organized")}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-1">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                  {/* TODO: Add photo library management screenshot */}
+                  <img
+                    src="/images/admin-photo-library.webp"
+                    alt="Photo Library Management Interface"
+                    className="w-full h-auto"
+                    onError={e => {
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="aspect-[16/10] bg-gradient-to-br from-pink-500 via-rose-500 to-red-500 flex items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <Image className="h-20 w-20 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-semibold opacity-75">Photo Library Interface</p>
+                      <p className="text-sm opacity-50 mt-2">/public/images/admin-photo-library.webp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Newsletter Management Showcase */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-green-100">
+                    <Mail className="h-6 w-6 text-green-600" />
+                  </div>
+                  <h3 className="text-3xl font-bold">
+                    {t("features.advancedFeatures.newsletter.title")}
+                  </h3>
+                  <p className="text-lg text-gray-600">
+                    {t("features.advancedFeatures.newsletter.description")}
+                  </p>
+                  <ul className="space-y-3 pt-4">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.advancedFeatures.newsletter.features.management")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.advancedFeatures.newsletter.features.export")}
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                      <span className="text-gray-700">
+                        {t("features.advancedFeatures.newsletter.features.integration")}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                  {/* TODO: Add newsletter subscribers with export screenshot */}
+                  <img
+                    src="/images/admin-newsletter-export.webp"
+                    alt="Newsletter Subscribers Management with Export"
+                    className="w-full h-auto"
+                    onError={e => {
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="aspect-[16/10] bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 flex items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <Mail className="h-20 w-20 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-semibold opacity-75">Newsletter Management</p>
+                      <p className="text-sm opacity-50 mt-2">/public/images/admin-newsletter-export.webp</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
