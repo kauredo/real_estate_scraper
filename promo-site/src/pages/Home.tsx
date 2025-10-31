@@ -16,6 +16,8 @@ import {
   Quote,
   ExternalLink,
   TrendingUp,
+  FileText,
+  Home as HomeIcon,
 } from "lucide-react";
 
 export default function Home() {
@@ -25,398 +27,637 @@ export default function Home() {
     <>
       <SEO page="home" />
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center space-y-8">
-            <Badge variant="secondary" className="mb-4">
-              <Sparkles className="h-3 w-3 mr-1" />
-              {t("home.hero.badge")}
-            </Badge>
+        {/* Hero Section */}
+        <section className="pt-32 pb-20 px-4">
+          <div className="container mx-auto max-w-7xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column - Text Content */}
+              <div className="space-y-8">
+                <Badge variant="secondary" className="mb-4">
+                  <Sparkles className="h-3 w-3 mr-1" />
+                  {t("home.hero.badge")}
+                </Badge>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              {t("home.hero.title")}
-              <br />
-              <span className="text-blue-600">
-                {t("home.hero.titleHighlight")}
-              </span>
-              <br />
-              {t("home.hero.titleEnd")}
-            </h1>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+                  {t("home.hero.title")}
+                  <br />
+                  <span className="text-blue-600">
+                    {t("home.hero.titleHighlight")}
+                  </span>
+                  <br />
+                  {t("home.hero.titleEnd")}
+                </h1>
 
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
-              {t("home.hero.description")}
-            </p>
+                <p className="text-xl md:text-2xl text-gray-600">
+                  {t("home.hero.description")}
+                </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <Link to="/contact">
-                <Button size="lg" className="text-lg px-8 py-6">
-                  {t("common.scheduleDemo")}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/pricing">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-lg px-8 py-6"
-                >
-                  {t("common.viewPricing")}
-                </Button>
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-center gap-8 pt-8 text-sm text-gray-500 flex-wrap">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-green-600" />
-                {t("home.hero.benefit1")}
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-green-600" />
-                {t("home.hero.benefit2")}
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-green-600" />
-                {t("home.hero.benefit3")}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Value Proposition */}
-      <section className="py-12 bg-white border-y">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center items-center gap-12 flex-wrap text-center max-w-4xl mx-auto">
-            <div>
-              <div className="text-3xl font-bold text-blue-600 mb-1">
-                {t("home.valueProposition.timeline")}
-              </div>
-              <p className="text-gray-600">
-                {t("home.valueProposition.timelineDesc")}
-              </p>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-blue-600 mb-1">
-                {t("home.valueProposition.tech")}
-              </div>
-              <p className="text-gray-600">
-                {t("home.valueProposition.techDesc")}
-              </p>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-blue-600 mb-1">
-                {t("home.valueProposition.service")}
-              </div>
-              <p className="text-gray-600">
-                {t("home.valueProposition.serviceDesc")}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-8">
-            <Badge variant="secondary" className="mb-4">
-              <TrendingUp className="h-3 w-3 mr-1" />
-              {t("home.caseStudy.badge")}
-            </Badge>
-          </div>
-
-          <Card className="border-0 shadow-2xl bg-white">
-            <CardContent className="pt-12 pb-12">
-              <div className="max-w-4xl mx-auto">
-                <div className="relative mb-8">
-                  <Quote className="h-12 w-12 text-blue-600/20 absolute -top-4 -left-4" />
-                  <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 pl-8">
-                    &ldquo;{t("home.caseStudy.quote")}&rdquo;
-                  </blockquote>
-                </div>
-
-                <div className="flex items-center gap-4 mb-12 pl-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                    SG
-                  </div>
-                  <div>
-                    <div className="font-bold text-lg">
-                      {t("home.caseStudy.author")}
-                    </div>
-                    <div className="text-gray-600">
-                      {t("home.caseStudy.role")}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-8 mb-8">
-                  <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-white rounded-lg border border-blue-100">
-                    <div className="text-4xl font-bold text-blue-600 mb-2">
-                      {t("home.caseStudy.stats.stat1.value")}
-                    </div>
-                    <p className="text-gray-600 text-sm">
-                      {t("home.caseStudy.stats.stat1.label")}
-                    </p>
-                  </div>
-                  <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-white rounded-lg border border-purple-100">
-                    <div className="text-4xl font-bold text-purple-600 mb-2">
-                      {t("home.caseStudy.stats.stat2.value")}
-                    </div>
-                    <p className="text-gray-600 text-sm">
-                      {t("home.caseStudy.stats.stat2.label")}
-                    </p>
-                  </div>
-                  <div className="text-center p-6 bg-gradient-to-br from-green-50 to-white rounded-lg border border-green-100">
-                    <div className="text-4xl font-bold text-green-600 mb-2">
-                      {t("home.caseStudy.stats.stat3.value")}
-                    </div>
-                    <p className="text-gray-600 text-sm">
-                      {t("home.caseStudy.stats.stat3.label")}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="text-center">
-                  <a
-                    href="https://sofiagalvaogroup.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="outline" size="lg">
-                      {t("home.caseStudy.cta")}
-                      <ExternalLink className="ml-2 h-4 w-4" />
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <Link to="/contact">
+                    <Button
+                      size="lg"
+                      className="text-lg px-8 py-6 w-full sm:w-auto"
+                    >
+                      {t("common.scheduleDemo")}
+                      <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
-                  </a>
+                  </Link>
+                  <Link to="/pricing">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="text-lg px-8 py-6 w-full sm:w-auto"
+                    >
+                      {t("common.viewPricing")}
+                    </Button>
+                  </Link>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-gray-700">
+                      {t("home.hero.benefit1")}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-gray-700">
+                      {t("home.hero.benefit2")}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-gray-700">
+                      {t("home.hero.benefit3")}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
 
-      {/* Key Benefits */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              {t("home.benefits.heading")}
-            </h2>
-            <p className="text-xl text-gray-600">
-              {t("home.benefits.subheading")}
-            </p>
+              {/* Right Column - Hero Image */}
+              <div className="relative">
+                {/*
+                TODO: Replace placeholder image
+                Location: /public/images/hero-platform-screenshot.webp
+                Instructions: /public/images/placeholders/hero-platform-screenshot.md
+              */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
+                  <img
+                    src="/images/hero-platform-screenshot.webp"
+                    alt="MyAgentWebsite Platform - Real Estate Agent Website Example"
+                    className="w-full h-auto aspect-[4/3] object-cover"
+                    onError={e => {
+                      // Fallback to gradient if image not found
+                      e.currentTarget.style.display = "none";
+                      const fallback = e.currentTarget
+                        .nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="aspect-[4/3] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hidden items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <Layout className="h-20 w-20 mx-auto mb-4 opacity-50" />
+                      <p className="text-lg font-semibold opacity-75">
+                        Add platform screenshot
+                      </p>
+                      <p className="text-sm opacity-50 mt-2">
+                        /public/images/hero-platform-screenshot.webp
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* Decorative elements */}
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-100 rounded-full opacity-50 blur-xl"></div>
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-purple-100 rounded-full opacity-50 blur-xl"></div>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-2 hover:border-blue-600 transition">
-              <CardContent className="pt-6">
-                <div className="mb-4 bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <Zap className="h-6 w-6 text-blue-600" />
+        {/* Value Proposition */}
+        <section className="py-12 bg-white border-y">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-center items-center gap-12 flex-wrap text-center max-w-4xl mx-auto">
+              <div>
+                <div className="text-3xl font-bold text-blue-600 mb-1">
+                  {t("home.valueProposition.timeline")}
                 </div>
-                <h3 className="text-xl font-bold mb-2">
-                  {t("home.benefits.professional.title")}
-                </h3>
                 <p className="text-gray-600">
-                  {t("home.benefits.professional.description")}
+                  {t("home.valueProposition.timelineDesc")}
                 </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:border-blue-600 transition">
-              <CardContent className="pt-6">
-                <div className="mb-4 bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <DollarSign className="h-6 w-6 text-green-600" />
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-600 mb-1">
+                  {t("home.valueProposition.tech")}
                 </div>
-                <h3 className="text-xl font-bold mb-2">
-                  {t("home.benefits.flexible.title")}
-                </h3>
                 <p className="text-gray-600">
-                  {t("home.benefits.flexible.description")}
+                  {t("home.valueProposition.techDesc")}
                 </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:border-blue-600 transition">
-              <CardContent className="pt-6">
-                <div className="mb-4 bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <Layout className="h-6 w-6 text-purple-600" />
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-600 mb-1">
+                  {t("home.valueProposition.service")}
                 </div>
-                <h3 className="text-xl font-bold mb-2">
-                  {t("home.benefits.modern.title")}
-                </h3>
                 <p className="text-gray-600">
-                  {t("home.benefits.modern.description")}
+                  {t("home.valueProposition.serviceDesc")}
                 </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:border-blue-600 transition">
-              <CardContent className="pt-6">
-                <div className="mb-4 bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <BarChart3 className="h-6 w-6 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">
-                  {t("home.benefits.brand.title")}
-                </h3>
-                <p className="text-gray-600">
-                  {t("home.benefits.brand.description")}
-                </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Features Overview */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+        {/* Case Study */}
+        <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-8">
               <Badge variant="secondary" className="mb-4">
-                {t("home.features.badge")}
+                <TrendingUp className="h-3 w-3 mr-1" />
+                {t("home.caseStudy.badge")}
               </Badge>
-              <h2 className="text-4xl font-bold mb-6">
-                {t("home.features.heading")}
+            </div>
+
+            <Card className="border-0 shadow-2xl bg-white">
+              <CardContent className="pt-12 pb-12">
+                <div className="max-w-4xl mx-auto">
+                  {/*
+                  TODO: Replace placeholder image
+                  Location: /public/images/sofia-galvao-website.webp
+                  Instructions: /public/images/placeholders/sofia-galvao-website.md
+                */}
+                  <div className="mb-8 rounded-xl overflow-hidden border-4 border-gray-100">
+                    <img
+                      src="/images/sofia-galvao-listings.webp"
+                      alt="Sofia Galvão Group - Real Estate Website built with MyAgentWebsite"
+                      className="w-full h-auto aspect-[16/9] object-cover"
+                      onError={e => {
+                        // Fallback to gradient if image not found
+                        e.currentTarget.style.display = "none";
+                        const fallback = e.currentTarget
+                          .nextElementSibling as HTMLElement;
+                        if (fallback) fallback.style.display = "flex";
+                      }}
+                    />
+                    <div className="aspect-[16/9] bg-gradient-to-br from-gray-100 to-gray-200 hidden items-center justify-center">
+                      <div className="text-center text-gray-400 p-8">
+                        <Layout className="h-16 w-16 mx-auto mb-3 opacity-30" />
+                        <p className="text-sm font-semibold">
+                          Add Sofia Galvão Group website screenshot
+                        </p>
+                        <p className="text-xs opacity-75 mt-1">
+                          /public/images/sofia-galvao-website.webp
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative mb-8">
+                    <Quote className="h-12 w-12 text-blue-600/20 absolute -top-4 -left-4" />
+                    <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 pl-8">
+                      &ldquo;{t("home.caseStudy.quote")}&rdquo;
+                    </blockquote>
+                  </div>
+
+                  <div className="flex items-center gap-4 mb-12 pl-8">
+                    {/* TODO: Replace with actual photo */}
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                      SG
+                    </div>
+                    <div>
+                      <div className="font-bold text-lg">
+                        {t("home.caseStudy.author")}
+                      </div>
+                      <div className="text-gray-600">
+                        {t("home.caseStudy.role")}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-8 mb-8">
+                    <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-white rounded-lg border border-blue-100">
+                      <div className="text-4xl font-bold text-blue-600 mb-2">
+                        {t("home.caseStudy.stats.stat1.value")}
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        {t("home.caseStudy.stats.stat1.label")}
+                      </p>
+                    </div>
+                    <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-white rounded-lg border border-purple-100">
+                      <div className="text-4xl font-bold text-purple-600 mb-2">
+                        {t("home.caseStudy.stats.stat2.value")}
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        {t("home.caseStudy.stats.stat2.label")}
+                      </p>
+                    </div>
+                    <div className="text-center p-6 bg-gradient-to-br from-green-50 to-white rounded-lg border border-green-100">
+                      <div className="text-4xl font-bold text-green-600 mb-2">
+                        {t("home.caseStudy.stats.stat3.value")}
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        {t("home.caseStudy.stats.stat3.label")}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="text-center">
+                    <a
+                      href="https://sofiagalvaogroup.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button variant="outline" size="lg">
+                        {t("home.caseStudy.cta")}
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Key Benefits */}
+        <section className="py-20 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                {t("home.benefits.heading")}
               </h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      {t("home.features.listings.title")}
+              <p className="text-xl text-gray-600">
+                {t("home.benefits.subheading")}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="border-2 hover:border-blue-600 transition">
+                <CardContent className="pt-6">
+                  <div className="mb-4 bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                    <Zap className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">
+                    {t("home.benefits.professional.title")}
+                  </h3>
+                  <p className="text-gray-600">
+                    {t("home.benefits.professional.description")}
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:border-blue-600 transition">
+                <CardContent className="pt-6">
+                  <div className="mb-4 bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                    <DollarSign className="h-6 w-6 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">
+                    {t("home.benefits.flexible.title")}
+                  </h3>
+                  <p className="text-gray-600">
+                    {t("home.benefits.flexible.description")}
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:border-blue-600 transition">
+                <CardContent className="pt-6">
+                  <div className="mb-4 bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                    <Layout className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">
+                    {t("home.benefits.modern.title")}
+                  </h3>
+                  <p className="text-gray-600">
+                    {t("home.benefits.modern.description")}
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:border-blue-600 transition">
+                <CardContent className="pt-6">
+                  <div className="mb-4 bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                    <BarChart3 className="h-6 w-6 text-orange-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">
+                    {t("home.benefits.brand.title")}
+                  </h3>
+                  <p className="text-gray-600">
+                    {t("home.benefits.brand.description")}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Platform Features / Admin Interface */}
+        <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <Badge variant="secondary" className="mb-4">
+                <Layout className="h-3 w-3 mr-1" />
+                {t("home.platformFeatures.badge")}
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                {t("home.platformFeatures.heading")}
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                {t("home.platformFeatures.subheading")}
+              </p>
+            </div>
+
+            <div className="space-y-16">
+              {/* Dashboard */}
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="order-2 lg:order-1">
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100">
+                      <BarChart3 className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <h3 className="text-3xl font-bold">
+                      {t("home.platformFeatures.dashboard.title")}
                     </h3>
-                    <p className="text-gray-600">
-                      {t("home.features.listings.description")}
+                    <p className="text-lg text-gray-600">
+                      {t("home.platformFeatures.dashboard.description")}
                     </p>
+                    <ul className="space-y-3 pt-4">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-gray-700">
+                          Real-time metrics and statistics
+                        </span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-gray-700">
+                          Quick actions for common tasks
+                        </span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-gray-700">
+                          Clean, intuitive interface
+                        </span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      {t("home.features.blog.title")}
-                    </h3>
-                    <p className="text-gray-600">
-                      {t("home.features.blog.description")}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      {t("home.features.testimonials.title")}
-                    </h3>
-                    <p className="text-gray-600">
-                      {t("home.features.testimonials.description")}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      {t("home.features.newsletter.title")}
-                    </h3>
-                    <p className="text-gray-600">
-                      {t("home.features.newsletter.description")}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold mb-1">
-                      {t("home.features.domain.title")}
-                    </h3>
-                    <p className="text-gray-600">
-                      {t("home.features.domain.description")}
-                    </p>
+                <div className="order-1 lg:order-2">
+                  <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                    <img
+                      src="/images/admin-dashboard.webp"
+                      alt="MyAgentWebsite Admin Dashboard"
+                      className="w-full h-auto"
+                    />
                   </div>
                 </div>
               </div>
-              <Link to="/features" className="inline-block mt-6">
-                <Button variant="outline">
-                  {t("home.features.viewAllFeatures")}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
 
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white shadow-2xl">
-                <div className="space-y-4">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Layout className="h-5 w-5" />
-                      <span className="font-semibold">Admin Dashboard</span>
-                    </div>
-                    <p className="text-sm text-white/80">
-                      Manage everything from one place
-                    </p>
+              {/* Blog Editor */}
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                  <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                    <img
+                      src="/images/admin-blog-edit.webp"
+                      alt="MyAgentWebsite Blog Editor"
+                      className="w-full h-auto"
+                    />
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Mail className="h-5 w-5" />
-                      <span className="font-semibold">Lead Capture</span>
+                </div>
+                <div>
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-purple-100">
+                      <FileText className="h-6 w-6 text-purple-600" />
                     </div>
-                    <p className="text-sm text-white/80">
-                      Never miss an opportunity
+                    <h3 className="text-3xl font-bold">
+                      {t("home.platformFeatures.blog.title")}
+                    </h3>
+                    <p className="text-lg text-gray-600">
+                      {t("home.platformFeatures.blog.description")}
                     </p>
+                    <ul className="space-y-3 pt-4">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-gray-700">
+                          Rich text editor with formatting
+                        </span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-gray-700">
+                          SEO meta tags and descriptions
+                        </span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-gray-700">
+                          Image uploads and galleries
+                        </span>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <BarChart3 className="h-5 w-5" />
-                      <span className="font-semibold">Analytics</span>
+                </div>
+              </div>
+
+              {/* Property Listings */}
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="order-2 lg:order-1">
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-green-100">
+                      <HomeIcon className="h-6 w-6 text-green-600" />
                     </div>
-                    <p className="text-sm text-white/80">
-                      Track your performance
+                    <h3 className="text-3xl font-bold">
+                      {t("home.platformFeatures.listings.title")}
+                    </h3>
+                    <p className="text-lg text-gray-600">
+                      {t("home.platformFeatures.listings.description")}
                     </p>
+                    <ul className="space-y-3 pt-4">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-gray-700">
+                          Import from third-party platforms
+                        </span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-gray-700">
+                          Bulk edit and manage properties
+                        </span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-gray-700">
+                          Status tracking (Active/Sold/Pending)
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="order-1 lg:order-2">
+                  <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                    <img
+                      src="/images/admin-listings.webp"
+                      alt="Property Listings Page Example"
+                      className="w-full h-auto"
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <Card className="bg-gradient-to-br from-blue-600 to-purple-600 border-0 text-white">
-            <CardContent className="pt-12 pb-12 text-center">
-              <h2 className="text-4xl font-bold mb-4">
-                {t("home.cta.heading")}
-              </h2>
-              <p className="text-xl text-white/90 mb-8">
-                {t("home.cta.description")}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="text-lg px-8 py-6"
-                  >
-                    {t("common.scheduleDemo")}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link to="/pricing">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="text-lg px-8 py-6 bg-white/10 border-white text-white hover:bg-white/20"
-                  >
-                    {t("common.viewPricing")}
+        {/* Features Overview */}
+        <section className="py-20 px-4 bg-white">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <Badge variant="secondary" className="mb-4">
+                  {t("home.features.badge")}
+                </Badge>
+                <h2 className="text-4xl font-bold mb-6">
+                  {t("home.features.heading")}
+                </h2>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold mb-1">
+                        {t("home.features.listings.title")}
+                      </h3>
+                      <p className="text-gray-600">
+                        {t("home.features.listings.description")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold mb-1">
+                        {t("home.features.blog.title")}
+                      </h3>
+                      <p className="text-gray-600">
+                        {t("home.features.blog.description")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold mb-1">
+                        {t("home.features.testimonials.title")}
+                      </h3>
+                      <p className="text-gray-600">
+                        {t("home.features.testimonials.description")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold mb-1">
+                        {t("home.features.newsletter.title")}
+                      </h3>
+                      <p className="text-gray-600">
+                        {t("home.features.newsletter.description")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-6 w-6 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold mb-1">
+                        {t("home.features.domain.title")}
+                      </h3>
+                      <p className="text-gray-600">
+                        {t("home.features.domain.description")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <Link to="/features" className="inline-block mt-6">
+                  <Button variant="outline">
+                    {t("home.features.viewAllFeatures")}
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
               </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-    </div>
+
+              <div className="relative">
+                <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white shadow-2xl">
+                  <div className="space-y-4">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Layout className="h-5 w-5" />
+                        <span className="font-semibold">Admin Dashboard</span>
+                      </div>
+                      <p className="text-sm text-white/80">
+                        Manage everything from one place
+                      </p>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Mail className="h-5 w-5" />
+                        <span className="font-semibold">Lead Capture</span>
+                      </div>
+                      <p className="text-sm text-white/80">
+                        Never miss an opportunity
+                      </p>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <BarChart3 className="h-5 w-5" />
+                        <span className="font-semibold">Analytics</span>
+                      </div>
+                      <p className="text-sm text-white/80">
+                        Track your performance
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <Card className="bg-gradient-to-br from-blue-600 to-purple-600 border-0 text-white">
+              <CardContent className="pt-12 pb-12 text-center">
+                <h2 className="text-4xl font-bold mb-4">
+                  {t("home.cta.heading")}
+                </h2>
+                <p className="text-xl text-white/90 mb-8">
+                  {t("home.cta.description")}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link to="/contact">
+                    <Button
+                      size="lg"
+                      variant="secondary"
+                      className="text-lg px-8 py-6"
+                    >
+                      {t("common.scheduleDemo")}
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <Link to="/pricing">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="text-lg px-8 py-6 bg-white/10 border-white text-white hover:bg-white/20"
+                    >
+                      {t("common.viewPricing")}
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      </div>
     </>
   );
 }

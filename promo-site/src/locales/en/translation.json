@@ -68,7 +68,7 @@
       },
       "flexible": {
         "title": "Flexible Options",
-        "description": "From €199/month API access to €749/month full custom websites"
+        "description": "From €199/month API access to €499/month hosting. One-time design & build from €2,000"
       },
       "modern": {
         "title": "Modern Technology",
@@ -77,6 +77,23 @@
       "brand": {
         "title": "Your Brand",
         "description": "Build your unique brand identity, not a generic template"
+      }
+    },
+    "platformFeatures": {
+      "badge": "Easy to Use",
+      "heading": "Powerful admin dashboard",
+      "subheading": "Manage your entire website from one beautiful interface",
+      "dashboard": {
+        "title": "Overview Dashboard",
+        "description": "Track your properties, blog posts, testimonials, and newsletter subscribers all in one place"
+      },
+      "blog": {
+        "title": "Blog Editor",
+        "description": "Create and edit blog posts with a simple, intuitive editor. Built-in SEO optimization included"
+      },
+      "listings": {
+        "title": "Property Management",
+        "description": "Add, edit, and manage unlimited properties. Import from third-party platforms or add manually"
       }
     },
     "features": {
@@ -256,10 +273,10 @@
   },
   "pricing": {
     "hero": {
-      "badge": "Professional Solutions",
-      "title": "Choose the solution",
-      "titleHighlight": "that fits your agency",
-      "description": "From fully custom websites to API access for developers. Contact us for a personalized demo."
+      "badge": "Flexible Pricing",
+      "title": "Pricing that",
+      "titleHighlight": "works for you",
+      "description": "Choose between monthly subscriptions for hosting and support, or one-time design and build services. Mix and match to fit your needs."
     },
     "plans": {
       "developer": {
@@ -268,30 +285,31 @@
         "price": "€199",
         "billing": "per month",
         "features": {
-          "api": "API + Backoffice access",
-          "backoffice": "Build your own frontend",
-          "frontend": "Unlimited listings",
-          "docs": "API documentation",
-          "unlimited": "Blog + testimonials + newsletter",
-          "hosting": "Multi-tenant architecture",
+          "api": "Full API + Backoffice access",
+          "frontend": "Build your own frontend",
+          "unlimited": "Unlimited listings & content",
+          "docs": "Complete API documentation",
+          "blog": "Blog + testimonials + newsletter",
+          "hosting": "You host your own frontend",
           "support": "Email support"
         },
         "cta": "Contact Us"
       },
       "professional": {
         "name": "Professional",
-        "description": "Custom website built for your agency",
+        "description": "Full hosting, maintenance, and support",
         "badge": "Most Popular",
-        "priceFrom": "Starting at €749",
+        "price": "€499",
         "billing": "per month",
         "features": {
-          "custom": "Custom website development",
-          "api": "Multi-tenant API + Backoffice",
-          "domain": "Custom domain setup",
-          "hosting": "Ongoing maintenance & updates",
-          "support": "Email support",
-          "updates": "Professional setup (2-3 weeks)",
-          "maintenance": "One-time setup fee: €2,500"
+          "hosting": "Full website hosting",
+          "maintenance": "Ongoing maintenance & updates",
+          "api": "API + Backoffice included",
+          "domain": "Custom domain management",
+          "support": "Priority email support",
+          "monitoring": "Performance monitoring",
+          "updates": "Security updates & patches",
+          "content": "Monthly content updates"
         },
         "cta": "Contact Us"
       },
@@ -302,36 +320,90 @@
         "billing": "Contact for quote",
         "features": {
           "everything": "Everything in Professional",
-          "dedicated": "Multiple agency websites",
-          "sla": "White-label options",
-          "training": "Dedicated support",
-          "whitelabel": "Custom integrations",
-          "integrations": "Priority development",
-          "priority": "SLA guarantee"
+          "websites": "Multiple agency websites",
+          "whitelabel": "White-label options",
+          "dedicated": "Dedicated account manager",
+          "integrations": "Custom integrations",
+          "priority": "Priority development",
+          "sla": "SLA guarantee"
         },
         "cta": "Contact Us"
       }
     },
+    "oneTimeServices": {
+      "badge": "One-Time Services",
+      "heading": "Design & Build Services",
+      "subheading": "Professional website design and development",
+      "description": "Need a custom website built? Choose from our design and build packages. These are one-time fees separate from monthly subscriptions.",
+      "buildOnly": {
+        "name": "Build Only",
+        "price": "€3,500",
+        "description": "You provide the design, we build it",
+        "features": {
+          "implementation": "Frontend implementation (React)",
+          "cms": "CMS setup & integration",
+          "testing": "Full testing & QA",
+          "pages": "Up to 5 pages",
+          "deployment": "Deployment setup",
+          "training": "Admin training"
+        }
+      },
+      "designOnly": {
+        "name": "Design Only",
+        "price": "€2,000",
+        "description": "Complete UI/UX design for your website",
+        "features": {
+          "design": "Custom UI/UX design",
+          "pages": "Up to 5 page layouts",
+          "responsive": "Mobile, tablet, desktop designs",
+          "system": "Design system & style guide",
+          "brand": "Brand guidelines",
+          "assets": "All design assets (Figma)"
+        }
+      },
+      "complete": {
+        "name": "Design + Build",
+        "price": "€5,000",
+        "badge": "Save €500",
+        "description": "Complete design and development package",
+        "features": {
+          "everything": "Everything from Design + Build",
+          "custom": "Fully custom solution",
+          "design": "Complete UI/UX design",
+          "development": "Professional development",
+          "pages": "Up to 5 pages included",
+          "launch": "Complete setup & launch"
+        }
+      },
+      "addons": {
+        "heading": "Add-ons",
+        "logo": "Logo design: +€800",
+        "extraPage": "Additional page: +€400",
+        "blog": "Blog setup (3 posts): +€500",
+        "migration": "Content migration: +€500"
+      }
+    },
     "comparison": {
-      "heading": "Compare Solutions",
-      "subheading": "Find the right solution for your business",
+      "heading": "Compare Plans",
+      "subheading": "Find the right monthly plan for your business",
       "table": {
         "feature": "Feature",
         "rows": {
           "api": "API Access",
           "backoffice": "Backoffice CMS",
-          "frontend": "Custom Website",
+          "hosting": "Website Hosting",
           "customDomain": "Custom Domain",
-          "hosting": "Hosting & Maintenance",
+          "maintenance": "Maintenance & Updates",
           "support": "Support Level",
-          "updates": "Setup Fee",
-          "customizations": "Multiple Websites",
-          "whitelabel": "White-Label Options",
-          "sla": "Dedicated Support"
+          "monitoring": "Performance Monitoring",
+          "content": "Content Updates",
+          "websites": "Multiple Websites",
+          "whitelabel": "White-Label",
+          "sla": "SLA Guarantee"
         },
         "support": {
-          "community": "Email",
           "email": "Email",
+          "priority": "Priority Email",
           "dedicated": "Dedicated"
         }
       }
@@ -341,34 +413,38 @@
       "subheading": "Everything you need to know about our pricing",
       "questions": {
         "0": {
-          "question": "How long does it take to launch?",
-          "answer": "Professional custom websites typically launch in 2-3 weeks. Developer plan with API access can be activated within 48 hours after contract signing."
+          "question": "How do monthly plans and one-time services work together?",
+          "answer": "Monthly plans cover hosting, maintenance, and support. One-time services are for initial design and build. For example: Pay €5,000 once for design + build, then €499/month for hosting and maintenance."
         },
         "1": {
-          "question": "What's included in the setup fee?",
-          "answer": "The Professional plan setup fee (€2,500) covers custom website design, development, domain configuration, and initial content migration. Developer plan has no setup fee."
+          "question": "Can I just get design or build without a monthly plan?",
+          "answer": "Yes! With the Developer plan (€199/month), you get API access to build your own frontend. Or purchase Design Only and build it yourself. The Professional plan (€499/month) is only needed if you want us to host and maintain your website."
         },
         "2": {
-          "question": "Can I switch plans later?",
-          "answer": "Yes! You can upgrade from Developer to Professional at any time. Contact us to discuss migration options and pricing."
+          "question": "What's included in the €5,000 Design + Build package?",
+          "answer": "Complete UI/UX design for up to 5 pages, full React frontend development, CMS integration, testing, and deployment. Additional pages are €400 each. Add-ons like logo design (€800) and blog setup (€500) available."
         },
         "3": {
-          "question": "What payment methods do you accept?",
-          "answer": "We accept bank transfers and all major credit cards through our secure payment processor. Monthly billing or annual contracts available."
+          "question": "How long does design and build take?",
+          "answer": "Typically 2-3 weeks for the complete Design + Build package. Design Only takes 1-2 weeks, Build Only takes 2 weeks."
         },
         "4": {
-          "question": "Do I own the website?",
-          "answer": "With the Professional plan, you have a hosted solution with ongoing maintenance. Developer plan gives you API access to build and host your own frontend however you prefer."
+          "question": "Can I switch plans later?",
+          "answer": "Yes! You can upgrade from Developer to Professional at any time, or move between tiers as your needs change."
         },
         "5": {
-          "question": "What happens if I cancel?",
-          "answer": "You can cancel anytime with 30 days notice. Your service continues until the end of your billing period. We can provide a data export if needed."
+          "question": "What payment methods do you accept?",
+          "answer": "We accept bank transfers and all major credit cards. One-time services require 50% upfront, 50% on completion. Monthly plans are billed monthly."
+        },
+        "6": {
+          "question": "What happens if I cancel my monthly plan?",
+          "answer": "You can cancel anytime with 30 days notice. Your service continues until the end of your billing period. If you paid for design/build, that work is yours to keep."
         }
       }
     },
     "cta": {
-      "heading": "Ready to elevate your agency?",
-      "description": "Contact us for a personalized demo and see how we can help grow your business.",
+      "heading": "Ready to get started?",
+      "description": "Contact us to discuss your project and get a personalized quote.",
       "primaryCta": "Contact Us",
       "secondaryCta": "View Features"
     }

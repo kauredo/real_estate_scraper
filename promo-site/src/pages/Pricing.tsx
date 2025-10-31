@@ -86,13 +86,13 @@ export default function Pricing() {
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span>
-                      {t("pricing.plans.developer.features.backoffice")}
+                      {t("pricing.plans.developer.features.frontend")}
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span>
-                      {t("pricing.plans.developer.features.frontend")}
+                      {t("pricing.plans.developer.features.unlimited")}
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
@@ -102,7 +102,7 @@ export default function Pricing() {
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span>
-                      {t("pricing.plans.developer.features.unlimited")}
+                      {t("pricing.plans.developer.features.blog")}
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
@@ -112,8 +112,8 @@ export default function Pricing() {
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <X className="h-5 w-5 text-gray-300 flex-shrink-0" />
-                    <span className="text-gray-400">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span>
                       {t("pricing.plans.developer.features.support")}
                     </span>
                   </li>
@@ -148,7 +148,7 @@ export default function Pricing() {
               <CardContent>
                 <div className="mb-6">
                   <div className="text-4xl font-bold mb-2">
-                    {t("pricing.plans.professional.priceFrom")}
+                    {t("pricing.plans.professional.price")}
                   </div>
                   <p className="text-gray-600">
                     {t("pricing.plans.professional.billing")}
@@ -158,7 +158,13 @@ export default function Pricing() {
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span>
-                      {t("pricing.plans.professional.features.custom")}
+                      {t("pricing.plans.professional.features.hosting")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span>
+                      {t("pricing.plans.professional.features.maintenance")}
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
@@ -176,13 +182,13 @@ export default function Pricing() {
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span>
-                      {t("pricing.plans.professional.features.hosting")}
+                      {t("pricing.plans.professional.features.support")}
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span>
-                      {t("pricing.plans.professional.features.support")}
+                      {t("pricing.plans.professional.features.monitoring")}
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
@@ -194,7 +200,7 @@ export default function Pricing() {
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span>
-                      {t("pricing.plans.professional.features.maintenance")}
+                      {t("pricing.plans.professional.features.content")}
                     </span>
                   </li>
                 </ul>
@@ -239,23 +245,19 @@ export default function Pricing() {
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span>
-                      {t("pricing.plans.enterprise.features.dedicated")}
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <span>{t("pricing.plans.enterprise.features.sla")}</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <span>
-                      {t("pricing.plans.enterprise.features.training")}
+                      {t("pricing.plans.enterprise.features.websites")}
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span>
                       {t("pricing.plans.enterprise.features.whitelabel")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span>
+                      {t("pricing.plans.enterprise.features.dedicated")}
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
@@ -270,6 +272,10 @@ export default function Pricing() {
                       {t("pricing.plans.enterprise.features.priority")}
                     </span>
                   </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span>{t("pricing.plans.enterprise.features.sla")}</span>
+                  </li>
                 </ul>
                 <Link to="/contact" className="inline-block w-full">
                   <Button size="lg" variant="outline" className="w-full">
@@ -279,6 +285,246 @@ export default function Pricing() {
                 </Link>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* One-Time Services */}
+      <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="mb-4">
+              {t("pricing.oneTimeServices.badge")}
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t("pricing.oneTimeServices.heading")}
+            </h2>
+            <p className="text-xl text-gray-600 mb-2">
+              {t("pricing.oneTimeServices.subheading")}
+            </p>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              {t("pricing.oneTimeServices.description")}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {/* Build Only */}
+            <Card className="border-2 border-gray-200">
+              <CardHeader>
+                <CardTitle className="text-2xl">
+                  {t("pricing.oneTimeServices.buildOnly.name")}
+                </CardTitle>
+                <CardDescription>
+                  {t("pricing.oneTimeServices.buildOnly.description")}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-6">
+                  <div className="text-4xl font-bold mb-2">
+                    {t("pricing.oneTimeServices.buildOnly.price")}
+                  </div>
+                  <p className="text-gray-600 text-sm">One-time payment</p>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.buildOnly.features.implementation")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.buildOnly.features.cms")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.buildOnly.features.testing")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.buildOnly.features.pages")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.buildOnly.features.deployment")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.buildOnly.features.training")}
+                    </span>
+                  </li>
+                </ul>
+                <Link to="/contact" className="inline-block w-full">
+                  <Button size="lg" variant="outline" className="w-full">
+                    Contact Us
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Design Only */}
+            <Card className="border-2 border-gray-200">
+              <CardHeader>
+                <CardTitle className="text-2xl">
+                  {t("pricing.oneTimeServices.designOnly.name")}
+                </CardTitle>
+                <CardDescription>
+                  {t("pricing.oneTimeServices.designOnly.description")}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-6">
+                  <div className="text-4xl font-bold mb-2">
+                    {t("pricing.oneTimeServices.designOnly.price")}
+                  </div>
+                  <p className="text-gray-600 text-sm">One-time payment</p>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.designOnly.features.design")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.designOnly.features.pages")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.designOnly.features.responsive")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.designOnly.features.system")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.designOnly.features.brand")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.designOnly.features.assets")}
+                    </span>
+                  </li>
+                </ul>
+                <Link to="/contact" className="inline-block w-full">
+                  <Button size="lg" variant="outline" className="w-full">
+                    Contact Us
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Design + Build - Most Popular */}
+            <Card className="border-2 border-purple-600 relative shadow-xl">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-purple-600 text-white">
+                  {t("pricing.oneTimeServices.complete.badge")}
+                </Badge>
+              </div>
+              <CardHeader>
+                <CardTitle className="text-2xl">
+                  {t("pricing.oneTimeServices.complete.name")}
+                </CardTitle>
+                <CardDescription>
+                  {t("pricing.oneTimeServices.complete.description")}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-6">
+                  <div className="text-4xl font-bold mb-2">
+                    {t("pricing.oneTimeServices.complete.price")}
+                  </div>
+                  <p className="text-gray-600 text-sm">One-time payment</p>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.complete.features.everything")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.complete.features.custom")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.complete.features.design")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.complete.features.development")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.complete.features.pages")}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
+                    <span className="text-sm">
+                      {t("pricing.oneTimeServices.complete.features.launch")}
+                    </span>
+                  </li>
+                </ul>
+                <Link to="/contact" className="inline-block w-full">
+                  <Button size="lg" className="w-full bg-purple-600 hover:bg-purple-700">
+                    Contact Us
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Add-ons */}
+          <div className="text-center">
+            <h3 className="text-2xl font-bold mb-6">
+              {t("pricing.oneTimeServices.addons.heading")}
+            </h3>
+            <div className="flex flex-wrap justify-center gap-4 text-gray-600">
+              <span className="px-4 py-2 bg-white rounded-lg border-2 border-gray-200">
+                {t("pricing.oneTimeServices.addons.logo")}
+              </span>
+              <span className="px-4 py-2 bg-white rounded-lg border-2 border-gray-200">
+                {t("pricing.oneTimeServices.addons.extraPage")}
+              </span>
+              <span className="px-4 py-2 bg-white rounded-lg border-2 border-gray-200">
+                {t("pricing.oneTimeServices.addons.blog")}
+              </span>
+              <span className="px-4 py-2 bg-white rounded-lg border-2 border-gray-200">
+                {t("pricing.oneTimeServices.addons.migration")}
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -344,10 +590,10 @@ export default function Pricing() {
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">
-                    {t("pricing.comparison.table.rows.frontend")}
+                    {t("pricing.comparison.table.rows.hosting")}
                   </td>
                   <td className="py-4 px-4 text-center">
-                    <Check className="h-5 w-5 text-green-600 mx-auto" />
+                    <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center bg-blue-50">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
@@ -372,7 +618,7 @@ export default function Pricing() {
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">
-                    {t("pricing.comparison.table.rows.hosting")}
+                    {t("pricing.comparison.table.rows.maintenance")}
                   </td>
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
@@ -389,10 +635,10 @@ export default function Pricing() {
                     {t("pricing.comparison.table.rows.support")}
                   </td>
                   <td className="py-4 px-4 text-center text-gray-600 text-sm">
-                    {t("pricing.comparison.table.support.community")}
+                    {t("pricing.comparison.table.support.email")}
                   </td>
                   <td className="py-4 px-4 text-center bg-blue-50 text-gray-600 text-sm">
-                    {t("pricing.comparison.table.support.email")}
+                    {t("pricing.comparison.table.support.priority")}
                   </td>
                   <td className="py-4 px-4 text-center text-gray-600 text-sm">
                     {t("pricing.comparison.table.support.dedicated")}
@@ -400,7 +646,7 @@ export default function Pricing() {
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">
-                    {t("pricing.comparison.table.rows.updates")}
+                    {t("pricing.comparison.table.rows.monitoring")}
                   </td>
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
@@ -414,13 +660,27 @@ export default function Pricing() {
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="py-4 px-4">
-                    {t("pricing.comparison.table.rows.customizations")}
+                    {t("pricing.comparison.table.rows.content")}
                   </td>
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center bg-blue-50">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
+                  </td>
+                  <td className="py-4 px-4 text-center">
+                    <Check className="h-5 w-5 text-green-600 mx-auto" />
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-100">
+                  <td className="py-4 px-4">
+                    {t("pricing.comparison.table.rows.websites")}
+                  </td>
+                  <td className="py-4 px-4 text-center">
+                    <X className="h-5 w-5 text-gray-300 mx-auto" />
+                  </td>
+                  <td className="py-4 px-4 text-center bg-blue-50">
+                    <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
@@ -473,7 +733,7 @@ export default function Pricing() {
           </div>
 
           <div className="space-y-4">
-            {[0, 1, 2, 3, 4, 5].map((index) => (
+            {[0, 1, 2, 3, 4, 5, 6].map((index) => (
               <Card key={index} className="border-2 border-gray-200">
                 <CardContent className="p-0">
                   <button

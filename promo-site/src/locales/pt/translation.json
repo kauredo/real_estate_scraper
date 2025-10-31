@@ -68,7 +68,7 @@
       },
       "flexible": {
         "title": "Opções Flexíveis",
-        "description": "Desde €199/mês para acesso API até €749/mês para websites totalmente personalizados"
+        "description": "Desde €199/mês para acesso API até €499/mês para hosting. Design & desenvolvimento único desde €2.000"
       },
       "modern": {
         "title": "Tecnologia Moderna",
@@ -77,6 +77,23 @@
       "brand": {
         "title": "A Sua Marca",
         "description": "Construa a sua identidade de marca única, não um template genérico"
+      }
+    },
+    "platformFeatures": {
+      "badge": "Fácil de Usar",
+      "heading": "Painel de administração poderoso",
+      "subheading": "Gira todo o seu website a partir de uma interface bonita",
+      "dashboard": {
+        "title": "Dashboard de Visão Geral",
+        "description": "Acompanhe os seus imóveis, posts do blog, testemunhos e subscritores da newsletter num só lugar"
+      },
+      "blog": {
+        "title": "Editor de Blog",
+        "description": "Crie e edite posts de blog com um editor simples e intuitivo. Otimização SEO incluída"
+      },
+      "listings": {
+        "title": "Gestão de Imóveis",
+        "description": "Adicione, edite e gira imóveis ilimitados. Importe de plataformas terceiras ou adicione manualmente"
       }
     },
     "features": {
@@ -256,10 +273,10 @@
   },
   "pricing": {
     "hero": {
-      "badge": "Soluções Profissionais",
-      "title": "Escolha a solução",
-      "titleHighlight": "que se adequa à sua agência",
-      "description": "Desde websites totalmente personalizados a acesso API para programadores. Contacte-nos para uma demonstração personalizada."
+      "badge": "Preços Flexíveis",
+      "title": "Preços que",
+      "titleHighlight": "funcionam para si",
+      "description": "Escolha entre subscrições mensais para hosting e suporte, ou serviços únicos de design e desenvolvimento. Misture e combine conforme as suas necessidades."
     },
     "plans": {
       "developer": {
@@ -268,30 +285,31 @@
         "price": "€199",
         "billing": "por mês",
         "features": {
-          "api": "Acesso API + Backoffice",
-          "backoffice": "Construa o seu próprio frontend",
-          "frontend": "Anúncios ilimitados",
-          "docs": "Documentação da API",
-          "unlimited": "Blog + testemunhos + newsletter",
-          "hosting": "Arquitetura multi-tenant",
+          "api": "Acesso completo à API + Backoffice",
+          "frontend": "Construa o seu próprio frontend",
+          "unlimited": "Anúncios e conteúdo ilimitados",
+          "docs": "Documentação completa da API",
+          "blog": "Blog + testemunhos + newsletter",
+          "hosting": "Hospeda o seu próprio frontend",
           "support": "Suporte por email"
         },
         "cta": "Contacte-nos"
       },
       "professional": {
         "name": "Professional",
-        "description": "Website personalizado construído para a sua agência",
+        "description": "Hosting, manutenção e suporte completo",
         "badge": "Mais Popular",
-        "priceFrom": "A partir de €749",
+        "price": "€499",
         "billing": "por mês",
         "features": {
-          "custom": "Desenvolvimento de website personalizado",
-          "api": "API multi-tenant + Backoffice",
-          "domain": "Configuração de domínio personalizado",
-          "hosting": "Manutenção e atualizações contínuas",
-          "support": "Suporte por email",
-          "updates": "Configuração profissional (2-3 semanas)",
-          "maintenance": "Taxa única de configuração: €2.500"
+          "hosting": "Hosting completo do website",
+          "maintenance": "Manutenção e atualizações contínuas",
+          "api": "API + Backoffice incluído",
+          "domain": "Gestão de domínio personalizado",
+          "support": "Suporte prioritário por email",
+          "monitoring": "Monitorização de desempenho",
+          "updates": "Atualizações de segurança",
+          "content": "Atualizações mensais de conteúdo"
         },
         "cta": "Contacte-nos"
       },
@@ -302,36 +320,90 @@
         "billing": "Contacte para orçamento",
         "features": {
           "everything": "Tudo no Professional",
-          "dedicated": "Múltiplos websites de agência",
-          "sla": "Opções white-label",
-          "training": "Suporte dedicado",
-          "whitelabel": "Integrações personalizadas",
-          "integrations": "Desenvolvimento prioritário",
-          "priority": "Garantia SLA"
+          "websites": "Múltiplos websites de agência",
+          "whitelabel": "Opções white-label",
+          "dedicated": "Gestor de conta dedicado",
+          "integrations": "Integrações personalizadas",
+          "priority": "Desenvolvimento prioritário",
+          "sla": "Garantia SLA"
         },
         "cta": "Contacte-nos"
       }
     },
+    "oneTimeServices": {
+      "badge": "Serviços Únicos",
+      "heading": "Serviços de Design & Desenvolvimento",
+      "subheading": "Design e desenvolvimento profissional de websites",
+      "description": "Precisa de um website personalizado? Escolha entre os nossos pacotes de design e desenvolvimento. Estas são taxas únicas separadas das subscrições mensais.",
+      "buildOnly": {
+        "name": "Apenas Desenvolvimento",
+        "price": "€3.500",
+        "description": "Você fornece o design, nós construímos",
+        "features": {
+          "implementation": "Implementação frontend (React)",
+          "cms": "Configuração e integração CMS",
+          "testing": "Testes e controlo de qualidade",
+          "pages": "Até 5 páginas",
+          "deployment": "Configuração de deployment",
+          "training": "Formação de administração"
+        }
+      },
+      "designOnly": {
+        "name": "Apenas Design",
+        "price": "€2.000",
+        "description": "Design UI/UX completo para o seu website",
+        "features": {
+          "design": "Design UI/UX personalizado",
+          "pages": "Até 5 layouts de página",
+          "responsive": "Designs mobile, tablet, desktop",
+          "system": "Sistema de design & guia de estilo",
+          "brand": "Diretrizes de marca",
+          "assets": "Todos os assets de design (Figma)"
+        }
+      },
+      "complete": {
+        "name": "Design + Desenvolvimento",
+        "price": "€5.000",
+        "badge": "Poupe €500",
+        "description": "Pacote completo de design e desenvolvimento",
+        "features": {
+          "everything": "Tudo de Design + Desenvolvimento",
+          "custom": "Solução totalmente personalizada",
+          "design": "Design UI/UX completo",
+          "development": "Desenvolvimento profissional",
+          "pages": "Até 5 páginas incluídas",
+          "launch": "Configuração e lançamento completo"
+        }
+      },
+      "addons": {
+        "heading": "Extras",
+        "logo": "Design de logótipo: +€800",
+        "extraPage": "Página adicional: +€400",
+        "blog": "Configuração de blog (3 posts): +€500",
+        "migration": "Migração de conteúdo: +€500"
+      }
+    },
     "comparison": {
-      "heading": "Comparar Soluções",
-      "subheading": "Encontre a solução certa para o seu negócio",
+      "heading": "Comparar Planos",
+      "subheading": "Encontre o plano mensal certo para o seu negócio",
       "table": {
         "feature": "Funcionalidade",
         "rows": {
           "api": "Acesso à API",
           "backoffice": "CMS Backoffice",
-          "frontend": "Website Personalizado",
+          "hosting": "Hosting do Website",
           "customDomain": "Domínio Personalizado",
-          "hosting": "Hosting & Manutenção",
+          "maintenance": "Manutenção & Atualizações",
           "support": "Nível de Suporte",
-          "updates": "Taxa de Configuração",
-          "customizations": "Múltiplos Websites",
-          "whitelabel": "Opções White-Label",
-          "sla": "Suporte Dedicado"
+          "monitoring": "Monitorização de Desempenho",
+          "content": "Atualizações de Conteúdo",
+          "websites": "Múltiplos Websites",
+          "whitelabel": "White-Label",
+          "sla": "Garantia SLA"
         },
         "support": {
-          "community": "Email",
           "email": "Email",
+          "priority": "Email Prioritário",
           "dedicated": "Dedicado"
         }
       }
@@ -341,34 +413,38 @@
       "subheading": "Tudo o que precisa de saber sobre os nossos preços",
       "questions": {
         "0": {
-          "question": "Quanto tempo demora para lançar?",
-          "answer": "Os websites personalizados profissionais são normalmente lançados em 2-3 semanas. O plano Developer com acesso API pode ser ativado dentro de 48 horas após assinatura do contrato."
+          "question": "Como funcionam os planos mensais e serviços únicos juntos?",
+          "answer": "Os planos mensais cobrem hosting, manutenção e suporte. Os serviços únicos são para design e desenvolvimento inicial. Por exemplo: Pague €5.000 uma vez por design + desenvolvimento, depois €499/mês para hosting e manutenção."
         },
         "1": {
-          "question": "O que está incluído na taxa de configuração?",
-          "answer": "A taxa de configuração do plano Professional (€2.500) cobre o design personalizado do website, desenvolvimento, configuração de domínio e migração inicial de conteúdo. O plano Developer não tem taxa de configuração."
+          "question": "Posso obter apenas design ou desenvolvimento sem um plano mensal?",
+          "answer": "Sim! Com o plano Developer (€199/mês), obtém acesso API para construir o seu próprio frontend. Ou compre apenas Design e construa você mesmo. O plano Professional (€499/mês) só é necessário se quiser que hospedemos e mantenhamos o seu website."
         },
         "2": {
-          "question": "Posso mudar de plano mais tarde?",
-          "answer": "Sim! Pode fazer upgrade de Developer para Professional a qualquer momento. Contacte-nos para discutir opções de migração e preços."
+          "question": "O que está incluído no pacote de €5.000 Design + Desenvolvimento?",
+          "answer": "Design UI/UX completo para até 5 páginas, desenvolvimento completo do frontend React, integração CMS, testes e deployment. Páginas adicionais custam €400 cada. Extras como design de logótipo (€800) e configuração de blog (€500) disponíveis."
         },
         "3": {
-          "question": "Que métodos de pagamento aceitam?",
-          "answer": "Aceitamos transferências bancárias e todos os principais cartões de crédito através do nosso processador de pagamentos seguro. Faturação mensal ou contratos anuais disponíveis."
+          "question": "Quanto tempo demora o design e desenvolvimento?",
+          "answer": "Normalmente 2-3 semanas para o pacote completo Design + Desenvolvimento. Apenas Design demora 1-2 semanas, Apenas Desenvolvimento demora 2 semanas."
         },
         "4": {
-          "question": "Sou proprietário do website?",
-          "answer": "Com o plano Professional, tem uma solução hospedada com manutenção contínua. O plano Developer dá-lhe acesso API para construir e hospedar o seu próprio frontend como preferir."
+          "question": "Posso mudar de plano mais tarde?",
+          "answer": "Sim! Pode fazer upgrade de Developer para Professional a qualquer momento, ou mover entre níveis conforme as suas necessidades mudam."
         },
         "5": {
-          "question": "O que acontece se cancelar?",
-          "answer": "Pode cancelar a qualquer momento com aviso de 30 dias. O seu serviço continua até ao fim do seu período de faturação. Podemos fornecer uma exportação de dados se necessário."
+          "question": "Que métodos de pagamento aceitam?",
+          "answer": "Aceitamos transferências bancárias e todos os principais cartões de crédito. Serviços únicos requerem 50% adiantado, 50% na conclusão. Planos mensais são faturados mensalmente."
+        },
+        "6": {
+          "question": "O que acontece se cancelar o meu plano mensal?",
+          "answer": "Pode cancelar a qualquer momento com aviso de 30 dias. O seu serviço continua até ao fim do seu período de faturação. Se pagou por design/desenvolvimento, esse trabalho é seu para manter."
         }
       }
     },
     "cta": {
-      "heading": "Pronto para elevar a sua agência?",
-      "description": "Contacte-nos para uma demonstração personalizada e veja como podemos ajudar a fazer crescer o seu negócio.",
+      "heading": "Pronto para começar?",
+      "description": "Contacte-nos para discutir o seu projeto e obter um orçamento personalizado.",
       "primaryCta": "Contacte-nos",
       "secondaryCta": "Ver Funcionalidades"
     }

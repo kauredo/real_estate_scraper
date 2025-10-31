@@ -22,11 +22,14 @@
 - ✅ Localized routing (/en/ and /pt/) with proper SEO
 
 ### 🚧 Next Steps
-- Demo booking integration (UI placeholder exists, needs Calendly/Cal.com integration)
+- **PRIORITY**: Add actual screenshots/images (simple drop-in replacement)
+  - Hero section: `/public/images/hero-platform-screenshot.png`
+  - Case study: `/public/images/sofia-galvao-website.png`
+  - Optional: `/public/images/admin-dashboard.png` for features page
+  - See `/public/images/README.md` for detailed instructions
 - Contact form email delivery (form exists, needs backend integration)
 - Google Analytics integration
 - Performance optimization (Lighthouse score improvement)
-- Screenshot/image content creation
 
 ---
 
@@ -1099,6 +1102,148 @@ Market and sell the MyAgentWebsite.com SaaS platform to real estate agents and s
 - Content creation: 1-2 weeks (depends on photo shoots, video recording)
 - Performance optimization: 1-2 days
 - Total: ~2-3 weeks with focused effort
+
+---
+
+## 🎉 LATEST UPDATES (October 31, 2025)
+
+### Pricing Structure Overhaul
+
+**What Changed:**
+- Separated monthly subscription pricing from one-time design & build services
+- Created clearer pricing tiers with better value communication
+- Added dedicated "One-Time Services" section on pricing page
+
+**New Pricing Structure:**
+
+**Monthly Subscriptions:**
+- **Developer Plan**: €199/month
+  - API + Backoffice access
+  - Build your own frontend
+  - Email support
+- **Professional Plan**: €499/month (reduced from €749)
+  - Full website hosting
+  - Ongoing maintenance & updates
+  - Priority support
+  - Monthly content updates
+- **Enterprise Plan**: Custom pricing
+  - Everything in Professional
+  - Multiple websites
+  - Dedicated account manager
+  - White-label options
+
+**One-Time Services:**
+- **Build Only**: €3,500
+  - You provide design, we build
+  - React frontend implementation
+  - 5 pages included
+- **Design Only**: €2,000
+  - Complete UI/UX design
+  - 5 page layouts
+  - Design system & brand guidelines
+- **Design + Build**: €5,000 (Save €500)
+  - Complete package
+  - Everything from both services
+
+**Add-ons:**
+- Logo design: +€800
+- Extra page: +€400
+- Blog setup (3 posts): +€500
+- Content migration: +€500
+
+### Home Page UX Improvements
+
+**Hero Section Redesign:**
+- Changed from centered layout to side-by-side grid layout
+- Added large hero image placeholder (TODO: needs actual screenshot)
+- Improved button sizing and mobile responsiveness
+- Better visual hierarchy with clearer CTAs
+- Added decorative background elements
+
+**Case Study Section Enhancement:**
+- Added website screenshot placeholder for Sofia Galvão Group
+- Better visual presentation of testimonial
+- Maintained existing stats and metrics
+
+### Translation Updates
+- Updated both EN and PT translations for new pricing structure
+- Added all new one-time services copy
+- Updated FAQ section with 7 questions (up from 6)
+- Clarified how monthly and one-time services work together
+
+### Images Added and Integrated ✅
+
+All screenshots have been added and integrated into the site!
+
+**Sofia Galvão Website Screenshots:**
+1. **hero-platform-screenshot.webp** (128KB) - ✅ Used in homepage hero section
+2. **sofia-galvao-website.webp** (351KB) - ✅ Used in homepage case study section
+3. **sofia-galvao-listings.webp** (270KB) - ✅ Used in "Platform Features" section (property management example)
+4. **sofia-galvao-about.webp** (281KB) - Available for future use
+5. **sofia-galvao-homepage-hero.webp** (128KB) - Source file (kept for reference)
+6. **sofia-galvao-homepage-content.webp** (351KB) - Source file (kept for reference)
+
+**Admin/Backoffice Screenshots:**
+7. **admin-dashboard.webp** (135KB) - ✅ Used in "Platform Features" section (dashboard overview)
+8. **admin-blog-edit.webp** (169KB) - ✅ Used in "Platform Features" section (blog editor)
+9. **admin-listings.webp** (571KB) - Available but not yet used (⚠️ large file, may need optimization)
+
+**New "Platform Features" Section Added:**
+- 3-part showcase on homepage between "Benefits" and "Features Overview"
+- Shows admin dashboard, blog editor, and property listings examples
+- Alternating left/right layout for visual interest
+- Real screenshots from Sofia Galvão Group backoffice
+- Demonstrates ease of use to potential clients
+
+### Files Modified
+- `/promo-site/src/locales/en/translation.json` - Updated pricing, added "Platform Features" section copy
+- `/promo-site/src/locales/pt/translation.json` - Updated pricing, added "Platform Features" section copy
+- `/promo-site/src/pages/Pricing.tsx` - Complete restructure with one-time services section
+- `/promo-site/src/pages/Home.tsx` - Hero section redesign + new "Platform Features" section
+- `/promo-site/public/images/` - Added 8 WebP screenshots (total ~2.3MB)
+- `/promo-site/public/images/README.md` - Instructions for image management
+- `/docs/improvements/improvements-promo-site.md` - This document
+
+### What Still Needs Work
+
+**High Priority:**
+1. **Content Polish**
+   - Review all new pricing copy for clarity
+   - Add more specific examples to FAQ answers
+   - Consider adding testimonials about pricing/value
+
+2. **Backend Integrations**
+   - Contact form email delivery
+   - Analytics tracking (Google Analytics)
+
+3. **Image Optimization** (Optional)
+   - Consider optimizing `admin-listings.webp` (currently 571KB)
+   - All other images are well-optimized (128KB-351KB)
+
+**Medium Priority:**
+- Performance audit and optimization
+- A/B testing setup for pricing page
+- Additional case studies (if available)
+
+**Low Priority:**
+- Live chat integration
+- Exit intent popups
+- Heatmap analysis
+
+### Pricing Rationale
+
+The new pricing structure was designed based on:
+- **Cost analysis**: Hosting (€50-100), maintenance (2-3h/mo), support (2-4h/mo)
+- **Profit margin**: 30-50% built into monthly pricing
+- **Hourly rate**: Designed around €75-100/hour for one-time services
+- **Market positioning**: Competitive with custom development but more accessible
+- **Flexibility**: Clients can mix and match services based on needs
+
+**Example Scenarios:**
+1. **DIY Developer**: €199/month (API only)
+2. **Need website built**: €5,000 one-time + €499/month hosting
+3. **Have design, need build**: €3,500 one-time + €499/month hosting
+4. **Need design only**: €2,000 one-time + build yourself with €199/month API
 
 ---
 
