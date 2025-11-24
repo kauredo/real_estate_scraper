@@ -9,7 +9,7 @@ import Hero from "../components/shared/Hero";
 import Cards from "../components/homePage/Cards";
 import Results from "../components/homePage/Results";
 import Newsletter from "../components/homePage/Newsletter";
-import HomePageSkeleton from "../components/loading/HomePageSkeleton";
+import ContentSkeleton from "../components/loading/ContentSkeleton";
 
 export default function Home() {
   // Create state to hold the data
@@ -57,19 +57,21 @@ export default function Home() {
   }, []);
 
   // Show loading state
-  if (isLoading) {
-    return <HomePageSkeleton />;
-  }
-
   return (
     <>
       <MetaTags pageType="home" image={photos[0]} url={window.location.href} />
       <StructuredData type="organization" />
       <StructuredData type="listings_collection" />
       <Hero photos={photos} />
-      <Cards listings={listings} />
-      {results && <Results results={results} testimonials={testimonials} />}
-      <Newsletter />
+      {isLoading ? (
+        <ContentSkeleton />
+      ) : (
+        <>
+          <Cards listings={listings} />
+          {results && <Results results={results} testimonials={testimonials} />}
+          <Newsletter />
+        </>
+      )}
     </>
   );
 }
