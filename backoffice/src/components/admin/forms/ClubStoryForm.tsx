@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Editor } from "@tinymce/tinymce-react";
 import { adminDeleteClubStoryPhoto } from "../../../services/api";
 import { isDarkModeActive } from "../../../utils/functions";
 import { Input, Textarea, Button, PhotoManagementSection } from "../ui";
+import RichTextEditor from "../../shared/RichTextEditor";
 
 interface ClubStoryPhoto {
   id: number;
@@ -197,42 +197,13 @@ const ClubStoryForm = ({
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               {t("common.content")}
             </label>
-            <Editor
-              apiKey="p6bnxm7cjj6jc6xzhzfknznbqkmx4zdvfhpiqj0bq9tny4ig"
+            <RichTextEditor
               value={formData.text}
-              onEditorChange={(content) =>
-                setFormData((prev) => ({ ...prev, text: content }))
+              onChange={(html) =>
+                setFormData((prev) => ({ ...prev, text: html }))
               }
-              init={{
-                height: 500,
-                menubar: false,
-                skin: isDarkModeActive() ? "oxide-dark" : "oxide",
-                content_css: isDarkModeActive() ? "dark" : "default",
-                plugins: [
-                  "advlist",
-                  "autolink",
-                  "lists",
-                  "link",
-                  "image",
-                  "charmap",
-                  "preview",
-                  "anchor",
-                  "searchreplace",
-                  "visualblocks",
-                  "code",
-                  "fullscreen",
-                  "insertdatetime",
-                  "media",
-                  "table",
-                  "code",
-                  "help",
-                  "wordcount",
-                ],
-                toolbar:
-                  "undo redo | blocks | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help",
-                content_style:
-                  "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size:14px }",
-              }}
+              placeholder={t("common.content")}
+              isDarkMode={isDarkModeActive()}
             />
           </div>
 
@@ -256,7 +227,7 @@ const ClubStoryForm = ({
         onUpload={handleUploadPhotos}
         onRemoveNewPhoto={handleRemoveNewPhoto}
         showUpload={true}
-        mode={showPhotoUpload ? 'edit' : 'create'}
+        mode={showPhotoUpload ? "edit" : "create"}
       />
 
       {/* Submit Button */}
