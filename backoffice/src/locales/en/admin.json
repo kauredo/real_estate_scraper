@@ -25,7 +25,16 @@
     "seo_section": "SEO Information",
     "settings": "Settings",
     "total": "Total",
-    "view": "View"
+    "view": "View",
+    "metaTitle": "Meta Title",
+    "metaDescription": "Meta Description",
+    "hidden": "Hidden",
+    "title": "Title",
+    "description": "Description",
+    "content": "Content",
+    "videoLink": "Video Link",
+    "optional": "Optional",
+    "save": "Save"
   },
   "blog_posts": {
     "title": "Blog Posts",
