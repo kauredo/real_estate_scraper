@@ -132,7 +132,7 @@ const ClubStoryForm = ({
           <Input
             type="text"
             name="meta_title"
-            label={t("common.metaTitle")}
+            label={t("admin.common.metaTitle")}
             value={formData.meta_title}
             onChange={handleChange}
             required
@@ -140,7 +140,7 @@ const ClubStoryForm = ({
 
           <Textarea
             name="meta_description"
-            label={t("common.metaDescription")}
+            label={t("admin.common.metaDescription")}
             value={formData.meta_description}
             onChange={handleChange}
             rows={3}
@@ -160,7 +160,7 @@ const ClubStoryForm = ({
               htmlFor="hidden"
               className="text-sm font-medium text-gray-700 dark:text-gray-300"
             >
-              {t("common.hidden")}
+              {t("admin.common.hidden")}
             </label>
           </div>
         </div>
@@ -178,7 +178,7 @@ const ClubStoryForm = ({
           <Input
             type="text"
             name="title"
-            label={t("common.title")}
+            label={t("admin.common.title")}
             value={formData.title}
             onChange={handleChange}
             required
@@ -186,7 +186,7 @@ const ClubStoryForm = ({
 
           <Textarea
             name="small_description"
-            label={t("common.description")}
+            label={t("admin.common.description")}
             value={formData.small_description}
             onChange={handleChange}
             rows={3}
@@ -195,14 +195,14 @@ const ClubStoryForm = ({
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              {t("common.content")}
+              {t("admin.common.content")}
             </label>
             <RichTextEditor
               value={formData.text}
               onChange={(html) =>
                 setFormData((prev) => ({ ...prev, text: html }))
               }
-              placeholder={t("common.content")}
+              placeholder={t("admin.common.content")}
               isDarkMode={isDarkModeActive()}
             />
           </div>
@@ -210,7 +210,7 @@ const ClubStoryForm = ({
           <Input
             type="text"
             name="video_link"
-            label={`${t("common.videoLink")} (${t("common.optional")})`}
+            label={`${t("admin.common.videoLink")}`}
             value={formData.video_link || ""}
             onChange={handleChange}
             placeholder="https://youtube.com/..."
@@ -233,7 +233,7 @@ const ClubStoryForm = ({
       {/* Submit Button */}
       <div className="flex justify-end">
         <Button type="submit" isLoading={isSubmitting} size="lg">
-          {t("common.save")}
+          {t("admin.common.save")}
         </Button>
       </div>
     </form>

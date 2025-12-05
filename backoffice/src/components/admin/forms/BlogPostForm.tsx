@@ -178,14 +178,14 @@ const BlogPostForm = ({
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              {t("admin.blog_posts.text")}
+              {t("admin.blog_posts.content")}
             </label>
             <RichTextEditor
               value={formData.text}
               onChange={(html) =>
                 setFormData((prev) => ({ ...prev, text: html }))
               }
-              placeholder={t("admin.blog_posts.text")}
+              placeholder={t("admin.blog_posts.content")}
               isDarkMode={isDarkModeActive()}
             />
           </div>
@@ -193,7 +193,7 @@ const BlogPostForm = ({
           <Input
             type="text"
             name="video_link"
-            label={`${t("admin.blog_posts.video_link")} (${t("common.optional")})`}
+            label={`${t("admin.blog_posts.video_link")}`}
             value={formData.video_link || ""}
             onChange={handleChange}
             placeholder="https://youtube.com/..."

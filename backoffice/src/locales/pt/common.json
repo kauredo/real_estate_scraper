@@ -22,5 +22,14 @@
   "status": {
     "active": "Ativo",
     "inactive": "Inativo"
-  }
+  },
+  "metaTitle": "Meta Título",
+  "metaDescription": "Meta Descrição",
+  "hidden": "Escondido",
+  "title": "Título",
+  "description": "Descrição",
+  "content": "Conteúdo",
+  "videoLink": "Link do Vídeo",
+  "optional": "Opcional",
+  "save": "Guardar"
 }
