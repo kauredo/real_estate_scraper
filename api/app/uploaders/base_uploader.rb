@@ -25,7 +25,9 @@ class BaseUploader < CarrierWave::Uploader::Base
     # Store in folders: sgg/production/, sgg/development/, etc.
     tenant_prefix = tenant_folder_prefix
     environment = Rails.env.to_s
-    "#{tenant_prefix}#{environment}/#{model.class.to_s.underscore}/#{super}"
+    filename = super.presence || generate_filename
+
+    "#{tenant_prefix}#{environment}/#{model.class.to_s.underscore}/#{filename}"
   end
 
   # Override remove! to prevent deleting production images from development
@@ -53,8 +55,18 @@ class BaseUploader < CarrierWave::Uploader::Base
     "#{tenant_slug}/"
   end
 
+  def generate_filename
+    # Generate a unique filename when super returns empty (e.g., when using remote_image_url)
+    timestamp = Time.current.to_i
+    random = SecureRandom.hex(8)
+    model_id = model.id || 'new'
+    "#{model_id}_#{timestamp}_#{random}"
+  end
+
   def should_delete_from_cloudinary?
-    return true unless file&.path
+    return true unless file
+    # Handle RemoteFile objects which don't have a path method yet
+    return true unless file.respond_to?(:path) && file.path
 
     current_env = Rails.env.to_s
     file_path = file.path

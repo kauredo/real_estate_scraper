@@ -72,6 +72,28 @@ namespace :scraper do
     puts "Scrape complete for #{url}"
   end
 
+  desc 'Scrape one specific complex (foreground)'
+  task :complex, %i[tenant_slug url] => :environment do |_t, arguments|
+    tenant_slug = arguments.tenant_slug || 'sgg'
+    url = arguments.url
+
+    unless url
+      puts 'Error: URL is required'
+      puts 'Usage: rake scraper:complex[tenant_slug,url]'
+      exit 1
+    end
+
+    tenant = Tenant.find_by!(slug: tenant_slug)
+
+    puts "Starting complex scrape for #{url} (tenant: #{tenant.slug})"
+
+    scraper_service = RealEstateScraperService.new(tenant:, headless: ENV.fetch('HEADFULL', '').blank?)
+    scraper_service.scrape_complex(url, nil)
+    scraper_service.destroy
+
+    puts "Complex scrape complete for #{url}"
+  end
+
   # ==============================================================================
   # Multi-Tenant Scraping (queue background jobs)
   # ==============================================================================

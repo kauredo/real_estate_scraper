@@ -36,19 +36,35 @@ module Scrapers
       safe_goto(url)
       return if check_if_invalid?
 
+      accept_cookies
+
       name = @browser.h1.wait_until(timeout: 10, &:present?).text
-      listing_complex.update(name:)
+
+      # Scrape additional fields
+      description = scrape_description
+      video_link = scrape_video_link
+      final_text = scrape_characteristics
+
+      listing_complex.update(
+        name:,
+        description:,
+        video_link:,
+        final_text:
+      )
+
       scrape_photos_for_complex(listing_complex)
 
-      listings = @browser.table(class: 'properties_table').wait_until(timeout: 10, &:present?).trs
-      listings.each_with_index do |listing_element, index|
-        relative_url = listing_element.attribute_value('data-href')
-        next if relative_url.nil?
+      # Find all property links in the React Virtualized Table
+      # Links have hrefs starting with /pt/Imovel/ (note capital I)
+      listing_links = @browser.as(href: /\/pt\/Imovel\//i).wait_until(timeout: 10, &:present?)
 
-        full_url = "https://www.kwportugal.pt#{relative_url}"
+      listing_links.each_with_index do |link_element, index|
+        full_url = link_element.attribute_value('href')
+        next if full_url.nil?
+
         listing = Listing.find_or_initialize_by(url: full_url)
         listing.listing_complex = listing_complex
-        listing.title = "Imóvel #{index} - #{name}" if listing.title.blank?
+        listing.title = "Imóvel #{index + 1} - #{name}" if listing.title.blank?
 
         if listing.persisted?
           listing.save
@@ -148,16 +164,26 @@ module Scrapers
     end
 
     def scrape_photos_for_complex(listing_complex)
-      photo_elements = @browser.div(class: 'gallery').imgs
+      # Parse JSON-LD structured data which contains all image URLs in an array
+      json_ld_data = parse_json_ld_data
+      return unless json_ld_data
 
-      photo_elements.each_with_index do |img_element, index|
-        photo_url = img_element.attribute_value('src')
-        next if photo_url.blank?
+      images = json_ld_data['images'] || []
+      log "Found #{images.size} images in JSON-LD data"
+
+      images.each_with_index do |image_data, index|
+        photo_url = image_data['url']
+
+        if photo_url.blank?
+          log "Skipping blank photo URL for photo #{index + 1}"
+          next
+        end
 
         photo = listing_complex.photos.find_or_initialize_by(original_url: photo_url)
         photo.remote_image_url = photo_url
         photo.main = index.zero?
         photo.order = index + 1
+        photo.tenant = @tenant
 
         if photo.new_record? || photo.changed?
           if photo.save
@@ -169,6 +195,96 @@ module Scrapers
           log "Photo for #{photo_url} already exists, skipping."
         end
       end
+    rescue StandardError => e
+      log "Failed to scrape photos: #{e.message}"
+    end
+
+    def scrape_description
+      # Parse JSON-LD structured data which contains the full description
+      json_ld_data = parse_json_ld_data
+      return nil unless json_ld_data
+
+      description = json_ld_data['description']
+      return nil if description.blank?
+
+      CGI.unescapeHTML(description).strip
+    rescue StandardError => e
+      log "Failed to scrape description: #{e.message}"
+      nil
+    end
+
+    def scrape_video_link
+      # Parse JSON-LD structured data which contains the video embedUrl
+      json_ld_data = parse_json_ld_data
+      return nil unless json_ld_data
+
+      embed_url = json_ld_data.dig('video', 'embedUrl')
+      return nil unless embed_url
+
+      # Convert youtu.be URL to youtube.com/watch URL
+      if embed_url.include?('youtu.be/')
+        video_id = embed_url.split('/').last
+        "https://www.youtube.com/watch?v=#{video_id}"
+      else
+        embed_url
+      end
+    rescue StandardError => e
+      log "Failed to scrape video link: #{e.message}"
+      nil
+    end
+
+    def parse_json_ld_data
+      # Find the script tag with type="application/ld+json" and @type="RealEstateListing"
+      script_elements = @browser.scripts(type: 'application/ld+json')
+
+      script_elements.each do |script|
+        json_text = script.inner_text
+        next if json_text.blank?
+
+        begin
+          data = JSON.parse(json_text)
+          return data if data['@type'] == 'RealEstateListing'
+        rescue JSON::ParserError
+          next
+        end
+      end
+
+      nil
+    rescue StandardError => e
+      log "Failed to parse JSON-LD data: #{e.message}"
+      nil
+    end
+
+    def scrape_characteristics
+      # Find the characteristics section
+      section = @browser.section(class: /md:col-start-3.*md:col-span-8.*col-span-4/)
+      return nil unless section.present?
+
+      characteristics = []
+
+      # Find all list items with categories and their features
+      section.lis.each do |li|
+        # Get the category name (the first span with text-black class)
+        category_span = li.span(class: /text-black/)
+        category = category_span.text.strip if category_span.present?
+
+        # Get all the feature items (spans with text-grey-03 class)
+        features = li.spans(class: /text-grey-03/).map(&:text).reject(&:empty?)
+
+        if category.present? && features.any?
+          characteristics << "## #{category}\n#{features.map { |f| "- #{f}" }.join("\n")}"
+        elsif features.any? && category.blank?
+          # Features without a category
+          characteristics << features.map { |f| "- #{f}" }.join("\n")
+        end
+      end
+
+      return nil if characteristics.empty?
+
+      "# Características\n\n#{characteristics.join("\n\n")}"
+    rescue StandardError => e
+      log "Failed to scrape characteristics: #{e.message}"
+      nil
     end
   end
 end
