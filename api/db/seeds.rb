@@ -24,6 +24,7 @@ if sgg_tenant
     frontend_url: ENV.fetch('SGG_FRONTEND_URL', 'http://localhost:3001'),
     from_email: 'geral@sofiagalvaogroup.com',
     reply_to_email: 'geral@sofiagalvaogroup.com',
+    scraper_source_url: 'https://www.kwportugal.pt/pt/agente/Sofia-Galvao/34365',
     email_branding: {
       logo_url: nil,
       primary_color: '#d3af79',
@@ -53,6 +54,7 @@ else
     frontend_url: ENV.fetch('SGG_FRONTEND_URL', 'http://localhost:3001'),
     from_email: 'geral@sofiagalvaogroup.com',
     reply_to_email: 'geral@sofiagalvaogroup.com',
+    scraper_source_url: 'https://www.kwportugal.pt/pt/agente/Sofia-Galvao/34365',
     email_branding: {
       logo_url: nil,
       primary_color: '#d3af79',
@@ -85,6 +87,7 @@ if test_tenant
     frontend_url: ENV.fetch('TEST_FRONTEND_URL', 'http://localhost:3002'),
     from_email: 'noreply@test-agency.example.com',
     reply_to_email: 'info@test-agency.example.com',
+    scraper_source_url: 'https://www.kwportugal.pt/pt/agente/Sofia-Galvao/34365',
     email_branding: {
       logo_url: nil,
       primary_color: '#007bff',
@@ -114,6 +117,7 @@ else
     frontend_url: ENV.fetch('TEST_FRONTEND_URL', 'http://localhost:3002'),
     from_email: 'noreply@test-agency.example.com',
     reply_to_email: 'info@test-agency.example.com',
+    scraper_source_url: 'https://www.kwportugal.pt/pt/agente/Sofia-Galvao/34365',
     email_branding: {
       logo_url: nil,
       primary_color: '#007bff',
