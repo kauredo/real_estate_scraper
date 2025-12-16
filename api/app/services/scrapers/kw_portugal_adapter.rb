@@ -62,7 +62,9 @@ module Scrapers
         full_url = link_element.attribute_value('href')
         next if full_url.nil?
 
-        listing = Listing.find_or_initialize_by(url: full_url)
+        clean_url = full_url.split('?').first
+        listing = Listing.where('url LIKE ?', "#{clean_url}%").first || Listing.new(url: clean_url)
+        listing.url = clean_url
         listing.listing_complex = listing_complex
         listing.title = "Imóvel #{index + 1} - #{name}" if listing.title.blank?
 
@@ -112,6 +114,8 @@ module Scrapers
                                        .uniq
                                        .compact
                                        .select { |url| url.start_with?('https://www.kwportugal.pt') && url.downcase.include?('/imovel/') }
+                                       .map { |url| url.split('?').first }
+                                       .uniq
 
         listing_urls = current_listings
 

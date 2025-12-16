@@ -124,26 +124,26 @@ export default function NewShow(props: Props) {
                           {["sold"].includes(listing.status) && (
                             <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white dark:text-dark opacity-50 flex items-center justify-center"></span>
                           )}
-                          {listing.stats["Piso"] || "-"}
+                          {listing.stats?.["Piso"] || "-"}
                         </td>
                         <td className=" p-2">
-                          {listing.stats["Quartos"] || "-"}
+                          {listing.stats?.["Quartos"] || "-"}
                         </td>
                         <td className=" p-2">
-                          {listing.stats["Área Bruta (CP)"] || "-"}
+                          {listing.stats?.["Área Bruta (CP)"] || "-"}
                         </td>
                         <td className=" p-2">
-                          {listing.stats["Área Útil"] || "-"}
+                          {listing.stats?.["Área Útil"] || "-"}
                         </td>
                         <td className=" p-2">
-                          {listing.stats["Estacionamentos"] || "-"}
+                          {listing.stats?.["Estacionamentos"] || "-"}
                         </td>
                         <td className={" p-2 "}>
                           {["sold", "agreed"].includes(listing.status)
                             ? listing.status == "agreed"
                               ? t("listing.status.agreed")
                               : t("listing.status.sold")
-                            : `${listing.price} €`}
+                            : `${listing.price || "-"} €`}
                         </td>
                         <td className=" p-2">
                           {listing.status === "new" ||

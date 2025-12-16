@@ -92,7 +92,7 @@ class ScrapeListingDetails
 
   def self.update_listing_fields(browser, listing, force)
     listing.title = browser.h1.text.gsub('m2', 'm²')
-    listing.url = browser.url
+    listing.url = browser.url.split('?').first
     listing.status = 1
 
     listing.populate_type_and_objective
@@ -354,9 +354,11 @@ class ScrapeListingDetails
 
   def self.find_or_initialize_listing(imovel_url, title, url)
     # Fetch listings that match either old URL or new URL
+    base_imovel = imovel_url.split('?').first
+    base_browser = url.split('?').first
     listings = Listing.unscoped
                       .includes(:translations)
-                      .where('url = :imovel_url OR url = :url', imovel_url:, url:)
+                      .where('url LIKE ? OR url LIKE ?', "#{base_imovel}%", "#{base_browser}%")
 
     # Filter by title if it exists
     matching_listing = listings.find do |listing|
