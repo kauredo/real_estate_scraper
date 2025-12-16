@@ -66,7 +66,7 @@ module Api
 
         def update_details
           # Scrape/update details from original source
-          ScrapeComplexJob.perform_later(@listing_complex.url)
+          ScrapeComplexJob.perform_later(Current.tenant.id, @listing_complex.url)
           render json: { message: 'Atualização dos detalhes do complexo iniciada. Os dados serão atualizados em breve.' }
         end
 
@@ -152,7 +152,7 @@ module Api
             @listing_complex.save
           end
 
-          ScrapeComplexJob.perform_later(@listing_complex.url)
+          ScrapeComplexJob.perform_later(tenant.id, @listing_complex.url)
 
           render json: {
             message: 'Empreendimento adicionado à fila de processamento. Os dados serão atualizados em breve.',

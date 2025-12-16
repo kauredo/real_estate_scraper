@@ -128,9 +128,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_28_083906) do
     t.index ["tenant_id"], name: "index_club_users_on_tenant_id"
   end
 
-  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
-  end
-
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false

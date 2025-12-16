@@ -26,7 +26,8 @@ class Tenant < ApplicationRecord
   validates :contact_email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
   validates :scraper_source_url,
             format: { with: URI::DEFAULT_PARSER.make_regexp(%w[http https]) },
-            allow_blank: true
+            allow_blank: true,
+            if: -> { self.class.column_names.include?('scraper_source_url') }
 
   # Feature flags - stored in features JSONB column
   store_accessor :features,
@@ -61,6 +62,7 @@ class Tenant < ApplicationRecord
 
   # Determine the scraper platform from the URL
   def scraper_platform
+    return nil unless self.class.column_names.include?('scraper_source_url')
     return nil if scraper_source_url.blank?
 
     uri = URI.parse(scraper_source_url)
