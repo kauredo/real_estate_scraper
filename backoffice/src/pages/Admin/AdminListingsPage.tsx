@@ -6,6 +6,7 @@ import {
   adminGetListings,
   adminUpdateAllListings,
   generatePreviewToken,
+  adminDeleteListing,
 } from "../../services/api";
 import Flashes from "../../components/shared/Flashes";
 import {
@@ -15,6 +16,7 @@ import {
   Button,
   Select,
   PreviewModal,
+  Modal,
 } from "../../components/admin/ui";
 import { appRoutes } from "../../utils/routes";
 import { useTenant } from "../../context/TenantContext";
@@ -54,6 +56,45 @@ const AdminListingsPage = () => {
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [previewTitle, setPreviewTitle] = useState<string>("");
 
+  // Delete Modal State
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [listingToDelete, setListingToDelete] = useState<Listing | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const handleDeleteClick = (listing: Listing) => {
+    setListingToDelete(listing);
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (!listingToDelete) return;
+    try {
+      setIsDeleting(true);
+      await adminDeleteListing(listingToDelete.id);
+      // Remove deleted listing from local state
+      setListings((prev) =>
+        prev.filter((item) => item.id !== listingToDelete.id),
+      );
+      setPagination((prev) => ({
+        ...prev,
+        total_count: prev.total_count - 1,
+      }));
+      setIsDeleteModalOpen(false);
+      setListingToDelete(null);
+      setFlash({
+        type: "success",
+        message: t("admin.listings.delete_success"),
+      });
+    } catch (error) {
+      console.error("Error deleting listing:", error);
+      setFlash({
+        type: "error",
+        message: t("admin.listings.delete_error"),
+      });
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
   const order = searchParams.get("order") || "order";
 
   // Get the effective scraper URL (selected tenant for super admins, or current tenant)
@@ -68,8 +109,7 @@ const AdminListingsPage = () => {
   // For super admins, disable update all when "All Tenants" is selected
   // Also disable if no scraper_source_url is configured
   const canUpdateAll =
-    (!isSuperAdmin || selectedTenantId !== null) &&
-    effectiveScraperUrl != null;
+    (!isSuperAdmin || selectedTenantId !== null) && effectiveScraperUrl != null;
 
   const fetchListings = async (page = 1, resetPage = false) => {
     try {
@@ -250,6 +290,13 @@ const AdminListingsPage = () => {
                 >
                   {t("common.edit")}
                 </Link>
+                <button
+                  onClick={() => handleDeleteClick(listing)}
+                  className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
+                  title={t("common.delete")}
+                >
+                  🗑️ {t("common.delete")}
+                </button>
               </div>
             }
           >
@@ -278,6 +325,47 @@ const AdminListingsPage = () => {
         previewUrl={previewUrl}
         title={previewTitle}
       />
+
+      <Modal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        title={t("admin.listings.delete_title", "Delete Listing")}
+        size="sm"
+        footer={
+          <>
+            <Button
+              variant="secondary"
+              onClick={() => setIsDeleteModalOpen(false)}
+              disabled={isDeleting}
+            >
+              {t("common.cancel")}
+            </Button>
+            <Button
+              variant="danger"
+              onClick={confirmDelete}
+              isLoading={isDeleting}
+            >
+              {t("common.delete")}
+            </Button>
+          </>
+        }
+      >
+        <div className="text-gray-600 dark:text-gray-300">
+          <p>
+            {t(
+              "admin.listings.delete_confirm",
+              "Are you sure you want to delete listing",
+            )}{" "}
+            <strong>{listingToDelete?.title}</strong>?
+          </p>
+          <p className="text-sm mt-2 text-red-500">
+            {t(
+              "admin.listings.delete_irreversible",
+              "This action is irreversible.",
+            )}
+          </p>
+        </div>
+      </Modal>
     </div>
   );
 };

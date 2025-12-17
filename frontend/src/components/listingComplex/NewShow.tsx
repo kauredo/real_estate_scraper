@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function NewShow(props: Props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { complex } = props;
 
   const removePricesFromText = (text: string) => {
