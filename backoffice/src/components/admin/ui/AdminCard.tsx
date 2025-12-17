@@ -58,7 +58,7 @@ const AdminCard: React.FC<AdminCardProps> = ({
         </h3>
 
         {subtitle && (
-          <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+            <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-3 max-h-16 overflow-hidden">
             {subtitle}
           </p>
         )}
