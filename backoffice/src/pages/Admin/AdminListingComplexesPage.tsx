@@ -14,6 +14,7 @@ import {
   Pagination,
   PreviewModal,
   Modal,
+  AdminCard,
 } from "../../components/admin/ui";
 
 interface PaginationState {
@@ -144,125 +145,81 @@ const AdminListingComplexesPage = () => {
         </div>
       )}
 
-      {/* Listing Complexes Grid */}
+      {/* Listing Complexes Grid (using AdminCard) */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
         {listingComplexes.map((complex) => (
-          <div
+          <AdminCard
             key={complex.id}
-            className="group bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden flex flex-col"
-          >
-            {/* Image Overlay Header */}
-            <div className="relative aspect-video w-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-              {complex.main_photo_thumb ||
+            title={complex.name}
+            subtitle={
+              complex.description ||
+              complex.subtext ||
+              "Sem descrição disponível."
+            }
+            image={
+              complex.main_photo_thumb ||
               complex.main_photo_medium ||
               complex.main_photo?.image?.url ||
-              complex.main_photo?.image_url ? (
-                <img
-                  src={
-                    complex.main_photo_thumb ||
-                    complex.main_photo_medium ||
-                    complex.main_photo?.image?.url ||
-                    complex.main_photo?.image_url
+              complex.main_photo?.image_url
+            }
+            imagePlaceholder={<span className="text-4xl">🏢</span>}
+            status={
+              complex.hidden
+                ? {
+                    label: t("admin.listingComplexes.hidden"),
+                    variant: "warning",
                   }
-                  alt={complex.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-400">
-                  <span className="text-4xl">🏢</span>
-                </div>
-              )}
-
-              {/* Overlay Badges */}
-              <div className="absolute top-2 right-2 flex flex-col gap-1 items-end">
-                {complex.hidden && (
-                  <span className="px-2 py-1 text-xs font-semibold bg-yellow-500/90 text-white rounded-md backdrop-blur-sm shadow-sm">
-                    {t("admin.listingComplexes.hidden")}
-                  </span>
-                )}
-                {complex.new_format && (
-                  <span className="px-2 py-1 text-xs font-semibold bg-green-500/90 text-white rounded-md backdrop-blur-sm shadow-sm">
-                    {t("admin.listingComplexes.newFormat")}
-                  </span>
-                )}
-              </div>
-            </div>
-
-            {/* Content Body */}
-            <div className="p-5 flex-1 flex flex-col">
-              <div className="flex justify-between items-start gap-2 mb-2">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white line-clamp-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {complex.name}
-                </h3>
-              </div>
-
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 leading-relaxed">
-                {complex.description ||
-                  complex.subtext ||
-                  "Sem descrição disponível."}
-              </p>
-
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-2 mb-6 mt-auto">
-                <div className="bg-gray-50 dark:bg-gray-700/50 p-2 rounded-lg text-center">
-                  <span className="block text-xs text-gray-500 dark:text-gray-400 uppercase font-medium tracking-wider">
-                    Fotos
-                  </span>
-                  <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                    {complex.photos?.length || 0}
-                  </span>
-                </div>
-                <div className="bg-gray-50 dark:bg-gray-700/50 p-2 rounded-lg text-center">
-                  <span className="block text-xs text-gray-500 dark:text-gray-400 uppercase font-medium tracking-wider">
-                    Imóveis
-                  </span>
-                  <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                    {complex.listings_count || 0}
-                  </span>
-                </div>
-              </div>
-
-              {/* Actions */}
-              <div className="flex items-center justify-between gap-2 pt-4 border-t border-gray-100 dark:border-gray-700">
+                : complex.new_format
+                  ? {
+                      label: t("admin.listingComplexes.newFormat"),
+                      variant: "success",
+                    }
+                  : undefined
+            }
+            actions={
+              <>
                 <button
                   onClick={() => handlePreview(complex)}
-                  className="flex-1 text-xs font-medium px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-700/50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition-colors flex items-center justify-center gap-1"
+                  className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 text-xs font-medium"
                 >
-                  <span>👁️</span> Preview
+                  👁️ Preview
                 </button>
-
                 <Link
                   to={appRoutes.backoffice.editListingComplex(complex.id)}
-                  className="flex-1 text-center"
+                  className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-xs font-medium"
                 >
-                  <button className="w-full text-xs font-medium px-3 py-2 rounded-lg bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/30 dark:hover:bg-blue-900/50 text-blue-700 dark:text-blue-300 transition-colors">
-                    {t("common.edit")}
-                  </button>
+                  {t("common.edit")}
                 </Link>
-
                 <button
                   onClick={() => handleDeleteClick(complex)}
-                  className="flex-none p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/30 text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors"
+                  className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 text-xs font-medium"
                   title={t("common.delete")}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                    />
-                  </svg>
+                  🗑️ {t("common.delete")}
                 </button>
+              </>
+            }
+          >
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-2 mb-2 mt-2">
+              <div className="bg-gray-50 dark:bg-gray-700/50 p-2 rounded-lg text-center">
+                <span className="block text-xs text-gray-500 dark:text-gray-400 uppercase font-medium tracking-wider">
+                  Fotos
+                </span>
+                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                  {complex.photos?.length || 0}
+                </span>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-700/50 p-2 rounded-lg text-center">
+                <span className="block text-xs text-gray-500 dark:text-gray-400 uppercase font-medium tracking-wider">
+                  Imóveis
+                </span>
+                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                  {complex.listings_count || 0}
+                </span>
               </div>
             </div>
-          </div>
+          </AdminCard>
         ))}
       </div>
 
