@@ -154,7 +154,7 @@ const AdminListingComplexesPage = () => {
             subtitle={
               complex.description ||
               complex.subtext ||
-                "Sem descrição disponível."
+              "Sem descrição disponível."
             }
             image={
               complex.main_photo_thumb ||
