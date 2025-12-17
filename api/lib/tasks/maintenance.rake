@@ -15,7 +15,7 @@ namespace :listings do
     end
 
     duplicate_urls.each do |url|
-      listings = Listing.unscoped.includes(:translations).where(url: url)
+      listings = Listing.unscoped.includes(:translations).where(url:)
       next if listings.length <= 1
 
       listings.each do |listing|
