@@ -2,6 +2,12 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BlogPost } from "@/utils/interfaces";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import {
+  Card,
+  CardContent,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/Card";
 
 const BlogCard = ({ blogPost }: { blogPost: BlogPost }) => {
   const { t, i18n } = useTranslation();
@@ -10,7 +16,7 @@ const BlogCard = ({ blogPost }: { blogPost: BlogPost }) => {
   const slug = isEnglish && blogPost.slug_en ? blogPost.slug_en : blogPost.slug;
 
   return (
-    <div className="bg-white dark:bg-dark shadow-md border border-gray-200 rounded-lg max-w-sm w-96 mb-5 mx-auto">
+    <Card className="max-w-sm w-96 mb-5 mx-auto">
       <Link to={`${prefix}/blog/${slug}`}>
         <img
           loading="lazy"
@@ -19,20 +25,18 @@ const BlogCard = ({ blogPost }: { blogPost: BlogPost }) => {
           alt={blogPost.title}
         />
       </Link>
-      <div className="p-5">
+      <CardContent className="p-5">
         <Link to={`${prefix}/blog/${slug}`}>
-          <h5 className="text-gray-900 dark:text-light font-bold text-2xl tracking-tight mb-2">
-            {blogPost.title}
-          </h5>
+          <CardTitle className="mb-2">{blogPost.title}</CardTitle>
         </Link>
-        <p className="font-normal text-gray-700 dark:text-light mb-3 whitespace-pre-line">
+        <CardDescription className="mb-3 whitespace-pre-line">
           {blogPost.sample_text}
-        </p>
+        </CardDescription>
         <ButtonLink to={`${prefix}/blog/${slug}`}>
           {t("general.read_more")}
         </ButtonLink>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 };
 

@@ -3,6 +3,13 @@ import { useTranslation } from "react-i18next";
 import { ClubStory } from "@/utils/interfaces";
 import Routes from "@/utils/routes";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import {
+  Card,
+  CardContent,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/Card";
 
 interface Props {
   story: ClubStory;
@@ -12,7 +19,7 @@ export default function ClubStoryCard({ story }: Props) {
   const { t } = useTranslation();
   const storyUrl = Routes.club_story_path(story.slug);
   return (
-    <div className="bg-white dark:bg-dark shadow-md border border-gray-200 dark:border-gray-700 rounded-lg w-full h-full flex flex-col">
+    <Card className="w-full h-full flex flex-col">
       {story.main_photo && (
         <Link to={storyUrl} className="block">
           <img
@@ -23,19 +30,17 @@ export default function ClubStoryCard({ story }: Props) {
           />
         </Link>
       )}
-      <div className="p-5 flex flex-col flex-grow">
+      <CardContent className="p-5 flex flex-col flex-grow">
         <Link to={storyUrl}>
-          <h5 className="text-gray-900 dark:text-light font-bold text-xl tracking-tight mb-2">
-            {story.title}
-          </h5>
+          <CardTitle className="text-xl mb-2">{story.title}</CardTitle>
         </Link>
-        <p className="font-normal text-gray-700 dark:text-gray-300 mb-4 flex-grow">
+        <CardDescription className="mb-4 flex-grow">
           {story.sample_text}
-        </p>
-        <div className="flex flex-wrap gap-2">
+        </CardDescription>
+        <CardFooter className="p-0 pt-0">
           <ButtonLink to={storyUrl}>{t("general.read_more")}</ButtonLink>
-        </div>
-      </div>
-    </div>
+        </CardFooter>
+      </CardContent>
+    </Card>
   );
 }
