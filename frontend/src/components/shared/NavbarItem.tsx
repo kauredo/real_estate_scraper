@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { navbarItemClass } from "../../utils/functions";
 import { NavbarItemProps } from "../../utils/interfaces";
+import { Button } from "../ui/Button";
 
 interface Props {
   item: NavbarItemProps;
@@ -13,7 +14,10 @@ export default function NavbarItem(props: Props) {
   const { item, fullWidth, leftAlign } = props;
   const { title, url, hover, img, children, method, onClick } = item;
   const location = useLocation();
-  const className = title.length > 0 ? navbarItemClass(url || null, false, [], location.pathname) : "";
+  const className =
+    title.length > 0
+      ? navbarItemClass(url || null, false, [], location.pathname)
+      : "";
   const actualMethod = method ? method : "get";
 
   const handleClick = async (e: React.MouseEvent) => {
@@ -38,8 +42,7 @@ export default function NavbarItem(props: Props) {
     );
   } else if (onClick || actualMethod !== "get") {
     return (
-      <button
-        type="button"
+      <Button
         onClick={handleClick}
         className={`${className} ${
           fullWidth && "block !w-full text-right !text-lg"
@@ -47,7 +50,7 @@ export default function NavbarItem(props: Props) {
       >
         {title}
         {img}
-      </button>
+      </Button>
     );
   } else {
     return (

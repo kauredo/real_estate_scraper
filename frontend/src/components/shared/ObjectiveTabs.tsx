@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Button } from "../ui/Button";
 
 interface Props {
   objective: number;
@@ -22,9 +23,8 @@ export default function ObjectiveTabs({
     <div className="w-full flex align-center gap-6 mb-4">
       <div className="w-full flex gap-2">
         {objectives.map(({ objective: obj, index }) => (
-          <button
+          <Button
             key={obj}
-            type="button"
             onClick={() => setObjective(index)}
             className={`py-2 px-4 rounded-lg font-bold w-[calc(50%-0.25rem)] ${
               objective === index
@@ -33,7 +33,7 @@ export default function ObjectiveTabs({
             }`}
           >
             {t(`listing.objective.${obj}`)}
-          </button>
+          </Button>
         ))}
       </div>
     </div>

@@ -1,6 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import sofiaImage from "../../assets/images/sofia.jpg";
-import { optimizeCloudinaryUrl, preloadImages } from "../../utils/imageOptimization";
+import {
+  optimizeCloudinaryUrl,
+  preloadImages,
+} from "../../utils/imageOptimization";
 
 interface Props {
   photos: string[];
@@ -19,7 +22,7 @@ export default function QuarterCircle(props: Props) {
           height: 800,
           quality: "auto",
           format: "auto",
-        })
+        }),
       );
       preloadImages(optimizedPhotos, 5);
     }

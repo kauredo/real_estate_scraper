@@ -1,4 +1,9 @@
-import { Listing } from "../../utils/interfaces";
+import {
+  Listing,
+  ListingComplex,
+  ClubStory,
+  BlogPost,
+} from "../../utils/interfaces";
 
 /**
  * Utility functions for generating meta tag data from various content types
@@ -7,7 +12,7 @@ import { Listing } from "../../utils/interfaces";
 /**
  * Generate meta tag data from a blog post
  */
-export const getBlogMetaTags = (blogPost: any) => ({
+export const getBlogMetaTags = (blogPost: BlogPost) => ({
   title: blogPost?.meta_title || blogPost?.title,
   description:
     blogPost?.meta_description ||
@@ -34,14 +39,14 @@ export const getListingMetaTags = (listing: Listing) => ({
 /**
  * Generate meta tag data from a listing complex
  */
-export const getListingComplexMetaTags = (complex: any) => ({
+export const getListingComplexMetaTags = (complex: ListingComplex) => ({
   title: complex?.title || complex?.name,
   description: complex?.description
     ? complex.description.substring(0, 160)
     : `Luxury property development: ${complex?.name}`,
   image:
     complex?.photos && complex.photos.length > 0
-      ? complex.photos[0]
+      ? complex.photos[0].image.url
       : undefined,
   type: "website" as const,
 });
@@ -49,7 +54,7 @@ export const getListingComplexMetaTags = (complex: any) => ({
 /**
  * Generate meta tag data from a club story
  */
-export const getClubStoryMetaTags = (story: any) => ({
+export const getClubStoryMetaTags = (story: ClubStory) => ({
   title: story?.title,
   description: story?.description ? story.description.substring(0, 160) : "",
   image: story?.main_photo,

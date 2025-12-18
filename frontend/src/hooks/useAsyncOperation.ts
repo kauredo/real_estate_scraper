@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNotifications } from "../context/NotificationContext";
+import { useNotifications } from "./useNotifications";
 import { useTranslation } from "react-i18next";
 
 export interface LoadingState {
@@ -56,7 +56,7 @@ export const useAsyncOperation = () => {
     }
   };
 
-  const getErrorMessage = (error: any): string => {
+  const getErrorMessage = (error: unknown): string => {
     // Handle different error types
     if (error.response) {
       // Axios error with response

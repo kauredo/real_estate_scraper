@@ -1,4 +1,5 @@
 import { useMetaTags } from "../../hooks/useMetaTags";
+import { TFunction } from "i18next";
 import { useTranslation } from "react-i18next";
 
 interface MetaTagsProps {
@@ -95,7 +96,7 @@ const getFinalTitle = (
     | "error"
     | "privacy"
     | "terms",
-  t?: any,
+  t: TFunction,
 ): string => {
   // Priority: explicit title > blog meta_title > listing title > page type default > site default
   if (title) return title;
@@ -132,7 +133,7 @@ const getFinalDescription = (
     | "error"
     | "privacy"
     | "terms",
-  t?: any,
+  t: TFunction,
 ): string => {
   // Priority: explicit description > blog meta_description > listing description > page type default > site default
   if (description) return description;

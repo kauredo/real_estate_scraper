@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -29,8 +30,8 @@ export const Analytics = () => {
 
       // Initialize dataLayer
       window.dataLayer = window.dataLayer || [];
-      window.gtag = function gtag() {
-        window.dataLayer.push(arguments);
+      window.gtag = function gtag(...args: any[]) {
+        window.dataLayer.push({ ...args });
       };
       window.gtag("js", new Date());
       window.gtag("config", GA_TRACKING_ID);
@@ -38,23 +39,33 @@ export const Analytics = () => {
 
     // Initialize Facebook Pixel
     if (FB_PIXEL_ID) {
-      !(function (f: any, b: any, e: any, v: any, n: any, t: any, s: any) {
+      (function (
+        f: Window,
+        b: Document,
+        e: string,
+        v: string,
+        n?: any,
+        t?: HTMLScriptElement,
+        s?: HTMLScriptElement,
+      ) {
         if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
+        n = f.fbq = function (...args: any[]) {
+          if (n.callMethod) {
+            n.callMethod(...args);
+          } else {
+            n.queue.push(args);
+          }
         };
         if (!f._fbq) f._fbq = n;
         n.push = n;
         n.loaded = !0;
         n.version = "2.0";
         n.queue = [];
-        t = b.createElement(e);
+        t = b.createElement(e) as HTMLScriptElement;
         t.async = !0;
         t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
+        s = b.getElementsByTagName(e)[0] as HTMLScriptElement;
+        s.parentNode?.insertBefore(t, s);
       })(
         window,
         document,
@@ -92,7 +103,9 @@ export const Analytics = () => {
       document.body.appendChild(noscript);
 
       return () => {
-        document.body.removeChild(noscript);
+        if (document.body.contains(noscript)) {
+          document.body.removeChild(noscript);
+        }
       };
     }
   }, []);

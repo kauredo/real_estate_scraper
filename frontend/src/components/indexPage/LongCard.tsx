@@ -5,6 +5,7 @@ import { optimizeCloudinaryUrl } from "../../utils/imageOptimization";
 import ListingIcons from "../shared/ListingIcons";
 import Overlay from "../shared/Overlay";
 import Routes from "../../utils/routes";
+import CheckIcon from "../svgs/CheckIcon";
 
 interface Props {
   listing: Listing;
@@ -12,7 +13,7 @@ interface Props {
 }
 
 export default function LongCard(props: Props) {
-  let { listing, small } = props;
+  const { listing, small } = props;
   const [checked, setChecked] = useState(false);
   const [checkbox, setCheckbox] = useState<HTMLElement | null>(null);
   const listingRef = useRef<HTMLDivElement>(null);
@@ -46,7 +47,7 @@ export default function LongCard(props: Props) {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize, false);
-    let box = document.getElementById(
+    const box = document.getElementById(
       `listing_complex_listing_ids_${listing.id}`,
     );
 
@@ -93,7 +94,7 @@ export default function LongCard(props: Props) {
           >
             {checked && (
               <div className="absolute z-20 uppercase top-0 bottom-0 left-0 right-0 bg-green-500 font-bold text-white dark:text-dark text-4xl opacity-50 flex items-center justify-center">
-                ✓
+                <CheckIcon />
               </div>
             )}
             <Overlay status={listing.status} show />

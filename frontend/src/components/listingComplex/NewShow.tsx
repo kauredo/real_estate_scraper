@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import ContactForm from "../contactPage/ContactForm";
 import Cards from "../homePage/Cards";

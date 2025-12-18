@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Button } from "../ui/Button";
+import { Icon } from "../ui/Icon";
 
 interface FaqQuestion {
   title: string;
@@ -44,7 +46,7 @@ const FaqAccordion = ({ sections }: FaqAccordionProps) => {
                   key={questionKey}
                   className="transition-all duration-200 bg-white dark:bg-dark border border-gray-200 shadow-lg cursor-pointer hover:bg-gray-50"
                 >
-                  <button
+                  <Button
                     type="button"
                     onClick={() => toggleQuestion(sectionIndex, questionIndex)}
                     className="flex items-center justify-between w-full px-4 py-5 sm:p-6 text-black dark:text-light"
@@ -52,11 +54,7 @@ const FaqAccordion = ({ sections }: FaqAccordionProps) => {
                     <span className="flex text-lg text-left font-semibold text-dark dark:text-light">
                       {question.title}
                     </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                    <Icon
                       className={`w-6 h-6 text-gray-400 transform transition-transform duration-200 ${
                         isOpen ? "rotate-180" : ""
                       }`}
@@ -67,8 +65,8 @@ const FaqAccordion = ({ sections }: FaqAccordionProps) => {
                         strokeWidth="2"
                         d="M19 9l-7 7-7-7"
                       />
-                    </svg>
-                  </button>
+                    </Icon>
+                  </Button>
                   <div
                     className={`p-8 sm:p-6 border-beige-default dark:border-beige-medium text-black dark:text-light ${
                       isOpen ? "block border-t-2" : "hidden"

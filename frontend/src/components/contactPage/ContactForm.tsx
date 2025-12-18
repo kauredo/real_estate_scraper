@@ -4,6 +4,9 @@ import { useAsyncOperation } from "../../hooks/useAsyncOperation";
 import { submitContactForm } from "../../services/api";
 import { Listing, ListingComplex } from "../../utils/interfaces";
 import ButtonSpinner from "../loading/ButtonSpinner";
+import { Button } from "../ui/Button";
+import { Input } from "../ui/Input";
+import { Textarea } from "../ui/Textarea";
 
 interface Props {
   listing?: Listing;
@@ -21,8 +24,7 @@ export default function ContactForm(props: Props) {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const form = useRef(null);
-  const pattern =
-    /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const validateUser = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -88,7 +90,7 @@ export default function ContactForm(props: Props) {
       </p>
       <form ref={form} onSubmit={validateUser}>
         <div className="mb-6">
-          <input
+          <Input
             type="text"
             placeholder={t("contacts.form.fields.name")}
             name="contact[name]"
@@ -100,7 +102,7 @@ export default function ContactForm(props: Props) {
           />
         </div>
         <div className="mb-6">
-          <input
+          <Input
             type="email"
             placeholder={t("contacts.form.fields.email")}
             name="contact[email]"
@@ -112,7 +114,7 @@ export default function ContactForm(props: Props) {
           />
         </div>
         <div className="mb-6">
-          <input
+          <Input
             type="text"
             placeholder={t("contacts.form.fields.phone")}
             name="contact[phone]"
@@ -124,7 +126,7 @@ export default function ContactForm(props: Props) {
           />
         </div>
         <div className="mb-6">
-          <textarea
+          <Textarea
             rows={6}
             placeholder={t("contacts.form.fields.message")}
             name="contact[message]"
@@ -133,16 +135,16 @@ export default function ContactForm(props: Props) {
               "w-full py-3 px-[14px] bg-white dark:bg-light border resize-none outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
             }
-          ></textarea>
+          />
           {listing && (
-            <input type="hidden" name="contact[listing]" value={listing.slug} />
+            <Input type="hidden" name="contact[listing]" value={listing.slug} />
           )}
           {complex && (
-            <input type="hidden" name="contact[complex]" value={complex.slug} />
+            <Input type="hidden" name="contact[complex]" value={complex.slug} />
           )}
         </div>
         <div>
-          <button
+          <Button
             type="submit"
             disabled={isLoading}
             className={
@@ -154,7 +156,7 @@ export default function ContactForm(props: Props) {
             {isLoading
               ? t("common.saving") || "Sending..."
               : t("contacts.form.fields.send")}
-          </button>
+          </Button>
         </div>
       </form>
     </div>

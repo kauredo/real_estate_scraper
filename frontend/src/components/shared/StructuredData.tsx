@@ -2,9 +2,14 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 interface StructuredDataProps {
-  type?: "organization" | "listing" | "blog_post" | "breadcrumbs" | "listings_collection";
+  type?:
+    | "organization"
+    | "listing"
+    | "blog_post"
+    | "breadcrumbs"
+    | "listings_collection";
   id?: string; // Slug for listing or blog post
-  data?: any; // Pre-fetched data to avoid extra API calls
+  data?: Record<string, unknown>; // Pre-fetched data to avoid extra API calls
 }
 
 /**
@@ -24,7 +29,11 @@ export const StructuredData = ({ type, id, data }: StructuredDataProps) => {
     // Otherwise fetch from API
     if (type && id) {
       fetchAndInjectStructuredData(type, id);
-    } else if (type === "organization" || type === "listings_collection" || type === "breadcrumbs") {
+    } else if (
+      type === "organization" ||
+      type === "listings_collection" ||
+      type === "breadcrumbs"
+    ) {
       // These don't need an ID
       fetchAndInjectStructuredData(type);
     }
@@ -33,10 +42,7 @@ export const StructuredData = ({ type, id, data }: StructuredDataProps) => {
   return null; // This component doesn't render anything
 };
 
-const fetchAndInjectStructuredData = async (
-  type: string,
-  id?: string
-) => {
+const fetchAndInjectStructuredData = async (type: string, id?: string) => {
   try {
     const apiUrl = import.meta.env.VITE_API_URL;
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -78,7 +84,7 @@ const fetchAndInjectStructuredData = async (
   }
 };
 
-const injectStructuredData = (data: any, type?: string) => {
+const injectStructuredData = (data: Record<string, unknown>, type?: string) => {
   // Create or update script tag
   const scriptId = `structured-data-${type || "custom"}`;
   let script = document.getElementById(scriptId) as HTMLScriptElement;

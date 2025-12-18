@@ -3,6 +3,7 @@ import Card from "./Card";
 import { toCapitalize } from "../../utils/functions";
 import { Photo, Listing } from "../../utils/interfaces";
 import Carousel from "../shared/Carousel";
+import { Button } from "../ui/Button";
 
 interface Props {
   listings: Record<string, Listing[]> | Listing[];
@@ -89,7 +90,7 @@ export default function Cards(props: Props) {
           <div className="w-full h-full mx-auto">
             <div className="sm:w-min mx-auto flex flex-col sm:flex-row mb-6">
               {locations.map((location) => (
-                <button
+                <Button
                   key={`${location}-tab`}
                   onClick={() => setSelectedLocation(location)}
                   className={`whitespace-nowrap py-4 px-6 block hover:text-beige-default dark:hover:text-beige-medium hover:border-beige-default dark:hover:border-beige-medium focus:outline-none border-b-2 font-medium ${
@@ -101,7 +102,7 @@ export default function Cards(props: Props) {
                   {`${toCapitalize(location)} (${
                     listings[location]?.length || 0
                   })`}
-                </button>
+                </Button>
               ))}
             </div>
             <Carousel

@@ -1,33 +1,98 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+
 import js from "@eslint/js";
 import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import tseslint from "typescript-eslint";
+import i18next from "eslint-plugin-i18next";
 
-export default [
-  { ignores: ["dist"] },
+export default tseslint.config(
   {
-    files: ["**/*.{js,jsx}"],
+    ignores: [
+      "dist",
+      "node_modules",
+      "public",
+      "scripts",
+      "vite.config.js",
+      "eslint.config.js",
+    ],
+  },
+  {
+    files: ["**/*.{ts,tsx}"],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    plugins: {
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
+      i18next,
+    },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
       parserOptions: {
-        ecmaVersion: "latest",
-        ecmaFeatures: { jsx: true },
-        sourceType: "module",
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
-    plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
-    },
     rules: {
-      ...js.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
-      "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
+      "react-refresh/only-export-components": "warn",
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: "JSXOpeningElement[name.name='button']",
+          message:
+            "Use a custom Button component instead of the native <button> element.",
+        },
+        {
+          selector: "JSXOpeningElement[name.name='input']",
+          message:
+            "Use a custom Input component instead of the native <input> element.",
+        },
+        {
+          selector: "JSXOpeningElement[name.name='select']",
+          message:
+            "Use a custom Select component instead of the native <select> element.",
+        },
+        {
+          selector: "JSXOpeningElement[name.name='textarea']",
+          message:
+            "Use a custom Textarea component instead of the native <textarea> element.",
+        },
+        {
+          selector: "JSXOpeningElement[name.name='svg']",
+          message:
+            "Don't use inline <svg> elements. Create a component for it.",
+        },
+      ],
+      "i18next/no-literal-string": [
+        "error",
+        {
+          ignoreAttribute: ["data-testid", "role"],
+          ignore: [
+            "^\\s*$", // Whitespace only
+            "^[\\s•→×\\-/]+$", // Punctuation only (bullet, arrow, times, dash, slash)
+            "^●$", // Bullet point
+            "^→$", // Arrow
+            "^—$", // Em dash
+            "^-$", // Dash
+            "^/$", // Slash
+            "^\\($", // Parenthesis
+            "^\\)$", // Parenthesis
+            "^\\[$", // Brackets
+            "^\\]$", // Brackets
+            "^%$", // Percent sign alone
+          ],
+        },
       ],
     },
   },
-];
+  {
+    files: ["src/components/ui/*.tsx"],
+    rules: {
+      "no-restricted-syntax": "off",
+    },
+  },
+  ...storybook.configs["flat/recommended"],
+);

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ClubStory } from "../../utils/interfaces";
 import Routes from "../../utils/routes";
 
@@ -10,7 +9,7 @@ interface Props {
 }
 
 export default function ClubStoryCard({ story }: Props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const storyUrl = Routes.club_story_path(story.slug);
   return (
     <div className="bg-white dark:bg-dark shadow-md border border-gray-200 dark:border-gray-700 rounded-lg w-full h-full flex flex-col">

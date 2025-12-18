@@ -65,7 +65,6 @@ function AppContent() {
       <Navbar />
       <div className="flex-auto">
         <Routes>
-
           {/* Portuguese Routes */}
           <Route path="/" element={<HomePage />} />
           <Route path="/comprar" element={<ListingsPage />} />

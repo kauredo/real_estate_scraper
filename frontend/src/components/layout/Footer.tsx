@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
@@ -10,7 +10,7 @@ import Routes from "../../utils/routes";
 import mainWhiteLogo from "../../assets/logos/main_white.webp";
 
 export default function Footer() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const items = [
     {
       title: "Instagram",
@@ -84,24 +84,23 @@ export default function Footer() {
         <div className="sm:flex justify-between tablet:justify-start items-center ">
           <div className="tablet:pr-4">
             <p className="text-sm text-white dark:text-light">
-              © {new Date().getFullYear()} Sofia Galvão Group. All Rights
-              Reserved.
+              {t("footer.copyright", { year: new Date().getFullYear() })}
             </p>
             <p className="text-sm text-white dark:text-light">
-              KW Lead Santos - Av Dom Carlos I, 124J - Santos, Lisboa
+              {t("footer.address")}
             </p>
             <p className="text-sm text-white dark:text-light">
-              Agent Centric Mediação Imobiliária, Lda - AMI 12518
+              {t("footer.license")}
             </p>
             <p className="text-xs text-white dark:text-light opacity-60 mt-2">
-              Website by{" "}
+              {t("footer.made_by")}{" "}
               <a
                 href="https://myagentwebsite.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline hover:opacity-100"
               >
-                MyAgentWebsite.com
+                {t("footer.developer")}
               </a>
             </p>
           </div>

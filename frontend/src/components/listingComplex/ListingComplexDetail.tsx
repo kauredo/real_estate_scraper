@@ -1,6 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { ListingComplex } from "../../utils/interfaces";
+import { Button } from "../ui/Button";
+import LeftArrowIcon from "../svgs/LeftArrowIcon";
+import RightArrowIcon from "../svgs/RightArrowIcon";
+import CheckIcon from "../svgs/CheckIcon";
 
 interface Props {
   listingComplex: ListingComplex;
@@ -35,42 +39,18 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
             />
             {listingComplex.photos.length > 1 && (
               <div className="absolute inset-0 flex items-center justify-between p-4">
-                <button
+                <Button
                   onClick={prevPhoto}
                   className="bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                </button>
-                <button
+                  <LeftArrowIcon />
+                </Button>
+                <Button
                   onClick={nextPhoto}
                   className="bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
+                  <RightArrowIcon />
+                </Button>
               </div>
             )}
           </>
@@ -130,19 +110,7 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
                   key={index}
                   className="flex items-center text-gray-600 dark:text-gray-300"
                 >
-                  <svg
-                    className="w-5 h-5 mr-2 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
+                  <CheckIcon />
                   {feature}
                 </li>
               ))}

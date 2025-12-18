@@ -5,6 +5,7 @@ import type { ListingComplex } from "../../utils/interfaces";
 import ShareIcons from "../shared/ShareIcons";
 import Routes from "../../utils/routes";
 import Carousel from "../shared/Carousel";
+import { Button } from "../ui/Button";
 
 interface Props {
   complex: ListingComplex;
@@ -73,26 +74,22 @@ export default function Show(props: Props) {
           />
         </div>
       ) : null}
-
       <div className="bottom-4 left-4 font-bold text-large z-50 bg-beige-default dark:bg-beige-medium text-white dark:text-dark px-4 py-2">
         <h1 className="standard">{complex.name}</h1>
       </div>
-
       {complex.video_link && (
         <div className="text-center mt-4">
-          <button
+          <Button
             onClick={() => setIsVideoOpen(true)}
             className="cursor-pointer bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             {t("listing.watch_video")}
-          </button>
+          </Button>
         </div>
       )}
-
       <div className="mt-10">
         <ShareIcons title={complex.name} />
       </div>
-
       <section className="tablet:grid overflow-hidden tablet:grid-cols-3 tablet:grid-rows-1 gap-2 pb-8 mx-2 whitespace-pre-line">
         <div className="col-span-2">
           <div className=" p-4 description w-full bg-white dark:bg-dark m-2 tablet:mx-0">
@@ -132,31 +129,36 @@ export default function Show(props: Props) {
                     >
                       <td className=" p-2">
                         {["agreed"].includes(listing.status) && (
-                          <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige-default dark:bg-beige-medium font-bold text-white dark:text-dark opacity-50 flex items-center justify-center"></span>
+                          <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-beige-default dark:bg-beige-medium font-bold text-white dark:text-dark opacity-50 flex items-center justify-center" />
                         )}
                         {["sold"].includes(listing.status) && (
-                          <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white dark:text-dark opacity-50 flex items-center justify-center"></span>
+                          <span className="z-3 absolute top-0 bottom-0 left-0 right-0 bg-black font-bold text-white dark:text-dark opacity-50 flex items-center justify-center" />
                         )}
-                        {listing.stats["Piso"] || "-"}
+                        {listing.stats[t("listing.stats.floor")] ||
+                          t("common.not_available")}
                       </td>
                       <td className=" p-2">
-                        {listing.stats["Quartos"] || "-"}
+                        {listing.stats[t("listing.stats.bedrooms")] ||
+                          t("common.not_available")}
                       </td>
                       <td className=" p-2">
-                        {listing.stats["Área Bruta (CP)"] || "-"}
+                        {listing.stats[t("listing.stats.area")] ||
+                          t("common.not_available")}
                       </td>
                       <td className=" p-2">
-                        {listing.stats["Área Útil"] || "-"}
+                        {listing.stats[t("listing.stats.living_area")] ||
+                          t("common.not_available")}
                       </td>
                       <td className=" p-2">
-                        {listing.stats["Estacionamentos"] || "-"}
+                        {listing.stats[t("listing.stats.parking")] ||
+                          t("common.not_available")}
                       </td>
                       <td className={" p-2 "}>
                         {["sold", "agreed"].includes(listing.status)
                           ? listing.status == "agreed"
                             ? t("listing.status.agreed")
                             : t("listing.status.sold")
-                          : `${listing.price} €`}
+                          : `${listing.price} ${t("common.currency")}`}
                       </td>
                       <td className=" p-2">
                         <a

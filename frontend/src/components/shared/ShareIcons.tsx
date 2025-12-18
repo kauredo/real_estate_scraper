@@ -18,13 +18,14 @@ import { faEnvelope, faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { useTranslation } from "react-i18next";
+import { Button } from "../ui/Button";
 
 interface Props {
   title: string;
 }
 
 export default function ShareIcons(props: Props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { title } = props;
   const shareUrl = window.location.href;
   const handleCopy = () => {
@@ -84,9 +85,9 @@ export default function ShareIcons(props: Props) {
         </EmailShareButton>
       </div>
       <div className="hover:text-beige-default dark:hover:text-beige-medium">
-        <button onClick={handleCopy} title={t("share.copy")}>
+        <Button onClick={handleCopy} title={t("share.copy")}>
           <FontAwesomeIcon icon={faLink as IconProp} />
-        </button>
+        </Button>
       </div>
     </div>
   );

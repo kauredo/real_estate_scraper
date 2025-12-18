@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../ui/Button";
 
 interface CustomDotsProps {
   dots: React.ReactNode[];
@@ -6,31 +7,32 @@ interface CustomDotsProps {
 }
 
 const CustomDots: React.FC<CustomDotsProps> = ({ dots, dotWidth = 30 }) => {
-  const totalDots = dots.length;
-  const currentSlide = dots.findIndex((dot: any) =>
-    dot.props.className.includes("slick-active"),
-  );
-
   return (
     <div className="custom-dots-container">
       <ul className="custom-dots flex justify-center gap-2 mt-4 overflow-x-auto px-4 py-2 no-scrollbar">
-        {dots.map((dot: any, index) => {
-          const isActive = dot.props.className.includes("slick-active");
+        {dots.map((dot: React.ReactNode, index) => {
+          const isActive = (dot as React.ReactElement).props.className.includes(
+            "slick-active",
+          );
 
           const handleClick = (e: React.MouseEvent) => {
+            const dotElement = dot as React.ReactElement;
             if (
-              dot.props &&
-              typeof dot.props.children?.props?.onClick === "function"
+              dotElement.props &&
+              typeof dotElement.props.children?.props?.onClick === "function"
             ) {
-              dot.props.children.props.onClick(e);
-            } else if (dot.props && typeof dot.props.onClick === "function") {
-              dot.props.onClick(e);
+              dotElement.props.children.props.onClick(e);
+            } else if (
+              dotElement.props &&
+              typeof dotElement.props.onClick === "function"
+            ) {
+              dotElement.props.onClick(e);
             }
           };
 
           return (
             <li key={index} className={`custom-dot-wrapper flex-shrink-0`}>
-              <button
+              <Button
                 onClick={handleClick}
                 className={`custom-dot transition-all duration-300 ease-in-out cursor-pointer block ${
                   isActive ? "bg-beige-default" : "bg-gray-200"
@@ -41,7 +43,6 @@ const CustomDots: React.FC<CustomDotsProps> = ({ dots, dotWidth = 30 }) => {
                   border: "none",
                   padding: 0,
                 }}
-                type="button"
                 role="tab"
                 aria-selected={isActive}
                 aria-label={`Go to slide ${index + 1}`}

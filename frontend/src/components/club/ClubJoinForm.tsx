@@ -2,6 +2,8 @@ import { FormEvent, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { apiRoutes } from "../../utils/routes";
 import Flashes from "../shared/Flashes";
+import { Button } from "../ui/Button";
+import { Input } from "../ui/Input";
 
 export default function ClubJoinForm() {
   const { t } = useTranslation();
@@ -12,7 +14,7 @@ export default function ClubJoinForm() {
   const [error, setError] = useState("");
   const [flash, setFlash] = useState({ type: "", message: "" });
   const form = useRef<HTMLFormElement>(null);
-  const pattern = /^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/i;
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const validateUser = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,7 +73,7 @@ export default function ClubJoinForm() {
         className="space-y-6"
       >
         <div>
-          <input
+          <Input
             type="text"
             placeholder={t("club.form.fields.name")}
             name="name"
@@ -80,7 +82,7 @@ export default function ClubJoinForm() {
           />
         </div>
         <div>
-          <input
+          <Input
             type="tel"
             placeholder={t("club.form.fields.phone")}
             name="phone"
@@ -89,7 +91,7 @@ export default function ClubJoinForm() {
           />
         </div>
         <div>
-          <input
+          <Input
             type="email"
             placeholder={t("club.form.fields.email")}
             name="email"
@@ -99,7 +101,7 @@ export default function ClubJoinForm() {
         </div>
         <div>
           <label className="flex items-center space-x-3">
-            <input
+            <Input
               type="checkbox"
               name="terms_accepted"
               checked={termsAccepted}
@@ -120,12 +122,12 @@ export default function ClubJoinForm() {
           </label>
         </div>
         <div>
-          <button
+          <Button
             type="submit"
             className="w-full text-lg font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-medium rounded-lg py-3 px-6 transition hover:bg-opacity-90 focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20"
           >
             {t("club.form.fields.send")}
-          </button>
+          </Button>
         </div>
       </form>
     </div>

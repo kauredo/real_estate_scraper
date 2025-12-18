@@ -4,10 +4,6 @@ import { useSearchParams } from "react-router-dom";
 import ClubStoryCard from "../components/club/ClubStoryCard";
 import ClubStorySkeleton from "../components/loading/ClubStorySkeleton";
 import TopProgressBar from "../components/loading/TopProgressBar";
-import SubNavbar from "../components/shared/SubNavbar";
-import ClubHeader from "../components/club/ClubHeader";
-import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
-import { useClubSections } from "../utils/constants/clubSections";
 import { ClubStory } from "../utils/interfaces";
 import MetaTags from "../components/shared/MetaTags";
 import { getClubStories } from "../services/api";
@@ -27,7 +23,6 @@ export default function ClubStoriesPage() {
     total_count: 0,
     total_pages: 0,
   });
-  const clubSections = useClubSections();
 
   const fetchStories = async (page = 1) => {
     try {
@@ -48,7 +43,7 @@ export default function ClubStoriesPage() {
       if (hasInitialData) {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    } catch (error) {
+    } catch {
       showError(t("errors.fetch_club_stories"));
     } finally {
       setLoading(false);

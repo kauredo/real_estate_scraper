@@ -33,9 +33,9 @@ const BlogPostsPage = () => {
 
       // Smooth scroll to top after data is loaded (for pagination)
       if (hasInitialData) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    } catch (error) {
+    } catch {
       showError(t("errors.fetch_blog_posts"));
     } finally {
       setLoading(false);

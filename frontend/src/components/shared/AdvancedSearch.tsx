@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { StatsFilter } from "../../utils/interfaces";
+import { Button } from "../ui/Button";
+import { Input } from "../ui/Input";
+import { Select } from "../ui/Select";
 
 interface Props {
   listingMaxPrice: number;
@@ -51,12 +54,12 @@ export default function AdvancedSearch({
 
   return (
     <div className="flex flex-col">
-      <button
+      <Button
         onClick={toggleAdvancedSearch}
         className="text-beige-default dark:text-beige-medium text-lg font-bold underline text-left mb-2"
       >
         {t("listing.advanced_search")} {showAdvancedSearch ? "▲" : "▼"}
-      </button>
+      </Button>
       <div
         className={`w-full flex flex-wrap align-center gap-6 mb-4 ${
           showAdvancedSearch ? "block" : "hidden"
@@ -66,7 +69,7 @@ export default function AdvancedSearch({
           <label htmlFor="q_title_cont" className="block mb-1">
             {t("listing.search.name")}
           </label>
-          <input
+          <Input
             type="text"
             id="q_title_cont"
             name="q[title_cont]"
@@ -82,7 +85,7 @@ export default function AdvancedSearch({
             <label htmlFor={`q_${key}_eq`} className="block mb-1">
               {t(`listing.stats.${key.toLowerCase()}`)}
             </label>
-            <select
+            <Select
               id={`q_${key}_eq`}
               name={`q[${key}_eq]`}
               value={statsFilters?.[`${key}_eq`] || ""}
@@ -95,7 +98,7 @@ export default function AdvancedSearch({
                   {num}
                 </option>
               ))}
-            </select>
+            </Select>
           </div>
         ))}
       </div>

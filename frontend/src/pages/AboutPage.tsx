@@ -27,7 +27,7 @@ const AboutPage = () => {
         if (data.testimonials) {
           setTestimonials(data.testimonials as Testimonial[]);
         }
-      } catch (err) {
+      } catch {
         showError(t("errors.fetch_about_data"));
       }
     };
@@ -123,7 +123,7 @@ const AboutPage = () => {
                   t("about.kw_partnership.principles.list", {
                     returnObjects: true,
                   }),
-                ).map(([_, object]) =>
+                ).map((object) =>
                   Object.entries(object).map(([key, value]) => (
                     <li
                       key={key}

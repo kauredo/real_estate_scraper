@@ -4,7 +4,9 @@ interface TopProgressBarProps {
   isLoading?: boolean;
 }
 
-const TopProgressBar: React.FC<TopProgressBarProps> = ({ isLoading = true }) => {
+const TopProgressBar: React.FC<TopProgressBarProps> = ({
+  isLoading = true,
+}) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {

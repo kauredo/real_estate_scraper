@@ -62,6 +62,7 @@ Regular users and search engines are **not affected** - they get the normal fast
 ### Standard Web APIs (No Dependencies!)
 
 The middleware uses standard Web APIs that are built into Vercel Edge Runtime:
+
 - `Request` - Standard Web API for HTTP requests
 - `Response` - Standard Web API for HTTP responses
 - `fetch()` - Standard Web API for making HTTP requests
@@ -72,7 +73,9 @@ The middleware uses standard Web APIs that are built into Vercel Edge Runtime:
 ## Files
 
 ### `middleware.ts`
+
 Main middleware logic using standard Web APIs that:
+
 - Detects crawler user agents
 - Parses URLs to extract content type and slug
 - Fetches data from the API
@@ -80,13 +83,16 @@ Main middleware logic using standard Web APIs that:
 - Uses `export default` function format (not Next.js specific)
 
 ### `lib/metaTagsGenerator.ts`
+
 Helper functions to:
+
 - Generate meta tag HTML from content data
 - Handle different content types (listings, blog posts, complexes)
 - Escape HTML to prevent XSS
 - Format descriptions and titles properly
 
 ### `vercel.json`
+
 Configuration for Vercel deployment including rewrites and headers.
 
 ## Supported Crawlers
@@ -105,21 +111,25 @@ The middleware detects and handles these social media crawlers:
 ## Supported Content Types
 
 ### Listings
+
 - **URL Pattern**: `/comprar/:slug` or `/buy/:slug`
 - **API Endpoint**: `/api/v1/listings/:slug`
 - **Meta Tags**: Title, description, first photo
 
 ### Blog Posts
+
 - **URL Pattern**: `/blog/:slug`
 - **API Endpoint**: `/api/v1/blog_posts/:slug`
 - **Meta Tags**: meta_title or title, meta_description, featured image
 
 ### Listing Complexes
+
 - **URL Pattern**: `/empreendimentos/:slug` or `/enterprises/:slug`
 - **API Endpoint**: `/api/v1/listing_complexes/:slug`
 - **Meta Tags**: Name, description, first photo
 
 ### Club Stories (NEW!)
+
 - **URL Pattern**: `/clube-sgg/historias/:slug` or `/club/stories/:slug`
 - **API Endpoint**: `/api/v1/club_stories/:slug`
 - **Meta Tags**: Title, description, featured image
@@ -132,6 +142,7 @@ The middleware automatically detects the language from the URL and sets the appr
 - **English**: URLs starting with `/en/` → `og:locale="en_US"`
 
 **Examples:**
+
 - `https://sofiagalvaogroup.com/comprar/villa` → Portuguese locale
 - `https://sofiagalvaogroup.com/en/buy/villa` → English locale
 
@@ -165,6 +176,7 @@ git push
 Visit: https://developers.facebook.com/tools/debug/
 
 Enter URLs:
+
 - Homepage: `https://sofiagalvaogroup.com/`
 - Listing: `https://sofiagalvaogroup.com/comprar/[slug]`
 - Blog: `https://sofiagalvaogroup.com/blog/[slug]`
@@ -175,6 +187,7 @@ Enter URLs:
 Click "Scrape Again" to clear cache and fetch new data.
 
 **Expected Results**:
+
 - ✅ Proper title with listing/blog name
 - ✅ Description (max 160 characters)
 - ✅ Image preview (listing photo or featured image)
@@ -189,6 +202,7 @@ Paste your URLs and verify the card preview appears correctly.
 ### 4. Test with LinkedIn
 
 Create a new post in LinkedIn and paste a listing URL. The preview should appear with:
+
 - Correct title
 - Description
 - Image
@@ -196,6 +210,7 @@ Create a new post in LinkedIn and paste a listing URL. The preview should appear
 ### 5. Test Regular User Experience
 
 Open the site in a normal browser and verify:
+
 - No performance degradation
 - React meta tags still update dynamically
 - Page navigation is fast
@@ -203,12 +218,14 @@ Open the site in a normal browser and verify:
 ### 6. Check Vercel Deployment Logs
 
 In your Vercel dashboard:
+
 1. Go to Deployments
 2. Click on the latest deployment
 3. Go to Functions tab
 4. Look for middleware execution logs
 
 You should see logs like:
+
 ```
 [Crawler detected] facebookexternalhit/1.1 - /comprar/luxury-apartment-lisbon
 [Crawler] Fetching listing data for slug: luxury-apartment-lisbon
@@ -224,9 +241,9 @@ Add a test header to the middleware response to verify it's executing:
 ```typescript
 return new NextResponse(modifiedHtml, {
   headers: {
-    'Content-Type': 'text/html; charset=utf-8',
-    'X-Middleware-Test': 'active', // Add this for debugging
-    'Cache-Control': 'public, max-age=300, s-maxage=300',
+    "Content-Type": "text/html; charset=utf-8",
+    "X-Middleware-Test": "active", // Add this for debugging
+    "Cache-Control": "public, max-age=300, s-maxage=300",
   },
 });
 ```
@@ -251,30 +268,36 @@ curl -H "X-API-Key: YOUR_API_KEY" \
 ### Common Issues
 
 **Issue**: Meta tags not appearing for crawlers
+
 - **Check**: Middleware logs in Vercel
 - **Verify**: API_KEY is set in Vercel environment variables
 - **Test**: API endpoint returns valid data
 
 **Issue**: Timeout errors
+
 - **Check**: API response time (should be < 3 seconds)
 - **Solution**: Optimize API queries or increase timeout
 
 **Issue**: CORS errors
+
 - **Check**: API allows requests from Vercel edge locations
 - **Note**: This shouldn't be an issue as middleware runs server-side
 
 **Issue**: Images not loading
+
 - **Check**: Photo URLs are absolute (not relative)
 - **Verify**: Images are publicly accessible
 
 ## Monitoring
 
 Monitor middleware performance in Vercel:
+
 - **Functions → Middleware** - Execution count and duration
 - **Analytics → Edge** - Cache hit rate
 - **Logs** - Crawler requests and errors
 
 Typical metrics:
+
 - Execution time: 100-500ms (including API fetch)
 - Cache hit rate: 60-80% (after warm-up)
 - Error rate: < 1%
@@ -282,6 +305,7 @@ Typical metrics:
 ## Future Enhancements
 
 Possible improvements:
+
 - Add support for more crawlers (Reddit, Discourse, etc.)
 - Implement edge caching for API responses
 - Add fallback images per content type

@@ -1,15 +1,13 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 interface Props {
   length?: number;
-  children: any;
+  children: string;
 }
 
 export const ReadMore = (props: Props) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { length, children } = props;
   const text = children;
   const [isReadMore, setIsReadMore] = useState(true);

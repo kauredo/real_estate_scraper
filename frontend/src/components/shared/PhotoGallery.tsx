@@ -4,6 +4,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/outline";
+import { Button } from "../ui/Button";
 
 interface Props {
   photos: string[];
@@ -83,16 +84,16 @@ export default function PhotoGallery({ photos }: Props) {
 
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
-          <button
+          <Button
             onClick={closeLightbox}
             className="absolute top-4 right-4 text-white"
           >
             <XMarkIcon className="h-8 w-8" />
-          </button>
+          </Button>
 
-          <button onClick={goToPrevious} className="absolute left-4 text-white">
+          <Button onClick={goToPrevious} className="absolute left-4 text-white">
             <ChevronLeftIcon className="h-8 w-8" />
-          </button>
+          </Button>
 
           <img
             src={photos[currentImageIndex]}
@@ -100,9 +101,9 @@ export default function PhotoGallery({ photos }: Props) {
             className="max-h-[90vh] max-w-[90vw] object-contain"
           />
 
-          <button onClick={goToNext} className="absolute right-4 text-white">
+          <Button onClick={goToNext} className="absolute right-4 text-white">
             <ChevronRightIcon className="h-8 w-8" />
-          </button>
+          </Button>
         </div>
       )}
     </div>

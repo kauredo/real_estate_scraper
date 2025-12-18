@@ -15,23 +15,24 @@
  * - Telegram (TelegramBot)
  */
 
-import { generateMetaTags } from './lib/metaTagsGenerator';
+import { generateMetaTags } from "./lib/metaTagsGenerator";
 
 // Crawler user agents to detect
 const CRAWLER_USER_AGENTS = [
-  'facebookexternalhit',
-  'Twitterbot',
-  'LinkedInBot',
-  'WhatsApp',
-  'Slackbot',
-  'Pinterest',
-  'TelegramBot',
-  'Discordbot',
+  "facebookexternalhit",
+  "Twitterbot",
+  "LinkedInBot",
+  "WhatsApp",
+  "Slackbot",
+  "Pinterest",
+  "TelegramBot",
+  "Discordbot",
 ];
 
 // API configuration
-const API_BASE_URL = process.env.VITE_API_URL || 'https://api.sofiagalvaogroup.com/api/v1';
-const API_KEY = process.env.VITE_API_KEY || '';
+const API_BASE_URL =
+  process.env.VITE_API_URL || "https://api.sofiagalvaogroup.com/api/v1";
+const API_KEY = process.env.VITE_API_KEY || "";
 const API_TIMEOUT = 3000; // 3 seconds
 
 /**
@@ -42,82 +43,90 @@ function isCrawler(userAgent: string): boolean {
 
   const lowerUserAgent = userAgent.toLowerCase();
   return CRAWLER_USER_AGENTS.some((crawler) =>
-    lowerUserAgent.includes(crawler.toLowerCase())
+    lowerUserAgent.includes(crawler.toLowerCase()),
   );
 }
 
 /**
  * Detects language from URL pathname
  */
-function detectLanguage(pathname: string): 'pt' | 'en' {
-  return pathname.startsWith('/en/') ? 'en' : 'pt';
+function detectLanguage(pathname: string): "pt" | "en" {
+  return pathname.startsWith("/en/") ? "en" : "pt";
 }
 
 /**
  * Parses URL to extract content type and slug
  */
 function parseContentUrl(pathname: string): {
-  type: 'listing' | 'blog' | 'complex' | 'club_story' | null;
+  type: "listing" | "blog" | "complex" | "club_story" | null;
   slug: string | null;
-  language: 'pt' | 'en';
+  language: "pt" | "en";
 } {
   // Detect language first
   const language = detectLanguage(pathname);
 
   // Remove language prefix if exists (e.g., /en/)
-  const cleanPath = pathname.replace(/^\/(?:en|pt)\//, '/');
+  const cleanPath = pathname.replace(/^\/(?:en|pt)\//, "/");
 
   // Match listing URL: /comprar/:slug or /buy/:slug
-  const listingMatch = cleanPath.match(/^\/(?:comprar|buy)\/([^\/]+)$/);
+  const listingMatch = cleanPath.match(/^\/(?:comprar|buy)\/([^/]+)$/);
   if (listingMatch) {
-    return { type: 'listing', slug: listingMatch[1], language };
+    return { type: "listing", slug: listingMatch[1], language };
   }
 
   // Match blog post URL: /blog/:slug
-  const blogMatch = cleanPath.match(/^\/blog\/([^\/]+)$/);
+  const blogMatch = cleanPath.match(/^\/blog\/([^/]+)$/);
   if (blogMatch) {
-    return { type: 'blog', slug: blogMatch[1], language };
+    return { type: "blog", slug: blogMatch[1], language };
   }
 
   // Match listing complex URL: /empreendimentos/:slug or /enterprises/:slug
   const complexMatch = cleanPath.match(
-    /^\/(?:empreendimentos|enterprises)\/([^\/]+)$/
+    /^\/(?:empreendimentos|enterprises)\/([^/]+)$/,
   );
   if (complexMatch) {
-    return { type: 'complex', slug: complexMatch[1], language };
+    return { type: "complex", slug: complexMatch[1], language };
   }
 
   // Match club story URL: /clube-sgg/historias/:slug or /club/stories/:slug
   const clubStoryMatch = cleanPath.match(
-    /^\/(?:clube-sgg\/historias|club\/stories)\/([^\/]+)$/
+    /^\/(?:clube-sgg\/historias|club\/stories)\/([^/]+)$/,
   );
   if (clubStoryMatch) {
-    return { type: 'club_story', slug: clubStoryMatch[1], language };
+    return { type: "club_story", slug: clubStoryMatch[1], language };
   }
 
   return { type: null, slug: null, language };
+}
+
+interface ContentData {
+  meta_title: string;
+  meta_description: string;
+  meta_image_url: string;
+  title: string;
+  name: string;
 }
 
 /**
  * Fetches content data from the Rails API
  */
 async function fetchContentData(
-  type: 'listing' | 'blog' | 'complex' | 'club_story',
-  slug: string
-): Promise<any> {
-  let endpoint = '';
+  type: "listing" | "blog" | "complex" | "club_story",
+  slug: string,
+): Promise<ContentData | null> {
+  let endpoint = "";
 
   switch (type) {
-    case 'listing':
+    case "listing":
       endpoint = `${API_BASE_URL}/listings/${slug}`;
       break;
-    case 'blog':
+    case "blog":
       endpoint = `${API_BASE_URL}/blog_posts/${slug}`;
       break;
-    case 'complex':
+    case "complex":
       endpoint = `${API_BASE_URL}/listing_complexes/${slug}`;
       break;
-    case 'club_story':
+    case "club_story":
       endpoint = `${API_BASE_URL}/club_stories/${slug}`;
       break;
   }
@@ -128,8 +137,8 @@ async function fetchContentData(
   try {
     const response = await fetch(endpoint, {
       headers: {
-        'Content-Type': 'application/json',
-        'X-API-Key': API_KEY,
+        "Content-Type": "application/json",
+        "X-API-Key": API_KEY,
       },
       signal: controller.signal,
     });
@@ -144,20 +153,20 @@ async function fetchContentData(
     const data = await response.json();
 
     // Extract the relevant data based on type
-    if (type === 'listing') {
+    if (type === "listing") {
       return data.listing || data;
-    } else if (type === 'blog') {
+    } else if (type === "blog") {
       return data.blog_post || data;
-    } else if (type === 'complex') {
+    } else if (type === "complex") {
       return data.listing_complex || data;
-    } else if (type === 'club_story') {
+    } else if (type === "club_story") {
       return data.club_story || data;
     }
 
     return data;
   } catch (error) {
     clearTimeout(timeoutId);
-    console.error('Error fetching content data:', error);
+    console.error("Error fetching content data:", error);
     return null;
   }
 }
@@ -167,30 +176,30 @@ async function fetchContentData(
  */
 function injectMetaTags(html: string, metaTagsHtml: string): string {
   // Find the closing </head> tag and inject meta tags before it
-  const headCloseIndex = html.indexOf('</head>');
+  const headCloseIndex = html.indexOf("</head>");
 
   if (headCloseIndex === -1) {
-    console.error('Could not find </head> tag in HTML');
+    console.error("Could not find </head> tag in HTML");
     return html;
   }
 
   // Remove existing dynamic meta tags to avoid duplicates
   const existingMetaRegex =
     /<meta\s+(?:name|property)=["'](?:description|og:|twitter:)[^>]*>/gi;
-  const cleanedHtml = html.replace(existingMetaRegex, '');
+  const cleanedHtml = html.replace(existingMetaRegex, "");
 
   // Also remove existing title if we're injecting a new one
   const titleRegex = /<title>[^<]*<\/title>/i;
-  const htmlWithoutTitle = cleanedHtml.replace(titleRegex, '');
+  const htmlWithoutTitle = cleanedHtml.replace(titleRegex, "");
 
   // Find the new head close position after cleaning
-  const newHeadCloseIndex = htmlWithoutTitle.indexOf('</head>');
+  const newHeadCloseIndex = htmlWithoutTitle.indexOf("</head>");
 
   return (
     htmlWithoutTitle.slice(0, newHeadCloseIndex) +
-    '\n    ' +
+    "\n    " +
     metaTagsHtml +
-    '\n  ' +
+    "\n  " +
     htmlWithoutTitle.slice(newHeadCloseIndex)
   );
 }
@@ -199,18 +208,20 @@ function injectMetaTags(html: string, metaTagsHtml: string): string {
  * Main middleware function using standard Web APIs
  */
 export default async function middleware(request: Request) {
-  const userAgent = request.headers.get('user-agent') || '';
+  const userAgent = request.headers.get("user-agent") || "";
   const url = new URL(request.url);
   const { pathname } = url;
 
   // Skip middleware for static assets
   if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/api') ||
-    pathname.startsWith('/images') ||
-    pathname.startsWith('/fonts') ||
-    pathname.startsWith('/assets') ||
-    pathname.match(/\.(ico|png|jpg|jpeg|svg|css|js|woff|woff2|ttf|eot|webp|gif)$/)
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/images") ||
+    pathname.startsWith("/fonts") ||
+    pathname.startsWith("/assets") ||
+    pathname.match(
+      /\.(ico|png|jpg|jpeg|svg|css|js|woff|woff2|ttf|eot|webp|gif)$/,
+    )
   ) {
     return; // Let Vercel handle these normally
   }
@@ -231,7 +242,9 @@ export default async function middleware(request: Request) {
     return;
   }
 
-  console.log(`[Crawler] Fetching ${type} data for slug: ${slug} (lang: ${language})`);
+  console.log(
+    `[Crawler] Fetching ${type} data for slug: ${slug} (lang: ${language})`,
+  );
 
   // Fetch content data from API
   const contentData = await fetchContentData(type, slug);
@@ -258,8 +271,8 @@ export default async function middleware(request: Request) {
   // Return modified HTML
   return new Response(modifiedHtml, {
     headers: {
-      'Content-Type': 'text/html; charset=utf-8',
-      'Cache-Control': 'public, max-age=300, s-maxage=300', // Cache for 5 minutes
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "public, max-age=300, s-maxage=300", // Cache for 5 minutes
     },
   });
 }
@@ -273,6 +286,6 @@ export const config = {
      * - API routes
      * - Image/font files
      */
-    '/((?!_next|api|images|fonts|assets|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js|woff|woff2|ttf|eot)).*)',
+    "/((?!_next|api|images|fonts|assets|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js|woff|woff2|ttf|eot)).*)",
   ],
 };

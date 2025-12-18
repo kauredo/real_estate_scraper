@@ -12,7 +12,7 @@ export default function Profile() {
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="h-min py-8 md:pb-2 text-ellipsis overflow-hidden">
           <h2 className="block mt-2 text-2xl text-dark dark:text-light sm:text-4xl">
-            Sofia Galvão
+            {t("about.profile.name")}
           </h2>
           <h3 className="font-medium leading-tight text-xl">
             {t("about.profile.slogan")}

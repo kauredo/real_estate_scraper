@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +10,7 @@ interface Props {
 }
 
 function Hero(props: Props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { photos } = props;
 
   const title = t("home.slogan.middle").includes("home.slogan.middle") ? (

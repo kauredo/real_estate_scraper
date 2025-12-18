@@ -3,13 +3,9 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import PhotoGallery from "../components/shared/PhotoGallery";
 import ShareIcons from "../components/shared/ShareIcons";
-import SubNavbar from "../components/shared/SubNavbar";
-import { useClubSections } from "../utils/constants/clubSections";
 import { ClubStory } from "../utils/interfaces";
 import { MetaTags } from "../components/shared/MetaTags";
 import { getClubStory } from "../services/api";
-
-interface Props {}
 
 export default function ClubStoryDetailPage() {
   const { t } = useTranslation();
@@ -18,7 +14,6 @@ export default function ClubStoryDetailPage() {
   const previewToken = searchParams.get("preview_token");
   const [clubStory, setClubStory] = useState<ClubStory | null>(null);
   const [loading, setLoading] = useState(true);
-  const clubSections = useClubSections();
 
   useEffect(() => {
     const fetchStory = async () => {

@@ -7,9 +7,11 @@ import AdvancedSearch from "./AdvancedSearch";
 import { StatsFilter } from "../../utils/interfaces";
 import ObjectiveTabs from "./ObjectiveTabs";
 import Routes from "../../utils/routes";
+import { Button } from "../ui/Button";
+import { Select } from "../ui/Select";
 
 interface Props {
-  params: Record<string, any>;
+  params: Record<string, string>;
   listingMaxPrice: number;
   statsKeys: string[];
   kinds: { kind: string; index: number }[];
@@ -26,14 +28,15 @@ export default function ListingSearch(props: Props) {
     statsKeys = [],
     kinds = [],
     objectives = [],
-    onSearch,
   } = props;
 
   // Parse URL parameters with proper fallbacks (URL uses Rails format: q[field_eq])
   const [title, setTitle] = useState(params?.["q[title_cont]"] || "");
   const [status, setStatus] = useState(params?.["q[status_eq]"] || "");
   const [kind, setKind] = useState(Number(params?.["q[kind_eq]"]) || 0);
-  const [objective, setObjective] = useState(Number(params?.["q[objective_eq]"]) || 1);
+  const [objective, setObjective] = useState(
+    Number(params?.["q[objective_eq]"]) || 1,
+  );
   const [statsFilters, setStatsFilters] = useState<Partial<StatsFilter>>(() => {
     const filters: Partial<StatsFilter> = {};
     Object.entries(params || {}).forEach(([key, value]) => {
@@ -179,13 +182,13 @@ export default function ListingSearch(props: Props) {
     <div className="container mx-auto sm:px-6 px-4">
       <div className="flex justify-between items-center mb-4 mt-8 md:mt-2">
         <h2 className="text-xl">{t("listing.search.title")}</h2>
-        <button
+        <Button
           type="button"
           onClick={handleReset}
           className="text-beige-default dark:text-beige-medium font-bold underline"
         >
           {t("listing.reset_filters")}
-        </button>
+        </Button>
       </div>
 
       <form onSubmit={handleSubmit}>
@@ -201,7 +204,7 @@ export default function ListingSearch(props: Props) {
             <label htmlFor="q_kind_eq" className="block mb-1 font-medium">
               {t("listing.kind.title")}
             </label>
-            <select
+            <Select
               name="q[kind_eq]"
               id="q_kind_eq"
               className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px] focus:ring-2 focus:ring-beige-default focus:border-transparent"
@@ -215,7 +218,7 @@ export default function ListingSearch(props: Props) {
                     {t(`listing.kind.${kindName}`)}
                   </option>
                 ))}
-            </select>
+            </Select>
           </div>
 
           {/* Basic Stats (Rooms, Bathrooms) */}
@@ -227,7 +230,7 @@ export default function ListingSearch(props: Props) {
               >
                 {t(`listing.stats.${key.toLowerCase()}`)}
               </label>
-              <select
+              <Select
                 id={`q_${key}`}
                 name={`q[${key}_eq]`}
                 value={statsFilters?.[`${key}_eq`] || ""}
@@ -240,7 +243,7 @@ export default function ListingSearch(props: Props) {
                     {num}
                   </option>
                 ))}
-              </select>
+              </Select>
             </div>
           ))}
 
@@ -249,7 +252,7 @@ export default function ListingSearch(props: Props) {
             <label htmlFor="q_status_eq" className="block mb-1 font-medium">
               {t("listing.search.status.title")}
             </label>
-            <select
+            <Select
               name="q[status_eq]"
               id="q_status_eq"
               className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px] focus:ring-2 focus:ring-beige-default focus:border-transparent"
@@ -262,7 +265,7 @@ export default function ListingSearch(props: Props) {
               <option value="3">{t("listing.search.status.sold")}</option>
               <option value="4">{t("listing.search.status.rented")}</option>
               <option value="5">{t("listing.search.status.closed")}</option>
-            </select>
+            </Select>
           </div>
 
           {/* Price Range */}
@@ -307,12 +310,12 @@ export default function ListingSearch(props: Props) {
         />
 
         <div className="flex items-center flex-wrap gap-4">
-          <button
+          <Button
             type="submit"
             className="bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-6 rounded w-full md:w-auto hover:bg-beige-dark transition-colors"
           >
             {t("listing.search.submit")}
-          </button>
+          </Button>
 
           <div className="text-sm text-gray-600 dark:text-gray-300">
             {Object.keys(buildSearchParams()).length > 1 && (

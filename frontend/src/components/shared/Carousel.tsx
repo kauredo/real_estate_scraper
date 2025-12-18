@@ -4,9 +4,9 @@ import CustomDots from "./CustomDots";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const debounce = (func: Function, wait: number) => {
+const debounce = (func: (...args: unknown[]) => void, wait: number) => {
   let timeout: ReturnType<typeof setTimeout>;
-  return function executedFunction(...args: any[]) {
+  return function executedFunction(...args: unknown[]) {
     const later = () => {
       clearTimeout(timeout);
       func(...args);

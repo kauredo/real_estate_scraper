@@ -27,7 +27,7 @@ export default function ClubPage() {
         setLoading(true);
         const response = await getClub();
         setRecentStories(response.data);
-      } catch (error) {
+      } catch {
         showError(t("errors.fetch_club_data"));
       } finally {
         setLoading(false);

@@ -1,15 +1,13 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
+import { Notification } from "../utils/notification";
 
-export type NotificationType = "success" | "error" | "warning" | "info";
+export const NotificationContext = createContext<
+  NotificationContextProps | undefined
+>(undefined);
 
-export interface Notification {
-  id: string;
-  type: NotificationType;
-  title?: string;
-  message: string;
-  duration?: number;
-  persistent?: boolean;
+interface NotificationProviderProps {
+  children: ReactNode;
 }
 
 interface NotificationContextProps {
@@ -21,14 +19,6 @@ interface NotificationContextProps {
   showInfo: (message: string, options?: Partial<Notification>) => void;
   hideNotification: (id: string) => void;
   clearNotifications: () => void;
-}
-
-const NotificationContext = createContext<NotificationContextProps | undefined>(
-  undefined,
-);
-
-interface NotificationProviderProps {
-  children: ReactNode;
 }
 
 export const NotificationProvider: React.FC<NotificationProviderProps> = ({
@@ -126,14 +116,4 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
       {children}
     </NotificationContext.Provider>
   );
-};
-
-export const useNotifications = () => {
-  const context = useContext(NotificationContext);
-  if (context === undefined) {
-    throw new Error(
-      "useNotifications must be used within a NotificationProvider",
-    );
-  }
-  return context;
 };

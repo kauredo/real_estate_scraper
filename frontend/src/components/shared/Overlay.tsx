@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function Overlay(props: Props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { status, padding, show } = props;
   const color = status === "sold" ? "black" : "beige-default";
 

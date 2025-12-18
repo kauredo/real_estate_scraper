@@ -5,6 +5,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   small?: boolean;
@@ -12,6 +13,7 @@ interface Props {
 
 export default function Socials(props: Props) {
   const { small } = props;
+  const { t } = useTranslation();
 
   const mainDivClasses = `flex ${
     small
@@ -33,7 +35,9 @@ export default function Socials(props: Props) {
       >
         <div className={iconClasses}>
           <FontAwesomeIcon icon={faLinkedin as IconProp} />
-          {!small ? <span className="px-2 text-sm">Sofia Galvão</span> : null}
+          {!small ? (
+            <span className="px-2 text-sm">{t("socials.linkedin")}</span>
+          ) : null}
         </div>
       </a>
       <a
@@ -45,7 +49,7 @@ export default function Socials(props: Props) {
         <div className={iconClasses}>
           <FontAwesomeIcon icon={faInstagram as IconProp} />
           {!small ? (
-            <span className="px-2 text-sm">@sofiagalvaogroupkw</span>
+            <span className="px-2 text-sm">{t("socials.instagram")}</span>
           ) : null}
         </div>
       </a>
@@ -57,7 +61,9 @@ export default function Socials(props: Props) {
       >
         <div className={iconClasses}>
           <FontAwesomeIcon icon={faFacebook as IconProp} />
-          {!small ? <span className="px-2 text-sm">/sofiagalvaokw</span> : null}
+          {!small ? (
+            <span className="px-2 text-sm">{t("socials.facebook")}</span>
+          ) : null}
         </div>
       </a>
       <a
@@ -68,7 +74,9 @@ export default function Socials(props: Props) {
       >
         <div className={iconClasses}>
           <FontAwesomeIcon icon={faWhatsapp as IconProp} />
-          {!small ? <span className="px-2 text-sm">+351 932829084</span> : null}
+          {!small ? (
+            <span className="px-2 text-sm">{t("socials.whatsapp")}</span>
+          ) : null}
         </div>
       </a>
     </div>

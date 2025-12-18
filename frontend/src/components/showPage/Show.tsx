@@ -6,6 +6,7 @@ import { ReadMore } from "../shared/ReadMore";
 import Overlay from "../shared/Overlay";
 import ShareIcons from "../shared/ShareIcons";
 import Carousel from "../shared/Carousel";
+import Button from "../ui/Button";
 
 interface Props {
   listing: Listing;
@@ -88,24 +89,24 @@ export default function Show(props: Props) {
             <div className="p-4 w-full bg-white dark:bg-dark m-2 tablet:mx-0">
               {listing.video_link && (
                 <div className="mb-2">
-                  <button
+                  <Button
                     onClick={() => setOpen(true)}
                     className="cursor-pointer bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   >
                     {t("listing.watch_video")}
-                  </button>
+                  </Button>
                 </div>
               )}
               {listing.virtual_tour_url && (
                 <div className="mb-2">
-                  <button
+                  <Button
                     onClick={() =>
                       window.open(listing.virtual_tour_url, "_blank")
                     }
                     className="cursor-pointer bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   >
                     {t("listing.open_tour")}
-                  </button>
+                  </Button>
                 </div>
               )}
               <h2 className="standard mb-2 text-2xl font-bold">
