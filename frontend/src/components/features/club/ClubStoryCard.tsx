@@ -33,9 +33,7 @@ export default function ClubStoryCard({ story }: Props) {
           {story.sample_text}
         </p>
         <div className="flex flex-wrap gap-2">
-          <ButtonLink to={storyUrl}>
-            {t("general.read_more")}
-          </ButtonLink>
+          <ButtonLink to={storyUrl}>{t("general.read_more")}</ButtonLink>
         </div>
       </div>
     </div>

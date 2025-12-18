@@ -45,10 +45,18 @@ function Hero(props: Props) {
       </div>
       <div className="relative bottom-5 left-0 right-0 center">
         <div className="flex justify-center">
-          <ButtonLink to={Routes.buy_path} variant="link" className="px-5 lowercase">
+          <ButtonLink
+            to={Routes.buy_path}
+            variant="link"
+            className="px-5 lowercase"
+          >
             {t("navbar.buy")}
           </ButtonLink>
-          <ButtonLink to={Routes.sell_path} variant="link" className="px-5 lowercase">
+          <ButtonLink
+            to={Routes.sell_path}
+            variant="link"
+            className="px-5 lowercase"
+          >
             {t("navbar.sell")}
           </ButtonLink>
           <a href="#cards">
