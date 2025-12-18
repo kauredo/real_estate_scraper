@@ -3,7 +3,7 @@ import Card from "./Card";
 import { toCapitalize } from "@/utils/functions";
 import { Photo, Listing } from "@/utils/interfaces";
 import Carousel from "@/components/ui/Carousel";
-import { Button } from "@/components/ui/Button";
+import Tabs from "@/components/ui/Tabs";
 
 interface Props {
   listings: Record<string, Listing[]> | Listing[];
@@ -75,30 +75,13 @@ export default function Cards(props: Props) {
   // Show listings grouped by location
   if (isGroupedByLocation && locations.length > 0) {
     const [selectedLocation, setSelectedLocation] = useState(locations[0]);
-    const locationListings = listings[selectedLocation] || [];
 
-    return (
-      <section
-        id="cards"
-        className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
-      >
-        <div className="sm:w-min mx-auto flex flex-col sm:flex-row mb-6">
-          {locations.map((location) => (
-            <Button
-              key={`${location}-tab`}
-              onClick={() => setSelectedLocation(location)}
-              className={`whitespace-nowrap py-4 px-6 block hover:text-beige-default dark:hover:text-beige-medium hover:border-beige-default dark:hover:border-beige-medium focus:outline-none border-b-2 font-medium ${
-                selectedLocation === location
-                  ? "border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium"
-                  : "border-grey text-grey dark:text-light"
-              }`}
-            >
-              {`${toCapitalize(location)} (${listings[location]?.length || 0})`}
-            </Button>
-          ))}
-        </div>
+    const locationTabs = locations.map((location) => ({
+      id: location,
+      label: `${toCapitalize(location)} (${listings[location]?.length || 0})`,
+      content: (
         <Carousel
-          items={locationListings.map((listing) => (
+          items={(listings[location] || []).map((listing) => (
             <Card listing={listing} key={listing.slug} />
           ))}
           autoplay
@@ -106,6 +89,22 @@ export default function Cards(props: Props) {
           infinite={false}
           responsive
           slidesToShow={getSlidesToShow()}
+        />
+      ),
+    }));
+
+    return (
+      <section
+        id="cards"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      >
+        <Tabs
+          tabs={locationTabs}
+          activeTab={selectedLocation}
+          onTabChange={setSelectedLocation}
+          variant="line"
+          centered
+          className="mb-6"
         />
       </section>
     );

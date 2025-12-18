@@ -14,6 +14,7 @@ interface TabsProps {
   activeTab: string;
   onTabChange: (tabId: string) => void;
   variant?: "line" | "pills";
+  centered?: boolean;
   className?: string;
 }
 
@@ -22,12 +23,16 @@ const Tabs = ({
   activeTab,
   onTabChange,
   variant = "line",
+  centered = false,
   className = "",
 }: TabsProps) => {
   const activeTabContent = tabs.find((tab) => tab.id === activeTab)?.content;
 
   const lineVariantStyles = {
-    container: "border-b border-gray-200 dark:border-gray-700",
+    container: cn(
+      "border-b border-gray-200 dark:border-gray-700",
+      centered && "flex justify-center",
+    ),
     button:
       "inline-flex items-center gap-2 px-4 py-2 border-b-2 font-medium text-sm transition-colors",
     active:
@@ -38,7 +43,10 @@ const Tabs = ({
   };
 
   const pillsVariantStyles = {
-    container: "bg-gray-100 dark:bg-gray-800 p-1 rounded-lg inline-flex gap-1",
+    container: cn(
+      "bg-gray-100 dark:bg-gray-800 p-1 rounded-lg inline-flex gap-1",
+      centered && "justify-center",
+    ),
     button: "px-4 py-2 rounded-md transition-all",
     active:
       "bg-white dark:bg-gray-700 text-beige-default dark:text-beige-medium shadow-sm font-medium",
