@@ -15,8 +15,8 @@ export default function Listings(props: Props) {
   if (listings.length === 0) {
     return (
       <div id="listings">
-        <div className="container mx-auto">
-          <div className="flex flex-col justify-center items-center pt-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col justify-center items-center">
             <p className="text-xl text-gray-500 dark:text-light text-center">
               {t("listing.no_listings")}
             </p>
@@ -30,10 +30,12 @@ export default function Listings(props: Props) {
   }
 
   return (
-    <div className="container mx-auto flex flex-wrap" id="listings">
-      {listings?.map((listing) => {
-        return <LongCard listing={listing} key={listing.url} />;
-      })}
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8" id="listings">
+      <div className="grid grid-cols-1 gap-6">
+        {listings?.map((listing) => {
+          return <LongCard listing={listing} key={listing.url} />;
+        })}
+      </div>
     </div>
   );
 }

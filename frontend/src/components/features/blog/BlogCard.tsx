@@ -18,7 +18,6 @@ const BlogCard = ({ blogPost }: { blogPost: BlogPost }) => {
       imageAlt={blogPost.title}
       linkUrl={blogUrl}
       action={<ButtonLink to={blogUrl}>{t("general.read_more")}</ButtonLink>}
-      className="max-w-sm w-96 mb-5 mx-auto"
     />
   );
 };

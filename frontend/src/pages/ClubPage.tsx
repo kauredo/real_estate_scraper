@@ -61,43 +61,18 @@ export default function ClubPage() {
                 <div className="flex justify-center items-center py-8">
                   <Spinner size="md" />
                 </div>
-              ) : (
-                recentStories &&
-                recentStories.length > 0 && (
-                  <section className="w-full py-12">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-dark dark:text-light">
-                      {t("club.home.impact.subtitle")}
-                    </h2>
-                    {recentStories.length === 1 && (
-                      <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-                        {recentStories.map((story) => (
-                          <div className="w-full" key={story.id}>
-                            <ClubStoryCard story={story} />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    {recentStories.length === 2 && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {recentStories.map((story) => (
-                          <div className="w-full" key={story.id}>
-                            <ClubStoryCard story={story} />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    {recentStories.length >= 3 && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {recentStories.map((story) => (
-                          <div className="w-full" key={story.id}>
-                            <ClubStoryCard story={story} />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </section>
-                )
-              )}
+              ) : recentStories && recentStories.length > 0 ? (
+                <section className="w-full py-12">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-8 text-dark dark:text-light">
+                    {t("club.home.impact.subtitle")}
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {recentStories.map((story) => (
+                      <ClubStoryCard key={story.id} story={story} />
+                    ))}
+                  </div>
+                </section>
+              ) : null}
 
               <div
                 id="contribute"

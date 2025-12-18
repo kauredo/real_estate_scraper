@@ -44,34 +44,30 @@ export default function Cards(props: Props) {
     return (
       <section
         id="cards"
-        className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
       >
-        <div className="w-full relative flex items-center justify-center">
-          <div className="w-full h-full mx-auto">
-            <Carousel
-              items={photos.map((photo) => {
-                // if photo has image_url, use it, otherwise use photo.image.url
-                const image_url = photo.image_url || photo.image.url;
-                return (
-                  <img
-                    loading="lazy"
-                    key={image_url}
-                    style={{
-                      maxHeight: "70vh",
-                      objectFit: "contain",
-                      padding: "0 1rem",
-                    }}
-                    src={image_url}
-                    alt=""
-                  />
-                );
-              })}
-              autoplay
-              autoplaySpeed={5000}
-              infinite={false}
-            />
-          </div>
-        </div>
+        <Carousel
+          items={photos.map((photo) => {
+            // if photo has image_url, use it, otherwise use photo.image.url
+            const image_url = photo.image_url || photo.image.url;
+            return (
+              <img
+                loading="lazy"
+                key={image_url}
+                style={{
+                  maxHeight: "70vh",
+                  objectFit: "contain",
+                  padding: "0 1rem",
+                }}
+                src={image_url}
+                alt=""
+              />
+            );
+          })}
+          autoplay
+          autoplaySpeed={5000}
+          infinite={false}
+        />
       </section>
     );
   }
@@ -84,39 +80,33 @@ export default function Cards(props: Props) {
     return (
       <section
         id="cards"
-        className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
       >
-        <div className="w-full relative flex items-center justify-center">
-          <div className="w-full h-full mx-auto">
-            <div className="sm:w-min mx-auto flex flex-col sm:flex-row mb-6">
-              {locations.map((location) => (
-                <Button
-                  key={`${location}-tab`}
-                  onClick={() => setSelectedLocation(location)}
-                  className={`whitespace-nowrap py-4 px-6 block hover:text-beige-default dark:hover:text-beige-medium hover:border-beige-default dark:hover:border-beige-medium focus:outline-none border-b-2 font-medium ${
-                    selectedLocation === location
-                      ? "border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium"
-                      : "border-grey text-grey dark:text-light"
-                  }`}
-                >
-                  {`${toCapitalize(location)} (${
-                    listings[location]?.length || 0
-                  })`}
-                </Button>
-              ))}
-            </div>
-            <Carousel
-              items={locationListings.map((listing) => (
-                <Card listing={listing} key={listing.slug} />
-              ))}
-              autoplay
-              autoplaySpeed={5000}
-              infinite={false}
-              responsive
-              slidesToShow={getSlidesToShow()}
-            />
-          </div>
+        <div className="sm:w-min mx-auto flex flex-col sm:flex-row mb-6">
+          {locations.map((location) => (
+            <Button
+              key={`${location}-tab`}
+              onClick={() => setSelectedLocation(location)}
+              className={`whitespace-nowrap py-4 px-6 block hover:text-beige-default dark:hover:text-beige-medium hover:border-beige-default dark:hover:border-beige-medium focus:outline-none border-b-2 font-medium ${
+                selectedLocation === location
+                  ? "border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium"
+                  : "border-grey text-grey dark:text-light"
+              }`}
+            >
+              {`${toCapitalize(location)} (${listings[location]?.length || 0})`}
+            </Button>
+          ))}
         </div>
+        <Carousel
+          items={locationListings.map((listing) => (
+            <Card listing={listing} key={listing.slug} />
+          ))}
+          autoplay
+          autoplaySpeed={5000}
+          infinite={false}
+          responsive
+          slidesToShow={getSlidesToShow()}
+        />
       </section>
     );
   }
@@ -130,22 +120,18 @@ export default function Cards(props: Props) {
   return (
     <section
       id="cards"
-      className="flex items-center justify-center w-full h-full py-8 md:py-0 md:pb-8 px-4"
+      className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
     >
-      <div className="w-full relative flex items-center justify-center">
-        <div className="w-full h-full mx-auto">
-          <Carousel
-            items={flatListings.map((listing) => (
-              <Card listing={listing} key={listing.slug} />
-            ))}
-            autoplay
-            autoplaySpeed={5000}
-            infinite={false}
-            responsive
-            slidesToShow={getSlidesToShow()}
-          />
-        </div>
-      </div>
+      <Carousel
+        items={flatListings.map((listing) => (
+          <Card listing={listing} key={listing.slug} />
+        ))}
+        autoplay
+        autoplaySpeed={5000}
+        infinite={false}
+        responsive
+        slidesToShow={getSlidesToShow()}
+      />
     </section>
   );
 }

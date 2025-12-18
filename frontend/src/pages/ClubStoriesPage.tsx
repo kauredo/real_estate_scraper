@@ -61,65 +61,48 @@ export default function ClubStoriesPage() {
   return (
     <>
       <MetaTags pageType="club_stories" url={window.location.href} />
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center pt-12 pb-24">
-          {/* Show progress bar when paginating (loading with existing data) */}
-          {loading && hasInitialData && <TopProgressBar isLoading={loading} />}
-
-          <div className="w-full max-w-7xl mt-16">
-            {loading && !hasInitialData ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <ClubStorySkeleton key={index} />
-                ))}
-              </div>
-            ) : stories && stories.length > 0 ? (
-              <>
-                {stories.length === 1 && (
-                  <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-                    {stories.map((story) => (
-                      <div className="w-full" key={story.id}>
-                        <ClubStoryCard story={story} />
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {stories.length === 2 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {stories.map((story) => (
-                      <div className="w-full" key={story.id}>
-                        <ClubStoryCard story={story} />
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {stories.length >= 3 && (
-                  <>
-                    <Pagination
-                      pagination={pagination}
-                      onPageChange={handlePageChange}
-                    />
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {stories.map((story) => (
-                        <div className="w-full" key={story.id}>
-                          <ClubStoryCard story={story} />
-                        </div>
-                      ))}
-                    </div>
-                    <Pagination
-                      pagination={pagination}
-                      onPageChange={handlePageChange}
-                    />
-                  </>
-                )}
-              </>
-            ) : (
-              <div className="col-span-full text-center p-8 text-lg font-light bg-white/50 dark:bg-dark/50 rounded-lg shadow-lg">
-                <h3>{t("club.stories.empty")}</h3>
-              </div>
-            )}
-          </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold text-dark dark:text-light mb-4">
+            {t("club.stories.title")}
+          </h1>
+          <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+            {t("club.stories.subtitle")}
+          </p>
         </div>
+
+        {/* Show progress bar when paginating (loading with existing data) */}
+        {loading && hasInitialData && <TopProgressBar isLoading={loading} />}
+
+        {loading && !hasInitialData ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <ClubStorySkeleton key={index} />
+            ))}
+          </div>
+        ) : stories && stories.length > 0 ? (
+          <>
+            <Pagination
+              pagination={pagination}
+              onPageChange={handlePageChange}
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {stories.map((story) => (
+                <ClubStoryCard key={story.id} story={story} />
+              ))}
+            </div>
+            <Pagination
+              pagination={pagination}
+              onPageChange={handlePageChange}
+            />
+          </>
+        ) : (
+          <div className="text-center py-12">
+            <h3 className="text-xl text-gray-600 dark:text-gray-400">
+              {t("club.stories.empty")}
+            </h3>
+          </div>
+        )}
       </div>
     </>
   );
