@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import ContactForm from "../contactPage/ContactForm";
 import Cards from "../homePage/Cards";
 import { ListingComplex } from "../../utils/interfaces";
+import Carousel from "../shared/Carousel";
 import ShareIcons from "../shared/ShareIcons";
 import Routes from "../../utils/routes";
 
@@ -23,20 +24,6 @@ export default function NewShow(props: Props) {
     }
 
     return text;
-  };
-
-  const header = () => {
-    if (complex?.photos?.length > 0) {
-      return (
-        <div className="mx-auto w-auto">
-          <img
-            loading="lazy"
-            style={{ maxHeight: "70vh", objectFit: "contain" }}
-            src={complex.photos[0].image_url}
-          />
-        </div>
-      );
-    }
   };
 
   const video = () => {
@@ -66,7 +53,6 @@ export default function NewShow(props: Props) {
               {removePricesFromText(complex.description)}
             </div>
           </div>
-          {header()}
         </div>
         <div className="hidden tablet:block col-start-3 p-1">
           <ContactForm complex={complex} />
@@ -75,6 +61,32 @@ export default function NewShow(props: Props) {
       <div className="mt-10">
         <ShareIcons title={complex.name} />
       </div>
+      {complex?.photos?.length > 0 && (
+        <div className="mx-auto w-auto my-4">
+          <Carousel
+            items={complex.photos.map((photo) => (
+              <img
+                key={photo.id}
+                loading="lazy"
+                style={{
+                  maxHeight: "70vh",
+                  objectFit: "contain",
+                  width: "100%",
+                }}
+                src={photo.image_url || (photo.image && photo.image.url)}
+                alt={complex.name}
+              />
+            ))}
+            slidesToShow={1}
+            arrows={true}
+            dots={true}
+            infinite={true}
+            className="w-full"
+            dynamicHeight={true}
+            showCounter={true}
+          />
+        </div>
+      )}
       <div>
         <div className=" p-4 description w-full bg-white dark:bg-dark m-2 tablet:mx-0">
           <div className="tablet:mr-2 whitespace-pre-line">
