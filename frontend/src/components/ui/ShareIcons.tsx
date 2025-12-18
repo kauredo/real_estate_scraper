@@ -83,10 +83,12 @@ export default function ShareIcons(props: Props) {
           <FontAwesomeIcon icon={faEnvelope as IconProp} />
         </EmailShareButton>
       </div>
-      <div className="hover:text-beige-default dark:hover:text-beige-medium">
-        <Button onClick={handleCopy} title={t("share.copy")}>
-          <FontAwesomeIcon icon={faLink as IconProp} />
-        </Button>
+      <div
+        className="hover:text-beige-default dark:hover:text-beige-medium cursor-pointer"
+        title={t("share.copy")}
+        onClick={handleCopy}
+      >
+        <FontAwesomeIcon icon={faLink as IconProp} />
       </div>
     </div>
   );
