@@ -74,6 +74,18 @@ export default tseslint.config(
           message:
             "Don't use inline <svg> elements. Create a component for it.",
         },
+        {
+          selector:
+            "JSXAttribute[name.name='className'] Literal[value=/bg-gradient-/]",
+          message:
+            "Don't use Tailwind gradient utilities (bg-gradient-to-*, from-*, via-*, to-*). Gradients should be avoided for consistency and accessibility. Use solid colors from the design system instead.",
+        },
+        {
+          selector:
+            "JSXAttribute[name.name='className'] TemplateLiteral TemplateElement[value.raw=/bg-gradient-/]",
+          message:
+            "Don't use Tailwind gradient utilities (bg-gradient-to-*, from-*, via-*, to-*). Gradients should be avoided for consistency and accessibility. Use solid colors from the design system instead.",
+        },
       ],
       "i18next/no-literal-string": [
         "error",

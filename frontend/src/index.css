@@ -264,7 +264,7 @@ strong {
   position: relative;
   margin: 0 auto;
   max-width: 1200px;
-  padding-bottom: 3rem;
+  /* padding-bottom: 3rem; */
 }
 
 .slider-container {
