@@ -10,6 +10,7 @@ import NavbarItem from "@/components/layout/NavbarItem";
 import DropdownLink from "@/components/layout/DropdownLink";
 import Routes from "@/utils/routes";
 import { Button } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import mainWhiteLogo from "@/assets/logos/main_white.webp";
 import mainLogo from "@/assets/logos/main.webp";
 import CloseIcon from "@/components/svgs/CloseIcon";
@@ -117,11 +118,9 @@ export default function Navbar() {
   mobileItems.push(...rightItems);
 
   const ctaBtn = Routes.sell_path !== location.pathname && (
-    <Link to={Routes.sell_path}>
-      <Button variant="outline" className="mr-4">
-        {t("home.cta.long")}
-      </Button>
-    </Link>
+    <ButtonLink to={Routes.sell_path} variant="outline" className="mr-4">
+      {t("home.cta.long")}
+    </ButtonLink>
   );
 
   return (

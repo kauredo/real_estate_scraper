@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import QuarterCircle from "@/components/ui/QuarterCircle";
 import Routes from "@/utils/routes";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface Props {
@@ -45,16 +45,12 @@ function Hero(props: Props) {
       </div>
       <div className="relative bottom-5 left-0 right-0 center">
         <div className="flex justify-center">
-          <Link to={Routes.buy_path}>
-            <Button variant="link" className="px-5 lowercase">
-              {t("navbar.buy")}
-            </Button>
-          </Link>
-          <Link to={Routes.sell_path}>
-            <Button variant="link" className="px-5 lowercase">
-              {t("navbar.sell")}
-            </Button>
-          </Link>
+          <ButtonLink to={Routes.buy_path} variant="link" className="px-5 lowercase">
+            {t("navbar.buy")}
+          </ButtonLink>
+          <ButtonLink to={Routes.sell_path} variant="link" className="px-5 lowercase">
+            {t("navbar.sell")}
+          </ButtonLink>
           <a href="#cards">
             <Button variant="link" className="px-5">
               <FontAwesomeIcon icon="arrow-down" />
