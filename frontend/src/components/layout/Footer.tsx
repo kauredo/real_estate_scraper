@@ -100,7 +100,7 @@ export default function Footer() {
               </a>
             </p>
           </div>
-          <div className="flex mt-4 space-x-4 sm:justify-center sm:mt-0">
+          <div className="flex mt-4 space-x-2 sm:justify-center sm:mt-0">
             {items?.map((item) => {
               return (
                 <a
@@ -113,7 +113,10 @@ export default function Footer() {
                     size="icon"
                     className="text-white dark:text-light"
                   >
-                    <FontAwesomeIcon icon={item.icon as IconProp} />
+                    <FontAwesomeIcon
+                      icon={item.icon as IconProp}
+                      className="text-xl"
+                    />
                   </Button>
                 </a>
               );

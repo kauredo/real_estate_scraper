@@ -119,20 +119,21 @@ const AboutPage = () => {
                 {t("about.kw_partnership.principles.title")}
               </h3>
               <ul className="list-disc pl-8 mt-4 text-black dark:text-light">
-                {Object.entries(
+                {(
                   t("about.kw_partnership.principles.list", {
                     returnObjects: true,
-                  }),
-                ).map((object) =>
-                  Object.entries(object).map(([key, value]) => (
+                  }) as Array<Record<string, string>>
+                ).map((principle, index) => {
+                  const [key, value] = Object.entries(principle)[0];
+                  return (
                     <li
-                      key={key}
+                      key={`${key}-${index}`}
                       className="text-lg text-gray-500 dark:text-light"
                     >
-                      {String(key)}: {String(value)}
+                      <strong>{key}:</strong> {value}
                     </li>
-                  )),
-                )}
+                  );
+                })}
               </ul>
             </div>
           </div>

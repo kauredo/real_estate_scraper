@@ -7,8 +7,7 @@ export default function ClubHeader() {
   const { t } = useTranslation();
   return (
     <div className="relative w-full max-w-4xl flex flex-col items-center mb-12">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent dark:via-dark/5 pointer-events-none" />
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative flex flex-col items-center">
         <img
           src={isDarkModeActive() ? clubDarkLogo : clubLogo}
           alt="Club SGG Logo"
