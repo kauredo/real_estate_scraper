@@ -8,7 +8,6 @@ import ListingSearch from "../components/shared/ListingSearch";
 import Pagination from "../components/shared/Pagination";
 import Listings from "../components/indexPage/Listings";
 import ListingSkeleton from "../components/loading/ListingSkeleton";
-import TopProgressBar from "../components/loading/TopProgressBar";
 import ListingsLoadingOverlay from "../components/loading/ListingsLoadingOverlay";
 import { Listing } from "../utils/interfaces";
 import { useNotifications } from "../context/NotificationContext";
@@ -51,7 +50,7 @@ const ListingsPage = () => {
       if (hasInitialData) {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    } catch (error) {
+    } catch {
       showError(t("errors.fetch_listings"));
     } finally {
       setLoading(false);

@@ -5,8 +5,10 @@ import { ListingComplex } from "../utils/interfaces";
 import Show from "../components/listingComplex/Show";
 import NewShow from "../components/listingComplex/NewShow";
 import { MetaTags } from "../components/shared/MetaTags";
+import { useTranslation } from "react-i18next";
 
 const ListingComplexDetailPage = () => {
+  const { t } = useTranslation();
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const previewToken = searchParams.get("preview_token");
@@ -47,7 +49,7 @@ const ListingComplexDetailPage = () => {
   if (!listingComplex) {
     return (
       <div className="container mx-auto p-8 text-center">
-        <h1 className="text-2xl">Listing complex not found</h1>
+        <h1 className="text-2xl">{t("errors.listing_complex_not_found")}</h1>
       </div>
     );
   }

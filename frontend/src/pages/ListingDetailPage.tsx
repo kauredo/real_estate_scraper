@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { getListing } from "../services/api";
 import ShowPage from "../components/showPage/Show";
-import MetaTags from "../components/shared/MetaTags";
+import { MetaTags } from "../components/shared/MetaTags";
 import StructuredData from "../components/shared/StructuredData";
 import DetailPageSkeleton from "../components/loading/DetailPageSkeleton";
 import { Listing } from "../utils/interfaces";
 import { AxiosError } from "axios";
+import { useTranslation } from "react-i18next";
 
 const ListingDetailPage = () => {
+  const { t } = useTranslation();
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const previewToken = searchParams.get("preview_token");
@@ -43,7 +45,7 @@ const ListingDetailPage = () => {
   if (!listing) {
     return (
       <div className="container mx-auto p-8 text-center">
-        <h1 className="text-2xl">Listing not found</h1>
+        <h1 className="text-2xl">{t("errors.listing_not_found")}</h1>
       </div>
     );
   }

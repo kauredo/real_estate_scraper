@@ -76,8 +76,12 @@ export default function Home() {
   );
 }
 
+interface Routes {
+  listings_path: () => string;
+}
+
 declare global {
   interface Window {
-    Routes: any;
+    Routes: Routes;
   }
 }

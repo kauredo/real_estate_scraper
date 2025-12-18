@@ -42,7 +42,7 @@ const ListingComplexesPage = () => {
       if (hasInitialData) {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    } catch (error) {
+    } catch {
       showError(t("errors.fetch_listing_complexes"));
     } finally {
       setLoading(false);

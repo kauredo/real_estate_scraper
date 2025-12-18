@@ -1,24 +1,10 @@
-import React, { createContext, useState, ReactNode } from "react";
+import React, { useState, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { Notification } from "../utils/notification";
-
-export const NotificationContext = createContext<
-  NotificationContextProps | undefined
->(undefined);
+import { NotificationContext } from "./NotificationContextValue";
 
 interface NotificationProviderProps {
   children: ReactNode;
-}
-
-interface NotificationContextProps {
-  notifications: Notification[];
-  showNotification: (notification: Omit<Notification, "id">) => void;
-  showSuccess: (message: string, options?: Partial<Notification>) => void;
-  showError: (message: string, options?: Partial<Notification>) => void;
-  showWarning: (message: string, options?: Partial<Notification>) => void;
-  showInfo: (message: string, options?: Partial<Notification>) => void;
-  hideNotification: (id: string) => void;
-  clearNotifications: () => void;
 }
 
 export const NotificationProvider: React.FC<NotificationProviderProps> = ({

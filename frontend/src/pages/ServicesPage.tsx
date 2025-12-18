@@ -111,12 +111,16 @@ const ServicesPage = () => {
             />
             {Object.entries(
               t("services.for_sellers.list", { returnObjects: true }),
-            ).map(([key, service]: [string, any]) => (
+            ).map(([key, service]) => (
               <div className="mt-6" key={key}>
-                <h3 className="text-2xl font-semibold">{service.title}:</h3>
+                <h3 className="text-2xl font-semibold">
+                  {(service as { title: string }).title}:
+                </h3>
                 <p
                   className="mt-2 text-lg leading-relaxed text-blueGray-500"
-                  dangerouslySetInnerHTML={{ __html: service.description }}
+                  dangerouslySetInnerHTML={{
+                    __html: (service as { description: string }).description,
+                  }}
                 />
               </div>
             ))}
@@ -135,12 +139,16 @@ const ServicesPage = () => {
             />
             {Object.entries(
               t("services.for_buyers.list", { returnObjects: true }),
-            ).map(([key, service]: [string, any]) => (
+            ).map(([key, service]) => (
               <div className="mt-6" key={key}>
-                <h3 className="text-2xl font-semibold">{service.title}:</h3>
+                <h3 className="text-2xl font-semibold">
+                  {(service as { title: string }).title}:
+                </h3>
                 <p
                   className="mt-2 text-lg leading-relaxed text-blueGray-500"
-                  dangerouslySetInnerHTML={{ __html: service.description }}
+                  dangerouslySetInnerHTML={{
+                    __html: (service as { description: string }).description,
+                  }}
                 />
               </div>
             ))}

@@ -87,7 +87,7 @@ const ListingsSellPage = () => {
         try {
           const contentHeight = iframe.contentWindow.document.body.scrollHeight;
           iframe.style.height = contentHeight + "px";
-        } catch (e) {
+        } catch {
           // Cross-origin issue, use default height
           iframe.style.height = "620px";
         }
