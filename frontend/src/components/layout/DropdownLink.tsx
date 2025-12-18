@@ -60,7 +60,7 @@ const DropdownLink = (props: DropdownProps) => {
         href="#"
         ref={dropdownLinkRef}
         onClick={handleLinkClick}
-        className={`${className} flex items-center gap-2 hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark p-2 rounded-md font-medium`}
+        className={`${className} flex items-center gap-2 hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark p-2 rounded-md font-medium text-sm transition-colors`}
       >
         <span className="flex items-center gap-2">
           {title}
@@ -79,14 +79,14 @@ const DropdownLink = (props: DropdownProps) => {
         />
       </a>
       <div
-        className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-dark z-20 ${
+        className={`absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 z-20 ${
           showMenu ? "block" : "hidden"
         }`}
         ref={dropdownMenuRef}
       >
         <ul className="py-2">
           {items?.map((item, idx) => (
-            <li className="pr-2" key={`${item.title}-${idx}`}>
+            <li key={`${item.title}-${idx}`}>
               <NavbarItem item={item} leftAlign />
             </li>
           ))}

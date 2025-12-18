@@ -139,7 +139,7 @@ export const navbarItemClass = (
   currentPath?: string,
 ): string => {
   const base =
-    "whitespace-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase ";
+    "whitespace-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium lowercase ";
   const mobile = "block text-base relative z-3 ";
   const desktop = " ";
   const inactive = "text-dark dark:text-light";

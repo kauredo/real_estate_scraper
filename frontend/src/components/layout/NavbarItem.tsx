@@ -29,25 +29,23 @@ export default function NavbarItem(props: Props) {
     }
   };
 
+  const hoverClasses = children
+    ? ""
+    : "hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark";
+  const baseClasses = `py-2 px-3 text-sm font-medium text-right transition-colors ${hoverClasses} rounded-md`;
+  const fullWidthClasses = fullWidth ? "block !w-full !text-lg" : "";
+  const layoutClasses = leftAlign ? "block w-full" : "";
+  const combinedClasses = `${className} ${baseClasses} ${fullWidthClasses} ${layoutClasses}`;
+
   if (children) {
     return (
-      <span
-        key={`${title}--desktop`}
-        className={`py-2 ${fullWidth && "block !w-full text-right !text-lg"} ${
-          leftAlign && "block !w-full text-right"
-        }`}
-      >
+      <span key={`${title}--desktop`} className={combinedClasses}>
         {children}
       </span>
     );
   } else if (onClick || actualMethod !== "get") {
     return (
-      <Button
-        onClick={handleClick}
-        className={`${className} ${
-          fullWidth && "block !w-full text-right !text-lg"
-        } ${leftAlign && "block !w-full text-right"}`}
-      >
+      <Button onClick={handleClick} variant="ghost" className={combinedClasses}>
         {title}
         {img && (
           <img
@@ -65,9 +63,7 @@ export default function NavbarItem(props: Props) {
         key={`${title}--desktop`}
         to={url || "/"}
         title={hover}
-        className={`${className} ${
-          fullWidth && "block !w-full text-right !text-lg"
-        } ${leftAlign && "block !w-full text-right"}`}
+        className={combinedClasses}
       >
         {title}
         {img && (

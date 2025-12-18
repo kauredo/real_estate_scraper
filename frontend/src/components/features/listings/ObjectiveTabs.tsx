@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/Button";
+import Tabs from "@/components/ui/Tabs";
 
 interface Props {
   objective: number;
@@ -19,23 +19,21 @@ export default function ObjectiveTabs({
     return null;
   }
 
+  const tabs = objectives.map(({ objective: obj, index }) => ({
+    id: index.toString(),
+    label: t(`listing.objective.${obj}`),
+    content: null,
+  }));
+
   return (
-    <div className="w-full flex align-center gap-6 mb-4">
-      <div className="w-full flex gap-2">
-        {objectives.map(({ objective: obj, index }) => (
-          <Button
-            key={obj}
-            onClick={() => setObjective(index)}
-            className={`py-2 px-4 rounded-lg font-bold w-[calc(50%-0.25rem)] ${
-              objective === index
-                ? "bg-beige-default dark:bg-beige-medium text-white dark:text-dark"
-                : "bg-transparent text-beige-default dark:text-beige-medium border border-beige-default dark:border-beige-medium"
-            }`}
-          >
-            {t(`listing.objective.${obj}`)}
-          </Button>
-        ))}
-      </div>
+    <div className="mb-6">
+      <Tabs
+        tabs={tabs}
+        activeTab={objective.toString()}
+        onTabChange={(tabId: string) => setObjective(Number(tabId))}
+        variant="pills"
+        centered
+      />
     </div>
   );
 }

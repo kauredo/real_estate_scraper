@@ -9,6 +9,7 @@ import ObjectiveTabs from "./ObjectiveTabs";
 import Routes from "@/utils/routes";
 import { Button } from "@/components/ui/Button";
 import { Select } from "@/components/ui/Select";
+import { Card } from "@/components/ui/Card";
 
 interface Props {
   params: Record<string, string>;
@@ -179,159 +180,161 @@ export default function ListingSearch(props: Props) {
   }, [transformedMaxPrice, params]);
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl md:text-3xl font-medium">
-          {t("listing.search.title")}
-        </h2>
-        <Button type="button" onClick={handleReset} variant="ghost">
-          {t("listing.reset_filters")}
-        </Button>
-      </div>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <Card className="p-6 shadow-sm">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl md:text-2xl font-medium">
+            {t("listing.search.title")}
+          </h2>
+          <Button type="button" onClick={handleReset} variant="ghost" size="sm">
+            {t("listing.reset_filters")}
+          </Button>
+        </div>
 
-      <form onSubmit={handleSubmit}>
-        <ObjectiveTabs
-          objective={objective}
-          objectives={objectives || []}
-          setObjective={setObjective}
-        />
+        <form onSubmit={handleSubmit}>
+          <ObjectiveTabs
+            objective={objective}
+            objectives={objectives || []}
+            setObjective={setObjective}
+          />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          {/* Property Type */}
-          <div>
-            <label
-              htmlFor="q_kind_eq"
-              className="block mb-2 font-medium text-sm"
-            >
-              {t("listing.kind.title")}
-            </label>
-            <Select
-              name="q[kind_eq]"
-              id="q_kind_eq"
-              value={kind}
-              onChange={(e) => setKind(Number(e.target.value))}
-            >
-              <option value="0">{t("listing.search.status.all")}</option>
-              {Array.isArray(kinds) &&
-                kinds.map(({ kind: kindName, index }) => (
-                  <option key={kindName} value={index}>
-                    {t(`listing.kind.${kindName}`)}
-                  </option>
-                ))}
-            </Select>
-          </div>
-
-          {/* Basic Stats (Rooms, Bathrooms) */}
-          {basicStatsKeys.map((key: string) => (
-            <div key={key}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+            {/* Property Type */}
+            <div>
               <label
-                htmlFor={`q_${key}`}
+                htmlFor="q_kind_eq"
                 className="block mb-2 font-medium text-sm"
               >
-                {t(`listing.stats.${key.toLowerCase()}`)}
+                {t("listing.kind.title")}
               </label>
               <Select
-                id={`q_${key}`}
-                name={`q[${key}_eq]`}
-                value={statsFilters?.[`${key}_eq`] || ""}
-                onChange={handleStatChange}
+                name="q[kind_eq]"
+                id="q_kind_eq"
+                value={kind}
+                onChange={(e) => setKind(Number(e.target.value))}
               >
-                <option value="">{t("listing.search.any")}</option>
-                {[...Array(11).keys()].map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
+                <option value="0">{t("listing.search.status.all")}</option>
+                {Array.isArray(kinds) &&
+                  kinds.map(({ kind: kindName, index }) => (
+                    <option key={kindName} value={index}>
+                      {t(`listing.kind.${kindName}`)}
+                    </option>
+                  ))}
               </Select>
             </div>
-          ))}
 
-          {/* Status */}
-          <div>
-            <label
-              htmlFor="q_status_eq"
-              className="block mb-2 font-medium text-sm"
-            >
-              {t("listing.search.status.title")}
-            </label>
-            <Select
-              name="q[status_eq]"
-              id="q_status_eq"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-            >
-              <option value="">{t("listing.search.status.all")}</option>
-              <option value="0">{t("listing.search.status.recent")}</option>
-              <option value="2">{t("listing.search.status.agreed")}</option>
-              <option value="3">{t("listing.search.status.sold")}</option>
-              <option value="4">{t("listing.search.status.rented")}</option>
-              <option value="5">{t("listing.search.status.closed")}</option>
-            </Select>
-          </div>
+            {/* Basic Stats (Rooms, Bathrooms) */}
+            {basicStatsKeys.map((key: string) => (
+              <div key={key}>
+                <label
+                  htmlFor={`q_${key}`}
+                  className="block mb-2 font-medium text-sm"
+                >
+                  {t(`listing.stats.${key.toLowerCase()}`)}
+                </label>
+                <Select
+                  id={`q_${key}`}
+                  name={`q[${key}_eq]`}
+                  value={statsFilters?.[`${key}_eq`] || ""}
+                  onChange={handleStatChange}
+                >
+                  <option value="">{t("listing.search.any")}</option>
+                  {[...Array(11).keys()].map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </Select>
+              </div>
+            ))}
 
-          {/* Price Range */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-            <label
-              htmlFor="q_price_cents_lteq"
-              className="block mb-2 font-medium text-sm"
-            >
-              {t("listing.search.price")}
-            </label>
-            <div className="pt-2">
-              <Slider
-                range
-                min={0}
-                max={transformedMaxPrice}
-                value={[prices[0], prices[1]]}
-                onChange={handlePriceChange}
-                allowCross={false}
-                step={1000}
-              />
-              <div className="flex justify-between mt-3 text-sm text-gray-600 dark:text-gray-300">
-                <span className="font-medium">
-                  {numberToCurrency(prices[0])}
-                </span>
-                <span className="font-medium">
-                  {numberToCurrency(prices[1])}
-                </span>
+            {/* Status */}
+            <div>
+              <label
+                htmlFor="q_status_eq"
+                className="block mb-2 font-medium text-sm"
+              >
+                {t("listing.search.status.title")}
+              </label>
+              <Select
+                name="q[status_eq]"
+                id="q_status_eq"
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+              >
+                <option value="">{t("listing.search.status.all")}</option>
+                <option value="0">{t("listing.search.status.recent")}</option>
+                <option value="2">{t("listing.search.status.agreed")}</option>
+                <option value="3">{t("listing.search.status.sold")}</option>
+                <option value="4">{t("listing.search.status.rented")}</option>
+                <option value="5">{t("listing.search.status.closed")}</option>
+              </Select>
+            </div>
+
+            {/* Price Range */}
+            <div className="col-span-1 sm:col-span-2 lg:col-span-1">
+              <label
+                htmlFor="q_price_cents_lteq"
+                className="block mb-2 font-medium text-sm"
+              >
+                {t("listing.search.price")}
+              </label>
+              <div className="pt-2">
+                <Slider
+                  range
+                  min={0}
+                  max={transformedMaxPrice}
+                  value={[prices[0], prices[1]]}
+                  onChange={handlePriceChange}
+                  allowCross={false}
+                  step={1000}
+                />
+                <div className="flex justify-between mt-3 text-sm text-gray-600 dark:text-gray-300">
+                  <span className="font-medium">
+                    {numberToCurrency(prices[0])}
+                  </span>
+                  <span className="font-medium">
+                    {numberToCurrency(prices[1])}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <AdvancedSearch
-          listingMaxPrice={listingMaxPrice}
-          statsKeys={advancedStatsKeys}
-          statsFilters={statsFilters}
-          setStatsFilters={setStatsFilters}
-          handleStatChange={handleStatChange}
-          title={title}
-          setTitle={setTitle}
-        />
+          <AdvancedSearch
+            listingMaxPrice={listingMaxPrice}
+            statsKeys={advancedStatsKeys}
+            statsFilters={statsFilters}
+            setStatsFilters={setStatsFilters}
+            handleStatChange={handleStatChange}
+            title={title}
+            setTitle={setTitle}
+          />
 
-        <div className="flex items-center flex-wrap gap-4 mt-6">
-          <Button
-            type="submit"
-            variant="primary"
-            size="lg"
-            className="w-full sm:w-auto"
-          >
-            {t("listing.search.submit")}
-          </Button>
+          <div className="flex items-center flex-wrap gap-4 mt-6">
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              {t("listing.search.submit")}
+            </Button>
 
-          {Object.keys(buildSearchParams()).length > 1 && (
-            <div className="text-sm text-gray-600 dark:text-gray-300">
-              <span>
-                {Object.keys(buildSearchParams()).length - 1}{" "}
-                {/* Subtract 1 for objective which is always present */}
-                {t("listing.search.filters_applied", {
-                  defaultValue: "filters applied",
-                })}
-              </span>
-            </div>
-          )}
-        </div>
-      </form>
+            {Object.keys(buildSearchParams()).length > 1 && (
+              <div className="text-sm text-gray-600 dark:text-gray-300">
+                <span>
+                  {Object.keys(buildSearchParams()).length - 1}{" "}
+                  {/* Subtract 1 for objective which is always present */}
+                  {t("listing.search.filters_applied", {
+                    defaultValue: "filters applied",
+                  })}
+                </span>
+              </div>
+            )}
+          </div>
+        </form>
+      </Card>
     </div>
   );
 }
