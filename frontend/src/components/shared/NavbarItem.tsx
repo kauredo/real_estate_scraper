@@ -49,7 +49,14 @@ export default function NavbarItem(props: Props) {
         } ${leftAlign && "block !w-full text-right"}`}
       >
         {title}
-        {img}
+        {img && (
+          <img
+            src={img}
+            alt=""
+            className="w-5 h-5 rounded-full inline-block ml-2"
+            loading="lazy"
+          />
+        )}
       </Button>
     );
   } else {
@@ -63,7 +70,14 @@ export default function NavbarItem(props: Props) {
         } ${leftAlign && "block !w-full text-right"}`}
       >
         {title}
-        {img}
+        {img && (
+          <img
+            src={img}
+            alt=""
+            className="w-5 h-5 rounded-full inline-block ml-2"
+            loading="lazy"
+          />
+        )}
       </Link>
     );
   }

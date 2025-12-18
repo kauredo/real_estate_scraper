@@ -64,7 +64,14 @@ const DropdownLink = (props: DropdownProps) => {
       >
         <span className="flex items-center gap-2">
           {title}
-          {img}
+          {img && (
+            <img
+              src={img}
+              alt=""
+              className="w-5 h-5 rounded-full"
+              loading="lazy"
+            />
+          )}
         </span>
         <FontAwesomeIcon
           icon={showMenu ? "chevron-up" : "chevron-down"}
