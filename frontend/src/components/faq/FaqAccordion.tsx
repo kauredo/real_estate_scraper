@@ -48,6 +48,7 @@ const FaqAccordion = ({ sections }: FaqAccordionProps) => {
                 >
                   <Button
                     type="button"
+                    variant="ghost"
                     onClick={() => toggleQuestion(sectionIndex, questionIndex)}
                     className="flex items-center justify-between w-full px-4 py-5 sm:p-6 text-black dark:text-light"
                   >

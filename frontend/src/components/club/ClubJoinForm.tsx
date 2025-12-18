@@ -4,6 +4,7 @@ import { apiRoutes } from "../../utils/routes";
 import Flashes from "../shared/Flashes";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
+import { Checkbox } from "../ui/Checkbox";
 
 export default function ClubJoinForm() {
   const { t } = useTranslation();
@@ -78,7 +79,6 @@ export default function ClubJoinForm() {
             placeholder={t("club.form.fields.name")}
             name="name"
             onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-lg py-3 px-4 text-base bg-white dark:bg-light text-gray-700 border border-gray-200 outline-none focus:border-beige-default dark:focus:border-beige-medium focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20 transition-colors"
           />
         </div>
         <div>
@@ -87,7 +87,6 @@ export default function ClubJoinForm() {
             placeholder={t("club.form.fields.phone")}
             name="phone"
             onChange={(e) => setPhone(e.target.value)}
-            className="w-full rounded-lg py-3 px-4 text-base bg-white dark:bg-light text-gray-700 border border-gray-200 outline-none focus:border-beige-default dark:focus:border-beige-medium focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20 transition-colors"
           />
         </div>
         <div>
@@ -96,39 +95,22 @@ export default function ClubJoinForm() {
             placeholder={t("club.form.fields.email")}
             name="email"
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg py-3 px-4 text-base bg-white dark:bg-light text-gray-700 border border-gray-200 outline-none focus:border-beige-default dark:focus:border-beige-medium focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20 transition-colors"
           />
         </div>
-        <div>
-          <label className="flex items-center space-x-3">
-            <Input
-              type="checkbox"
-              name="terms_accepted"
-              checked={termsAccepted}
-              onChange={(e) => setTermsAccepted(e.target.checked)}
-              className="w-4 h-4 text-beige-default dark:text-beige-medium border-gray-300 rounded focus:ring-beige-default dark:focus:ring-beige-medium"
-            />
-            <span className="text-base text-gray-700 dark:text-gray-200">
-              {t("club.form.fields.terms_prefix")}{" "}
-              <a
-                href={apiRoutes.clubRules}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-beige-default dark:text-beige-medium hover:underline"
-              >
-                {t("club.form.fields.terms_link")}
-              </a>
-            </span>
+        <div className="flex items-center">
+          <Checkbox
+            checked={termsAccepted}
+            onCheckedChange={(checked: boolean) => setTermsAccepted(checked)}
+            id="terms"
+            name="terms_accepted"
+          />
+          <label htmlFor="terms" className="text-sm ml-2">
+            {t("club.form.fields.terms_html")}
           </label>
         </div>
-        <div>
-          <Button
-            type="submit"
-            className="w-full text-lg font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-medium rounded-lg py-3 px-6 transition hover:bg-opacity-90 focus:ring-2 focus:ring-beige-default/20 dark:focus:ring-beige-medium/20"
-          >
-            {t("club.form.fields.send")}
-          </Button>
-        </div>
+        <Button type="submit" className="w-full">
+          {t("club.form.submit")}
+        </Button>
       </form>
     </div>
   );

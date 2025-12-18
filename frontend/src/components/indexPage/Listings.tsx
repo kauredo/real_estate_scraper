@@ -2,6 +2,7 @@ import { Listing } from "../../utils/interfaces";
 import LongCard from "./LongCard";
 import { useTranslation } from "react-i18next";
 import Routes from "../../utils/routes";
+import { Button } from "../ui/Button";
 
 interface Props {
   listings: Listing[];
@@ -19,11 +20,8 @@ export default function Listings(props: Props) {
             <p className="text-xl text-gray-500 dark:text-light text-center">
               {t("listing.no_listings")}
             </p>
-            <a
-              href={Routes.buy_path}
-              className="text-beige-default dark:text-beige-medium text-xl font-bold underline ml-2"
-            >
-              {t("listing.reset_filters")}
+            <a href={Routes.buy_path}>
+              <Button variant="link">{t("listing.reset_filters")}</Button>
             </a>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BlogPost } from "../../utils/interfaces";
+import { Button } from "../ui/Button";
 
 const BlogCard = ({ blogPost }: { blogPost: BlogPost }) => {
   const { t, i18n } = useTranslation();
@@ -27,11 +28,8 @@ const BlogCard = ({ blogPost }: { blogPost: BlogPost }) => {
         <p className="font-normal text-gray-700 dark:text-light mb-3 whitespace-pre-line">
           {blogPost.sample_text}
         </p>
-        <Link
-          to={`${prefix}/blog/${slug}`}
-          className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          {t("general.read_more")}
+        <Link to={`${prefix}/blog/${slug}`}>
+          <Button>{t("general.read_more")}</Button>
         </Link>
       </div>
     </div>

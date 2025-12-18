@@ -8,6 +8,7 @@ import {
   WhatsappShareButton,
   EmailShareButton,
 } from "react-share";
+import { Button } from "../ui/Button";
 
 interface BlogShareProps {
   url: string;
@@ -22,33 +23,33 @@ const BlogShare: React.FC<BlogShareProps> = ({ url, title }) => {
       <h3>{t("share.title")}</h3>
       <div className="flex gap-2">
         <FacebookShareButton url={url}>
-          <div className="rounded-full w-10 h-10 bg-beige-default text-white dark:text-dark flex items-center justify-center">
+          <Button variant="ghost" size="icon">
             <FontAwesomeIcon icon={["fab", "facebook-f"]} />
-          </div>
+          </Button>
         </FacebookShareButton>
 
         <LinkedinShareButton url={url} title={title}>
-          <div className="rounded-full w-10 h-10 bg-beige-default text-white dark:text-dark flex items-center justify-center">
+          <Button variant="ghost" size="icon">
             <FontAwesomeIcon icon={["fab", "linkedin-in"]} />
-          </div>
+          </Button>
         </LinkedinShareButton>
 
         <TwitterShareButton url={url} title={title}>
-          <div className="rounded-full w-10 h-10 bg-beige-default text-white dark:text-dark flex items-center justify-center">
+          <Button variant="ghost" size="icon">
             <FontAwesomeIcon icon={["fab", "twitter"]} />
-          </div>
+          </Button>
         </TwitterShareButton>
 
         <WhatsappShareButton url={url} title={title}>
-          <div className="rounded-full w-10 h-10 bg-beige-default text-white dark:text-dark flex items-center justify-center">
+          <Button variant="ghost" size="icon">
             <FontAwesomeIcon icon={["fab", "whatsapp"]} />
-          </div>
+          </Button>
         </WhatsappShareButton>
 
         <EmailShareButton url={url} subject={title}>
-          <div className="rounded-full w-10 h-10 bg-beige-default text-white dark:text-dark flex items-center justify-center">
+          <Button variant="ghost" size="icon">
             <FontAwesomeIcon icon="envelope" />
-          </div>
+          </Button>
         </EmailShareButton>
       </div>
     </div>

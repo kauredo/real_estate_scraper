@@ -89,24 +89,16 @@ export default function Show(props: Props) {
             <div className="p-4 w-full bg-white dark:bg-dark m-2 tablet:mx-0">
               {listing.video_link && (
                 <div className="mb-2">
-                  <Button
-                    onClick={() => setOpen(true)}
-                    className="cursor-pointer bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  >
+                  <Button onClick={() => setOpen(true)}>
                     {t("listing.watch_video")}
                   </Button>
                 </div>
               )}
               {listing.virtual_tour_url && (
                 <div className="mb-2">
-                  <Button
-                    onClick={() =>
-                      window.open(listing.virtual_tour_url, "_blank")
-                    }
-                    className="cursor-pointer bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  >
-                    {t("listing.open_tour")}
-                  </Button>
+                  <a href={listing.virtual_tour_url} target="_blank">
+                    <Button>{t("listing.virtual_tour")}</Button>
+                  </a>
                 </div>
               )}
               <h2 className="standard mb-2 text-2xl font-bold">

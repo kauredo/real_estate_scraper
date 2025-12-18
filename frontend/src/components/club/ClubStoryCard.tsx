@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ClubStory } from "../../utils/interfaces";
 import Routes from "../../utils/routes";
+import { Button } from "../ui/Button";
 
 interface Props {
   story: ClubStory;
@@ -32,11 +33,8 @@ export default function ClubStoryCard({ story }: Props) {
           {story.sample_text}
         </p>
         <div className="flex flex-wrap gap-2">
-          <Link
-            to={storyUrl}
-            className="bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          >
-            {t("general.read_more")}
+          <Link to={storyUrl}>
+            <Button>{t("general.read_more")}</Button>
           </Link>
         </div>
       </div>

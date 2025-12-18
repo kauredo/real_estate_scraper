@@ -79,10 +79,7 @@ export default function Show(props: Props) {
       </div>
       {complex.video_link && (
         <div className="text-center mt-4">
-          <Button
-            onClick={() => setIsVideoOpen(true)}
-            className="cursor-pointer bg-beige-default dark:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          >
+          <Button onClick={() => setIsVideoOpen(true)}>
             {t("listing.watch_video")}
           </Button>
         </div>

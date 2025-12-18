@@ -39,16 +39,10 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
             />
             {listingComplex.photos.length > 1 && (
               <div className="absolute inset-0 flex items-center justify-between p-4">
-                <Button
-                  onClick={prevPhoto}
-                  className="bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity"
-                >
+                <Button onClick={prevPhoto} size="icon">
                   <LeftArrowIcon />
                 </Button>
-                <Button
-                  onClick={nextPhoto}
-                  className="bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity"
-                >
+                <Button onClick={nextPhoto} size="icon">
                   <RightArrowIcon />
                 </Button>
               </div>
