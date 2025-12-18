@@ -10,17 +10,31 @@ const CustomDots: React.FC<CustomDotsProps> = ({ dots, dotWidth = 30 }) => {
   return (
     <div className="custom-dots-container">
       <ul className="custom-dots flex justify-center gap-2 mt-4 overflow-x-auto px-4 py-2 no-scrollbar">
-        {dots.map((dot: any, index) => {
-          const isActive = dot.props.className.includes("slick-active");
+        {React.Children.map(dots, (dot, index) => {
+          if (!React.isValidElement(dot)) {
+            return null;
+          }
+          const element = dot as React.ReactElement<{
+            className: string;
+            children?: React.ReactElement<{
+              onClick?: (e: React.MouseEvent) => void;
+            }>;
+            onClick?: (e: React.MouseEvent) => void;
+          }>;
+          const isActive = element.props.className.includes("slick-active");
 
           const handleClick = (e: React.MouseEvent) => {
             if (
-              dot.props.children &&
-              typeof dot.props.children.props.onClick === "function"
+              element.props.children &&
+              element.props.children.props &&
+              typeof element.props.children.props.onClick === "function"
             ) {
-              dot.props.children.props.onClick(e);
-            } else if (dot.props && typeof dot.props.onClick === "function") {
-              dot.props.onClick(e);
+              element.props.children.props.onClick(e);
+            } else if (
+              element.props &&
+              typeof element.props.onClick === "function"
+            ) {
+              element.props.onClick(e);
             }
           };
 

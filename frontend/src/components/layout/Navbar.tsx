@@ -118,9 +118,9 @@ export default function Navbar() {
 
   const ctaBtn = Routes.sell_path !== location.pathname && (
     <Link to={Routes.sell_path}>
-      <div className="whitespace-nowrap border-beige-default dark:border-beige-medium border-2 text-beige-default dark:text-beige-medium text-base px-4 py-2 rounded hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-dark mr-4">
-        <p>{t("home.cta.long")}</p>
-      </div>
+      <Button variant="outline" className="mr-4">
+        {t("home.cta.long")}
+      </Button>
     </Link>
   );
 
@@ -128,85 +128,78 @@ export default function Navbar() {
     <div>
       <nav className="bg-white dark:bg-dark container mx-auto">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div>
-            <div className="flex items-center justify-between min-h-[4rem]">
-              <div className="flex items-center">
-                <div className="flex-shrink-0 relative">
-                  <Link to={Routes.root_path}>
-                    <img
-                      loading="lazy"
-                      className="w-[6rem] relative z-10"
-                      id="nav-logo"
-                      src={isDarkModeActive() ? mainWhiteLogo : mainLogo}
-                      alt="Sofia Galvão Group Logo"
-                    />
-                  </Link>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <div className="hidden tablet:block">
-                  <div className="ml-4 flex items-baseline flex-wrap justify-center gap-1">
-                    {middleItems?.map((item) => {
-                      if (item.items?.length && item.items.length > 0) {
-                        return (
-                          <DropdownLink
-                            key={`${item.title}_middle`}
-                            title={item.title}
-                            items={item.items}
-                            img={item.img}
-                          />
-                        );
-                      } else {
-                        return (
-                          <NavbarItem
-                            key={`${item.title}_middle`}
-                            item={item}
-                          />
-                        );
-                      }
-                    })}
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <div className="hidden tablet:block">
-                  <div className="ml-4 flex items-baseline">
-                    <Socials small />
-                    {rightItems?.map((item) => {
-                      if (item.items?.length && item.items.length > 0) {
-                        return (
-                          <DropdownLink
-                            key={`${item.title}_right`}
-                            title={item.title}
-                            items={item.items}
-                            img={item.img}
-                          />
-                        );
-                      } else {
-                        return (
-                          <NavbarItem key={`${item.title}_right`} item={item} />
-                        );
-                      }
-                    })}
-                  </div>
-                </div>
-              </div>
-              <div className="-mr-2 flex justify-end tablet:hidden relative">
-                {ctaBtn}
-                <Button
-                  onClick={() => setIsOpen(!isOpen)}
-                  type="button"
-                  className="bg-white dark:bg-dark inline-flex items-center justify-center p-2 rounded-md text-dark dark:text-light"
-                  aria-controls="mobile-menu"
-                  aria-expanded="false"
-                >
-                  <span className="sr-only">{t("navbar.open_menu")}</span>
-                  {!isOpen ? <MenuIcon /> : <CloseIcon />}
-                </Button>
+          <div className="flex items-center justify-between min-h-[4rem]">
+            <div className="flex items-center">
+              <div className="flex-shrink-0 relative">
+                <Link to={Routes.root_path}>
+                  <img
+                    loading="lazy"
+                    className="w-[6rem] relative z-10"
+                    id="nav-logo"
+                    src={isDarkModeActive() ? mainWhiteLogo : mainLogo}
+                    alt="Sofia Galvão Group Logo"
+                  />
+                </Link>
               </div>
             </div>
-            <div className="tablet:hidden">
-              <Socials small />
+            <div className="flex items-center">
+              <div className="hidden tablet:block">
+                <div className="ml-4 flex items-baseline flex-wrap justify-center gap-1">
+                  {middleItems?.map((item) => {
+                    if (item.items?.length && item.items.length > 0) {
+                      return (
+                        <DropdownLink
+                          key={`${item.title}_middle`}
+                          title={item.title}
+                          items={item.items}
+                          img={item.img}
+                        />
+                      );
+                    } else {
+                      return (
+                        <NavbarItem key={`${item.title}_middle`} item={item} />
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <div className="hidden tablet:block">
+                <div className="ml-4 flex items-baseline">
+                  <Socials small />
+                  {rightItems?.map((item) => {
+                    if (item.items?.length && item.items.length > 0) {
+                      return (
+                        <DropdownLink
+                          key={`${item.title}_right`}
+                          title={item.title}
+                          items={item.items}
+                          img={item.img}
+                        />
+                      );
+                    } else {
+                      return (
+                        <NavbarItem key={`${item.title}_right`} item={item} />
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+            </div>
+            <div className="-mr-2 flex justify-end tablet:hidden relative">
+              {ctaBtn}
+              <Button
+                onClick={() => setIsOpen(!isOpen)}
+                type="button"
+                variant="ghost"
+                size="icon"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span className="sr-only">{t("navbar.open_main_menu")}</span>
+                {!isOpen ? <MenuIcon /> : <CloseIcon />}
+              </Button>
             </div>
           </div>
         </div>

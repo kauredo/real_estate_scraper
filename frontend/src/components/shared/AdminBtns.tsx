@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Button } from "../ui/Button";
 
 interface Resource {
   path: string;
@@ -18,9 +19,9 @@ export default function AdminBtns(props: Props) {
 
   const resourceBtn = admin && resource && (
     <a href={resource.path}>
-      <div className="whitespace-nowrap bg-beige-default hover:bg-beige-medium text-white dark:text-dark font-bold py-2 px-4 rounded mb-2">
+      <Button>
         <p>{t("admin.edit", { resource: resource.name })}</p>
-      </div>
+      </Button>
     </a>
   );
 

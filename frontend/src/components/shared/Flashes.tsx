@@ -74,7 +74,9 @@ export default function Flashes(props: Props): React.JSX.Element {
         <span className="block pr-8">{message}</span>
         <Button
           onClick={handleClose}
-          className="flex-shrink-0 ml-2 p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+          variant="ghost"
+          size="icon"
+          className="flex-shrink-0 ml-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
         >
           <CloseIcon className={`h-4 w-4 ${getIconColor()}`} />
         </Button>

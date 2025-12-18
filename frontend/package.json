@@ -24,6 +24,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@headlessui/react": "^2.2.2",
     "@heroicons/react": "^2.2.0",
+    "@radix-ui/react-label": "^2.1.8",
     "@tinymce/tinymce-react": "^6.1.0",
     "@vitejs/plugin-react": "^4.3.4",
     "axios": "^1.13.2",

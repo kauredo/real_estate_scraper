@@ -28,7 +28,9 @@ export default function Toggle(props: Props) {
         aria-checked={isToggled}
         aria-label={lastLabel}
         onClick={callback}
-        className="relative inline-flex items-center h-6 rounded-full w-11 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring"
+        variant="outline"
+        size="icon"
+        className="relative inline-flex items-center h-6 rounded-full w-11"
       >
         <span
           className={`${

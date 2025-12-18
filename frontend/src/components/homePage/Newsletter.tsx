@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useAsyncOperation } from "../../hooks/useAsyncOperation";
 import { subscribeToNewsletter } from "../../services/api";
 import emailImage from "../../assets/images/email.webp";
+import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 
 export default function Newsletter() {
@@ -77,17 +78,11 @@ export default function Newsletter() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Input
-              className="w-4/5 inline-flex text-white dark:text-dark py-2 px-6 focus:outline-none text-lg m-0 h-12 bg-beige-default dark:bg-beige-medium cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-              required
-              type="submit"
-              disabled={isLoading}
-              value={
-                isLoading
-                  ? t("common.saving") || "Subscribing..."
-                  : t("home.newsletter.form.fields.subscribe")
-              }
-            />
+            <Button className="w-4/5 h-12" type="submit" disabled={isLoading}>
+              {isLoading
+                ? t("common.saving") || "Subscribing..."
+                : t("home.newsletter.form.fields.subscribe")}
+            </Button>
           </div>
           {error && (
             <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
