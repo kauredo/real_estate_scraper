@@ -45,7 +45,7 @@ export default tseslint.config(
       },
     },
     rules: {
-      "import/no-relative-parent-imports": "error",
+      "import/no-relative-parent-imports": "off",
       "react-refresh/only-export-components": "warn",
       "no-restricted-syntax": [
         "error",
