@@ -3,7 +3,29 @@
   "header": "FAQ (Frequently Asked Questions)",
   "meta_description": "Frequently asked questions about real estate and the services provided by Sofia Galvão Group.",
   "reason": {
-    "answers": {
+    "answers": [
+      {
+        "title": "Experience",
+        "description": "Years of experience in the real estate market, with dozens of successfully closed deals."
+      },
+      {
+        "title": "Complete Service",
+        "description": "We monitor every stage of the process, ensuring that everything is done correctly and efficiently."
+      },
+      {
+        "title": "Proven results",
+        "description": "Our clients trust our ability to close deals quickly, at the best price and in the right way for all parties."
+      },
+      {
+        "title": "Legal Support",
+        "description": "We guarantee that all legal issues are handled safely and accurately."
+      },
+      {
+        "title": "Effective Marketing",
+        "description": "We use marketing strategies that maximise the exposure of your property, ensuring that it reaches the right buyers or tenants."
+      }
+    ],
+    "answers_old": {
       "1": {
         "description": "Years of experience in the real estate market, with dozens of successfully closed deals.",
         "title": "Experience"
@@ -27,7 +49,51 @@
     },
     "title": "Why should I choose Sofia Galvão Group?"
   },
-  "sections": {
+  "sections": [
+    {
+      "title": "Selling a property",
+      "questions": [
+        {
+          "title": "Why to hire Sofia Galvão Group to sell my house?",
+          "answer": "Selling a property is a process that requires knowledge of the market, promotion strategies and attention to legal and bureaucratic details. The Sofia Galvão Group offers a complete service, from the accurate assessment of the property's value to the final negotiation, ensuring that the client gets the best price and a quick and smooth sale. With extensive experience and a solid network of contacts, we maximise your chances of success."
+        },
+        {
+          "title": "What are the first steps to selling my house?",
+          "answer": "The first step is to ensure that all the property's documentation is in order. This includes documents such as the land registry certificate, the permanent certificate, and the energy certificate. The Sofia Galvão Group will help you ensure that everything is correct and prepare a detailed evaluation to define the appropriate sale price."
+        },
+        {
+          "title": "How long does the selling process take?",
+          "answer": "The time it takes to sell a house depends on various factors, such as the state of the market and the price of the property. However, with a personalised approach and advanced marketing strategies, many properties are sold in less time than the market average."
+        },
+        {
+          "title": "How does Sofia Galvão Group promote my property?",
+          "answer": "We combine digital marketing, state of the art property platforms, home staging, professional photography and virtual tours. These techniques maximise your property's exposure to the right buyers, resulting in more interest and generally faster sales."
+        },
+        {
+          "title": "Are there any costs associated with selling?",
+          "answer": "Yes. In addition to taxes, such as the Property Acquisition Tax (IMT) and the Stamp Duty, there are also costs for the final deed and the land registry. Our commission is competitive and transparent, covering all the services involved in promoting, monitoring, and managing the sales process."
+        }
+      ]
+    },
+    {
+      "title": "Buying a property",
+      "questions": [
+        {
+          "title": "Why to choose Sofia Galvão Group to buy a house?",
+          "answer": "Buying a house is one of the most important financial decisions, and Sofia Galvão Group will ensure that you make the right choice. We have access to a vast network of properties, including exclusive ones that are not advertised on real estate portals. We offer support at every stage, from the search to the final negotiation and the signing of the final deed."
+        },
+        {
+          "title": "What is the first step in buying a house?",
+          "answer": "The first step is to identify your needs and define your budget. Based on this, our team will help you narrow down to a suitable property shortlist. Once you've chosen a house, we'll guide you through the process of checking the documentation and preparing the offer."
+        },
+        {
+          "title": "How do I know if a property is fairly priced?",
+          "answer": "We make a detailed assessment of the market, comparing similar properties in the same area. We also analyse the condition of the property to ensure that the asking price reflects the reality of the market."
+        }
+      ]
+    }
+  ],
+  "sections_old": {
     "1": {
       "questions": {
         "1": {

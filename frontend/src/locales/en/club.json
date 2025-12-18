@@ -9,6 +9,7 @@
     "error": "Please fill in all required fields correctly",
     "error": {
       "generic": "Please fill in all required fields correctly",
+      "terms": "Please accept the SGG Club terms and conditions",
       "terms_required": "Please accept the SGG Club terms and conditions"
     },
     "fields": {
@@ -17,11 +18,19 @@
       "phone": "Phone",
       "send": "Join Club",
       "terms_link": "SGG Club Regulations",
-      "terms_prefix": "I declare that I have read and accept the terms presented in the"
+      "terms_prefix": "I declare that I have read and accept the terms presented in the",
+      "terms_html": "I declare that I have read and accept the terms presented in the <a href='/club-rules' class='underline'>SGG Club Regulations</a>"
     },
+    "submit": "Join SGG Club",
     "titles": {
       "main": "Fill in the form to refer a member:"
     }
+  },
+  "story": {
+    "not_found": "Story not found or no longer available."
+  },
+  "stories": {
+    "subtitle": "Real Stories of Impact and Hope"
   },
   "home": {
     "contribute": {

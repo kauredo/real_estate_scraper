@@ -9,5 +9,33 @@
     "email": "geral@sofiagalvaogroup.com",
     "facebook": "/sofiagalvaokw",
     "instagram": "@sofiagalvaogroupkw"
+  },
+  "transliterate": {
+    "rule": {
+      "ª": "a",
+      "º": "o",
+      "À": "A",
+      "Á": "A",
+      "Ã": "A",
+      "Æ": "Ae",
+      "É": "E",
+      "Ê": "E",
+      "Í": "I",
+      "Ó": "O",
+      "Õ": "O",
+      "Ú": "U",
+      "à": "a",
+      "á": "a",
+      "â": "a",
+      "ã": "a",
+      "æ": "ae",
+      "ç": "c",
+      "é": "e",
+      "ê": "e",
+      "í": "i",
+      "ó": "o",
+      "õ": "o",
+      "ú": "u"
+    }
   }
 }

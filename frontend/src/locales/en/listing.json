@@ -61,6 +61,11 @@
     "title": "Search Properties"
   },
   "stats": {
+    "floor": "piso",
+    "bedrooms": "quartos",
+    "area": "área bruta (cp)",
+    "living_area": "área útil",
+    "parking": "estacionamentos",
     "ano de construção": "Year of Construction",
     "casa de banho social": "Guest Bathroom",
     "casas de banho": "Bathrooms",
@@ -98,6 +103,8 @@
   "update": {
     "notice": "Property edited successfully"
   },
+  "video": "Video Tour",
+  "virtual_tour": "Virtual Tour",
   "update_all": {
     "notice": "All properties will be updated within minutes, please wait before trying again"
   },

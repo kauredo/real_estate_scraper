@@ -1,6 +1,38 @@
 {
   "for_buyers": {
-    "list": {
+    "list": [
+      {
+        "key": "personalized_consulting",
+        "title": "Consultoria Personalizada",
+        "description": "Entendemos que cada comprador é único. Por isso, oferecemos uma consultoria personalizada, adaptada aos seus objetivos específicos. Se está à procura da sua primeira casa, uma segunda residência ou um investimento, fornecemos o suporte necessário para tomar decisões informadas. Desde a escolha da localização até a negociação do preço, estamos ao seu lado em todas as etapas"
+      },
+      {
+        "key": "property_variety",
+        "title": "Variedade de Imóveis",
+        "description": "Explore uma vasta gama de opções, desde apartamentos urbanos a moradias de luxo, passando por propriedades comerciais e oportunidades de investimento e encontre o imóvel que corresponde às suas necessidades e preferências. A nossa equipa ajuda a identificar oportunidades e a concretizar o melhor negócio."
+      },
+      {
+        "key": "virtual_tours_visits",
+        "title": "Tours Virtuais e Visitas",
+        "description": "Oferecemos tours virtuais detalhados e organizamos visitas presenciais para que possa explorar as propriedades de forma detalhada. A nossa equipa está sempre disponível para responder a quaisquer questões e fornecer informações adicionais."
+      },
+      {
+        "key": "market_analysis",
+        "title": "Análise de Mercado e Negociação",
+        "description": "Realizamos análises de mercado detalhadas para garantir que os nossos clientes façam compras informadas e a preços justos. Somos especialistas em negociações e trabalhamos para garantir que obtenha as melhores condições possíveis"
+      },
+      {
+        "key": "legal_financial_support",
+        "title": "Assistência Jurídica e Financeira",
+        "description": "Recomendamos serviços de consultoria sobre opções de financiamento e assistência jurídica, garantindo que todas as questões legais e burocráticas sejam tratadas com competência. A nossa rede de parceiros de confiança está à disposição para proporcionar segurança em todas as transações."
+      },
+      {
+        "key": "post_purchase_support",
+        "title": "Acompanhamento Pós-Compra",
+        "description": "O nosso serviço não termina com a compra. Oferecemos suporte contínuo após a transação, ajudando com a mudança, configuração do imóvel e quaisquer outras necessidades que possam surgir. Estamos aqui para garantir que a sua transição para o novo lar seja suave e sem complicações."
+      }
+    ],
+    "list_old": {
       "legal_financial_support": {
         "description": "Recomendamos serviços de consultoria sobre opções de financiamento e assistência jurídica, garantindo que todas as questões legais e burocráticas sejam tratadas com competência. A nossa rede de parceiros de confiança está à disposição para proporcionar segurança em todas as transações.",
         "title": "Assistência Jurídica e Financeira"

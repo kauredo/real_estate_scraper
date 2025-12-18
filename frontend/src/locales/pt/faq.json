@@ -2,7 +2,29 @@
   "description": "Respondemos às perguntas mais frequentes sobre o processo de compra e venda de imóveis, incluindo dúvidas sobre financiamento, documentação necessária e etapas do processo. Fornecemos orientação clara e prática para ajudar a esclarecer todas as dúvidas e garantir uma experiência informada e segura.",
   "header": "FAQ (Perguntas Frequentes)",
   "reason": {
-    "answers": {
+    "answers": [
+      {
+        "title": "Experiência",
+        "description": "Anos de experiência no mercado imobiliário, com dezenas de negócios fechados com sucesso."
+      },
+      {
+        "title": "Serviço Completo",
+        "description": "Acompanhamos todas as etapas do processo, garantindo que tudo seja feito de forma correcta e eficiente."
+      },
+      {
+        "title": "Resultados comprovados",
+        "description": "Os nossos clientes confiam na nossa capacidade de fechar negócios de forma rápida, ao melhor preço e da forma certa para todas as partes."
+      },
+      {
+        "title": "Apoio Jurídico",
+        "description": "Garantimos que todas as questões legais sejam tratadas com segurança e rigor."
+      },
+      {
+        "title": "Marketing Eficaz",
+        "description": "Utilizamos estratégias de marketing que maximizam a exposição do seu imóvel, garantindo que chegue aos compradores ou arrendatários certos."
+      }
+    ],
+    "answers_old": {
       "1": {
         "description": "Anos de atuação no mercado imobiliário, com dezenas de negócios fechados com sucesso.",
         "title": "Experiência"
@@ -26,7 +48,51 @@
     },
     "title": "Por que razão devo escolher o Sofia Galvão Group?"
   },
-  "sections": {
+  "sections": [
+    {
+      "title": "Vender um imóvel",
+      "questions": [
+        {
+          "title": "Porquê contratar o Sofia Galvão Group para vender a minha casa?",
+          "answer": "Vender um imóvel é um processo que requer conhecimento do mercado, estratégias de promoção e atenção aos detalhes legais e burocráticos. O Sofia Galvão Group oferece um serviço completo, desde a avaliação precisa do valor do imóvel até à negociação final, garantindo que o cliente obtenha o melhor preço e uma venda rápida e tranquila. Com vasta experiência e uma rede sólida de contactos, maximizamos as suas chances de sucesso."
+        },
+        {
+          "title": "Quais são os primeiros passos para vender a minha casa?",
+          "answer": "O primeiro passo é garantir que toda a documentação do imóvel está em ordem. Isto inclui documentos como a certidão do registo predial, a caderneta predial e o certificado energético. O Sofia Galvão Group vai ajudá-lo a garantir que está tudo correto e a preparar uma avaliação detalhada para definir o preço de venda apropriado."
+        },
+        {
+          "title": "Quanto tempo demora o processo de venda?",
+          "answer": "O tempo que leva a vender uma casa depende de vários factores, como o estado do mercado e o preço do imóvel. No entanto, com uma abordagem personalizada e estratégias de marketing avançadas, muitos imóveis são vendidos em menos tempo que a média do mercado."
+        },
+        {
+          "title": "Como é que o Sofia Galvão Group promove o meu imóvel?",
+          "answer": "Combinamos marketing digital, plataformas de propriedades de última geração, home staging, fotografia profissional e tours virtuais. Estas técnicas maximizam a exposição do seu imóvel aos compradores certos, resultando em mais interesse e geralmente vendas mais rápidas."
+        },
+        {
+          "title": "Há custos associados à venda?",
+          "answer": "Sim. Para além dos impostos, como o Imposto Municipal sobre as Transmissões Onerosas de Imóveis (IMT) e o Imposto de Selo, também há custos para a escritura final e o registo predial. A nossa comissão é competitiva e transparente, cobrindo todos os serviços envolvidos na promoção, acompanhamento e gestão do processo de venda."
+        }
+      ]
+    },
+    {
+      "title": "Comprar um imóvel",
+      "questions": [
+        {
+          "title": "Porquê escolher o Sofia Galvão Group para comprar uma casa?",
+          "answer": "Comprar uma casa é uma das decisões financeiras mais importantes, e o Sofia Galvão Group vai garantir que faça a escolha certa. Temos acesso a uma vasta rede de imóveis, incluindo exclusivos que não são anunciados nos portais imobiliários. Oferecemos apoio em todas as etapas, desde a pesquisa até à negociação final e à assinatura da escritura final."
+        },
+        {
+          "title": "Qual é o primeiro passo para comprar uma casa?",
+          "answer": "O primeiro passo é identificar as suas necessidades e definir o seu orçamento. Com base nisso, a nossa equipa vai ajudá-lo a reduzir para uma lista de imóveis adequados. Depois de escolher uma casa, vamos guiá-lo através do processo de verificação da documentação e preparação da oferta."
+        },
+        {
+          "title": "Como sei se um imóvel tem um preço justo?",
+          "answer": "Fazemos uma avaliação detalhada do mercado, comparando imóveis semelhantes na mesma área. Também analisamos a condição do imóvel para garantir que o preço pedido reflecte a realidade do mercado."
+        }
+      ]
+    }
+  ],
+  "sections_old": {
     "1": {
       "questions": {
         "1": {

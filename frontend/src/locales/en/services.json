@@ -1,6 +1,38 @@
 {
   "for_buyers": {
-    "list": {
+    "list": [
+      {
+        "key": "personalized_consulting",
+        "title": "Personalised Consultancy",
+        "description": "We've acknowledged that each buyer is unique. That's why we offer personalised consultancy tailored to your specific objectives. Whether you're looking for your first home, a second home or an investment, we provide the support you need to make informed decisions. From choosing the location to negotiating the price, we're with you every step of the way"
+      },
+      {
+        "key": "property_variety",
+        "title": "Variety of Properties",
+        "description": "Explore a wide range of options, from urban flats to luxury villas, as well as commercial properties and investment opportunities, and find the property that matches your needs and preferences. Our team will help you identify opportunities and seal the best deal."
+      },
+      {
+        "key": "virtual_tours_visits",
+        "title": "Virtual Tours and Visits",
+        "description": "We offer detailed virtual tours and organise face-to-face visits so that you can explore the properties in detail. Our team is always available to answer any questions and provide additional information."
+      },
+      {
+        "key": "market_analysis",
+        "title": "Market Analysis and Negotiation",
+        "description": "We carry out detailed market analyses to ensure that our clients make informed purchases at fair prices. We specialise in negotiations and work to ensure that you get the best possible conditions"
+      },
+      {
+        "key": "legal_financial_support",
+        "title": "Legal and Financial Assistance",
+        "description": "We recommend advisory services on financing options and legal assistance, certifying that all legal and bureaucratic issues are handled competently. Our network of trusted partners is readily available to ensure security in all transactions."
+      },
+      {
+        "key": "post_purchase_support",
+        "title": "Post-purchase follow-up",
+        "description": "Our service doesn't end with the purchase. We offer ongoing support after the transaction, helping with the move, setting up the property and any other needs that may arise. We are here to ensure that the transition to your new home is smooth and hassle-free."
+      }
+    ],
+    "list_old": {
       "legal_financial_support": {
         "description": "We recommend advisory services on financing options and legal assistance, certifying that all legal and bureaucratic issues are handled competently. Our network of trusted partners is readily available to ensure security in all transactions.",
         "title": "Legal and Financial Assistance"

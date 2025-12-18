@@ -7,5 +7,9 @@
   "priceFrom": "A partir de",
   "availableUnits": "Unidades Disponíveis",
   "contactDescription": "Interessado neste empreendimento? Contacte-nos para mais informações.",
-  "details": "Detalhes"
+  "details": "Detalhes",
+  "location": "Localização",
+  "starting_price": "Preço Inicial",
+  "description": "Descrição",
+  "available_units": "Unidades Disponíveis"
 }

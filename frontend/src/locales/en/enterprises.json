@@ -31,7 +31,10 @@
     "more": "See More",
     "parking": "Parking",
     "price": "Price",
-    "type": "Type"
+    "type": "Type",
+    "description": "Description",
+    "available_units": "Available Units",
+    "price_table": "Price Table"
   },
   "subheader": "Why to buy at <span class=\"underline decoration-beige-default dark:decoration-beige-medium\">the Planning Stage?</span>",
   "subtitle": {

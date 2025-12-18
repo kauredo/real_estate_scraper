@@ -61,6 +61,11 @@
     "title": "Pesquisar Imóveis"
   },
   "stats": {
+    "floor": "piso",
+    "bedrooms": "quartos",
+    "area": "área bruta (cp)",
+    "living_area": "área útil",
+    "parking": "estacionamentos",
     "ano de construção": "Ano de Construção",
     "casa de banho social": "Casa de Banho Social",
     "casas de banho": "WCs",
@@ -98,6 +103,8 @@
   "update": {
     "notice": "Imóvel editado com sucesso"
   },
+  "video": "Vídeo Tour",
+  "virtual_tour": "Tour Virtual",
   "update_all": {
     "notice": "Todos os imóveis serão atualizado dentro de minutos, espera antes de tentar novamente"
   },

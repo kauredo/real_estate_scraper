@@ -1,4 +1,9 @@
 {
+  "location": "Localização",
+  "starting_price": "Preço Inicial",
+  "description": "Descrição",
+  "features": "Características",
+  "available_units": "Unidades Disponíveis",
   "create": {
     "error": "Erro: o link deve começar com 'https://www.kwportugal.pt/'",
     "notice": "Empreendimento adicionado, aguarde um pouco e já vai aparecer na plataforma"

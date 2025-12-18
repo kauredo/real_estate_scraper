@@ -30,6 +30,7 @@ import privacy from "./privacy.json";
 import sell from "./sell.json";
 import services from "./services.json";
 import share from "./share.json";
+import socials from "./socials.json";
 import support from "./support.json";
 import tasks from "./tasks.json";
 import terms from "./terms.json";
@@ -76,6 +77,7 @@ export default {
   sell,
   services,
   share,
+  socials,
   support,
   tasks,
   terms,

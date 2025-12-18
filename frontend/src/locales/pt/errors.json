@@ -6,10 +6,19 @@
     "title": "Está perdido?"
   },
   "500": {
+    "button": "Voltar à Página Inicial",
     "text_1": "Estamos a fazer o nosso melhor para o resolver.",
     "text_2": "Por favor tente novamente dentro de momentos.",
     "title": "O servidor está em baixo!"
   },
+  "fetch_listings": "Falha ao carregar imóveis. Por favor, tente novamente mais tarde.",
+  "listing_not_found": "Imóvel não encontrado ou já não está disponível.",
+  "fetch_listing_complexes": "Falha ao carregar empreendimentos. Por favor, tente novamente mais tarde.",
+  "listing_complex_not_found": "Empreendimento não encontrado ou já não está disponível.",
+  "fetch_club_stories": "Falha ao carregar histórias do SGG Club. Por favor, tente novamente mais tarde.",
+  "fetch_club_data": "Falha ao carregar dados do SGG Club. Por favor, tente novamente mais tarde.",
+  "fetch_blog_posts": "Falha ao carregar publicações do blog. Por favor, tente novamente mais tarde.",
+  "fetch_about_data": "Falha ao carregar dados da página sobre nós. Por favor, tente novamente mais tarde.",
   "connection_refused": "Ops! Falha ao conectar ao middleware da Consola Web.\nPor favor certifique-se de que um servidor de desenvolvimento Rails está em execução.\n",
   "email": {
     "invalid": "não é um email válido"

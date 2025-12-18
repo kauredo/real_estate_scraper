@@ -14,7 +14,8 @@
     "preview": "vite preview",
     "split-locales": "node scripts/split-locales.js",
     "merge-locales": "node scripts/merge-locales.js",
-    "compare-translations": "node scripts/compare-translations.js"
+    "compare-translations": "node scripts/compare-translations.js",
+    "audit-translations": "node scripts/audit-translations.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
@@ -69,6 +70,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.26",
     "eslint-plugin-storybook": "^10.1.10",
+    "glob": "^13.0.0",
     "globals": "^16.5.0",
     "postcss": "^8.4.31",
     "prettier": "^3.6.2",
