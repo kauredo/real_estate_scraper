@@ -27,6 +27,7 @@
     "@tinymce/tinymce-react": "^6.1.0",
     "@vitejs/plugin-react": "^4.3.4",
     "axios": "^1.13.2",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "i18next": "^25.0.1",

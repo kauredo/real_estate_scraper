@@ -149,7 +149,7 @@ export default function ContactForm(props: Props) {
             type="submit"
             disabled={isLoading}
             className={
-              "w-full font-bold text-white dark:text-dark bg-beige-default dark:bg-beige-medium border dark:border-0 p-3 transition hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 " +
+              "w-full font-bold p-3 transition flex items-center justify-center gap-2 " +
               (listing || complex ? "" : "rounded")
             }
           >
