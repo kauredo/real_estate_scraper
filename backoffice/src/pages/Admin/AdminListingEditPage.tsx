@@ -77,23 +77,26 @@ const AdminListingEditPage = () => {
           const listingData = listingResponse.data.listing;
 
           // Convert enum string values to numeric indices
-          const statusValue = typeof listingData.status === 'string'
-            ? STATUS_MAP[listingData.status] || "0"
-            : listingData.status?.toString() || "0";
+          const statusValue =
+            typeof listingData.status === "string"
+              ? STATUS_MAP[listingData.status] || "0"
+              : listingData.status?.toString() || "0";
 
-          const kindValue = typeof listingData.kind === 'string'
-            ? KIND_MAP[listingData.kind] || "0"
-            : listingData.kind?.toString() || "0";
+          const kindValue =
+            typeof listingData.kind === "string"
+              ? KIND_MAP[listingData.kind] || "0"
+              : listingData.kind?.toString() || "0";
 
-          const objectiveValue = typeof listingData.objective === 'string'
-            ? OBJECTIVE_MAP[listingData.objective] || "0"
-            : listingData.objective?.toString() || "0";
+          const objectiveValue =
+            typeof listingData.objective === "string"
+              ? OBJECTIVE_MAP[listingData.objective] || "0"
+              : listingData.objective?.toString() || "0";
 
           // Ensure features is an array (it might come as a string or array)
           let featuresArray: string[] = [];
           if (Array.isArray(listingData.features)) {
             featuresArray = listingData.features;
-          } else if (typeof listingData.features === 'string') {
+          } else if (typeof listingData.features === "string") {
             try {
               featuresArray = JSON.parse(listingData.features);
             } catch {
@@ -113,7 +116,9 @@ const AdminListingEditPage = () => {
             order: listingData.order?.toString() || "",
             video_link: listingData.video_link || "",
             virtual_tour_url: listingData.virtual_tour_url || "",
-            listing_complex_id: listingData.listing_complex_id?.toString() || "",
+            listing_complex_id:
+              listingData.listing_complex_id?.toString() || "",
+            url: listingData.url || undefined,
           });
         }
 
@@ -159,7 +164,9 @@ const AdminListingEditPage = () => {
 
       const submitData = {
         ...formData,
-        price_cents: formData.price_cents ? parseInt(formData.price_cents) : null,
+        price_cents: formData.price_cents
+          ? parseInt(formData.price_cents)
+          : null,
         order: formData.order ? parseInt(formData.order) : null,
         status: parseIntSafe(formData.status, 0),
         kind: parseIntSafe(formData.kind, 0),

@@ -22,6 +22,7 @@ export interface ListingFormData {
   video_link: string;
   virtual_tour_url: string;
   listing_complex_id: string;
+  url?: string; // Optional, for view-only URL
 }
 
 interface ListingFormProps {
@@ -81,6 +82,23 @@ const ListingForm = ({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* View-only Listing URL (if present) */}
+      {formData.url && (
+        <div className="bg-blue-50 dark:bg-blue-900 rounded px-4 py-2 flex items-center gap-2">
+          <span className="font-medium text-blue-700 dark:text-blue-200">
+            {t("admin.listings.view_only_url", "URL:")}
+          </span>
+          <a
+            href={formData.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 dark:text-blue-300 underline break-all"
+          >
+            {formData.url}
+          </a>
+        </div>
+      )}
+
       {/* Basic Information Section */}
       <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
         <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
