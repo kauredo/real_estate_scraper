@@ -58,7 +58,7 @@ const SuperAdminAdminsPage = () => {
   const fetchAdmins = async () => {
     setLoading(true);
     try {
-      const params: any = {};
+      const params: Record<string, string | number> = {};
       if (search) params.search = search;
       if (tenantFilter) params.tenant_id = tenantFilter;
       if (confirmedFilter) params.confirmed = confirmedFilter;
@@ -191,14 +191,16 @@ const SuperAdminAdminsPage = () => {
               key: "tenant",
               label: t("super_admin.admins.tenant"),
               width: "w-1/4",
-              render: (_: any, admin: Admin) =>
-                admin.tenant ? (
+              render: (_: unknown, row: unknown) => {
+                const admin = row as Admin;
+                return admin.tenant ? (
                   admin.tenant.name
                 ) : (
                   <span className="text-purple-600 dark:text-purple-400 font-semibold">
                     {t("super_admin.admins.super_admin")}
                   </span>
-                ),
+                );
+              },
             },
             {
               key: "confirmed",

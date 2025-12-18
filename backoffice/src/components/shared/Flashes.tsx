@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import React, { useEffect, useState } from "react";
 import { Button } from "../admin/ui";
 

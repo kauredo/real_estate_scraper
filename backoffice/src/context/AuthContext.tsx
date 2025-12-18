@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const user = getCurrentUser();
       setIsAuthenticated(!!user);
       setCurrentAdmin(user);
-    } catch (err) {
+    } catch {
       setError("Failed to check authentication status");
     } finally {
       setIsLoading(false);
@@ -60,8 +60,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setIsAuthenticated(true);
       setCurrentAdmin(user);
       return response;
-    } catch (err: any) {
-      setError(err.response?.data?.error || "Failed to login");
+    } catch (err: unknown) {
+      const error = err as { response?: { data?: { error?: string } } };
+      setError(error.response?.data?.error || "Failed to login");
       throw err;
     }
   };
@@ -71,8 +72,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       await apiLogout();
       setIsAuthenticated(false);
       setCurrentAdmin(null);
-    } catch (err: any) {
-      setError(err.response?.data?.error || "Failed to logout");
+    } catch (err: unknown) {
+      const error = err as { response?: { data?: { error?: string } } };
+      setError(error.response?.data?.error || "Failed to logout");
       throw err;
     }
   };

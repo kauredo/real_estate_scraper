@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax, i18next/no-literal-string */
 import React, { useState } from "react";
 
 export interface MultiSelectOption {

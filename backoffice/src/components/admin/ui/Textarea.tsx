@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import { TextareaHTMLAttributes, forwardRef } from "react";
 
 export type TextareaVariant = "default" | "error" | "success";

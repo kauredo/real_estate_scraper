@@ -87,9 +87,10 @@ const SuperAdminTenantsPage = () => {
     try {
       await superAdminDeleteTenant(id);
       fetchTenants();
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const err = error as { response?: { data?: { errors?: string[] } } };
       const errorMessage =
-        error.response?.data?.errors?.[0] ||
+        err.response?.data?.errors?.[0] ||
         t("super_admin.tenants.delete_error");
       alert(errorMessage);
       console.error("Failed to delete tenant:", error);

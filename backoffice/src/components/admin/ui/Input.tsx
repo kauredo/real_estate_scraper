@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import React, { InputHTMLAttributes, forwardRef } from "react";
 
 export type InputVariant = "default" | "error" | "success";

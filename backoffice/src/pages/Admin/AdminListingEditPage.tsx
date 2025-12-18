@@ -128,7 +128,7 @@ const AdminListingEditPage = () => {
         });
         if (complexesResponse.data?.listing_complexes) {
           const complexOptions = complexesResponse.data.listing_complexes.map(
-            (complex: any) => ({
+            (complex: { id: number; name?: string }) => ({
               value: complex.id,
               label: complex.name || `Complex #${complex.id}`,
             }),

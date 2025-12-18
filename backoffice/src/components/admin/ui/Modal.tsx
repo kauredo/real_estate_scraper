@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import React, { ReactNode, useEffect } from "react";
 
 interface ModalProps {

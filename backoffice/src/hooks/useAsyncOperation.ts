@@ -56,27 +56,35 @@ export const useAsyncOperation = () => {
     }
   };
 
-  const getErrorMessage = (error: any): string => {
+  const getErrorMessage = (error: unknown): string => {
+    const err = error as {
+      response?: {
+        status?: number;
+        data?: { error?: string; message?: string };
+      };
+      message?: string;
+      request?: unknown;
+    };
     // Handle different error types
-    if (error.response) {
+    if (err.response) {
       // Axios error with response
-      if (error.response.status === 404) {
+      if (err.response.status === 404) {
         return t("notifications.messages.data_load_error");
       }
-      if (error.response.status >= 500) {
+      if (err.response.status && err.response.status >= 500) {
         return t("notifications.messages.server_error");
       }
-      if (error.response.data?.message) {
-        return error.response.data.message;
+      if (err.response.data?.message) {
+        return err.response.data.message;
       }
-      if (error.response.data?.error) {
-        return error.response.data.error;
+      if (err.response.data?.error) {
+        return err.response.data.error;
       }
-    } else if (error.request) {
+    } else if (err.request) {
       // Network error
       return t("notifications.messages.network_error");
-    } else if (error.message) {
-      return error.message;
+    } else if (err.message) {
+      return err.message;
     }
 
     return t("notifications.messages.data_load_error");

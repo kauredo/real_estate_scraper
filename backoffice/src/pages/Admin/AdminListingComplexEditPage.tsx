@@ -39,7 +39,9 @@ const AdminListingComplexEditPage = () => {
   const [availableListings, setAvailableListings] = useState<
     MultiSelectOption[]
   >([]);
-  const [photos, setPhotos] = useState<any[]>([]);
+  const [photos, setPhotos] = useState<
+    Array<{ id: number; image: { url: string }; main: boolean }>
+  >([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,7 +63,8 @@ const AdminListingComplexEditPage = () => {
             hidden: complexData.hidden || false,
             new_format: complexData.new_format || false,
             order: complexData.order?.toString() || "",
-            listing_ids: complexData.listings?.map((l: any) => l.id) || [],
+            listing_ids:
+              complexData.listings?.map((l: { id: number }) => l.id) || [],
           });
           setPhotos(complexData.photos || []);
         }
@@ -70,7 +73,7 @@ const AdminListingComplexEditPage = () => {
         const listingsResponse = await adminGetListings({ per_page: 1000 });
         if (listingsResponse.data?.listings) {
           const listingOptions = listingsResponse.data.listings.map(
-            (listing: any) => ({
+            (listing: { id: number; title?: string }) => ({
               value: listing.id,
               label: listing.title || `Listing #${listing.id}`,
             }),
@@ -131,10 +134,13 @@ const AdminListingComplexEditPage = () => {
 
   const handleSetMainPhoto = async (photoId: number) => {
     try {
-      const photosUpdate = photos.reduce((acc: any, photo: any) => {
-        acc[photo.id] = { main: photo.id === photoId };
-        return acc;
-      }, {});
+      const photosUpdate = photos.reduce(
+        (acc: Record<number, { main: boolean }>, photo: { id: number }) => {
+          acc[photo.id] = { main: photo.id === photoId };
+          return acc;
+        },
+        {},
+      );
 
       await adminUpdateListingComplexPhotos(parseInt(id!), {
         photos_update: photosUpdate,

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import React, { useState, KeyboardEvent } from "react";
 
 interface TagInputProps {

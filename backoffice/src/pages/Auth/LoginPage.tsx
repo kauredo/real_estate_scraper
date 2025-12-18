@@ -20,7 +20,7 @@ export default function LoginPage() {
     try {
       await login(email, password);
       navigate(Routes.backoffice_listings_path);
-    } catch (err) {
+    } catch {
       // Error is handled by AuthContext
     } finally {
       setIsLoading(false);

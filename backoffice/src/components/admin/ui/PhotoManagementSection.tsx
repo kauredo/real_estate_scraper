@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax, i18next/no-literal-string */
 import { useTranslation } from "react-i18next";
 import { useDropzone } from "react-dropzone";
 

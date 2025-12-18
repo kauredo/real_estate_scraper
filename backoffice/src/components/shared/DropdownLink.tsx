@@ -7,7 +7,7 @@ import NavbarItem from "./NavbarItem";
 export interface DropdownProps {
   title: string;
   items: NavbarItemProps[];
-  img?: any;
+  img?: string | React.ReactNode;
 }
 
 const DropdownLink = (props: DropdownProps) => {

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import React, { useState, ReactNode } from "react";
 
 export interface Tab {

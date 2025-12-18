@@ -108,20 +108,16 @@ api.interceptors.response.use(
 
 // Auth API functions
 export const login = async (email: string, password: string) => {
-  try {
-    const response = await api.post(apiRoutes.auth, {
-      email,
-      password,
-    });
+  const response = await api.post(apiRoutes.auth, {
+    email,
+    password,
+  });
 
-    if (response.data.token) {
-      localStorage.setItem("token", response.data.token);
-    }
-
-    return response.data;
-  } catch (error) {
-    throw error;
+  if (response.data.token) {
+    localStorage.setItem("token", response.data.token);
   }
+
+  return response.data;
 };
 
 export const logout = async () => {
@@ -156,7 +152,7 @@ export const getCurrentUser = () => {
       tenantId: payload.tenant_id,
       isAuthenticated: true,
     };
-  } catch (error) {
+  } catch {
     localStorage.removeItem("token");
     return null;
   }
@@ -186,7 +182,7 @@ export const getSellPage = () => api.get(apiRoutes.sell);
 export const toggleDarkMode = () => api.post(apiRoutes.toggleDarkMode);
 
 // Contact API functions
-export const submitContactForm = (data: any) =>
+export const submitContactForm = (data: Record<string, unknown>) =>
   api.post(apiRoutes.contact, data);
 
 // Blog posts API functions

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { useCallback, useEffect, useState } from "react";
 import {

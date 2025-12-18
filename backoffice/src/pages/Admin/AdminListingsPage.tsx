@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams, Link } from "react-router-dom";
@@ -278,25 +279,29 @@ const AdminListingsPage = () => {
             }
             actions={
               <div className="flex flex-wrap gap-2">
-                <button
+                <Button
                   onClick={() => handlePreview(listing)}
+                  variant="link"
+                  size="sm"
                   className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
                 >
                   👁️ Preview
-                </button>
+                </Button>
                 <Link
                   to={appRoutes.backoffice.editListing(listing.id)}
                   className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   {t("common.edit")}
                 </Link>
-                <button
+                <Button
                   onClick={() => handleDeleteClick(listing)}
+                  variant="link"
+                  size="sm"
                   className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
                   title={t("common.delete")}
                 >
                   🗑️ {t("common.delete")}
-                </button>
+                </Button>
               </div>
             }
           >

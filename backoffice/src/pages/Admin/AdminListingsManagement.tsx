@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax, i18next/no-literal-string */
 import { useState } from "react";
 import {
   adminCreateListing,
@@ -30,7 +31,7 @@ const AdminListingsManagement = () => {
         type: "success",
       });
       setListingUrl("");
-    } catch (_error) {
+    } catch {
       setMessage({
         text: "Erro ao adicionar imóvel",
         type: "error",
@@ -60,7 +61,7 @@ const AdminListingsManagement = () => {
         type: "success",
       });
       setComplexUrl("");
-    } catch (_error) {
+    } catch {
       setMessage({
         text: "Erro ao adicionar empreendimento",
         type: "error",

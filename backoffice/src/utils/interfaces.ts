@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    Routes: any;
+    Routes: Record<string, string>;
   }
 }
 
@@ -109,7 +109,7 @@ export interface NavbarItemProps {
   url?: string;
   turbo?: string;
   hover?: string;
-  img?: any;
+  img?: string | React.ReactNode;
   items?: NavbarItemProps[];
   children?: React.ReactNode;
   method?: string;

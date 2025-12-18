@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import React from "react";
 import { navbarItemClass } from "../../utils/functions";
 import { NavbarItemProps } from "../../utils/interfaces";

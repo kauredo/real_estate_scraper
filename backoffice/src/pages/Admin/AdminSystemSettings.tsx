@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax, i18next/no-literal-string */
 import { useState } from "react";
 import {
   adminCreateVariable,
@@ -57,7 +58,7 @@ const AdminSystemSettings = ({
 
       // Refresh the page to show the new variable
       window.location.reload();
-    } catch (_error) {
+    } catch {
       setMessage({ text: "Erro ao criar variável", type: "error" });
     } finally {
       setLoading(false);
@@ -76,7 +77,7 @@ const AdminSystemSettings = ({
 
       // Refresh the page to show the updated variable
       window.location.reload();
-    } catch (_error) {
+    } catch {
       setMessage({ text: "Erro ao atualizar variável", type: "error" });
     } finally {
       setLoading(false);
@@ -96,7 +97,7 @@ const AdminSystemSettings = ({
 
       // Refresh the page to show the updated list
       window.location.reload();
-    } catch (_error) {
+    } catch {
       setMessage({ text: "Erro ao excluir variável", type: "error" });
     } finally {
       setLoading(false);

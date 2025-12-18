@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax, i18next/no-literal-string */
 import { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";

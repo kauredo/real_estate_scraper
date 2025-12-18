@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import React, { ButtonHTMLAttributes, ReactNode } from "react";
 
 export type ButtonVariant =

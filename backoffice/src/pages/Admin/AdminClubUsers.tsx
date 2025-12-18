@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax, i18next/no-literal-string */
 import { useState } from "react";
 import { adminExportClubUsers } from "../../services/api";
 

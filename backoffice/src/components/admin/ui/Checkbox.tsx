@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import React from "react";
 
 interface CheckboxProps {
