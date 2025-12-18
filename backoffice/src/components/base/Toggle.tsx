@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 interface Props {
   labels: string[];
-  icons: any[];
+  icons: React.ReactNode[];
   toggled: boolean;
   onClick: (toggled: boolean) => void;
 }
 
 export default function Toggle(props: Props) {
-  const { labels, toggled, onClick } = props;
+  const { toggled, onClick } = props;
   const [isToggled, toggle] = useState(toggled);
-  const [firstLabel, lastLabel] = labels;
   const [firstIcon, lastIcon] = props.icons;
 
   const callback = () => {

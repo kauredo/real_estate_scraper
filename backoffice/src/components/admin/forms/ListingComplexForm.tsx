@@ -20,6 +20,7 @@ export interface ListingComplexFormData {
   new_format: boolean;
   order: string;
   listing_ids?: number[];
+  [key: string]: string | boolean | number[] | undefined;
 }
 
 interface Photo {
@@ -201,12 +202,8 @@ const ListingComplexForm = ({
             options={availableListings}
             selectedValues={formData.listing_ids || []}
             onChange={handleListingsChange}
-            placeholder={t(
-              "admin.listingComplexes.fields.listingsPlaceholder",
-            )}
-            description={t(
-              "admin.listingComplexes.fields.listingsDescription",
-            )}
+            placeholder={t("admin.listingComplexes.fields.listingsPlaceholder")}
+            description={t("admin.listingComplexes.fields.listingsDescription")}
           />
         </div>
       )}

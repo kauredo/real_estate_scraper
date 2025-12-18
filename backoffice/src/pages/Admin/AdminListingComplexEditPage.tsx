@@ -61,8 +61,7 @@ const AdminListingComplexEditPage = () => {
             hidden: complexData.hidden || false,
             new_format: complexData.new_format || false,
             order: complexData.order?.toString() || "",
-            listing_ids:
-              complexData.listings?.map((l: any) => l.id) || [],
+            listing_ids: complexData.listings?.map((l: any) => l.id) || [],
           });
           setPhotos(complexData.photos || []);
         }
@@ -141,9 +140,7 @@ const AdminListingComplexEditPage = () => {
         photos_update: photosUpdate,
       });
 
-      setPhotos((prev) =>
-        prev.map((p) => ({ ...p, main: p.id === photoId })),
-      );
+      setPhotos((prev) => prev.map((p) => ({ ...p, main: p.id === photoId })));
 
       setFlash({
         type: "success",

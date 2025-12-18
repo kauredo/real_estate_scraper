@@ -27,6 +27,13 @@ interface Admin {
     slug: string;
   } | null;
   created_at: string;
+  [key: string]:
+    | string
+    | number
+    | boolean
+    | null
+    | { id: number; name: string; slug: string }
+    | undefined;
 }
 
 interface Tenant {
@@ -34,6 +41,7 @@ interface Tenant {
   name: string;
   slug: string;
   active: boolean;
+  [key: string]: string | number | boolean;
 }
 
 const SuperAdminAdminsPage = () => {
@@ -196,8 +204,8 @@ const SuperAdminAdminsPage = () => {
               key: "confirmed",
               label: t("super_admin.admins.status"),
               width: "w-1/6",
-              render: (value: boolean) =>
-                value ? (
+              render: (value: unknown) =>
+                (value as boolean) ? (
                   <span className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 px-2 py-1 rounded text-sm">
                     {t("super_admin.admins.confirmed")}
                   </span>
@@ -211,13 +219,14 @@ const SuperAdminAdminsPage = () => {
               key: "created_at",
               label: t("super_admin.admins.created_at"),
               width: "w-1/6",
-              render: (value: string) => new Date(value).toLocaleDateString(),
+              render: (value: unknown) =>
+                new Date(value as string).toLocaleDateString(),
             },
             {
               key: "actions",
               label: t("common.actions"),
               width: "w-1/6",
-              render: (_: any, admin: Admin) => (
+              render: (_: unknown, admin: Admin) => (
                 <div className="flex gap-2">
                   <Button
                     onClick={() => handleEdit(admin)}

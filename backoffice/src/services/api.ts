@@ -197,8 +197,11 @@ export const getBlogPost = (slug: string) => api.get(apiRoutes.blogPost(slug));
 // Admin - Blog posts API functions
 export const adminGetBlogPosts = (params = {}) =>
   api.get(apiRoutes.admin.blogPosts, { params });
-export const adminGetBlogPost = (id) => api.get(apiRoutes.admin.blogPost(id));
-export const adminCreateBlogPost = (data) => {
+export const adminGetBlogPost = (id: number) =>
+  api.get(apiRoutes.admin.blogPost(id));
+export const adminCreateBlogPost = (
+  data: FormData | Record<string, unknown>,
+) => {
   if (data instanceof FormData) {
     return api.post(apiRoutes.admin.blogPosts, data, {
       headers: {
@@ -209,7 +212,10 @@ export const adminCreateBlogPost = (data) => {
     return api.post(apiRoutes.admin.blogPosts, { blog_post: data });
   }
 };
-export const adminUpdateBlogPost = (id, data) => {
+export const adminUpdateBlogPost = (
+  id: number,
+  data: FormData | Record<string, unknown>,
+) => {
   if (data instanceof FormData) {
     return api.put(apiRoutes.admin.blogPost(id), data, {
       headers: {
@@ -221,7 +227,7 @@ export const adminUpdateBlogPost = (id, data) => {
   }
 };
 
-export const adminDeleteBlogPost = (id) =>
+export const adminDeleteBlogPost = (id: number) =>
   api.delete(apiRoutes.admin.blogPost(id));
 
 // Listings API functions
@@ -238,16 +244,20 @@ export const getListingComplex = (slug: string) =>
 // Admin - Listings API functions
 export const adminGetListings = (params = {}) =>
   api.get(apiRoutes.admin.listings, { params });
-export const adminGetListing = (id) => api.get(apiRoutes.admin.listing(id));
-export const adminCreateListing = (data) =>
-  api.post(apiRoutes.admin.listings, { listing: data });
-export const adminUpdateListing = (id, data) =>
-  api.put(apiRoutes.admin.listing(id), { listing: data });
-export const adminDeleteListing = (id) =>
+export const adminGetListing = (id: number) =>
+  api.get(apiRoutes.admin.listing(id));
+export const adminCreateListing = (
+  data: Record<string, unknown> | { [key: string]: unknown },
+) => api.post(apiRoutes.admin.listings, { listing: data });
+export const adminUpdateListing = (
+  id: number,
+  data: Record<string, unknown> | { [key: string]: unknown },
+) => api.put(apiRoutes.admin.listing(id), { listing: data });
+export const adminDeleteListing = (id: number) =>
   api.delete(apiRoutes.admin.listing(id));
-export const adminUpdateListingDetails = (id) =>
+export const adminUpdateListingDetails = (id: number) =>
   api.post(apiRoutes.admin.updateDetailsListing(id));
-export const adminRecoverListing = (id) =>
+export const adminRecoverListing = (id: number) =>
   api.post(apiRoutes.admin.recoverListing(id));
 export const adminUpdateAllListings = () =>
   api.post(apiRoutes.admin.updateAllListings);
@@ -255,27 +265,35 @@ export const adminUpdateAllListings = () =>
 // Admin - Listing complexes API functions
 export const adminGetListingComplexes = (params = {}) =>
   api.get(apiRoutes.admin.listingComplexes, { params });
-export const adminGetListingComplex = (id) =>
+export const adminGetListingComplex = (id: number) =>
   api.get(apiRoutes.admin.listingComplex(id));
-export const adminCreateListingComplex = (data) =>
-  api.post(apiRoutes.admin.listingComplexes, { listing_complex: data });
-export const adminUpdateListingComplex = (id, data) =>
-  api.put(apiRoutes.admin.listingComplex(id), { listing_complex: data });
-export const adminDeleteListingComplex = (id) =>
+export const adminCreateListingComplex = (
+  data: Record<string, unknown> | { [key: string]: unknown },
+) => api.post(apiRoutes.admin.listingComplexes, { listing_complex: data });
+export const adminUpdateListingComplex = (
+  id: number,
+  data: Record<string, unknown> | { [key: string]: unknown },
+) => api.put(apiRoutes.admin.listingComplex(id), { listing_complex: data });
+export const adminDeleteListingComplex = (id: number) =>
   api.delete(apiRoutes.admin.listingComplex(id));
-export const adminUpdateListingComplexDetails = (id) =>
+export const adminUpdateListingComplexDetails = (id: number) =>
   api.post(apiRoutes.admin.updateDetailsListingComplex(id));
-export const adminUpdateListingComplexPhotos = (id, data) =>
-  api.patch(apiRoutes.admin.photosListingComplex(id), data);
-export const adminUploadListingComplexPhotos = (id, formData) =>
+export const adminUpdateListingComplexPhotos = (
+  id: number,
+  data: Record<string, unknown>,
+) => api.patch(apiRoutes.admin.photosListingComplex(id), data);
+export const adminUploadListingComplexPhotos = (
+  id: number,
+  formData: FormData,
+) =>
   api.post(apiRoutes.admin.photosListingComplex(id), formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
   });
-export const adminDeleteListingComplexPhoto = (id) =>
+export const adminDeleteListingComplexPhoto = (id: number) =>
   api.delete(apiRoutes.admin.deletePhotoListingComplex(id));
-export const adminFetchListingComplex = (data) =>
+export const adminFetchListingComplex = (data: Record<string, unknown>) =>
   api.post(apiRoutes.admin.fetchListingComplex, { listing_complex: data });
 
 // Club API functions
@@ -283,18 +301,34 @@ export const getClub = () => api.get(apiRoutes.club);
 export const getClubRules = () => api.get(apiRoutes.clubRules);
 export const getClubStories = (params = {}) =>
   api.get(apiRoutes.clubStories, { params });
-export const getClubStory = (slug) => api.get(apiRoutes.clubStory(slug));
-export const joinClub = (data) => api.post(apiRoutes.clubJoin, data);
+export const getClubStory = (slug: string) =>
+  api.get(apiRoutes.clubStory(slug));
+export const joinClub = (data: Record<string, unknown>) =>
+  api.post(apiRoutes.clubJoin, data);
 
 // Admin - Club stories API functions
 export const adminGetClubStories = (params = {}) =>
   api.get(apiRoutes.admin.clubStories, { params });
-export const adminGetClubStory = (id) => api.get(apiRoutes.admin.clubStory(id));
-export const adminCreateClubStory = (data) =>
-  api.post(apiRoutes.admin.clubStories, { club_story: data });
-export const adminUpdateClubStory = (id, data) =>
-  api.put(apiRoutes.admin.clubStory(id), { club_story: data });
-export const adminDeleteClubStory = (id) =>
+export const adminGetClubStory = (id: number) =>
+  api.get(apiRoutes.admin.clubStory(id));
+export const adminCreateClubStory = (
+  data: FormData | Record<string, unknown>,
+) =>
+  data instanceof FormData
+    ? api.post(apiRoutes.admin.clubStories, data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+    : api.post(apiRoutes.admin.clubStories, { club_story: data });
+export const adminUpdateClubStory = (
+  id: number,
+  data: FormData | Record<string, unknown>,
+) =>
+  data instanceof FormData
+    ? api.put(apiRoutes.admin.clubStory(id), data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+    : api.put(apiRoutes.admin.clubStory(id), { club_story: data });
+export const adminDeleteClubStory = (id: number) =>
   api.delete(apiRoutes.admin.clubStory(id));
 
 // Admin - Club Users API functions
@@ -307,20 +341,31 @@ export const adminExportClubUsers = () =>
 // Admin - Photos API functions
 export const adminGetPhotos = (params = {}) =>
   api.get(apiRoutes.admin.photos, { params });
-export const adminUploadBlogPhoto = (blogPostId, formData) =>
+export const adminUploadBlogPhoto = (
+  blogPostId: number,
+  formData: Record<string, unknown>,
+) =>
   api.post(apiRoutes.admin.blogPhotos, {
     ...formData,
     blog_post_id: blogPostId,
   });
-export const adminDeleteBlogPhoto = (id) =>
+export const adminDeleteBlogPhoto = (id: number) =>
   api.delete(apiRoutes.admin.blogPhoto(id));
-export const adminDeletePhoto = (id) => api.delete(apiRoutes.admin.photo(id));
-export const adminUploadClubStoryPhoto = (clubStoryId, formData) =>
-  api.post(apiRoutes.admin.clubStoryPhotos, {
-    ...formData,
-    club_story_id: clubStoryId,
-  });
-export const adminDeleteClubStoryPhoto = (id) =>
+export const adminDeletePhoto = (id: number) =>
+  api.delete(apiRoutes.admin.photo(id));
+export const adminUploadClubStoryPhoto = (
+  clubStoryId: number,
+  formData: FormData | Record<string, unknown>,
+) =>
+  formData instanceof FormData
+    ? api.post(apiRoutes.admin.clubStoryPhotos, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+    : api.post(apiRoutes.admin.clubStoryPhotos, {
+        ...formData,
+        club_story_id: clubStoryId,
+      });
+export const adminDeleteClubStoryPhoto = (id: number) =>
   api.delete(apiRoutes.admin.clubStoryPhoto(id));
 
 // Admin - Newsletter Subscriptions API functions
@@ -333,13 +378,15 @@ export const getTestimonials = () => api.get(apiRoutes.testimonials);
 // Admin - Testimonials API functions
 export const adminGetTestimonials = (params = {}) =>
   api.get(apiRoutes.admin.testimonials, { params });
-export const adminGetTestimonial = (id) =>
+export const adminGetTestimonial = (id: number) =>
   api.get(apiRoutes.admin.testimonial(id));
-export const adminCreateTestimonial = (data) =>
+export const adminCreateTestimonial = (data: Record<string, unknown>) =>
   api.post(apiRoutes.admin.testimonials, { testimonial: data });
-export const adminUpdateTestimonial = (id, data) =>
-  api.put(apiRoutes.admin.testimonial(id), { testimonial: data });
-export const adminDeleteTestimonial = (id) =>
+export const adminUpdateTestimonial = (
+  id: number,
+  data: Record<string, unknown>,
+) => api.put(apiRoutes.admin.testimonial(id), { testimonial: data });
+export const adminDeleteTestimonial = (id: number) =>
   api.delete(apiRoutes.admin.testimonial(id));
 
 // Variables API functions
@@ -347,32 +394,36 @@ export const getVariables = () => api.get(apiRoutes.variables);
 
 // Admin - Variables API functions
 export const adminGetVariables = () => api.get(apiRoutes.admin.variables);
-export const adminCreateVariable = (data) =>
+export const adminCreateVariable = (data: Record<string, unknown>) =>
   api.post(apiRoutes.admin.variables, { variable: data });
-export const adminUpdateVariable = (id, data) =>
-  api.put(apiRoutes.admin.variable(id), { variable: data });
-export const adminDeleteVariable = (id) =>
+export const adminUpdateVariable = (
+  id: number,
+  data: Record<string, unknown>,
+) => api.put(apiRoutes.admin.variable(id), { variable: data });
+export const adminDeleteVariable = (id: number) =>
   api.delete(apiRoutes.admin.variable(id));
 
 // Super Admin - Admins Management API functions
 export const superAdminGetAdmins = (params = {}) =>
   api.get(apiRoutes.superAdmin.admins, { params });
-export const superAdminGetAdmin = (id) =>
+export const superAdminGetAdmin = (id: number) =>
   api.get(apiRoutes.superAdmin.admin(id));
-export const superAdminCreateAdmin = (data) =>
+export const superAdminCreateAdmin = (data: Record<string, unknown>) =>
   api.post(apiRoutes.superAdmin.admins, { admin: data });
-export const superAdminUpdateAdmin = (id, data) =>
-  api.put(apiRoutes.superAdmin.admin(id), { admin: data });
-export const superAdminDeleteAdmin = (id) =>
+export const superAdminUpdateAdmin = (
+  id: number,
+  data: Record<string, unknown>,
+) => api.put(apiRoutes.superAdmin.admin(id), { admin: data });
+export const superAdminDeleteAdmin = (id: number) =>
   api.delete(apiRoutes.superAdmin.admin(id));
-export const superAdminConfirmAdmin = (id) =>
+export const superAdminConfirmAdmin = (id: number) =>
   api.post(apiRoutes.superAdmin.confirmAdmin(id));
-export const superAdminUnconfirmAdmin = (id) =>
+export const superAdminUnconfirmAdmin = (id: number) =>
   api.post(apiRoutes.superAdmin.unconfirmAdmin(id));
 export const superAdminResetAdminPassword = (
-  id,
-  password,
-  passwordConfirmation,
+  id: number,
+  password: string,
+  passwordConfirmation: string,
 ) =>
   api.post(apiRoutes.superAdmin.resetPasswordAdmin(id), {
     password,
@@ -381,20 +432,24 @@ export const superAdminResetAdminPassword = (
 
 // Super Admin - Tenants Management API functions
 export const superAdminGetTenants = () => api.get(apiRoutes.superAdmin.tenants);
-export const superAdminGetTenant = (id) =>
+export const superAdminGetTenant = (id: number) =>
   api.get(apiRoutes.superAdmin.tenant(id));
-export const superAdminCreateTenant = (data) =>
+export const superAdminCreateTenant = (data: Record<string, unknown>) =>
   api.post(apiRoutes.superAdmin.tenants, { tenant: data });
-export const superAdminUpdateTenant = (id, data) =>
-  api.put(apiRoutes.superAdmin.tenant(id), { tenant: data });
-export const superAdminDeleteTenant = (id) =>
+export const superAdminUpdateTenant = (
+  id: number,
+  data: Record<string, unknown>,
+) => api.put(apiRoutes.superAdmin.tenant(id), { tenant: data });
+export const superAdminDeleteTenant = (id: number) =>
   api.delete(apiRoutes.superAdmin.tenant(id));
-export const superAdminToggleActiveTenant = (id) =>
+export const superAdminToggleActiveTenant = (id: number) =>
   api.post(apiRoutes.superAdmin.toggleActiveTenant(id));
-export const superAdminRotateApiKey = (id) =>
+export const superAdminRotateApiKey = (id: number) =>
   api.post(apiRoutes.superAdmin.rotateApiKeyTenant(id));
-export const superAdminUpdateTenantFeatures = (id, features) =>
-  api.patch(apiRoutes.superAdmin.updateFeaturesTenant(id), { features });
+export const superAdminUpdateTenantFeatures = (
+  id: number,
+  features: Record<string, unknown>,
+) => api.patch(apiRoutes.superAdmin.updateFeaturesTenant(id), { features });
 
 // Preview Tokens API functions
 export const generatePreviewToken = (contentType: string, contentId: number) =>

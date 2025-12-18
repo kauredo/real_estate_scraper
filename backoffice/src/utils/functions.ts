@@ -25,7 +25,7 @@ export const changeLocale = (i18n: I18nType) => {
 };
 
 export const navbarItemClass = (
-  path: string,
+  path: string | null,
   isMobile: boolean,
   children: string[] = [],
 ): string => {
@@ -37,7 +37,7 @@ export const navbarItemClass = (
   const active =
     "bg-primary-600 dark:bg-primary-500 text-white dark:text-dark ";
 
-  const isCurrentPath = window.location.pathname.includes(path);
+  const isCurrentPath = path ? window.location.pathname.includes(path) : false;
   const hasActiveChild = children.some((childPath) =>
     window.location.pathname.includes(childPath),
   );
@@ -75,7 +75,9 @@ export const scrollToSection = (
 };
 
 // Extract base domain from a scraper source URL
-export const extractScraperDomain = (scraperSourceUrl: string | null | undefined): string | null => {
+export const extractScraperDomain = (
+  scraperSourceUrl: string | null | undefined,
+): string | null => {
   if (!scraperSourceUrl) return null;
 
   try {
@@ -87,7 +89,9 @@ export const extractScraperDomain = (scraperSourceUrl: string | null | undefined
 };
 
 // Get a display-friendly domain name from scraper URL
-export const getScraperDisplayName = (scraperSourceUrl: string | null | undefined): string => {
+export const getScraperDisplayName = (
+  scraperSourceUrl: string | null | undefined,
+): string => {
   if (!scraperSourceUrl) return "external source";
 
   try {

@@ -12,7 +12,7 @@ interface Props {
 export default function NavbarItem(props: Props) {
   const { item, fullWidth, leftAlign } = props;
   const { turbo, title, url, hover, img, children, method, onClick } = item;
-  const className = title.length > 0 ? navbarItemClass(url, false) : "";
+  const className = title.length > 0 ? navbarItemClass(url || null, false) : "";
   const actualMethod = method ? method : "get";
   const { logout } = useAuth();
 

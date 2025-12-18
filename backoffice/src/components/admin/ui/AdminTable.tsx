@@ -1,23 +1,25 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
-interface Column {
+interface Column<T = unknown> {
   key: string;
   label: string;
   width?: string;
-  render?: (value: any, row: any) => ReactNode;
+  render?: (value: unknown, row: T) => ReactNode;
 }
 
-interface AdminTableProps {
-  columns: Column[];
-  data: any[];
+interface AdminTableProps<T = unknown> {
+  columns: Column<T>[];
+  data: T[];
   keyField?: string;
 }
 
-const AdminTable: React.FC<AdminTableProps> = ({
+const AdminTable = <
+  T extends Record<string, unknown> = Record<string, unknown>,
+>({
   columns,
   data,
   keyField = "id",
-}) => {
+}: AdminTableProps<T>) => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full table-auto border-collapse border border-gray-300 dark:border-gray-700">
@@ -37,7 +39,7 @@ const AdminTable: React.FC<AdminTableProps> = ({
         <tbody>
           {data.map((row, index) => (
             <tr
-              key={row[keyField] || index}
+              key={(row[keyField] as string | number) || index}
               className={
                 index % 2 === 0
                   ? "bg-white dark:bg-gray-800"
@@ -51,7 +53,7 @@ const AdminTable: React.FC<AdminTableProps> = ({
                 >
                   {column.render
                     ? column.render(row[column.key], row)
-                    : row[column.key]}
+                    : (row[column.key] as React.ReactNode)}
                 </td>
               ))}
             </tr>

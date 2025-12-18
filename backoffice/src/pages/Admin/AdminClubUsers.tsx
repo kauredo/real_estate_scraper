@@ -1,7 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { adminExportClubUsers } from "../../services/api";
 
-const AdminClubUsers = ({ clubUsers = [] }) => {
+interface ClubUser {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  status: string;
+  [key: string]: string | number;
+}
+
+interface AdminClubUsersProps {
+  clubUsers?: ClubUser[];
+}
+
+const AdminClubUsers = ({ clubUsers = [] }: AdminClubUsersProps) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
 

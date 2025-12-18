@@ -14,8 +14,28 @@ interface Tenant {
   active: boolean;
 }
 
+interface Admin {
+  id: number;
+  email: string;
+  tenant_id?: number | null;
+  confirmed?: boolean;
+  tenant?: {
+    id: number;
+    name: string;
+    slug: string;
+  } | null;
+  created_at?: string;
+  [key: string]:
+    | string
+    | number
+    | boolean
+    | null
+    | undefined
+    | { id: number; name: string; slug: string };
+}
+
 interface AdminFormModalProps {
-  admin: any | null;
+  admin: Admin | null;
   onClose: () => void;
 }
 
@@ -34,8 +54,8 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
     fetchTenants();
     if (admin) {
       setEmail(admin.email);
-      setTenantId(admin.tenant_id);
-      setConfirmed(admin.confirmed);
+      setTenantId(admin.tenant_id ?? null);
+      setConfirmed(admin.confirmed ?? false);
     }
   }, [admin]);
 
@@ -69,7 +89,7 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
 
     setLoading(true);
     try {
-      const data: any = {
+      const data: Record<string, unknown> = {
         email,
         tenant_id: tenantId === 0 ? null : tenantId,
         confirmed,
@@ -87,9 +107,10 @@ const AdminFormModal = ({ admin, onClose }: AdminFormModalProps) => {
       }
 
       onClose();
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const err = error as { response?: { data?: { error?: string } } };
       setErrors([
-        error.response?.data?.error || t("super_admin.admins.errors.generic"),
+        err.response?.data?.error || t("super_admin.admins.errors.generic"),
       ]);
     } finally {
       setLoading(false);

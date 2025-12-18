@@ -116,7 +116,7 @@ const AdminBackofficePage = () => {
         type: "success",
       });
       setListingUrl("");
-    } catch (error) {
+    } catch (_error) {
       setMessage({
         text: t("admin.dashboard.listing_error"),
         type: "error",
@@ -155,7 +155,7 @@ const AdminBackofficePage = () => {
         type: "success",
       });
       setComplexUrl("");
-    } catch (error) {
+    } catch (_error) {
       setMessage({
         text: t("admin.dashboard.complex_error"),
         type: "error",

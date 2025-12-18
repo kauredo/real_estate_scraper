@@ -1,12 +1,32 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   adminCreateVariable,
   adminUpdateVariable,
   adminDeleteVariable,
 } from "../../services/api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Variable } from "../../utils/interfaces";
 
-const AdminSystemSettings = ({ variables = [], subs = [] }) => {
+interface NewsletterSubscription {
+  id: number;
+  user: {
+    first_name: string;
+    last_name: string;
+    email: string;
+  };
+  created_at?: string;
+  [key: string]: unknown;
+}
+
+interface AdminSystemSettingsProps {
+  variables?: Variable[];
+  subs?: NewsletterSubscription[];
+}
+
+const AdminSystemSettings = ({
+  variables = [],
+  subs = [],
+}: AdminSystemSettingsProps) => {
   const [formData, setFormData] = useState({
     name: "",
     value: "",
@@ -15,12 +35,12 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleVariableSubmit = async (e) => {
+  const handleVariableSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.name || !formData.value || !formData.icon) {
@@ -37,14 +57,18 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
 
       // Refresh the page to show the new variable
       window.location.reload();
-    } catch (error) {
+    } catch (_error) {
       setMessage({ text: "Erro ao criar variável", type: "error" });
     } finally {
       setLoading(false);
     }
   };
 
-  const handleVariableUpdate = async (id, updatedVariable) => {
+  const handleVariableUpdate = async (
+    id: number | undefined,
+    updatedVariable: { name: string; value: string; icon: string },
+  ) => {
+    if (!id) return;
     try {
       setLoading(true);
       await adminUpdateVariable(id, updatedVariable);
@@ -52,14 +76,15 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
 
       // Refresh the page to show the updated variable
       window.location.reload();
-    } catch (error) {
+    } catch (_error) {
       setMessage({ text: "Erro ao atualizar variável", type: "error" });
     } finally {
       setLoading(false);
     }
   };
 
-  const handleVariableDelete = async (id) => {
+  const handleVariableDelete = async (id: number | undefined) => {
+    if (!id) return;
     if (!window.confirm("Tem certeza que deseja excluir esta variável?")) {
       return;
     }
@@ -71,7 +96,7 @@ const AdminSystemSettings = ({ variables = [], subs = [] }) => {
 
       // Refresh the page to show the updated list
       window.location.reload();
-    } catch (error) {
+    } catch (_error) {
       setMessage({ text: "Erro ao excluir variável", type: "error" });
     } finally {
       setLoading(false);

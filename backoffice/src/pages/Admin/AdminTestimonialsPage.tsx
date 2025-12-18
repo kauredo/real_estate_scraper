@@ -9,7 +9,6 @@ import {
   AdminTable,
   Pagination,
   EmptyState,
-  Button,
 } from "../../components/admin/ui";
 
 interface PaginationState {
@@ -65,32 +64,38 @@ const AdminTestimonialsPage = () => {
     {
       key: "text",
       label: t("admin.testimonials.table.testimonial"),
-      render: (value: string) => (
-        <div className="max-w-xs truncate" title={value}>
-          {value}
-        </div>
-      ),
+      render: (value: unknown) => {
+        const text = value as string;
+        return (
+          <div className="max-w-xs truncate" title={text}>
+            {text}
+          </div>
+        );
+      },
     },
     {
       key: "actions",
       label: t("admin.testimonials.table.actions"),
       width: "w-48",
-      render: (_: any, testimonial: Testimonial) => (
-        <div className="flex flex-wrap gap-2">
-          <Link
-            to={`/testimonials/${testimonial.id}`}
-            className="text-sm text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 underline"
-          >
-            {t("common.view")}
-          </Link>
-          <Link
-            to={`/testimonials/${testimonial.id}/edit`}
-            className="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
-          >
-            {t("common.edit")}
-          </Link>
-        </div>
-      ),
+      render: (_: unknown, row: unknown) => {
+        const testimonial = row as Testimonial;
+        return (
+          <div className="flex flex-wrap gap-2">
+            <Link
+              to={`/testimonials/${testimonial.id}`}
+              className="text-sm text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 underline"
+            >
+              {t("common.view")}
+            </Link>
+            <Link
+              to={`/testimonials/${testimonial.id}/edit`}
+              className="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
+            >
+              {t("common.edit")}
+            </Link>
+          </div>
+        );
+      },
     },
   ];
 
@@ -116,7 +121,10 @@ const AdminTestimonialsPage = () => {
       />
 
       {testimonials.length > 0 ? (
-        <AdminTable columns={columns} data={testimonials} />
+        <AdminTable
+          columns={columns}
+          data={testimonials as unknown as Record<string, unknown>[]}
+        />
       ) : (
         <EmptyState message={t("admin.testimonials.empty")} />
       )}

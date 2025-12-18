@@ -2,8 +2,6 @@
 import i18n from "../i18n";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "/api/v1";
-// Extract the API domain (without /api/v1) for non-API routes like GoodJob dashboard
-const API_DOMAIN = API_BASE_URL.replace(/\/api\/v1$/, '');
 
 // Route translations between Portuguese and English
 export const routeMappings = {

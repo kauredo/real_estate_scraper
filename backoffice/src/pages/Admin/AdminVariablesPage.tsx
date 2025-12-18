@@ -77,7 +77,10 @@ const AdminVariablesPage = () => {
   const handleUpdate = async (variable: Variable) => {
     try {
       setSubmitting(true);
-      await adminUpdateVariable(variable.id, variable);
+      await adminUpdateVariable(
+        variable.id,
+        variable as unknown as Record<string, unknown>,
+      );
       fetchVariables();
     } catch (error) {
       console.error("Error updating variable:", error);
@@ -109,63 +112,75 @@ const AdminVariablesPage = () => {
       key: "name",
       label: t("admin.variables.name"),
       width: "w-1/4",
-      render: (_: any, variable: Variable) => (
-        <Input
-          type="text"
-          defaultValue={variable.name}
-          onChange={(e) => (variable.name = e.target.value)}
-        />
-      ),
+      render: (_: unknown, row: unknown) => {
+        const variable = row as Variable;
+        return (
+          <Input
+            type="text"
+            defaultValue={variable.name}
+            onChange={(e) => (variable.name = e.target.value)}
+          />
+        );
+      },
     },
     {
       key: "value",
       label: t("admin.variables.value"),
       width: "w-1/3",
-      render: (_: any, variable: Variable) => (
-        <Input
-          type="text"
-          defaultValue={variable.value}
-          onChange={(e) => (variable.value = e.target.value)}
-        />
-      ),
+      render: (_: unknown, row: unknown) => {
+        const variable = row as Variable;
+        return (
+          <Input
+            type="text"
+            defaultValue={variable.value}
+            onChange={(e) => (variable.value = e.target.value)}
+          />
+        );
+      },
     },
     {
       key: "icon",
       label: t("admin.variables.icon"),
       width: "w-1/4",
-      render: (_: any, variable: Variable) => (
-        <Input
-          type="text"
-          defaultValue={variable.icon}
-          onChange={(e) => (variable.icon = e.target.value)}
-        />
-      ),
+      render: (_: unknown, row: unknown) => {
+        const variable = row as Variable;
+        return (
+          <Input
+            type="text"
+            defaultValue={variable.icon}
+            onChange={(e) => (variable.icon = e.target.value)}
+          />
+        );
+      },
     },
     {
       key: "actions",
       label: t("common.actions"),
       width: "w-48",
-      render: (_: any, variable: Variable) => (
-        <div className="flex gap-2">
-          <Button
-            onClick={() => handleUpdate(variable)}
-            disabled={submitting}
-            variant="link"
-            size="sm"
-          >
-            {t("common.update")}
-          </Button>
-          <Button
-            onClick={() => handleDelete(variable.id)}
-            disabled={submitting}
-            variant="link"
-            size="sm"
-            className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
-          >
-            {t("common.delete")}
-          </Button>
-        </div>
-      ),
+      render: (_: unknown, row: unknown) => {
+        const variable = row as Variable;
+        return (
+          <div className="flex gap-2">
+            <Button
+              onClick={() => handleUpdate(variable)}
+              disabled={submitting}
+              variant="link"
+              size="sm"
+            >
+              {t("common.update")}
+            </Button>
+            <Button
+              onClick={() => handleDelete(variable.id)}
+              disabled={submitting}
+              variant="link"
+              size="sm"
+              className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
+            >
+              {t("common.delete")}
+            </Button>
+          </div>
+        );
+      },
     },
   ];
 
@@ -232,7 +247,10 @@ const AdminVariablesPage = () => {
 
       {/* Variables Table */}
       {variables.length > 0 ? (
-        <AdminTable columns={columns} data={variables} />
+        <AdminTable
+          columns={columns}
+          data={variables as unknown as Record<string, unknown>[]}
+        />
       ) : (
         <EmptyState message={t("admin.variables.empty")} />
       )}

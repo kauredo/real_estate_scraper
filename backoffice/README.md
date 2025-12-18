@@ -5,6 +5,7 @@ The administrative dashboard for the Sofia Galvao Group real estate platform. Th
 ## 🎯 Purpose
 
 This is an internal admin tool that provides a user interface for:
+
 - Managing property listings
 - Creating and editing blog posts
 - Managing club stories
@@ -27,16 +28,20 @@ This is an internal admin tool that provides a user interface for:
 ## 🚀 Development
 
 ### Prerequisites
+
 - Node.js 22.x (see root `.nvmrc`)
 - Backend API running (see root `README.md`)
 
 ### Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### Environment Variables
+
 Create a `.env.local` file with:
+
 ```env
 VITE_API_URL=http://localhost:3000/api/v1
 ```
@@ -44,6 +49,7 @@ VITE_API_URL=http://localhost:3000/api/v1
 For production deployment on Vercel, set this in the project environment variables.
 
 ### Run Development Server
+
 ```bash
 npm run dev
 ```
@@ -51,11 +57,13 @@ npm run dev
 The application will be available at `http://localhost:5173`
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
 
 ### Preview Production Build
+
 ```bash
 npm run preview
 ```
@@ -77,16 +85,21 @@ This application is deployed to **Vercel** as a separate project.
 7. Install Command: `npm install`
 
 ### Environment Variables on Vercel
+
 Set these in the Vercel project settings:
+
 - `VITE_API_URL` - Production API URL (e.g., `https://api.yourdomain.com/api/v1`)
 
 ### Manual Deployment
+
 From the `backoffice` directory:
+
 ```bash
 vercel --prod
 ```
 
 ### Automatic Deployment
+
 The project has `vercel.json` configured to only deploy when files in the `backoffice/` directory change. Pushing to the `main` branch will trigger automatic deployment.
 
 ## 📁 Project Structure
@@ -117,6 +130,7 @@ The backoffice requires JWT authentication. Users must log in with admin credent
 ## 🌍 Internationalization
 
 The application supports:
+
 - Portuguese (pt) - Default
 - English (en)
 

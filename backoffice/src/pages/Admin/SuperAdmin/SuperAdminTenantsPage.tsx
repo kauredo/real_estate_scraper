@@ -28,6 +28,7 @@ interface Tenant {
   address: string | null;
   created_at: string;
   enabled_features: string[];
+  [key: string]: string | number | boolean | string[] | null;
 }
 
 const SuperAdminTenantsPage = () => {
@@ -187,9 +188,9 @@ const SuperAdminTenantsPage = () => {
               key: "slug",
               label: t("super_admin.tenants.slug"),
               width: "w-1/6",
-              render: (value: string) => (
+              render: (value: unknown) => (
                 <code className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-sm">
-                  {value}
+                  {value as string}
                 </code>
               ),
             },
@@ -197,8 +198,8 @@ const SuperAdminTenantsPage = () => {
               key: "domain",
               label: t("super_admin.tenants.domain"),
               width: "w-1/6",
-              render: (value: string | null) =>
-                value || (
+              render: (value: unknown) =>
+                (value as string | null) || (
                   <span className="text-gray-400 italic">
                     {t("super_admin.tenants.no_domain")}
                   </span>
@@ -208,8 +209,8 @@ const SuperAdminTenantsPage = () => {
               key: "active",
               label: t("super_admin.tenants.status"),
               width: "w-1/6",
-              render: (value: boolean) =>
-                value ? (
+              render: (value: unknown) =>
+                (value as boolean) ? (
                   <span className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 px-2 py-1 rounded text-sm">
                     {t("super_admin.tenants.active")}
                   </span>
@@ -223,9 +224,9 @@ const SuperAdminTenantsPage = () => {
               key: "enabled_features",
               label: t("super_admin.tenants.features"),
               width: "w-1/6",
-              render: (features: string[]) => (
+              render: (features: unknown) => (
                 <div className="flex flex-wrap gap-1">
-                  {features.map((feature) => (
+                  {(features as string[]).map((feature) => (
                     <span
                       key={feature}
                       className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-2 py-1 rounded text-xs"
@@ -240,7 +241,7 @@ const SuperAdminTenantsPage = () => {
               key: "actions",
               label: t("common.actions"),
               width: "w-1/6",
-              render: (_: any, tenant: Tenant) => (
+              render: (_: unknown, tenant: Tenant) => (
                 <div className="flex flex-col gap-2">
                   <Button
                     onClick={() => handleEdit(tenant)}

@@ -19,6 +19,7 @@ interface Tenant {
   phone: string | null;
   address: string | null;
   enabled_features: string[];
+  [key: string]: string | number | boolean | string[] | null;
 }
 
 interface TenantFormModalProps {
@@ -135,10 +136,14 @@ const TenantFormModal = ({ tenant, onClose }: TenantFormModalProps) => {
       }
 
       onClose();
-    } catch (error: any) {
-      const errorMessages = error.response?.data?.errors || [
-          error.response?.data?.error,
-        ] || [t("super_admin.tenants.errors.generic")];
+    } catch (error: unknown) {
+      const err = error as {
+        response?: { data?: { errors?: string[]; error?: string } };
+      };
+      const errorMessages = err.response?.data?.errors ||
+        [err.response?.data?.error].filter(
+          (e): e is string => e !== undefined,
+        ) || [t("super_admin.tenants.errors.generic")];
       setErrors(errorMessages);
     } finally {
       setLoading(false);

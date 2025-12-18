@@ -5,9 +5,11 @@ declare global {
 }
 
 export interface Variable {
+  id?: number;
   name: string;
   value: string;
   icon: string;
+  [key: string]: string | number | undefined;
 }
 
 export interface ResultNumbers {
@@ -99,6 +101,7 @@ export interface Testimonial {
   id: number;
   text: string;
   name: string;
+  [key: string]: string | number;
 }
 
 export interface NavbarItemProps {

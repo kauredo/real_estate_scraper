@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDropzone } from "react-dropzone";
 
@@ -17,7 +16,7 @@ interface PhotoManagementSectionProps {
   onUpload?: (files: File[]) => void;
   onRemoveNewPhoto?: (index: number) => void;
   showUpload?: boolean;
-  mode?: 'edit' | 'create';
+  mode?: "edit" | "create";
 }
 
 const PhotoManagementSection = ({
@@ -28,7 +27,6 @@ const PhotoManagementSection = ({
   onUpload,
   onRemoveNewPhoto,
   showUpload = true,
-  mode = 'edit',
 }: PhotoManagementSectionProps) => {
   const { t } = useTranslation();
 
@@ -93,7 +91,9 @@ const PhotoManagementSection = ({
                         : "bg-white text-gray-700"
                     }`}
                   >
-                    {photo.main ? t("admin.common.main_photo") : "Definir Principal"}
+                    {photo.main
+                      ? t("admin.common.main_photo")
+                      : "Definir Principal"}
                   </button>
                   <button
                     type="button"
@@ -149,7 +149,9 @@ const PhotoManagementSection = ({
                     />
                     <button
                       type="button"
-                      onClick={() => onRemoveNewPhoto && onRemoveNewPhoto(index)}
+                      onClick={() =>
+                        onRemoveNewPhoto && onRemoveNewPhoto(index)
+                      }
                       className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity"
                     >
                       ×

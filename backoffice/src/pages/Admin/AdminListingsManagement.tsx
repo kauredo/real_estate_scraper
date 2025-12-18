@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   adminCreateListing,
   adminFetchListingComplex,
@@ -10,7 +10,7 @@ const AdminListingsManagement = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
 
-  const handleListingSubmit = async (e) => {
+  const handleListingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!listingUrl.startsWith("https://www.kwportugal.pt/")) {
@@ -30,7 +30,7 @@ const AdminListingsManagement = () => {
         type: "success",
       });
       setListingUrl("");
-    } catch (error) {
+    } catch (_error) {
       setMessage({
         text: "Erro ao adicionar imóvel",
         type: "error",
@@ -40,7 +40,7 @@ const AdminListingsManagement = () => {
     }
   };
 
-  const handleComplexSubmit = async (e) => {
+  const handleComplexSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!complexUrl.startsWith("https://www.kwportugal.pt/")) {
@@ -60,7 +60,7 @@ const AdminListingsManagement = () => {
         type: "success",
       });
       setComplexUrl("");
-    } catch (error) {
+    } catch (_error) {
       setMessage({
         text: "Erro ao adicionar empreendimento",
         type: "error",

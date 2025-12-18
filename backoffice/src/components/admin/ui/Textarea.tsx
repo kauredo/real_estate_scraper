@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes, forwardRef } from "react";
+import { TextareaHTMLAttributes, forwardRef } from "react";
 
 export type TextareaVariant = "default" | "error" | "success";
 export type TextareaSize = "sm" | "md" | "lg";

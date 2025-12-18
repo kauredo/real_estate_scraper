@@ -8,6 +8,7 @@ import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { LinkNode } from "@lexical/link";
+import { LexicalEditor } from "lexical";
 import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
 import { $generateHtmlFromNodes, $generateNodesFromDOM } from "@lexical/html";
@@ -85,9 +86,9 @@ export default function RichTextEditor({
   placeholder = "Enter text...",
   isDarkMode = false,
 }: RichTextEditorProps) {
-  const handleChange = (editorState: EditorState) => {
+  const handleChange = (editorState: EditorState, editor: LexicalEditor) => {
     editorState.read(() => {
-      const html = $generateHtmlFromNodes(null);
+      const html = $generateHtmlFromNodes(editor);
       onChange(html);
     });
   };

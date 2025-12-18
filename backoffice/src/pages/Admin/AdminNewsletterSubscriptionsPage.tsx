@@ -76,20 +76,26 @@ const AdminNewsletterSubscriptionsPage = () => {
       key: "name",
       label: t("admin.newsletter.name"),
       width: "w-1/3",
-      render: (_: any, sub: NewsletterSubscription) =>
-        `${sub.user.first_name} ${sub.user.last_name}`,
+      render: (_: unknown, sub: unknown) => {
+        const subscription = sub as NewsletterSubscription;
+        return `${subscription.user.first_name} ${subscription.user.last_name}`;
+      },
     },
     {
       key: "email",
       label: t("admin.newsletter.email"),
       width: "w-1/3",
-      render: (_: any, sub: NewsletterSubscription) => sub.user.email,
+      render: (_: unknown, sub: unknown) => {
+        const subscription = sub as NewsletterSubscription;
+        return subscription.user.email;
+      },
     },
     {
       key: "created_at",
       label: t("admin.newsletter.subscribed_at"),
       width: "w-1/3",
-      render: (value: string) => new Date(value).toLocaleDateString(),
+      render: (value: unknown) =>
+        new Date(value as string).toLocaleDateString(),
     },
   ];
 
@@ -113,7 +119,10 @@ const AdminNewsletterSubscriptionsPage = () => {
       </AdminPageHeader>
 
       {subscriptions.length > 0 ? (
-        <AdminTable columns={columns} data={subscriptions} />
+        <AdminTable
+          columns={columns}
+          data={subscriptions as unknown as Record<string, unknown>[]}
+        />
       ) : (
         <EmptyState message={t("admin.newsletter.empty")} />
       )}

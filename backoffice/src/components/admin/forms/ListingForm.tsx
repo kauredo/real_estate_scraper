@@ -23,6 +23,7 @@ export interface ListingFormData {
   virtual_tour_url: string;
   listing_complex_id: string;
   url?: string; // Optional, for view-only URL
+  [key: string]: string | string[] | undefined;
 }
 
 interface ListingFormProps {

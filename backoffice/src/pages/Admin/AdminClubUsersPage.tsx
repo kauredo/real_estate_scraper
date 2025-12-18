@@ -93,15 +93,16 @@ const AdminClubUsersPage = () => {
       key: "status",
       label: t("admin.club_users.status"),
       width: "w-1/6",
-      render: (value: string) => (
+      render: (value: unknown) => (
         <span
           className={`px-2 py-1 text-sm rounded-full ${
-            value === "approved"
+            (value as string) === "approved"
               ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
               : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
           }`}
         >
-          {value.charAt(0).toUpperCase() + value.slice(1)}
+          {(value as string).charAt(0).toUpperCase() +
+            (value as string).slice(1)}
         </span>
       ),
     },
@@ -109,7 +110,8 @@ const AdminClubUsersPage = () => {
       key: "created_at",
       label: t("admin.club_users.joined_at"),
       width: "w-1/6",
-      render: (value: string) => new Date(value).toLocaleDateString(),
+      render: (value: unknown) =>
+        new Date(value as string).toLocaleDateString(),
     },
   ];
 
@@ -144,7 +146,10 @@ const AdminClubUsersPage = () => {
       </AdminPageHeader>
 
       {filteredUsers.length > 0 ? (
-        <AdminTable columns={columns} data={filteredUsers} />
+        <AdminTable
+          columns={columns}
+          data={filteredUsers as unknown as Record<string, unknown>[]}
+        />
       ) : (
         <EmptyState message={t("admin.club_users.empty")} />
       )}
