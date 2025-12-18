@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import QuarterCircle from "./QuarterCircle";
+import QuarterCircle from "@/components/ui/QuarterCircle";
 import Routes from "@/utils/routes";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";

@@ -8,7 +8,7 @@ import {
   WhatsappShareButton,
   EmailShareButton,
 } from "react-share";
-import { Button } from "../ui/Button";
+import { Button } from "@/components/ui/Button";
 
 interface BlogShareProps {
   url: string;

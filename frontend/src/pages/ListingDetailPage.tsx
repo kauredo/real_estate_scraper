@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { getListing } from "@/services/api";
-import ShowPage from "@/components/showPage/Show";
-import { MetaTags } from "@/components/shared/MetaTags";
-import StructuredData from "@/components/shared/StructuredData";
-import DetailPageSkeleton from "@/components/loading/DetailPageSkeleton";
+import ShowPage from "@/components/features/listings/ListingDetail";
+import { MetaTags } from "@/components/layout/MetaTags";
+import StructuredData from "@/components/layout/StructuredData";
+import DetailPageSkeleton from "@/components/ui/DetailPageSkeleton";
 import { Listing } from "@/utils/interfaces";
 import { AxiosError } from "axios";
 import { useTranslation } from "react-i18next";

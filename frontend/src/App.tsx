@@ -6,7 +6,7 @@ import { useNotifications } from "@/hooks/useNotifications";
 import { setNotificationContext } from "@/services/api";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import NotificationToastContainer from "@/components/shared/NotificationToast";
+import NotificationToastContainer from "@/components/ui/NotificationToast";
 import Analytics from "@/components/analytics/Analytics";
 import HomePage from "@/pages/HomePage";
 import ListingsPage from "@/pages/ListingsPage";

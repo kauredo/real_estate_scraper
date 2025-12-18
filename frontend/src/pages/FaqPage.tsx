@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
-import MetaTags from "@/components/shared/MetaTags";
-import Banner from "@/components/shared/Banner";
-import FaqAccordion from "@/components/faq/FaqAccordion";
+import MetaTags from "@/components/layout/MetaTags";
+import Banner from "@/components/ui/Banner";
+import FaqAccordion from "@/components/features/faq/FaqAccordion";
 
 interface FaqQuestion {
   title: string;

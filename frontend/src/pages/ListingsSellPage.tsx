@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { MetaTags } from "@/components/shared/MetaTags";
+import { MetaTags } from "@/components/layout/MetaTags";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearchDollar,
@@ -16,7 +16,7 @@ import {
   faBookOpen,
   faHandshake,
 } from "@fortawesome/free-solid-svg-icons";
-import Banner from "@/components/shared/Banner";
+import Banner from "@/components/ui/Banner";
 
 const ListingsSellPage = () => {
   const { t, i18n } = useTranslation();

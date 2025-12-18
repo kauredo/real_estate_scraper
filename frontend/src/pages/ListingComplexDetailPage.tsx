@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { getListingComplex } from "@/services/api";
 import { ListingComplex } from "@/utils/interfaces";
-import Show from "@/components/listingComplex/Show";
-import NewShow from "@/components/listingComplex/NewShow";
-import MetaTags from "@/components/shared/MetaTags";
+import Show from "@/components/features/listings/Show";
+import NewShow from "@/components/features/listings/NewShow";
+import MetaTags from "@/components/layout/MetaTags";
 import { useTranslation } from "react-i18next";
 
 const ListingComplexDetailPage = () => {

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getBlogPosts } from "@/services/api";
-import BlogCard from "@/components/blog/BlogCard";
-import BlogPostSkeleton from "@/components/loading/BlogPostSkeleton";
-import TopProgressBar from "@/components/loading/TopProgressBar";
-import Banner from "@/components/shared/Banner";
-import Pagination from "@/components/shared/Pagination";
-import MetaTags from "@/components/shared/MetaTags";
+import BlogCard from "@/components/features/blog/BlogCard";
+import BlogPostSkeleton from "@/components/ui/BlogPostSkeleton";
+import TopProgressBar from "@/components/ui/TopProgressBar";
+import Banner from "@/components/ui/Banner";
+import Pagination from "@/components/ui/Pagination";
+import MetaTags from "@/components/layout/MetaTags";
 import { BlogPost } from "@/utils/interfaces";
 import { useNotifications } from "@/hooks/useNotifications";
 

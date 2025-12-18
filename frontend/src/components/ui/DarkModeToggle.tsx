@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { isDarkModeActive } from "@/utils/functions";
-import Toggle from "@/components/base/Toggle";
+import Toggle from "@/components/ui/Toggle";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";

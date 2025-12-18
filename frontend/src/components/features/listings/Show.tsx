@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import ContactForm from "@/components/contactPage/ContactForm";
+import ContactForm from "@/components/features/contact/ContactForm";
 import type { ListingComplex } from "@/utils/interfaces";
-import ShareIcons from "@/components/shared/ShareIcons";
+import ShareIcons from "@/components/ui/ShareIcons";
 import Routes from "@/utils/routes";
-import Carousel from "@/components/shared/Carousel";
+import Carousel from "@/components/ui/Carousel";
 import { Button } from "@/components/ui/Button";
 
 interface Props {

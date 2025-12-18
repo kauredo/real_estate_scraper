@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import MetaTags from "@/components/shared/MetaTags";
-import ContactForm from "@/components/contactPage/ContactForm";
+import MetaTags from "@/components/layout/MetaTags";
+import ContactForm from "@/components/features/contact/ContactForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationArrow,

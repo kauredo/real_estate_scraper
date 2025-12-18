@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
-import ContactForm from "@/components/contactPage/ContactForm";
-import Cards from "@/components/homePage/Cards";
+import ContactForm from "@/components/features/contact/ContactForm";
+import Cards from "@/components/features/listings/Cards";
 import { ListingComplex } from "@/utils/interfaces";
-import Carousel from "@/components/shared/Carousel";
-import ShareIcons from "@/components/shared/ShareIcons";
+import Carousel from "@/components/ui/Carousel";
+import ShareIcons from "@/components/ui/ShareIcons";
 import Routes from "@/utils/routes";
 
 interface Props {

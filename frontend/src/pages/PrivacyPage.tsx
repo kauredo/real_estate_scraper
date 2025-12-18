@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from "react-i18next";
-import Banner from "@/components/shared/Banner";
-import { MetaTags } from "@/components/shared/MetaTags";
+import Banner from "@/components/ui/Banner";
+import { MetaTags } from "@/components/layout/MetaTags";
 
 const PrivacyPage = () => {
   const { t } = useTranslation("privacy");

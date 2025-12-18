@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useAsyncOperation } from "@/hooks/useAsyncOperation";
 import { submitContactForm } from "@/services/api";
 import { Listing, ListingComplex } from "@/utils/interfaces";
-import ButtonSpinner from "@/components/loading/ButtonSpinner";
+import ButtonSpinner from "@/components/ui/ButtonSpinner";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";

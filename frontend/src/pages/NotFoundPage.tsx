@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { MetaTags } from "@/components/shared/MetaTags";
+import { MetaTags } from "@/components/layout/MetaTags";
 import mainWhiteLogo from "@/assets/logos/main_white.webp";
 import mainLogo from "@/assets/logos/main.webp";
 import NotFound from "@/components/svgs/NotFound";

@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { MetaTags } from "@/components/shared/MetaTags";
-import Banner from "@/components/shared/Banner";
+import { MetaTags } from "@/components/layout/MetaTags";
+import Banner from "@/components/ui/Banner";
 
 const TermsAndConditionsPage = () => {
   const { t } = useTranslation();

@@ -1,7 +1,7 @@
 import { FormEvent, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { apiRoutes } from "@/utils/routes";
-import Flashes from "@/components/shared/Flashes";
+import Flashes from "@/components/ui/Flashes";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Checkbox } from "@/components/ui/Checkbox";

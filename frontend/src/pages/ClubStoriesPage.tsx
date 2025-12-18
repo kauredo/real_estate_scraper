@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
-import ClubStoryCard from "@/components/club/ClubStoryCard";
-import ClubStorySkeleton from "@/components/loading/ClubStorySkeleton";
-import TopProgressBar from "@/components/loading/TopProgressBar";
+import ClubStoryCard from "@/components/features/club/ClubStoryCard";
+import ClubStorySkeleton from "@/components/ui/ClubStorySkeleton";
+import TopProgressBar from "@/components/ui/TopProgressBar";
 import { ClubStory } from "@/utils/interfaces";
-import MetaTags from "@/components/shared/MetaTags";
+import MetaTags from "@/components/layout/MetaTags";
 import { getClubStories } from "@/services/api";
-import Pagination from "@/components/shared/Pagination";
+import Pagination from "@/components/ui/Pagination";
 import { useNotifications } from "@/hooks/useNotifications";
 
 export default function ClubStoriesPage() {

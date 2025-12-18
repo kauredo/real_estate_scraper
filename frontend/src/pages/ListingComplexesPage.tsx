@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getListingComplexes } from "@/services/api";
-import MetaTags from "@/components/shared/MetaTags";
-import Banner from "@/components/shared/Banner";
-import Pagination from "@/components/shared/Pagination";
-import ListingComplexes from "@/components/listingComplex/ListingComplexes";
-import ListingComplexSkeleton from "@/components/loading/ListingComplexSkeleton";
-import TopProgressBar from "@/components/loading/TopProgressBar";
+import MetaTags from "@/components/layout/MetaTags";
+import Banner from "@/components/ui/Banner";
+import Pagination from "@/components/ui/Pagination";
+import ListingComplexes from "@/components/features/listings/ListingComplexes";
+import ListingComplexSkeleton from "@/components/ui/ListingComplexSkeleton";
+import TopProgressBar from "@/components/ui/TopProgressBar";
 import { useNotifications } from "@/hooks/useNotifications";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

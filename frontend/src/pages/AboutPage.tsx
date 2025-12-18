@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
-import MetaTags from "@/components/shared/MetaTags";
-import Banner from "@/components/shared/Banner";
-import Profile from "@/components/homePage/Profile";
-import Results from "@/components/homePage/Results";
+import MetaTags from "@/components/layout/MetaTags";
+import Banner from "@/components/ui/Banner";
+import Profile from "@/components/features/home/Profile";
+import Results from "@/components/features/home/Results";
 import { getHomePage } from "@/services/api";
 import { ResultNumbers, Testimonial } from "@/utils/interfaces";
 import { useState, useEffect } from "react";

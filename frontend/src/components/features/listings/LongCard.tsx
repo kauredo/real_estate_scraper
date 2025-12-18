@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Listing } from "@/utils/interfaces";
 import { truncateText } from "@/utils/functions";
 import { optimizeCloudinaryUrl } from "@/utils/imageOptimization";
-import ListingIcons from "@/components/shared/ListingIcons";
-import Overlay from "@/components/shared/Overlay";
+import ListingIcons from "@/components/features/listings/ListingIcons";
+import Overlay from "@/components/ui/Overlay";
 import Routes from "@/utils/routes";
 import CheckIcon from "@/components/svgs/CheckIcon";
 

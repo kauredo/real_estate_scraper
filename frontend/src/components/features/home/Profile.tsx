@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import Socials from "@/components/shared/Socials";
+import Socials from "@/components/ui/Socials";
 import sofiaImage from "@/assets/images/sofia-square.jpg";
 
 export default function Profile() {

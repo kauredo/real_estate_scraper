@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { truncateText } from "../../utils/functions";
-import ListingIcons from "../shared/ListingIcons";
-import Overlay from "../shared/Overlay";
-import Routes from "../../utils/routes";
-import { Listing } from "../../utils/interfaces";
+import { truncateText } from "@/utils/functions";
+import ListingIcons from "@/components/features/listings/ListingIcons";
+import Overlay from "@/components/ui/Overlay";
+import Routes from "@/utils/routes";
+import { Listing } from "@/utils/interfaces";
 
 export default function Card({ listing }: { listing: Listing }) {
   return (
