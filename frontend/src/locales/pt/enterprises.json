@@ -30,7 +30,10 @@
     "more": "Ver mais",
     "parking": "Estacionamento",
     "price": "Preço",
-    "type": "Natureza"
+    "type": "Natureza",
+    "description": "Descrição",
+    "available_units": "Unidades Disponíveis",
+    "price_table": "Tabela de Preços"
   },
   "subheader": "Porquê Comprar <span class=\"underline decoration-beige-default dark:decoration-beige-medium\">em Planta?</span>",
   "subtitle": {

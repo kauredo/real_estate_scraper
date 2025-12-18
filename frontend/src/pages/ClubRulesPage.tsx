@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
-import SubNavbar from "../components/shared/SubNavbar";
-import ClubHeader from "../components/club/ClubHeader";
-import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
-import { useClubSections } from "../utils/constants/clubSections";
-import MetaTags from "../components/shared/MetaTags";
+import SubNavbar from "@/components/layout/SubNavbar";
+import ClubHeader from "@/components/features/club/ClubHeader";
+import IconDecorationWrapper from "@/components/ui/IconDecorationWrapper";
+import { useClubSections } from "@/utils/constants/clubSections";
+import MetaTags from "@/components/layout/MetaTags";
 
 export default function ClubRulesPage() {
   const { t } = useTranslation();

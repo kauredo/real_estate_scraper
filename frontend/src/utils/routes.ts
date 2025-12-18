@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-import i18n from "../i18n";
+import i18n from "@/i18n";
 
 const API_BASE_URL =
   import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1";
@@ -29,13 +29,11 @@ export const routeMappings = {
 // Function to translate route segments
 export const translateRoute = (segment: string, toEnglish: boolean): string => {
   if (toEnglish) {
-    const entry = Object.entries(routeMappings).find(
-      ([pt, _]) => pt === segment,
-    );
+    const entry = Object.entries(routeMappings).find(([pt]) => pt === segment);
     return entry ? entry[1] : segment;
   } else {
     const entry = Object.entries(routeMappings).find(
-      ([_, en]) => en === segment,
+      ([, en]) => en === segment,
     );
     return entry ? entry[0] : segment;
   }

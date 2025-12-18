@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { scrollToSection } from "../utils/functions";
-import { ClubStory } from "../utils/interfaces";
-import ClubStoryCard from "../components/club/ClubStoryCard";
-import Spinner from "../components/loading/Spinner";
-import SubNavbar from "../components/shared/SubNavbar";
-import ClubHeader from "../components/club/ClubHeader";
-import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
-import { useClubSections } from "../utils/constants/clubSections";
-import MetaTags from "../components/shared/MetaTags";
-import { getClub } from "../services/api";
-import togetherImage from "../assets/images/together.webp";
-import ClubJoinForm from "../components/club/ClubJoinForm";
-import { useNotifications } from "../context/NotificationContext";
+import { scrollToSection } from "@/utils/functions";
+import { ClubStory } from "@/utils/interfaces";
+import ClubStoryCard from "@/components/features/club/ClubStoryCard";
+import Spinner from "@/components/ui/Spinner";
+import SubNavbar from "@/components/layout/SubNavbar";
+import ClubHeader from "@/components/features/club/ClubHeader";
+import IconDecorationWrapper from "@/components/ui/IconDecorationWrapper";
+import { useClubSections } from "@/utils/constants/clubSections";
+import MetaTags from "@/components/layout/MetaTags";
+import { getClub } from "@/services/api";
+import togetherImage from "@/assets/images/together.webp";
+import ClubJoinForm from "@/components/features/club/ClubJoinForm";
+import { useNotifications } from "@/hooks/useNotifications";
 
 export default function ClubPage() {
   const { t } = useTranslation();
@@ -27,7 +27,7 @@ export default function ClubPage() {
         setLoading(true);
         const response = await getClub();
         setRecentStories(response.data);
-      } catch (error) {
+      } catch {
         showError(t("errors.fetch_club_data"));
       } finally {
         setLoading(false);
@@ -61,43 +61,18 @@ export default function ClubPage() {
                 <div className="flex justify-center items-center py-8">
                   <Spinner size="md" />
                 </div>
-              ) : (
-                recentStories &&
-                recentStories.length > 0 && (
-                  <section className="w-full py-12">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-dark dark:text-light">
-                      {t("club.home.impact.subtitle")}
-                    </h2>
-                    {recentStories.length === 1 && (
-                      <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-                        {recentStories.map((story) => (
-                          <div className="w-full" key={story.id}>
-                            <ClubStoryCard story={story} />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    {recentStories.length === 2 && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {recentStories.map((story) => (
-                          <div className="w-full" key={story.id}>
-                            <ClubStoryCard story={story} />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    {recentStories.length >= 3 && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {recentStories.map((story) => (
-                          <div className="w-full" key={story.id}>
-                            <ClubStoryCard story={story} />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </section>
-                )
-              )}
+              ) : recentStories && recentStories.length > 0 ? (
+                <section className="w-full py-12">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-8 text-dark dark:text-light">
+                    {t("club.home.impact.subtitle")}
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {recentStories.map((story) => (
+                      <ClubStoryCard key={story.id} story={story} />
+                    ))}
+                  </div>
+                </section>
+              ) : null}
 
               <div
                 id="contribute"

@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
-import MetaTags from "../components/shared/MetaTags";
-import Banner from "../components/shared/Banner";
-import Profile from "../components/homePage/Profile";
-import Results from "../components/homePage/Results";
-import { getHomePage } from "../services/api";
-import { ResultNumbers, Testimonial } from "../utils/interfaces";
+import MetaTags from "@/components/layout/MetaTags";
+import Banner from "@/components/ui/Banner";
+import Profile from "@/components/features/home/Profile";
+import Results from "@/components/features/home/Results";
+import { getHomePage } from "@/services/api";
+import { ResultNumbers, Testimonial } from "@/utils/interfaces";
 import { useState, useEffect } from "react";
-import { useNotifications } from "../context/NotificationContext";
+import { useNotifications } from "@/hooks/useNotifications";
 
 const AboutPage = () => {
   const { t } = useTranslation();
@@ -27,7 +27,7 @@ const AboutPage = () => {
         if (data.testimonials) {
           setTestimonials(data.testimonials as Testimonial[]);
         }
-      } catch (err) {
+      } catch {
         showError(t("errors.fetch_about_data"));
       }
     };
@@ -119,20 +119,21 @@ const AboutPage = () => {
                 {t("about.kw_partnership.principles.title")}
               </h3>
               <ul className="list-disc pl-8 mt-4 text-black dark:text-light">
-                {Object.entries(
+                {(
                   t("about.kw_partnership.principles.list", {
                     returnObjects: true,
-                  }),
-                ).map(([_, object]) =>
-                  Object.entries(object).map(([key, value]) => (
+                  }) as Array<Record<string, string>>
+                ).map((principle, index) => {
+                  const [key, value] = Object.entries(principle)[0];
+                  return (
                     <li
-                      key={key}
+                      key={`${key}-${index}`}
                       className="text-lg text-gray-500 dark:text-light"
                     >
-                      {String(key)}: {String(value)}
+                      <strong>{key}:</strong> {value}
                     </li>
-                  )),
-                )}
+                  );
+                })}
               </ul>
             </div>
           </div>

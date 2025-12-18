@@ -9,6 +9,7 @@
     "error": "Por favor preencha todos os campos obrigatórios corretamente",
     "error": {
       "generic": "Por favor preencha todos os campos obrigatórios corretamente",
+      "terms": "Por favor aceite os termos e condições do SGG Club",
       "terms_required": "Por favor aceite os termos e condições do Clube SGG"
     },
     "fields": {
@@ -17,11 +18,19 @@
       "phone": "Telemóvel",
       "send": "Submeter",
       "terms_link": "Regulamento do Clube SGG",
-      "terms_prefix": "Declaro que li e aceito os termos presentes no"
+      "terms_prefix": "Declaro que li e aceito os termos presentes no",
+      "terms_html": "Declaro que li e aceito os termos apresentados no <a href='/club-rules' class='underline'>Regulamento SGG Club</a>"
     },
+    "submit": "Aderir ao SGG Club",
     "titles": {
       "main": "Torne-se membro do Clube SGG"
     }
+  },
+  "story": {
+    "not_found": "História não encontrada ou já não está disponível."
+  },
+  "stories": {
+    "subtitle": "Histórias Reais de Impacto e Esperança"
   },
   "home": {
     "contribute": {

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { getBlogPosts } from "../services/api";
-import BlogCard from "../components/blog/BlogCard";
-import BlogPostSkeleton from "../components/loading/BlogPostSkeleton";
-import TopProgressBar from "../components/loading/TopProgressBar";
-import Banner from "../components/shared/Banner";
-import Pagination from "../components/shared/Pagination";
-import MetaTags from "../components/shared/MetaTags";
-import { BlogPost } from "../utils/interfaces";
-import { useNotifications } from "../context/NotificationContext";
+import { getBlogPosts } from "@/services/api";
+import BlogCard from "@/components/features/blog/BlogCard";
+import BlogPostSkeleton from "@/components/ui/BlogPostSkeleton";
+import TopProgressBar from "@/components/ui/TopProgressBar";
+import Banner from "@/components/ui/Banner";
+import Pagination from "@/components/ui/Pagination";
+import MetaTags from "@/components/layout/MetaTags";
+import { BlogPost } from "@/utils/interfaces";
+import { useNotifications } from "@/hooks/useNotifications";
 
 const BlogPostsPage = () => {
   const { t } = useTranslation();
@@ -33,9 +33,9 @@ const BlogPostsPage = () => {
 
       // Smooth scroll to top after data is loaded (for pagination)
       if (hasInitialData) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    } catch (error) {
+    } catch {
       showError(t("errors.fetch_blog_posts"));
     } finally {
       setLoading(false);
@@ -55,59 +55,48 @@ const BlogPostsPage = () => {
       <MetaTags pageType="blog" url={window.location.href} />
       <Banner height="20vh" blurred={true} text={t("blog_posts.header")} />
 
-      <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
-        <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
-          <h1 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold text-dark dark:text-light mb-4">
             {t("blog_posts.header")}
           </h1>
-          <p className="mx-auto text-gray-500 dark:text-light text-lg mt-2">
+          <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
             {t("blog_posts.subheader")}
           </p>
-          <br />
-
-          {/* Show progress bar when paginating (loading with existing data) */}
-          {loading && hasInitialData && <TopProgressBar isLoading={loading} />}
-
-          <div className="w-full max-w-7xl mx-auto">
-            {loading && !hasInitialData ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <BlogPostSkeleton key={index} />
-                ))}
-              </div>
-            ) : blogPosts.length === 0 ? (
-              <div className="w-full text-center p-8 text-xl">
-                <h2>{t("blog_posts.empty")}</h2>
-              </div>
-            ) : blogPosts.length === 1 ? (
-              <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-                <BlogCard blogPost={blogPosts[0]} />
-              </div>
-            ) : blogPosts.length === 2 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {blogPosts.map((blogPost) => (
-                  <BlogCard key={blogPost.id} blogPost={blogPost} />
-                ))}
-              </div>
-            ) : (
-              <>
-                <Pagination
-                  pagination={pagination}
-                  onPageChange={handlePageChange}
-                />
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {blogPosts.map((blogPost) => (
-                    <BlogCard key={blogPost.id} blogPost={blogPost} />
-                  ))}
-                </div>
-                <Pagination
-                  pagination={pagination}
-                  onPageChange={handlePageChange}
-                />
-              </>
-            )}
-          </div>
         </div>
+
+        {/* Show progress bar when paginating (loading with existing data) */}
+        {loading && hasInitialData && <TopProgressBar isLoading={loading} />}
+
+        {loading && !hasInitialData ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <BlogPostSkeleton key={index} />
+            ))}
+          </div>
+        ) : blogPosts.length === 0 ? (
+          <div className="text-center py-12">
+            <h2 className="text-xl text-gray-600 dark:text-gray-400">
+              {t("blog_posts.empty")}
+            </h2>
+          </div>
+        ) : (
+          <>
+            <Pagination
+              pagination={pagination}
+              onPageChange={handlePageChange}
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {blogPosts.map((blogPost) => (
+                <BlogCard key={blogPost.id} blogPost={blogPost} />
+              ))}
+            </div>
+            <Pagination
+              pagination={pagination}
+              onPageChange={handlePageChange}
+            />
+          </>
+        )}
       </div>
     </>
   );

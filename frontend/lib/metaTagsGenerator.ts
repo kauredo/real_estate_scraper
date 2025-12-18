@@ -31,49 +31,55 @@ interface ClubStoryData {
   featured_image?: string;
 }
 
-type ContentData = ListingData | BlogPostData | ListingComplexData | ClubStoryData;
+type ContentData =
+  | ListingData
+  | BlogPostData
+  | ListingComplexData
+  | ClubStoryData;
 
 /**
  * Extracts a clean description (max 160 chars for OG)
  */
 function getCleanDescription(text?: string): string {
-  if (!text) return '';
+  if (!text) return "";
 
   // Remove HTML tags
-  const withoutHtml = text.replace(/<[^>]*>/g, '');
+  const withoutHtml = text.replace(/<[^>]*>/g, "");
 
   // Truncate to 160 chars
   if (withoutHtml.length <= 160) return withoutHtml;
 
-  return withoutHtml.substring(0, 157) + '...';
+  return withoutHtml.substring(0, 157) + "...";
 }
 
 /**
  * Checks if data is a blog post
  */
 function isBlogPost(data: ContentData): data is BlogPostData {
-  return 'meta_title' in data || 'featured_image' in data;
+  return "meta_title" in data || "featured_image" in data;
 }
 
 /**
  * Checks if data is a listing
  */
 function isListing(data: ContentData): data is ListingData {
-  return 'photos' in data && !('name' in data);
+  return "photos" in data && !("name" in data);
 }
 
 /**
  * Checks if data is a listing complex
  */
 function isListingComplex(data: ContentData): data is ListingComplexData {
-  return 'name' in data && 'photos' in data;
+  return "name" in data && "photos" in data;
 }
 
 /**
  * Checks if data is a club story
  */
 function isClubStory(data: ContentData): data is ClubStoryData {
-  return 'featured_image' in data && !('meta_title' in data) && !('photos' in data);
+  return (
+    "featured_image" in data && !("meta_title" in data) && !("photos" in data)
+  );
 }
 
 /**
@@ -82,47 +88,51 @@ function isClubStory(data: ContentData): data is ClubStoryData {
 export function generateMetaTags(
   data: ContentData,
   url: string,
-  language: 'pt' | 'en' = 'pt',
-  defaultImageUrl: string = 'https://sofiagalvaogroup.com/images/default-og-image.jpg'
+  language: "pt" | "en" = "pt",
+  defaultImageUrl: string = "https://sofiagalvaogroup.com/images/default-og-image.jpg",
 ): string {
-  let title = '';
-  let description = '';
+  let title = "";
+  let description = "";
   let image = defaultImageUrl;
-  let type = 'website';
+  let type = "website";
 
   if (isBlogPost(data)) {
     // Blog post
     title = data.meta_title || data.title;
-    description = getCleanDescription(data.meta_description || data.description);
+    description = getCleanDescription(
+      data.meta_description || data.description,
+    );
     image = data.featured_image || defaultImageUrl;
-    type = 'article';
+    type = "article";
   } else if (isClubStory(data)) {
     // Club story
     title = data.title;
     description = getCleanDescription(data.description);
     image = data.featured_image || defaultImageUrl;
-    type = 'article';
+    type = "article";
   } else if (isListingComplex(data)) {
     // Listing complex
     title = data.name;
     description = getCleanDescription(data.description);
-    image = (data.photos && data.photos.length > 0) ? data.photos[0] : defaultImageUrl;
-    type = 'article';
+    image =
+      data.photos && data.photos.length > 0 ? data.photos[0] : defaultImageUrl;
+    type = "article";
   } else if (isListing(data)) {
     // Listing
     title = data.title;
     description = getCleanDescription(data.description);
-    image = (data.photos && data.photos.length > 0) ? data.photos[0] : defaultImageUrl;
-    type = 'article';
+    image =
+      data.photos && data.photos.length > 0 ? data.photos[0] : defaultImageUrl;
+    type = "article";
   }
 
   // Ensure full title with branding
-  const fullTitle = title.includes('Sofia Galvão')
+  const fullTitle = title.includes("Sofia Galvão")
     ? title
     : `${title} | Sofia Galvão Group`;
 
   // Set locale based on language
-  const locale = language === 'en' ? 'en_US' : 'pt_PT';
+  const locale = language === "en" ? "en_US" : "pt_PT";
 
   return `
     <title>${escapeHtml(fullTitle)}</title>
@@ -151,11 +161,11 @@ export function generateMetaTags(
  */
 function escapeHtml(text: string): string {
   const htmlEscapeMap: Record<string, string> = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;",
   };
 
   return text.replace(/[&<>"']/g, (char) => htmlEscapeMap[char]);

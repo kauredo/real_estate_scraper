@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import MetaTags from "../components/shared/MetaTags";
-import ContactForm from "../components/contactPage/ContactForm";
+import MetaTags from "@/components/layout/MetaTags";
+import ContactForm from "@/components/features/contact/ContactForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationArrow,
@@ -38,7 +38,7 @@ const ContactPage = () => {
                       <FontAwesomeIcon icon={faLocationArrow} />
                     </div>
                     <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                      Av. Dom Carlos I 124, Lisboa, Portugal
+                      {t("contacts.address")}
                     </p>
                   </dt>
                 </div>
@@ -48,7 +48,7 @@ const ContactPage = () => {
                       <FontAwesomeIcon icon={faStore} />
                     </div>
                     <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                      KW Lead - Santos
+                      {t("contacts.office")}
                     </p>
                   </dt>
                 </div>
@@ -58,7 +58,7 @@ const ContactPage = () => {
                       <FontAwesomeIcon icon={faMobile} />
                     </div>
                     <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                      +351 93 28 29 084 - Sofia Galvão
+                      {t("contacts.phone")}
                     </p>
                   </dt>
                 </div>
@@ -68,7 +68,7 @@ const ContactPage = () => {
                       <FontAwesomeIcon icon={faAt} />
                     </div>
                     <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                      geral@sofiagalvaogroup.com
+                      {t("contacts.email")}
                     </p>
                   </dt>
                 </div>
@@ -83,7 +83,7 @@ const ContactPage = () => {
                         <FontAwesomeIcon icon={faFacebook} />
                       </div>
                       <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                        /sofiagalvaokw
+                        {t("contacts.facebook")}
                       </p>
                     </dt>
                   </a>
@@ -99,7 +99,7 @@ const ContactPage = () => {
                         <FontAwesomeIcon icon={faInstagram} />
                       </div>
                       <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                        @sofiagalvaogroupkw
+                        {t("contacts.instagram")}
                       </p>
                     </dt>
                   </a>

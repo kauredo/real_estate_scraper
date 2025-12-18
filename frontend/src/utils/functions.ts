@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { i18n as I18nType } from "i18next";
 import { translateRoute } from "./routes";
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function truncateText(title: string, length: number): string {
   if (title && title.length > length) {
@@ -137,7 +139,7 @@ export const navbarItemClass = (
   currentPath?: string,
 ): string => {
   const base =
-    "whitespace-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium mx-1 lowercase ";
+    "whitespace-nowrap hover:bg-beige-default dark:hover:bg-beige-medium hover:text-white dark:hover:text-light px-3 py-2 rounded-md font-medium lowercase ";
   const mobile = "block text-base relative z-3 ";
   const desktop = " ";
   const inactive = "text-dark dark:text-light";
@@ -181,3 +183,7 @@ export const scrollToSection = (
   const element = document.getElementById(id);
   element?.scrollIntoView({ behavior: "smooth" });
 };
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

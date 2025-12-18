@@ -7,5 +7,9 @@
   "priceFrom": "Starting from",
   "availableUnits": "Available Units",
   "contactDescription": "Interested in this development? Contact us for more information.",
-  "details": "Details"
+  "details": "Details",
+  "location": "Location",
+  "starting_price": "Starting Price",
+  "description": "Description",
+  "available_units": "Available Units"
 }

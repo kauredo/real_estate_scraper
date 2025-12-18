@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
-import { getListings } from "../services/api";
-import MetaTags from "../components/shared/MetaTags";
-import Banner from "../components/shared/Banner";
-import ListingSearch from "../components/shared/ListingSearch";
-import Pagination from "../components/shared/Pagination";
-import Listings from "../components/indexPage/Listings";
-import ListingSkeleton from "../components/loading/ListingSkeleton";
-import TopProgressBar from "../components/loading/TopProgressBar";
-import ListingsLoadingOverlay from "../components/loading/ListingsLoadingOverlay";
-import { Listing } from "../utils/interfaces";
-import { useNotifications } from "../context/NotificationContext";
+import { getListings } from "@/services/api";
+import MetaTags from "@/components/layout/MetaTags";
+import Banner from "@/components/ui/Banner";
+import ListingSearch from "@/components/features/listings/ListingSearch";
+import Pagination from "@/components/ui/Pagination";
+import Listings from "@/components/features/listings/Listings";
+import ListingSkeleton from "@/components/ui/ListingSkeleton";
+import ListingsLoadingOverlay from "@/components/ui/ListingsLoadingOverlay";
+import { Listing } from "@/utils/interfaces";
+import { useNotifications } from "@/hooks/useNotifications";
 
 const ListingsPage = () => {
   const { t, i18n } = useTranslation();
@@ -51,7 +50,7 @@ const ListingsPage = () => {
       if (hasInitialData) {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    } catch (error) {
+    } catch {
       showError(t("errors.fetch_listings"));
     } finally {
       setLoading(false);

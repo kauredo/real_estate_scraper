@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { Listing, ResultNumbers, Testimonial } from "../utils/interfaces";
-import { getHomePage } from "../services/api";
-import { useAsyncOperation } from "../hooks/useAsyncOperation";
+import { Listing, ResultNumbers, Testimonial } from "@/utils/interfaces";
+import { getHomePage } from "@/services/api";
+import { useAsyncOperation } from "@/hooks/useAsyncOperation";
 import { useTranslation } from "react-i18next";
-import { MetaTags } from "../components/shared/MetaTags";
-import StructuredData from "../components/shared/StructuredData";
-import Hero from "../components/shared/Hero";
-import Cards from "../components/homePage/Cards";
-import Results from "../components/homePage/Results";
-import Newsletter from "../components/homePage/Newsletter";
-import ContentSkeleton from "../components/loading/ContentSkeleton";
+import MetaTags from "@/components/layout/MetaTags";
+import StructuredData from "@/components/layout/StructuredData";
+import Hero from "@/components/layout/Hero";
+import Cards from "@/components/features/listings/Cards";
+import Results from "@/components/features/home/Results";
+import Newsletter from "@/components/features/home/Newsletter";
+import ContentSkeleton from "@/components/ui/ContentSkeleton";
 
 export default function Home() {
   // Create state to hold the data
@@ -74,10 +74,4 @@ export default function Home() {
       )}
     </>
   );
-}
-
-declare global {
-  interface Window {
-    Routes: any;
-  }
 }

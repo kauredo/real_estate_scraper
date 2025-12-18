@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
-import { getListingComplex } from "../services/api";
-import { ListingComplex } from "../utils/interfaces";
-import Show from "../components/listingComplex/Show";
-import NewShow from "../components/listingComplex/NewShow";
-import { MetaTags } from "../components/shared/MetaTags";
+import { getListingComplex } from "@/services/api";
+import { ListingComplex } from "@/utils/interfaces";
+import Show from "@/components/features/listings/Show";
+import NewShow from "@/components/features/listings/NewShow";
+import MetaTags from "@/components/layout/MetaTags";
+import { useTranslation } from "react-i18next";
 
 const ListingComplexDetailPage = () => {
+  const { t } = useTranslation();
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const previewToken = searchParams.get("preview_token");
@@ -17,9 +19,13 @@ const ListingComplexDetailPage = () => {
 
   useEffect(() => {
     const fetchListingComplex = async () => {
+      if (!slug) return;
       try {
         setLoading(true);
-        const response = await getListingComplex(slug, previewToken || undefined);
+        const response = await getListingComplex(
+          slug,
+          previewToken || undefined,
+        );
         setListingComplex(response.data.listing_complex);
       } catch (error) {
         console.error("Error fetching listing complex:", error);
@@ -28,9 +34,7 @@ const ListingComplexDetailPage = () => {
       }
     };
 
-    if (slug) {
-      fetchListingComplex();
-    }
+    fetchListingComplex();
   }, [slug, previewToken]);
 
   if (loading) {
@@ -44,7 +48,7 @@ const ListingComplexDetailPage = () => {
   if (!listingComplex) {
     return (
       <div className="container mx-auto p-8 text-center">
-        <h1 className="text-2xl">Listing complex not found</h1>
+        <h1 className="text-2xl">{t("errors.listing_complex_not_found")}</h1>
       </div>
     );
   }

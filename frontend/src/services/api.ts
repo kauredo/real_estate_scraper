@@ -1,6 +1,6 @@
 import axios from "axios";
-import { apiRoutes } from "../utils/routes";
-import i18n from "../i18n";
+import { apiRoutes } from "@/utils/routes";
+import i18n from "@/i18n";
 
 // Create axios instance with default config
 const api = axios.create({
@@ -115,7 +115,7 @@ export const getSellPage = () => api.get(apiRoutes.sell);
 export const toggleDarkMode = () => api.post(apiRoutes.toggleDarkMode);
 
 // Contact API functions
-export const submitContactForm = (data: any) =>
+export const submitContactForm = (data: Record<string, unknown>) =>
   api.post(apiRoutes.contact, data);
 
 // Blog posts API functions
@@ -151,10 +151,11 @@ export const getClubStory = (slug: string, previewToken?: string) =>
   api.get(apiRoutes.clubStory(slug), {
     params: previewToken ? { preview_token: previewToken } : {},
   });
-export const joinClub = (data: any) => api.post(apiRoutes.clubJoin, data);
+export const joinClub = (data: Record<string, unknown>) =>
+  api.post(apiRoutes.clubJoin, data);
 
 // Newsletter API functions
-export const subscribeToNewsletter = (data: any) =>
+export const subscribeToNewsletter = (data: Record<string, unknown>) =>
   api.post(apiRoutes.newsletterSubscriptions, { newsletter: data });
 export const unsubscribeFromNewsletter = (id: string) =>
   api.delete(apiRoutes.newsletterSubscription(id));

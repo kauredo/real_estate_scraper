@@ -1,6 +1,10 @@
+interface Routes {
+  [key: string]: (...args: (string | number)[]) => string;
+}
+
 declare global {
   interface Window {
-    Routes: any;
+    Routes: Routes;
   }
 }
 
@@ -103,7 +107,7 @@ export interface NavbarItemProps {
   title: string;
   url?: string;
   hover?: string;
-  img?: any;
+  img?: string;
   items?: NavbarItemProps[];
   children?: React.ReactNode;
   method?: string;

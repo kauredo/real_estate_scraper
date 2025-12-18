@@ -1,6 +1,6 @@
 # Translation Comparison Report
 
-Generated on: 2025-10-06T09:30:28.204Z
+Generated on: 2025-12-18T19:30:28.491Z
 
 ## Summary
 
@@ -85,8 +85,8 @@ Generated on: 2025-10-06T09:30:28.204Z
 
 ### ✅ common.json
 
-- EN: 14 keys
-- PT: 14 keys
+- EN: 16 keys
+- PT: 16 keys
 
 ### ✅ contact.json
 
@@ -160,8 +160,8 @@ Generated on: 2025-10-06T09:30:28.204Z
 
 ### ⚠️ i18n.json
 
-- EN: 1 keys
-- PT: 25 keys
+- EN: 7 keys
+- PT: 31 keys
 - Missing in EN: 24
 
 ### ✅ kw.json
@@ -196,8 +196,8 @@ Generated on: 2025-10-06T09:30:28.204Z
 
 ### ✅ navbar.json
 
-- EN: 20 keys
-- PT: 20 keys
+- EN: 23 keys
+- PT: 23 keys
 
 ### ✅ notifications.json
 
@@ -216,8 +216,8 @@ Generated on: 2025-10-06T09:30:28.204Z
 
 ### ✅ privacy.json
 
-- EN: 1 keys
-- PT: 1 keys
+- EN: 34 keys
+- PT: 34 keys
 
 ### ✅ ransack.json
 
@@ -243,6 +243,11 @@ Generated on: 2025-10-06T09:30:28.204Z
 
 - EN: 9 keys
 - PT: 9 keys
+
+### ✅ super_admin.json
+
+- EN: 67 keys
+- PT: 67 keys
 
 ### ✅ support.json
 

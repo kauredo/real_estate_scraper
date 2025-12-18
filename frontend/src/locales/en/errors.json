@@ -6,10 +6,19 @@
     "title": "You seem to be lost!"
   },
   "500": {
+    "button": "Go Back Home",
     "text_1": "We're trying our best to fix it.",
     "text_2": "Please try again in a few minutes.",
     "title": "Server is down!"
   },
+  "fetch_listings": "Failed to load listings. Please try again later.",
+  "listing_not_found": "Listing not found or no longer available.",
+  "fetch_listing_complexes": "Failed to load developments. Please try again later.",
+  "listing_complex_not_found": "Development not found or no longer available.",
+  "fetch_club_stories": "Failed to load SGG Club stories. Please try again later.",
+  "fetch_club_data": "Failed to load SGG Club data. Please try again later.",
+  "fetch_blog_posts": "Failed to load blog posts. Please try again later.",
+  "fetch_about_data": "Failed to load about page data. Please try again later.",
   "connection_refused": "Oops! Failed to connect to the Web Console middleware.\nPlease make sure a rails development server is running.\n",
   "email": {
     "invalid": "is not a valid email"

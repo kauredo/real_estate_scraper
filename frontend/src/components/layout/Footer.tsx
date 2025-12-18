@@ -1,4 +1,3 @@
-import React, { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
@@ -6,11 +5,12 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { useTranslation } from "react-i18next";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import Routes from "../../utils/routes";
-import mainWhiteLogo from "../../assets/logos/main_white.webp";
+import Routes from "@/utils/routes";
+import mainWhiteLogo from "@/assets/logos/main_white.webp";
+import { Button } from "@/components/ui/Button";
 
 export default function Footer() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const items = [
     {
       title: "Instagram",
@@ -47,35 +47,31 @@ export default function Footer() {
           </a>
           <ul className="flex flex-wrap items-center text-sm text-gray-500 dark:text-light">
             <li>
-              <a
-                href={Routes.about_path}
-                className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6 "
-              >
-                {t("footer.about")}
+              <a href={Routes.about_path}>
+                <Button variant="link" className="text-white dark:text-light">
+                  {t("footer.about")}
+                </Button>
               </a>
             </li>
             <li>
-              <a
-                href={Routes.privacy_path}
-                className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6"
-              >
-                {t("footer.privacy")}
+              <a href={Routes.privacy_path}>
+                <Button variant="link" className="text-white dark:text-light">
+                  {t("footer.privacy")}
+                </Button>
               </a>
             </li>
             <li>
-              <a
-                href={Routes.terms_and_conditions_path}
-                className="mr-4 hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100 md:mr-6 "
-              >
-                {t("footer.terms")}
+              <a href={Routes.terms_and_conditions_path}>
+                <Button variant="link" className="text-white dark:text-light">
+                  {t("footer.terms")}
+                </Button>
               </a>
             </li>
             <li>
-              <a
-                href={Routes.contact_path}
-                className="hover:underline text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100"
-              >
-                {t("footer.contacts")}
+              <a href={Routes.contact_path}>
+                <Button variant="link" className="text-white dark:text-light">
+                  {t("footer.contacts")}
+                </Button>
               </a>
             </li>
           </ul>
@@ -84,28 +80,27 @@ export default function Footer() {
         <div className="sm:flex justify-between tablet:justify-start items-center ">
           <div className="tablet:pr-4">
             <p className="text-sm text-white dark:text-light">
-              © {new Date().getFullYear()} Sofia Galvão Group. All Rights
-              Reserved.
+              {t("footer.copyright", { year: new Date().getFullYear() })}
             </p>
             <p className="text-sm text-white dark:text-light">
-              KW Lead Santos - Av Dom Carlos I, 124J - Santos, Lisboa
+              {t("footer.address")}
             </p>
             <p className="text-sm text-white dark:text-light">
-              Agent Centric Mediação Imobiliária, Lda - AMI 12518
+              {t("footer.license")}
             </p>
             <p className="text-xs text-white dark:text-light opacity-60 mt-2">
-              Website by{" "}
+              {t("footer.made_by")}{" "}
               <a
                 href="https://myagentwebsite.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline hover:opacity-100"
               >
-                MyAgentWebsite.com
+                {t("footer.developer")}
               </a>
             </p>
           </div>
-          <div className="flex mt-4 space-x-4 sm:justify-center sm:mt-0">
+          <div className="flex mt-4 space-x-2 sm:justify-center sm:mt-0">
             {items?.map((item) => {
               return (
                 <a
@@ -113,7 +108,16 @@ export default function Footer() {
                   href={item.url}
                   className="text-white dark:text-light hover:text-gray-100 dark:hover:text-gray-100"
                 >
-                  <FontAwesomeIcon icon={item.icon as IconProp} />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-white dark:text-light"
+                  >
+                    <FontAwesomeIcon
+                      icon={item.icon as IconProp}
+                      className="text-xl"
+                    />
+                  </Button>
                 </a>
               );
             })}

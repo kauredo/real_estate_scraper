@@ -1,4 +1,9 @@
 {
+  "location": "Location",
+  "starting_price": "Starting Price",
+  "description": "Description",
+  "features": "Features",
+  "available_units": "Available Units",
   "create": {
     "error": "Error: the link must start with 'https://www.kwportugal.pt/'",
     "notice": "Development added, wait a little and it will appear on the platform"

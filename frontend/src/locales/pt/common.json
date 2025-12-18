@@ -13,6 +13,7 @@
   "cancel": "Cancelar",
   "close": "Fechar",
   "select": "Selecionar",
+  "currency": "€",
   "status": {
     "active": "Ativo",
     "inactive": "Inativo"

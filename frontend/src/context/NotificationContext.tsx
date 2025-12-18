@@ -1,31 +1,7 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { useState, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-
-export type NotificationType = "success" | "error" | "warning" | "info";
-
-export interface Notification {
-  id: string;
-  type: NotificationType;
-  title?: string;
-  message: string;
-  duration?: number;
-  persistent?: boolean;
-}
-
-interface NotificationContextProps {
-  notifications: Notification[];
-  showNotification: (notification: Omit<Notification, "id">) => void;
-  showSuccess: (message: string, options?: Partial<Notification>) => void;
-  showError: (message: string, options?: Partial<Notification>) => void;
-  showWarning: (message: string, options?: Partial<Notification>) => void;
-  showInfo: (message: string, options?: Partial<Notification>) => void;
-  hideNotification: (id: string) => void;
-  clearNotifications: () => void;
-}
-
-const NotificationContext = createContext<NotificationContextProps | undefined>(
-  undefined,
-);
+import { Notification } from "@/utils/notification";
+import { NotificationContext } from "./NotificationContextValue";
 
 interface NotificationProviderProps {
   children: ReactNode;
@@ -126,14 +102,4 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
       {children}
     </NotificationContext.Provider>
   );
-};
-
-export const useNotifications = () => {
-  const context = useContext(NotificationContext);
-  if (context === undefined) {
-    throw new Error(
-      "useNotifications must be used within a NotificationProvider",
-    );
-  }
-  return context;
 };

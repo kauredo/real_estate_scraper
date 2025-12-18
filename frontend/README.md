@@ -5,6 +5,7 @@ The main customer-facing website for the Sofia Galvao Group real estate platform
 ## 🎯 Purpose
 
 This is the primary customer interface that provides:
+
 - Property listing browsing and search
 - Detailed property information
 - Blog and club stories
@@ -30,16 +31,20 @@ This is the primary customer interface that provides:
 ## 🚀 Development
 
 ### Prerequisites
+
 - Node.js 22.x (see root `.nvmrc`)
 - Backend API running (see root `README.md`)
 
 ### Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### Environment Variables
+
 Create a `.env.local` file with:
+
 ```env
 VITE_API_URL=http://localhost:3000/api/v1
 ```
@@ -47,6 +52,7 @@ VITE_API_URL=http://localhost:3000/api/v1
 For production deployment on Vercel, set this in the project environment variables.
 
 ### Run Development Server
+
 ```bash
 npm run dev
 ```
@@ -54,16 +60,19 @@ npm run dev
 The application will be available at `http://localhost:5173`
 
 You can also run from the root directory:
+
 ```bash
 npm run dev  # Starts API + Jobs + Frontend
 ```
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
 
 ### Preview Production Build
+
 ```bash
 npm run preview
 ```
@@ -85,16 +94,21 @@ This application is deployed to **Vercel** as the "sgg" project.
 7. Install Command: `npm install`
 
 ### Environment Variables on Vercel
+
 Set these in the Vercel project settings:
+
 - `VITE_API_URL` - Production API URL (e.g., `https://api.yourdomain.com/api/v1`)
 
 ### Manual Deployment
+
 From the `frontend` directory:
+
 ```bash
 vercel --prod
 ```
 
 ### Automatic Deployment
+
 The project has `vercel.json` configured to only deploy when files in the `frontend/` directory change. Pushing to the `main` branch will trigger automatic deployment.
 
 ## 📁 Project Structure
@@ -124,6 +138,7 @@ frontend/
 ## 🎨 Features
 
 ### Property Listings
+
 - Browse all available properties
 - Filter by type, price, location
 - View detailed property information
@@ -131,12 +146,14 @@ frontend/
 - Share properties on social media
 
 ### Content
+
 - Blog posts with rich content
 - Club stories and member testimonials
 - FAQ section
 - About and services pages
 
 ### User Interactions
+
 - Contact forms
 - Newsletter subscription
 - Club membership signup
@@ -145,6 +162,7 @@ frontend/
 ## 🌍 Internationalization
 
 The application supports:
+
 - Portuguese (pt) - Default
 - English (en)
 
@@ -173,13 +191,17 @@ npm run lint
 ## 🐛 Troubleshooting
 
 ### API Connection Issues
+
 Ensure the `VITE_API_URL` environment variable is set correctly and the API is running.
 
 ### Build Errors
+
 If you encounter build errors:
+
 1. Clear node_modules: `rm -rf node_modules package-lock.json`
 2. Reinstall dependencies: `npm install`
 3. Try building again: `npm run build`
 
 ### Development Server Not Starting
+
 Check that port 5173 is not already in use. You can change the port in `vite.config.ts` if needed.

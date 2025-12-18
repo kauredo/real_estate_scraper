@@ -25,7 +25,7 @@ interface CloudinaryOptions {
  */
 export function optimizeCloudinaryUrl(
   url: string,
-  options: CloudinaryOptions = {}
+  options: CloudinaryOptions = {},
 ): string {
   // Return original URL if empty or not a Cloudinary URL
   // Note: External URLs from scraped listings (soukwportugal.pt, kwportugal.pt)
