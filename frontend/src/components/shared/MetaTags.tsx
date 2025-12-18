@@ -2,30 +2,36 @@ import { useMetaTags } from "../../hooks/useMetaTags";
 import { TFunction } from "i18next";
 import { useTranslation } from "react-i18next";
 
+type PageType =
+  | "website"
+  | "article"
+  | "profile"
+  | "root"
+  | "about"
+  | "buy"
+  | "club"
+  | "club_stories"
+  | "club_rules"
+  | "enterprises"
+  | "faq"
+  | "services"
+  | "sell"
+  | "kw"
+  | "error"
+  | "privacy"
+  | "terms"
+  | "home"
+  | "blog"
+  | "listings"
+  | "contact";
+
 interface MetaTagsProps {
   title?: string;
   description?: string;
   image?: string;
   type?: string;
   url?: string;
-  // Fallback props for when specific content isn't provided
-  pageType?:
-    | "home"
-    | "blog"
-    | "listings"
-    | "about"
-    | "contact"
-    | "club"
-    | "club_stories"
-    | "club_rules"
-    | "enterprises"
-    | "faq"
-    | "services"
-    | "sell"
-    | "kw"
-    | "error"
-    | "privacy"
-    | "terms";
+  pageType?: PageType;
   // Blog post meta attributes
   blogMeta?: {
     meta_title?: string;
@@ -52,13 +58,13 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
   const { t } = useTranslation();
 
   // Determine final meta values with proper fallbacks
-  const finalTitle = getFinalTitle(title, blogMeta, listingMeta, pageType, t);
+  const finalTitle = getFinalTitle(t, title, blogMeta, listingMeta, pageType);
   const finalDescription = getFinalDescription(
+    t,
     description,
     blogMeta,
     listingMeta,
     pageType,
-    t,
   );
   const finalImage = getFinalImage(image, listingMeta);
   const finalUrl = url || window.location.href;
@@ -76,27 +82,11 @@ export const MetaTags: React.FC<MetaTagsProps> = ({
 
 // Helper functions for meta tag fallbacks
 const getFinalTitle = (
+  t: TFunction,
   title?: string,
   blogMeta?: { meta_title?: string },
   listingMeta?: { title?: string },
-  pageType?:
-    | "home"
-    | "blog"
-    | "listings"
-    | "about"
-    | "contact"
-    | "club"
-    | "club_stories"
-    | "club_rules"
-    | "enterprises"
-    | "faq"
-    | "services"
-    | "sell"
-    | "kw"
-    | "error"
-    | "privacy"
-    | "terms",
-  t: TFunction,
+  pageType?: PageType,
 ): string => {
   // Priority: explicit title > blog meta_title > listing title > page type default > site default
   if (title) return title;
@@ -113,27 +103,11 @@ const getFinalTitle = (
 };
 
 const getFinalDescription = (
+  t: TFunction,
   description?: string,
   blogMeta?: { meta_description?: string },
   listingMeta?: { description?: string },
-  pageType?:
-    | "home"
-    | "blog"
-    | "listings"
-    | "about"
-    | "contact"
-    | "club"
-    | "club_stories"
-    | "club_rules"
-    | "enterprises"
-    | "faq"
-    | "services"
-    | "sell"
-    | "kw"
-    | "error"
-    | "privacy"
-    | "terms",
-  t: TFunction,
+  pageType?: PageType,
 ): string => {
   // Priority: explicit description > blog meta_description > listing description > page type default > site default
   if (description) return description;

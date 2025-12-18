@@ -1,11 +1,11 @@
-import { SVGProps } from "react";
+import React, { SVGProps } from "react";
 
 import { cn } from "@/utils/functions";
 
 const Icon = ({
   className,
   ...props
-}: SVGProps<SVGSVGElement>): JSX.Element => {
+}: SVGProps<SVGSVGElement>): React.ReactElement => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

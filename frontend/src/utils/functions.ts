@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { i18n as I18nType } from "i18next";
 import { translateRoute } from "./routes";
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function truncateText(title: string, length: number): string {
   if (title && title.length > length) {
@@ -181,3 +183,7 @@ export const scrollToSection = (
   const element = document.getElementById(id);
   element?.scrollIntoView({ behavior: "smooth" });
 };
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

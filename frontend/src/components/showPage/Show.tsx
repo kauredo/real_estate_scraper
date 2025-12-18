@@ -6,7 +6,7 @@ import { ReadMore } from "../shared/ReadMore";
 import Overlay from "../shared/Overlay";
 import ShareIcons from "../shared/ShareIcons";
 import Carousel from "../shared/Carousel";
-import Button from "../ui/Button";
+import { Button } from "../ui/Button";
 
 interface Props {
   listing: Listing;

@@ -1,10 +1,8 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {
-  NotificationProvider,
-  useNotifications,
-} from "./context/NotificationContext";
+import { NotificationProvider } from "./context/NotificationContext";
+import { useNotifications } from "./hooks/useNotifications";
 import { setNotificationContext } from "./services/api";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";

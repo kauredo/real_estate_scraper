@@ -1,4 +1,3 @@
-import React from "react";
 import { ListingComplex } from "../../utils/interfaces";
 import ComplexCard from "./ComplexCard";
 

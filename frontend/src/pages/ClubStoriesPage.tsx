@@ -8,7 +8,7 @@ import { ClubStory } from "../utils/interfaces";
 import MetaTags from "../components/shared/MetaTags";
 import { getClubStories } from "../services/api";
 import Pagination from "../components/shared/Pagination";
-import { useNotifications } from "../context/NotificationContext";
+import { useNotifications } from "../hooks/useNotifications";
 
 export default function ClubStoriesPage() {
   const { t } = useTranslation();

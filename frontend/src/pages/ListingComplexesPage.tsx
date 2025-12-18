@@ -7,7 +7,7 @@ import Pagination from "../components/shared/Pagination";
 import ListingComplexes from "../components/listingComplex/ListingComplexes";
 import ListingComplexSkeleton from "../components/loading/ListingComplexSkeleton";
 import TopProgressBar from "../components/loading/TopProgressBar";
-import { useNotifications } from "../context/NotificationContext";
+import { useNotifications } from "../hooks/useNotifications";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrophy,

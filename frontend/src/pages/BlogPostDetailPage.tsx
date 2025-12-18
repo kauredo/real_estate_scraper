@@ -19,6 +19,7 @@ const BlogPostDetailPage = () => {
 
   useEffect(() => {
     const fetchBlogPost = async () => {
+      if (!slug) return;
       try {
         setLoading(true);
         setError(null);

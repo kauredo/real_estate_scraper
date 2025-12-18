@@ -19,6 +19,7 @@ const ListingComplexDetailPage = () => {
 
   useEffect(() => {
     const fetchListingComplex = async () => {
+      if (!slug) return;
       try {
         setLoading(true);
         const response = await getListingComplex(
@@ -33,9 +34,7 @@ const ListingComplexDetailPage = () => {
       }
     };
 
-    if (slug) {
-      fetchListingComplex();
-    }
+    fetchListingComplex();
   }, [slug, previewToken]);
 
   if (loading) {

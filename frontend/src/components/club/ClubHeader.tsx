@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { isDarkModeActive } from "../../utils/functions";
 import clubDarkLogo from "../../assets/logos/club-dark.webp";

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { SubNavItem } from "../../utils/interfaces";
 import Routes from "../../utils/routes";
@@ -21,13 +20,15 @@ export default function SubNavbar({ items }: Props) {
         {/* Scrollable container */}
         <div className="flex items-center justify-start md:justify-center space-x-8 overflow-x-auto scrollbar-hide py-2">
           {items.map((item) => {
-            const itemPath = Routes[item.routeName];
-            const isActive = currentPath === itemPath;
+            const itemPath = Routes[item.routeName as keyof typeof Routes] as (
+              ...args: (string | number)[]
+            ) => string;
+            const isActive = currentPath === itemPath();
 
             return (
               <Link
                 key={item.routeName}
-                to={itemPath}
+                to={itemPath()}
                 className={`py-2 px-2 transition-colors duration-200 text-sm md:text-base flex-shrink-0
                   ${
                     isActive

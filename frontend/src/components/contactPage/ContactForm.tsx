@@ -47,7 +47,8 @@ export default function ContactForm(props: Props) {
         formData.append("contact[complex]", complex.slug);
       }
 
-      const result = await execute(() => submitContactForm(formData), {
+      const data = Object.fromEntries(formData.entries());
+      const result = await execute(() => submitContactForm(data), {
         successMessage: t("notifications.messages.contact_sent"),
         errorMessage: t("notifications.messages.contact_error"),
         showSuccessNotification: true,

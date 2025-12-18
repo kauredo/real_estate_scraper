@@ -1,10 +1,11 @@
-import React from "react";
-
 /* eslint-disable no-restricted-syntax */
 
-export default function CloseIcon() {
+import React from "react";
+
+export default function CloseIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       className="block h-6 w-6"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

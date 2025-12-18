@@ -26,7 +26,8 @@
     "@heroicons/react": "^2.2.0",
     "@tinymce/tinymce-react": "^6.1.0",
     "@vitejs/plugin-react": "^4.3.4",
-    "axios": "^1.8.4",
+    "axios": "^1.13.2",
+    "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "i18next": "^25.0.1",
     "rc-slider": "^11.1.8",
@@ -41,6 +42,7 @@
     "react-slick": "^0.30.3",
     "react-visibility-sensor": "^5.1.1",
     "slick-carousel": "^1.8.1",
+    "tailwind-merge": "^3.4.0",
     "vite": "^6.3.1"
   },
   "devDependencies": {

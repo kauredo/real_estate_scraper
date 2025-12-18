@@ -40,7 +40,7 @@ export const getListingMetaTags = (listing: Listing) => ({
  * Generate meta tag data from a listing complex
  */
 export const getListingComplexMetaTags = (complex: ListingComplex) => ({
-  title: complex?.title || complex?.name,
+  title: complex?.name,
   description: complex?.description
     ? complex.description.substring(0, 160)
     : `Luxury property development: ${complex?.name}`,
@@ -56,7 +56,9 @@ export const getListingComplexMetaTags = (complex: ListingComplex) => ({
  */
 export const getClubStoryMetaTags = (story: ClubStory) => ({
   title: story?.title,
-  description: story?.description ? story.description.substring(0, 160) : "",
+  description: story?.small_description
+    ? story.small_description.substring(0, 160)
+    : "",
   image: story?.main_photo,
   type: "article" as const,
 });

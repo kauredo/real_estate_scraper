@@ -21,7 +21,7 @@ const BlogShare: React.FC<BlogShareProps> = ({ url, title }) => {
     <div className="blog-share">
       <h3>{t("share.title")}</h3>
       <div className="flex gap-2">
-        <FacebookShareButton url={url} quote={title}>
+        <FacebookShareButton url={url}>
           <div className="rounded-full w-10 h-10 bg-beige-default text-white dark:text-dark flex items-center justify-center">
             <FontAwesomeIcon icon={["fab", "facebook-f"]} />
           </div>

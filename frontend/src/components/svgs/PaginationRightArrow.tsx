@@ -1,5 +1,3 @@
-import React from "react";
-
 /* eslint-disable no-restricted-syntax */
 
 interface Props {

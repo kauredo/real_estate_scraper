@@ -6,7 +6,7 @@ import Results from "../components/homePage/Results";
 import { getHomePage } from "../services/api";
 import { ResultNumbers, Testimonial } from "../utils/interfaces";
 import { useState, useEffect } from "react";
-import { useNotifications } from "../context/NotificationContext";
+import { useNotifications } from "../hooks/useNotifications";
 
 const AboutPage = () => {
   const { t } = useTranslation();

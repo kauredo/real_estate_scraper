@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNotifications } from "./useNotifications";
 import { useTranslation } from "react-i18next";
+import { AxiosError } from "axios";
 
 export interface LoadingState {
   isLoading: boolean;
@@ -57,30 +58,38 @@ export const useAsyncOperation = () => {
   };
 
   const getErrorMessage = (error: unknown): string => {
-    // Handle different error types
-    if (error.response) {
-      // Axios error with response
-      if (error.response.status === 404) {
-        return t("notifications.messages.data_load_error");
+    if (isAxiosError(error)) {
+      if (error.response) {
+        // Axios error with response
+        if (error.response.status === 404) {
+          return t("notifications.messages.data_load_error");
+        }
+        if (error.response.status >= 500) {
+          return t("notifications.messages.server_error");
+        }
+        if (error.response.data?.message) {
+          return error.response.data.message;
+        }
+        if (error.response.data?.error) {
+          return error.response.data.error;
+        }
+      } else if (error.request) {
+        // Network error
+        return t("notifications.messages.network_error");
       }
-      if (error.response.status >= 500) {
-        return t("notifications.messages.server_error");
-      }
-      if (error.response.data?.message) {
-        return error.response.data.message;
-      }
-      if (error.response.data?.error) {
-        return error.response.data.error;
-      }
-    } else if (error.request) {
-      // Network error
-      return t("notifications.messages.network_error");
-    } else if (error.message) {
+    } else if (error instanceof Error) {
       return error.message;
     }
 
     return t("notifications.messages.data_load_error");
   };
+
+  function isAxiosError(error: unknown): error is AxiosError<{
+    message?: string;
+    error?: string;
+  }> {
+    return (error as AxiosError).isAxiosError !== undefined;
+  }
 
   return {
     ...loadingState,

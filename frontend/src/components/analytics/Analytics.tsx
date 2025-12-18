@@ -48,7 +48,6 @@ export const Analytics = () => {
         t?: HTMLScriptElement,
         s?: HTMLScriptElement,
       ) {
-        if (f.fbq) return;
         n = f.fbq = function (...args: any[]) {
           if (n.callMethod) {
             n.callMethod(...args);

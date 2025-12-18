@@ -1,4 +1,3 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEuroSign,
@@ -9,7 +8,9 @@ import {
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { gsubMeterSquare } from "../../utils/functions";
 
-export default function ListingIcons({ listing }) {
+import { Listing } from "../../utils/interfaces";
+
+export default function ListingIcons({ listing }: { listing: Listing }) {
   return (
     <>
       <div className="flex flex-1 justify-between items-end mt-4 text-dark dark:text-beige-default">

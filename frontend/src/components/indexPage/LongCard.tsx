@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Listing } from "../../utils/interfaces";
 import { truncateText } from "../../utils/functions";
 import { optimizeCloudinaryUrl } from "../../utils/imageOptimization";

@@ -12,7 +12,7 @@ import MetaTags from "../components/shared/MetaTags";
 import { getClub } from "../services/api";
 import togetherImage from "../assets/images/together.webp";
 import ClubJoinForm from "../components/club/ClubJoinForm";
-import { useNotifications } from "../context/NotificationContext";
+import { useNotifications } from "../hooks/useNotifications";
 
 export default function ClubPage() {
   const { t } = useTranslation();

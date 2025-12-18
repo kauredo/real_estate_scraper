@@ -8,7 +8,7 @@ import Banner from "../components/shared/Banner";
 import Pagination from "../components/shared/Pagination";
 import MetaTags from "../components/shared/MetaTags";
 import { BlogPost } from "../utils/interfaces";
-import { useNotifications } from "../context/NotificationContext";
+import { useNotifications } from "../hooks/useNotifications";
 
 const BlogPostsPage = () => {
   const { t } = useTranslation();

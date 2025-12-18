@@ -10,7 +10,7 @@ import Listings from "../components/indexPage/Listings";
 import ListingSkeleton from "../components/loading/ListingSkeleton";
 import ListingsLoadingOverlay from "../components/loading/ListingsLoadingOverlay";
 import { Listing } from "../utils/interfaces";
-import { useNotifications } from "../context/NotificationContext";
+import { useNotifications } from "../hooks/useNotifications";
 
 const ListingsPage = () => {
   const { t, i18n } = useTranslation();

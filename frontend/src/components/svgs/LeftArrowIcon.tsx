@@ -1,5 +1,4 @@
 /* eslint-disable no-restricted-syntax */
-import React from "react";
 
 export default function LeftArrowIcon() {
   return (

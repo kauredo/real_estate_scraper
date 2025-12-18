@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
@@ -9,6 +9,7 @@ import DarkModeToggle from "../shared/DarkModeToggle";
 import NavbarItem from "../shared/NavbarItem";
 import DropdownLink from "../shared/DropdownLink";
 import Routes from "../../utils/routes";
+import { Button } from "../ui/Button";
 import mainWhiteLogo from "../../assets/logos/main_white.webp";
 import mainLogo from "../../assets/logos/main.webp";
 import CloseIcon from "../svgs/CloseIcon";
@@ -103,28 +104,14 @@ export default function Navbar() {
           const newUrl = await changeLocale(i18n);
           navigate(newUrl);
         },
-        img: (
-          <img
-            loading="lazy"
-            className="h-5 inline-block mb-[2px] pl-1"
-            src={`https://hatscripts.github.io/circle-flags/flags/${otherImg}.svg`}
-            style={{ maxWidth: "none" }}
-          />
-        ),
+        img: `https://hatscripts.github.io/circle-flags/flags/${otherImg}.svg`,
       },
       {
         title: t("navbar.backoffice"),
         url: Routes.backoffice_path,
       },
     ],
-    img: (
-      <img
-        loading="lazy"
-        className="h-5 inline-block mb-[3px] pl-1"
-        src={`https://hatscripts.github.io/circle-flags/flags/${img}.svg`}
-        style={{ maxWidth: "none" }}
-      />
-    ),
+    img: `https://hatscripts.github.io/circle-flags/flags/${img}.svg`,
   });
 
   mobileItems.push(...rightItems);
