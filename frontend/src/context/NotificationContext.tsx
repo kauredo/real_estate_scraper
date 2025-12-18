@@ -1,6 +1,6 @@
 import React, { useState, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-import { Notification } from "../utils/notification";
+import { Notification } from "@/utils/notification";
 import { NotificationContext } from "./NotificationContextValue";
 
 interface NotificationProviderProps {

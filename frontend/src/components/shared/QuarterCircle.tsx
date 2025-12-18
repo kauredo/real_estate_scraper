@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
-import sofiaImage from "../../assets/images/sofia.jpg";
+import sofiaImage from "@/assets/images/sofia.jpg";
 import {
   optimizeCloudinaryUrl,
   preloadImages,
-} from "../../utils/imageOptimization";
+} from "@/utils/imageOptimization";
 
 interface Props {
   photos: string[];

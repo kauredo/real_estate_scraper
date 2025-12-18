@@ -1,5 +1,5 @@
 import React from "react";
-import clubIconLogo from "../../assets/logos/club-icon.webp";
+import clubIconLogo from "@/assets/logos/club-icon.webp";
 
 interface Props {
   children: React.ReactNode;

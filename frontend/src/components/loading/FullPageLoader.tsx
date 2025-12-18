@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "./Spinner";
-import mainLogo from "../../assets/logos/main.webp";
-import mainWhiteLogo from "../../assets/logos/main_white.webp";
+import mainLogo from "@/assets/logos/main.webp";
+import mainWhiteLogo from "@/assets/logos/main_white.webp";
 
 interface FullPageLoaderProps {
   message?: string;

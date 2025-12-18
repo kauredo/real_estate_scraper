@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { getBlogPosts } from "../services/api";
-import BlogCard from "../components/blog/BlogCard";
-import BlogPostSkeleton from "../components/loading/BlogPostSkeleton";
-import TopProgressBar from "../components/loading/TopProgressBar";
-import Banner from "../components/shared/Banner";
-import Pagination from "../components/shared/Pagination";
-import MetaTags from "../components/shared/MetaTags";
-import { BlogPost } from "../utils/interfaces";
-import { useNotifications } from "../hooks/useNotifications";
+import { getBlogPosts } from "@/services/api";
+import BlogCard from "@/components/blog/BlogCard";
+import BlogPostSkeleton from "@/components/loading/BlogPostSkeleton";
+import TopProgressBar from "@/components/loading/TopProgressBar";
+import Banner from "@/components/shared/Banner";
+import Pagination from "@/components/shared/Pagination";
+import MetaTags from "@/components/shared/MetaTags";
+import { BlogPost } from "@/utils/interfaces";
+import { useNotifications } from "@/hooks/useNotifications";
 
 const BlogPostsPage = () => {
   const { t } = useTranslation();

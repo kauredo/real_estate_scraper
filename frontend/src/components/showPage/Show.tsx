@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Listing } from "../../utils/interfaces";
-import ContactForm from "../contactPage/ContactForm";
+import { Listing } from "@/utils/interfaces";
+import ContactForm from "@/components/contactPage/ContactForm";
 import { useTranslation } from "react-i18next";
-import { ReadMore } from "../shared/ReadMore";
-import Overlay from "../shared/Overlay";
-import ShareIcons from "../shared/ShareIcons";
-import Carousel from "../shared/Carousel";
-import { Button } from "../ui/Button";
+import { ReadMore } from "@/components/shared/ReadMore";
+import Overlay from "@/components/shared/Overlay";
+import ShareIcons from "@/components/shared/ShareIcons";
+import Carousel from "@/components/shared/Carousel";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   listing: Listing;

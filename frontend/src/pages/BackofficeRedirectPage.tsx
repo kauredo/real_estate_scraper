@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import FullPageLoader from "../components/loading/FullPageLoader";
+import FullPageLoader from "@/components/loading/FullPageLoader";
 
 const BackofficeRedirectPage = () => {
   useEffect(() => {

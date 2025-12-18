@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
-import ContactForm from "../contactPage/ContactForm";
-import Cards from "../homePage/Cards";
-import { ListingComplex } from "../../utils/interfaces";
-import Carousel from "../shared/Carousel";
-import ShareIcons from "../shared/ShareIcons";
-import Routes from "../../utils/routes";
+import ContactForm from "@/components/contactPage/ContactForm";
+import Cards from "@/components/homePage/Cards";
+import { ListingComplex } from "@/utils/interfaces";
+import Carousel from "@/components/shared/Carousel";
+import ShareIcons from "@/components/shared/ShareIcons";
+import Routes from "@/utils/routes";
 
 interface Props {
   complex: ListingComplex;

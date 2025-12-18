@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import Socials from "../shared/Socials";
-import sofiaImage from "../../assets/images/sofia-square.jpg";
+import Socials from "@/components/shared/Socials";
+import sofiaImage from "@/assets/images/sofia-square.jpg";
 
 export default function Profile() {
   const { t } = useTranslation();

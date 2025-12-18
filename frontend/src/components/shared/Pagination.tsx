@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
-import PaginationLeftArrow from "../svgs/PaginationLeftArrow";
-import PaginationRightArrow from "../svgs/PaginationRightArrow";
+import PaginationLeftArrow from "@/components/svgs/PaginationLeftArrow";
+import PaginationRightArrow from "@/components/svgs/PaginationRightArrow";
 
 interface PaginationProps {
   pagination: {

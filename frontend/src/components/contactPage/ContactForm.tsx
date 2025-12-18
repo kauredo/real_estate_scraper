@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useAsyncOperation } from "../../hooks/useAsyncOperation";
-import { submitContactForm } from "../../services/api";
-import { Listing, ListingComplex } from "../../utils/interfaces";
-import ButtonSpinner from "../loading/ButtonSpinner";
-import { Button } from "../ui/Button";
-import { Input } from "../ui/Input";
-import { Textarea } from "../ui/Textarea";
+import { useAsyncOperation } from "@/hooks/useAsyncOperation";
+import { submitContactForm } from "@/services/api";
+import { Listing, ListingComplex } from "@/utils/interfaces";
+import ButtonSpinner from "@/components/loading/ButtonSpinner";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
 
 interface Props {
   listing?: Listing;

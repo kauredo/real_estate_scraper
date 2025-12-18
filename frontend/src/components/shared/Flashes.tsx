@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "../ui/Button";
-import CloseIcon from "../svgs/CloseIcon";
+import { Button } from "@/components/ui/Button";
+import CloseIcon from "@/components/svgs/CloseIcon";
 
 interface Props {
   type: string;

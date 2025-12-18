@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import ServerError from "../components/svgs/ServerError";
-import { MetaTags } from "../components/shared/MetaTags";
-import mainWhiteLogo from "../assets/logos/main_white.webp";
-import mainLogo from "../assets/logos/main.webp";
+import ServerError from "@/components/svgs/ServerError";
+import { MetaTags } from "@/components/shared/MetaTags";
+import mainWhiteLogo from "@/assets/logos/main_white.webp";
+import mainLogo from "@/assets/logos/main.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 

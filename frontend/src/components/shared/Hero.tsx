@@ -1,6 +1,6 @@
-import { Button } from "../ui/Button";
+import { Button } from "@/components/ui/Button";
 import QuarterCircle from "./QuarterCircle";
-import Routes from "../../utils/routes";
+import Routes from "@/utils/routes";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

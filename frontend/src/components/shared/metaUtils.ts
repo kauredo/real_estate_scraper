@@ -3,7 +3,7 @@ import {
   ListingComplex,
   ClubStory,
   BlogPost,
-} from "../../utils/interfaces";
+} from "@/utils/interfaces";
 
 /**
  * Utility functions for generating meta tag data from various content types

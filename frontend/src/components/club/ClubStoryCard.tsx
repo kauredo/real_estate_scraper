@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ClubStory } from "../../utils/interfaces";
-import Routes from "../../utils/routes";
-import { Button } from "../ui/Button";
+import { ClubStory } from "@/utils/interfaces";
+import Routes from "@/utils/routes";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   story: ClubStory;

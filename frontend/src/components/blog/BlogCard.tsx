@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { BlogPost } from "../../utils/interfaces";
-import { Button } from "../ui/Button";
+import { BlogPost } from "@/utils/interfaces";
+import { Button } from "@/components/ui/Button";
 
 const BlogCard = ({ blogPost }: { blogPost: BlogPost }) => {
   const { t, i18n } = useTranslation();

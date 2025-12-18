@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { Listing } from "../../utils/interfaces";
-import { truncateText } from "../../utils/functions";
-import { optimizeCloudinaryUrl } from "../../utils/imageOptimization";
-import ListingIcons from "../shared/ListingIcons";
-import Overlay from "../shared/Overlay";
-import Routes from "../../utils/routes";
-import CheckIcon from "../svgs/CheckIcon";
+import { Listing } from "@/utils/interfaces";
+import { truncateText } from "@/utils/functions";
+import { optimizeCloudinaryUrl } from "@/utils/imageOptimization";
+import ListingIcons from "@/components/shared/ListingIcons";
+import Overlay from "@/components/shared/Overlay";
+import Routes from "@/utils/routes";
+import CheckIcon from "@/components/svgs/CheckIcon";
 
 interface Props {
   listing: Listing;

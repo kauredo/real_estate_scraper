@@ -1,6 +1,6 @@
 import axios from "axios";
-import { apiRoutes } from "../utils/routes";
-import i18n from "../i18n";
+import { apiRoutes } from "@/utils/routes";
+import i18n from "@/i18n";
 
 // Create axios instance with default config
 const api = axios.create({

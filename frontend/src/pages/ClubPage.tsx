@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { scrollToSection } from "../utils/functions";
-import { ClubStory } from "../utils/interfaces";
-import ClubStoryCard from "../components/club/ClubStoryCard";
-import Spinner from "../components/loading/Spinner";
-import SubNavbar from "../components/shared/SubNavbar";
-import ClubHeader from "../components/club/ClubHeader";
-import IconDecorationWrapper from "../components/shared/IconDecorationWrapper";
-import { useClubSections } from "../utils/constants/clubSections";
-import MetaTags from "../components/shared/MetaTags";
-import { getClub } from "../services/api";
-import togetherImage from "../assets/images/together.webp";
-import ClubJoinForm from "../components/club/ClubJoinForm";
-import { useNotifications } from "../hooks/useNotifications";
+import { scrollToSection } from "@/utils/functions";
+import { ClubStory } from "@/utils/interfaces";
+import ClubStoryCard from "@/components/club/ClubStoryCard";
+import Spinner from "@/components/loading/Spinner";
+import SubNavbar from "@/components/shared/SubNavbar";
+import ClubHeader from "@/components/club/ClubHeader";
+import IconDecorationWrapper from "@/components/shared/IconDecorationWrapper";
+import { useClubSections } from "@/utils/constants/clubSections";
+import MetaTags from "@/components/shared/MetaTags";
+import { getClub } from "@/services/api";
+import togetherImage from "@/assets/images/together.webp";
+import ClubJoinForm from "@/components/club/ClubJoinForm";
+import { useNotifications } from "@/hooks/useNotifications";
 
 export default function ClubPage() {
   const { t } = useTranslation();

@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import MetaTags from "../components/shared/MetaTags";
-import Banner from "../components/shared/Banner";
-import HouseTrees from "../components/svgs/HouseTrees";
-import HouseLens from "../components/svgs/HouseLens";
+import MetaTags from "@/components/shared/MetaTags";
+import Banner from "@/components/shared/Banner";
+import HouseTrees from "@/components/svgs/HouseTrees";
+import HouseLens from "@/components/svgs/HouseLens";
 
 const ServicesPage = () => {
   const { t } = useTranslation();

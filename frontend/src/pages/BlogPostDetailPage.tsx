@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { getBlogPost } from "../services/api";
-import ShareIcons from "../components/shared/ShareIcons";
-import MetaTags from "../components/shared/MetaTags";
-import StructuredData from "../components/shared/StructuredData";
-import { BlogPost } from "../utils/interfaces";
-import Flashes from "../components/shared/Flashes";
+import { getBlogPost } from "@/services/api";
+import ShareIcons from "@/components/shared/ShareIcons";
+import MetaTags from "@/components/shared/MetaTags";
+import StructuredData from "@/components/shared/StructuredData";
+import { BlogPost } from "@/utils/interfaces";
+import Flashes from "@/components/shared/Flashes";
 
 const BlogPostDetailPage = () => {
   const { slug } = useParams();

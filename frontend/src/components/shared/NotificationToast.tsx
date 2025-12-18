@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNotifications } from "../../hooks/useNotifications";
-import { Notification } from "../../utils/notification";
-import { Button } from "../ui/Button";
-import CloseIcon from "../svgs/CloseIcon";
+import { useNotifications } from "@/hooks/useNotifications";
+import { Notification } from "@/utils/notification";
+import { Button } from "@/components/ui/Button";
+import CloseIcon from "@/components/svgs/CloseIcon";
 
 interface ToastProps {
   notification: Notification;

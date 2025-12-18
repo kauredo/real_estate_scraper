@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { navbarItemClass } from "../../utils/functions";
-import { NavbarItemProps } from "../../utils/interfaces";
-import { Button } from "../ui/Button";
+import { navbarItemClass } from "@/utils/functions";
+import { NavbarItemProps } from "@/utils/interfaces";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   item: NavbarItemProps;

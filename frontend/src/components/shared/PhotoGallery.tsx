@@ -4,7 +4,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/outline";
-import { Button } from "../ui/Button";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   photos: string[];

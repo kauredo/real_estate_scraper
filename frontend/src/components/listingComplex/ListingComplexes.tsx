@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { ListingComplex } from "../../utils/interfaces";
+import { ListingComplex } from "@/utils/interfaces";
 
 interface Props {
   listingComplexes: ListingComplex[];

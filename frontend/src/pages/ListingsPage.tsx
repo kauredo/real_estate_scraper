@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
-import { getListings } from "../services/api";
-import MetaTags from "../components/shared/MetaTags";
-import Banner from "../components/shared/Banner";
-import ListingSearch from "../components/shared/ListingSearch";
-import Pagination from "../components/shared/Pagination";
-import Listings from "../components/indexPage/Listings";
-import ListingSkeleton from "../components/loading/ListingSkeleton";
-import ListingsLoadingOverlay from "../components/loading/ListingsLoadingOverlay";
-import { Listing } from "../utils/interfaces";
-import { useNotifications } from "../hooks/useNotifications";
+import { getListings } from "@/services/api";
+import MetaTags from "@/components/shared/MetaTags";
+import Banner from "@/components/shared/Banner";
+import ListingSearch from "@/components/shared/ListingSearch";
+import Pagination from "@/components/shared/Pagination";
+import Listings from "@/components/indexPage/Listings";
+import ListingSkeleton from "@/components/loading/ListingSkeleton";
+import ListingsLoadingOverlay from "@/components/loading/ListingsLoadingOverlay";
+import { Listing } from "@/utils/interfaces";
+import { useNotifications } from "@/hooks/useNotifications";
 
 const ListingsPage = () => {
   const { t, i18n } = useTranslation();

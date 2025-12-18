@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import PhotoGallery from "../components/shared/PhotoGallery";
-import ShareIcons from "../components/shared/ShareIcons";
-import { ClubStory } from "../utils/interfaces";
-import { MetaTags } from "../components/shared/MetaTags";
-import { getClubStory } from "../services/api";
+import PhotoGallery from "@/components/shared/PhotoGallery";
+import ShareIcons from "@/components/shared/ShareIcons";
+import { ClubStory } from "@/utils/interfaces";
+import MetaTags from "@/components/shared/MetaTags";
+import { getClubStory } from "@/services/api";
 
 export default function ClubStoryDetailPage() {
   const { t } = useTranslation();

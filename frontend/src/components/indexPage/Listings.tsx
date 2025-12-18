@@ -1,8 +1,8 @@
-import { Listing } from "../../utils/interfaces";
+import { Listing } from "@/utils/interfaces";
 import LongCard from "./LongCard";
 import { useTranslation } from "react-i18next";
-import Routes from "../../utils/routes";
-import { Button } from "../ui/Button";
+import Routes from "@/utils/routes";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   listings: Listing[];

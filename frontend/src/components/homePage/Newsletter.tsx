@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useAsyncOperation } from "../../hooks/useAsyncOperation";
-import { subscribeToNewsletter } from "../../services/api";
-import emailImage from "../../assets/images/email.webp";
-import { Button } from "../ui/Button";
-import { Input } from "../ui/Input";
+import { useAsyncOperation } from "@/hooks/useAsyncOperation";
+import { subscribeToNewsletter } from "@/services/api";
+import emailImage from "@/assets/images/email.webp";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 
 export default function Newsletter() {
   const { t } = useTranslation();

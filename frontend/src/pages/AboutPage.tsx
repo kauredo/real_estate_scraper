@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
-import MetaTags from "../components/shared/MetaTags";
-import Banner from "../components/shared/Banner";
-import Profile from "../components/homePage/Profile";
-import Results from "../components/homePage/Results";
-import { getHomePage } from "../services/api";
-import { ResultNumbers, Testimonial } from "../utils/interfaces";
+import MetaTags from "@/components/shared/MetaTags";
+import Banner from "@/components/shared/Banner";
+import Profile from "@/components/homePage/Profile";
+import Results from "@/components/homePage/Results";
+import { getHomePage } from "@/services/api";
+import { ResultNumbers, Testimonial } from "@/utils/interfaces";
 import { useState, useEffect } from "react";
-import { useNotifications } from "../hooks/useNotifications";
+import { useNotifications } from "@/hooks/useNotifications";
 
 const AboutPage = () => {
   const { t } = useTranslation();

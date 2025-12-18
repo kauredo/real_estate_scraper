@@ -2,7 +2,7 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
-import { ResultNumbers, Testimonial } from "../../utils/interfaces";
+import { ResultNumbers, Testimonial } from "@/utils/interfaces";
 import Testimonials from "./Testimonials";
 
 interface Props {

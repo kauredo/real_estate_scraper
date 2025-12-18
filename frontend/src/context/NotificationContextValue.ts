@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Notification } from "../utils/notification";
+import { Notification } from "@/utils/notification";
 
 interface NotificationContextProps {
   notifications: Notification[];

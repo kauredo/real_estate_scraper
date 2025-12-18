@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
-import { toCapitalize } from "../../utils/functions";
-import { Photo, Listing } from "../../utils/interfaces";
-import Carousel from "../shared/Carousel";
-import { Button } from "../ui/Button";
+import { toCapitalize } from "@/utils/functions";
+import { Photo, Listing } from "@/utils/interfaces";
+import Carousel from "@/components/shared/Carousel";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   listings: Record<string, Listing[]> | Listing[];

@@ -1,12 +1,12 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 import storybook from "eslint-plugin-storybook";
-
 import js from "@eslint/js";
 import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 import i18next from "eslint-plugin-i18next";
+import importPlugin from "eslint-plugin-import";
 
 export default tseslint.config(
   {
@@ -19,13 +19,21 @@ export default tseslint.config(
       "eslint.config.js",
     ],
   },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     files: ["**/*.{ts,tsx}"],
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
       i18next,
+      import: importPlugin,
+    },
+    settings: {
+      "import/resolver": {
+        typescript: true,
+        node: true,
+      },
     },
     languageOptions: {
       ecmaVersion: 2020,
@@ -37,6 +45,7 @@ export default tseslint.config(
       },
     },
     rules: {
+      "import/no-relative-parent-imports": "error",
       "react-refresh/only-export-components": "warn",
       "no-restricted-syntax": [
         "error",

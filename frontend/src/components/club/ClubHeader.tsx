@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
-import { isDarkModeActive } from "../../utils/functions";
-import clubDarkLogo from "../../assets/logos/club-dark.webp";
-import clubLogo from "../../assets/logos/club.webp";
+import { isDarkModeActive } from "@/utils/functions";
+import clubDarkLogo from "@/assets/logos/club-dark.webp";
+import clubLogo from "@/assets/logos/club.webp";
 
 export default function ClubHeader() {
   const { t } = useTranslation();

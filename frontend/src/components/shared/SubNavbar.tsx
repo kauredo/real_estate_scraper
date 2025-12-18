@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { SubNavItem } from "../../utils/interfaces";
-import Routes from "../../utils/routes";
+import { SubNavItem } from "@/utils/interfaces";
+import Routes from "@/utils/routes";
 
 interface Props {
   items: SubNavItem[];

@@ -1,6 +1,6 @@
-import { ListingComplex } from "../../utils/interfaces";
-import { truncateText } from "../../utils/functions";
-import Routes from "../../utils/routes";
+import { ListingComplex } from "@/utils/interfaces";
+import { truncateText } from "@/utils/functions";
+import Routes from "@/utils/routes";
 
 interface Props {
   listing_complex: ListingComplex;

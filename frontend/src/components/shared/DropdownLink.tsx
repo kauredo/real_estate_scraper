@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { navbarItemClass } from "../../utils/functions";
-import { NavbarItemProps } from "../../utils/interfaces";
+import { navbarItemClass } from "@/utils/functions";
+import { NavbarItemProps } from "@/utils/interfaces";
 import NavbarItem from "./NavbarItem";
 
 export interface DropdownProps {

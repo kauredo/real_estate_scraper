@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
-import { ListingComplex } from "../../utils/interfaces";
-import { Button } from "../ui/Button";
-import LeftArrowIcon from "../svgs/LeftArrowIcon";
-import RightArrowIcon from "../svgs/RightArrowIcon";
-import CheckIcon from "../svgs/CheckIcon";
+import { ListingComplex } from "@/utils/interfaces";
+import { Button } from "@/components/ui/Button";
+import LeftArrowIcon from "@/components/svgs/LeftArrowIcon";
+import RightArrowIcon from "@/components/svgs/RightArrowIcon";
+import CheckIcon from "@/components/svgs/CheckIcon";
 
 interface Props {
   listingComplex: ListingComplex;

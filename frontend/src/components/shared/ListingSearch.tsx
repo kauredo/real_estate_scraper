@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { numberToCurrency } from "../../utils/functions";
+import { numberToCurrency } from "@/utils/functions";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Slider from "rc-slider";
 import AdvancedSearch from "./AdvancedSearch";
-import { StatsFilter } from "../../utils/interfaces";
+import { StatsFilter } from "@/utils/interfaces";
 import ObjectiveTabs from "./ObjectiveTabs";
-import Routes from "../../utils/routes";
-import { Button } from "../ui/Button";
-import { Select } from "../ui/Select";
+import Routes from "@/utils/routes";
+import { Button } from "@/components/ui/Button";
+import { Select } from "@/components/ui/Select";
 
 interface Props {
   params: Record<string, string>;

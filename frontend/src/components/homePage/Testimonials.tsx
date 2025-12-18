@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { Testimonial } from "../../utils/interfaces";
-import Carousel from "../shared/Carousel";
+import { Testimonial } from "@/utils/interfaces";
+import Carousel from "@/components/shared/Carousel";
 
 interface Props {
   testimonials: Testimonial[];

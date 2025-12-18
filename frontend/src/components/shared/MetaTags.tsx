@@ -1,4 +1,4 @@
-import { useMetaTags } from "../../hooks/useMetaTags";
+import { useMetaTags } from "@/hooks/useMetaTags";
 import { TFunction } from "i18next";
 import { useTranslation } from "react-i18next";
 
