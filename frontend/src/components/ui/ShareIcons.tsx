@@ -17,7 +17,6 @@ import { faEnvelope, faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/Button";
 
 interface Props {
   title: string;
