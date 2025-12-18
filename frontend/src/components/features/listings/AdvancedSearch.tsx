@@ -53,56 +53,54 @@ export default function AdvancedSearch({
   };
 
   return (
-    <div className="flex flex-col">
-      <Button
-        onClick={toggleAdvancedSearch}
-        variant="link"
-        className="text-beige-default dark:text-beige-medium text-lg font-bold underline text-left mb-2"
-      >
+    <div className="mb-6">
+      <Button onClick={toggleAdvancedSearch} variant="ghost" className="mb-4">
         {t("listing.advanced_search")} {showAdvancedSearch ? "▲" : "▼"}
       </Button>
-      <div
-        className={`w-full flex flex-wrap align-center gap-6 mb-4 ${
-          showAdvancedSearch ? "block" : "hidden"
-        }`}
-      >
-        <div className="w-full md:w-[calc(46%+1.5rem)]">
-          <label htmlFor="q_title_cont" className="block mb-1">
-            {t("listing.search.name")}
-          </label>
-          <Input
-            type="text"
-            id="q_title_cont"
-            name="q[title_cont]"
-            value={title}
-            placeholder={t("listing.search.name_placeholder")}
-            onChange={handleTitleChange}
-            onKeyDown={handleKeyDown}
-            className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black"
-          />
-        </div>
-        {acceptedKeys.map((key) => (
-          <div key={key} className="w-full md:w-[calc((23%/2)-0.75rem)]">
-            <label htmlFor={`q_${key}_eq`} className="block mb-1">
-              {t(`listing.stats.${key.toLowerCase()}`)}
-            </label>
-            <Select
-              id={`q_${key}_eq`}
-              name={`q[${key}_eq]`}
-              value={statsFilters?.[`${key}_eq`] || ""}
-              onChange={handleStatChange}
-              className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px]"
+      {showAdvancedSearch && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="col-span-1 sm:col-span-2">
+            <label
+              htmlFor="q_title_cont"
+              className="block mb-2 font-medium text-sm"
             >
-              <option value="">{t("listing.search.any")}</option>
-              {[...Array(11).keys()].map((num) => (
-                <option key={num} value={num}>
-                  {num}
-                </option>
-              ))}
-            </Select>
+              {t("listing.search.name")}
+            </label>
+            <Input
+              type="text"
+              id="q_title_cont"
+              name="q[title_cont]"
+              value={title}
+              placeholder={t("listing.search.name_placeholder")}
+              onChange={handleTitleChange}
+              onKeyDown={handleKeyDown}
+            />
           </div>
-        ))}
-      </div>
+          {acceptedKeys.map((key) => (
+            <div key={key}>
+              <label
+                htmlFor={`q_${key}_eq`}
+                className="block mb-2 font-medium text-sm"
+              >
+                {t(`listing.stats.${key.toLowerCase()}`)}
+              </label>
+              <Select
+                id={`q_${key}_eq`}
+                name={`q[${key}_eq]`}
+                value={statsFilters?.[`${key}_eq`] || ""}
+                onChange={handleStatChange}
+              >
+                <option value="">{t("listing.search.any")}</option>
+                {[...Array(11).keys()].map((num) => (
+                  <option key={num} value={num}>
+                    {num}
+                  </option>
+                ))}
+              </Select>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

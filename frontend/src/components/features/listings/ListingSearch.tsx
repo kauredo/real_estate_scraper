@@ -179,15 +179,12 @@ export default function ListingSearch(props: Props) {
   }, [transformedMaxPrice, params]);
 
   return (
-    <div className="container mx-auto sm:px-6 px-4">
-      <div className="flex justify-between items-center mb-4 mt-8 md:mt-2">
-        <h2 className="text-xl">{t("listing.search.title")}</h2>
-        <Button
-          type="button"
-          onClick={handleReset}
-          variant="link"
-          className="text-beige-default dark:text-beige-medium font-bold underline"
-        >
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl md:text-3xl font-medium">
+          {t("listing.search.title")}
+        </h2>
+        <Button type="button" onClick={handleReset} variant="ghost">
           {t("listing.reset_filters")}
         </Button>
       </div>
@@ -199,16 +196,18 @@ export default function ListingSearch(props: Props) {
           setObjective={setObjective}
         />
 
-        <div className="w-full flex flex-wrap align-center gap-6 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           {/* Property Type */}
-          <div className="w-full md:w-[23%]">
-            <label htmlFor="q_kind_eq" className="block mb-1 font-medium">
+          <div>
+            <label
+              htmlFor="q_kind_eq"
+              className="block mb-2 font-medium text-sm"
+            >
               {t("listing.kind.title")}
             </label>
             <Select
               name="q[kind_eq]"
               id="q_kind_eq"
-              className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px] focus:ring-2 focus:ring-beige-default focus:border-transparent"
               value={kind}
               onChange={(e) => setKind(Number(e.target.value))}
             >
@@ -224,10 +223,10 @@ export default function ListingSearch(props: Props) {
 
           {/* Basic Stats (Rooms, Bathrooms) */}
           {basicStatsKeys.map((key: string) => (
-            <div key={key} className="w-full md:w-[calc((23%/2)-0.75rem)]">
+            <div key={key}>
               <label
                 htmlFor={`q_${key}`}
-                className="block mb-1 whitespace-nowrap font-medium"
+                className="block mb-2 font-medium text-sm"
               >
                 {t(`listing.stats.${key.toLowerCase()}`)}
               </label>
@@ -236,7 +235,6 @@ export default function ListingSearch(props: Props) {
                 name={`q[${key}_eq]`}
                 value={statsFilters?.[`${key}_eq`] || ""}
                 onChange={handleStatChange}
-                className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px] focus:ring-2 focus:ring-beige-default focus:border-transparent"
               >
                 <option value="">{t("listing.search.any")}</option>
                 {[...Array(11).keys()].map((num) => (
@@ -249,14 +247,16 @@ export default function ListingSearch(props: Props) {
           ))}
 
           {/* Status */}
-          <div className="w-full md:w-[23%]">
-            <label htmlFor="q_status_eq" className="block mb-1 font-medium">
+          <div>
+            <label
+              htmlFor="q_status_eq"
+              className="block mb-2 font-medium text-sm"
+            >
               {t("listing.search.status.title")}
             </label>
             <Select
               name="q[status_eq]"
               id="q_status_eq"
-              className="w-full p-2 rounded-md border border-gray-200 bg-white dark:bg-light dark:text-black h-[42px] focus:ring-2 focus:ring-beige-default focus:border-transparent"
               value={status}
               onChange={(e) => setStatus(e.target.value)}
             >
@@ -270,14 +270,14 @@ export default function ListingSearch(props: Props) {
           </div>
 
           {/* Price Range */}
-          <div className="w-full md:w-[23%]">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <label
               htmlFor="q_price_cents_lteq"
-              className="block mb-1 font-medium"
+              className="block mb-2 font-medium text-sm"
             >
               {t("listing.search.price")}
             </label>
-            <div className="price-slider-container">
+            <div className="pt-2">
               <Slider
                 range
                 min={0}
@@ -286,9 +286,8 @@ export default function ListingSearch(props: Props) {
                 onChange={handlePriceChange}
                 allowCross={false}
                 step={1000}
-                className="mb-2"
               />
-              <div className="flex justify-between mt-2 text-sm">
+              <div className="flex justify-between mt-3 text-sm text-gray-600 dark:text-gray-300">
                 <span className="font-medium">
                   {numberToCurrency(prices[0])}
                 </span>
@@ -310,16 +309,18 @@ export default function ListingSearch(props: Props) {
           setTitle={setTitle}
         />
 
-        <div className="flex items-center flex-wrap gap-4">
+        <div className="flex items-center flex-wrap gap-4 mt-6">
           <Button
             type="submit"
-            className="font-bold py-2 px-6 rounded w-full md:w-auto transition-colors"
+            variant="primary"
+            size="lg"
+            className="w-full sm:w-auto"
           >
             {t("listing.search.submit")}
           </Button>
 
-          <div className="text-sm text-gray-600 dark:text-gray-300">
-            {Object.keys(buildSearchParams()).length > 1 && (
+          {Object.keys(buildSearchParams()).length > 1 && (
+            <div className="text-sm text-gray-600 dark:text-gray-300">
               <span>
                 {Object.keys(buildSearchParams()).length - 1}{" "}
                 {/* Subtract 1 for objective which is always present */}
@@ -327,8 +328,8 @@ export default function ListingSearch(props: Props) {
                   defaultValue: "filters applied",
                 })}
               </span>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </form>
     </div>

@@ -57,21 +57,21 @@ export default function UnifiedCard(props: UnifiedCardProps) {
     const isSmall = size === "small";
 
     const containerClasses = cn(
-      "w-full max-w-7xl mx-auto px-4",
-      isSmall ? "my-2" : "my-8",
+      isVertical ? "" : "w-full max-w-7xl mx-auto px-4",
+      isVertical ? "" : isSmall ? "my-2" : "my-8",
       className,
     );
 
     const cardClasses = cn(
-      "relative m-0 flex dark:border-beige-medium dark:border-2",
+      "relative m-0 flex dark:border-beige-medium dark:border-2 h-full",
       isVertical ? "flex-col" : "flex-col sm:flex-row",
-      isSmall ? "h-48" : "md:h-80",
+      !isVertical && (isSmall ? "h-48" : "md:h-80"),
     );
 
     const imageContainerClasses = cn(
       "relative",
       isVertical
-        ? "w-full"
+        ? "w-full h-48 md:h-56"
         : isSmall
           ? "flex-shrink-0 w-1/2 md:w-1/3"
           : "flex-shrink-0 w-full sm:w-1/3",
@@ -84,7 +84,11 @@ export default function UnifiedCard(props: UnifiedCardProps) {
 
     const titleClasses = cn(
       "mb-3",
-      isSmall ? "text-sm md:text-2xl" : "text-2xl",
+      isVertical
+        ? "text-lg md:text-xl"
+        : isSmall
+          ? "text-sm md:text-2xl"
+          : "text-2xl",
     );
 
     return (

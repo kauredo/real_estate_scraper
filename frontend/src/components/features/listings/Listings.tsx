@@ -31,9 +31,11 @@ export default function Listings(props: Props) {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8" id="listings">
-      <div className="grid grid-cols-1 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {listings?.map((listing) => {
-          return <LongCard listing={listing} key={listing.url} />;
+          return (
+            <LongCard listing={listing} key={listing.url} variant="vertical" />
+          );
         })}
       </div>
     </div>
