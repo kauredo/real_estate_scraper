@@ -46,57 +46,62 @@ export default function Newsletter() {
   return (
     <section
       id="newsletter"
-      className="mx-auto container p-2 text-gray body-font flex md:flex-row flex-col items-center py-12 h-fit min-h-[25rem]"
+      className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
     >
-      <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 pr-4 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-        <h2 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-dark dark:text-light">
-          {t("home.newsletter.title")}
-        </h2>
-        <p className="mb-8 leading-relaxed mx-2 tablet:mr-4 text-dark dark:text-light">
-          {t("home.newsletter.subtitle")}
-          <span className="flex items-center font-medium tracking-wide text-beige-default dark:text-beige-medium text-xs">
+      <div className="flex md:flex-row flex-col items-center gap-8 md:gap-12">
+        <div className="flex-1 flex flex-col md:items-start md:text-left items-center text-center">
+          <h2 className="text-3xl md:text-4xl mb-4 font-medium text-dark dark:text-light">
+            {t("home.newsletter.title")}
+          </h2>
+          <p className="mb-6 leading-relaxed text-dark dark:text-light">
+            {t("home.newsletter.subtitle")}
+          </p>
+          <p className="mb-6 font-medium text-beige-default dark:text-beige-medium text-sm">
             {t("home.newsletter.terms")}
-          </span>
-        </p>
-        <form ref={form} onSubmit={validateUser}>
-          <div className="w-full">
-            <Input
-              className="border-l-4 border-beige-default dark:border-beige-medium bg-white dark:bg-light focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
-              placeholder={t("home.newsletter.form.fields.name")}
-              name="newsletter[name]"
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <Input
-              className="border-l-4 border-beige-default dark:border-beige-medium bg-white dark:bg-light focus:outline-none py-2 px-4 w-4/5 m-0 mb-2"
-              placeholder={t("home.newsletter.form.fields.email")}
-              name="newsletter[email]"
-              type="text"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Button className="w-4/5 h-12" type="submit" disabled={isLoading}>
-              {isLoading
-                ? t("common.saving") || "Subscribing..."
-                : t("home.newsletter.form.fields.subscribe")}
-            </Button>
-          </div>
-          {error && (
-            <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-              {error}
-            </span>
-          )}
-        </form>
+          </p>
+          <form ref={form} onSubmit={validateUser} className="w-full max-w-lg">
+            <div className="space-y-4">
+              <Input
+                placeholder={t("home.newsletter.form.fields.name")}
+                name="newsletter[name]"
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <Input
+                placeholder={t("home.newsletter.form.fields.email")}
+                name="newsletter[email]"
+                type="text"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Button
+                variant="outline"
+                className="w-full"
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading
+                  ? t("common.saving") || "Subscribing..."
+                  : t("home.newsletter.form.fields.subscribe")}
+              </Button>
+            </div>
+            {error && (
+              <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-2">
+                {error}
+              </span>
+            )}
+          </form>
+        </div>
+        <div
+          className="flex-1 h-[20rem] md:h-[25rem] w-full rounded-lg bg-center bg-no-repeat bg-cover dark:opacity-80 hidden md:block"
+          style={{
+            backgroundImage: `url(${emailImage})`,
+          }}
+        ></div>
       </div>
-      <div
-        className="h-[20rem] md:w-1/2 w-5/6 hidden md:block object-cover bg-center bg-no-repeat bg-cover object-center dark:opacity-80"
-        style={{
-          backgroundImage: `url(${emailImage})`,
-        }}
-      ></div>
     </section>
   );
 }
