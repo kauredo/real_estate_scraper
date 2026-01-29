@@ -2,5 +2,9 @@
   "next": "Next",
   "page": "Page {{current}} of {{total}}",
   "previous": "Previous",
-  "total": "Total"
+  "total": "Total",
+  "aria_label": "Pagination",
+  "go_to_page": "Go to page",
+  "current_page": "Current page",
+  "of": "of"
 }

@@ -1,39 +1,13 @@
-import { useState } from "react";
-import {
-  XMarkIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/24/outline";
-import { Button } from "@/components/ui/Button";
+import { useTranslation } from "react-i18next";
+import { Lightbox, useLightbox } from "@/components/ui/Lightbox";
 
 interface Props {
   photos: string[];
 }
 
 export default function PhotoGallery({ photos }: Props) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const openLightbox = (index: number) => {
-    setCurrentImageIndex(index);
-    setIsOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setIsOpen(false);
-  };
-
-  const goToPrevious = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? photos.length - 1 : prevIndex - 1,
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === photos.length - 1 ? 0 : prevIndex + 1,
-    );
-  };
+  const { t } = useTranslation();
+  const lightbox = useLightbox(photos);
 
   const getGridLayout = () => {
     switch (photos.length) {
@@ -65,46 +39,42 @@ export default function PhotoGallery({ photos }: Props) {
     }
   };
 
+  if (photos.length === 0) {
+    return null;
+  }
+
   return (
     <div className="mb-8">
+      <Lightbox
+        images={lightbox.images}
+        initialIndex={lightbox.initialIndex}
+        isOpen={lightbox.isOpen}
+        onClose={lightbox.closeLightbox}
+        alt="Gallery"
+      />
+
       <div className={`gap-4 ${getGridLayout()}`}>
         {photos.map((photo, index) => (
-          <img
+          <button
             key={index}
-            src={photo}
-            alt=""
-            className={`
-              rounded cursor-pointer object-cover
-              ${getImageClass(index)}
-            `}
-            onClick={() => openLightbox(index)}
-          />
+            onClick={() => lightbox.openLightbox(index)}
+            className={`rounded overflow-hidden cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-2 ${getImageClass(index)}`}
+            aria-label={`${t("lightbox.view_image") || "View image"} ${index + 1} ${t("lightbox.of") || "of"} ${photos.length}`}
+          >
+            <img
+              src={photo}
+              alt=""
+              className="w-full h-full object-cover transition-transform hover:scale-[1.02]"
+              draggable={false}
+            />
+          </button>
         ))}
       </div>
 
-      {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
-          <Button
-            onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white"
-          >
-            <XMarkIcon className="h-8 w-8" />
-          </Button>
-
-          <Button onClick={goToPrevious} className="absolute left-4 text-white">
-            <ChevronLeftIcon className="h-8 w-8" />
-          </Button>
-
-          <img
-            src={photos[currentImageIndex]}
-            alt=""
-            className="max-h-[90vh] max-w-[90vw] object-contain"
-          />
-
-          <Button onClick={goToNext} className="absolute right-4 text-white">
-            <ChevronRightIcon className="h-8 w-8" />
-          </Button>
-        </div>
+      {photos.length > 0 && (
+        <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-3">
+          {t("listing.click_to_enlarge") || "Click image to enlarge"}
+        </p>
       )}
     </div>
   );

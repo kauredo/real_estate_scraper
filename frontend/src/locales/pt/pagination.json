@@ -2,5 +2,9 @@
   "page": "Página {{current}} de {{total}}",
   "previous": "Anterior",
   "next": "Próxima",
-  "total": "Total"
+  "total": "Total",
+  "aria_label": "Paginação",
+  "go_to_page": "Ir para a página",
+  "current_page": "Página atual",
+  "of": "de"
 }

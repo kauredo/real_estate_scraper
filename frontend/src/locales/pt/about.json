@@ -83,7 +83,8 @@
     "title": "Equipa"
   },
   "testimonies": {
-    "title": "Testemunhos"
+    "title": "Testemunhos",
+    "carousel_label": "Testemunhos de clientes"
   },
   "vision": {
     "sub1": "Ser a equipa preferida pelos clientes que querem comprar ou vender imobiliário nas zonas de Lisboa e do Porto, graças ao nosso profissionalismo, à nossa capacidade de gerar bons negócios e aos valores que professamos no dia a dia.",

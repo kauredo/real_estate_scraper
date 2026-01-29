@@ -1,10 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useMemo } from "react";
 import { ListingComplex } from "@/utils/interfaces";
-import { Button } from "@/components/ui/Button";
-import LeftArrowIcon from "@/components/svgs/LeftArrowIcon";
-import RightArrowIcon from "@/components/svgs/RightArrowIcon";
 import CheckIcon from "@/components/svgs/CheckIcon";
+import { Lightbox, useLightbox } from "@/components/ui/Lightbox";
 
 interface Props {
   listingComplex: ListingComplex;
@@ -12,44 +10,75 @@ interface Props {
 
 const ListingComplexDetail = ({ listingComplex }: Props) => {
   const { t, i18n } = useTranslation();
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
-  const nextPhoto = () => {
-    setCurrentPhotoIndex((prev) =>
-      prev === listingComplex.photos.length - 1 ? 0 : prev + 1,
-    );
-  };
+  // Extract photo URLs for the lightbox
+  const photoUrls = useMemo(
+    () => listingComplex.photos.map((photo) => photo.image.url),
+    [listingComplex.photos]
+  );
 
-  const prevPhoto = () => {
-    setCurrentPhotoIndex((prev) =>
-      prev === 0 ? listingComplex.photos.length - 1 : prev - 1,
-    );
-  };
+  const lightbox = useLightbox(photoUrls);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Photo Gallery */}
-      <div className="relative mb-8 h-[60vh]">
-        {listingComplex.photos.length > 0 && (
-          <>
-            <img
-              src={listingComplex.photos[currentPhotoIndex].image.url}
-              alt={`${listingComplex.name} - ${currentPhotoIndex + 1}`}
-              className="w-full h-full object-cover rounded-lg"
-            />
-            {listingComplex.photos.length > 1 && (
-              <div className="absolute inset-0 flex items-center justify-between p-4">
-                <Button onClick={prevPhoto} size="icon">
-                  <LeftArrowIcon />
-                </Button>
-                <Button onClick={nextPhoto} size="icon">
-                  <RightArrowIcon />
-                </Button>
-              </div>
-            )}
-          </>
-        )}
-      </div>
+      {/* Photo Lightbox */}
+      <Lightbox
+        images={lightbox.images}
+        initialIndex={lightbox.initialIndex}
+        isOpen={lightbox.isOpen}
+        onClose={lightbox.closeLightbox}
+        alt={listingComplex.name}
+      />
+
+      {/* Main Photo Gallery */}
+      {listingComplex.photos.length > 0 && (
+        <div className="mb-8">
+          {/* Main image - clickable */}
+          <div className="relative mb-4">
+            <button
+              onClick={() => lightbox.openLightbox(0)}
+              className="w-full h-[50vh] md:h-[60vh] cursor-zoom-in rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-2"
+              aria-label={`${t("lightbox.view_image") || "View image"} 1 ${t("lightbox.of") || "of"} ${listingComplex.photos.length}`}
+            >
+              <img
+                src={listingComplex.photos[0].image.url}
+                alt={`${listingComplex.name} - 1`}
+                className="w-full h-full object-cover transition-transform hover:scale-[1.02]"
+                draggable={false}
+              />
+            </button>
+          </div>
+
+          {/* Thumbnail grid */}
+          {listingComplex.photos.length > 1 && (
+            <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+              {listingComplex.photos.map((photo, index) => (
+                <button
+                  key={index}
+                  onClick={() => lightbox.openLightbox(index)}
+                  className={`aspect-square rounded-md overflow-hidden cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-1 transition-opacity ${
+                    index === 0 ? "ring-2 ring-beige-default" : "hover:opacity-80"
+                  }`}
+                  aria-label={`${t("lightbox.view_image") || "View image"} ${index + 1} ${t("lightbox.of") || "of"} ${listingComplex.photos.length}`}
+                >
+                  <img
+                    src={photo.image.url}
+                    alt={`${listingComplex.name} - ${index + 1}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    draggable={false}
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Click hint */}
+          <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-3">
+            {t("listing.click_to_enlarge") || "Click image to enlarge"}
+          </p>
+        </div>
+      )}
 
       {/* Details */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
@@ -77,7 +106,7 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
                 {
                   style: "currency",
                   currency: "EUR",
-                },
+                }
               )}
             </p>
           </div>
@@ -137,7 +166,7 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
                       {
                         style: "currency",
                         currency: "EUR",
-                      },
+                      }
                     )}
                   </p>
                 </div>

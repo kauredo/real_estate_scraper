@@ -4,9 +4,10 @@ import ContactForm from "@/components/features/contact/ContactForm";
 import { useTranslation } from "react-i18next";
 import { ReadMore } from "@/components/ui/ReadMore";
 import Overlay from "@/components/ui/Overlay";
-import ShareIcons from "@/components/ui/ShareIcons";
 import Carousel from "@/components/ui/Carousel";
 import { Button } from "@/components/ui/Button";
+import { Lightbox, useLightbox } from "@/components/ui/Lightbox";
+import ShareIcons from "@/components/ui/ShareIcons";
 
 interface Props {
   listing: Listing;
@@ -15,64 +16,77 @@ interface Props {
 export default function Show(props: Props) {
   const listing = props.listing;
   const { t } = useTranslation();
-  const [isOpen, setOpen] = useState(false);
+  const [isVideoOpen, setVideoOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Handle escape key to close modal
+  // Lightbox for photos
+  const lightbox = useLightbox(listing.photos || []);
+
+  // Handle escape key to close video modal
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") {
-      setOpen(false);
+      setVideoOpen(false);
     }
   }, []);
 
-  // Focus trap for modal
+  // Focus trap for video modal
   useEffect(() => {
-    if (isOpen) {
-      // Store the element that had focus before opening
+    if (isVideoOpen) {
       const previouslyFocused = document.activeElement as HTMLElement;
-
-      // Add escape key listener
       document.addEventListener("keydown", handleKeyDown);
 
-      // Focus the close button when modal opens
       setTimeout(() => {
         closeButtonRef.current?.focus();
       }, 100);
 
-      // Prevent body scroll when modal is open
       document.body.style.overflow = "hidden";
 
       return () => {
         document.removeEventListener("keydown", handleKeyDown);
         document.body.style.overflow = "";
-        // Return focus to the trigger button
         previouslyFocused?.focus?.();
       };
     }
-  }, [isOpen, handleKeyDown]);
+  }, [isVideoOpen, handleKeyDown]);
 
-  // Handle click outside to close
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
-      setOpen(false);
+      setVideoOpen(false);
     }
   };
 
   const photos = listing.photos?.map((photo, index) => (
-    <img
+    <button
       key={`photo-${index}`}
-      loading={index === 0 ? "eager" : "lazy"}
-      className="object-contain w-full max-h-[70vh] mx-auto"
-      src={photo}
-      alt={`${listing.title} - ${index + 1}`}
-    />
+      onClick={() => lightbox.openLightbox(index)}
+      className="w-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-2"
+      aria-label={`${t("lightbox.view_image") || "View image"} ${index + 1} ${t("lightbox.of") || "of"} ${listing.photos?.length}`}
+    >
+      <img
+        loading={index === 0 ? "eager" : "lazy"}
+        className="object-contain w-full max-h-[70vh] mx-auto"
+        src={photo}
+        alt={`${listing.title} - ${index + 1}`}
+        draggable={false}
+      />
+    </button>
   ));
 
   return (
     <>
-      {listing.video_link && isOpen && (
+      {/* Photo Lightbox */}
+      <Lightbox
+        images={lightbox.images}
+        initialIndex={lightbox.initialIndex}
+        isOpen={lightbox.isOpen}
+        onClose={lightbox.closeLightbox}
+        alt={listing.title}
+      />
+
+      {/* Video Modal */}
+      {listing.video_link && isVideoOpen && (
         <div
           role="dialog"
           aria-modal="true"
@@ -85,15 +99,13 @@ export default function Show(props: Props) {
             onClick={handleBackdropClick}
           >
             <div className="relative max-w-[90vw] w-full">
-              {/* Hidden title for screen readers */}
               <h2 id="video-modal-title" className="sr-only">
                 {t("listing.watch_video")}: {listing.title}
               </h2>
 
-              {/* Close button */}
               <Button
                 ref={closeButtonRef}
-                onClick={() => setOpen(false)}
+                onClick={() => setVideoOpen(false)}
                 variant="ghost"
                 size="icon"
                 className="absolute -top-12 right-0 text-white hover:bg-white/20 z-10"
@@ -128,6 +140,7 @@ export default function Show(props: Props) {
           </div>
         </div>
       )}
+
       <div className="relative container mx-auto overflow-hidden sm:overflow-visible text-black dark:text-light">
         <div className="pb-6 bg-white dark:bg-dark text-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
@@ -155,6 +168,12 @@ export default function Show(props: Props) {
             showCounter={false}
             infinite={false}
           />
+          {/* Click hint */}
+          {listing.photos && listing.photos.length > 0 && (
+            <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">
+              {t("listing.click_to_enlarge") || "Click image to enlarge"}
+            </p>
+          )}
         </div>
 
         <div className="mt-12">
@@ -167,7 +186,7 @@ export default function Show(props: Props) {
                 <div className="mb-2">
                   <Button
                     ref={triggerButtonRef}
-                    onClick={() => setOpen(true)}
+                    onClick={() => setVideoOpen(true)}
                     type="button"
                   >
                     {t("listing.watch_video")}

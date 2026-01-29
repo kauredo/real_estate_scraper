@@ -1,0 +1,9 @@
+{
+  "title": "Image gallery",
+  "previous": "Previous image",
+  "next": "Next image",
+  "thumbnails": "Image thumbnails",
+  "view_image": "View image",
+  "of": "of",
+  "keyboard_hint": "Use arrow keys to navigate, Escape to close"
+}

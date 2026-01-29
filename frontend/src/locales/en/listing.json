@@ -111,5 +111,6 @@
   "update_details": {
     "notice": "The property will be updated within minutes, please wait before trying again"
   },
-  "watch_video": "Watch Video 📹"
+  "watch_video": "Watch Video 📹",
+  "click_to_enlarge": "Click image to enlarge"
 }

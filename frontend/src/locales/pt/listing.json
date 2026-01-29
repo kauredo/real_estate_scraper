@@ -111,5 +111,6 @@
   "update_details": {
     "notice": "O imóvel será atualizado dentro de minutos, espera antes de tentar novamente"
   },
-  "watch_video": "Assistir Vídeo 📹"
+  "watch_video": "Assistir Vídeo 📹",
+  "click_to_enlarge": "Clique na imagem para ampliar"
 }

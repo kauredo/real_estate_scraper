@@ -84,7 +84,8 @@
     "title": "Our Team"
   },
   "testimonies": {
-    "title": "Testimonies"
+    "title": "Testimonies",
+    "carousel_label": "Customer testimonials"
   },
   "vision": {
     "sub1": "To be the preferred team for clients who want to buy or sell property in the Lisbon and Porto areas, thanks to our professionalism, our capacity to generate good business and the values we profess on a daily basis.",

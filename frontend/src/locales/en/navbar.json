@@ -22,5 +22,8 @@
   "super_admin": "Super Admin",
   "super_admin_admins": "Admins",
   "super_admin_tenants": "Tenants",
-  "testimonies": "Testimonies"
+  "testimonies": "Testimonies",
+  "skip_to_content": "Skip to main content",
+  "main_navigation": "Main navigation",
+  "close_menu": "Close menu"
 }

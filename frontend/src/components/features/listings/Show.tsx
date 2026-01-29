@@ -1,9 +1,11 @@
 import { useTranslation } from "react-i18next";
+import { useMemo } from "react";
 import ContactForm from "@/components/features/contact/ContactForm";
 import type { ListingComplex } from "@/utils/interfaces";
 import ShareIcons from "@/components/ui/ShareIcons";
 import Routes from "@/utils/routes";
 import Carousel from "@/components/ui/Carousel";
+import { Lightbox, useLightbox } from "@/components/ui/Lightbox";
 
 interface Props {
   complex: ListingComplex;
@@ -14,9 +16,9 @@ export default function Show(props: Props) {
   const { complex } = props;
 
   // Collect all unique photos from all listings
-  const allPhotos =
-    complex.listings &&
-    complex.listings.reduce((photos: string[], listing) => {
+  const allPhotos = useMemo(() => {
+    if (!complex.listings) return [];
+    return complex.listings.reduce((photos: string[], listing) => {
       listing.photos.forEach((photo) => {
         if (!photos.includes(photo)) {
           photos.push(photo);
@@ -24,21 +26,40 @@ export default function Show(props: Props) {
       });
       return photos;
     }, []);
+  }, [complex.listings]);
+
+  const lightbox = useLightbox(allPhotos);
 
   const photoItems =
-    allPhotos &&
+    allPhotos.length > 0 &&
     allPhotos.map((photo, index) => (
-      <img
+      <button
         key={`photo-${index}`}
-        loading={index === 0 ? "eager" : "lazy"}
-        className="object-contain w-full max-h-[70vh] mx-auto"
-        src={photo}
-        alt={`${complex.name} - ${index + 1}`}
-      />
+        onClick={() => lightbox.openLightbox(index)}
+        className="w-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-2"
+        aria-label={`${t("lightbox.view_image") || "View image"} ${index + 1} ${t("lightbox.of") || "of"} ${allPhotos.length}`}
+      >
+        <img
+          loading={index === 0 ? "eager" : "lazy"}
+          className="object-contain w-full max-h-[70vh] mx-auto"
+          src={photo}
+          alt={`${complex.name} - ${index + 1}`}
+          draggable={false}
+        />
+      </button>
     ));
 
   return (
     <div className="relative bg-white dark:bg-dark min-h-screen">
+      {/* Photo Lightbox */}
+      <Lightbox
+        images={lightbox.images}
+        initialIndex={lightbox.initialIndex}
+        isOpen={lightbox.isOpen}
+        onClose={lightbox.closeLightbox}
+        alt={complex.name}
+      />
+
       {/* Hero Image Carousel */}
       {photoItems && photoItems.length > 0 && (
         <div className="relative slider-container">
@@ -48,6 +69,10 @@ export default function Show(props: Props) {
             showCounter
             infinite={photoItems.length > 1}
           />
+          {/* Click hint */}
+          <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">
+            {t("listing.click_to_enlarge") || "Click image to enlarge"}
+          </p>
         </div>
       )}
 
@@ -81,7 +106,6 @@ export default function Show(props: Props) {
               </div>
             </div>
           )}
-
         </div>
 
         {/* Contact Form Sidebar */}
@@ -97,131 +121,130 @@ export default function Show(props: Props) {
         {/* Video */}
         {complex.video_link && (
           <div className="bg-white dark:bg-dark rounded-2xl shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
-              <div className="p-6">
-                <div className="mb-4 pb-4 border-b-2 border-beige-default dark:border-beige-medium">
-                  <h2 className="text-xl tablet:text-2xl font-bold text-beige-dark dark:text-beige-medium">
-                    {t("listing.video") || "Vídeo"}
-                  </h2>
-                </div>
-                <div className="relative aspect-video rounded-xl overflow-hidden bg-black">
-                  <iframe
-                    className="absolute inset-0 w-full h-full"
-                    src={complex.video_link}
-                    title={`${complex.name} - ${t("listing.video")}`}
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
+            <div className="p-6">
+              <div className="mb-4 pb-4 border-b-2 border-beige-default dark:border-beige-medium">
+                <h2 className="text-xl tablet:text-2xl font-bold text-beige-dark dark:text-beige-medium">
+                  {t("listing.video") || "Vídeo"}
+                </h2>
+              </div>
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-black">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={complex.video_link}
+                  title={`${complex.name} - ${t("listing.video")}`}
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
             </div>
-          )}
+          </div>
+        )}
 
         {/* Listings Table */}
         {complex.listings && complex.listings.length > 0 && (
           <div className="bg-white dark:bg-dark rounded-2xl shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
-              <div className="p-6">
-                <div className="mb-6 pb-4 border-b-2 border-beige-default dark:border-beige-medium">
-                  <h2 className="text-xl tablet:text-2xl font-bold text-beige-dark dark:text-beige-medium">
-                    {t("enterprises.show.available_units") ||
-                      "Frações Disponíveis"}
-                  </h2>
-                </div>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm min-w-full">
-                    <thead>
-                      <tr className="bg-beige-default dark:bg-beige-medium text-white dark:text-dark">
-                        <th className="py-4 px-4 text-left font-semibold uppercase tracking-wider text-xs">
-                          {t("enterprises.show.type")}
-                        </th>
-                        <th className="py-4 px-4 text-center font-semibold uppercase tracking-wider text-xs">
-                          {t("enterprises.show.bedrooms")}
-                        </th>
-                        <th className="py-4 px-4 text-center font-semibold uppercase tracking-wider text-xs">
-                          {t("enterprises.show.built")}
-                        </th>
-                        <th className="py-4 px-4 text-center font-semibold uppercase tracking-wider text-xs">
-                          {t("enterprises.show.living")}
-                        </th>
-                        <th className="py-4 px-4 text-center font-semibold uppercase tracking-wider text-xs">
-                          {t("enterprises.show.parking")}
-                        </th>
-                        <th className="py-4 px-4 text-center font-semibold uppercase tracking-wider text-xs">
-                          {t("enterprises.show.price")}
-                        </th>
-                        <th className="py-4 px-4"></th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
-                      {complex.listings.map((listing, index) => {
-                        const isSoldOrAgreed = ["sold", "agreed"].includes(
-                          listing.status,
-                        );
-                        return (
-                          <tr
-                            key={listing.slug}
-                            className={`hover:bg-beige-default/10 dark:hover:bg-beige-medium/10 transition-colors duration-200 ${
-                              index % 2 === 0
-                                ? "bg-gray-50 dark:bg-gray-900/20"
-                                : ""
-                            }`}
-                          >
-                            <td className="py-4 px-4 text-left relative">
-                              {listing.status === "agreed" && (
-                                <div className="absolute inset-0 bg-beige-default/20 dark:bg-beige-medium/20" />
-                              )}
-                              {listing.status === "sold" && (
-                                <div className="absolute inset-0 bg-gray-900/20" />
-                              )}
-                              <span className="relative font-medium text-gray-900 dark:text-gray-100">
-                                {listing.stats[t("listing.stats.floor")] || "-"}
-                              </span>
-                            </td>
-                            <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300">
-                              {listing.stats[t("listing.stats.bedrooms")] ||
-                                "-"}
-                            </td>
-                            <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300">
-                              {listing.stats[t("listing.stats.area")] || "-"}
-                            </td>
-                            <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300">
-                              {listing.stats[t("listing.stats.living_area")] ||
-                                "-"}
-                            </td>
-                            <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300">
-                              {listing.stats[t("listing.stats.parking")] || "-"}
-                            </td>
-                            <td className="py-4 px-4 text-center">
-                              <span className="font-bold text-lg text-beige-dark dark:text-beige-medium">
-                                {isSoldOrAgreed
-                                  ? listing.status === "agreed"
-                                    ? t("listing.status.agreed")
-                                    : t("listing.status.sold")
-                                  : listing.price
-                                    ? `${listing.price} ${t("common.currency")}`
-                                    : "-"}
-                              </span>
-                            </td>
-                            <td className="py-4 px-4 text-center">
-                              {!isSoldOrAgreed && (
-                                <a
-                                  href={Routes.listing_path(listing.slug)}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-2 px-4 py-2 bg-beige-default hover:bg-beige-medium dark:bg-beige-medium dark:hover:bg-beige-dark text-white dark:text-dark font-medium rounded-lg transition-colors duration-200 shadow hover:shadow-lg"
-                                >
-                                  {t("enterprises.show.more")} →
-                                </a>
-                              )}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
+            <div className="p-6">
+              <div className="mb-6 pb-4 border-b-2 border-beige-default dark:border-beige-medium">
+                <h2 className="text-xl tablet:text-2xl font-bold text-beige-dark dark:text-beige-medium">
+                  {t("enterprises.show.available_units") ||
+                    "Frações Disponíveis"}
+                </h2>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm min-w-full">
+                  <thead>
+                    <tr className="bg-beige-default dark:bg-beige-medium text-white dark:text-dark">
+                      <th className="py-4 px-4 text-left font-semibold uppercase tracking-wider text-xs">
+                        {t("enterprises.show.type")}
+                      </th>
+                      <th className="py-4 px-4 text-center font-semibold uppercase tracking-wider text-xs">
+                        {t("enterprises.show.bedrooms")}
+                      </th>
+                      <th className="py-4 px-4 text-center font-semibold uppercase tracking-wider text-xs">
+                        {t("enterprises.show.built")}
+                      </th>
+                      <th className="py-4 px-4 text-center font-semibold uppercase tracking-wider text-xs">
+                        {t("enterprises.show.living")}
+                      </th>
+                      <th className="py-4 px-4 text-center font-semibold uppercase tracking-wider text-xs">
+                        {t("enterprises.show.parking")}
+                      </th>
+                      <th className="py-4 px-4 text-center font-semibold uppercase tracking-wider text-xs">
+                        {t("enterprises.show.price")}
+                      </th>
+                      <th className="py-4 px-4"></th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                    {complex.listings.map((listing, index) => {
+                      const isSoldOrAgreed = ["sold", "agreed"].includes(
+                        listing.status
+                      );
+                      return (
+                        <tr
+                          key={listing.slug}
+                          className={`hover:bg-beige-default/10 dark:hover:bg-beige-medium/10 transition-colors duration-200 ${
+                            index % 2 === 0
+                              ? "bg-gray-50 dark:bg-gray-900/20"
+                              : ""
+                          }`}
+                        >
+                          <td className="py-4 px-4 text-left relative">
+                            {listing.status === "agreed" && (
+                              <div className="absolute inset-0 bg-beige-default/20 dark:bg-beige-medium/20" />
+                            )}
+                            {listing.status === "sold" && (
+                              <div className="absolute inset-0 bg-gray-900/20" />
+                            )}
+                            <span className="relative font-medium text-gray-900 dark:text-gray-100">
+                              {listing.stats[t("listing.stats.floor")] || "-"}
+                            </span>
+                          </td>
+                          <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300">
+                            {listing.stats[t("listing.stats.bedrooms")] || "-"}
+                          </td>
+                          <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300">
+                            {listing.stats[t("listing.stats.area")] || "-"}
+                          </td>
+                          <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300">
+                            {listing.stats[t("listing.stats.living_area")] ||
+                              "-"}
+                          </td>
+                          <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300">
+                            {listing.stats[t("listing.stats.parking")] || "-"}
+                          </td>
+                          <td className="py-4 px-4 text-center">
+                            <span className="font-bold text-lg text-beige-dark dark:text-beige-medium">
+                              {isSoldOrAgreed
+                                ? listing.status === "agreed"
+                                  ? t("listing.status.agreed")
+                                  : t("listing.status.sold")
+                                : listing.price
+                                  ? `${listing.price} ${t("common.currency")}`
+                                  : "-"}
+                            </span>
+                          </td>
+                          <td className="py-4 px-4 text-center">
+                            {!isSoldOrAgreed && (
+                              <a
+                                href={Routes.listing_path(listing.slug)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-beige-default hover:bg-beige-medium dark:bg-beige-medium dark:hover:bg-beige-dark text-white dark:text-dark font-medium rounded-lg transition-colors duration-200 shadow hover:shadow-lg"
+                              >
+                                {t("enterprises.show.more")} →
+                              </a>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
               </div>
             </div>
-          )}
+          </div>
+        )}
       </section>
     </div>
   );
