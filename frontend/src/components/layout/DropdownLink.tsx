@@ -67,7 +67,7 @@ const DropdownLink = (props: DropdownProps) => {
           {img && (
             <img
               src={img}
-              alt=""
+              alt={title || ""}
               className="w-5 h-5 rounded-full"
               loading="lazy"
             />

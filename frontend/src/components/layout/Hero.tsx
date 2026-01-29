@@ -59,9 +59,12 @@ function Hero(props: Props) {
           >
             {t("navbar.sell")}
           </ButtonLink>
-          <a href="#cards">
-            <Button variant="link" className="px-5">
-              <FontAwesomeIcon icon="arrow-down" />
+          <a
+            href="#cards"
+            aria-label={t("home.scroll_to_listings") || "Scroll to listings"}
+          >
+            <Button variant="link" className="px-5" tabIndex={-1}>
+              <FontAwesomeIcon icon="arrow-down" aria-hidden="true" />
             </Button>
           </a>
         </div>

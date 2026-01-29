@@ -118,7 +118,7 @@ export default function ContactForm(props: Props) {
             aria-required="true"
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
-              (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
+              (listing || complex ? "text-sm" : "rounded border-gray-200 dark:border-gray-600")
             }
           />
         </div>
@@ -137,7 +137,7 @@ export default function ContactForm(props: Props) {
             aria-required="true"
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
-              (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
+              (listing || complex ? "text-sm" : "rounded border-gray-200 dark:border-gray-600")
             }
           />
         </div>
@@ -154,7 +154,7 @@ export default function ContactForm(props: Props) {
             onChange={(e) => handleInputChange(setPhone, e.target.value)}
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
-              (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
+              (listing || complex ? "text-sm" : "rounded border-gray-200 dark:border-gray-600")
             }
           />
         </div>
@@ -173,7 +173,7 @@ export default function ContactForm(props: Props) {
             aria-required="true"
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border resize-none outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
-              (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
+              (listing || complex ? "text-sm" : "rounded border-gray-200 dark:border-gray-600")
             }
           />
           {listing && (

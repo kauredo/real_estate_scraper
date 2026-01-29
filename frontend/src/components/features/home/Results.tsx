@@ -28,7 +28,8 @@ export default function Results({ results, testimonials }: Props) {
       id="results"
       className="container mx-auto flex flex-col justify-between items-center min-h-[30vh] md:py-8 text-dark dark:text-light"
     >
-      <div className="text-center w-full container mx-auto text-2xl flex flex-col sm:flex-row justify-center items-center flex-wrap pb-0 sm:pb-6 p-6 pt-6 sm:pt-2 gap-2">
+      {/* Using description list for proper name-value semantics */}
+      <dl className="text-center w-full container mx-auto text-2xl flex flex-col sm:flex-row justify-center items-center flex-wrap pb-0 sm:pb-6 p-6 pt-6 sm:pt-2 gap-2">
         {variables?.map((variable) => {
           const iconName = variable.icon.replace("fas fa-", "") as IconName;
           return (
@@ -43,26 +44,24 @@ export default function Results({ results, testimonials }: Props) {
               />
               {variable === volume ? (
                 <>
-                  <h2 className="w-56" ref={ref}>
-                    <div>
-                      {inView && (
-                        <CountUp start={0} end={parseInt(variable.value)} />
-                      )}
-                      {" €"}
-                    </div>
-                  </h2>
-                  <h3 className="text-sm">{variable.name}</h3>
+                  <dd className="text-2xl font-semibold w-56" ref={ref}>
+                    {inView && (
+                      <CountUp start={0} end={parseInt(variable.value)} />
+                    )}
+                    {" €"}
+                  </dd>
+                  <dt className="text-sm">{variable.name}</dt>
                 </>
               ) : (
                 <>
-                  <h2>{variable.name}</h2>
-                  <h3 className="text-sm">{variable.value}</h3>
+                  <dt className="text-2xl font-semibold">{variable.name}</dt>
+                  <dd className="text-sm">{variable.value}</dd>
                 </>
               )}
             </div>
           );
         })}
-      </div>
+      </dl>
       <Testimonials testimonials={testimonials} />
     </section>
   );

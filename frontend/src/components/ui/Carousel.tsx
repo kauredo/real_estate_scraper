@@ -29,6 +29,7 @@ interface CarouselProps {
   centerMode?: boolean;
   showCounter?: boolean;
   dynamicHeight?: boolean;
+  "aria-label"?: string;
 }
 
 export default function Carousel({
@@ -44,6 +45,7 @@ export default function Carousel({
   centerMode = false,
   showCounter = false,
   dynamicHeight = false,
+  "aria-label": ariaLabel,
 }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider>(null);
@@ -149,18 +151,31 @@ export default function Carousel({
         dynamicHeight ? "dynamic-height-carousel" : ""
       }`}
       ref={containerRef}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={ariaLabel || "Image carousel"}
     >
       <div className="slider-container relative">
         <Slider {...settings} ref={sliderRef}>
           {items.map((item, index) => (
-            <div key={index} className="carousel-slide">
+            <div
+              key={index}
+              className="carousel-slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`Slide ${index + 1} of ${items.length}`}
+            >
               <div data-slide-content>{item}</div>
             </div>
           ))}
         </Slider>
       </div>
       {showCounter && items.length > 1 && (
-        <div className="text-center text-sm text-gray-500 mt-2">
+        <div
+          className="text-center text-sm text-gray-500 mt-2"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           {currentSlide + 1} / {items.length}
         </div>
       )}

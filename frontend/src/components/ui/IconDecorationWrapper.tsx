@@ -40,6 +40,7 @@ export default function IconDecorationWrapper({
       <div className="relative z-10">{children}</div>
       <div
         className={`absolute ${positionClasses[position]} top-1/2 transform -translate-y-1/2 ${opacityClasses[opacity]}`}
+        aria-hidden="true"
       >
         <img
           src={clubIconLogo}

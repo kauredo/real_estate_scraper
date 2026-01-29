@@ -108,13 +108,18 @@ export function AccordionItem({
         </svg>
       </button>
 
+      {/* Using CSS Grid for performant height animation (avoids layout thrashing) */}
       <div
         className={cn(
-          "overflow-hidden transition-all duration-300 ease-out",
-          isOpen ? "max-h-[1000px] pb-4 opacity-100" : "max-h-0 opacity-0",
+          "grid transition-[grid-template-rows,opacity] duration-300 ease-out",
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
         )}
       >
-        <div className="text-gray-700 dark:text-gray-300">{children}</div>
+        <div className="overflow-hidden">
+          <div className={cn("text-gray-700 dark:text-gray-300", isOpen && "pb-4")}>
+            {children}
+          </div>
+        </div>
       </div>
     </div>
   );

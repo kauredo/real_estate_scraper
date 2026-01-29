@@ -21,6 +21,16 @@ export default function Cards(props: Props) {
   const isGroupedByLocation = !Array.isArray(listings);
   const locations = isGroupedByLocation ? Object.keys(listings) : [];
 
+  // Move useState to top level to comply with React hooks rules
+  const [selectedLocation, setSelectedLocation] = useState(locations[0] || "");
+
+  // Update selectedLocation when locations change
+  useEffect(() => {
+    if (locations.length > 0 && !locations.includes(selectedLocation)) {
+      setSelectedLocation(locations[0]);
+    }
+  }, [locations, selectedLocation]);
+
   // Extract photo URLs for lightbox
   const photoUrls = useMemo(() => {
     if (!photos || photos.length === 0) return [];
@@ -104,8 +114,6 @@ export default function Cards(props: Props) {
 
   // Show listings grouped by location
   if (isGroupedByLocation && locations.length > 0) {
-    const [selectedLocation, setSelectedLocation] = useState(locations[0]);
-
     const locationTabs = locations.map((location) => ({
       id: location,
       label: `${toCapitalize(location)} (${listings[location]?.length || 0})`,

@@ -37,6 +37,9 @@ export default function NavbarItem(props: Props) {
   const layoutClasses = leftAlign ? "block w-full" : "";
   const combinedClasses = `${className} ${baseClasses} ${fullWidthClasses} ${layoutClasses}`;
 
+  // For flag images, use title as alt text; if no title, the image is decorative
+  const imgAlt = title || "";
+
   if (children) {
     return (
       <span key={`${title}--desktop`} className={combinedClasses}>
@@ -50,7 +53,7 @@ export default function NavbarItem(props: Props) {
         {img && (
           <img
             src={img}
-            alt=""
+            alt={imgAlt}
             className="w-5 h-5 rounded-full inline-block ml-2"
             loading="lazy"
           />
@@ -69,7 +72,7 @@ export default function NavbarItem(props: Props) {
         {img && (
           <img
             src={img}
-            alt=""
+            alt={imgAlt}
             className="w-5 h-5 rounded-full inline-block ml-2"
             loading="lazy"
           />
