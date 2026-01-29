@@ -10,6 +10,7 @@ export default {
     extend: {
       colors: {
         beige: {
+          light: "#f0e6d2",
           default: "#d3af79",
           medium: "#b08e5e",
           dark: "#775727",
