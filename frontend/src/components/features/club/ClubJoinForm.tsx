@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import { apiRoutes } from "@/utils/routes";
 import Flashes from "@/components/ui/Flashes";
 import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Label } from "@/components/ui/Label";
+import { FloatingLabelInput } from "@/components/ui/FloatingLabelInput";
 
 export default function ClubJoinForm() {
   const { t } = useTranslation();
@@ -84,53 +84,38 @@ export default function ClubJoinForm() {
         onSubmit={(e) => validateUser(e)}
         action={apiRoutes.clubJoin}
         method="post"
-        className="space-y-6"
+        className="space-y-5"
       >
-        <div>
-          <Label htmlFor="club-name" className="sr-only">
-            {t("club.form.fields.name")}
-          </Label>
-          <Input
-            id="club-name"
-            type="text"
-            placeholder={t("club.form.fields.name")}
-            name="name"
-            value={name}
-            onChange={(e) => handleInputChange(setName, e.target.value)}
-            required
-            aria-required="true"
-          />
-        </div>
-        <div>
-          <Label htmlFor="club-phone" className="sr-only">
-            {t("club.form.fields.phone")}
-          </Label>
-          <Input
-            id="club-phone"
-            type="tel"
-            placeholder={t("club.form.fields.phone")}
-            name="phone"
-            value={phone}
-            onChange={(e) => handleInputChange(setPhone, e.target.value)}
-            required
-            aria-required="true"
-          />
-        </div>
-        <div>
-          <Label htmlFor="club-email" className="sr-only">
-            {t("club.form.fields.email")}
-          </Label>
-          <Input
-            id="club-email"
-            type="email"
-            placeholder={t("club.form.fields.email")}
-            name="email"
-            value={email}
-            onChange={(e) => handleInputChange(setEmail, e.target.value)}
-            required
-            aria-required="true"
-          />
-        </div>
+        <FloatingLabelInput
+          id="club-name"
+          type="text"
+          label={t("club.form.fields.name")}
+          name="name"
+          value={name}
+          onChange={(e) => handleInputChange(setName, e.target.value)}
+          required
+          error={!!error && !name}
+        />
+        <FloatingLabelInput
+          id="club-phone"
+          type="tel"
+          label={t("club.form.fields.phone")}
+          name="phone"
+          value={phone}
+          onChange={(e) => handleInputChange(setPhone, e.target.value)}
+          required
+          error={!!error && !phone}
+        />
+        <FloatingLabelInput
+          id="club-email"
+          type="email"
+          label={t("club.form.fields.email")}
+          name="email"
+          value={email}
+          onChange={(e) => handleInputChange(setEmail, e.target.value)}
+          required
+          error={!!error && !pattern.test(email)}
+        />
         <div className="flex items-center">
           <Checkbox
             checked={termsAccepted}

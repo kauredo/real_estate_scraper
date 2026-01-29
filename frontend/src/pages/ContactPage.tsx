@@ -72,8 +72,16 @@ const ContactPage = () => {
                 <h2 className="text-dark dark:text-light mb-6 uppercase font-bold text-[32px] sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                   {t("contacts.cta")}
                 </h2>
-                <ul className="space-y-0" aria-label={t("contacts.contact_info") || "Contact information"}>
-                  <ContactItem icon={faLocationArrow} text={t("contacts.address")} />
+                <ul
+                  className="space-y-2"
+                  aria-label={
+                    t("contacts.contact_info") || "Contact information"
+                  }
+                >
+                  <ContactItem
+                    icon={faLocationArrow}
+                    text={t("contacts.address")}
+                  />
                   <ContactItem icon={faStore} text={t("contacts.office")} />
                   <ContactItem icon={faMobile} text={t("contacts.phone")} />
                   <ContactItem icon={faAt} text={t("contacts.email")} />

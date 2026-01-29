@@ -4,8 +4,7 @@ import { useAsyncOperation } from "@/hooks/useAsyncOperation";
 import { subscribeToNewsletter } from "@/services/api";
 import emailImage from "@/assets/images/email.webp";
 import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Label } from "@/components/ui/Label";
+import { FloatingLabelInput } from "@/components/ui/FloatingLabelInput";
 
 export default function Newsletter() {
   const { t } = useTranslation();
@@ -71,36 +70,26 @@ export default function Newsletter() {
           </p>
           <form ref={form} onSubmit={validateUser} className="w-full max-w-lg">
             <div className="space-y-4">
-              <div>
-                <Label htmlFor="newsletter-name" className="sr-only">
-                  {t("home.newsletter.form.fields.name")}
-                </Label>
-                <Input
-                  placeholder={t("home.newsletter.form.fields.name")}
-                  name="newsletter[name]"
-                  type="text"
-                  id="newsletter-name"
-                  value={name}
-                  onChange={(e) => handleInputChange(setName, e.target.value)}
-                  required
-                  aria-required="true"
-                />
-              </div>
-              <div>
-                <Label htmlFor="newsletter-email" className="sr-only">
-                  {t("home.newsletter.form.fields.email")}
-                </Label>
-                <Input
-                  placeholder={t("home.newsletter.form.fields.email")}
-                  name="newsletter[email]"
-                  type="email"
-                  id="newsletter-email"
-                  value={email}
-                  onChange={(e) => handleInputChange(setEmail, e.target.value)}
-                  required
-                  aria-required="true"
-                />
-              </div>
+              <FloatingLabelInput
+                label={t("home.newsletter.form.fields.name")}
+                name="newsletter[name]"
+                type="text"
+                id="newsletter-name"
+                value={name}
+                onChange={(e) => handleInputChange(setName, e.target.value)}
+                required
+                error={!!error && !name}
+              />
+              <FloatingLabelInput
+                label={t("home.newsletter.form.fields.email")}
+                name="newsletter[email]"
+                type="email"
+                id="newsletter-email"
+                value={email}
+                onChange={(e) => handleInputChange(setEmail, e.target.value)}
+                required
+                error={!!error && !pattern.test(email)}
+              />
               <Button
                 variant="outline"
                 className="w-full"

@@ -6,8 +6,8 @@ import { Listing, ListingComplex } from "@/utils/interfaces";
 import ButtonSpinner from "@/components/ui/ButtonSpinner";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Textarea } from "@/components/ui/Textarea";
-import { Label } from "@/components/ui/Label";
+import { FloatingLabelInput } from "@/components/ui/FloatingLabelInput";
+import { FloatingLabelTextarea } from "@/components/ui/FloatingLabelTextarea";
 
 interface Props {
   listing?: Listing;
@@ -103,78 +103,50 @@ export default function ContactForm(props: Props) {
         )}
       </p>
       <form ref={form} onSubmit={validateUser}>
-        <div className="mb-6">
-          <Label htmlFor="contact-name" className="sr-only">
-            {t("contacts.form.fields.name")}
-          </Label>
-          <Input
+        <div className="mb-5">
+          <FloatingLabelInput
             id="contact-name"
             type="text"
-            placeholder={t("contacts.form.fields.name")}
+            label={t("contacts.form.fields.name")}
             name="contact[name]"
             value={name}
             onChange={(e) => handleInputChange(setName, e.target.value)}
             required
-            aria-required="true"
-            className={
-              "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
-              (listing || complex ? "text-sm" : "rounded border-gray-200 dark:border-gray-600")
-            }
+            error={!!error && !name}
           />
         </div>
-        <div className="mb-6">
-          <Label htmlFor="contact-email" className="sr-only">
-            {t("contacts.form.fields.email")}
-          </Label>
-          <Input
+        <div className="mb-5">
+          <FloatingLabelInput
             id="contact-email"
             type="email"
-            placeholder={t("contacts.form.fields.email")}
+            label={t("contacts.form.fields.email")}
             name="contact[email]"
             value={email}
             onChange={(e) => handleInputChange(setEmail, e.target.value)}
             required
-            aria-required="true"
-            className={
-              "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
-              (listing || complex ? "text-sm" : "rounded border-gray-200 dark:border-gray-600")
-            }
+            error={!!error && !pattern.test(email)}
           />
         </div>
-        <div className="mb-6">
-          <Label htmlFor="contact-phone" className="sr-only">
-            {t("contacts.form.fields.phone")}
-          </Label>
-          <Input
+        <div className="mb-5">
+          <FloatingLabelInput
             id="contact-phone"
             type="tel"
-            placeholder={t("contacts.form.fields.phone")}
+            label={t("contacts.form.fields.phone")}
             name="contact[phone]"
             value={phone}
             onChange={(e) => handleInputChange(setPhone, e.target.value)}
-            className={
-              "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
-              (listing || complex ? "text-sm" : "rounded border-gray-200 dark:border-gray-600")
-            }
           />
         </div>
-        <div className="mb-6">
-          <Label htmlFor="contact-message" className="sr-only">
-            {t("contacts.form.fields.message")}
-          </Label>
-          <Textarea
+        <div className="mb-5">
+          <FloatingLabelTextarea
             id="contact-message"
             rows={6}
-            placeholder={t("contacts.form.fields.message")}
+            label={t("contacts.form.fields.message")}
             name="contact[message]"
             value={message}
             onChange={(e) => handleInputChange(setMessage, e.target.value)}
             required
-            aria-required="true"
-            className={
-              "w-full py-3 px-[14px] bg-white dark:bg-light border resize-none outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
-              (listing || complex ? "text-sm" : "rounded border-gray-200 dark:border-gray-600")
-            }
+            error={!!error && !message}
           />
           {listing && (
             <Input type="hidden" name="contact[listing]" value={listing.slug} />

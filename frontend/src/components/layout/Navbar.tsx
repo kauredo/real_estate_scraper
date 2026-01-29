@@ -2,8 +2,9 @@ import { useRef, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
-import { changeLocale, isDarkModeActive } from "@/utils/functions";
+import { changeLocale } from "@/utils/functions";
 import { NavbarItemProps } from "@/utils/interfaces";
+import { useDarkMode } from "@/hooks/useDarkMode";
 import Socials from "@/components/ui/Socials";
 import DarkModeToggle from "@/components/ui/DarkModeToggle";
 import NavbarItem from "@/components/layout/NavbarItem";
@@ -22,6 +23,7 @@ export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const { isDarkMode } = useDarkMode();
 
   // const moreDropdown: NavbarItemProps = {
   //   title: `${t("navbar.more")}`,
@@ -145,7 +147,7 @@ export default function Navbar() {
                     loading="lazy"
                     className="w-[6rem] relative z-10"
                     id="nav-logo"
-                    src={isDarkModeActive() ? mainWhiteLogo : mainLogo}
+                    src={isDarkMode ? mainWhiteLogo : mainLogo}
                     alt="Sofia Galvão Group Logo"
                   />
                 </Link>
