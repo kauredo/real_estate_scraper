@@ -94,7 +94,10 @@ export default function ContactForm(props: Props) {
           {t("contacts.form.consent")}
         </span>
         {error && (
-          <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          <span
+            className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1 animate-in fade-in slide-in-from-top-1 duration-200"
+            role="alert"
+          >
             {error}
           </span>
         )}

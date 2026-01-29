@@ -46,6 +46,7 @@ import admin from "./admin.json";
 import common from "./common.json";
 import notifications from "./notifications.json";
 import super_admin from "./super_admin.json";
+import lightbox from "./lightbox.json";
 
 // Re-export all locale data
 export default {
@@ -95,4 +96,5 @@ export default {
   common,
   notifications,
   super_admin,
+  lightbox,
 };

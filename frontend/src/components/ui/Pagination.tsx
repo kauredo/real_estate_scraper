@@ -47,12 +47,12 @@ export default function Pagination({
     >
       <div className="w-full flex items-center justify-between border-t border-gray-200 dark:border-beige-medium">
         {/* Previous page link */}
-        <div className="w-24 flex items-center pt-3">
+        <div className="flex items-center pt-3">
           {pagination.current_page > 1 ? (
             <a
               href={createPageUrl(pagination.current_page - 1)}
               onClick={(e) => handlePageClick(e, pagination.current_page - 1)}
-              className="flex items-center text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium transition-colors"
+              className="flex items-center text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium transition-all duration-200 ease-out min-h-[44px] px-2 rounded-md hover:bg-beige-default/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-beige-default focus-visible:ring-offset-2"
               aria-label={`${t("pagination.go_to_page") || "Go to page"} ${pagination.current_page - 1}`}
             >
               <PaginationLeftArrow aria-hidden="true" />
@@ -61,7 +61,7 @@ export default function Pagination({
               </span>
             </a>
           ) : (
-            <span className="flex items-center text-gray-300 dark:text-gray-600 cursor-not-allowed">
+            <span className="flex items-center text-gray-300 dark:text-gray-600 cursor-not-allowed min-h-[44px] px-2" aria-disabled="true">
               <PaginationLeftArrow aria-hidden="true" />
               <span className="text-sm ml-3 font-medium leading-none">
                 {t("pagination.previous")}
@@ -81,10 +81,10 @@ export default function Pagination({
                   key={`page-${page}`}
                   href={createPageUrl(page)}
                   onClick={(e) => handlePageClick(e, page)}
-                  className={`text-sm font-medium leading-none border-t pt-3 mr-4 px-2 transition-colors ${
+                  className={`text-sm font-medium leading-none border-t-2 pt-3 mr-2 px-3 py-1 min-w-[44px] min-h-[44px] inline-flex items-center justify-center transition-all duration-200 ease-out rounded-b-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-beige-default focus-visible:ring-offset-2 ${
                     isCurrentPage
                       ? "text-beige-default dark:text-beige-medium border-beige-default dark:border-beige-medium cursor-default"
-                      : "text-gray-600 dark:text-light border-transparent hover:text-beige-default dark:hover:text-beige-medium hover:border-beige-default dark:hover:border-beige-medium"
+                      : "text-gray-600 dark:text-light border-transparent hover:text-beige-default dark:hover:text-beige-medium hover:border-beige-default dark:hover:border-beige-medium hover:bg-beige-default/5"
                   }`}
                   aria-label={
                     isCurrentPage
@@ -109,12 +109,12 @@ export default function Pagination({
         </div>
 
         {/* Next page link */}
-        <div className="w-24 flex items-center justify-end pt-3">
+        <div className="flex items-center justify-end pt-3">
           {pagination.current_page < pagination.total_pages ? (
             <a
               href={createPageUrl(pagination.current_page + 1)}
               onClick={(e) => handlePageClick(e, pagination.current_page + 1)}
-              className="flex items-center text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium transition-colors"
+              className="flex items-center text-gray-600 dark:text-light hover:text-beige-default dark:hover:text-beige-medium transition-all duration-200 ease-out min-h-[44px] px-2 rounded-md hover:bg-beige-default/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-beige-default focus-visible:ring-offset-2"
               aria-label={`${t("pagination.go_to_page") || "Go to page"} ${pagination.current_page + 1}`}
             >
               <span className="text-sm font-medium leading-none mr-3">
@@ -123,7 +123,7 @@ export default function Pagination({
               <PaginationRightArrow aria-hidden="true" />
             </a>
           ) : (
-            <span className="flex items-center text-gray-300 dark:text-gray-600 cursor-not-allowed">
+            <span className="flex items-center text-gray-300 dark:text-gray-600 cursor-not-allowed min-h-[44px] px-2" aria-disabled="true">
               <span className="text-sm font-medium leading-none mr-3">
                 {t("pagination.next")}
               </span>

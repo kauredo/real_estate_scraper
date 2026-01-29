@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useId } from "react";
 import { cn } from "@/utils/functions";
 
 interface TooltipProps {
@@ -22,6 +22,7 @@ export function Tooltip({
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
     undefined,
   );
+  const tooltipId = useId();
 
   const handleMouseEnter = () => {
     timeoutRef.current = setTimeout(() => {
@@ -60,6 +61,7 @@ export function Tooltip({
         onMouseLeave={handleMouseLeave}
         onFocus={handleMouseEnter}
         onBlur={handleMouseLeave}
+        aria-describedby={isVisible ? tooltipId : undefined}
       >
         {children}
       </div>
@@ -67,21 +69,23 @@ export function Tooltip({
       {isVisible && (
         <div
           ref={tooltipRef}
+          id={tooltipId}
           role="tooltip"
           className={cn(
             "absolute z-50 px-3 py-2 text-sm text-white bg-gray-900 dark:bg-gray-700 rounded-md shadow-lg",
-            "animate-in fade-in-0 zoom-in-95",
-            "whitespace-nowrap",
+            "animate-in fade-in-0 zoom-in-95 duration-150",
+            "whitespace-nowrap max-w-xs",
             positionClasses[position],
             className,
           )}
         >
-          {content}
+          <span className="break-words">{content}</span>
           <div
             className={cn(
               "absolute w-0 h-0 border-4 border-gray-900 dark:border-gray-700",
               arrowClasses[position],
             )}
+            aria-hidden="true"
           />
         </div>
       )}

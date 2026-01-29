@@ -7,8 +7,6 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #1652 | 6:36 PM | 🟣 | Added Lightbox Integration to Cards Photo Carousel | ~421 |
-| #1651 | 6:34 PM | 🔵 | NewShow Component Uses Carousel for Image Display | ~406 |
-| #1650 | " | 🔵 | Show.tsx Uses Carousel Component for Photo Display | ~411 |
-| #1648 | 6:31 PM | ✅ | Integrated Lightbox into ListingComplexDetail | ~469 |
+| #1715 | 6:52 PM | 🔴 | Fixed Button Closing Tag in Cards Component | ~293 |
+| #1650 | 6:34 PM | 🔵 | Show.tsx Uses Carousel Component for Photo Display | ~411 |
 </claude-mem-context>

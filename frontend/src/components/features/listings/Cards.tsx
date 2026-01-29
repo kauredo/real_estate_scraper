@@ -5,7 +5,9 @@ import { toCapitalize } from "@/utils/functions";
 import { Photo, Listing } from "@/utils/interfaces";
 import Carousel from "@/components/ui/Carousel";
 import Tabs from "@/components/ui/Tabs";
-import { Lightbox, useLightbox } from "@/components/ui/Lightbox";
+import { Lightbox } from "@/components/ui/Lightbox";
+import { useLightbox } from "@/components/ui/useLightbox";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   listings: Record<string, Listing[]> | Listing[];
@@ -68,10 +70,11 @@ export default function Cards(props: Props) {
           items={photos.map((photo, index) => {
             const image_url = photo.image_url || photo.image.url;
             return (
-              <button
+              <Button
                 key={image_url}
+                variant="ghost"
                 onClick={() => lightbox.openLightbox(index)}
-                className="w-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-2"
+                className="w-full h-auto p-0 cursor-zoom-in"
                 aria-label={`${t("lightbox.view_image") || "View image"} ${index + 1} ${t("lightbox.of") || "of"} ${photos.length}`}
               >
                 <img
@@ -85,7 +88,7 @@ export default function Cards(props: Props) {
                   alt={`Photo ${index + 1}`}
                   draggable={false}
                 />
-              </button>
+              </Button>
             );
           })}
           autoplay

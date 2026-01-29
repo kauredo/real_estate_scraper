@@ -12,15 +12,15 @@ export default function Testimonials(props: Props) {
 
   const testimonialItems = testimonials.map((testimonial) => (
     <div key={`${testimonial.name}--testimonial`}>
-      <div className="mx-2 p-6 text-left bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900/50 dark:border dark:border-gray-700 max-w-2xl">
-        <p className="whitespace-pre-line text-dark dark:text-light mb-4">
-          <span className="inline-block mr-1 text-xl">"</span>
+      <div className="mx-2 p-6 text-left bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-out dark:shadow-gray-900/50 dark:border dark:border-gray-700 max-w-2xl">
+        <blockquote className="whitespace-pre-line text-dark dark:text-light mb-4 italic">
+          <span className="inline-block mr-1 text-2xl text-beige-default dark:text-beige-medium not-italic" aria-hidden="true">"</span>
           {testimonial.text}
-          <span className="inline-block ml-1 text-xl">"</span>
-        </p>
-        <p className="font-bold text-right text-dark dark:text-light">
-          - {testimonial.name}
-        </p>
+          <span className="inline-block ml-1 text-2xl text-beige-default dark:text-beige-medium not-italic" aria-hidden="true">"</span>
+        </blockquote>
+        <cite className="block font-bold text-right text-dark dark:text-light not-italic">
+          — {testimonial.name}
+        </cite>
       </div>
     </div>
   ));

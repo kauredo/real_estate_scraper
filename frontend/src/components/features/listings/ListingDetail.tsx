@@ -6,8 +6,10 @@ import { ReadMore } from "@/components/ui/ReadMore";
 import Overlay from "@/components/ui/Overlay";
 import Carousel from "@/components/ui/Carousel";
 import { Button } from "@/components/ui/Button";
-import { Lightbox, useLightbox } from "@/components/ui/Lightbox";
+import { Lightbox } from "@/components/ui/Lightbox";
+import { useLightbox } from "@/components/ui/useLightbox";
 import ShareIcons from "@/components/ui/ShareIcons";
+import CloseIcon from "@/components/svgs/CloseIcon";
 
 interface Props {
   listing: Listing;
@@ -58,10 +60,11 @@ export default function Show(props: Props) {
   };
 
   const photos = listing.photos?.map((photo, index) => (
-    <button
+    <Button
       key={`photo-${index}`}
+      variant="ghost"
       onClick={() => lightbox.openLightbox(index)}
-      className="w-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-2"
+      className="w-full h-auto p-0 cursor-zoom-in"
       aria-label={`${t("lightbox.view_image") || "View image"} ${index + 1} ${t("lightbox.of") || "of"} ${listing.photos?.length}`}
     >
       <img
@@ -71,7 +74,7 @@ export default function Show(props: Props) {
         alt={`${listing.title} - ${index + 1}`}
         draggable={false}
       />
-    </button>
+    </Button>
   ));
 
   return (
@@ -111,21 +114,7 @@ export default function Show(props: Props) {
                 className="absolute -top-12 right-0 text-white hover:bg-white/20 z-10"
                 aria-label={t("common.close") || "Close"}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <CloseIcon className="h-8 w-8" />
               </Button>
 
               <iframe

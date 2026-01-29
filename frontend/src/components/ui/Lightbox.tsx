@@ -123,7 +123,7 @@ export function Lightbox({
       role="dialog"
       aria-modal="true"
       aria-label={t("lightbox.title") || "Image gallery"}
-      className="fixed inset-0 z-[100] bg-black/95 flex flex-col"
+      className="fixed inset-0 z-[100] bg-black/95 flex flex-col animate-in fade-in duration-200"
     >
       {/* Header with close button and counter */}
       <div className="flex items-center justify-between p-4 text-white">
@@ -199,8 +199,8 @@ export function Lightbox({
             src={images[currentIndex]}
             alt={`${alt} - ${currentIndex + 1}`}
             className={cn(
-              "max-h-[calc(100vh-200px)] max-w-full object-contain transition-opacity duration-200",
-              isLoading ? "opacity-0" : "opacity-100"
+              "max-h-[calc(100vh-200px)] max-w-full object-contain transition-all duration-300 ease-out",
+              isLoading ? "opacity-0 scale-95" : "opacity-100 scale-100"
             )}
             onLoad={() => setIsLoading(false)}
             draggable={false}
@@ -282,25 +282,3 @@ export function Lightbox({
   );
 }
 
-// Hook to manage lightbox state
-export function useLightbox(images: string[]) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [initialIndex, setInitialIndex] = useState(0);
-
-  const openLightbox = useCallback((index: number = 0) => {
-    setInitialIndex(index);
-    setIsOpen(true);
-  }, []);
-
-  const closeLightbox = useCallback(() => {
-    setIsOpen(false);
-  }, []);
-
-  return {
-    isOpen,
-    initialIndex,
-    openLightbox,
-    closeLightbox,
-    images,
-  };
-}

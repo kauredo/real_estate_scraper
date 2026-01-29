@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { Lightbox, useLightbox } from "@/components/ui/Lightbox";
+import { Lightbox } from "@/components/ui/Lightbox";
+import { useLightbox } from "@/components/ui/useLightbox";
 
 interface Props {
   photos: string[];
@@ -58,13 +59,13 @@ export default function PhotoGallery({ photos }: Props) {
           <button
             key={index}
             onClick={() => lightbox.openLightbox(index)}
-            className={`rounded overflow-hidden cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-2 ${getImageClass(index)}`}
+            className={`rounded overflow-hidden cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-2 group ${getImageClass(index)}`}
             aria-label={`${t("lightbox.view_image") || "View image"} ${index + 1} ${t("lightbox.of") || "of"} ${photos.length}`}
           >
             <img
               src={photo}
               alt=""
-              className="w-full h-full object-cover transition-transform hover:scale-[1.02]"
+              className="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-[1.03] group-hover:brightness-105"
               draggable={false}
             />
           </button>

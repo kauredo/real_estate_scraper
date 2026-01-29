@@ -2,7 +2,9 @@ import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
 import { ListingComplex } from "@/utils/interfaces";
 import CheckIcon from "@/components/svgs/CheckIcon";
-import { Lightbox, useLightbox } from "@/components/ui/Lightbox";
+import { Lightbox } from "@/components/ui/Lightbox";
+import { useLightbox } from "@/components/ui/useLightbox";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   listingComplex: ListingComplex;
@@ -35,9 +37,10 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
         <div className="mb-8">
           {/* Main image - clickable */}
           <div className="relative mb-4">
-            <button
+            <Button
+              variant="ghost"
               onClick={() => lightbox.openLightbox(0)}
-              className="w-full h-[50vh] md:h-[60vh] cursor-zoom-in rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-2"
+              className="w-full h-[50vh] md:h-[60vh] p-0 cursor-zoom-in rounded-lg overflow-hidden"
               aria-label={`${t("lightbox.view_image") || "View image"} 1 ${t("lightbox.of") || "of"} ${listingComplex.photos.length}`}
             >
               <img
@@ -46,17 +49,18 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
                 className="w-full h-full object-cover transition-transform hover:scale-[1.02]"
                 draggable={false}
               />
-            </button>
+            </Button>
           </div>
 
           {/* Thumbnail grid */}
           {listingComplex.photos.length > 1 && (
             <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
               {listingComplex.photos.map((photo, index) => (
-                <button
+                <Button
                   key={index}
+                  variant="ghost"
                   onClick={() => lightbox.openLightbox(index)}
-                  className={`aspect-square rounded-md overflow-hidden cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-1 transition-opacity ${
+                  className={`aspect-square p-0 rounded-md overflow-hidden cursor-zoom-in transition-opacity h-auto ${
                     index === 0 ? "ring-2 ring-beige-default" : "hover:opacity-80"
                   }`}
                   aria-label={`${t("lightbox.view_image") || "View image"} ${index + 1} ${t("lightbox.of") || "of"} ${listingComplex.photos.length}`}
@@ -68,7 +72,7 @@ const ListingComplexDetail = ({ listingComplex }: Props) => {
                     loading="lazy"
                     draggable={false}
                   />
-                </button>
+                </Button>
               ))}
             </div>
           )}

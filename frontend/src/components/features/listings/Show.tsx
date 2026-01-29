@@ -5,7 +5,9 @@ import type { ListingComplex } from "@/utils/interfaces";
 import ShareIcons from "@/components/ui/ShareIcons";
 import Routes from "@/utils/routes";
 import Carousel from "@/components/ui/Carousel";
-import { Lightbox, useLightbox } from "@/components/ui/Lightbox";
+import { Lightbox } from "@/components/ui/Lightbox";
+import { useLightbox } from "@/components/ui/useLightbox";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   complex: ListingComplex;
@@ -33,10 +35,11 @@ export default function Show(props: Props) {
   const photoItems =
     allPhotos.length > 0 &&
     allPhotos.map((photo, index) => (
-      <button
+      <Button
         key={`photo-${index}`}
+        variant="ghost"
         onClick={() => lightbox.openLightbox(index)}
-        className="w-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-beige-default focus:ring-offset-2"
+        className="w-full h-auto p-0 cursor-zoom-in"
         aria-label={`${t("lightbox.view_image") || "View image"} ${index + 1} ${t("lightbox.of") || "of"} ${allPhotos.length}`}
       >
         <img
@@ -46,7 +49,7 @@ export default function Show(props: Props) {
           alt={`${complex.name} - ${index + 1}`}
           draggable={false}
         />
-      </button>
+      </Button>
     ));
 
   return (

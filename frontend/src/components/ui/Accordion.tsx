@@ -85,18 +85,19 @@ export function AccordionItem({
     >
       <button
         onClick={() => toggleItem(value)}
-        className="flex w-full items-center justify-between py-4 text-left font-medium transition-all hover:underline"
+        className="flex w-full items-center justify-between py-4 text-left font-medium transition-colors duration-200 ease-out hover:text-beige-default dark:hover:text-beige-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-beige-default focus-visible:ring-offset-2 rounded-sm"
         aria-expanded={isOpen}
       >
         <span className="text-dark dark:text-light">{title}</span>
         <svg
           className={cn(
-            "h-5 w-5 shrink-0 transition-transform duration-200",
+            "h-5 w-5 shrink-0 text-gray-500 dark:text-gray-400 transition-transform duration-300 ease-out",
             isOpen ? "rotate-180" : "",
           )}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          aria-hidden="true"
         >
           <path
             strokeLinecap="round"
@@ -109,8 +110,8 @@ export function AccordionItem({
 
       <div
         className={cn(
-          "overflow-hidden transition-all duration-200",
-          isOpen ? "max-h-[1000px] pb-4" : "max-h-0",
+          "overflow-hidden transition-all duration-300 ease-out",
+          isOpen ? "max-h-[1000px] pb-4 opacity-100" : "max-h-0 opacity-0",
         )}
       >
         <div className="text-gray-700 dark:text-gray-300">{children}</div>

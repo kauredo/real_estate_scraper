@@ -46,7 +46,7 @@ export function Progress({
       >
         <div
           className={cn(
-            "h-full transition-all duration-300 ease-in-out",
+            "h-full rounded-full transition-all duration-500 ease-out",
             variantClasses[variant],
           )}
           style={{ width: `${percentage}%` }}

@@ -75,7 +75,7 @@ export function Dialog({
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-200 ease-out animate-in fade-in"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -86,8 +86,9 @@ export function Dialog({
         role="dialog"
         aria-modal="true"
         className={cn(
-          "relative w-full bg-white dark:bg-dark rounded-lg shadow-xl transition-all",
+          "relative w-full bg-white dark:bg-dark rounded-lg shadow-xl",
           "border border-gray-200 dark:border-gray-700",
+          "animate-in fade-in-0 zoom-in-95 duration-200",
           sizeClasses[size],
           className,
         )}
