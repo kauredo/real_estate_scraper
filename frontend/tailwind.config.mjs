@@ -36,6 +36,10 @@ export default {
           DEFAULT: "#D6D2CD",
           foreground: "#1B1E1F",
         },
+        muted: {
+          DEFAULT: "#f1f1f1",
+          foreground: "#737373",
+        },
         border: "#dbdbdb",
         input: "#dbdbdb",
         ring: "#d3af79",

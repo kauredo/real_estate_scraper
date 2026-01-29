@@ -9,6 +9,46 @@ import {
   faAt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+
+interface ContactItemProps {
+  icon: IconDefinition;
+  text: string;
+  href?: string;
+}
+
+function ContactItem({ icon, text, href }: ContactItemProps) {
+  const content = (
+    <div className="flex items-center group">
+      <div
+        className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium transition-colors group-hover:bg-beige-default/10"
+        aria-hidden="true"
+      >
+        <FontAwesomeIcon icon={icon} />
+      </div>
+      <p className="ml-4 text-lg leading-relaxed font-medium text-dark dark:text-light">
+        {text}
+      </p>
+    </div>
+  );
+
+  if (href) {
+    return (
+      <li className="mt-4">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block hover:opacity-80 transition-opacity"
+        >
+          {content}
+        </a>
+      </li>
+    );
+  }
+
+  return <li className="mt-4">{content}</li>;
+}
 
 const ContactPage = () => {
   const { t } = useTranslation();
@@ -32,78 +72,22 @@ const ContactPage = () => {
                 <h2 className="text-dark dark:text-light mb-6 uppercase font-bold text-[32px] sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                   {t("contacts.cta")}
                 </h2>
-                <div className="mt-4">
-                  <dt className="flex items-center">
-                    <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <FontAwesomeIcon icon={faLocationArrow} />
-                    </div>
-                    <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                      {t("contacts.address")}
-                    </p>
-                  </dt>
-                </div>
-                <div className="mt-4">
-                  <dt className="flex items-center">
-                    <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <FontAwesomeIcon icon={faStore} />
-                    </div>
-                    <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                      {t("contacts.office")}
-                    </p>
-                  </dt>
-                </div>
-                <div className="mt-4">
-                  <dt className="flex items-center">
-                    <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <FontAwesomeIcon icon={faMobile} />
-                    </div>
-                    <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                      {t("contacts.phone")}
-                    </p>
-                  </dt>
-                </div>
-                <div className="mt-4">
-                  <dt className="flex items-center">
-                    <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                      <FontAwesomeIcon icon={faAt} />
-                    </div>
-                    <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                      {t("contacts.email")}
-                    </p>
-                  </dt>
-                </div>
-                <div className="mt-4">
-                  <a
+                <ul className="space-y-0" aria-label={t("contacts.contact_info") || "Contact information"}>
+                  <ContactItem icon={faLocationArrow} text={t("contacts.address")} />
+                  <ContactItem icon={faStore} text={t("contacts.office")} />
+                  <ContactItem icon={faMobile} text={t("contacts.phone")} />
+                  <ContactItem icon={faAt} text={t("contacts.email")} />
+                  <ContactItem
+                    icon={faFacebook}
+                    text={t("contacts.facebook")}
                     href="https://www.facebook.com/sofiagalvaokw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <dt className="flex items-center">
-                      <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                        <FontAwesomeIcon icon={faFacebook} />
-                      </div>
-                      <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                        {t("contacts.facebook")}
-                      </p>
-                    </dt>
-                  </a>
-                </div>
-                <div className="mt-4">
-                  <a
+                  />
+                  <ContactItem
+                    icon={faInstagram}
+                    text={t("contacts.instagram")}
                     href="https://www.instagram.com/sofiagalvaogroupkw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <dt className="flex items-center">
-                      <div className="relative flex items-center justify-center h-12 w-12 rounded-md border-2 border-beige-default dark:border-beige-medium text-beige-default dark:text-beige-medium">
-                        <FontAwesomeIcon icon={faInstagram} />
-                      </div>
-                      <p className="ml-4 text-lg leading-[3rem] font-medium text-dark dark:text-light w-3/4">
-                        {t("contacts.instagram")}
-                      </p>
-                    </dt>
-                  </a>
-                </div>
+                  />
+                </ul>
               </div>
             </div>
             <div className="w-full lg:w-1/2 xl:w-5/12 px-4">

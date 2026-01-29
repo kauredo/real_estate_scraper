@@ -26,15 +26,22 @@ export default function Testimonials(props: Props) {
   ));
 
   return (
-    <div className="p-6 text-center w-full max-w-[1200px] mx-auto">
+    <section
+      className="p-6 text-center w-full max-w-[1200px] mx-auto"
+      aria-labelledby="testimonials-title"
+    >
       <h2
-        id="testimony-title"
+        id="testimonials-title"
         className="text-2xl mb-8 mx-auto font-semibold text-dark dark:text-light"
       >
         {t("about.testimonies.title")}
       </h2>
 
-      <div className="transition-all duration-300">
+      <div
+        className="transition-all duration-300"
+        role="region"
+        aria-label={t("about.testimonies.carousel_label") || "Customer testimonials"}
+      >
         <Carousel
           items={testimonialItems}
           slidesToShow={2}
@@ -45,6 +52,6 @@ export default function Testimonials(props: Props) {
           className="testimonials-carousel"
         />
       </div>
-    </div>
+    </section>
   );
 }

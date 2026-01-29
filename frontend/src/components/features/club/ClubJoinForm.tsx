@@ -5,6 +5,7 @@ import Flashes from "@/components/ui/Flashes";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Checkbox } from "@/components/ui/Checkbox";
+import { Label } from "@/components/ui/Label";
 
 export default function ClubJoinForm() {
   const { t } = useTranslation();
@@ -17,6 +18,15 @@ export default function ClubJoinForm() {
   const form = useRef<HTMLFormElement>(null);
   const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  // Clear error when user starts typing
+  const handleInputChange = (
+    setter: React.Dispatch<React.SetStateAction<string>>,
+    value: string
+  ) => {
+    setter(value);
+    if (error) setError("");
+  };
+
   const validateUser = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const valid_params = pattern.test(email) && name && phone && termsAccepted;
@@ -24,7 +34,7 @@ export default function ClubJoinForm() {
     if (valid_params && form.current) {
       form.current.submit();
       setFlash({
-        type: "success", // Changed from "notice" to "success" for better styling
+        type: "success",
         message: t("club.flash.join.thanks"),
       });
       form.current.reset();
@@ -61,7 +71,10 @@ export default function ClubJoinForm() {
           {t("club.form.consent")}
         </span>
         {error && (
-          <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-2">
+          <span
+            role="alert"
+            className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-2"
+          >
             {error}
           </span>
         )}
@@ -74,39 +87,64 @@ export default function ClubJoinForm() {
         className="space-y-6"
       >
         <div>
+          <Label htmlFor="club-name" className="sr-only">
+            {t("club.form.fields.name")}
+          </Label>
           <Input
+            id="club-name"
             type="text"
             placeholder={t("club.form.fields.name")}
             name="name"
-            onChange={(e) => setName(e.target.value)}
+            value={name}
+            onChange={(e) => handleInputChange(setName, e.target.value)}
+            required
+            aria-required="true"
           />
         </div>
         <div>
+          <Label htmlFor="club-phone" className="sr-only">
+            {t("club.form.fields.phone")}
+          </Label>
           <Input
+            id="club-phone"
             type="tel"
             placeholder={t("club.form.fields.phone")}
             name="phone"
-            onChange={(e) => setPhone(e.target.value)}
+            value={phone}
+            onChange={(e) => handleInputChange(setPhone, e.target.value)}
+            required
+            aria-required="true"
           />
         </div>
         <div>
+          <Label htmlFor="club-email" className="sr-only">
+            {t("club.form.fields.email")}
+          </Label>
           <Input
+            id="club-email"
             type="email"
             placeholder={t("club.form.fields.email")}
             name="email"
-            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            onChange={(e) => handleInputChange(setEmail, e.target.value)}
+            required
+            aria-required="true"
           />
         </div>
         <div className="flex items-center">
           <Checkbox
             checked={termsAccepted}
-            onCheckedChange={(checked: boolean) => setTermsAccepted(checked)}
-            id="terms"
+            onCheckedChange={(checked: boolean) => {
+              setTermsAccepted(checked);
+              if (error) setError("");
+            }}
+            id="club-terms"
             name="terms_accepted"
+            aria-describedby="terms-description"
           />
-          <label htmlFor="terms" className="text-sm ml-2">
+          <Label htmlFor="club-terms" className="text-sm ml-2 cursor-pointer">
             {t("club.form.fields.terms_html")}
-          </label>
+          </Label>
         </div>
         <Button type="submit" className="w-full">
           {t("club.form.submit")}

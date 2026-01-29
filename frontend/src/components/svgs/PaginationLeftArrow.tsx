@@ -1,10 +1,10 @@
 /* eslint-disable no-restricted-syntax */
 
-interface Props {
-  className?: string;
-}
+import React from "react";
 
-export default function PaginationLeftArrow({ className }: Props) {
+export default function PaginationLeftArrow(
+  props: React.SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       width="14"
@@ -12,7 +12,7 @@ export default function PaginationLeftArrow({ className }: Props) {
       viewBox="0 0 14 8"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      {...props}
     >
       <path
         d="M1.1665 4H12.8332"

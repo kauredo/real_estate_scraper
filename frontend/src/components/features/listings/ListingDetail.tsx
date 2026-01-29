@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Listing } from "@/utils/interfaces";
 import ContactForm from "@/components/features/contact/ContactForm";
 import { useTranslation } from "react-i18next";
@@ -16,9 +16,53 @@ export default function Show(props: Props) {
   const listing = props.listing;
   const { t } = useTranslation();
   const [isOpen, setOpen] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Handle escape key to close modal
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setOpen(false);
+    }
+  }, []);
+
+  // Focus trap for modal
+  useEffect(() => {
+    if (isOpen) {
+      // Store the element that had focus before opening
+      const previouslyFocused = document.activeElement as HTMLElement;
+
+      // Add escape key listener
+      document.addEventListener("keydown", handleKeyDown);
+
+      // Focus the close button when modal opens
+      setTimeout(() => {
+        closeButtonRef.current?.focus();
+      }, 100);
+
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = "";
+        // Return focus to the trigger button
+        previouslyFocused?.focus?.();
+      };
+    }
+  }, [isOpen, handleKeyDown]);
+
+  // Handle click outside to close
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      setOpen(false);
+    }
+  };
 
   const photos = listing.photos?.map((photo, index) => (
     <img
+      key={`photo-${index}`}
       loading={index === 0 ? "eager" : "lazy"}
       className="object-contain w-full max-h-[70vh] mx-auto"
       src={photo}
@@ -29,28 +73,60 @@ export default function Show(props: Props) {
   return (
     <>
       {listing.video_link && isOpen && (
-        <section
-          className="modal bg-beige-default dark:bg-beige-medium fixed top-0 bottom-0 w-full h-full"
-          style={{ zIndex: 100 }}
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="video-modal-title"
+          className="fixed inset-0 bg-beige-default dark:bg-beige-medium z-[100]"
+          ref={modalRef}
         >
           <div
-            className="flex justify-center items-center h-[100vh]"
-            onClick={() => setOpen(false)}
+            className="flex justify-center items-center h-full p-4"
+            onClick={handleBackdropClick}
           >
-            <div>
-              <div className="relative">
-                <iframe
-                  loading="lazy"
-                  style={{ width: "90vw", aspectRatio: "16/9" }}
-                  src={`${listing.video_link}?autoplay=1&mute=1`}
-                  title={listing.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
+            <div className="relative max-w-[90vw] w-full">
+              {/* Hidden title for screen readers */}
+              <h2 id="video-modal-title" className="sr-only">
+                {t("listing.watch_video")}: {listing.title}
+              </h2>
+
+              {/* Close button */}
+              <Button
+                ref={closeButtonRef}
+                onClick={() => setOpen(false)}
+                variant="ghost"
+                size="icon"
+                className="absolute -top-12 right-0 text-white hover:bg-white/20 z-10"
+                aria-label={t("common.close") || "Close"}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </Button>
+
+              <iframe
+                loading="lazy"
+                className="w-full aspect-video"
+                src={`${listing.video_link}?autoplay=1&mute=1`}
+                title={`${t("listing.watch_video")}: ${listing.title}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </div>
-        </section>
+        </div>
       )}
       <div className="relative container mx-auto overflow-hidden sm:overflow-visible text-black dark:text-light">
         <div className="pb-6 bg-white dark:bg-dark text-center">
@@ -89,15 +165,23 @@ export default function Show(props: Props) {
             <div className="p-4 w-full bg-white dark:bg-dark m-2 tablet:mx-0">
               {listing.video_link && (
                 <div className="mb-2">
-                  <Button onClick={() => setOpen(true)}>
+                  <Button
+                    ref={triggerButtonRef}
+                    onClick={() => setOpen(true)}
+                    type="button"
+                  >
                     {t("listing.watch_video")}
                   </Button>
                 </div>
               )}
               {listing.virtual_tour_url && (
                 <div className="mb-2">
-                  <a href={listing.virtual_tour_url} target="_blank">
-                    <Button>{t("listing.virtual_tour")}</Button>
+                  <a
+                    href={listing.virtual_tour_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button type="button">{t("listing.virtual_tour")}</Button>
                   </a>
                 </div>
               )}

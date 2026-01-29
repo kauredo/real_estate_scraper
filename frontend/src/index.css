@@ -20,9 +20,27 @@
   src: url("./assets/fonts/Apparat-Light.otf") format("truetype");
 }
 
+/* ACCESSIBILITY - Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* BASE STYLES */
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -309,9 +327,13 @@ strong {
 .rc-slider .rc-slider-rail {
   position: absolute;
   width: 100%;
-  background-color: #e9e9e9;
+  background-color: theme("colors.gray.200");
   height: 4px;
   border-radius: 6px;
+}
+
+.dark .rc-slider .rc-slider-rail {
+  background-color: theme("colors.gray.600");
 }
 
 .rc-slider .rc-slider-track {
@@ -319,7 +341,11 @@ strong {
   left: 0;
   height: 4px;
   border-radius: 6px;
-  background-color: #e9dbc6;
+  background-color: theme("colors.beige.light");
+}
+
+.dark .rc-slider .rc-slider-track {
+  background-color: theme("colors.beige.medium");
 }
 
 .rc-slider .rc-slider-step {

@@ -5,6 +5,7 @@ import { subscribeToNewsletter } from "@/services/api";
 import emailImage from "@/assets/images/email.webp";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { Label } from "@/components/ui/Label";
 
 export default function Newsletter() {
   const { t } = useTranslation();
@@ -14,6 +15,15 @@ export default function Newsletter() {
   const [error, setError] = useState("");
   const form = useRef<HTMLFormElement>(null);
   const pattern = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i;
+
+  // Clear error when user starts typing
+  const handleInputChange = (
+    setter: React.Dispatch<React.SetStateAction<string>>,
+    value: string
+  ) => {
+    setter(value);
+    if (error) setError("");
+  };
 
   const validateUser = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,22 +71,36 @@ export default function Newsletter() {
           </p>
           <form ref={form} onSubmit={validateUser} className="w-full max-w-lg">
             <div className="space-y-4">
-              <Input
-                placeholder={t("home.newsletter.form.fields.name")}
-                name="newsletter[name]"
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <Input
-                placeholder={t("home.newsletter.form.fields.email")}
-                name="newsletter[email]"
-                type="text"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <div>
+                <Label htmlFor="newsletter-name" className="sr-only">
+                  {t("home.newsletter.form.fields.name")}
+                </Label>
+                <Input
+                  placeholder={t("home.newsletter.form.fields.name")}
+                  name="newsletter[name]"
+                  type="text"
+                  id="newsletter-name"
+                  value={name}
+                  onChange={(e) => handleInputChange(setName, e.target.value)}
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <div>
+                <Label htmlFor="newsletter-email" className="sr-only">
+                  {t("home.newsletter.form.fields.email")}
+                </Label>
+                <Input
+                  placeholder={t("home.newsletter.form.fields.email")}
+                  name="newsletter[email]"
+                  type="email"
+                  id="newsletter-email"
+                  value={email}
+                  onChange={(e) => handleInputChange(setEmail, e.target.value)}
+                  required
+                  aria-required="true"
+                />
+              </div>
               <Button
                 variant="outline"
                 className="w-full"
@@ -89,7 +113,10 @@ export default function Newsletter() {
               </Button>
             </div>
             {error && (
-              <span className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-2">
+              <span
+                role="alert"
+                className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-2"
+              >
                 {error}
               </span>
             )}

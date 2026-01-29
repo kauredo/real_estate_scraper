@@ -1,8 +1,11 @@
 /* eslint-disable no-restricted-syntax */
 
-export default function MenuIcon() {
+import React from "react";
+
+export default function MenuIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       className="block h-6 w-6"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

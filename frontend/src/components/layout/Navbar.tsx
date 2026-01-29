@@ -125,7 +125,17 @@ export default function Navbar() {
 
   return (
     <div>
-      <nav className="bg-white dark:bg-dark container mx-auto">
+      {/* Skip to main content link for keyboard navigation */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-beige-default focus:text-dark focus:rounded-md focus:outline-none focus:ring-2 focus:ring-beige-dark"
+      >
+        {t("navbar.skip_to_content") || "Skip to main content"}
+      </a>
+      <nav
+        className="bg-white dark:bg-dark container mx-auto"
+        aria-label={t("navbar.main_navigation") || "Main navigation"}
+      >
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between min-h-[4rem]">
             <div className="flex items-center">
@@ -194,10 +204,13 @@ export default function Navbar() {
                 variant="ghost"
                 size="icon"
                 aria-controls="mobile-menu"
-                aria-expanded="false"
+                aria-expanded={isOpen}
+                aria-label={isOpen ? t("navbar.close_menu") || "Close menu" : t("navbar.open_main_menu") || "Open menu"}
               >
-                <span className="sr-only">{t("navbar.open_main_menu")}</span>
-                {!isOpen ? <MenuIcon /> : <CloseIcon />}
+                <span className="sr-only">
+                  {isOpen ? t("navbar.close_menu") || "Close menu" : t("navbar.open_main_menu") || "Open menu"}
+                </span>
+                {!isOpen ? <MenuIcon aria-hidden="true" /> : <CloseIcon aria-hidden="true" />}
               </Button>
             </div>
           </div>

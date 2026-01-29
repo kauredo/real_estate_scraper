@@ -61,7 +61,7 @@ function AppContent() {
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-dark text-black dark:text-light">
       <Navbar />
-      <div className="flex-auto">
+      <main id="main-content" className="flex-auto" role="main">
         <Routes>
           {/* Portuguese Routes */}
           <Route path="/" element={<HomePage />} />
@@ -128,7 +128,7 @@ function AppContent() {
           {/* 404 Page */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </div>
+      </main>
       <Footer />
     </div>
   );

@@ -7,6 +7,7 @@ import ButtonSpinner from "@/components/ui/ButtonSpinner";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
+import { Label } from "@/components/ui/Label";
 
 interface Props {
   listing?: Listing;
@@ -25,6 +26,15 @@ export default function ContactForm(props: Props) {
   const [error, setError] = useState("");
   const form = useRef(null);
   const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Clear error when user starts typing
+  const handleInputChange = (
+    setter: React.Dispatch<React.SetStateAction<string>>,
+    value: string
+  ) => {
+    setter(value);
+    if (error) setError("");
+  };
 
   const validateUser = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,11 +101,18 @@ export default function ContactForm(props: Props) {
       </p>
       <form ref={form} onSubmit={validateUser}>
         <div className="mb-6">
+          <Label htmlFor="contact-name" className="sr-only">
+            {t("contacts.form.fields.name")}
+          </Label>
           <Input
+            id="contact-name"
             type="text"
             placeholder={t("contacts.form.fields.name")}
             name="contact[name]"
-            onChange={(e) => setName(e.target.value)}
+            value={name}
+            onChange={(e) => handleInputChange(setName, e.target.value)}
+            required
+            aria-required="true"
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
@@ -103,11 +120,18 @@ export default function ContactForm(props: Props) {
           />
         </div>
         <div className="mb-6">
+          <Label htmlFor="contact-email" className="sr-only">
+            {t("contacts.form.fields.email")}
+          </Label>
           <Input
+            id="contact-email"
             type="email"
             placeholder={t("contacts.form.fields.email")}
             name="contact[email]"
-            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            onChange={(e) => handleInputChange(setEmail, e.target.value)}
+            required
+            aria-required="true"
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
@@ -115,11 +139,16 @@ export default function ContactForm(props: Props) {
           />
         </div>
         <div className="mb-6">
+          <Label htmlFor="contact-phone" className="sr-only">
+            {t("contacts.form.fields.phone")}
+          </Label>
           <Input
-            type="text"
+            id="contact-phone"
+            type="tel"
             placeholder={t("contacts.form.fields.phone")}
             name="contact[phone]"
-            onChange={(e) => setPhone(e.target.value)}
+            value={phone}
+            onChange={(e) => handleInputChange(setPhone, e.target.value)}
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
@@ -127,11 +156,18 @@ export default function ContactForm(props: Props) {
           />
         </div>
         <div className="mb-6">
+          <Label htmlFor="contact-message" className="sr-only">
+            {t("contacts.form.fields.message")}
+          </Label>
           <Textarea
+            id="contact-message"
             rows={6}
             placeholder={t("contacts.form.fields.message")}
             name="contact[message]"
-            onChange={(e) => setMessage(e.target.value)}
+            value={message}
+            onChange={(e) => handleInputChange(setMessage, e.target.value)}
+            required
+            aria-required="true"
             className={
               "w-full py-3 px-[14px] bg-white dark:bg-light border resize-none outline-none focus-visible:shadow-none focus:border-beige-default dark:focus:border-beige-medium " +
               (listing || complex ? "text-sm" : "rounded border-[#f0f0f0]")
