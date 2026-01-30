@@ -1,5 +1,5 @@
-/* eslint-disable i18next/no-literal-string */
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import {
   adminGetListings,
   adminDeleteListing,
@@ -13,6 +13,7 @@ interface ListingsTableProps {
 }
 
 const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
+  const { t } = useTranslation(["backoffice", "common"]);
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -37,7 +38,7 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
       setPagination(response.data.pagination);
       setError(null);
     } catch (err) {
-      setError("Erro ao carregar os imóveis");
+      setError(t("backoffice:listings.load_error"));
       console.error("Error fetching listings:", err);
     } finally {
       setLoading(false);
@@ -63,7 +64,7 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
       setIsDeleteDialogOpen(false);
       setListingToDelete(null);
     } catch (err) {
-      setError("Erro ao eliminar o imóvel");
+      setError(t("backoffice:listings.delete_error"));
       console.error("Error deleting listing:", err);
     } finally {
       setIsDeleting(false);
@@ -107,9 +108,9 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Gestão de Imóveis</h2>
+        <h2 className="text-2xl font-bold">{t("backoffice:listings.title")}</h2>
         <div className="text-sm text-neutral-600">
-          {pagination.total_count} imóveis no total
+          {pagination.total_count} {t("backoffice:listings.total")}
         </div>
       </div>
 
@@ -121,19 +122,19 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
                 ID
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
-                Título
+                {t("common:title")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
-                Preço
+                {t("backoffice:listings.table.price")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                 Status
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
-                Empreendimento
+                {t("backoffice:listings.table.development")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
-                Ações
+                {t("common:actions")}
               </th>
             </tr>
           </thead>
@@ -186,7 +187,7 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
                       size="sm"
                       className="text-blue-600 hover:text-blue-900"
                     >
-                      Editar
+                      {t("common:edit")}
                     </Button>
                   )}
                   <Button
@@ -195,7 +196,7 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
                     size="sm"
                     className="text-red-600 hover:text-red-900"
                   >
-                    Eliminar
+                    {t("common:delete")}
                   </Button>
                 </td>
               </tr>
@@ -227,10 +228,10 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
           setListingToDelete(null);
         }}
         onConfirm={handleConfirmDelete}
-        title="Eliminar Imóvel"
-        message="Tem certeza que deseja eliminar este imóvel? Esta ação não pode ser desfeita."
-        confirmLabel="Eliminar"
-        cancelLabel="Cancelar"
+        title={t("backoffice:listings.delete_title")}
+        message={t("backoffice:listings.delete_message")}
+        confirmLabel={t("common:delete")}
+        cancelLabel={t("common:cancel")}
         variant="danger"
         isLoading={isDeleting}
       />

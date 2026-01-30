@@ -19,5 +19,70 @@
     "seo_title_hint": "Este é o título que aparecerá nos motores de busca 👇",
     "update": "Atualizar",
     "view": "Ver"
+  },
+  "system_settings": {
+    "title": "Configurações do Sistema",
+    "variables": {
+      "title": "Variáveis do Sistema",
+      "note": "Nota: copiar ícones do site",
+      "placeholder_name": "variável",
+      "placeholder_value": "valor",
+      "placeholder_icon": "ícone",
+      "create_success": "Variável criada com sucesso!",
+      "create_error": "Erro ao criar variável",
+      "update_success": "Variável atualizada com sucesso!",
+      "update_error": "Erro ao atualizar variável",
+      "delete_success": "Variável excluída com sucesso!",
+      "delete_error": "Erro ao excluir variável",
+      "delete_title": "Excluir Variável",
+      "delete_message": "Tem certeza que deseja excluir esta variável?",
+      "all_fields_required": "Todos os campos são obrigatórios"
+    },
+    "newsletter": {
+      "title": "Subscrições Newsletter",
+      "empty": "Nenhuma subscrição encontrada"
+    }
+  },
+  "listings": {
+    "title": "Gestão de Imóveis",
+    "total": "imóveis no total",
+    "load_error": "Erro ao carregar os imóveis",
+    "delete_error": "Erro ao eliminar o imóvel",
+    "delete_title": "Eliminar Imóvel",
+    "delete_message": "Tem certeza que deseja eliminar este imóvel? Esta ação não pode ser desfeita.",
+    "add_success": "Imóvel adicionado à fila de processamento. Os dados serão atualizados em breve.",
+    "add_error": "Erro ao adicionar imóvel",
+    "links_title": "Links de Imóveis",
+    "links_note": "Nota: este campo pode ser usado para adicionar imóveis de colegas, ou para ir buscar a informação mais recente de qualquer imóvel já na plataforma.",
+    "processing": "A processar...",
+    "add_to_queue": "Adicionar à Fila",
+    "url_error": "A URL deve começar com https://www.kwportugal.pt/",
+    "table": {
+      "price": "Preço",
+      "development": "Empreendimento"
+    }
+  },
+  "listing_complexes": {
+    "title": "Empreendimentos",
+    "total": "empreendimentos encontrados",
+    "new": "Novo Empreendimento",
+    "no_description": "Sem descrição disponível.",
+    "listings": "Imóveis",
+    "photos": "Fotos",
+    "delete_title": "Apagar Empreendimento",
+    "delete_message": "Tem a certeza que deseja apagar o empreendimento",
+    "delete_irreversible": "Esta ação é irreversível.",
+    "add_success": "Empreendimento adicionado à fila de processamento. Os dados serão atualizados em breve.",
+    "add_error": "Erro ao adicionar empreendimento",
+    "links_title": "Links de Empreendimentos",
+    "links_note": "Nota: este campo pode ser usado para adicionar Empreendimentos da Sofia ou de colegas."
+  },
+  "club": {
+    "settings_title": "Definições do Clube SGG",
+    "members": "Membros",
+    "export_csv": "Exportar CSV",
+    "export_success": "Exportação concluída!",
+    "export_error": "Erro ao exportar CSV",
+    "no_members": "Nenhum membro encontrado"
   }
 }

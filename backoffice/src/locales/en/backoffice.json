@@ -19,5 +19,70 @@
     "seo_title_hint": "This is the title that will appear on search engines 👇",
     "update": "Update",
     "view": "View"
+  },
+  "system_settings": {
+    "title": "System Settings",
+    "variables": {
+      "title": "System Variables",
+      "note": "Note: copy icons from the site",
+      "placeholder_name": "variable",
+      "placeholder_value": "value",
+      "placeholder_icon": "icon",
+      "create_success": "Variable created successfully!",
+      "create_error": "Error creating variable",
+      "update_success": "Variable updated successfully!",
+      "update_error": "Error updating variable",
+      "delete_success": "Variable deleted successfully!",
+      "delete_error": "Error deleting variable",
+      "delete_title": "Delete Variable",
+      "delete_message": "Are you sure you want to delete this variable?",
+      "all_fields_required": "All fields are required"
+    },
+    "newsletter": {
+      "title": "Newsletter Subscriptions",
+      "empty": "No subscriptions found"
+    }
+  },
+  "listings": {
+    "title": "Listings Management",
+    "total": "listings in total",
+    "load_error": "Error loading listings",
+    "delete_error": "Error deleting listing",
+    "delete_title": "Delete Listing",
+    "delete_message": "Are you sure you want to delete this listing? This action cannot be undone.",
+    "add_success": "Listing added to processing queue. Data will be updated shortly.",
+    "add_error": "Error adding listing",
+    "links_title": "Listing Links",
+    "links_note": "Note: this field can be used to add listings from colleagues, or to fetch the latest information for any listing already on the platform.",
+    "processing": "Processing...",
+    "add_to_queue": "Add to Queue",
+    "url_error": "URL must start with https://www.kwportugal.pt/",
+    "table": {
+      "price": "Price",
+      "development": "Development"
+    }
+  },
+  "listing_complexes": {
+    "title": "Developments",
+    "total": "developments found",
+    "new": "New Development",
+    "no_description": "No description available.",
+    "listings": "Listings",
+    "photos": "Photos",
+    "delete_title": "Delete Development",
+    "delete_message": "Are you sure you want to delete the development",
+    "delete_irreversible": "This action is irreversible.",
+    "add_success": "Development added to processing queue. Data will be updated shortly.",
+    "add_error": "Error adding development",
+    "links_title": "Development Links",
+    "links_note": "Note: this field can be used to add developments from Sofia or colleagues."
+  },
+  "club": {
+    "settings_title": "SGG Club Settings",
+    "members": "Members",
+    "export_csv": "Export CSV",
+    "export_success": "Export completed!",
+    "export_error": "Error exporting CSV",
+    "no_members": "No members found"
   }
 }

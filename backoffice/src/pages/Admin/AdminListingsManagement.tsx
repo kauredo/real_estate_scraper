@@ -1,11 +1,12 @@
-/* eslint-disable no-restricted-syntax, i18next/no-literal-string */
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   adminCreateListing,
   adminFetchListingComplex,
 } from "../../services/api";
 
 const AdminListingsManagement = () => {
+  const { t } = useTranslation("backoffice");
   const [listingUrl, setListingUrl] = useState("");
   const [complexUrl, setComplexUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -16,7 +17,7 @@ const AdminListingsManagement = () => {
 
     if (!listingUrl.startsWith("https://www.kwportugal.pt/")) {
       setMessage({
-        text: "A URL deve começar com https://www.kwportugal.pt/",
+        text: t("listings.url_error"),
         type: "error",
       });
       return;
@@ -27,13 +28,13 @@ const AdminListingsManagement = () => {
       await adminCreateListing({ url: listingUrl });
 
       setMessage({
-        text: "Imóvel adicionado à fila de processamento. Os dados serão atualizados em breve.",
+        text: t("listings.add_success"),
         type: "success",
       });
       setListingUrl("");
     } catch {
       setMessage({
-        text: "Erro ao adicionar imóvel",
+        text: t("listings.add_error"),
         type: "error",
       });
     } finally {
@@ -46,7 +47,7 @@ const AdminListingsManagement = () => {
 
     if (!complexUrl.startsWith("https://www.kwportugal.pt/")) {
       setMessage({
-        text: "A URL deve começar com https://www.kwportugal.pt/",
+        text: t("listings.url_error"),
         type: "error",
       });
       return;
@@ -57,13 +58,13 @@ const AdminListingsManagement = () => {
       await adminFetchListingComplex({ url: complexUrl });
 
       setMessage({
-        text: "Empreendimento adicionado à fila de processamento. Os dados serão atualizados em breve.",
+        text: t("listing_complexes.add_success"),
         type: "success",
       });
       setComplexUrl("");
     } catch {
       setMessage({
-        text: "Erro ao adicionar empreendimento",
+        text: t("listing_complexes.add_error"),
         type: "error",
       });
     } finally {
@@ -74,7 +75,7 @@ const AdminListingsManagement = () => {
   return (
     <section>
       <h1 className="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">
-        Gestão de Imóveis
+        {t("listings.title")}
       </h1>
 
       {message.text && (
@@ -93,12 +94,10 @@ const AdminListingsManagement = () => {
         {/* Listings Section */}
         <div className="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-bold mb-4 text-dark dark:text-light">
-            Links de Imóveis
+            {t("listings.links_title")}
           </h2>
           <p className="text-gray-500 dark:text-light mb-6">
-            Nota: este campo pode ser usado para adicionar imóveis de colegas,
-            ou para ir buscar a informação mais recente de qualquer imóvel já na
-            plataforma.
+            {t("listings.links_note")}
           </p>
 
           <form onSubmit={handleListingSubmit}>
@@ -115,7 +114,7 @@ const AdminListingsManagement = () => {
                 disabled={loading}
                 className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark px-4 py-2 rounded"
               >
-                {loading ? "A processar..." : "Adicionar à Fila"}
+                {loading ? t("listings.processing") : t("listings.add_to_queue")}
               </button>
             </div>
           </form>
@@ -124,11 +123,10 @@ const AdminListingsManagement = () => {
         {/* Complexes Section */}
         <div className="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-bold mb-4 text-dark dark:text-light">
-            Links de Empreendimentos
+            {t("listing_complexes.links_title")}
           </h2>
           <p className="text-gray-500 dark:text-light mb-6">
-            Nota: este campo pode ser usado para adicionar Empreendimentos da
-            Sofia ou de colegas.
+            {t("listing_complexes.links_note")}
           </p>
 
           <form onSubmit={handleComplexSubmit}>
@@ -145,7 +143,7 @@ const AdminListingsManagement = () => {
                 disabled={loading}
                 className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark px-4 py-2 rounded"
               >
-                {loading ? "A processar..." : "Adicionar à Fila"}
+                {loading ? t("listings.processing") : t("listings.add_to_queue")}
               </button>
             </div>
           </form>

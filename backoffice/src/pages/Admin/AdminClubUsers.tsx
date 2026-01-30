@@ -1,5 +1,5 @@
-/* eslint-disable no-restricted-syntax, i18next/no-literal-string */
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { adminExportClubUsers } from "../../services/api";
 
 interface ClubUser {
@@ -16,6 +16,7 @@ interface AdminClubUsersProps {
 }
 
 const AdminClubUsers = ({ clubUsers = [] }: AdminClubUsersProps) => {
+  const { t } = useTranslation("backoffice");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
 
@@ -41,10 +42,10 @@ const AdminClubUsers = ({ clubUsers = [] }: AdminClubUsersProps) => {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
 
-      setMessage({ text: "Exportação concluída!", type: "success" });
+      setMessage({ text: t("club.export_success"), type: "success" });
     } catch (error) {
       console.error("Error exporting CSV:", error);
-      setMessage({ text: "Erro ao exportar CSV", type: "error" });
+      setMessage({ text: t("club.export_error"), type: "error" });
     } finally {
       setLoading(false);
     }
@@ -53,7 +54,7 @@ const AdminClubUsers = ({ clubUsers = [] }: AdminClubUsersProps) => {
   return (
     <section>
       <h1 className="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">
-        Definições do Clube SGG
+        {t("club.settings_title")}
       </h1>
 
       {message.text && (
@@ -72,7 +73,7 @@ const AdminClubUsers = ({ clubUsers = [] }: AdminClubUsersProps) => {
         <div className="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold text-dark dark:text-light">
-              Membros
+              {t("club.members")}
             </h2>
             <button
               onClick={handleExportCSV}
@@ -80,7 +81,7 @@ const AdminClubUsers = ({ clubUsers = [] }: AdminClubUsersProps) => {
               className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark px-4 py-2 rounded flex items-center gap-2"
             >
               <i className="fas fa-file-export"></i>
-              <span>Exportar CSV</span>
+              <span>{t("club.export_csv")}</span>
             </button>
           </div>
           <div className="max-h-[300px] overflow-y-auto">
@@ -115,7 +116,7 @@ const AdminClubUsers = ({ clubUsers = [] }: AdminClubUsersProps) => {
               ))}
               {clubUsers.length === 0 && (
                 <li className="py-2 px-3 bg-gray-50 dark:bg-gray-800 rounded text-center">
-                  Nenhum membro encontrado
+                  {t("club.no_members")}
                 </li>
               )}
             </ul>

@@ -1,5 +1,5 @@
-/* eslint-disable no-restricted-syntax, i18next/no-literal-string */
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   adminCreateVariable,
   adminUpdateVariable,
@@ -29,6 +29,7 @@ const AdminSystemSettings = ({
   variables = [],
   subs = [],
 }: AdminSystemSettingsProps) => {
+  const { t } = useTranslation("backoffice");
   const [formData, setFormData] = useState({
     name: "",
     value: "",
@@ -49,7 +50,7 @@ const AdminSystemSettings = ({
     e.preventDefault();
 
     if (!formData.name || !formData.value || !formData.icon) {
-      setMessage({ text: "Todos os campos são obrigatórios", type: "error" });
+      setMessage({ text: t("system_settings.variables.all_fields_required"), type: "error" });
       return;
     }
 
@@ -57,13 +58,13 @@ const AdminSystemSettings = ({
       setLoading(true);
       await adminCreateVariable(formData);
 
-      setMessage({ text: "Variável criada com sucesso!", type: "success" });
+      setMessage({ text: t("system_settings.variables.create_success"), type: "success" });
       setFormData({ name: "", value: "", icon: "" });
 
       // Refresh the page to show the new variable
       window.location.reload();
     } catch {
-      setMessage({ text: "Erro ao criar variável", type: "error" });
+      setMessage({ text: t("system_settings.variables.create_error"), type: "error" });
     } finally {
       setLoading(false);
     }
@@ -77,12 +78,12 @@ const AdminSystemSettings = ({
     try {
       setLoading(true);
       await adminUpdateVariable(id, updatedVariable);
-      setMessage({ text: "Variável atualizada com sucesso!", type: "success" });
+      setMessage({ text: t("system_settings.variables.update_success"), type: "success" });
 
       // Refresh the page to show the updated variable
       window.location.reload();
     } catch {
-      setMessage({ text: "Erro ao atualizar variável", type: "error" });
+      setMessage({ text: t("system_settings.variables.update_error"), type: "error" });
     } finally {
       setLoading(false);
     }
@@ -100,14 +101,14 @@ const AdminSystemSettings = ({
     try {
       setIsDeleting(true);
       await adminDeleteVariable(variableToDelete);
-      setMessage({ text: "Variável excluída com sucesso!", type: "success" });
+      setMessage({ text: t("system_settings.variables.delete_success"), type: "success" });
       setIsDeleteDialogOpen(false);
       setVariableToDelete(null);
 
       // Refresh the page to show the updated list
       window.location.reload();
     } catch {
-      setMessage({ text: "Erro ao excluir variável", type: "error" });
+      setMessage({ text: t("system_settings.variables.delete_error"), type: "error" });
     } finally {
       setIsDeleting(false);
     }
@@ -116,7 +117,7 @@ const AdminSystemSettings = ({
   return (
     <section>
       <h1 className="text-3xl font-bold mb-6 text-dark dark:text-light border-b pb-2">
-        Configurações do Sistema
+        {t("system_settings.title")}
       </h1>
 
       {message.text && (
@@ -135,10 +136,10 @@ const AdminSystemSettings = ({
         {/* Variables Section */}
         <div className="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-bold mb-4 text-dark dark:text-light">
-            Variáveis do Sistema
+            {t("system_settings.variables.title")}
           </h2>
           <p className="text-neutral-500 dark:text-light mb-6">
-            Nota: copiar ícones do site{" "}
+            {t("system_settings.variables.note")}{" "}
             <a
               className="text-primary-600 dark:text-beige-medium underline"
               href="https://fontawesome.com/v5/search?m=free"
@@ -179,7 +180,7 @@ const AdminSystemSettings = ({
                     disabled={loading}
                     className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark px-4 py-2 rounded"
                   >
-                    Atualizar
+                    {t("common:update")}
                   </button>
                   <button
                     onClick={() => handleVariableDeleteClick(variable.id)}
@@ -202,7 +203,7 @@ const AdminSystemSettings = ({
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  placeholder="variável"
+                  placeholder={t("system_settings.variables.placeholder_name")}
                   className="flex-1 min-w-[150px] bg-neutral-50 dark:bg-light border rounded py-2 px-3 text-neutral-700"
                 />
                 <input
@@ -210,7 +211,7 @@ const AdminSystemSettings = ({
                   name="value"
                   value={formData.value}
                   onChange={handleInputChange}
-                  placeholder="valor"
+                  placeholder={t("system_settings.variables.placeholder_value")}
                   className="flex-1 min-w-[150px] bg-neutral-50 dark:bg-light border rounded py-2 px-3 text-neutral-700"
                 />
                 <input
@@ -218,7 +219,7 @@ const AdminSystemSettings = ({
                   name="icon"
                   value={formData.icon}
                   onChange={handleInputChange}
-                  placeholder="ícone"
+                  placeholder={t("system_settings.variables.placeholder_icon")}
                   className="flex-1 min-w-[150px] bg-neutral-50 dark:bg-light border rounded py-2 px-3 text-neutral-700"
                 />
                 <button
@@ -226,7 +227,7 @@ const AdminSystemSettings = ({
                   disabled={loading}
                   className="bg-primary-600 hover:bg-primary-700 text-white dark:text-dark px-4 py-2 rounded"
                 >
-                  Criar
+                  {t("common:create")}
                 </button>
               </div>
             </form>
@@ -237,7 +238,7 @@ const AdminSystemSettings = ({
         <div className="space-y-6">
           <div className="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
             <h2 className="text-2xl font-bold mb-4 text-dark dark:text-light">
-              Subscrições Newsletter
+              {t("system_settings.newsletter.title")}
             </h2>
             <div className="max-h-[300px] overflow-y-auto">
               <ul className="space-y-2">
@@ -256,7 +257,7 @@ const AdminSystemSettings = ({
                 ))}
                 {subs.length === 0 && (
                   <li className="py-2 px-3 bg-neutral-50 dark:bg-neutral-800 rounded text-center">
-                    Nenhuma subscrição encontrada
+                    {t("system_settings.newsletter.empty")}
                   </li>
                 )}
               </ul>
@@ -272,10 +273,10 @@ const AdminSystemSettings = ({
           setVariableToDelete(null);
         }}
         onConfirm={handleConfirmVariableDelete}
-        title="Excluir Variável"
-        message="Tem certeza que deseja excluir esta variável?"
-        confirmLabel="Excluir"
-        cancelLabel="Cancelar"
+        title={t("system_settings.variables.delete_title")}
+        message={t("system_settings.variables.delete_message")}
+        confirmLabel={t("common:delete")}
+        cancelLabel={t("common:cancel")}
         variant="danger"
         isLoading={isDeleting}
       />

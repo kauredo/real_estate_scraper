@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string, no-restricted-syntax */
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -26,7 +25,7 @@ interface PaginationState {
 }
 
 const AdminListingComplexesPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(["backoffice", "common"]);
   const [listingComplexes, setListingComplexes] = useState<ListingComplex[]>(
     [],
   );
@@ -123,15 +122,15 @@ const AdminListingComplexesPage = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light sm:text-3xl">
-            Empreendimentos
+            {t("backoffice:listing_complexes.title")}
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mt-1">
-            Total {pagination.total_count} empreendimentos encontrados
+            Total {pagination.total_count} {t("backoffice:listing_complexes.total")}
           </p>
         </div>
 
         <Link to="/listing_complexes/new">
-          <Button variant="primary">+ Novo Empreendimento</Button>
+          <Button variant="primary">+ {t("backoffice:listing_complexes.new")}</Button>
         </Link>
       </div>
 
@@ -155,7 +154,7 @@ const AdminListingComplexesPage = () => {
             subtitle={
               complex.description ||
               complex.subtext ||
-              "Sem descrição disponível."
+              t("backoffice:listing_complexes.no_description")
             }
             image={
               complex.main_photo_thumb ||
@@ -205,7 +204,7 @@ const AdminListingComplexesPage = () => {
             <div className="grid grid-cols-2 gap-2 mb-2 mt-2">
               <div className="bg-gray-50 dark:bg-gray-700/50 p-2 rounded-lg text-center">
                 <span className="block text-xs text-gray-500 dark:text-gray-400 uppercase font-medium tracking-wider">
-                  Fotos
+                  {t("backoffice:listing_complexes.photos")}
                 </span>
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
                   {complex.photos?.length || 0}
@@ -213,7 +212,7 @@ const AdminListingComplexesPage = () => {
               </div>
               <div className="bg-gray-50 dark:bg-gray-700/50 p-2 rounded-lg text-center">
                 <span className="block text-xs text-gray-500 dark:text-gray-400 uppercase font-medium tracking-wider">
-                  Imóveis
+                  {t("backoffice:listing_complexes.listings")}
                 </span>
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
                   {complex.listings_count || 0}
@@ -243,7 +242,7 @@ const AdminListingComplexesPage = () => {
       <Modal
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
-        title="Apagar Empreendimento"
+        title={t("backoffice:listing_complexes.delete_title")}
         size="sm"
         footer={
           <>
@@ -252,24 +251,24 @@ const AdminListingComplexesPage = () => {
               onClick={() => setIsDeleteModalOpen(false)}
               disabled={isDeleting}
             >
-              Cancelar
+              {t("common:cancel")}
             </Button>
             <Button
               variant="danger"
               onClick={confirmDelete}
               isLoading={isDeleting}
             >
-              Apagar
+              {t("common:delete")}
             </Button>
           </>
         }
       >
         <div className="text-gray-600 dark:text-gray-300">
           <p>
-            Tem a certeza que deseja apagar o empreendimento{" "}
+            {t("backoffice:listing_complexes.delete_message")}{" "}
             <strong>{complexToDelete?.name}</strong>?
           </p>
-          <p className="text-sm mt-2 text-red-500">Esta ação é irreversível.</p>
+          <p className="text-sm mt-2 text-red-500">{t("backoffice:listing_complexes.delete_irreversible")}</p>
         </div>
       </Modal>
     </div>
