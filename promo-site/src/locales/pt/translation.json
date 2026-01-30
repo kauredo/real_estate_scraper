@@ -1,4 +1,9 @@
 {
+  "notFound": {
+    "title": "Página não encontrada",
+    "description": "Desculpe, não conseguimos encontrar a página que procura. Pode ter sido movida ou não existe.",
+    "backHome": "Voltar ao início"
+  },
   "common": {
     "siteTitle": "MyAgentWebsite",
     "tagline": "A plataforma de websites moderna para agentes imobiliários ambiciosos.",

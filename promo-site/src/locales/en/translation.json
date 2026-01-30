@@ -1,4 +1,9 @@
 {
+  "notFound": {
+    "title": "Page not found",
+    "description": "Sorry, we couldn't find the page you're looking for. It might have been moved or doesn't exist.",
+    "backHome": "Back to home"
+  },
   "common": {
     "siteTitle": "MyAgentWebsite",
     "tagline": "The modern website platform for ambitious real estate agents.",

@@ -4,7 +4,7 @@
   <!-- English Home -->
   <url>
     <loc>https://myagentwebsite.com/</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/" />
@@ -14,7 +14,7 @@
   <!-- Portuguese Home -->
   <url>
     <loc>https://myagentwebsite.com/pt</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/" />
@@ -24,7 +24,7 @@
   <!-- English Features -->
   <url>
     <loc>https://myagentwebsite.com/features</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/features" />
@@ -34,7 +34,7 @@
   <!-- Portuguese Features -->
   <url>
     <loc>https://myagentwebsite.com/pt/features</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/features" />
@@ -44,7 +44,7 @@
   <!-- English Pricing -->
   <url>
     <loc>https://myagentwebsite.com/pricing</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/pricing" />
@@ -54,7 +54,7 @@
   <!-- Portuguese Pricing -->
   <url>
     <loc>https://myagentwebsite.com/pt/pricing</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/pricing" />
@@ -64,7 +64,7 @@
   <!-- English About -->
   <url>
     <loc>https://myagentwebsite.com/about</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/about" />
@@ -74,7 +74,7 @@
   <!-- Portuguese About -->
   <url>
     <loc>https://myagentwebsite.com/pt/about</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/about" />
@@ -84,7 +84,7 @@
   <!-- English Contact -->
   <url>
     <loc>https://myagentwebsite.com/contact</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/contact" />
@@ -94,7 +94,7 @@
   <!-- Portuguese Contact -->
   <url>
     <loc>https://myagentwebsite.com/pt/contact</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/contact" />
@@ -104,7 +104,7 @@
   <!-- English Case Studies -->
   <url>
     <loc>https://myagentwebsite.com/case-studies</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/case-studies" />
@@ -114,7 +114,7 @@
   <!-- Portuguese Case Studies -->
   <url>
     <loc>https://myagentwebsite.com/pt/case-studies</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/case-studies" />
@@ -124,7 +124,7 @@
   <!-- English Help -->
   <url>
     <loc>https://myagentwebsite.com/help</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/help" />
@@ -134,7 +134,7 @@
   <!-- Portuguese Help -->
   <url>
     <loc>https://myagentwebsite.com/pt/help</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/help" />
@@ -144,7 +144,7 @@
   <!-- English Privacy Policy -->
   <url>
     <loc>https://myagentwebsite.com/privacy-policy</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/privacy-policy" />
@@ -154,7 +154,7 @@
   <!-- Portuguese Privacy Policy -->
   <url>
     <loc>https://myagentwebsite.com/pt/privacy-policy</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/privacy-policy" />
@@ -164,7 +164,7 @@
   <!-- English Terms of Service -->
   <url>
     <loc>https://myagentwebsite.com/terms-of-service</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/terms-of-service" />
@@ -174,7 +174,7 @@
   <!-- Portuguese Terms of Service -->
   <url>
     <loc>https://myagentwebsite.com/pt/terms-of-service</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://myagentwebsite.com/terms-of-service" />

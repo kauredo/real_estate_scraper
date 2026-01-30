@@ -7,5 +7,15 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #1665 | 6:39 PM | ✅ | Added Contact Info Translation to English Contacts | ~201 |
+| #1667 | 6:39 PM | ✅ | Added Testimonials Carousel ARIA Label to English Translations | ~287 |
+| #1665 | " | ✅ | Added Contact Info Translation to English Contacts | ~201 |
+| #1660 | 6:38 PM | ✅ | Added Accessibility Translation Keys to Navbar | ~333 |
+| #1657 | " | 🟣 | Created English Lightbox Translation File | ~361 |
+| #1655 | " | 🔵 | Listing Translation File Lacks Lightbox Keys | ~339 |
+
+### Jan 30, 2026
+
+| ID | Time | T | Title | Read |
+|----|------|---|-------|------|
+| #2174 | 3:12 PM | 🔵 | Frontend FAQ Content Structure for Schema Implementation | ~365 |
 </claude-mem-context>

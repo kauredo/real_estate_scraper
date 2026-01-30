@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import MetaTags from "@/components/layout/MetaTags";
+import FaqStructuredData from "@/components/layout/FaqStructuredData";
 import Banner from "@/components/ui/Banner";
 import FaqAccordion from "@/components/features/faq/FaqAccordion";
 
@@ -32,6 +33,7 @@ const FaqPage = () => {
         description={t("faq.meta_description")}
         url={window.location.href}
       />
+      <FaqStructuredData sections={faqSections} />
       <Banner height="20vh" blurred={true} text={t("faq.header")} />
       <section className="container mx-auto pt-6 px-8">
         <div className="py-8 md:pb-0 md:pt-4 bg-white dark:bg-dark">

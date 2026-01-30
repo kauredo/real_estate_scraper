@@ -4,6 +4,7 @@ import { Footer } from "./components/layout/Footer";
 import { CookieConsent } from "./components/CookieConsent";
 import { LocalizedRouter } from "./components/LocalizedRouter";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { StructuredData } from "./components/StructuredData";
 import Home from "./pages/Home";
 import Features from "./pages/Features";
 import Pricing from "./pages/Pricing";
@@ -13,6 +14,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CaseStudies from "./pages/CaseStudies";
 import Help from "./pages/Help";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -20,6 +22,11 @@ function App() {
       <ScrollToTop />
       <LocalizedRouter>
         <div className="min-h-screen flex flex-col">
+          {/* Global structured data schemas */}
+          <StructuredData type="organization" />
+          <StructuredData type="website" />
+          <StructuredData type="softwareApplication" />
+          <StructuredData type="breadcrumbs" />
           <Navbar />
           <main className="flex-1">
             <Routes>
@@ -44,6 +51,9 @@ function App() {
               <Route path="/pt/help" element={<Help />} />
               <Route path="/pt/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/pt/terms-of-service" element={<TermsOfService />} />
+
+              {/* 404 catch-all */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
