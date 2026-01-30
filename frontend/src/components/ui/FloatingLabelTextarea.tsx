@@ -25,8 +25,8 @@ const FloatingLabelTextarea = forwardRef<HTMLTextAreaElement, FloatingLabelTexta
           value={value}
           defaultValue={defaultValue}
           className={cn(
-            "peer flex w-full rounded-md border bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-3 pt-6 pb-2 text-sm transition-all duration-200 ease-out resize-none",
-            "border-gray-300 dark:border-gray-600",
+            "peer flex w-full rounded-md border bg-white dark:bg-dark text-foreground dark:text-light px-3 pt-6 pb-2 text-sm transition-all duration-200 ease-out resize-none",
+            "border-input dark:border-gray-600",
             "hover:border-beige-default dark:hover:border-beige-medium",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-beige-default focus-visible:ring-offset-1 focus-visible:border-beige-default",
             "disabled:cursor-not-allowed disabled:opacity-50",
@@ -49,7 +49,7 @@ const FloatingLabelTextarea = forwardRef<HTMLTextAreaElement, FloatingLabelTexta
           htmlFor={id}
           className={cn(
             "absolute left-3 transition-all duration-200 ease-out pointer-events-none",
-            "text-gray-500 dark:text-gray-400",
+            "text-muted-foreground",
             isFloating
               ? "top-2 text-xs text-beige-default dark:text-beige-medium"
               : "top-4 text-sm",

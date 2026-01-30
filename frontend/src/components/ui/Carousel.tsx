@@ -93,6 +93,31 @@ export default function Carousel({
     }
   }, [dynamicHeight, updateHeight]);
 
+  // Keyboard navigation handlers
+  const goToPrev = useCallback(() => {
+    sliderRef.current?.slickPrev();
+  }, []);
+
+  const goToNext = useCallback(() => {
+    sliderRef.current?.slickNext();
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      switch (e.key) {
+        case "ArrowLeft":
+          e.preventDefault();
+          goToPrev();
+          break;
+        case "ArrowRight":
+          e.preventDefault();
+          goToNext();
+          break;
+      }
+    },
+    [goToPrev, goToNext]
+  );
+
   const settings = {
     dots,
     infinite,
@@ -149,11 +174,13 @@ export default function Carousel({
     <div
       className={`carousel-container ${className} ${
         dynamicHeight ? "dynamic-height-carousel" : ""
-      }`}
+      } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-beige-default focus-visible:ring-offset-2 rounded-lg`}
       ref={containerRef}
       role="region"
       aria-roledescription="carousel"
       aria-label={ariaLabel || "Image carousel"}
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
     >
       <div className="slider-container relative">
         <Slider {...settings} ref={sliderRef}>

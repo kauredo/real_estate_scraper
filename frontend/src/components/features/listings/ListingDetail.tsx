@@ -6,6 +6,7 @@ import { ReadMore } from "@/components/ui/ReadMore";
 import Overlay from "@/components/ui/Overlay";
 import Carousel from "@/components/ui/Carousel";
 import { Button } from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/buttonVariants";
 import { Lightbox } from "@/components/ui/Lightbox";
 import { useLightbox } from "@/components/ui/useLightbox";
 import ShareIcons from "@/components/ui/ShareIcons";
@@ -188,8 +189,9 @@ export default function Show(props: Props) {
                     href={listing.virtual_tour_url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className={buttonVariants({ variant: "default" })}
                   >
-                    <Button type="button">{t("listing.virtual_tour")}</Button>
+                    {t("listing.virtual_tour")}
                   </a>
                 </div>
               )}
@@ -203,14 +205,14 @@ export default function Show(props: Props) {
                 )}
               </h2>
               <div className="w-full flex flex-wrap">
-                <div key={"price"} className="border p-2 w-1/2">
+                <div key={"price"} className="border border-border dark:border-gray-700 p-2 w-1/2">
                   <span className="font-bold">{t("listing.price")}:</span>
                   <br />
                   <span>{listing.price} €</span>
                 </div>
                 {Object.keys(listing.stats)?.map((k) => {
                   return (
-                    <div key={k} className="border p-2 w-1/2">
+                    <div key={k} className="border border-border dark:border-gray-700 p-2 w-1/2">
                       <span className="font-bold">
                         {t(`listing.stats.${k.toLowerCase()}`)}:
                       </span>
@@ -232,11 +234,7 @@ export default function Show(props: Props) {
                   {t("listing.characteristics")}
                 </h2>
                 <ul
-                  className="tablet:ml-2 grid gap-4"
-                  style={{
-                    gridTemplateColumns:
-                      "repeat( auto-fit, minmax(230px, 1fr) )",
-                  }}
+                  className="tablet:ml-2 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                 >
                   {listing?.features?.map((feat) => {
                     return (

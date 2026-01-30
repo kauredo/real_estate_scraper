@@ -54,11 +54,20 @@ export default function AdvancedSearch({
 
   return (
     <div className="mb-6">
-      <Button onClick={toggleAdvancedSearch} variant="ghost" className="mb-4">
+      <Button
+        onClick={toggleAdvancedSearch}
+        variant="ghost"
+        className="mb-4"
+        aria-expanded={showAdvancedSearch}
+        aria-controls="advanced-search-panel"
+      >
         {t("listing.advanced_search")} {showAdvancedSearch ? "▲" : "▼"}
       </Button>
       {showAdvancedSearch && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div
+          id="advanced-search-panel"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
           <div className="col-span-1 sm:col-span-2">
             <label
               htmlFor="q_title_cont"

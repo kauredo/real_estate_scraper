@@ -79,6 +79,8 @@ export default function Newsletter() {
                 onChange={(e) => handleInputChange(setName, e.target.value)}
                 required
                 error={!!error && !name}
+                aria-describedby={error && !name ? "newsletter-form-error" : undefined}
+                aria-invalid={!!error && !name}
               />
               <FloatingLabelInput
                 label={t("home.newsletter.form.fields.email")}
@@ -89,6 +91,8 @@ export default function Newsletter() {
                 onChange={(e) => handleInputChange(setEmail, e.target.value)}
                 required
                 error={!!error && !pattern.test(email)}
+                aria-describedby={error && !pattern.test(email) ? "newsletter-form-error" : undefined}
+                aria-invalid={!!error && !pattern.test(email)}
               />
               <Button
                 variant="outline"
@@ -103,6 +107,7 @@ export default function Newsletter() {
             </div>
             {error && (
               <span
+                id="newsletter-form-error"
                 role="alert"
                 className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-2"
               >
@@ -116,7 +121,8 @@ export default function Newsletter() {
           style={{
             backgroundImage: `url(${emailImage})`,
           }}
-        ></div>
+          aria-hidden="true"
+        />
       </div>
     </section>
   );

@@ -95,6 +95,7 @@ export default function ContactForm(props: Props) {
         </span>
         {error && (
           <span
+            id="contact-form-error"
             className="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1 animate-in fade-in slide-in-from-top-1 duration-200"
             role="alert"
           >
@@ -113,6 +114,8 @@ export default function ContactForm(props: Props) {
             onChange={(e) => handleInputChange(setName, e.target.value)}
             required
             error={!!error && !name}
+            aria-describedby={error && !name ? "contact-form-error" : undefined}
+            aria-invalid={!!error && !name}
           />
         </div>
         <div className="mb-5">
@@ -125,6 +128,8 @@ export default function ContactForm(props: Props) {
             onChange={(e) => handleInputChange(setEmail, e.target.value)}
             required
             error={!!error && !pattern.test(email)}
+            aria-describedby={error && !pattern.test(email) ? "contact-form-error" : undefined}
+            aria-invalid={!!error && !pattern.test(email)}
           />
         </div>
         <div className="mb-5">
@@ -147,6 +152,8 @@ export default function ContactForm(props: Props) {
             onChange={(e) => handleInputChange(setMessage, e.target.value)}
             required
             error={!!error && !message}
+            aria-describedby={error && !message ? "contact-form-error" : undefined}
+            aria-invalid={!!error && !message}
           />
           {listing && (
             <Input type="hidden" name="contact[listing]" value={listing.slug} />

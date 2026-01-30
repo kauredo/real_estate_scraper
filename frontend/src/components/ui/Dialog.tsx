@@ -14,6 +14,8 @@ interface DialogProps {
 interface DialogHeaderProps {
   children: React.ReactNode;
   className?: string;
+  onClose?: () => void;
+  closeLabel?: string;
 }
 
 interface DialogFooterProps {
@@ -176,15 +178,40 @@ export function Dialog({
   );
 }
 
-export function DialogHeader({ children, className }: DialogHeaderProps) {
+export function DialogHeader({ children, className, onClose, closeLabel = "Close" }: DialogHeaderProps) {
   return (
     <div
       className={cn(
         "px-6 py-4 border-b border-gray-200 dark:border-gray-700",
+        onClose && "flex items-start justify-between gap-4",
         className,
       )}
     >
-      {children}
+      <div className="flex-1">{children}</div>
+      {onClose && (
+        <button
+          type="button"
+          onClick={onClose}
+          className="flex-shrink-0 p-1 rounded-md text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-beige-default focus-visible:ring-offset-2"
+          aria-label={closeLabel}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }

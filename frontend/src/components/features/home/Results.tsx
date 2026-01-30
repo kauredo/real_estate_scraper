@@ -44,13 +44,13 @@ export default function Results({ results, testimonials }: Props) {
               />
               {variable === volume ? (
                 <>
-                  <dd className="text-2xl font-semibold w-56" ref={ref}>
+                  <dt className="text-sm order-2">{variable.name}</dt>
+                  <dd className="text-2xl font-semibold w-56 order-1" ref={ref}>
                     {inView && (
                       <CountUp start={0} end={parseInt(variable.value)} />
                     )}
                     {" €"}
                   </dd>
-                  <dt className="text-sm">{variable.name}</dt>
                 </>
               ) : (
                 <>
