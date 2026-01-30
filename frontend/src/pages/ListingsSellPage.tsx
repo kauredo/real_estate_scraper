@@ -123,14 +123,6 @@ const ListingsSellPage = () => {
       <MetaTags pageType="sell" />
       <Banner height="20vh" blurred={true} text={t("sell.header")} />
 
-      <div className="pt-6 bg-white dark:bg-dark text-center md:hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
-          <h1 className="relative block md:hidden mt-2 text-3xl text-dark dark:text-light sm:text-4xl px-4">
-            {t("sell.header")}
-          </h1>
-        </div>
-      </div>
-
       <section className="container mx-auto mt-6 mb-12 px-2 sm:px-8">
         <div className="py-8 md:py-0 bg-white dark:bg-dark">
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

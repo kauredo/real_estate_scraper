@@ -61,7 +61,7 @@ This codebase does NOT look AI-generated. It has genuine character and avoids co
 
 ### M1: Hero section heading hierarchy
 - **Location:** `src/components/layout/Hero.tsx`
-- **Status:** ⬜ Not Started (requires design review)
+- **Status:** ✅ Fixed - Audited all pages, removed duplicate h1s from BlogPostsPage and ListingsSellPage, fixed AboutPage h3→h2
 
 ### M2: Results section dt/dd ordering
 - **Location:** `src/components/features/home/Results.tsx`
@@ -85,7 +85,7 @@ This codebase does NOT look AI-generated. It has genuine character and avoids co
 
 ### M7: NotFound page heading level
 - **Location:** `src/pages/NotFoundPage.tsx`
-- **Status:** ⬜ Not Started (requires design review)
+- **Status:** ✅ Verified - NotFoundPage has correct single h1
 
 ### M8: Dialog close button visibility
 - **Location:** `src/components/ui/Dialog.tsx`
@@ -105,11 +105,11 @@ This codebase does NOT look AI-generated. It has genuine character and avoids co
 
 ### L3: Autoplay carousel controls
 - **Location:** Various carousel implementations
-- **Status:** ⬜ Not Started (optional enhancement)
+- **Status:** ✅ Fixed - Added pause/play button to Carousel component when autoplay is enabled
 
 ### L4: BlogPostsPage duplicate pagination
 - **Location:** `src/pages/BlogPostsPage.tsx`
-- **Status:** ⬜ Not Started (optional UX review)
+- **Status:** ✅ Fixed - Removed top pagination, kept bottom-only (also fixed ClubStoriesPage)
 
 ### L5: Button inside anchor
 - **Location:** `src/components/features/listings/ListingDetail.tsx`
@@ -149,11 +149,11 @@ These are exemplary implementations to maintain:
 - [x] Add focus rings to interactive cards
 - [x] Add `aria-hidden="true"` to decorative images
 
-### Medium-term ✅ MOSTLY COMPLETED
-- [ ] Audit heading hierarchy (requires design review)
+### Medium-term ✅ COMPLETED
+- [x] Audit heading hierarchy
 - [x] Add keyboard navigation to Carousel
 - [x] Consolidate inline styles to Tailwind
-- [ ] Add play/pause to autoplay carousels (optional)
+- [x] Add play/pause to autoplay carousels
 
 ---
 
@@ -182,3 +182,14 @@ These are exemplary implementations to maintain:
     - Card.tsx: Updated to use `border-border`, `text-foreground`, `text-muted-foreground`
     - FloatingLabelInput.tsx: Same token updates
     - FloatingLabelTextarea.tsx: Same token updates
+
+### Phase 3 - Heading Hierarchy & Final Cleanup
+14. ✅ M1/M7: Heading hierarchy audit and fixes:
+    - AboutPage.tsx: Changed first section h3 headings to h2 for proper hierarchy
+    - BlogPostsPage.tsx: Removed duplicate h1 (Banner already provides h1)
+    - ListingsSellPage.tsx: Removed duplicate mobile h1 (Banner already handles mobile)
+    - NotFoundPage.tsx: Verified correct single h1
+15. ✅ L3: Added pause/play button to Carousel when autoplay is enabled (WCAG 2.2.2)
+16. ✅ L4: Simplified pagination UX:
+    - BlogPostsPage.tsx: Removed top pagination, kept bottom-only
+    - ClubStoriesPage.tsx: Same simplification

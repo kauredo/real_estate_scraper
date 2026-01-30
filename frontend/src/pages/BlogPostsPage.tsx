@@ -57,9 +57,6 @@ const BlogPostsPage = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-dark dark:text-light mb-4">
-            {t("blog_posts.header")}
-          </h1>
           <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
             {t("blog_posts.subheader")}
           </p>
@@ -82,10 +79,6 @@ const BlogPostsPage = () => {
           </div>
         ) : (
           <>
-            <Pagination
-              pagination={pagination}
-              onPageChange={handlePageChange}
-            />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {blogPosts.map((blogPost) => (
                 <BlogCard key={blogPost.id} blogPost={blogPost} />

@@ -48,8 +48,20 @@ export default function Carousel({
   "aria-label": ariaLabel,
 }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const sliderRef = useRef<Slider>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Pause/play toggle for autoplay carousels
+  const toggleAutoplay = useCallback(() => {
+    if (isPaused) {
+      sliderRef.current?.slickPlay();
+      setIsPaused(false);
+    } else {
+      sliderRef.current?.slickPause();
+      setIsPaused(true);
+    }
+  }, [isPaused]);
 
   const updateHeight = useCallback(() => {
     if (!dynamicHeight || !containerRef.current) return;
@@ -197,13 +209,57 @@ export default function Carousel({
           ))}
         </Slider>
       </div>
-      {showCounter && items.length > 1 && (
-        <div
-          className="text-center text-sm text-gray-500 mt-2"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          {currentSlide + 1} / {items.length}
+      {/* Controls row: pause button and counter */}
+      {(autoplay || (showCounter && items.length > 1)) && (
+        <div className="flex items-center justify-center gap-4 mt-2">
+          {autoplay && (
+            <button
+              type="button"
+              onClick={toggleAutoplay}
+              className="p-2 rounded-md text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-beige-default focus-visible:ring-offset-2"
+              aria-label={isPaused ? "Play slideshow" : "Pause slideshow"}
+              aria-pressed={isPaused}
+            >
+              {isPaused ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+            </button>
+          )}
+          {showCounter && items.length > 1 && (
+            <div
+              className="text-sm text-gray-500 dark:text-gray-400"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {currentSlide + 1} / {items.length}
+            </div>
+          )}
         </div>
       )}
     </div>

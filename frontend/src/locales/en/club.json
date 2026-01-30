@@ -29,9 +29,6 @@
   "story": {
     "not_found": "Story not found or no longer available."
   },
-  "stories": {
-    "subtitle": "Real Stories of Impact and Hope"
-  },
   "home": {
     "contribute": {
       "cta": "Start making a difference now.",
@@ -252,7 +249,8 @@
     "stories_description": "Discover below emotional and inspiring stories where the support of SGG Club made all the difference.\n",
     "subheader": "Discover unique experiences and success stories from our members.",
     "title": "Stories",
-    "transformed_life": "Every Story Is a Life Transformed"
+    "transformed_life": "Every Story Is a Life Transformed",
+    "subtitle": "Real Stories of Impact and Hope"
   },
   "stories_description": "Inspiring stories and success cases from our members."
 }

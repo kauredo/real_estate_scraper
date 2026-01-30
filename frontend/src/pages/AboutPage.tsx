@@ -50,9 +50,9 @@ const AboutPage = () => {
         <div className="py-8 md:pb-0 md:pt-4 bg-white dark:bg-dark">
           <div className="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8">
             <div className="mt-8">
-              <h3 className="text-2xl text-black dark:text-light">
+              <h2 className="text-2xl text-black dark:text-light">
                 {t("about.history_and_values.title")}
-              </h3>
+              </h2>
               <p className="mt-4 text-lg text-gray-500 dark:text-light">
                 {t("about.history_and_values.content.first_paragraph")}
               </p>
@@ -63,16 +63,16 @@ const AboutPage = () => {
                 {t("about.history_and_values.content.third_paragraph")}
               </p>
 
-              <h3 className="mt-8 text-2xl text-black dark:text-light">
+              <h2 className="mt-8 text-2xl text-black dark:text-light">
                 {t("about.mission_and_vision.title")}
-              </h3>
+              </h2>
               <p className="mt-4 text-lg text-gray-500 dark:text-light">
                 {t("about.mission_and_vision.content")}
               </p>
 
-              <h3 className="mt-8 text-2xl text-black dark:text-light">
+              <h2 className="mt-8 text-2xl text-black dark:text-light">
                 {t("about.team.title")}
-              </h3>
+              </h2>
               <p className="mt-4 text-lg text-gray-500 dark:text-light">
                 {t("about.team.content")}
               </p>
