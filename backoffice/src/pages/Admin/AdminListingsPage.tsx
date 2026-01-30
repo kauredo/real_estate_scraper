@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams, Link } from "react-router-dom";

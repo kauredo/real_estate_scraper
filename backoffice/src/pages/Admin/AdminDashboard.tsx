@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ListingsTable from "../../components/admin/ListingsTable";
