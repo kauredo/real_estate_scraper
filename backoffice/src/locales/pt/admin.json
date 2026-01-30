@@ -181,6 +181,14 @@
     "details": {
       "photos": "Fotos",
       "listings": "Imóveis"
+    },
+    "photos": {
+      "main_success": "Foto principal atualizada com sucesso!",
+      "main_error": "Erro ao definir foto principal.",
+      "delete_success": "Foto apagada com sucesso!",
+      "delete_error": "Erro ao apagar foto.",
+      "add_success": "Fotos adicionadas com sucesso!",
+      "add_error": "Erro ao adicionar fotos."
     }
   },
   "testimonials": {

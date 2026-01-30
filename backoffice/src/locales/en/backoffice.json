@@ -75,7 +75,13 @@
     "add_success": "Development added to processing queue. Data will be updated shortly.",
     "add_error": "Error adding development",
     "links_title": "Development Links",
-    "links_note": "Note: this field can be used to add developments from Sofia or colleagues."
+    "links_note": "Note: this field can be used to add developments from Sofia or colleagues.",
+    "main_photo_success": "Main photo updated successfully!",
+    "main_photo_error": "Error setting main photo.",
+    "photo_delete_success": "Photo deleted successfully!",
+    "photo_delete_error": "Error deleting photo.",
+    "photos_add_success": "Photos added successfully!",
+    "photos_add_error": "Error adding photos."
   },
   "club": {
     "settings_title": "SGG Club Settings",

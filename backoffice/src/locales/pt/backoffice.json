@@ -75,7 +75,13 @@
     "add_success": "Empreendimento adicionado à fila de processamento. Os dados serão atualizados em breve.",
     "add_error": "Erro ao adicionar empreendimento",
     "links_title": "Links de Empreendimentos",
-    "links_note": "Nota: este campo pode ser usado para adicionar Empreendimentos da Sofia ou de colegas."
+    "links_note": "Nota: este campo pode ser usado para adicionar Empreendimentos da Sofia ou de colegas.",
+    "main_photo_success": "Foto principal atualizada com sucesso!",
+    "main_photo_error": "Erro ao definir foto principal.",
+    "photo_delete_success": "Foto apagada com sucesso!",
+    "photo_delete_error": "Erro ao apagar foto.",
+    "photos_add_success": "Fotos adicionadas com sucesso!",
+    "photos_add_error": "Erro ao adicionar fotos."
   },
   "club": {
     "settings_title": "Definições do Clube SGG",

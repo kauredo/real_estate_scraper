@@ -181,6 +181,14 @@
     "details": {
       "photos": "Photos",
       "listings": "Properties"
+    },
+    "photos": {
+      "main_success": "Main photo updated successfully!",
+      "main_error": "Error setting main photo.",
+      "delete_success": "Photo deleted successfully!",
+      "delete_error": "Error deleting photo.",
+      "add_success": "Photos added successfully!",
+      "add_error": "Error adding photos."
     }
   },
   "testimonials": {

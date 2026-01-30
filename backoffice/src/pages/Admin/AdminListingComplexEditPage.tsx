@@ -150,13 +150,13 @@ const AdminListingComplexEditPage = () => {
 
       setFlash({
         type: "success",
-        message: "Foto principal atualizada com sucesso!",
+        message: t("admin.listingComplexes.photos.main_success"),
       });
     } catch (error) {
       console.error("Error setting main photo:", error);
       setFlash({
         type: "error",
-        message: "Erro ao definir foto principal.",
+        message: t("admin.listingComplexes.photos.main_error"),
       });
     }
   };
@@ -167,13 +167,13 @@ const AdminListingComplexEditPage = () => {
       setPhotos((prev) => prev.filter((p) => p.id !== photoId));
       setFlash({
         type: "success",
-        message: "Foto apagada com sucesso!",
+        message: t("admin.listingComplexes.photos.delete_success"),
       });
     } catch (error) {
       console.error("Error deleting photo:", error);
       setFlash({
         type: "error",
-        message: "Erro ao apagar foto.",
+        message: t("admin.listingComplexes.photos.delete_error"),
       });
     }
   };
@@ -195,13 +195,13 @@ const AdminListingComplexEditPage = () => {
 
       setFlash({
         type: "success",
-        message: "Fotos adicionadas com sucesso!",
+        message: t("admin.listingComplexes.photos.add_success"),
       });
     } catch (error) {
       console.error("Error uploading photos:", error);
       setFlash({
         type: "error",
-        message: "Erro ao adicionar fotos.",
+        message: t("admin.listingComplexes.photos.add_error"),
       });
     }
   };
