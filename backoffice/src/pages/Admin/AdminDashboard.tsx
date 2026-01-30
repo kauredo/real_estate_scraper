@@ -1,5 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import ListingsTable from "../../components/admin/ListingsTable";
 import ListingComplexesTable from "../../components/admin/ListingComplexesTable";
 import TestimonialsManagement from "../../components/admin/TestimonialsManagement";
@@ -9,39 +10,40 @@ import { Button } from "../../components/admin/ui";
 type ActiveTab = "listings" | "complexes" | "testimonials" | "photos";
 
 const AdminDashboard: React.FC = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<ActiveTab>("listings");
 
   const tabs = [
-    { id: "listings", label: "Imóveis", component: <ListingsTable /> },
+    { id: "listings", label: t("admin.dashboard.tabs.listings"), component: <ListingsTable /> },
     {
       id: "complexes",
-      label: "Empreendimentos",
+      label: t("admin.dashboard.tabs.complexes"),
       component: <ListingComplexesTable />,
     },
     {
       id: "testimonials",
-      label: "Testemunhos",
+      label: t("admin.dashboard.tabs.testimonials"),
       component: <TestimonialsManagement />,
     },
-    { id: "photos", label: "Fotos", component: <PhotosManagement /> },
+    { id: "photos", label: t("admin.dashboard.tabs.photos"), component: <PhotosManagement /> },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-neutral-50">
       <div className="bg-white shadow">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-6">
-            <h1 className="text-3xl font-bold text-gray-900">
-              Painel de Administração
+            <h1 className="text-3xl font-bold text-neutral-900">
+              {t("admin.dashboard.admin_panel")}
             </h1>
-            <div className="text-sm text-gray-500">Gestão de conteúdos</div>
+            <div className="text-sm text-neutral-500">{t("admin.dashboard.content_management")}</div>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-6">
         {/* Tab Navigation */}
-        <div className="border-b border-gray-200 mb-8">
+        <div className="border-b border-neutral-200 mb-8">
           <nav className="-mb-px flex space-x-8">
             {tabs.map((tab) => (
               <Button
@@ -50,8 +52,8 @@ const AdminDashboard: React.FC = () => {
                 variant="link"
                 className={`py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap ${
                   activeTab === tab.id
-                    ? "border-blue-500 text-blue-600"
-                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                    ? "border-neutral-900 text-neutral-900"
+                    : "border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300"
                 }`}
               >
                 {tab.label}

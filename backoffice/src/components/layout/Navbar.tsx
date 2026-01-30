@@ -67,7 +67,7 @@ export default function Navbar(props: Props) {
   const mobileItems: NavbarItemProps[] = [...rightItems];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-dark border-b border-gray-200 dark:border-gray-700 z-40">
+    <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-700 z-40">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between min-h-[4rem]">
           <div className="flex items-center gap-4">
@@ -76,7 +76,7 @@ export default function Navbar(props: Props) {
               <Button
                 onClick={onToggleSidebar}
                 variant="link"
-                className="lg:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                className="lg:hidden p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors"
                 aria-label="Toggle sidebar"
               >
                 <svg
@@ -105,7 +105,7 @@ export default function Navbar(props: Props) {
                   alt="MyAgentWebsite"
                   className="h-8 w-8 object-contain"
                 />
-                <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
+                <h1 className="text-xl font-semibold text-neutral-900 dark:text-white">
                   {t("navbar.backoffice_title")}
                 </h1>
               </a>

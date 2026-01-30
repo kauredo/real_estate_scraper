@@ -6,7 +6,8 @@ export type ButtonVariant =
   | "secondary"
   | "danger"
   | "ghost"
-  | "link";
+  | "link"
+  | "warm";
 export type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -38,12 +39,13 @@ const Button: React.FC<ButtonProps> = ({
     primary:
       "bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500 dark:bg-primary-600 dark:hover:bg-primary-700",
     secondary:
-      "bg-gray-200 hover:bg-gray-300 text-gray-900 focus:ring-gray-500 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100",
+      "bg-neutral-100 hover:bg-neutral-200 text-neutral-800 focus:ring-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-100",
     danger:
-      "bg-red-600 hover:bg-red-700 text-white focus:ring-red-500 dark:bg-red-600 dark:hover:bg-red-700",
+      "bg-error-600 hover:bg-error-500 text-white focus:ring-error-500 dark:bg-error-600 dark:hover:bg-error-500",
     ghost:
-      "bg-transparent hover:bg-gray-100 text-gray-700 focus:ring-gray-500 dark:hover:bg-gray-800 dark:text-gray-300",
-    link: "bg-transparent underline text-blue-600 hover:text-blue-800 focus:ring-blue-500 dark:text-blue-400 dark:hover:text-blue-300",
+      "bg-transparent hover:bg-neutral-100 text-neutral-700 focus:ring-neutral-400 dark:hover:bg-neutral-800 dark:text-neutral-300",
+    link: "bg-transparent underline text-primary-600 hover:text-primary-800 focus:ring-primary-500 dark:text-primary-400 dark:hover:text-primary-300",
+    warm: "bg-warm-500 hover:bg-warm-600 text-white focus:ring-warm-400 dark:bg-warm-600 dark:hover:bg-warm-500",
   };
 
   const sizeStyles = {

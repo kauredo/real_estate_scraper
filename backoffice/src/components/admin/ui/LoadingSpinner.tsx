@@ -20,7 +20,7 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
       <div
         className={`animate-spin rounded-full ${sizeClasses[size]} border-primary-600 border-t-transparent`}
       />
-      {text && <p className="mt-4 text-gray-600 dark:text-gray-400">{text}</p>}
+      {text && <p className="mt-4 text-neutral-600 dark:text-neutral-400">{text}</p>}
     </div>
   );
 };

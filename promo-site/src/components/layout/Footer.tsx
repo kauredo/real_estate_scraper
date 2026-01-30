@@ -19,16 +19,16 @@ export function Footer() {
               />
               <span className="font-bold">{t("common.siteTitle")}</span>
             </div>
-            <p className="text-gray-600 text-sm">{t("common.tagline")}</p>
+            <p className="text-neutral-600 text-sm">{t("common.tagline")}</p>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">{t("footer.product")}</h3>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-2 text-sm text-neutral-600">
               <li>
                 <Link
                   to={localizedPath("/features")}
-                  className="hover:text-gray-900"
+                  className="hover:text-neutral-900"
                 >
                   {t("nav.features")}
                 </Link>
@@ -36,7 +36,7 @@ export function Footer() {
               <li>
                 <Link
                   to={localizedPath("/pricing")}
-                  className="hover:text-gray-900"
+                  className="hover:text-neutral-900"
                 >
                   {t("nav.pricing")}
                 </Link>
@@ -46,11 +46,11 @@ export function Footer() {
 
           <div>
             <h3 className="font-semibold mb-4">{t("footer.company")}</h3>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-2 text-sm text-neutral-600">
               <li>
                 <Link
                   to={localizedPath("/about")}
-                  className="hover:text-gray-900"
+                  className="hover:text-neutral-900"
                 >
                   {t("nav.about")}
                 </Link>
@@ -58,7 +58,7 @@ export function Footer() {
               <li>
                 <Link
                   to={localizedPath("/case-studies")}
-                  className="hover:text-gray-900"
+                  className="hover:text-neutral-900"
                 >
                   {t("footer.caseStudies")}
                 </Link>
@@ -66,7 +66,7 @@ export function Footer() {
               <li>
                 <Link
                   to={localizedPath("/contact")}
-                  className="hover:text-gray-900"
+                  className="hover:text-neutral-900"
                 >
                   {t("nav.contact")}
                 </Link>
@@ -76,11 +76,11 @@ export function Footer() {
 
           <div>
             <h3 className="font-semibold mb-4">{t("footer.resources")}</h3>
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-2 text-sm text-neutral-600">
               <li>
                 <Link
                   to={localizedPath("/help")}
-                  className="hover:text-gray-900"
+                  className="hover:text-neutral-900"
                 >
                   {t("footer.help")}
                 </Link>
@@ -88,7 +88,7 @@ export function Footer() {
               <li>
                 <a
                   href="https://www.notion.so/29853081375781e5a730c36cebc01950"
-                  className="hover:text-gray-900"
+                  className="hover:text-neutral-900"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -100,18 +100,18 @@ export function Footer() {
         </div>
 
         <div className="border-t mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-neutral-600">
             <p>{t("footer.copyright")}</p>
             <div className="flex gap-6">
               <Link
                 to={localizedPath("/privacy-policy")}
-                className="hover:text-gray-900"
+                className="hover:text-neutral-900"
               >
                 {t("footer.privacyPolicy")}
               </Link>
               <Link
                 to={localizedPath("/terms-of-service")}
-                className="hover:text-gray-900"
+                className="hover:text-neutral-900"
               >
                 {t("footer.termsOfService")}
               </Link>

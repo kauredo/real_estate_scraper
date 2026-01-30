@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
       <SEO page="home" />
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="min-h-screen bg-gradient-to-b from-white to-neutral-50">
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-4">
           <div className="container mx-auto max-w-7xl">
@@ -38,57 +38,57 @@ export default function Home() {
                   {t("home.hero.badge")}
                 </Badge>
 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-900">
                   {t("home.hero.title")}
                   <br />
-                  <span className="text-blue-600">
+                  <span className="text-primary-600">
                     {t("home.hero.titleHighlight")}
                   </span>
                   <br />
                   {t("home.hero.titleEnd")}
                 </h1>
 
-                <p className="text-xl md:text-2xl text-gray-600">
+                <p className="text-xl md:text-2xl text-neutral-600">
                   {t("home.hero.description")}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Link to="/contact">
-                    <Button
-                      size="lg"
-                      className="text-lg px-8 py-6 w-full sm:w-auto"
-                    >
+                  <Button
+                    asChild
+                    size="lg"
+                    className="text-lg px-8 py-6 w-full sm:w-auto"
+                  >
+                    <Link to="/contact">
                       {t("common.scheduleDemo")}
                       <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                  <Link to="/pricing">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="text-lg px-8 py-6 w-full sm:w-auto"
-                    >
-                      {t("common.viewPricing")}
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="text-lg px-8 py-6 w-full sm:w-auto"
+                  >
+                    <Link to="/pricing">{t("common.viewPricing")}</Link>
+                  </Button>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <span className="text-gray-700">
+                    <span className="text-neutral-700">
                       {t("home.hero.benefit1")}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <span className="text-gray-700">
+                    <span className="text-neutral-700">
                       {t("home.hero.benefit2")}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    <span className="text-gray-700">
+                    <span className="text-neutral-700">
                       {t("home.hero.benefit3")}
                     </span>
                   </div>
@@ -115,8 +115,8 @@ export default function Home() {
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
-                  <div className="aspect-[4/3] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hidden items-center justify-center">
-                    <div className="text-center text-white p-8">
+                  <div className="aspect-[4/3] bg-neutral-100 hidden items-center justify-center">
+                    <div className="text-center text-neutral-400 p-8">
                       <Layout className="h-20 w-20 mx-auto mb-4 opacity-50" />
                       <p className="text-lg font-semibold opacity-75">
                         Add platform screenshot
@@ -128,38 +128,38 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Decorative elements */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-100 rounded-full opacity-50 blur-xl"></div>
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-purple-100 rounded-full opacity-50 blur-xl"></div>
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-warm-200 rounded-full opacity-40 blur-xl"></div>
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary-100 rounded-full opacity-40 blur-xl"></div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Value Proposition */}
-        <section className="py-12 bg-white border-y">
+        <section className="py-12 bg-white border-y border-neutral-200">
           <div className="container mx-auto px-4">
             <div className="flex justify-center items-center gap-12 flex-wrap text-center max-w-4xl mx-auto">
               <div>
-                <div className="text-3xl font-bold text-blue-600 mb-1">
+                <div className="text-3xl font-bold text-neutral-800 mb-1">
                   {t("home.valueProposition.timeline")}
                 </div>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("home.valueProposition.timelineDesc")}
                 </p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-600 mb-1">
+                <div className="text-3xl font-bold text-neutral-800 mb-1">
                   {t("home.valueProposition.tech")}
                 </div>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("home.valueProposition.techDesc")}
                 </p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-600 mb-1">
+                <div className="text-3xl font-bold text-neutral-800 mb-1">
                   {t("home.valueProposition.service")}
                 </div>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("home.valueProposition.serviceDesc")}
                 </p>
               </div>
@@ -168,7 +168,7 @@ export default function Home() {
         </section>
 
         {/* Case Study */}
-        <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
+        <section className="py-20 px-4 bg-neutral-50">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-8">
               <Badge variant="secondary" className="mb-4">
@@ -212,7 +212,7 @@ export default function Home() {
                   </div>
 
                   <div className="relative mb-8">
-                    <Quote className="h-12 w-12 text-blue-600/20 absolute -top-4 -left-4" />
+                    <Quote className="h-12 w-12 text-warm-300 absolute -top-4 -left-4" />
                     <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 pl-8">
                       &ldquo;{t("home.caseStudy.quote")}&rdquo;
                     </blockquote>
@@ -220,57 +220,57 @@ export default function Home() {
 
                   <div className="flex items-center gap-4 mb-12 pl-8">
                     {/* TODO: Replace with actual photo */}
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    <div className="w-16 h-16 bg-warm-100 rounded-full flex items-center justify-center text-warm-700 font-bold text-xl border-2 border-warm-200">
                       SG
                     </div>
                     <div>
                       <div className="font-bold text-lg">
                         {t("home.caseStudy.author")}
                       </div>
-                      <div className="text-gray-600">
+                      <div className="text-neutral-600">
                         {t("home.caseStudy.role")}
                       </div>
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-3 gap-8 mb-8">
-                    <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-white rounded-lg border border-blue-100">
-                      <div className="text-4xl font-bold text-blue-600 mb-2">
+                  <div className="grid md:grid-cols-3 gap-6 mb-8">
+                    <div className="text-center p-6 bg-white rounded-xl border border-neutral-200">
+                      <div className="text-4xl font-bold text-neutral-800 mb-2">
                         {t("home.caseStudy.stats.stat1.value")}
                       </div>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-neutral-600 text-sm">
                         {t("home.caseStudy.stats.stat1.label")}
                       </p>
                     </div>
-                    <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-white rounded-lg border border-purple-100">
-                      <div className="text-4xl font-bold text-purple-600 mb-2">
+                    <div className="text-center p-6 bg-white rounded-xl border border-neutral-200">
+                      <div className="text-4xl font-bold text-neutral-800 mb-2">
                         {t("home.caseStudy.stats.stat2.value")}
                       </div>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-neutral-600 text-sm">
                         {t("home.caseStudy.stats.stat2.label")}
                       </p>
                     </div>
-                    <div className="text-center p-6 bg-gradient-to-br from-green-50 to-white rounded-lg border border-green-100">
-                      <div className="text-4xl font-bold text-green-600 mb-2">
+                    <div className="text-center p-6 bg-white rounded-xl border border-neutral-200">
+                      <div className="text-4xl font-bold text-neutral-800 mb-2">
                         {t("home.caseStudy.stats.stat3.value")}
                       </div>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-neutral-600 text-sm">
                         {t("home.caseStudy.stats.stat3.label")}
                       </p>
                     </div>
                   </div>
 
                   <div className="text-center">
-                    <a
-                      href="https://sofiagalvaogroup.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button variant="outline" size="lg">
+                    <Button asChild variant="outline" size="lg">
+                      <a
+                        href="https://sofiagalvaogroup.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {t("home.caseStudy.cta")}
                         <ExternalLink className="ml-2 h-4 w-4" />
-                      </Button>
-                    </a>
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </CardContent>
@@ -285,63 +285,63 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 {t("home.benefits.heading")}
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-neutral-600">
                 {t("home.benefits.subheading")}
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card className="border-2 hover:border-blue-600 transition">
+              <Card className="border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all">
                 <CardContent className="pt-6">
-                  <div className="mb-4 bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                    <Zap className="h-6 w-6 text-blue-600" />
+                  <div className="mb-4 bg-primary-50 w-12 h-12 rounded-xl flex items-center justify-center">
+                    <Zap className="h-6 w-6 text-primary-600" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-xl font-bold mb-2 text-neutral-800">
                     {t("home.benefits.professional.title")}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("home.benefits.professional.description")}
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:border-blue-600 transition">
+              <Card className="border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all">
                 <CardContent className="pt-6">
-                  <div className="mb-4 bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <div className="mb-4 bg-green-50 w-12 h-12 rounded-xl flex items-center justify-center">
                     <DollarSign className="h-6 w-6 text-green-600" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-xl font-bold mb-2 text-neutral-800">
                     {t("home.benefits.flexible.title")}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("home.benefits.flexible.description")}
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:border-blue-600 transition">
+              <Card className="border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all">
                 <CardContent className="pt-6">
-                  <div className="mb-4 bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                    <Layout className="h-6 w-6 text-purple-600" />
+                  <div className="mb-4 bg-warm-50 w-12 h-12 rounded-xl flex items-center justify-center">
+                    <Layout className="h-6 w-6 text-warm-600" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-xl font-bold mb-2 text-neutral-800">
                     {t("home.benefits.modern.title")}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("home.benefits.modern.description")}
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:border-blue-600 transition">
+              <Card className="border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all">
                 <CardContent className="pt-6">
-                  <div className="mb-4 bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                    <BarChart3 className="h-6 w-6 text-orange-600" />
+                  <div className="mb-4 bg-neutral-100 w-12 h-12 rounded-xl flex items-center justify-center">
+                    <BarChart3 className="h-6 w-6 text-neutral-600" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-xl font-bold mb-2 text-neutral-800">
                     {t("home.benefits.brand.title")}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("home.benefits.brand.description")}
                   </p>
                 </CardContent>
@@ -351,7 +351,7 @@ export default function Home() {
         </section>
 
         {/* Platform Features / Admin Interface */}
-        <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
+        <section className="py-20 px-4 bg-gradient-to-b from-neutral-50 to-white">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <Badge variant="secondary" className="mb-4">
@@ -361,7 +361,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 {t("home.platformFeatures.heading")}
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 {t("home.platformFeatures.subheading")}
               </p>
             </div>
@@ -371,31 +371,31 @@ export default function Home() {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="order-2 lg:order-1">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100">
-                      <BarChart3 className="h-6 w-6 text-blue-600" />
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary-50">
+                      <BarChart3 className="h-6 w-6 text-primary-600" />
                     </div>
                     <h3 className="text-3xl font-bold">
                       {t("home.platformFeatures.dashboard.title")}
                     </h3>
-                    <p className="text-lg text-gray-600">
+                    <p className="text-lg text-neutral-600">
                       {t("home.platformFeatures.dashboard.description")}
                     </p>
                     <ul className="space-y-3 pt-4">
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-neutral-700">
                           Real-time metrics and statistics
                         </span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-neutral-700">
                           Quick actions for common tasks
                         </span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-neutral-700">
                           Clean, intuitive interface
                         </span>
                       </li>
@@ -426,31 +426,31 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="space-y-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-purple-100">
-                      <FileText className="h-6 w-6 text-purple-600" />
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-warm-50">
+                      <FileText className="h-6 w-6 text-warm-600" />
                     </div>
                     <h3 className="text-3xl font-bold">
                       {t("home.platformFeatures.blog.title")}
                     </h3>
-                    <p className="text-lg text-gray-600">
+                    <p className="text-lg text-neutral-600">
                       {t("home.platformFeatures.blog.description")}
                     </p>
                     <ul className="space-y-3 pt-4">
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-neutral-700">
                           Rich text editor with formatting
                         </span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-neutral-700">
                           SEO meta tags and descriptions
                         </span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-neutral-700">
                           Image uploads and galleries
                         </span>
                       </li>
@@ -463,31 +463,31 @@ export default function Home() {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="order-2 lg:order-1">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-green-100">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-green-50">
                       <HomeIcon className="h-6 w-6 text-green-600" />
                     </div>
                     <h3 className="text-3xl font-bold">
                       {t("home.platformFeatures.listings.title")}
                     </h3>
-                    <p className="text-lg text-gray-600">
+                    <p className="text-lg text-neutral-600">
                       {t("home.platformFeatures.listings.description")}
                     </p>
                     <ul className="space-y-3 pt-4">
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-neutral-700">
                           Import from third-party platforms
                         </span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-neutral-700">
                           Bulk edit and manage properties
                         </span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700">
+                        <span className="text-neutral-700">
                           Status tracking (Active/Sold/Pending)
                         </span>
                       </li>
@@ -526,7 +526,7 @@ export default function Home() {
                       <h3 className="font-semibold mb-1">
                         {t("home.features.listings.title")}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-neutral-600">
                         {t("home.features.listings.description")}
                       </p>
                     </div>
@@ -537,7 +537,7 @@ export default function Home() {
                       <h3 className="font-semibold mb-1">
                         {t("home.features.developments.title")}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-neutral-600">
                         {t("home.features.developments.description")}
                       </p>
                     </div>
@@ -548,7 +548,7 @@ export default function Home() {
                       <h3 className="font-semibold mb-1">
                         {t("home.features.blog.title")}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-neutral-600">
                         {t("home.features.blog.description")}
                       </p>
                     </div>
@@ -559,7 +559,7 @@ export default function Home() {
                       <h3 className="font-semibold mb-1">
                         {t("home.features.testimonials.title")}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-neutral-600">
                         {t("home.features.testimonials.description")}
                       </p>
                     </div>
@@ -570,7 +570,7 @@ export default function Home() {
                       <h3 className="font-semibold mb-1">
                         {t("home.features.newsletter.title")}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-neutral-600">
                         {t("home.features.newsletter.description")}
                       </p>
                     </div>
@@ -581,47 +581,47 @@ export default function Home() {
                       <h3 className="font-semibold mb-1">
                         {t("home.features.domain.title")}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-neutral-600">
                         {t("home.features.domain.description")}
                       </p>
                     </div>
                   </div>
                 </div>
-                <Link to="/features" className="inline-block mt-6">
-                  <Button variant="outline">
+                <Button asChild variant="outline" className="mt-6">
+                  <Link to="/features">
                     {t("home.features.viewAllFeatures")}
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
 
               <div className="relative">
-                <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white shadow-2xl">
+                <div className="bg-neutral-50 rounded-2xl p-8 shadow-xl border border-neutral-200">
                   <div className="space-y-4">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div className="bg-white rounded-xl p-4 border border-neutral-100 shadow-sm">
                       <div className="flex items-center gap-2 mb-2">
-                        <Layout className="h-5 w-5" />
-                        <span className="font-semibold">Admin Dashboard</span>
+                        <Layout className="h-5 w-5 text-primary-600" />
+                        <span className="font-semibold text-neutral-900">Admin Dashboard</span>
                       </div>
-                      <p className="text-sm text-white/80">
+                      <p className="text-sm text-neutral-600">
                         Manage everything from one place
                       </p>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div className="bg-white rounded-xl p-4 border border-neutral-100 shadow-sm">
                       <div className="flex items-center gap-2 mb-2">
-                        <Mail className="h-5 w-5" />
-                        <span className="font-semibold">Lead Capture</span>
+                        <Mail className="h-5 w-5 text-warm-600" />
+                        <span className="font-semibold text-neutral-900">Lead Capture</span>
                       </div>
-                      <p className="text-sm text-white/80">
+                      <p className="text-sm text-neutral-600">
                         Never miss an opportunity
                       </p>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div className="bg-white rounded-xl p-4 border border-neutral-100 shadow-sm">
                       <div className="flex items-center gap-2 mb-2">
-                        <BarChart3 className="h-5 w-5" />
-                        <span className="font-semibold">Analytics</span>
+                        <BarChart3 className="h-5 w-5 text-green-600" />
+                        <span className="font-semibold text-neutral-900">Analytics</span>
                       </div>
-                      <p className="text-sm text-white/80">
+                      <p className="text-sm text-neutral-600">
                         Track your performance
                       </p>
                     </div>
@@ -635,34 +635,33 @@ export default function Home() {
         {/* CTA Section */}
         <section className="py-20 px-4">
           <div className="container mx-auto max-w-4xl">
-            <Card className="bg-gradient-to-br from-blue-600 to-purple-600 border-0 text-white">
+            <Card className="bg-primary-600 border-0 text-white">
               <CardContent className="pt-12 pb-12 text-center">
                 <h2 className="text-4xl font-bold mb-4">
                   {t("home.cta.heading")}
                 </h2>
-                <p className="text-xl text-white/90 mb-8">
+                <p className="text-xl text-primary-100 mb-8">
                   {t("home.cta.description")}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link to="/contact">
-                    <Button
-                      size="lg"
-                      variant="secondary"
-                      className="text-lg px-8 py-6"
-                    >
+                  <Button
+                    asChild
+                    size="lg"
+                    className="text-lg px-8 bg-white text-primary-600 hover:bg-primary-50"
+                  >
+                    <Link to="/contact">
                       {t("common.scheduleDemo")}
                       <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                  <Link to="/pricing">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="text-lg px-8 py-6 bg-white/10 border-white text-white hover:bg-white/20"
-                    >
-                      {t("common.viewPricing")}
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="text-lg px-8 bg-transparent border-white/30 text-white hover:bg-white/10"
+                  >
+                    <Link to="/pricing">{t("common.viewPricing")}</Link>
+                  </Button>
                 </div>
               </CardContent>
             </Card>

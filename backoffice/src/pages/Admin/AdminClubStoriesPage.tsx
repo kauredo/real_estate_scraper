@@ -17,6 +17,7 @@ import {
   EmptyState,
   Button,
   PreviewModal,
+  ConfirmDialog,
 } from "../../components/admin/ui";
 
 interface PaginationState {
@@ -39,6 +40,9 @@ const AdminClubStoriesPage = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [previewTitle, setPreviewTitle] = useState<string>("");
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [storyToDelete, setStoryToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const fetchClubStories = async (page = 1) => {
     try {
@@ -59,14 +63,24 @@ const AdminClubStoriesPage = () => {
     }
   };
 
-  const handleDelete = async (id: number) => {
-    if (!window.confirm(t("admin.confirmDelete"))) return;
+  const handleDeleteClick = (id: number) => {
+    setStoryToDelete(id);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!storyToDelete) return;
 
     try {
-      await adminDeleteClubStory(id);
+      setIsDeleting(true);
+      await adminDeleteClubStory(storyToDelete);
       fetchClubStories(pagination.current_page);
+      setIsDeleteDialogOpen(false);
+      setStoryToDelete(null);
     } catch (error) {
       console.error("Error deleting club story:", error);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -90,7 +104,7 @@ const AdminClubStoriesPage = () => {
   }
 
   return (
-    <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+    <div className="w-full shadow-md rounded px-4 sm:px-6 lg:px-8 py-4 mt-4 relative">
       <AdminPageHeader
         title={t("admin.clubStories.title")}
         count={pagination.total_count}
@@ -149,7 +163,7 @@ const AdminClubStoriesPage = () => {
                     </Button>
                   </Link>
                   <Button
-                    onClick={() => handleDelete(story.id)}
+                    onClick={() => handleDeleteClick(story.id)}
                     variant="link"
                     size="sm"
                     className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
@@ -177,6 +191,21 @@ const AdminClubStoriesPage = () => {
         onClose={() => setIsPreviewOpen(false)}
         previewUrl={previewUrl}
         title={previewTitle}
+      />
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setStoryToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title={t("admin.clubStories.deleteTitle")}
+        message={t("admin.confirmDelete")}
+        confirmLabel={t("common.delete")}
+        cancelLabel={t("common.cancel")}
+        variant="danger"
+        isLoading={isDeleting}
       />
     </div>
   );

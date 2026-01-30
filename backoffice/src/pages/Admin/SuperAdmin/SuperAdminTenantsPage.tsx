@@ -13,6 +13,7 @@ import {
   Input,
   Select,
   Button,
+  ConfirmDialog,
 } from "../../../components/admin/ui";
 
 interface Tenant {
@@ -40,6 +41,11 @@ const SuperAdminTenantsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingTenant, setEditingTenant] = useState<Tenant | null>(null);
   const [rotatingApiKey, setRotatingApiKey] = useState<number | null>(null);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [tenantToDelete, setTenantToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isRotateDialogOpen, setIsRotateDialogOpen] = useState(false);
+  const [tenantToRotate, setTenantToRotate] = useState<{ id: number; name: string } | null>(null);
 
   const fetchTenants = async () => {
     setLoading(true);
@@ -81,12 +87,20 @@ const SuperAdminTenantsPage = () => {
     fetchTenants();
   }, [search, activeFilter]);
 
-  const handleDelete = async (id: number) => {
-    if (!window.confirm(t("super_admin.tenants.delete_confirm"))) return;
+  const handleDeleteClick = (id: number) => {
+    setTenantToDelete(id);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!tenantToDelete) return;
 
     try {
-      await superAdminDeleteTenant(id);
+      setIsDeleting(true);
+      await superAdminDeleteTenant(tenantToDelete);
       fetchTenants();
+      setIsDeleteDialogOpen(false);
+      setTenantToDelete(null);
     } catch (error: unknown) {
       const err = error as { response?: { data?: { errors?: string[] } } };
       const errorMessage =
@@ -94,6 +108,8 @@ const SuperAdminTenantsPage = () => {
         t("super_admin.tenants.delete_error");
       alert(errorMessage);
       console.error("Failed to delete tenant:", error);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -106,15 +122,18 @@ const SuperAdminTenantsPage = () => {
     }
   };
 
-  const handleRotateApiKey = async (id: number, name: string) => {
-    if (
-      !window.confirm(t("super_admin.tenants.rotate_api_key_confirm", { name }))
-    )
-      return;
+  const handleRotateApiKeyClick = (id: number, name: string) => {
+    setTenantToRotate({ id, name });
+    setIsRotateDialogOpen(true);
+  };
 
-    setRotatingApiKey(id);
+  const handleConfirmRotateApiKey = async () => {
+    if (!tenantToRotate) return;
+
+    setRotatingApiKey(tenantToRotate.id);
+    setIsRotateDialogOpen(false);
     try {
-      const response = await superAdminRotateApiKey(id);
+      const response = await superAdminRotateApiKey(tenantToRotate.id);
       const newApiKey = response.data.api_key;
       alert(
         t("super_admin.tenants.new_api_key", { apiKey: newApiKey }) +
@@ -122,6 +141,7 @@ const SuperAdminTenantsPage = () => {
           t("super_admin.tenants.api_key_warning"),
       );
       fetchTenants();
+      setTenantToRotate(null);
     } catch (error) {
       console.error("Failed to rotate API key:", error);
     } finally {
@@ -190,7 +210,7 @@ const SuperAdminTenantsPage = () => {
               label: t("super_admin.tenants.slug"),
               width: "w-1/6",
               render: (value: unknown) => (
-                <code className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-sm">
+                <code className="bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded text-sm">
                   {value as string}
                 </code>
               ),
@@ -201,7 +221,7 @@ const SuperAdminTenantsPage = () => {
               width: "w-1/6",
               render: (value: unknown) =>
                 (value as string | null) || (
-                  <span className="text-gray-400 italic">
+                  <span className="text-neutral-400 italic">
                     {t("super_admin.tenants.no_domain")}
                   </span>
                 ),
@@ -267,7 +287,7 @@ const SuperAdminTenantsPage = () => {
                       : t("super_admin.tenants.activate")}
                   </Button>
                   <Button
-                    onClick={() => handleRotateApiKey(tenant.id, tenant.name)}
+                    onClick={() => handleRotateApiKeyClick(tenant.id, tenant.name)}
                     disabled={rotatingApiKey === tenant.id}
                     variant="link"
                     size="sm"
@@ -278,7 +298,7 @@ const SuperAdminTenantsPage = () => {
                       : t("super_admin.tenants.rotate_api_key")}
                   </Button>
                   <Button
-                    onClick={() => handleDelete(tenant.id)}
+                    onClick={() => handleDeleteClick(tenant.id)}
                     variant="link"
                     size="sm"
                     className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 justify-start"
@@ -292,7 +312,7 @@ const SuperAdminTenantsPage = () => {
           data={tenants}
         />
       ) : (
-        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+        <div className="text-center py-8 text-neutral-500 dark:text-neutral-400">
           {t("super_admin.tenants.no_tenants")}
         </div>
       )}
@@ -300,6 +320,35 @@ const SuperAdminTenantsPage = () => {
       {isModalOpen && (
         <TenantFormModal tenant={editingTenant} onClose={handleModalClose} />
       )}
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setTenantToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title={t("super_admin.tenants.deleteTitle")}
+        message={t("super_admin.tenants.delete_confirm")}
+        confirmLabel={t("common.delete")}
+        cancelLabel={t("common.cancel")}
+        variant="danger"
+        isLoading={isDeleting}
+      />
+
+      <ConfirmDialog
+        isOpen={isRotateDialogOpen}
+        onClose={() => {
+          setIsRotateDialogOpen(false);
+          setTenantToRotate(null);
+        }}
+        onConfirm={handleConfirmRotateApiKey}
+        title={t("super_admin.tenants.rotateApiKeyTitle")}
+        message={t("super_admin.tenants.rotate_api_key_confirm", { name: tenantToRotate?.name || "" })}
+        confirmLabel={t("super_admin.tenants.rotate_api_key")}
+        cancelLabel={t("common.cancel")}
+        variant="warning"
+      />
     </div>
   );
 };

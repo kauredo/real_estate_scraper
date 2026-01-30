@@ -24,18 +24,18 @@ const AdminCard: React.FC<AdminCardProps> = ({
 }) => {
   const statusColors = {
     success:
-      "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+      "bg-success-100 text-success-600 dark:bg-success-500/20 dark:text-success-500",
     warning:
-      "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
-    error: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
-    info: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+      "bg-warning-100 text-warning-600 dark:bg-warning-500/20 dark:text-warning-500",
+    error: "bg-error-100 text-error-600 dark:bg-error-500/20 dark:text-error-500",
+    info: "bg-primary-100 text-primary-700 dark:bg-primary-500/20 dark:text-primary-400",
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden transition-shadow hover:shadow-lg">
+    <div className="bg-white dark:bg-neutral-800 shadow-sm border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden transition-shadow hover:shadow-md">
       {/* Image */}
       {(image || imagePlaceholder) && (
-        <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
+        <div className="w-full h-48 bg-neutral-100 dark:bg-neutral-700 overflow-hidden">
           {image ? (
             <img
               src={image}
@@ -44,7 +44,7 @@ const AdminCard: React.FC<AdminCardProps> = ({
               loading="lazy"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400">
+            <div className="w-full h-full flex items-center justify-center text-neutral-400 dark:text-neutral-500">
               {imagePlaceholder}
             </div>
           )}
@@ -53,12 +53,12 @@ const AdminCard: React.FC<AdminCardProps> = ({
 
       {/* Content */}
       <div className="p-4">
-        <h3 className="text-gray-900 dark:text-white font-bold text-lg mb-1 line-clamp-2">
+        <h3 className="text-neutral-900 dark:text-white font-bold text-lg mb-1 line-clamp-2">
           {title}
         </h3>
 
         {subtitle && (
-          <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-3 max-h-16 overflow-hidden">
+          <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-3 line-clamp-3 max-h-16 overflow-hidden">
             {subtitle}
           </p>
         )}

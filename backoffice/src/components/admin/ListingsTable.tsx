@@ -6,7 +6,7 @@ import {
   generatePreviewToken,
 } from "../../services/api";
 import { Listing } from "../../utils/interfaces";
-import { Button, Pagination, LoadingSpinner, PreviewModal } from "../admin/ui";
+import { Button, Pagination, LoadingSpinner, PreviewModal, ConfirmDialog } from "../admin/ui";
 
 interface ListingsTableProps {
   onEdit?: (listing: Listing) => void;
@@ -25,6 +25,9 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [previewTitle, setPreviewTitle] = useState<string>("");
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [listingToDelete, setListingToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const fetchListings = async (page = 1) => {
     try {
@@ -45,17 +48,25 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
     fetchListings();
   }, []);
 
-  const handleDelete = async (id: number) => {
-    if (!window.confirm("Tem certeza que deseja eliminar este imóvel?")) {
-      return;
-    }
+  const handleDeleteClick = (id: number) => {
+    setListingToDelete(id);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!listingToDelete) return;
 
     try {
-      await adminDeleteListing(id);
+      setIsDeleting(true);
+      await adminDeleteListing(listingToDelete);
       await fetchListings(pagination.current_page);
+      setIsDeleteDialogOpen(false);
+      setListingToDelete(null);
     } catch (err) {
       setError("Erro ao eliminar o imóvel");
       console.error("Error deleting listing:", err);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -97,48 +108,48 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Gestão de Imóveis</h2>
-        <div className="text-sm text-gray-600">
+        <div className="text-sm text-neutral-600">
           {pagination.total_count} imóveis no total
         </div>
       </div>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200">
-          <thead className="bg-gray-50">
+        <table className="min-w-full bg-white border border-neutral-200">
+          <thead className="bg-neutral-50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                 ID
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                 Título
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                 Preço
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                 Status
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                 Empreendimento
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                 Ações
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white divide-y divide-neutral-200">
             {listings.map((listing) => (
-              <tr key={listing.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+              <tr key={listing.id} className="hover:bg-neutral-50">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-900">
                   {listing.id}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm font-medium text-gray-900">
+                  <div className="text-sm font-medium text-neutral-900">
                     {listing.title}
                   </div>
-                  <div className="text-sm text-gray-500">{listing.address}</div>
+                  <div className="text-sm text-neutral-500">{listing.address}</div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-900">
                   {formatPrice(listing.price)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
@@ -156,7 +167,7 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
                     {listing.status}
                   </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-900">
                   {listing.listing_complex_id || "N/A"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
@@ -179,7 +190,7 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
                     </Button>
                   )}
                   <Button
-                    onClick={() => handleDelete(listing.id)}
+                    onClick={() => handleDeleteClick(listing.id)}
                     variant="link"
                     size="sm"
                     className="text-red-600 hover:text-red-900"
@@ -207,6 +218,21 @@ const ListingsTable: React.FC<ListingsTableProps> = ({ onEdit }) => {
         onClose={() => setIsPreviewOpen(false)}
         previewUrl={previewUrl}
         title={previewTitle}
+      />
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setListingToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title="Eliminar Imóvel"
+        message="Tem certeza que deseja eliminar este imóvel? Esta ação não pode ser desfeita."
+        confirmLabel="Eliminar"
+        cancelLabel="Cancelar"
+        variant="danger"
+        isLoading={isDeleting}
       />
     </div>
   );

@@ -18,6 +18,7 @@ import {
   Select,
   PreviewModal,
   Modal,
+  ConfirmDialog,
 } from "../../components/admin/ui";
 import { appRoutes } from "../../utils/routes";
 import { useTenant } from "../../context/TenantContext";
@@ -56,6 +57,7 @@ const AdminListingsPage = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [previewTitle, setPreviewTitle] = useState<string>("");
+  const [isUpdateAllDialogOpen, setIsUpdateAllDialogOpen] = useState(false);
 
   // Delete Modal State
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -144,13 +146,14 @@ const AdminListingsPage = () => {
     fetchListings(1, true);
   };
 
-  const handleUpdateAll = async () => {
-    if (!window.confirm(t("admin.listings.confirmUpdateAll"))) {
-      return;
-    }
+  const handleUpdateAllClick = () => {
+    setIsUpdateAllDialogOpen(true);
+  };
 
+  const handleConfirmUpdateAll = async () => {
     try {
       setUpdating(true);
+      setIsUpdateAllDialogOpen(false);
       setFlash(null); // Clear any existing flash messages
       await adminUpdateAllListings();
       setFlash({
@@ -198,7 +201,7 @@ const AdminListingsPage = () => {
   }
 
   return (
-    <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
+    <div className="w-full shadow-md rounded px-4 sm:px-6 lg:px-8 py-4 mt-4">
       {/* Flash Messages */}
       {flash && (
         <Flashes
@@ -211,7 +214,7 @@ const AdminListingsPage = () => {
       {/* Controls */}
       <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap mb-6 gap-4">
         <Button
-          onClick={handleUpdateAll}
+          onClick={handleUpdateAllClick}
           isLoading={updating}
           disabled={!canUpdateAll}
           title={
@@ -306,7 +309,7 @@ const AdminListingsPage = () => {
             }
           >
             {listing.stats && (
-              <div className="flex flex-wrap gap-2 text-xs text-gray-600 dark:text-gray-400 mt-2">
+              <div className="flex flex-wrap gap-2 text-xs text-neutral-600 dark:text-neutral-400 mt-2">
                 <span>🛏️ {listing.stats.bedrooms}</span>
                 <span>🚿 {listing.stats.bathrooms}</span>
                 <span>🚗 {listing.stats.parking}</span>
@@ -355,7 +358,7 @@ const AdminListingsPage = () => {
           </>
         }
       >
-        <div className="text-gray-600 dark:text-gray-300">
+        <div className="text-neutral-600 dark:text-neutral-300">
           <p>
             {t(
               "admin.listings.delete_confirm",
@@ -371,6 +374,18 @@ const AdminListingsPage = () => {
           </p>
         </div>
       </Modal>
+
+      <ConfirmDialog
+        isOpen={isUpdateAllDialogOpen}
+        onClose={() => setIsUpdateAllDialogOpen(false)}
+        onConfirm={handleConfirmUpdateAll}
+        title={t("admin.listings.updateAllTitle")}
+        message={t("admin.listings.confirmUpdateAll")}
+        confirmLabel={t("admin.listings.updateAll")}
+        cancelLabel={t("common.cancel")}
+        variant="warning"
+        isLoading={updating}
+      />
     </div>
   );
 };

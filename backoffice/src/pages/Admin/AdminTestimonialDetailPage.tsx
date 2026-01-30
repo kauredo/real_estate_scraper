@@ -8,7 +8,7 @@ import {
 } from "../../services/api";
 import { appRoutes } from "../../utils/routes";
 import { Testimonial } from "../../utils/interfaces";
-import { LoadingSpinner, Button } from "../../components/admin/ui";
+import { LoadingSpinner, Button, ConfirmDialog } from "../../components/admin/ui";
 
 const AdminTestimonialDetailPage = () => {
   const { t } = useTranslation();
@@ -16,6 +16,8 @@ const AdminTestimonialDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const [loading, setLoading] = useState(true);
   const [testimonial, setTestimonial] = useState<Testimonial | null>(null);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const fetchTestimonial = async () => {
@@ -37,14 +39,22 @@ const AdminTestimonialDetailPage = () => {
     fetchTestimonial();
   }, [id]);
 
-  const handleDelete = async () => {
-    if (!id || !window.confirm(t("admin.confirmDelete"))) return;
+  const handleDeleteClick = () => {
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!id) return;
 
     try {
+      setIsDeleting(true);
       await adminDeleteTestimonial(parseInt(id));
+      setIsDeleteDialogOpen(false);
       navigate(appRoutes.backoffice.testimonials);
     } catch (error) {
       console.error("Error deleting testimonial:", error);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -55,7 +65,7 @@ const AdminTestimonialDetailPage = () => {
   if (!testimonial) {
     return (
       <div className="container mx-auto flex flex-col px-4">
-        <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4">
+        <div className="w-full shadow-md rounded px-4 sm:px-6 lg:px-8 py-4 mt-4">
           <p className="text-center text-red-500">
             {t("admin.testimonials.notFound")}
           </p>
@@ -66,12 +76,12 @@ const AdminTestimonialDetailPage = () => {
 
   return (
     <div className="container mx-auto flex flex-col sm:flex-row px-4 flex-wrap">
-      <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+      <div className="w-full shadow-md rounded px-4 sm:px-6 lg:px-8 py-4 mt-4 relative">
         <div className="mb-6 flex justify-between items-center">
           <Button
             onClick={() => navigate(appRoutes.backoffice.testimonials)}
             variant="secondary"
-            className="bg-gray-500 hover:bg-gray-600"
+            className="bg-neutral-500 hover:bg-neutral-600"
           >
             {t("common.back")}
           </Button>
@@ -84,8 +94,8 @@ const AdminTestimonialDetailPage = () => {
               {t("common.edit")}
             </Button>
             <Button
-              onClick={handleDelete}
-              className="bg-red-500 hover:bg-red-600"
+              onClick={handleDeleteClick}
+              variant="danger"
             >
               {t("common.delete")}
             </Button>
@@ -97,32 +107,32 @@ const AdminTestimonialDetailPage = () => {
         </h1>
 
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <div className="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6">
             <div className="mb-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
                 {t("admin.testimonials.form.name")}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 text-xl font-medium">
+              <p className="text-neutral-700 dark:text-neutral-300 text-xl font-medium">
                 {testimonial.name}
               </p>
             </div>
 
             <div className="mb-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
                 {t("admin.testimonials.form.testimonial")}
               </h3>
-              <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed italic">
+              <div className="bg-neutral-50 dark:bg-neutral-700 p-4 rounded-lg">
+                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed italic">
                   "{testimonial.text}"
                 </p>
               </div>
             </div>
 
             <div className="border-t pt-4">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
                 {t("admin.testimonials.form.metadata")}
               </h3>
-              <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-sm">
+              <div className="bg-neutral-50 dark:bg-neutral-700 p-4 rounded-lg text-sm">
                 <p className="mb-2">
                   <span className="font-medium">ID:</span> {testimonial.id}
                 </p>
@@ -131,6 +141,18 @@ const AdminTestimonialDetailPage = () => {
           </div>
         </div>
       </div>
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => setIsDeleteDialogOpen(false)}
+        onConfirm={handleConfirmDelete}
+        title={t("admin.testimonials.deleteTitle")}
+        message={t("admin.confirmDelete")}
+        confirmLabel={t("common.delete")}
+        cancelLabel={t("common.cancel")}
+        variant="danger"
+        isLoading={isDeleting}
+      />
     </div>
   );
 };

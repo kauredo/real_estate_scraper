@@ -31,15 +31,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     ref,
   ) => {
     const baseStyles =
-      "w-full rounded-lg border transition-colors focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed bg-white dark:bg-gray-800";
+      "w-full rounded-lg border transition-colors focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed bg-white dark:bg-neutral-800";
 
     const variantStyles = {
       default:
-        "border-gray-300 dark:border-gray-600 focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500",
+        "border-neutral-300 dark:border-neutral-600 focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500",
       error:
-        "border-red-500 dark:border-red-500 focus:border-red-500 focus:ring-red-500",
+        "border-error-500 dark:border-error-500 focus:border-error-500 focus:ring-error-500",
       success:
-        "border-green-500 dark:border-green-500 focus:border-green-500 focus:ring-green-500",
+        "border-success-500 dark:border-success-500 focus:border-success-500 focus:ring-success-500",
     };
 
     const sizeStyles = {
@@ -55,27 +55,27 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
             {label}
           </label>
         )}
 
         <div className="relative">
           {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-500">
               {leftIcon}
             </div>
           )}
 
           <input
             ref={ref}
-            className={`${baseStyles} ${variantStyles[displayVariant]} ${sizeStyles[inputSize]} ${paddingWithIcons} ${className} text-gray-900 dark:text-gray-100`}
+            className={`${baseStyles} ${variantStyles[displayVariant]} ${sizeStyles[inputSize]} ${paddingWithIcons} ${className} text-neutral-900 dark:text-neutral-100`}
             disabled={disabled}
             {...props}
           />
 
           {rightIcon && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-500">
               {rightIcon}
             </div>
           )}
@@ -88,7 +88,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
 
         {!errorMessage && helperText && (
-          <p className="mt-1.5 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-1.5 text-sm text-neutral-500 dark:text-neutral-400">
             {helperText}
           </p>
         )}

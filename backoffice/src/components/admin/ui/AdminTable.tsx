@@ -21,14 +21,14 @@ const AdminTable = <
   keyField = "id",
 }: AdminTableProps<T>) => {
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full table-auto border-collapse border border-gray-300 dark:border-gray-700">
+    <div className="overflow-x-auto rounded-lg border border-neutral-200 dark:border-neutral-700">
+      <table className="min-w-full table-auto">
         <thead>
-          <tr className="bg-gray-100 dark:bg-gray-700">
+          <tr className="bg-neutral-50 dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700">
             {columns.map((column) => (
               <th
                 key={column.key}
-                className="border border-gray-300 dark:border-gray-600 px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white"
+                className="px-4 py-3 text-left text-sm font-semibold text-neutral-700 dark:text-neutral-200"
                 style={{ width: column.width }}
               >
                 {column.label}
@@ -36,20 +36,16 @@ const AdminTable = <
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="divide-y divide-neutral-100 dark:divide-neutral-700">
           {data.map((row, index) => (
             <tr
               key={(row[keyField] as string | number) || index}
-              className={
-                index % 2 === 0
-                  ? "bg-white dark:bg-gray-800"
-                  : "bg-gray-50 dark:bg-gray-900"
-              }
+              className="bg-white dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700/50 transition-colors"
             >
               {columns.map((column) => (
                 <td
                   key={`${row[keyField]}-${column.key}`}
-                  className="border border-gray-300 dark:border-gray-600 px-4 py-3 text-sm text-gray-900 dark:text-gray-200"
+                  className="px-4 py-3 text-sm text-neutral-700 dark:text-neutral-300"
                 >
                   {column.render
                     ? column.render(row[column.key], row)

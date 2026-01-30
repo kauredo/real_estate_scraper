@@ -7,7 +7,7 @@ import {
   generatePreviewToken,
 } from "../../services/api";
 import { ListingComplex } from "../../utils/interfaces";
-import { Button, Pagination, LoadingSpinner, PreviewModal } from "../admin/ui";
+import { Button, Pagination, LoadingSpinner, PreviewModal, ConfirmDialog } from "../admin/ui";
 
 interface ListingComplexesTableProps {
   onEdit?: (listingComplex: ListingComplex) => void;
@@ -31,6 +31,9 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [previewTitle, setPreviewTitle] = useState<string>("");
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [complexToDelete, setComplexToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const fetchListingComplexes = async (page = 1) => {
     try {
@@ -51,17 +54,25 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
     fetchListingComplexes();
   }, []);
 
-  const handleDelete = async (id: number) => {
-    if (!window.confirm(t("admin.listingComplexes.confirmDelete"))) {
-      return;
-    }
+  const handleDeleteClick = (id: number) => {
+    setComplexToDelete(id);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!complexToDelete) return;
 
     try {
-      await adminDeleteListingComplex(id);
+      setIsDeleting(true);
+      await adminDeleteListingComplex(complexToDelete);
       await fetchListingComplexes(pagination.current_page);
+      setIsDeleteDialogOpen(false);
+      setComplexToDelete(null);
     } catch (err) {
       setError(t("admin.listingComplexes.errorDeleting"));
       console.error("Error deleting listing complex:", err);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -101,7 +112,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
         <h2 className="text-2xl font-bold">
           {t("admin.listingComplexes.title")}
         </h2>
-        <div className="text-sm text-gray-600">
+        <div className="text-sm text-neutral-600">
           {t("admin.listingComplexes.totalCount", {
             count: pagination.total_count,
           })}
@@ -115,7 +126,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
             className="bg-white rounded-lg shadow-lg overflow-hidden"
           >
             {complex.main_photo && (
-              <div className="h-48 bg-gray-200">
+              <div className="h-48 bg-neutral-200">
                 <img
                   src={complex.main_photo.image?.url}
                   alt={complex.name}
@@ -126,7 +137,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
 
             <div className="p-6">
               <div className="flex justify-between items-start mb-2">
-                <h3 className="text-lg font-semibold text-gray-900 line-clamp-2">
+                <h3 className="text-lg font-semibold text-neutral-900 line-clamp-2">
                   {complex.name}
                 </h3>
                 <div className="flex items-center space-x-1">
@@ -138,11 +149,11 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
                 </div>
               </div>
 
-              <p className="text-sm text-gray-600 mb-3 line-clamp-3">
+              <p className="text-sm text-neutral-600 mb-3 line-clamp-3">
                 {complex.description}
               </p>
 
-              <div className="space-y-2 text-sm text-gray-500 mb-4">
+              <div className="space-y-2 text-sm text-neutral-500 mb-4">
                 <div>ID: {complex.id}</div>
                 <div>Slug: {complex.slug}</div>
                 <div>
@@ -175,7 +186,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
                   </Button>
                 )}
                 <Button
-                  onClick={() => handleDelete(complex.id)}
+                  onClick={() => handleDeleteClick(complex.id)}
                   variant="link"
                   size="sm"
                   className="text-red-600 hover:text-red-900"
@@ -190,7 +201,7 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
 
       {listingComplexes.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-500">{t("admin.listingComplexes.empty")}</p>
+          <p className="text-neutral-500">{t("admin.listingComplexes.empty")}</p>
         </div>
       )}
 
@@ -209,6 +220,21 @@ const ListingComplexesTable: React.FC<ListingComplexesTableProps> = ({
         onClose={() => setIsPreviewOpen(false)}
         previewUrl={previewUrl}
         title={previewTitle}
+      />
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setComplexToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title={t("admin.listingComplexes.deleteTitle")}
+        message={t("admin.listingComplexes.confirmDelete")}
+        confirmLabel={t("common.delete")}
+        cancelLabel={t("common.cancel")}
+        variant="danger"
+        isLoading={isDeleting}
       />
     </div>
   );

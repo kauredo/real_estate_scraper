@@ -7,6 +7,7 @@ import {
 } from "../../services/api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Variable } from "../../utils/interfaces";
+import { ConfirmDialog } from "../../components/admin/ui";
 
 interface NewsletterSubscription {
   id: number;
@@ -35,6 +36,9 @@ const AdminSystemSettings = ({
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [variableToDelete, setVariableToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -84,23 +88,28 @@ const AdminSystemSettings = ({
     }
   };
 
-  const handleVariableDelete = async (id: number | undefined) => {
+  const handleVariableDeleteClick = (id: number | undefined) => {
     if (!id) return;
-    if (!window.confirm("Tem certeza que deseja excluir esta variável?")) {
-      return;
-    }
+    setVariableToDelete(id);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmVariableDelete = async () => {
+    if (!variableToDelete) return;
 
     try {
-      setLoading(true);
-      await adminDeleteVariable(id);
+      setIsDeleting(true);
+      await adminDeleteVariable(variableToDelete);
       setMessage({ text: "Variável excluída com sucesso!", type: "success" });
+      setIsDeleteDialogOpen(false);
+      setVariableToDelete(null);
 
       // Refresh the page to show the updated list
       window.location.reload();
     } catch {
       setMessage({ text: "Erro ao excluir variável", type: "error" });
     } finally {
-      setLoading(false);
+      setIsDeleting(false);
     }
   };
 
@@ -128,7 +137,7 @@ const AdminSystemSettings = ({
           <h2 className="text-2xl font-bold mb-4 text-dark dark:text-light">
             Variáveis do Sistema
           </h2>
-          <p className="text-gray-500 dark:text-light mb-6">
+          <p className="text-neutral-500 dark:text-light mb-6">
             Nota: copiar ícones do site{" "}
             <a
               className="text-primary-600 dark:text-beige-medium underline"
@@ -144,25 +153,25 @@ const AdminSystemSettings = ({
             {variables.map((variable) => (
               <div
                 key={variable.id}
-                className="flex flex-wrap items-center gap-3 p-2 bg-gray-50 dark:bg-gray-800 rounded-lg"
+                className="flex flex-wrap items-center gap-3 p-2 bg-neutral-50 dark:bg-neutral-800 rounded-lg"
               >
                 <input
                   type="text"
                   defaultValue={variable.name}
                   onChange={(e) => (variable.name = e.target.value)}
-                  className="flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
+                  className="flex-1 min-w-[150px] bg-neutral-50 dark:bg-light border rounded py-2 px-3 text-neutral-700"
                 />
                 <input
                   type="text"
                   defaultValue={variable.value}
                   onChange={(e) => (variable.value = e.target.value)}
-                  className="flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
+                  className="flex-1 min-w-[150px] bg-neutral-50 dark:bg-light border rounded py-2 px-3 text-neutral-700"
                 />
                 <input
                   type="text"
                   defaultValue={variable.icon}
                   onChange={(e) => (variable.icon = e.target.value)}
-                  className="flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
+                  className="flex-1 min-w-[150px] bg-neutral-50 dark:bg-light border rounded py-2 px-3 text-neutral-700"
                 />
                 <div className="flex gap-2">
                   <button
@@ -173,7 +182,7 @@ const AdminSystemSettings = ({
                     Atualizar
                   </button>
                   <button
-                    onClick={() => handleVariableDelete(variable.id)}
+                    onClick={() => handleVariableDeleteClick(variable.id)}
                     disabled={loading}
                     className="bg-red-500 hover:bg-red-700 text-white dark:text-dark p-2 rounded"
                   >
@@ -194,7 +203,7 @@ const AdminSystemSettings = ({
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="variável"
-                  className="flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
+                  className="flex-1 min-w-[150px] bg-neutral-50 dark:bg-light border rounded py-2 px-3 text-neutral-700"
                 />
                 <input
                   type="text"
@@ -202,7 +211,7 @@ const AdminSystemSettings = ({
                   value={formData.value}
                   onChange={handleInputChange}
                   placeholder="valor"
-                  className="flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
+                  className="flex-1 min-w-[150px] bg-neutral-50 dark:bg-light border rounded py-2 px-3 text-neutral-700"
                 />
                 <input
                   type="text"
@@ -210,7 +219,7 @@ const AdminSystemSettings = ({
                   value={formData.icon}
                   onChange={handleInputChange}
                   placeholder="ícone"
-                  className="flex-1 min-w-[150px] bg-gray-50 dark:bg-light border rounded py-2 px-3 text-gray-700"
+                  className="flex-1 min-w-[150px] bg-neutral-50 dark:bg-light border rounded py-2 px-3 text-neutral-700"
                 />
                 <button
                   type="submit"
@@ -235,18 +244,18 @@ const AdminSystemSettings = ({
                 {subs.map((sub) => (
                   <li
                     key={sub.id}
-                    className="py-2 px-3 bg-gray-50 dark:bg-gray-800 rounded"
+                    className="py-2 px-3 bg-neutral-50 dark:bg-neutral-800 rounded"
                   >
                     <span className="font-medium">
                       {sub.user.first_name} {sub.user.last_name}:
                     </span>
-                    <span className="text-gray-500 dark:text-gray-400 ml-2">
+                    <span className="text-neutral-500 dark:text-neutral-400 ml-2">
                       {sub.user.email}
                     </span>
                   </li>
                 ))}
                 {subs.length === 0 && (
-                  <li className="py-2 px-3 bg-gray-50 dark:bg-gray-800 rounded text-center">
+                  <li className="py-2 px-3 bg-neutral-50 dark:bg-neutral-800 rounded text-center">
                     Nenhuma subscrição encontrada
                   </li>
                 )}
@@ -255,6 +264,21 @@ const AdminSystemSettings = ({
           </div>
         </div>
       </div>
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setVariableToDelete(null);
+        }}
+        onConfirm={handleConfirmVariableDelete}
+        title="Excluir Variável"
+        message="Tem certeza que deseja excluir esta variável?"
+        confirmLabel="Excluir"
+        cancelLabel="Cancelar"
+        variant="danger"
+        isLoading={isDeleting}
+      />
     </section>
   );
 };

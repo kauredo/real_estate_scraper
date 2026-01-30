@@ -22,7 +22,7 @@ export default function CaseStudies() {
   return (
     <>
       <SEO page="caseStudies" />
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="min-h-screen bg-gradient-to-b from-white to-neutral-50">
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-4">
           <div className="container mx-auto max-w-4xl text-center">
@@ -32,7 +32,7 @@ export default function CaseStudies() {
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
               {t("caseStudies.hero.title")}
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-neutral-600 mb-8">
               {t("caseStudies.hero.subtitle")}
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function CaseStudies() {
                 <h2 className="text-4xl font-bold mb-4">
                   {t("caseStudies.featured.client")}
                 </h2>
-                <div className="text-gray-600 mb-6">
+                <div className="text-neutral-600 mb-6">
                   <p className="flex items-center gap-2">
                     <span className="font-semibold">
                       {t("caseStudies.featured.location")}
@@ -67,10 +67,10 @@ export default function CaseStudies() {
                 {/* Challenge */}
                 <div className="mb-8">
                   <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <TrendingUp className="h-5 w-5 text-blue-600" />
+                    <TrendingUp className="h-5 w-5 text-primary-600" />
                     {t("caseStudies.featured.challenge.title")}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("caseStudies.featured.challenge.description")}
                   </p>
                 </div>
@@ -81,7 +81,7 @@ export default function CaseStudies() {
                     <CheckCircle2 className="h-5 w-5 text-green-600" />
                     {t("caseStudies.featured.solution.title")}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("caseStudies.featured.solution.description")}
                   </p>
                 </div>
@@ -91,7 +91,7 @@ export default function CaseStudies() {
                   href="https://sofiagalvaogroup.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+                  className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold"
                 >
                   {t("caseStudies.featured.visitWebsite")}
                   <ExternalLink className="h-4 w-4" />
@@ -109,17 +109,17 @@ export default function CaseStudies() {
                   <Card>
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
-                        <div className="p-3 bg-blue-100 rounded-lg">
-                          <Clock className="h-6 w-6 text-blue-600" />
+                        <div className="p-3 bg-primary-50 rounded-lg">
+                          <Clock className="h-6 w-6 text-primary-600" />
                         </div>
                         <div>
-                          <div className="text-3xl font-bold text-blue-600 mb-1">
+                          <div className="text-3xl font-bold text-primary-600 mb-1">
                             {t("caseStudies.featured.results.metrics.0.value")}
                           </div>
                           <div className="font-semibold mb-1">
                             {t("caseStudies.featured.results.metrics.0.label")}
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-sm text-neutral-600">
                             {t("caseStudies.featured.results.metrics.0.description")}
                           </div>
                         </div>
@@ -141,7 +141,7 @@ export default function CaseStudies() {
                           <div className="font-semibold mb-1">
                             {t("caseStudies.featured.results.metrics.1.label")}
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-sm text-neutral-600">
                             {t("caseStudies.featured.results.metrics.1.description")}
                           </div>
                         </div>
@@ -153,17 +153,17 @@ export default function CaseStudies() {
                   <Card>
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
-                        <div className="p-3 bg-purple-100 rounded-lg">
-                          <TrendingUp className="h-6 w-6 text-purple-600" />
+                        <div className="p-3 bg-warm-50 rounded-lg">
+                          <TrendingUp className="h-6 w-6 text-warm-600" />
                         </div>
                         <div>
-                          <div className="text-3xl font-bold text-purple-600 mb-1">
+                          <div className="text-3xl font-bold text-warm-600 mb-1">
                             {t("caseStudies.featured.results.metrics.2.value")}
                           </div>
                           <div className="font-semibold mb-1">
                             {t("caseStudies.featured.results.metrics.2.label")}
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-sm text-neutral-600">
                             {t("caseStudies.featured.results.metrics.2.description")}
                           </div>
                         </div>
@@ -173,17 +173,17 @@ export default function CaseStudies() {
                 </div>
 
                 {/* Quote */}
-                <Card className="bg-blue-50 border-blue-200">
+                <Card className="bg-primary-50/50 border-primary-200">
                   <CardContent className="p-6">
-                    <Quote className="h-8 w-8 text-blue-600 mb-4" />
-                    <p className="text-gray-700 italic mb-4">
+                    <Quote className="h-8 w-8 text-primary-600 mb-4" />
+                    <p className="text-neutral-700 italic mb-4">
                       "{t("caseStudies.featured.quote")}"
                     </p>
                     <div>
                       <div className="font-semibold">
                         {t("caseStudies.featured.quoteName")}
                       </div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-sm text-neutral-600">
                         {t("caseStudies.featured.quoteRole")}
                       </div>
                     </div>
@@ -200,10 +200,10 @@ export default function CaseStudies() {
             <h2 className="text-3xl font-bold mb-4">
               {t("caseStudies.moreStories.title")}
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-neutral-600 mb-8">
               {t("caseStudies.moreStories.subtitle")}
             </p>
-            <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
+            <div className="flex items-center justify-center gap-4 text-sm text-neutral-500">
               <CheckCircle2 className="h-5 w-5 text-green-600" />
               <span>More success stories coming soon</span>
             </div>
@@ -211,24 +211,24 @@ export default function CaseStudies() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <section className="py-20 px-4 bg-primary-600 text-white">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-4xl font-bold mb-4">
               {t("caseStudies.cta.title")}
             </h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-xl mb-8 text-primary-100">
               {t("caseStudies.cta.subtitle")}
             </p>
-            <Link to={localizedPath("/contact")}>
-              <Button
-                size="lg"
-                variant="default"
-                className="bg-white text-blue-600 hover:bg-gray-100"
-              >
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-primary-600 hover:bg-primary-50"
+            >
+              <Link to={localizedPath("/contact")}>
                 {t("caseStudies.cta.button")}
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </section>
       </div>

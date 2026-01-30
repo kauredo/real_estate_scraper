@@ -17,6 +17,7 @@ import {
   EmptyState,
   Button,
   PreviewModal,
+  ConfirmDialog,
 } from "../../components/admin/ui";
 
 interface PaginationState {
@@ -39,6 +40,9 @@ const AdminBlogPostsPage = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [previewTitle, setPreviewTitle] = useState<string>("");
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [postToDelete, setPostToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const fetchBlogPosts = async (page = 1) => {
     try {
@@ -66,14 +70,24 @@ const AdminBlogPostsPage = () => {
     }
   };
 
-  const handleDelete = async (id: number) => {
-    if (!window.confirm(t("admin.confirmDelete"))) return;
+  const handleDeleteClick = (id: number) => {
+    setPostToDelete(id);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!postToDelete) return;
 
     try {
-      await adminDeleteBlogPost(id);
+      setIsDeleting(true);
+      await adminDeleteBlogPost(postToDelete);
       fetchBlogPosts(pagination.current_page);
+      setIsDeleteDialogOpen(false);
+      setPostToDelete(null);
     } catch (error) {
       console.error("Error deleting blog post:", error);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -97,7 +111,7 @@ const AdminBlogPostsPage = () => {
   }
 
   return (
-    <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+    <div className="w-full shadow-md rounded px-4 sm:px-6 lg:px-8 py-4 mt-4 relative">
       <AdminPageHeader
         title={t("admin.blog_posts.title")}
         count={pagination.total_count}
@@ -156,7 +170,7 @@ const AdminBlogPostsPage = () => {
                     </Button>
                   </Link>
                   <Button
-                    onClick={() => handleDelete(post.id)}
+                    onClick={() => handleDeleteClick(post.id)}
                     variant="link"
                     size="sm"
                     className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
@@ -184,6 +198,21 @@ const AdminBlogPostsPage = () => {
         onClose={() => setIsPreviewOpen(false)}
         previewUrl={previewUrl}
         title={previewTitle}
+      />
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setPostToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title={t("admin.blog_posts.deleteTitle")}
+        message={t("admin.confirmDelete")}
+        confirmLabel={t("common.delete")}
+        cancelLabel={t("common.cancel")}
+        variant="danger"
+        isLoading={isDeleting}
       />
     </div>
   );

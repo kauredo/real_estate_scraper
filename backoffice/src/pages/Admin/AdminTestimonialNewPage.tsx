@@ -66,7 +66,7 @@ const AdminTestimonialNewPage = () => {
         />
       )}
 
-      <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+      <div className="w-full shadow-md rounded px-4 sm:px-6 lg:px-8 py-4 mt-4 relative">
         <div className="mb-6">
           <Button
             onClick={() => navigate(appRoutes.backoffice.testimonials)}

@@ -39,7 +39,7 @@ export function Navbar() {
               <Link
                 key={link.path}
                 to={localizedPath(link.path)}
-                className="text-gray-600 hover:text-gray-900 transition"
+                className="text-neutral-600 hover:text-neutral-900 transition"
               >
                 {link.label}
               </Link>
@@ -71,7 +71,7 @@ export function Navbar() {
               <Link
                 key={link.path}
                 to={localizedPath(link.path)}
-                className="block text-gray-600 hover:text-gray-900 transition py-2"
+                className="block text-neutral-600 hover:text-neutral-900 transition py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}

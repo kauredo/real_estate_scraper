@@ -100,7 +100,7 @@ const AdminNewsletterSubscriptionsPage = () => {
   ];
 
   return (
-    <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+    <div className="w-full shadow-md rounded px-4 sm:px-6 lg:px-8 py-4 mt-4 relative">
       <AdminPageHeader
         title={t("admin.newsletter.title")}
         count={subscriptions.length}

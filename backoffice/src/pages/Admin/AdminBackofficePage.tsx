@@ -223,10 +223,10 @@ const AdminBackofficePage = () => {
     <div className="container mx-auto px-4 py-6 space-y-8">
       {/* Welcome Section */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+        <h1 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
           {t("admin.dashboard.welcome")}
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
+        <p className="text-neutral-600 dark:text-neutral-400 mt-2">
           {t("admin.dashboard.subtitle")}
         </p>
       </div>
@@ -237,14 +237,14 @@ const AdminBackofficePage = () => {
           <Link
             key={card.title}
             to={card.link}
-            className="block bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+            className="block bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">
+                <p className="text-neutral-500 dark:text-neutral-400 text-sm">
                   {card.title}
                 </p>
-                <p className="text-3xl font-bold text-gray-900 dark:text-gray-100 mt-2">
+                <p className="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mt-2">
                   {card.count}
                 </p>
               </div>
@@ -280,14 +280,14 @@ const AdminBackofficePage = () => {
 
       {/* Quick Actions */}
       {showQuickActions ? (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+        <div className="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6">
+          <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
             {t("admin.dashboard.quick_actions")}
           </h2>
 
           {!scraperDomain ? (
             <div className="text-center py-8">
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-neutral-600 dark:text-neutral-400">
                 {t("admin.dashboard.no_scraper_configured")}
               </p>
             </div>
@@ -295,10 +295,10 @@ const AdminBackofficePage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Add Listing */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
                   {t("admin.dashboard.add_listing")}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
                   {t("admin.dashboard.add_listing_note", {
                     source: scraperDisplayName,
                   })}
@@ -322,10 +322,10 @@ const AdminBackofficePage = () => {
 
               {/* Add Complex */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
                   {t("admin.dashboard.add_complex")}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
                   {t("admin.dashboard.add_complex_note", {
                     source: scraperDisplayName,
                   })}
@@ -350,12 +350,12 @@ const AdminBackofficePage = () => {
           )}
         </div>
       ) : (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+        <div className="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6">
+          <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
             {t("admin.dashboard.quick_actions")}
           </h2>
           <div className="text-center py-8">
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-neutral-600 dark:text-neutral-400">
               {t("admin.dashboard.select_tenant_to_add")}
             </p>
           </div>

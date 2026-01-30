@@ -11,11 +11,11 @@ export default function DarkModeToggle() {
   const [isDarkMode, setIsDarkMode] = useState(isDarkModeActive());
 
   useEffect(() => {
-    // Apply dark mode on initial load
+    // Apply dark mode on initial load to html element (Tailwind standard)
     if (isDarkMode) {
-      document.getElementById("root")?.classList.add("dark");
+      document.documentElement.classList.add("dark");
     } else {
-      document.getElementById("root")?.classList.remove("dark");
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
@@ -23,8 +23,8 @@ export default function DarkModeToggle() {
     const newDarkMode = !isDarkMode;
     localStorage.setItem("darkMode", String(newDarkMode));
 
-    // Update UI
-    document.getElementById("root")?.classList.toggle("dark");
+    // Update UI - toggle on html element (Tailwind standard)
+    document.documentElement.classList.toggle("dark");
     const navImg = document.getElementById("nav-logo")?.getAttribute("src");
     if (navImg) {
       const imgs = document.querySelectorAll(`img[src="${navImg}"]`);

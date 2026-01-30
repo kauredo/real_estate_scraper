@@ -32,7 +32,7 @@ export default function Pricing() {
   return (
     <>
       <SEO page="pricing" />
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="min-h-screen bg-gradient-to-b from-white to-neutral-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
@@ -42,11 +42,11 @@ export default function Pricing() {
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
             {t("pricing.hero.title")}
             <br />
-            <span className="text-blue-600">
+            <span className="text-primary-600">
               {t("pricing.hero.titleHighlight")}
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
             {t("pricing.hero.description")}
           </p>
         </div>
@@ -57,10 +57,10 @@ export default function Pricing() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8">
             {/* Developer Plan */}
-            <Card className="border-2 border-gray-200">
+            <Card className="border-2 border-neutral-200">
               <CardHeader>
                 <div className="mb-4 bg-gray-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <Zap className="h-6 w-6 text-gray-600" />
+                  <Zap className="h-6 w-6 text-neutral-600" />
                 </div>
                 <CardTitle className="text-2xl">
                   {t("pricing.plans.developer.name")}
@@ -74,7 +74,7 @@ export default function Pricing() {
                   <div className="text-4xl font-bold mb-2">
                     {t("pricing.plans.developer.price")}
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("pricing.plans.developer.billing")}
                   </p>
                 </div>
@@ -118,25 +118,25 @@ export default function Pricing() {
                     </span>
                   </li>
                 </ul>
-                <Link to="/contact" className="inline-block w-full">
-                  <Button size="lg" variant="outline" className="w-full">
+                <Button asChild size="lg" variant="outline" className="w-full">
+                  <Link to="/contact">
                     {t("pricing.plans.developer.cta")}
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
 
             {/* Professional Plan - Most Popular */}
-            <Card className="border-2 border-blue-600 relative shadow-xl scale-105">
+            <Card className="border-2 border-primary-600 relative shadow-xl scale-105">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <Badge className="bg-blue-600 text-white">
+                <Badge className="bg-primary-600 text-white">
                   {t("pricing.plans.professional.badge")}
                 </Badge>
               </div>
               <CardHeader>
-                <div className="mb-4 bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <Building2 className="h-6 w-6 text-blue-600" />
+                <div className="mb-4 bg-primary-50 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <Building2 className="h-6 w-6 text-primary-600" />
                 </div>
                 <CardTitle className="text-2xl">
                   {t("pricing.plans.professional.name")}
@@ -150,7 +150,7 @@ export default function Pricing() {
                   <div className="text-4xl font-bold mb-2">
                     {t("pricing.plans.professional.price")}
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("pricing.plans.professional.billing")}
                   </p>
                 </div>
@@ -204,20 +204,20 @@ export default function Pricing() {
                     </span>
                   </li>
                 </ul>
-                <Link to="/contact" className="inline-block w-full">
-                  <Button size="lg" className="w-full">
+                <Button asChild size="lg" className="w-full">
+                  <Link to="/contact">
                     {t("pricing.plans.professional.cta")}
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
 
             {/* Enterprise Plan */}
-            <Card className="border-2 border-purple-200">
+            <Card className="border-2 border-warm-200">
               <CardHeader>
-                <div className="mb-4 bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <Crown className="h-6 w-6 text-purple-600" />
+                <div className="mb-4 bg-warm-50 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <Crown className="h-6 w-6 text-warm-600" />
                 </div>
                 <CardTitle className="text-2xl">
                   {t("pricing.plans.enterprise.name")}
@@ -231,7 +231,7 @@ export default function Pricing() {
                   <div className="text-4xl font-bold mb-2">
                     {t("pricing.plans.enterprise.price")}
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("pricing.plans.enterprise.billing")}
                   </p>
                 </div>
@@ -277,12 +277,12 @@ export default function Pricing() {
                     <span>{t("pricing.plans.enterprise.features.sla")}</span>
                   </li>
                 </ul>
-                <Link to="/contact" className="inline-block w-full">
-                  <Button size="lg" variant="outline" className="w-full">
+                <Button asChild size="lg" variant="outline" className="w-full">
+                  <Link to="/contact">
                     {t("pricing.plans.enterprise.cta")}
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
           </div>
@@ -290,7 +290,7 @@ export default function Pricing() {
       </section>
 
       {/* One-Time Services */}
-      <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-20 px-4 bg-neutral-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <Badge variant="secondary" className="mb-4">
@@ -299,17 +299,17 @@ export default function Pricing() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("pricing.oneTimeServices.heading")}
             </h2>
-            <p className="text-xl text-gray-600 mb-2">
+            <p className="text-xl text-neutral-600 mb-2">
               {t("pricing.oneTimeServices.subheading")}
             </p>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <p className="text-neutral-600 max-w-3xl mx-auto">
               {t("pricing.oneTimeServices.description")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {/* Build Only */}
-            <Card className="border-2 border-gray-200">
+            <Card className="border-2 border-neutral-200">
               <CardHeader>
                 <CardTitle className="text-2xl">
                   {t("pricing.oneTimeServices.buildOnly.name")}
@@ -323,7 +323,7 @@ export default function Pricing() {
                   <div className="text-4xl font-bold mb-2">
                     {t("pricing.oneTimeServices.buildOnly.price")}
                   </div>
-                  <p className="text-gray-600 text-sm">One-time payment</p>
+                  <p className="text-neutral-600 text-sm">One-time payment</p>
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3">
@@ -363,17 +363,17 @@ export default function Pricing() {
                     </span>
                   </li>
                 </ul>
-                <Link to="/contact" className="inline-block w-full">
-                  <Button size="lg" variant="outline" className="w-full">
+                <Button asChild size="lg" variant="outline" className="w-full">
+                  <Link to="/contact">
                     Contact Us
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
 
             {/* Design Only */}
-            <Card className="border-2 border-gray-200">
+            <Card className="border-2 border-neutral-200">
               <CardHeader>
                 <CardTitle className="text-2xl">
                   {t("pricing.oneTimeServices.designOnly.name")}
@@ -387,7 +387,7 @@ export default function Pricing() {
                   <div className="text-4xl font-bold mb-2">
                     {t("pricing.oneTimeServices.designOnly.price")}
                   </div>
-                  <p className="text-gray-600 text-sm">One-time payment</p>
+                  <p className="text-neutral-600 text-sm">One-time payment</p>
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3">
@@ -427,19 +427,19 @@ export default function Pricing() {
                     </span>
                   </li>
                 </ul>
-                <Link to="/contact" className="inline-block w-full">
-                  <Button size="lg" variant="outline" className="w-full">
+                <Button asChild size="lg" variant="outline" className="w-full">
+                  <Link to="/contact">
                     Contact Us
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
 
             {/* Design + Build - Most Popular */}
-            <Card className="border-2 border-purple-600 relative shadow-xl">
+            <Card className="border-2 border-warm-500 relative shadow-xl">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <Badge className="bg-purple-600 text-white">
+                <Badge className="bg-warm-500 text-white">
                   {t("pricing.oneTimeServices.complete.badge")}
                 </Badge>
               </div>
@@ -456,7 +456,7 @@ export default function Pricing() {
                   <div className="text-4xl font-bold mb-2">
                     {t("pricing.oneTimeServices.complete.price")}
                   </div>
-                  <p className="text-gray-600 text-sm">One-time payment</p>
+                  <p className="text-neutral-600 text-sm">One-time payment</p>
                 </div>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3">
@@ -496,12 +496,16 @@ export default function Pricing() {
                     </span>
                   </li>
                 </ul>
-                <Link to="/contact" className="inline-block w-full">
-                  <Button size="lg" className="w-full bg-purple-600 hover:bg-purple-700">
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full bg-warm-500 hover:bg-warm-600"
+                >
+                  <Link to="/contact">
                     Contact Us
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
           </div>
@@ -511,17 +515,17 @@ export default function Pricing() {
             <h3 className="text-2xl font-bold mb-6">
               {t("pricing.oneTimeServices.addons.heading")}
             </h3>
-            <div className="flex flex-wrap justify-center gap-4 text-gray-600">
-              <span className="px-4 py-2 bg-white rounded-lg border-2 border-gray-200">
+            <div className="flex flex-wrap justify-center gap-4 text-neutral-600">
+              <span className="px-4 py-2 bg-white rounded-lg border-2 border-neutral-200">
                 {t("pricing.oneTimeServices.addons.logo")}
               </span>
-              <span className="px-4 py-2 bg-white rounded-lg border-2 border-gray-200">
+              <span className="px-4 py-2 bg-white rounded-lg border-2 border-neutral-200">
                 {t("pricing.oneTimeServices.addons.extraPage")}
               </span>
-              <span className="px-4 py-2 bg-white rounded-lg border-2 border-gray-200">
+              <span className="px-4 py-2 bg-white rounded-lg border-2 border-neutral-200">
                 {t("pricing.oneTimeServices.addons.blog")}
               </span>
-              <span className="px-4 py-2 bg-white rounded-lg border-2 border-gray-200">
+              <span className="px-4 py-2 bg-white rounded-lg border-2 border-neutral-200">
                 {t("pricing.oneTimeServices.addons.migration")}
               </span>
             </div>
@@ -536,7 +540,7 @@ export default function Pricing() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("pricing.comparison.heading")}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-neutral-600">
               {t("pricing.comparison.subheading")}
             </p>
           </div>
@@ -544,14 +548,14 @@ export default function Pricing() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b-2 border-gray-200">
+                <tr className="border-b-2 border-neutral-200">
                   <th className="text-left py-4 px-4 font-bold">
                     {t("pricing.comparison.table.feature")}
                   </th>
                   <th className="text-center py-4 px-4 font-bold">
                     {t("pricing.plans.developer.name")}
                   </th>
-                  <th className="text-center py-4 px-4 font-bold text-blue-600">
+                  <th className="text-center py-4 px-4 font-bold text-primary-600">
                     {t("pricing.plans.professional.name")}
                   </th>
                   <th className="text-center py-4 px-4 font-bold">
@@ -567,7 +571,7 @@ export default function Pricing() {
                   <td className="py-4 px-4 text-center">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50">
+                  <td className="py-4 px-4 text-center bg-primary-50/50">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
@@ -581,7 +585,7 @@ export default function Pricing() {
                   <td className="py-4 px-4 text-center">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50">
+                  <td className="py-4 px-4 text-center bg-primary-50/50">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
@@ -595,7 +599,7 @@ export default function Pricing() {
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50">
+                  <td className="py-4 px-4 text-center bg-primary-50/50">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
@@ -609,7 +613,7 @@ export default function Pricing() {
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50">
+                  <td className="py-4 px-4 text-center bg-primary-50/50">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
@@ -623,7 +627,7 @@ export default function Pricing() {
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50">
+                  <td className="py-4 px-4 text-center bg-primary-50/50">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
@@ -634,13 +638,13 @@ export default function Pricing() {
                   <td className="py-4 px-4">
                     {t("pricing.comparison.table.rows.support")}
                   </td>
-                  <td className="py-4 px-4 text-center text-gray-600 text-sm">
+                  <td className="py-4 px-4 text-center text-neutral-600 text-sm">
                     {t("pricing.comparison.table.support.email")}
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50 text-gray-600 text-sm">
+                  <td className="py-4 px-4 text-center bg-primary-50/50 text-neutral-600 text-sm">
                     {t("pricing.comparison.table.support.priority")}
                   </td>
-                  <td className="py-4 px-4 text-center text-gray-600 text-sm">
+                  <td className="py-4 px-4 text-center text-neutral-600 text-sm">
                     {t("pricing.comparison.table.support.dedicated")}
                   </td>
                 </tr>
@@ -651,7 +655,7 @@ export default function Pricing() {
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50">
+                  <td className="py-4 px-4 text-center bg-primary-50/50">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
@@ -665,7 +669,7 @@ export default function Pricing() {
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50">
+                  <td className="py-4 px-4 text-center bg-primary-50/50">
                     <Check className="h-5 w-5 text-green-600 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
@@ -679,7 +683,7 @@ export default function Pricing() {
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50">
+                  <td className="py-4 px-4 text-center bg-primary-50/50">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
@@ -693,7 +697,7 @@ export default function Pricing() {
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50">
+                  <td className="py-4 px-4 text-center bg-primary-50/50">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
@@ -707,7 +711,7 @@ export default function Pricing() {
                   <td className="py-4 px-4 text-center">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
-                  <td className="py-4 px-4 text-center bg-blue-50">
+                  <td className="py-4 px-4 text-center bg-primary-50/50">
                     <X className="h-5 w-5 text-gray-300 mx-auto" />
                   </td>
                   <td className="py-4 px-4 text-center">
@@ -727,14 +731,14 @@ export default function Pricing() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("pricing.faq.heading")}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-neutral-600">
               {t("pricing.faq.subheading")}
             </p>
           </div>
 
           <div className="space-y-4">
             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((index) => (
-              <Card key={index} className="border-2 border-gray-200">
+              <Card key={index} className="border-2 border-neutral-200">
                 <CardContent className="p-0">
                   <button
                     onClick={() => toggleFaq(index)}
@@ -744,14 +748,14 @@ export default function Pricing() {
                       {t(`pricing.faq.questions.${index}.question`)}
                     </h3>
                     <ChevronDown
-                      className={`h-5 w-5 text-gray-600 transition-transform ${
+                      className={`h-5 w-5 text-neutral-600 transition-transform ${
                         openFaq === index ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                   {openFaq === index && (
                     <div className="px-6 pb-4">
-                      <p className="text-gray-600">
+                      <p className="text-neutral-600">
                         {t(`pricing.faq.questions.${index}.answer`)}
                       </p>
                     </div>
@@ -766,34 +770,33 @@ export default function Pricing() {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
-          <Card className="bg-gradient-to-br from-blue-600 to-purple-600 border-0 text-white">
+          <Card className="bg-primary-600 border-0 text-white">
             <CardContent className="pt-12 pb-12 text-center">
               <h2 className="text-4xl font-bold mb-4">
                 {t("pricing.cta.heading")}
               </h2>
-              <p className="text-xl text-white/90 mb-8">
+              <p className="text-xl text-primary-100 mb-8">
                 {t("pricing.cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="text-lg px-8 py-6"
-                  >
+                <Button
+                  asChild
+                  size="lg"
+                  className="text-lg px-8 py-6 bg-white text-primary-600 hover:bg-primary-50"
+                >
+                  <Link to="/contact">
                     {t("pricing.cta.primaryCta")}
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link to="/features">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="text-lg px-8 py-6 bg-white/10 border-white text-white hover:bg-white/20"
-                  >
-                    {t("pricing.cta.secondaryCta")}
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-6 bg-transparent border-white/30 text-white hover:bg-white/10"
+                >
+                  <Link to="/features">{t("pricing.cta.secondaryCta")}</Link>
+                </Button>
               </div>
             </CardContent>
           </Card>

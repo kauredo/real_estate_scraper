@@ -14,6 +14,7 @@ import {
   Input,
   Select,
   Button,
+  ConfirmDialog,
 } from "../../../components/admin/ui";
 
 interface Admin {
@@ -54,6 +55,12 @@ const SuperAdminAdminsPage = () => {
   const [confirmedFilter, setConfirmedFilter] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingAdmin, setEditingAdmin] = useState<Admin | null>(null);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [adminToDelete, setAdminToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isUnconfirmDialogOpen, setIsUnconfirmDialogOpen] = useState(false);
+  const [adminToUnconfirm, setAdminToUnconfirm] = useState<number | null>(null);
+  const [isUnconfirming, setIsUnconfirming] = useState(false);
 
   const fetchAdmins = async () => {
     setLoading(true);
@@ -89,14 +96,24 @@ const SuperAdminAdminsPage = () => {
     fetchAdmins();
   }, [search, tenantFilter, confirmedFilter]);
 
-  const handleDelete = async (id: number) => {
-    if (!window.confirm(t("super_admin.admins.delete_confirm"))) return;
+  const handleDeleteClick = (id: number) => {
+    setAdminToDelete(id);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!adminToDelete) return;
 
     try {
-      await superAdminDeleteAdmin(id);
+      setIsDeleting(true);
+      await superAdminDeleteAdmin(adminToDelete);
       fetchAdmins();
+      setIsDeleteDialogOpen(false);
+      setAdminToDelete(null);
     } catch (error) {
       console.error("Failed to delete admin:", error);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -109,14 +126,24 @@ const SuperAdminAdminsPage = () => {
     }
   };
 
-  const handleUnconfirm = async (id: number) => {
-    if (!window.confirm(t("super_admin.admins.unconfirm_confirm"))) return;
+  const handleUnconfirmClick = (id: number) => {
+    setAdminToUnconfirm(id);
+    setIsUnconfirmDialogOpen(true);
+  };
+
+  const handleConfirmUnconfirm = async () => {
+    if (!adminToUnconfirm) return;
 
     try {
-      await superAdminUnconfirmAdmin(id);
+      setIsUnconfirming(true);
+      await superAdminUnconfirmAdmin(adminToUnconfirm);
       fetchAdmins();
+      setIsUnconfirmDialogOpen(false);
+      setAdminToUnconfirm(null);
     } catch (error) {
       console.error("Failed to unconfirm admin:", error);
+    } finally {
+      setIsUnconfirming(false);
     }
   };
 
@@ -239,7 +266,7 @@ const SuperAdminAdminsPage = () => {
                   </Button>
                   {admin.confirmed ? (
                     <Button
-                      onClick={() => handleUnconfirm(admin.id)}
+                      onClick={() => handleUnconfirmClick(admin.id)}
                       variant="link"
                       size="sm"
                       className="text-orange-600 hover:text-orange-800 dark:text-orange-400 dark:hover:text-orange-300"
@@ -257,7 +284,7 @@ const SuperAdminAdminsPage = () => {
                     </Button>
                   )}
                   <Button
-                    onClick={() => handleDelete(admin.id)}
+                    onClick={() => handleDeleteClick(admin.id)}
                     variant="link"
                     size="sm"
                     className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
@@ -271,7 +298,7 @@ const SuperAdminAdminsPage = () => {
           data={admins}
         />
       ) : (
-        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+        <div className="text-center py-8 text-neutral-500 dark:text-neutral-400">
           {t("super_admin.admins.no_admins")}
         </div>
       )}
@@ -279,6 +306,36 @@ const SuperAdminAdminsPage = () => {
       {isModalOpen && (
         <AdminFormModal admin={editingAdmin} onClose={handleModalClose} />
       )}
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setAdminToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title={t("super_admin.admins.deleteTitle")}
+        message={t("super_admin.admins.delete_confirm")}
+        confirmLabel={t("common.delete")}
+        cancelLabel={t("common.cancel")}
+        variant="danger"
+        isLoading={isDeleting}
+      />
+
+      <ConfirmDialog
+        isOpen={isUnconfirmDialogOpen}
+        onClose={() => {
+          setIsUnconfirmDialogOpen(false);
+          setAdminToUnconfirm(null);
+        }}
+        onConfirm={handleConfirmUnconfirm}
+        title={t("super_admin.admins.unconfirmTitle")}
+        message={t("super_admin.admins.unconfirm_confirm")}
+        confirmLabel={t("super_admin.admins.unconfirm")}
+        cancelLabel={t("common.cancel")}
+        variant="warning"
+        isLoading={isUnconfirming}
+      />
     </div>
   );
 };

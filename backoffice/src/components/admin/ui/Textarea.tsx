@@ -28,11 +28,11 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     ref,
   ) => {
     const baseStyles =
-      "w-full rounded-lg border transition-colors focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed bg-white dark:bg-gray-800 resize-vertical";
+      "w-full rounded-lg border transition-colors focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed bg-white dark:bg-neutral-800 resize-vertical";
 
     const variantStyles = {
       default:
-        "border-gray-300 dark:border-gray-600 focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500",
+        "border-neutral-300 dark:border-neutral-600 focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500",
       error:
         "border-red-500 dark:border-red-500 focus:border-red-500 focus:ring-red-500",
       success:
@@ -50,7 +50,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
             {label}
           </label>
         )}
@@ -58,7 +58,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         <textarea
           ref={ref}
           rows={rows}
-          className={`${baseStyles} ${variantStyles[displayVariant]} ${sizeStyles[textareaSize]} ${className} text-gray-900 dark:text-gray-100`}
+          className={`${baseStyles} ${variantStyles[displayVariant]} ${sizeStyles[textareaSize]} ${className} text-neutral-900 dark:text-neutral-100`}
           disabled={disabled}
           {...props}
         />
@@ -70,7 +70,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         )}
 
         {!errorMessage && helperText && (
-          <p className="mt-1.5 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-1.5 text-sm text-neutral-500 dark:text-neutral-400">
             {helperText}
           </p>
         )}

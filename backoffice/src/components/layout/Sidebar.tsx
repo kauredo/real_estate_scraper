@@ -108,14 +108,14 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
       {/* Mobile overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
+          className="fixed inset-0 bg-neutral-900/60 z-20 lg:hidden"
           onClick={onToggle}
         />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-16 left-0 h-[calc(100vh-4rem)] bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 z-30 transition-transform duration-300 ease-in-out ${
+        className={`fixed top-16 left-0 h-[calc(100vh-4rem)] bg-white dark:bg-neutral-800 border-r border-neutral-200 dark:border-neutral-700 z-30 transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 w-64 overflow-y-auto`}
       >
@@ -136,8 +136,8 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                 }}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 ${
                   isActive
-                    ? "bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 font-medium"
-                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    ? "bg-neutral-100 dark:bg-neutral-700 text-neutral-900 dark:text-white font-medium"
+                    : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-700/50 hover:text-neutral-900 dark:hover:text-neutral-200"
                 }`}
               >
                 <i className={`${item.icon} w-5 text-center`} />

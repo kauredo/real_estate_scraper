@@ -14,6 +14,7 @@ import {
   EmptyState,
   Input,
   Button,
+  ConfirmDialog,
 } from "../../components/admin/ui";
 
 interface Variable {
@@ -33,6 +34,9 @@ const AdminVariablesPage = () => {
     value: "",
     icon: "",
   });
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [variableToDelete, setVariableToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const fetchVariables = async () => {
     try {
@@ -90,17 +94,24 @@ const AdminVariablesPage = () => {
     }
   };
 
-  const handleDelete = async (id: number) => {
-    if (!window.confirm(t("admin.confirmDelete"))) return;
+  const handleDeleteClick = (id: number) => {
+    setVariableToDelete(id);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!variableToDelete) return;
 
     try {
-      setSubmitting(true);
-      await adminDeleteVariable(id);
+      setIsDeleting(true);
+      await adminDeleteVariable(variableToDelete);
       fetchVariables();
+      setIsDeleteDialogOpen(false);
+      setVariableToDelete(null);
     } catch (error) {
       console.error("Error deleting variable:", error);
     } finally {
-      setSubmitting(false);
+      setIsDeleting(false);
     }
   };
 
@@ -171,7 +182,7 @@ const AdminVariablesPage = () => {
               {t("common.update")}
             </Button>
             <Button
-              onClick={() => handleDelete(variable.id)}
+              onClick={() => handleDeleteClick(variable.id)}
               disabled={submitting}
               variant="link"
               size="sm"
@@ -186,7 +197,7 @@ const AdminVariablesPage = () => {
   ];
 
   return (
-    <div className="w-full shadow-md rounded px-2 sm:px-8 py-4 mt-4 relative">
+    <div className="w-full shadow-md rounded px-4 sm:px-6 lg:px-8 py-4 mt-4 relative">
       <AdminPageHeader
         title={t("admin.variables.title")}
         count={variables.length}
@@ -194,7 +205,7 @@ const AdminVariablesPage = () => {
           count: variables.length,
         })}
       >
-        <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+        <p className="text-neutral-600 dark:text-neutral-400 text-sm mt-2">
           {t("admin.variables.note")}{" "}
           <a
             className="text-primary-600 dark:text-primary-400 underline"
@@ -210,9 +221,9 @@ const AdminVariablesPage = () => {
       {/* Create Form */}
       <form
         onSubmit={handleCreate}
-        className="mb-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
+        className="mb-6 p-4 bg-neutral-50 dark:bg-neutral-800 rounded-lg"
       >
-        <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">
+        <h3 className="text-lg font-semibold mb-3 text-neutral-900 dark:text-neutral-100">
           {t("admin.variables.create_new")}
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
@@ -255,6 +266,21 @@ const AdminVariablesPage = () => {
       ) : (
         <EmptyState message={t("admin.variables.empty")} />
       )}
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setVariableToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title={t("admin.variables.deleteTitle")}
+        message={t("admin.confirmDelete")}
+        confirmLabel={t("common.delete")}
+        cancelLabel={t("common.cancel")}
+        variant="danger"
+        isLoading={isDeleting}
+      />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { adminGetPhotos, adminDeletePhoto } from "../../services/api";
 import { Photo } from "../../utils/interfaces";
-import { Button, Pagination, LoadingSpinner } from "../admin/ui";
+import { Button, Pagination, LoadingSpinner, ConfirmDialog } from "../admin/ui";
 
 const PhotosManagement: React.FC = () => {
   const { t } = useTranslation();
@@ -16,6 +16,9 @@ const PhotosManagement: React.FC = () => {
     total_count: 0,
     per_page: 25,
   });
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [photoToDelete, setPhotoToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const fetchPhotos = async (page = 1) => {
     try {
@@ -36,17 +39,25 @@ const PhotosManagement: React.FC = () => {
     fetchPhotos();
   }, []);
 
-  const handleDelete = async (id: number) => {
-    if (!window.confirm(t("admin.photos.confirmDelete"))) {
-      return;
-    }
+  const handleDeleteClick = (id: number) => {
+    setPhotoToDelete(id);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!photoToDelete) return;
 
     try {
-      await adminDeletePhoto(id);
+      setIsDeleting(true);
+      await adminDeletePhoto(photoToDelete);
       await fetchPhotos(pagination.current_page);
+      setIsDeleteDialogOpen(false);
+      setPhotoToDelete(null);
     } catch (err) {
       setError(t("admin.photos.errorDeleting"));
       console.error("Error deleting photo:", err);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -62,7 +73,7 @@ const PhotosManagement: React.FC = () => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">{t("admin.photos.title")}</h2>
-        <div className="text-sm text-gray-600">
+        <div className="text-sm text-neutral-600">
           {t("admin.photos.totalCount", { count: pagination.total_count })}
         </div>
       </div>
@@ -79,7 +90,7 @@ const PhotosManagement: React.FC = () => {
             key={photo.id}
             className="bg-white rounded-lg shadow overflow-hidden"
           >
-            <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-gray-200">
+            <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden bg-neutral-200">
               <img
                 src={photo.image.url}
                 alt={`Photo ${photo.id}`}
@@ -90,10 +101,10 @@ const PhotosManagement: React.FC = () => {
             <div className="p-4">
               <div className="flex justify-between items-start mb-2">
                 <div>
-                  <p className="text-sm font-medium text-gray-900">
+                  <p className="text-sm font-medium text-neutral-900">
                     ID: {photo.id}
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-neutral-500">
                     {t("admin.photos.order")}: {photo.order}
                   </p>
                 </div>
@@ -105,7 +116,7 @@ const PhotosManagement: React.FC = () => {
               </div>
 
               <div className="mb-3">
-                <p className="text-xs text-gray-600">
+                <p className="text-xs text-neutral-600">
                   {t("admin.photos.listingComplexId")}:{" "}
                   {photo.listing_complex_id}
                 </p>
@@ -113,7 +124,7 @@ const PhotosManagement: React.FC = () => {
 
               <div className="flex justify-end">
                 <Button
-                  onClick={() => handleDelete(photo.id)}
+                  onClick={() => handleDeleteClick(photo.id)}
                   variant="link"
                   size="sm"
                   className="text-red-600 hover:text-red-900"
@@ -128,7 +139,7 @@ const PhotosManagement: React.FC = () => {
 
       {photos.length === 0 && !loading && (
         <div className="text-center py-12">
-          <p className="text-gray-500">{t("admin.photos.empty")}</p>
+          <p className="text-neutral-500">{t("admin.photos.empty")}</p>
         </div>
       )}
 
@@ -140,6 +151,21 @@ const PhotosManagement: React.FC = () => {
           onPageChange={handlePageChange}
         />
       )}
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setPhotoToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title={t("admin.photos.deleteTitle")}
+        message={t("admin.photos.confirmDelete")}
+        confirmLabel={t("common.delete")}
+        cancelLabel={t("common.cancel")}
+        variant="danger"
+        isLoading={isDeleting}
+      />
     </div>
   );
 };

@@ -50,7 +50,7 @@ const Modal: React.FC<ModalProps> = ({
     <div className="fixed inset-0 z-50 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+        className="fixed inset-0 bg-neutral-900/60 transition-opacity"
         onClick={onClose}
       />
 
@@ -59,18 +59,18 @@ const Modal: React.FC<ModalProps> = ({
         className={`flex min-h-full items-center justify-center ${size === "full" ? "p-0" : "p-4"}`}
       >
         <div
-          className={`relative w-full ${sizeStyles[size]} bg-white dark:bg-gray-800 rounded-lg shadow-xl ${className}`}
+          className={`relative w-full ${sizeStyles[size]} bg-white dark:bg-neutral-800 rounded-xl shadow-xl ${className}`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
           {title && (
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+            <div className="flex items-center justify-between p-6 border-b border-neutral-200 dark:border-neutral-700">
+              <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
                 {title}
               </h3>
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                className="text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
               >
                 <svg
                   className="w-6 h-6"
@@ -94,7 +94,7 @@ const Modal: React.FC<ModalProps> = ({
 
           {/* Footer */}
           {footer && (
-            <div className="flex items-center justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-end gap-3 p-6 border-t border-neutral-200 dark:border-neutral-700">
               {footer}
             </div>
           )}

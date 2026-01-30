@@ -13,6 +13,7 @@ import {
   Textarea,
   Pagination,
   LoadingSpinner,
+  ConfirmDialog,
 } from "../admin/ui";
 
 const TestimonialsManagement: React.FC = () => {
@@ -33,6 +34,9 @@ const TestimonialsManagement: React.FC = () => {
     total_count: 0,
     per_page: 25,
   });
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [testimonialToDelete, setTestimonialToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const fetchTestimonials = async (page = 1) => {
     try {
@@ -53,17 +57,25 @@ const TestimonialsManagement: React.FC = () => {
     fetchTestimonials();
   }, []);
 
-  const handleDelete = async (id: number) => {
-    if (!window.confirm(t("admin.confirmDelete"))) {
-      return;
-    }
+  const handleDeleteClick = (id: number) => {
+    setTestimonialToDelete(id);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!testimonialToDelete) return;
 
     try {
-      await adminDeleteTestimonial(id);
+      setIsDeleting(true);
+      await adminDeleteTestimonial(testimonialToDelete);
       await fetchTestimonials(pagination.current_page);
+      setIsDeleteDialogOpen(false);
+      setTestimonialToDelete(null);
     } catch (err) {
       setError(t("admin.testimonials.errorDeleting"));
       console.error("Error deleting testimonial:", err);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -173,7 +185,7 @@ const TestimonialsManagement: React.FC = () => {
       )}
 
       <div className="bg-white rounded-lg shadow overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-200">
+        <div className="px-6 py-4 border-b border-neutral-200">
           <h3 className="text-lg font-medium">
             {t("admin.testimonials.totalCount", {
               count: pagination.total_count,
@@ -186,10 +198,10 @@ const TestimonialsManagement: React.FC = () => {
             <div key={testimonial.id} className="p-6">
               <div className="flex justify-between items-start">
                 <div className="flex-1">
-                  <h4 className="text-lg font-medium text-gray-900">
+                  <h4 className="text-lg font-medium text-neutral-900">
                     {testimonial.name}
                   </h4>
-                  <p className="mt-2 text-gray-600">{testimonial.text}</p>
+                  <p className="mt-2 text-neutral-600">{testimonial.text}</p>
                 </div>
                 <div className="ml-4 space-x-2">
                   <Button
@@ -201,7 +213,7 @@ const TestimonialsManagement: React.FC = () => {
                     {t("common.edit")}
                   </Button>
                   <Button
-                    onClick={() => handleDelete(testimonial.id)}
+                    onClick={() => handleDeleteClick(testimonial.id)}
                     variant="link"
                     size="sm"
                     className="text-red-600 hover:text-red-900"
@@ -223,6 +235,21 @@ const TestimonialsManagement: React.FC = () => {
           onPageChange={handlePageChange}
         />
       )}
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setTestimonialToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title={t("admin.testimonials.deleteTitle")}
+        message={t("admin.confirmDelete")}
+        confirmLabel={t("common.delete")}
+        cancelLabel={t("common.cancel")}
+        variant="danger"
+        isLoading={isDeleting}
+      />
     </div>
   );
 };

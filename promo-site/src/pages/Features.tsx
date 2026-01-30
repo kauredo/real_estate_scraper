@@ -36,7 +36,7 @@ export default function Features() {
   return (
     <>
       <SEO page="features" />
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="min-h-screen bg-gradient-to-b from-white to-neutral-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
@@ -46,11 +46,11 @@ export default function Features() {
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
             {t("features.hero.title")}
             <br />
-            <span className="text-blue-600">
+            <span className="text-primary-600">
               {t("features.hero.titleHighlight")}
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
             {t("features.hero.description")}
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function Features() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("features.core.heading")}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-neutral-600">
               {t("features.core.subheading")}
             </p>
           </div>
@@ -71,8 +71,8 @@ export default function Features() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card>
               <CardHeader>
-                <div className="mb-4 bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <Home className="h-6 w-6 text-blue-600" />
+                <div className="mb-4 bg-primary-50 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <Home className="h-6 w-6 text-primary-600" />
                 </div>
                 <CardTitle>
                   {t("features.core.propertyListings.title")}
@@ -82,7 +82,7 @@ export default function Features() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-neutral-600">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     {t("features.core.propertyListings.features.unlimited")}
@@ -107,8 +107,8 @@ export default function Features() {
 
             <Card>
               <CardHeader>
-                <div className="mb-4 bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <FileText className="h-6 w-6 text-purple-600" />
+                <div className="mb-4 bg-warm-50 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <FileText className="h-6 w-6 text-warm-600" />
                 </div>
                 <CardTitle>{t("features.core.blogContent.title")}</CardTitle>
                 <CardDescription>
@@ -116,7 +116,7 @@ export default function Features() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-neutral-600">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     {t("features.core.blogContent.features.editor")}
@@ -148,7 +148,7 @@ export default function Features() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-neutral-600">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     {t("features.core.testimonials.features.display")}
@@ -180,7 +180,7 @@ export default function Features() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-neutral-600">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     {t("features.core.newsletter.features.signup")}
@@ -212,7 +212,7 @@ export default function Features() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-neutral-600">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     {t("features.core.dashboard.features.interface")}
@@ -244,7 +244,7 @@ export default function Features() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-neutral-600">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     {t("features.core.analytics.features.tracking")}
@@ -276,7 +276,7 @@ export default function Features() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-neutral-600">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     {t("features.core.developments.features.multiProperty")}
@@ -308,7 +308,7 @@ export default function Features() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-neutral-600">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     {t("features.core.photoManagement.features.library")}
@@ -340,7 +340,7 @@ export default function Features() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
+                <ul className="space-y-2 text-sm text-neutral-600">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     {t("features.core.previewMode.features.beforePublish")}
@@ -365,7 +365,7 @@ export default function Features() {
       </section>
 
       {/* Admin Interface Showcase */}
-      <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-20 px-4 bg-gradient-to-b from-white to-neutral-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <Badge variant="secondary" className="mb-4">
@@ -374,7 +374,7 @@ export default function Features() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("features.adminInterface.heading")}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-neutral-600">
               {t("features.adminInterface.subheading")}
             </p>
           </div>
@@ -384,31 +384,31 @@ export default function Features() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-1">
                 <div className="space-y-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100">
-                    <BarChart3 className="h-6 w-6 text-blue-600" />
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary-50">
+                    <BarChart3 className="h-6 w-6 text-primary-600" />
                   </div>
                   <h3 className="text-3xl font-bold">
                     {t("features.adminInterface.dashboard.title")}
                   </h3>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-lg text-neutral-600">
                     {t("features.adminInterface.dashboard.description")}
                   </p>
                   <ul className="space-y-3 pt-4">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.adminInterface.dashboard.features.metrics")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.adminInterface.dashboard.features.quickAccess")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.adminInterface.dashboard.features.mobile")}
                       </span>
                     </li>
@@ -427,8 +427,8 @@ export default function Features() {
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
-                  <div className="aspect-[16/10] bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 hidden items-center justify-center">
-                    <div className="text-center text-white p-8">
+                  <div className="aspect-[16/10] bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400 hidden items-center justify-center">
+                    <div className="text-center text-neutral-600 p-8">
                       <Layout className="h-20 w-20 mx-auto mb-4 opacity-50" />
                       <p className="text-lg font-semibold opacity-75">Dashboard Screenshot</p>
                       <p className="text-sm opacity-50 mt-2">/public/images/admin-dashboard.webp</p>
@@ -442,31 +442,31 @@ export default function Features() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-2">
                 <div className="space-y-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-purple-100">
-                    <FileText className="h-6 w-6 text-purple-600" />
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-warm-50">
+                    <FileText className="h-6 w-6 text-warm-600" />
                   </div>
                   <h3 className="text-3xl font-bold">
                     {t("features.adminInterface.blogEditor.title")}
                   </h3>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-lg text-neutral-600">
                     {t("features.adminInterface.blogEditor.description")}
                   </p>
                   <ul className="space-y-3 pt-4">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.adminInterface.blogEditor.features.wysiwyg")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.adminInterface.blogEditor.features.seo")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.adminInterface.blogEditor.features.preview")}
                       </span>
                     </li>
@@ -485,8 +485,8 @@ export default function Features() {
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
-                  <div className="aspect-[16/10] bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 hidden items-center justify-center">
-                    <div className="text-center text-white p-8">
+                  <div className="aspect-[16/10] bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400 hidden items-center justify-center">
+                    <div className="text-center text-neutral-600 p-8">
                       <FileText className="h-20 w-20 mx-auto mb-4 opacity-50" />
                       <p className="text-lg font-semibold opacity-75">Blog Editor Screenshot</p>
                       <p className="text-sm opacity-50 mt-2">/public/images/admin-blog-edit.webp</p>
@@ -506,25 +506,25 @@ export default function Features() {
                   <h3 className="text-3xl font-bold">
                     {t("features.adminInterface.propertyManagement.title")}
                   </h3>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-lg text-neutral-600">
                     {t("features.adminInterface.propertyManagement.description")}
                   </p>
                   <ul className="space-y-3 pt-4">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.adminInterface.propertyManagement.features.bulkActions")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.adminInterface.propertyManagement.features.filters")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.adminInterface.propertyManagement.features.import")}
                       </span>
                     </li>
@@ -544,8 +544,8 @@ export default function Features() {
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
-                  <div className="aspect-[16/10] bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 flex items-center justify-center">
-                    <div className="text-center text-white p-8">
+                  <div className="aspect-[16/10] bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400 flex items-center justify-center">
+                    <div className="text-center text-neutral-600 p-8">
                       <Home className="h-20 w-20 mx-auto mb-4 opacity-50" />
                       <p className="text-lg font-semibold opacity-75">Property Management Screenshot</p>
                       <p className="text-sm opacity-50 mt-2">/public/images/admin-property-management.webp</p>
@@ -568,21 +568,21 @@ export default function Features() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("features.professional.heading")}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-neutral-600">
               {t("features.professional.subheading")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex gap-4">
-              <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Palette className="h-6 w-6 text-blue-600" />
+              <div className="bg-primary-50 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Palette className="h-6 w-6 text-primary-600" />
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-2">
                   {t("features.professional.modernDesign.title")}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("features.professional.modernDesign.description")}
                 </p>
               </div>
@@ -596,21 +596,21 @@ export default function Features() {
                 <h3 className="text-xl font-bold mb-2">
                   {t("features.professional.fast.title")}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("features.professional.fast.description")}
                 </p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Shield className="h-6 w-6 text-purple-600" />
+              <div className="bg-warm-50 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Shield className="h-6 w-6 text-warm-600" />
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-2">
                   {t("features.professional.secure.title")}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("features.professional.secure.description")}
                 </p>
               </div>
@@ -624,7 +624,7 @@ export default function Features() {
                 <h3 className="text-xl font-bold mb-2">
                   {t("features.professional.seo.title")}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("features.professional.seo.description")}
                 </p>
               </div>
@@ -638,7 +638,7 @@ export default function Features() {
                 <h3 className="text-xl font-bold mb-2">
                   {t("features.professional.mobile.title")}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("features.professional.mobile.description")}
                 </p>
               </div>
@@ -652,7 +652,7 @@ export default function Features() {
                 <h3 className="text-xl font-bold mb-2">
                   {t("features.professional.custom.title")}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("features.professional.custom.description")}
                 </p>
               </div>
@@ -671,7 +671,7 @@ export default function Features() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("features.liveExamples.heading")}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-neutral-600">
               {t("features.liveExamples.subheading")}
             </p>
           </div>
@@ -681,31 +681,31 @@ export default function Features() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-1">
                 <div className="space-y-4">
-                  <Badge className="bg-blue-600 text-white mb-2">
+                  <Badge className="bg-primary-600 text-white mb-2">
                     {t("features.liveExamples.example1.badge")}
                   </Badge>
                   <h3 className="text-3xl font-bold">
                     {t("features.liveExamples.example1.title")}
                   </h3>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-lg text-neutral-600">
                     {t("features.liveExamples.example1.description")}
                   </p>
                   <ul className="space-y-3 pt-4">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.liveExamples.example1.features.design")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.liveExamples.example1.features.responsive")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.liveExamples.example1.features.seo")}
                       </span>
                     </li>
@@ -724,8 +724,8 @@ export default function Features() {
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
-                  <div className="aspect-[16/10] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hidden items-center justify-center">
-                    <div className="text-center text-white p-8">
+                  <div className="aspect-[16/10] bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400 hidden items-center justify-center">
+                    <div className="text-center text-neutral-600 p-8">
                       <Layout className="h-20 w-20 mx-auto mb-4 opacity-50" />
                       <p className="text-lg font-semibold opacity-75">Website Example Screenshot</p>
                       <p className="text-sm opacity-50 mt-2">/public/images/sofia-galvao-about.webp</p>
@@ -739,31 +739,31 @@ export default function Features() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-2">
                 <div className="space-y-4">
-                  <Badge className="bg-purple-600 text-white mb-2">
+                  <Badge className="bg-warm-500 text-white mb-2">
                     {t("features.liveExamples.example2.badge")}
                   </Badge>
                   <h3 className="text-3xl font-bold">
                     {t("features.liveExamples.example2.title")}
                   </h3>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-lg text-neutral-600">
                     {t("features.liveExamples.example2.description")}
                   </p>
                   <ul className="space-y-3 pt-4">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.liveExamples.example2.features.hero")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.liveExamples.example2.features.content")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.liveExamples.example2.features.cta")}
                       </span>
                     </li>
@@ -782,8 +782,8 @@ export default function Features() {
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
-                  <div className="aspect-[16/10] bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 hidden items-center justify-center">
-                    <div className="text-center text-white p-8">
+                  <div className="aspect-[16/10] bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400 hidden items-center justify-center">
+                    <div className="text-center text-neutral-600 p-8">
                       <Layout className="h-20 w-20 mx-auto mb-4 opacity-50" />
                       <p className="text-lg font-semibold opacity-75">Website Content Screenshot</p>
                       <p className="text-sm opacity-50 mt-2">/public/images/sofia-galvao-website.webp</p>
@@ -803,25 +803,25 @@ export default function Features() {
                   <h3 className="text-3xl font-bold">
                     {t("features.liveExamples.example3.title")}
                   </h3>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-lg text-neutral-600">
                     {t("features.liveExamples.example3.description")}
                   </p>
                   <ul className="space-y-3 pt-4">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.liveExamples.example3.features.feature1")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.liveExamples.example3.features.feature2")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.liveExamples.example3.features.feature3")}
                       </span>
                     </li>
@@ -841,8 +841,8 @@ export default function Features() {
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
-                  <div className="aspect-[16/10] bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 flex items-center justify-center">
-                    <div className="text-center text-white p-8">
+                  <div className="aspect-[16/10] bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400 flex items-center justify-center">
+                    <div className="text-center text-neutral-600 p-8">
                       <Layout className="h-20 w-20 mx-auto mb-4 opacity-50" />
                       <p className="text-lg font-semibold opacity-75">Additional Client Example</p>
                       <p className="text-sm opacity-50 mt-2">/public/images/example-website-3.webp</p>
@@ -856,7 +856,7 @@ export default function Features() {
       </section>
 
       {/* Advanced Features Showcase */}
-      <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-20 px-4 bg-gradient-to-b from-neutral-50 to-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <Badge variant="secondary" className="mb-4">
@@ -865,7 +865,7 @@ export default function Features() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("features.advancedFeatures.heading")}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-neutral-600">
               {t("features.advancedFeatures.subheading")}
             </p>
           </div>
@@ -881,25 +881,25 @@ export default function Features() {
                   <h3 className="text-3xl font-bold">
                     {t("features.advancedFeatures.developments.title")}
                   </h3>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-lg text-neutral-600">
                     {t("features.advancedFeatures.developments.description")}
                   </p>
                   <ul className="space-y-3 pt-4">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.advancedFeatures.developments.features.showcase")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.advancedFeatures.developments.features.management")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.advancedFeatures.developments.features.units")}
                       </span>
                     </li>
@@ -919,8 +919,8 @@ export default function Features() {
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
-                  <div className="aspect-[16/10] bg-gradient-to-br from-teal-500 via-cyan-500 to-blue-500 flex items-center justify-center">
-                    <div className="text-center text-white p-8">
+                  <div className="aspect-[16/10] bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400 flex items-center justify-center">
+                    <div className="text-center text-neutral-600 p-8">
                       <Building2 className="h-20 w-20 mx-auto mb-4 opacity-50" />
                       <p className="text-lg font-semibold opacity-75">Development Detail Page</p>
                       <p className="text-sm opacity-50 mt-2">/public/images/development-detail-page.webp</p>
@@ -940,25 +940,25 @@ export default function Features() {
                   <h3 className="text-3xl font-bold">
                     {t("features.advancedFeatures.photoManagement.title")}
                   </h3>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-lg text-neutral-600">
                     {t("features.advancedFeatures.photoManagement.description")}
                   </p>
                   <ul className="space-y-3 pt-4">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.advancedFeatures.photoManagement.features.library")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.advancedFeatures.photoManagement.features.reusable")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.advancedFeatures.photoManagement.features.organized")}
                       </span>
                     </li>
@@ -978,8 +978,8 @@ export default function Features() {
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
-                  <div className="aspect-[16/10] bg-gradient-to-br from-pink-500 via-rose-500 to-red-500 flex items-center justify-center">
-                    <div className="text-center text-white p-8">
+                  <div className="aspect-[16/10] bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400 flex items-center justify-center">
+                    <div className="text-center text-neutral-600 p-8">
                       <Image className="h-20 w-20 mx-auto mb-4 opacity-50" />
                       <p className="text-lg font-semibold opacity-75">Photo Library Interface</p>
                       <p className="text-sm opacity-50 mt-2">/public/images/admin-photo-library.webp</p>
@@ -999,25 +999,25 @@ export default function Features() {
                   <h3 className="text-3xl font-bold">
                     {t("features.advancedFeatures.newsletter.title")}
                   </h3>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-lg text-neutral-600">
                     {t("features.advancedFeatures.newsletter.description")}
                   </p>
                   <ul className="space-y-3 pt-4">
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.advancedFeatures.newsletter.features.management")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.advancedFeatures.newsletter.features.export")}
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">
+                      <span className="text-neutral-700">
                         {t("features.advancedFeatures.newsletter.features.integration")}
                       </span>
                     </li>
@@ -1037,8 +1037,8 @@ export default function Features() {
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
-                  <div className="aspect-[16/10] bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 flex items-center justify-center">
-                    <div className="text-center text-white p-8">
+                  <div className="aspect-[16/10] bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400 flex items-center justify-center">
+                    <div className="text-center text-neutral-600 p-8">
                       <Mail className="h-20 w-20 mx-auto mb-4 opacity-50" />
                       <p className="text-lg font-semibold opacity-75">Newsletter Management</p>
                       <p className="text-sm opacity-50 mt-2">/public/images/admin-newsletter-export.webp</p>
@@ -1061,19 +1061,19 @@ export default function Features() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("features.serviceOptions.heading")}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-neutral-600">
               {t("features.serviceOptions.subheading")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-2 border-gray-200">
+            <Card className="border-2 border-neutral-200">
               <CardContent className="pt-8">
                 <div className="mb-6">
                   <h3 className="text-2xl font-bold mb-2">
                     {t("features.serviceOptions.developer.title")}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("features.serviceOptions.developer.description")}
                   </p>
                 </div>
@@ -1113,22 +1113,22 @@ export default function Features() {
                     </span>
                   </li>
                 </ul>
-                <Link to="/pricing" className="inline-block w-full">
-                  <Button size="lg" variant="outline" className="w-full">
+                <Button asChild size="lg" variant="outline" className="w-full">
+                  <Link to="/pricing">
                     {t("features.serviceOptions.developer.cta")}
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white">
+            <Card className="border-2 border-primary-200 bg-primary-50/30">
               <CardContent className="pt-8">
                 <div className="mb-6">
                   <h3 className="text-2xl font-bold mb-2">
                     {t("features.serviceOptions.professional.title")}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-neutral-600">
                     {t("features.serviceOptions.professional.description")}
                   </p>
                 </div>
@@ -1174,12 +1174,12 @@ export default function Features() {
                     </span>
                   </li>
                 </ul>
-                <Link to="/pricing" className="inline-block w-full">
-                  <Button size="lg" className="w-full">
+                <Button asChild size="lg" className="w-full">
+                  <Link to="/pricing">
                     {t("features.serviceOptions.professional.cta")}
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
           </div>
@@ -1189,34 +1189,33 @@ export default function Features() {
       {/* CTA Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
-          <Card className="bg-gradient-to-br from-blue-600 to-purple-600 border-0 text-white">
+          <Card className="bg-primary-600 border-0 text-white">
             <CardContent className="pt-12 pb-12 text-center">
               <h2 className="text-4xl font-bold mb-4">
                 {t("features.cta.heading")}
               </h2>
-              <p className="text-xl text-white/90 mb-8">
+              <p className="text-xl text-primary-100 mb-8">
                 {t("features.cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="text-lg px-8 py-6"
-                  >
+                <Button
+                  asChild
+                  size="lg"
+                  className="text-lg px-8 py-6 bg-white text-primary-600 hover:bg-primary-50"
+                >
+                  <Link to="/contact">
                     {t("common.scheduleDemo")}
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link to="/pricing">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="text-lg px-8 py-6 bg-white/10 border-white text-white hover:bg-white/20"
-                  >
-                    {t("common.viewPricing")}
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-6 bg-transparent border-white/30 text-white hover:bg-white/10"
+                >
+                  <Link to="/pricing">{t("common.viewPricing")}</Link>
+                </Button>
               </div>
             </CardContent>
           </Card>

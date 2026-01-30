@@ -39,25 +39,25 @@ const TagInput: React.FC<TagInputProps> = ({
 
   return (
     <div className={className}>
-      <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
+      <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-2">
         {label}
       </label>
       {description && (
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+        <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">
           {description}
         </p>
       )}
-      <div className="flex flex-wrap gap-2 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 min-h-[42px]">
+      <div className="flex flex-wrap gap-2 p-2 border border-neutral-300 dark:border-neutral-600 rounded-md bg-white dark:bg-neutral-800 min-h-[42px]">
         {tags.map((tag, index) => (
           <span
             key={index}
-            className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm"
+            className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-200 text-sm"
           >
             {tag}
             <button
               type="button"
               onClick={() => removeTag(index)}
-              className="text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-100 focus:outline-none"
+              className="text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-100 focus:outline-none"
             >
               ×
             </button>
@@ -69,7 +69,7 @@ const TagInput: React.FC<TagInputProps> = ({
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder={tags.length === 0 ? placeholder : ""}
-          className="flex-1 min-w-[120px] outline-none bg-transparent text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+          className="flex-1 min-w-[120px] outline-none bg-transparent text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500"
         />
       </div>
     </div>

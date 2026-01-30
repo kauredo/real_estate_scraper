@@ -15,6 +15,7 @@ export type { BadgeVariant, BadgeSize } from "./Badge";
 
 export { default as Modal } from "./Modal";
 export { default as PreviewModal } from "./PreviewModal";
+export { default as ConfirmDialog } from "./ConfirmDialog";
 
 export { default as Input } from "./Input";
 export type { InputVariant, InputSize } from "./Input";

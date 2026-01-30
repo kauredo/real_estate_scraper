@@ -38,22 +38,22 @@ const Tabs: React.FC<TabsProps> = ({
   const activeTabContent = tabs.find((tab) => tab.id === activeTab)?.content;
 
   const lineVariantStyles = {
-    container: "border-b border-gray-200 dark:border-gray-700",
+    container: "border-b border-neutral-200 dark:border-neutral-700",
     button: "px-4 py-2 -mb-px border-b-2 transition-colors",
     active:
-      "border-primary-500 text-primary-600 dark:text-primary-400 font-medium",
+      "border-neutral-900 text-neutral-900 dark:border-neutral-100 dark:text-neutral-100 font-medium",
     inactive:
-      "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600",
+      "border-transparent text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 hover:border-neutral-300 dark:hover:border-neutral-600",
     disabled: "opacity-50 cursor-not-allowed",
   };
 
   const pillsVariantStyles = {
-    container: "bg-gray-100 dark:bg-gray-800 p-1 rounded-lg inline-flex gap-1",
-    button: "px-4 py-2 rounded-md transition-all",
+    container: "bg-neutral-100 dark:bg-neutral-800 p-1 rounded-lg inline-flex gap-1",
+    button: "px-4 py-2 rounded-lg transition-all",
     active:
-      "bg-white dark:bg-gray-700 text-primary-600 dark:text-primary-400 shadow-sm font-medium",
+      "bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 shadow-sm font-medium",
     inactive:
-      "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200",
+      "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200",
     disabled: "opacity-50 cursor-not-allowed",
   };
 

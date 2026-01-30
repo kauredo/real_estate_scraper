@@ -34,18 +34,18 @@ const Checkbox: React.FC<CheckboxProps> = ({
           checked={checked}
           onChange={onChange}
           disabled={disabled}
-          className="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-600 dark:bg-gray-700 dark:checked:bg-blue-600 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+          className="h-4 w-4 rounded border-neutral-300 dark:border-neutral-600 text-primary-600 focus:ring-primary-500 dark:bg-neutral-700 dark:checked:bg-primary-600 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
         />
       </div>
       <div className="ml-3 text-sm leading-6">
         <label
           htmlFor={checkboxId}
-          className="font-medium text-gray-900 dark:text-gray-100 cursor-pointer"
+          className="font-medium text-neutral-900 dark:text-neutral-100 cursor-pointer"
         >
           {label}
         </label>
         {description && (
-          <p className="text-gray-500 dark:text-gray-400">{description}</p>
+          <p className="text-neutral-500 dark:text-neutral-400">{description}</p>
         )}
       </div>
     </div>

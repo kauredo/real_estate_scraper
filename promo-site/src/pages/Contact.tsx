@@ -69,7 +69,7 @@ export default function Contact() {
   return (
     <>
       <SEO page="contact" />
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="min-h-screen bg-gradient-to-b from-white to-neutral-50">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
@@ -79,11 +79,11 @@ export default function Contact() {
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
             {t("contact.hero.title")}
             <br />
-            <span className="text-blue-600">
+            <span className="text-primary-600">
               {t("contact.hero.titleHighlight")}
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
             {t("contact.hero.description")}
           </p>
         </div>
@@ -98,7 +98,7 @@ export default function Contact() {
               <h2 className="text-3xl font-bold mb-6">
                 {t("contact.form.heading")}
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-neutral-600 mb-8">
                 {t("contact.form.description")}
               </p>
 
@@ -226,7 +226,7 @@ export default function Contact() {
               <h2 className="text-3xl font-bold mb-6">
                 {t("contact.info.heading")}
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-neutral-600 mb-8">
                 {t("contact.info.description")}
               </p>
 
@@ -234,19 +234,19 @@ export default function Contact() {
                 <Card>
                   <CardContent className="pt-6">
                     <div className="flex items-start gap-4">
-                      <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Mail className="h-6 w-6 text-blue-600" />
+                      <div className="bg-primary-50 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Mail className="h-6 w-6 text-primary-600" />
                       </div>
                       <div>
                         <h3 className="font-bold mb-1">
                           {t("contact.info.email.title")}
                         </h3>
-                        <p className="text-gray-600 text-sm mb-2">
+                        <p className="text-neutral-600 text-sm mb-2">
                           {t("contact.info.email.description")}
                         </p>
                         <a
                           href="mailto:contact@example.com"
-                          className="text-blue-600 hover:underline"
+                          className="text-primary-600 hover:underline"
                         >
                           contact@example.com
                         </a>
@@ -265,12 +265,12 @@ export default function Contact() {
                         <h3 className="font-bold mb-1">
                           {t("contact.info.phone.title")}
                         </h3>
-                        <p className="text-gray-600 text-sm mb-2">
+                        <p className="text-neutral-600 text-sm mb-2">
                           {t("contact.info.phone.description")}
                         </p>
                         <a
                           href="tel:+1234567890"
-                          className="text-blue-600 hover:underline"
+                          className="text-primary-600 hover:underline"
                         >
                           +123 456 7890
                         </a>
@@ -282,14 +282,14 @@ export default function Contact() {
                 <Card>
                   <CardContent className="pt-6">
                     <div className="flex items-start gap-4">
-                      <div className="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <MapPin className="h-6 w-6 text-purple-600" />
+                      <div className="bg-warm-50 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <MapPin className="h-6 w-6 text-warm-600" />
                       </div>
                       <div>
                         <h3 className="font-bold mb-1">
                           {t("contact.info.location.title")}
                         </h3>
-                        <p className="text-gray-600 text-sm">
+                        <p className="text-neutral-600 text-sm">
                           {t("contact.info.location.address")}
                         </p>
                       </div>
@@ -307,10 +307,10 @@ export default function Contact() {
                         <h3 className="font-bold mb-1">
                           {t("contact.info.hours.title")}
                         </h3>
-                        <p className="text-gray-600 text-sm">
+                        <p className="text-neutral-600 text-sm">
                           {t("contact.info.hours.weekdays")}
                         </p>
-                        <p className="text-gray-600 text-sm">
+                        <p className="text-neutral-600 text-sm">
                           {t("contact.info.hours.weekend")}
                         </p>
                       </div>
@@ -333,7 +333,7 @@ export default function Contact() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("contact.faq.heading")}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-neutral-600">
               {t("contact.faq.subheading")}
             </p>
           </div>
@@ -341,13 +341,13 @@ export default function Contact() {
           <div className="grid md:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
-                <div className="mb-4 bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <MessageCircle className="h-6 w-6 text-blue-600" />
+                <div className="mb-4 bg-primary-50 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <MessageCircle className="h-6 w-6 text-primary-600" />
                 </div>
                 <CardTitle>{t("contact.faq.questions.0.question")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("contact.faq.questions.0.answer")}
                 </p>
               </CardContent>
@@ -361,7 +361,7 @@ export default function Contact() {
                 <CardTitle>{t("contact.faq.questions.1.question")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("contact.faq.questions.1.answer")}
                 </p>
               </CardContent>
@@ -369,13 +369,13 @@ export default function Contact() {
 
             <Card>
               <CardHeader>
-                <div className="mb-4 bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center">
-                  <Phone className="h-6 w-6 text-purple-600" />
+                <div className="mb-4 bg-warm-50 w-12 h-12 rounded-lg flex items-center justify-center">
+                  <Phone className="h-6 w-6 text-warm-600" />
                 </div>
                 <CardTitle>{t("contact.faq.questions.2.question")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("contact.faq.questions.2.answer")}
                 </p>
               </CardContent>
@@ -389,7 +389,7 @@ export default function Contact() {
                 <CardTitle>{t("contact.faq.questions.3.question")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {t("contact.faq.questions.3.answer")}
                 </p>
               </CardContent>

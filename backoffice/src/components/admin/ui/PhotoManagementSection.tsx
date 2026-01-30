@@ -1,6 +1,8 @@
 /* eslint-disable no-restricted-syntax, i18next/no-literal-string */
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDropzone } from "react-dropzone";
+import ConfirmDialog from "./ConfirmDialog";
 
 interface Photo {
   id: number;
@@ -30,6 +32,9 @@ const PhotoManagementSection = ({
   showUpload = true,
 }: PhotoManagementSectionProps) => {
   const { t } = useTranslation();
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [photoToDelete, setPhotoToDelete] = useState<number | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: {
@@ -42,12 +47,21 @@ const PhotoManagementSection = ({
     },
   });
 
-  const handleDelete = async (photoId: number) => {
-    if (!confirm(t("admin.common.delete_photo_confirm"))) {
-      return;
-    }
-    if (onDelete) {
-      await onDelete(photoId);
+  const handleDeleteClick = (photoId: number) => {
+    setPhotoToDelete(photoId);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!photoToDelete || !onDelete) return;
+
+    try {
+      setIsDeleting(true);
+      await onDelete(photoToDelete);
+      setIsDeleteDialogOpen(false);
+      setPhotoToDelete(null);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -58,9 +72,9 @@ const PhotoManagementSection = ({
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6 space-y-6">
-      <div className="border-b border-gray-200 dark:border-gray-700 pb-5">
-        <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+    <div className="bg-white dark:bg-neutral-800 shadow rounded-lg p-6 space-y-6">
+      <div className="border-b border-neutral-200 dark:border-neutral-700 pb-5">
+        <h2 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
           {t("admin.common.media_section")}
         </h2>
       </div>
@@ -68,8 +82,8 @@ const PhotoManagementSection = ({
       {/* Existing Photos */}
       {photos.length > 0 && (
         <div>
-          <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-            Fotos Existentes
+          <h3 className="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-3">
+            {t("admin.common.existing_photos")}
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {photos.map((photo) => (
@@ -89,16 +103,16 @@ const PhotoManagementSection = ({
                     className={`px-3 py-1 text-xs rounded ${
                       photo.main
                         ? "bg-green-500 text-white"
-                        : "bg-white text-gray-700"
+                        : "bg-white text-neutral-700"
                     }`}
                   >
                     {photo.main
                       ? t("admin.common.main_photo")
-                      : "Definir Principal"}
+                      : t("admin.common.set_main")}
                   </button>
                   <button
                     type="button"
-                    onClick={() => handleDelete(photo.id)}
+                    onClick={() => handleDeleteClick(photo.id)}
                     className="px-3 py-1 text-xs bg-red-500 text-white rounded hover:bg-red-600"
                   >
                     {t("common.delete")}
@@ -113,29 +127,29 @@ const PhotoManagementSection = ({
       {/* Upload New Photos */}
       {showUpload && (
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Adicionar Fotos
+          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
+            {t("admin.common.add_photos")}
           </label>
           <div
             {...getRootProps()}
             className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
               isDragActive
-                ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-                : "border-gray-300 dark:border-gray-600 hover:border-gray-400"
+                ? "border-primary-500 bg-primary-50 dark:bg-primary-900/20"
+                : "border-neutral-300 dark:border-neutral-600 hover:border-neutral-400"
             }`}
           >
             <input {...getInputProps()} />
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-neutral-600 dark:text-neutral-400">
               {isDragActive
-                ? "Solte as imagens aqui..."
+                ? t("admin.common.drop_images_here")
                 : t("admin.common.dropzone")}
             </p>
           </div>
 
           {newPhotos.length > 0 && (
             <div className="mt-4">
-              <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-                Novas Fotos ({newPhotos.length})
+              <h3 className="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-3">
+                {t("admin.common.new_photos", { count: newPhotos.length })}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {newPhotos.map((file, index) => (
@@ -164,6 +178,21 @@ const PhotoManagementSection = ({
           )}
         </div>
       )}
+
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => {
+          setIsDeleteDialogOpen(false);
+          setPhotoToDelete(null);
+        }}
+        onConfirm={handleConfirmDelete}
+        title={t("admin.common.delete_photo_title")}
+        message={t("admin.common.delete_photo_confirm")}
+        confirmLabel={t("common.delete")}
+        cancelLabel={t("common.cancel")}
+        variant="danger"
+        isLoading={isDeleting}
+      />
     </div>
   );
 };
