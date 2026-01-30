@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Portuguese Home (Primary) -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sofiagalvaogroup.com/" />
+  </url>
+
+  <!-- English Home -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sofiagalvaogroup.com/" />
+  </url>
+
+  <!-- Portuguese Buy/Listings -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/comprar</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/comprar" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/buy" />
+  </url>
+
+  <!-- English Buy/Listings -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/buy</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/comprar" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/buy" />
+  </url>
+
+  <!-- Portuguese Sell -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/vender</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/vender" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/sell" />
+  </url>
+
+  <!-- English Sell -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/sell</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/vender" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/sell" />
+  </url>
+
+  <!-- Portuguese Enterprises -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/empreendimentos</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/empreendimentos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/enterprises" />
+  </url>
+
+  <!-- English Enterprises -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/enterprises</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/empreendimentos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/enterprises" />
+  </url>
+
+  <!-- Portuguese Club -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/clube-sgg</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/clube-sgg" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/club" />
+  </url>
+
+  <!-- English Club -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/club</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/clube-sgg" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/club" />
+  </url>
+
+  <!-- Portuguese Club Rules -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/clube-sgg/regulamento</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/clube-sgg/regulamento" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/club/rules" />
+  </url>
+
+  <!-- English Club Rules -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/club/rules</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/clube-sgg/regulamento" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/club/rules" />
+  </url>
+
+  <!-- Portuguese Club Stories -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/clube-sgg/historias</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/clube-sgg/historias" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/club/stories" />
+  </url>
+
+  <!-- English Club Stories -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/club/stories</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/clube-sgg/historias" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/club/stories" />
+  </url>
+
+  <!-- Portuguese Blog -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/blog</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/blog" />
+  </url>
+
+  <!-- English Blog -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/blog</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/blog" />
+  </url>
+
+  <!-- Portuguese About (KW) -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/kw</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/kw" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/kw" />
+  </url>
+
+  <!-- English About (KW) -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/kw</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/kw" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/kw" />
+  </url>
+
+  <!-- Portuguese Services -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/servicos</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/servicos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/services" />
+  </url>
+
+  <!-- English Services -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/services</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/servicos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/services" />
+  </url>
+
+  <!-- Portuguese Contact -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/contactos</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/contactos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/contact" />
+  </url>
+
+  <!-- English Contact -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/contact</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/contactos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/contact" />
+  </url>
+
+  <!-- Portuguese FAQ -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/faq</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/faq" />
+  </url>
+
+  <!-- English FAQ -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/faq</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/faq" />
+  </url>
+
+  <!-- Portuguese Terms -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/termos-e-condicoes</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/termos-e-condicoes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/terms-and-conditions" />
+  </url>
+
+  <!-- English Terms -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/terms-and-conditions</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/termos-e-condicoes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/terms-and-conditions" />
+  </url>
+
+  <!-- Portuguese Privacy -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/privacidade</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/privacidade" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/privacy" />
+  </url>
+
+  <!-- English Privacy -->
+  <url>
+    <loc>https://sofiagalvaogroup.com/en/privacy</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://sofiagalvaogroup.com/privacidade" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sofiagalvaogroup.com/en/privacy" />
+  </url>
+</urlset>
