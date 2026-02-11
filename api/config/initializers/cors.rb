@@ -10,7 +10,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     # Split CORS_ORIGINS by comma and clean up whitespace
-    cors_origins = ENV.fetch('CORS_ORIGINS', 'http://localhost:5173')
+    cors_origins = ENV.fetch('CORS_ORIGINS', 'http://localhost:3101')
                       .split(',')
                       .map(&:strip)
                       .reject(&:empty?) # Remove empty strings from splitting

@@ -6,7 +6,7 @@ module MailerUrlHelper
   # @param tenant [Tenant, nil] The tenant context (defaults to Current.tenant)
   # @return [String] The full frontend URL
   def frontend_url(path = '', tenant: Current.tenant)
-    base_url = tenant&.frontend_url || ENV.fetch('DEFAULT_FRONTEND_URL', 'http://localhost:3001')
+    base_url = tenant&.frontend_url || ENV.fetch('DEFAULT_FRONTEND_URL', 'http://localhost:3102')
     "#{base_url}#{path}"
   end
 

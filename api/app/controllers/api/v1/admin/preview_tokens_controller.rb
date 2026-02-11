@@ -70,10 +70,10 @@ module Api
           content = find_content(content_type, content_id)
           content_slug = content&.slug || content_id
 
-          # In development, use localhost:5173
+          # In development, use localhost:3101
           # In production, use tenant domain
           base_url = if Rails.env.development?
-                       ENV.fetch('PREVIEW_BASE_URL', 'http://localhost:5173')
+                       ENV.fetch('PREVIEW_BASE_URL', 'http://localhost:3101')
                      else
                        tenant = Tenant.find_by(id: tenant_id)
                        "https://#{tenant&.domain}"

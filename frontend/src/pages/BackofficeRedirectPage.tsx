@@ -4,7 +4,7 @@ import FullPageLoader from "@/components/ui/FullPageLoader";
 const BackofficeRedirectPage = () => {
   useEffect(() => {
     const backofficeUrl =
-      import.meta.env.VITE_BACKOFFICE_URL || "http://localhost:3001";
+      import.meta.env.VITE_BACKOFFICE_URL || "http://localhost:3102";
     window.location.href = backofficeUrl;
   }, []);
 

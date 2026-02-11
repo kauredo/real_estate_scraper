@@ -15,7 +15,7 @@ one:
   email_branding: {}
   domain: test.example.com
   contact_email: test@example.com
-  frontend_url: http://localhost:3001
+  frontend_url: http://localhost:3102
   from_email: noreply@test.example.com
   reply_to_email: test@example.com
   active: true

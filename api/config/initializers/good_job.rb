@@ -99,7 +99,7 @@ Rails.application.config.to_prepare do
       response.headers.delete('X-FRAME-OPTIONS')
 
       # Set iframe-friendly CSP
-      cors_origins = ENV.fetch('CORS_ORIGINS', 'http://localhost:5173')
+      cors_origins = ENV.fetch('CORS_ORIGINS', 'http://localhost:3101')
                        .split(',')
                        .map(&:strip)
                        .reject(&:empty?)

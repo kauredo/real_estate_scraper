@@ -28,7 +28,7 @@ class GoodJobIframeMiddleware
 
       # Set Content-Security-Policy to allow specific origins to embed
       # Get allowed origins from CORS_ORIGINS env variable
-      cors_origins = ENV.fetch('CORS_ORIGINS', 'http://localhost:5173')
+      cors_origins = ENV.fetch('CORS_ORIGINS', 'http://localhost:3101')
                        .split(',')
                        .map(&:strip)
                        .reject(&:empty?)
