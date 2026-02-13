@@ -26,7 +26,7 @@ if [ $? != 0 ]; then
     tmux new-session -d -s $SESSION_NAME -n "Rails API"
 
     # Configure first window (Rails API Server)
-    tmux send-keys -t "${SESSION_NAME}:Rails API" "cd api && bundle exec rails s -b 0.0.0.0" Enter
+    tmux send-keys -t "${SESSION_NAME}:Rails API" "cd api && bundle exec rails s -b 0.0.0.0 -p 3100" Enter
 
     # Frontend development server (Public Site)
     tmux new-window -t $SESSION_NAME -n "Frontend"
