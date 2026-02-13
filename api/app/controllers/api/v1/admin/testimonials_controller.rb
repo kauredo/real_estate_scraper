@@ -7,7 +7,7 @@ module Api
         before_action :find_testimonial, except: %i[index create]
 
         def index
-          @testimonials = Testimonial.all.order(created_at: :desc)
+          @testimonials = Testimonial.includes(:translations).order(created_at: :desc)
 
           result = paginate(@testimonials, serializer: TestimonialSerializer)
 

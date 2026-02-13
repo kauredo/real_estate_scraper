@@ -8,7 +8,7 @@ module Api
         after_action :update_video_link, only: %i[create update]
 
         def index
-          @blog_posts = BlogPost.includes(:blog_photos)
+          @blog_posts = BlogPost.includes(:translations, :blog_photos)
           result = paginate(@blog_posts,
                             serializer: BlogPostSerializer,
                             serializer_options: { include_photos: false })
@@ -106,7 +106,7 @@ module Api
         end
 
         def find_blog_post
-          @blog_post = BlogPost.includes(:blog_photos).friendly.find(params[:id])
+          @blog_post = BlogPost.includes(:translations, :blog_photos).friendly.find(params[:id])
         end
 
         def blog_post_params

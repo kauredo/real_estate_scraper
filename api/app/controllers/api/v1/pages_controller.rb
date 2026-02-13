@@ -19,7 +19,7 @@ module Api
             variables: serialize_collection(Variable.includes(:translations), VariableSerializer)
           },
           photos: Listing.random_photos(listings.available, 3).as_json,
-          testimonials: serialize_collection(Testimonial.all, TestimonialSerializer)
+          testimonials: serialize_collection(Testimonial.includes(:translations), TestimonialSerializer)
         }
       end
 
@@ -32,7 +32,7 @@ module Api
             listing_count: Listing.all.count,
             variables: serialize_collection(Variable.includes(:translations), VariableSerializer)
           },
-          testimonials: serialize_collection(Testimonial.all, TestimonialSerializer)
+          testimonials: serialize_collection(Testimonial.includes(:translations), TestimonialSerializer)
         }
       end
 

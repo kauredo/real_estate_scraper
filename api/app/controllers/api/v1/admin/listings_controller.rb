@@ -10,13 +10,13 @@ module Api
         def index
           listings = case params[:order]
                      when 'recent'
-                       Listing.includes(:translations, listing_complex: %i[translations listings]).reorder(created_at: :desc)
+                       Listing.includes(:translations, listing_complex: %i[translations listings photos]).reorder(created_at: :desc)
                      when 'deleted'
-                       Listing.with_deleted_ordered.includes(:translations, listing_complex: %i[translations listings]).where(id: Listing.ids_with_title)
+                       Listing.with_deleted_ordered.includes(:translations, listing_complex: %i[translations listings photos]).where(id: Listing.ids_with_title)
                      when 'deleted_only'
-                       Listing.only_deleted.includes(:translations, listing_complex: %i[translations listings]).where(id: Listing.ids_with_title)
+                       Listing.only_deleted.includes(:translations, listing_complex: %i[translations listings photos]).where(id: Listing.ids_with_title)
                      else
-                       Listing.includes(:translations, listing_complex: %i[translations listings])
+                       Listing.includes(:translations, listing_complex: %i[translations listings photos])
                      end
 
           result = paginate(listings, serializer: ListingSerializer)

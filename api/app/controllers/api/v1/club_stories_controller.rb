@@ -13,7 +13,7 @@ module Api
         # Set HTTP cache headers (5 minutes)
         set_cache_headers(max_age: 5.minutes)
 
-        club_stories = ClubStory.visible
+        club_stories = ClubStory.visible.includes(:translations, :club_story_photos)
         paginated = paginate(club_stories, serializer: ClubStorySerializer)
 
         render json: {
@@ -24,9 +24,9 @@ module Api
 
       def show
         @club_story = if preview_mode?
-                        ClubStory.includes(:club_story_photos).friendly.find(params[:id])
+                        ClubStory.includes(:translations, :club_story_photos).friendly.find(params[:id])
                       else
-                        ClubStory.visible.includes(:club_story_photos).friendly.find(params[:id])
+                        ClubStory.visible.includes(:translations, :club_story_photos).friendly.find(params[:id])
                       end
 
         # Set ETag and Last-Modified headers for conditional GET (skip in preview mode)

@@ -8,7 +8,7 @@ module Api
       before_action -> { require_feature!(:club) }
 
       def index
-        @recent_stories = ClubStory.visible.limit(2)
+        @recent_stories = ClubStory.visible.includes(:translations, :club_story_photos).limit(2)
         render json: ActiveModel::Serializer::CollectionSerializer.new(
           @recent_stories,
           serializer: ClubStorySerializer

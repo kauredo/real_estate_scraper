@@ -126,7 +126,7 @@ module Api
       # GET /api/v1/structured_data/blog_post/:id
       # Returns JSON-LD for a blog post (Article schema)
       def blog_post
-        @blog_post = BlogPost.friendly.find(params[:id])
+        @blog_post = BlogPost.includes(:translations).friendly.find(params[:id])
 
         # Skip conditional GET headers in structured data responses
         # (they interfere with JSON-LD rendering)

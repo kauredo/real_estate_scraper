@@ -12,7 +12,7 @@ module Api
         # Set HTTP cache headers (10 minutes - testimonials change infrequently)
         set_cache_headers(max_age: 10.minutes)
 
-        @testimonials = Testimonial.all
+        @testimonials = Testimonial.includes(:translations)
         render json: ActiveModel::Serializer::CollectionSerializer.new(
           @testimonials,
           serializer: TestimonialSerializer

@@ -13,7 +13,7 @@ module Api
         # Set HTTP cache headers (5 minutes)
         set_cache_headers(max_age: 5.minutes)
 
-        @blog_posts = BlogPost.visible.includes(:blog_photos)
+        @blog_posts = BlogPost.visible.includes(:translations, :blog_photos)
         paginated = paginate(@blog_posts, serializer: BlogPostSerializer)
 
         render json: {
@@ -24,9 +24,9 @@ module Api
 
       def show
         @blog_post = if preview_mode?
-                       BlogPost.includes(:blog_photos).friendly.find(params[:id])
+                       BlogPost.includes(:translations, :blog_photos).friendly.find(params[:id])
                      else
-                       BlogPost.visible.includes(:blog_photos).friendly.find(params[:id])
+                       BlogPost.visible.includes(:translations, :blog_photos).friendly.find(params[:id])
                      end
 
         # Set ETag and Last-Modified headers for conditional GET (skip in preview mode)

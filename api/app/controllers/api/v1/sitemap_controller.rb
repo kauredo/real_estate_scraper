@@ -5,9 +5,9 @@ module Api
     class SitemapController < BaseController
       def index
         @listings = Listing.all.order(updated_at: :desc)
-        @blog_posts = BlogPost.visible.order(updated_at: :desc)
-        @listing_complexes = ListingComplex.visible.order(updated_at: :desc)
-        @club_stories = ClubStory.visible.order(updated_at: :desc)
+        @blog_posts = BlogPost.includes(:translations).visible.order(updated_at: :desc)
+        @listing_complexes = ListingComplex.includes(:translations).visible.order(updated_at: :desc)
+        @club_stories = ClubStory.includes(:translations).visible.order(updated_at: :desc)
 
         respond_to do |format|
           format.xml { render template: 'api/v1/sitemap/index', content_type: 'application/xml' }

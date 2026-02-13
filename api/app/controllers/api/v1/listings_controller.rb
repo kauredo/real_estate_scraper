@@ -9,7 +9,7 @@ module Api
       def index
         # Set HTTP cache headers (5 minutes)
         set_cache_headers(max_age: 5.minutes)
-        @q = Listing.includes(:translations, listing_complex: :translations).ransack(params[:q])
+        @q = Listing.includes(:translations, listing_complex: [:translations, :photos]).ransack(params[:q])
         listings = @q.result
 
         if params[:q].present?

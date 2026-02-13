@@ -8,7 +8,7 @@ module Api
         after_action :update_video_link, only: %i[create update]
 
         def index
-          @club_stories = ClubStory.all
+          @club_stories = ClubStory.includes(:translations, :club_story_photos)
           paginated = paginate(@club_stories, serializer: ClubStorySerializer)
 
           render json: {
@@ -97,7 +97,7 @@ module Api
         end
 
         def find_club_story
-          @club_story = ClubStory.friendly.find(params[:id])
+          @club_story = ClubStory.includes(:translations, :club_story_photos).friendly.find(params[:id])
         end
 
         def club_story_params
