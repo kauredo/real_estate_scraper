@@ -16,7 +16,7 @@ module Api
           listings_by_geography: listings_by_geography.as_json,
           stats: {
             listing_count: listings.count,
-            variables: serialize_collection(Variable.all, VariableSerializer)
+            variables: serialize_collection(Variable.includes(:translations), VariableSerializer)
           },
           photos: Listing.random_photos(listings.available, 3).as_json,
           testimonials: serialize_collection(Testimonial.all, TestimonialSerializer)
@@ -30,7 +30,7 @@ module Api
         render json: {
           stats: {
             listing_count: Listing.all.count,
-            variables: serialize_collection(Variable.all, VariableSerializer)
+            variables: serialize_collection(Variable.includes(:translations), VariableSerializer)
           },
           testimonials: serialize_collection(Testimonial.all, TestimonialSerializer)
         }
