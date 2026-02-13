@@ -8,7 +8,6 @@ const api = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
   },
-  withCredentials: true, // Important for cookies/sessions if needed
 });
 
 // We'll store notification functions that will be injected from the component tree
@@ -70,35 +69,35 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
+    // Skip error notifications for cancelled/aborted requests
+    if (axios.isCancel(error) || error.code === "ERR_CANCELED") {
+      return Promise.reject(error);
+    }
+
     // Handle common errors with user-friendly notifications
     if (error.response && notificationContext) {
       const { status } = error.response;
 
       if (status === 401) {
-        // Handle unauthorized (redirect to login, clear token, etc.)
         localStorage.removeItem("token");
         notificationContext.showError(
           "Your session has expired. Please log in again.",
         );
       } else if (status === 404) {
-        // Handle not found
         notificationContext.showError("notifications.messages.data_load_error");
-      } else if (status === 500) {
-        // Handle server error
+      } else if (status >= 500) {
         notificationContext.showError("notifications.messages.server_error");
       } else if (status === 422) {
-        // Validation errors
         const errorMessage =
           error.response.data?.message ||
           error.response.data?.error ||
           "Please check your input and try again.";
         notificationContext.showError(errorMessage);
-      } else {
-        // Generic error
-        notificationContext.showError("notifications.messages.network_error");
+      } else if (status === 429) {
+        notificationContext.showError("notifications.messages.server_error");
       }
     } else if (error.request && notificationContext) {
-      // Network error
+      // Actual network error (no response received)
       notificationContext.showError("notifications.messages.network_error");
     }
 

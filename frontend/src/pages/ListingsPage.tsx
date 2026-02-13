@@ -34,36 +34,45 @@ const ListingsPage = () => {
   >([]);
   const [maxPrice, setMaxPrice] = useState(0);
 
-  const fetchListings = async (params: Record<string, string>) => {
-    try {
-      setLoading(true);
-      const response = await getListings(params);
-      setListings(response.data.listings);
-      setPagination(response.data.pagination);
-      setStatsKeys(response.data.stats_keys || []);
-      setKinds(response.data.kinds || []);
-      setObjectives(response.data.objectives || []);
-      setMaxPrice(response.data.max_price || 0);
-      setHasInitialData(true);
-
-      // Smooth scroll to top after data is loaded (for pagination)
-      if (hasInitialData) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    } catch {
-      showError(t("errors.fetch_listings"));
-    } finally {
-      setLoading(false);
-    }
-  };
-
   // Fetch listings whenever URL params or locale changes
   useEffect(() => {
-    const params: Record<string, string> = {};
-    for (const [key, value] of searchParams.entries()) {
-      params[key] = value;
-    }
-    fetchListings(params);
+    const abortController = new AbortController();
+
+    const fetchListings = async () => {
+      try {
+        setLoading(true);
+        const params: Record<string, string> = {};
+        for (const [key, value] of searchParams.entries()) {
+          params[key] = value;
+        }
+        const response = await getListings(params, abortController.signal);
+        setListings(response.data.listings);
+        setPagination(response.data.pagination);
+        setStatsKeys(response.data.stats_keys || []);
+        setKinds(response.data.kinds || []);
+        setObjectives(response.data.objectives || []);
+        setMaxPrice(response.data.max_price || 0);
+        setHasInitialData(true);
+
+        // Smooth scroll to top after data is loaded (for pagination)
+        if (hasInitialData) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      } catch (error) {
+        // Don't show error for aborted requests (e.g. navigation away)
+        if (!abortController.signal.aborted) {
+          showError(t("errors.fetch_listings"));
+        }
+      } finally {
+        if (!abortController.signal.aborted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchListings();
+
+    return () => abortController.abort();
   }, [searchParams, i18n.language]);
 
   const handlePageChange = (page: number) => {
