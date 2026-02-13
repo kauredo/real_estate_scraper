@@ -200,7 +200,7 @@ const AdminListingsPage = () => {
   }
 
   return (
-    <div className="w-full shadow-md rounded px-4 sm:px-6 lg:px-8 py-4 mt-4">
+    <div className="w-full relative">
       {/* Flash Messages */}
       {flash && (
         <Flashes
@@ -210,58 +210,65 @@ const AdminListingsPage = () => {
         />
       )}
 
-      {/* Controls */}
-      <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap mb-6 gap-4">
-        <Button
-          onClick={handleUpdateAllClick}
-          isLoading={updating}
-          disabled={!canUpdateAll}
-          title={
-            !canUpdateAll
-              ? isSuperAdmin && selectedTenantId === null
-                ? t("admin.listings.select_tenant_first")
-                : t("admin.listings.no_scraper_configured")
-              : undefined
-          }
-        >
-          {t("admin.listings.updateAll")}
-        </Button>
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light sm:text-3xl">
+            {t("admin.listings.title")}
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">
+            {t("admin.listings.itemsRange", {
+              from: pagination.from,
+              to: pagination.to,
+              total: pagination.total_count,
+            })}
+          </p>
+        </div>
 
-        <Select
-          value={order}
-          onChange={(e) => handleOrderChange(e.target.value)}
-          className="w-full sm:w-auto"
-        >
-          <option value="order">{t("admin.listings.order.normal")}</option>
-          <option value="recent">{t("admin.listings.order.recent")}</option>
-          <option value="deleted">{t("admin.listings.order.deleted")}</option>
-          <option value="deleted_only">
-            {t("admin.listings.order.deletedOnly")}
-          </option>
-        </Select>
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <Select
+            value={order}
+            onChange={(e) => handleOrderChange(e.target.value)}
+            className="w-full sm:w-auto"
+          >
+            <option value="order">{t("admin.listings.order.normal")}</option>
+            <option value="recent">{t("admin.listings.order.recent")}</option>
+            <option value="deleted">{t("admin.listings.order.deleted")}</option>
+            <option value="deleted_only">
+              {t("admin.listings.order.deletedOnly")}
+            </option>
+          </Select>
+
+          <Button
+            onClick={handleUpdateAllClick}
+            isLoading={updating}
+            disabled={!canUpdateAll}
+            title={
+              !canUpdateAll
+                ? isSuperAdmin && selectedTenantId === null
+                  ? t("admin.listings.select_tenant_first")
+                  : t("admin.listings.no_scraper_configured")
+                : undefined
+            }
+          >
+            {t("admin.listings.updateAll")}
+          </Button>
+        </div>
       </div>
 
-      {/* Header */}
-      <h2 className="text-2xl font-bold leading-7 text-dark dark:text-light text-center sm:text-3xl mx-auto">
-        {t("admin.listings.title")}
-      </h2>
-      <p className="text-center text-gray-600 max-w-none">
-        {t("admin.listings.itemsRange", {
-          from: pagination.from,
-          to: pagination.to,
-          total: pagination.total_count,
-        })}
-      </p>
-
-      <Pagination
-        currentPage={pagination.current_page}
-        totalPages={pagination.total_pages}
-        onPageChange={handlePageChange}
-        className="my-6"
-      />
+      {/* Pagination Top */}
+      {pagination.total_pages > 1 && (
+        <div className="mb-6">
+          <Pagination
+            currentPage={pagination.current_page}
+            totalPages={pagination.total_pages}
+            onPageChange={handlePageChange}
+          />
+        </div>
+      )}
 
       {/* Listings Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
         {listings.map((listing) => (
           <AdminCard
             key={listing.id}
@@ -274,37 +281,33 @@ const AdminListingsPage = () => {
             }
             status={
               listing.status === "sold"
-                ? { label: listing.status, variant: "error" }
+                ? { label: t(`admin.listings.statuses.${listing.status}`), variant: "error" }
                 : listing.status === "rented"
-                  ? { label: listing.status, variant: "warning" }
-                  : { label: listing.status, variant: "success" }
+                  ? { label: t(`admin.listings.statuses.${listing.status}`), variant: "warning" }
+                  : { label: t(`admin.listings.statuses.${listing.status}`), variant: "success" }
             }
             actions={
-              <div className="flex flex-wrap gap-2">
-                <Button
+              <>
+                <button
                   onClick={() => handlePreview(listing)}
-                  variant="link"
-                  size="sm"
-                  className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
+                  className="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 text-xs font-medium"
                 >
                   👁️ Preview
-                </Button>
+                </button>
                 <Link
                   to={appRoutes.backoffice.editListing(listing.id)}
-                  className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                  className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-xs font-medium"
                 >
                   {t("common.edit")}
                 </Link>
-                <Button
+                <button
                   onClick={() => handleDeleteClick(listing)}
-                  variant="link"
-                  size="sm"
-                  className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
+                  className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 text-xs font-medium"
                   title={t("common.delete")}
                 >
                   🗑️ {t("common.delete")}
-                </Button>
-              </div>
+                </button>
+              </>
             }
           >
             {listing.stats && (
@@ -319,11 +322,12 @@ const AdminListingsPage = () => {
         ))}
       </div>
 
+      {/* Pagination Bottom */}
       <Pagination
         currentPage={pagination.current_page}
         totalPages={pagination.total_pages}
         onPageChange={handlePageChange}
-        className="mt-6"
+        className="mt-8"
       />
 
       <PreviewModal
