@@ -95,7 +95,7 @@ module Scrapers
       button = @browser.button(text: 'Ver imóveis').wait_until(timeout: 10, &:present?)
       button_parent = button.parent
       id = button_parent.attribute_value('aria-controls')
-      button.click if button.present? && id.present?
+      @browser.execute_script('arguments[0].click()', button) if button.present? && id.present?
 
       listings_div = @browser.div(id:).div(class: 'px-4 h-full overflow-auto flex flex-col')
 

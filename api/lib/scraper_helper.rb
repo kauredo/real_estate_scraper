@@ -115,8 +115,9 @@ module ScraperHelper
         shadow_root
       )
 
-      accept_button&.click
+      browser.execute_script('arguments[0].click()', accept_button) if accept_button
       ScrapeListingDetails.log 'Cookies accepted'
+      sleep 1 # Wait for banner dismiss animation
     rescue StandardError => _e
       count += 1
       retry if count < 3
