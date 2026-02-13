@@ -7,7 +7,7 @@ module Api
         before_action :find_photo, only: [:destroy]
 
         def index
-          result = paginate(Photo.all.order(created_at: :desc), serializer: PhotoSerializer)
+          result = paginate(Photo.includes(listing_complex: [:translations, :photos]).order(created_at: :desc), serializer: PhotoSerializer)
 
           render json: {
             photos: result[:data],
