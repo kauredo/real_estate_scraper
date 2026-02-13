@@ -1,5 +1,4 @@
 {
-  "dashboard": "Administrative Panel",
   "nav": {
     "blog_posts": "Blog Posts",
     "club_stories": "Club Stories",
@@ -33,8 +32,7 @@
     "description": "Description",
     "content": "Content",
     "videoLink": "Video Link",
-    "optional": "Optional",
-    "save": "Save"
+    "optional": "Optional"
   },
   "blog_posts": {
     "title": "Blog Posts",

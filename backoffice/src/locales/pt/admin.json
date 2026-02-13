@@ -1,5 +1,4 @@
 {
-  "dashboard": "Painel Administrativo",
   "nav": {
     "blog_posts": "Posts do Blog",
     "club_stories": "Histórias do Club",
@@ -33,8 +32,7 @@
     "description": "Descrição",
     "content": "Conteúdo",
     "videoLink": "Link do Vídeo",
-    "optional": "Opcional",
-    "save": "Guardar"
+    "optional": "Opcional"
   },
   "blog_posts": {
     "content": "Conteúdo",

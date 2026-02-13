@@ -17,9 +17,6 @@ import general from "./general.json";
 import good_job from "./good_job.json";
 import helpers from "./helpers.json";
 import i18n from "./i18n.json";
-import listing from "./listing.json";
-import listing_complex from "./listing_complex.json";
-import listingComplex from "./listingComplex.json";
 import meta from "./meta.json";
 import navbar from "./navbar.json";
 import notifications from "./notifications.json";
@@ -50,9 +47,6 @@ export default {
   good_job,
   helpers,
   i18n,
-  listing,
-  listing_complex,
-  listingComplex,
   meta,
   navbar,
   notifications,

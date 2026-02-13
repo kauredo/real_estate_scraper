@@ -1,7 +1,0 @@
-{
-  "propertyTypes": {
-    "apartment": "Apartment",
-    "house": "House",
-    "commercial": "Commercial"
-  }
-}

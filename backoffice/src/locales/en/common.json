@@ -30,6 +30,5 @@
   "description": "Description",
   "content": "Content",
   "videoLink": "Video Link",
-  "optional": "Optional",
-  "save": "Save"
+  "optional": "Optional"
 }
