@@ -7,7 +7,7 @@ interface FaqQuestion {
 
 interface FaqSection {
   title: string;
-  questions: FaqQuestion[];
+  questions: FaqQuestion[] | Record<string, FaqQuestion>;
 }
 
 interface FaqStructuredDataProps {

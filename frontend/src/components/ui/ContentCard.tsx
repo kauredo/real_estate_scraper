@@ -7,6 +7,7 @@ import {
   CardDescription,
   CardFooter,
 } from "@/components/ui/Card";
+import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import { cn } from "@/utils/functions";
 
 interface ContentCardProps {
@@ -38,8 +39,8 @@ export default function ContentCard({
 }: ContentCardProps) {
   return (
     <Card className={cn("w-full h-full flex flex-col", className)}>
-      {image && (
-        <Link to={linkUrl} className="block">
+      <Link to={linkUrl} className="block">
+        {image ? (
           <img
             loading="lazy"
             className={cn(
@@ -49,8 +50,10 @@ export default function ContentCard({
             src={image}
             alt={imageAlt || title}
           />
-        </Link>
-      )}
+        ) : (
+          <ImagePlaceholder className="w-full rounded-t-lg aspect-video" />
+        )}
+      </Link>
       <CardContent
         className={cn("p-5 flex flex-col flex-grow", contentClassName)}
       >

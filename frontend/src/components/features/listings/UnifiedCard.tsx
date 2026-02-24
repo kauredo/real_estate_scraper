@@ -4,6 +4,7 @@ import { truncateText } from "@/utils/functions";
 import { optimizeCloudinaryUrl } from "@/utils/imageOptimization";
 import ListingIcons from "@/components/features/listings/ListingIcons";
 import Overlay from "@/components/ui/Overlay";
+import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 import Routes from "@/utils/routes";
 import {
   Card,
@@ -101,13 +102,17 @@ export default function UnifiedCard(props: UnifiedCardProps) {
           <Card className={cardClasses}>
             <div className={imageContainerClasses}>
               <Overlay status={listing.status} show />
-              <img
-                loading="lazy"
-                decoding="async"
-                alt={listing.title}
-                className="w-full h-full object-cover"
-                src={photo}
-              />
+              {photo ? (
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  alt={listing.title}
+                  className="w-full h-full object-cover"
+                  src={photo}
+                />
+              ) : (
+                <ImagePlaceholder className="w-full h-full" />
+              )}
             </div>
             <CardContent className={contentClasses}>
               <CardTitle className={titleClasses}>{listing.title}</CardTitle>
@@ -155,12 +160,16 @@ export default function UnifiedCard(props: UnifiedCardProps) {
       <Link to={Routes.listing_complex_path(complex.slug)}>
         <Card className={cardClasses}>
           <div className={imageContainerClasses}>
-            <img
-              loading="lazy"
-              alt={complex.name}
-              className="w-full h-full object-cover dark:opacity-80"
-              src={photo}
-            />
+            {photo ? (
+              <img
+                loading="lazy"
+                alt={complex.name}
+                className="w-full h-full object-cover dark:opacity-80"
+                src={photo}
+              />
+            ) : (
+              <ImagePlaceholder className="w-full h-full" />
+            )}
           </div>
           <CardContent className="flex-1 p-6 w-full md:w-2/3">
             <CardTitle className="mb-3">{complex.name}</CardTitle>
