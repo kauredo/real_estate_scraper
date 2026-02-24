@@ -33,6 +33,9 @@ export function SEO({
   const currentUrl = i18n.language === 'pt' ? ptUrl : enUrl;
 
   useEffect(() => {
+    // Update html lang attribute
+    document.documentElement.lang = i18n.language === 'pt' ? 'pt' : 'en';
+
     // Update document title
     document.title = fullTitle;
 
@@ -81,6 +84,7 @@ export function SEO({
     updateMeta('meta[property="og:url"]', 'content', currentUrl);
     updateMeta('meta[property="og:image"]', 'content', `${siteUrl}${ogImage}`);
     updateMeta('meta[property="og:locale"]', 'content', i18n.language === 'pt' ? 'pt_PT' : 'en_US');
+    updateMeta('meta[property="og:locale:alternate"]', 'content', i18n.language === 'pt' ? 'en_US' : 'pt_PT');
 
     // Update Twitter Card tags
     updateMeta('meta[name="twitter:card"]', 'content', 'summary_large_image');
