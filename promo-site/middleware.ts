@@ -96,7 +96,6 @@ function injectMetaTags(html: string, metaTagsHtml: string): string {
  * Main middleware function using standard Web APIs
  */
 export default async function middleware(request: Request) {
-  const userAgent = request.headers.get('user-agent') || '';
   const url = new URL(request.url);
   const { pathname } = url;
 
@@ -112,37 +111,47 @@ export default async function middleware(request: Request) {
     return; // Let Vercel handle these normally
   }
 
+  // 301 redirect /en/* → /* (English is the default, no prefix needed)
+  if (pathname === '/en' || pathname.startsWith('/en/')) {
+    const targetPath = pathname.replace(/^\/en(\/|$)/, '/');
+    return Response.redirect(new URL(targetPath || '/', url.origin), 301);
+  }
+
   // Check if request is from a crawler
+  const userAgent = request.headers.get('user-agent') || '';
   if (!isCrawler(userAgent)) {
     return; // Not a crawler, continue normally
   }
 
   console.log(`[Crawler detected] ${userAgent} - ${pathname}`);
 
-  // Detect language from URL
-  const language = detectLanguage(pathname);
+  try {
+    // Detect language from URL
+    const language = detectLanguage(pathname);
 
-  // Generate meta tags HTML based on pathname
-  const fullUrl = request.url;
-  const metaTagsHtml = generateMetaTags(pathname, fullUrl, language);
+    // Generate meta tags HTML based on pathname
+    const metaTagsHtml = generateMetaTags(pathname, request.url, language);
 
-  // Fetch the original HTML from the index.html
-  const origin = url.origin;
-  const indexResponse = await fetch(`${origin}/index.html`);
-  const html = await indexResponse.text();
+    // Fetch the original HTML from the index.html
+    const indexResponse = await fetch(`${url.origin}/index.html`);
+    const html = await indexResponse.text();
 
-  // Inject meta tags into HTML
-  const modifiedHtml = injectMetaTags(html, metaTagsHtml);
+    // Inject meta tags into HTML
+    const modifiedHtml = injectMetaTags(html, metaTagsHtml);
 
-  console.log(`[Crawler] Injected meta tags for page: ${pathname}`);
+    console.log(`[Crawler] Injected meta tags for page: ${pathname}`);
 
-  // Return modified HTML
-  return new Response(modifiedHtml, {
-    headers: {
-      'Content-Type': 'text/html; charset=utf-8',
-      'Cache-Control': 'public, max-age=300, s-maxage=300', // Cache for 5 minutes
-    },
-  });
+    // Return modified HTML
+    return new Response(modifiedHtml, {
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'public, max-age=300, s-maxage=300',
+      },
+    });
+  } catch (error) {
+    console.error(`[Crawler] Failed to inject meta tags for ${pathname}:`, error);
+    return; // Fall through to default SPA response
+  }
 }
 
 // Vercel Edge Runtime Configuration

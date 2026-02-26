@@ -6,9 +6,11 @@ import { useTranslation } from 'react-i18next';
  * LocalizedRouter - Syncs URL with i18n language
  *
  * Handles:
- * - Detecting language from URL path (/en/*, /pt/*)
+ * - Detecting language from URL path (/pt/* = Portuguese, no prefix = English)
  * - Updating i18n when URL changes
  * - Updating URL when language changes
+ *
+ * Note: /en/* paths are 301-redirected to /* by the Edge Middleware
  */
 export function LocalizedRouter({ children }: { children: React.ReactNode }) {
   const { i18n } = useTranslation();
@@ -16,19 +18,17 @@ export function LocalizedRouter({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
   // Detect language from URL on mount and route changes
+  // Note: /en/* paths are 301-redirected to /* by the Edge Middleware
   useEffect(() => {
     const path = location.pathname;
-    let urlLang: string | null = null;
 
     if (path.startsWith('/pt/') || path === '/pt') {
-      urlLang = 'pt';
-    } else if (path.startsWith('/en/') || path === '/en') {
-      urlLang = 'en';
-    }
-
-    // If URL has language prefix different from current i18n language, update i18n
-    if (urlLang && urlLang !== i18n.language) {
-      i18n.changeLanguage(urlLang);
+      if (i18n.language !== 'pt') {
+        i18n.changeLanguage('pt');
+      }
+    } else if (i18n.language !== 'en') {
+      // No prefix = English (default)
+      i18n.changeLanguage('en');
     }
   }, [location.pathname, i18n]);
 
